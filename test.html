@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <style type="text/css">
+        svg.text{
+          color:"black";
+        }
+    </style>
+  </head>
+
+  <body>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ally.js/1.4.1/ally.min.js"></script>
+    <svg aria-hidden='true' id='svg' tabindex=-1 height=50 width=50 focusable="false"></svg>
+    Hi
+
+    <iframe aria-hidden='true' height="448px" width="100%" src="https://www.ons.gov.uk/visualisations/dvc659/hazards/commute-time/index.html"></iframe>    <script type="text/javascript">
+      d3.select('svg').append('text').text("hi").attr('y',12);
+    </script>
+  </body>
+
+
+</html>
