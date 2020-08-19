@@ -142,6 +142,20 @@ Use labels for inputs
 
 
 
+Difficulty 1/5
+
+Postcode field doesn't have an indication what it is
+
+### Templates affected
+
+Maps with postcode search
+
+### Solution
+
+Either create a `label` for the input or use `aria-label`. 
+
+
+
 ## Truncated links
 
 
@@ -186,4 +200,177 @@ Every map
 
 ### Solution
 
-Provide accessible alternative
+Provide accessible alternative. I think we're going to have to code up something that reads out the value once you put the postcode in that's visually hidden. And possibly what quintile you're in.
+
+
+
+## Tab order
+
+Difficulty 2/5
+
+Tab order of page need to be changed so it's logical, Top to bottom, left to right
+
+### Templates affected
+
+Commuting gender gap
+
+### Solution
+
+Reorder the page with better flow
+
+
+
+## Inaccessible radio buttons
+
+Buttons to choose things don't work with assistive technology
+
+Difficulty 5/5
+
+### Templates affected
+
+Any that use buttons, e.g. multimap
+
+### Solution
+
+They suggest using the [GDS radio buttons](https://design-system.service.gov.uk/components/radios/). Create some custom ones https://www.a11ywithlindsey.com/blog/create-custom-keyboard-accessible-radio-buttons. This guide looks a bit more complicated but more of what we want https://blog.bitsrc.io/customise-radio-buttons-without-compromising-accessibility-b03061b5ba93.
+
+Maybe use treat them like cards https://inclusive-components.design/cards/ 
+
+
+
+## Inaccessible tabs
+
+Baby names, tabs buttons for boys/girls were not screen readable.
+
+Difficulty 3/5
+
+### Templates affected
+
+Baby names, multimap
+
+### Solution
+
+Use the [GDS tab pattern](https://design-system.service.gov.uk/components/tabs/).
+
+
+
+## Colour palette
+
+Difficulty 2/5
+
+Colours do not meet sufficient colour contrast with surrounding colours on white (line chart)
+
+### Template affected
+
+All line charts
+
+### Solution
+
+Replace chartbuilder palette, use new palette in old charts
+
+
+
+## Focus indicator
+
+Difficulty 2/5
+
+Input did not have focus state with sufficient contrast
+
+### Templates affected
+
+Gender commute gap
+
+### Solution
+
+Choose a colour with sufficient contrast
+
+
+
+Difficulty 1/5
+
+Zoom buttons do not have focus state
+
+### Template affected
+
+Older map templates
+
+### Solution
+
+Update to latest mapbox CSS
+
+
+
+## Low contrast text
+
+Text is below require contrast
+
+Difficulty 1/5
+
+### Templates affected
+
+MSOA house price map on mobile
+
+### Solution
+
+Fix the CSS
+
+
+
+## Reflow
+
+When zoomed in, text collides
+
+### Template affected
+
+Gender commute gap
+
+### Solution
+
+Use CSS media queries? Remove text at certain zooms, widths?
+
+
+
+## Focus indicator
+
+Ensure all interactive elements have focus
+
+Difficulty 1/5
+
+### Templates affected
+
+Gender commuting gap
+
+### Solution
+
+Ensure CSS has `outline`.
+
+
+
+## Status Message
+
+Tell use that error message occurs
+
+Difficulty 2/5
+
+### Templates affected
+
+Gender commuting tool
+
+### Solution 
+
+Implement **role=“status”** on the <div> containing the error so that screen reader users are at least made aware that an error has occurred.
+
+[GDS error summary](https://design-system.service.gov.uk/components/error-summary/) 
+
+
+
+## Misc
+
+### Accessible sliders
+
+https://www.a11ywithlindsey.com/blog/creating-accessible-range-slider-css
+
+
+
+
+
