@@ -6,7 +6,7 @@
 
 Difficulty 2/5
 
-Buttons are not announced by screenreader
+Search buttons are not announced by screenreader
 
 ### Templates affected
 
@@ -92,9 +92,17 @@ Many, anything with a dropdown
 
 Option 1. d3.insert an label before the option as DAC recommend after the chosen dropdown has been rendered
 
+Option 1b. rewrite the chosen dropdown to include a label field.
+
 Option 2. Use an accessible alternative to chosen dropdown.  
 
-e.g. Here's [input box with autocomplete](https://alphagov.github.io/accessible-autocomplete/examples/form-single.html) from alphagov. This has been super seeded by Gov Design System where I can't find autocomplete. Not sure if it ties with event-listeners to control the vis.
+e.g. ONS have an [input box with autocomplete](https://ons-design-system.netlify.app/components/autosuggest/). Here's [input box with autocomplete](https://alphagov.github.io/accessible-autocomplete/examples/form-single.html) from alphagov ([github](https://github.com/alphagov/accessible-autocomplete)).  This has been super seeded by Gov Design System where I can't find autocomplete. Not sure if it ties with event-listeners to control the vis.
+
+[W3 example 3 List with inline autocomplete](https://www.w3.org/TR/wai-aria-practices-1.1/examples/combobox/aria1.1pattern/listbox-combo.html)
+
+[Another example](https://adamsilver.io/articles/building-an-accessible-autocomplete-control/)
+
+
 
 Option 3. use label for multiselect and gov
 
@@ -132,7 +140,7 @@ Commuting gender gap
 
 ### Solution
 
-Additional aria tags `aria-live` which reads the input out when the buttons are used.
+Additional aria tags `aria-live=polite` which reads the input out when the buttons are used.
 
 Use labels for inputs
 
@@ -360,11 +368,11 @@ Implement **role=“status”** on the <div> containing the error so that screen
 
 
 
-## Misc
+## Elements
 
-### Accessible sliders
+- Multiselect https://www.w3.org/TR/wai-aria-practices-1.1/examples/listbox/listbox-rearrangeable.html
 
-https://www.a11ywithlindsey.com/blog/creating-accessible-range-slider-css
+- Accessible sliders https://www.a11ywithlindsey.com/blog/creating-accessible-range-slider-css
 
 
 
