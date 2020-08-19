@@ -90,13 +90,11 @@ Many, anything with a dropdown
 
 ### Solution
 
-
-
 Option 1. d3.insert an label before the option as DAC recommend after the chosen dropdown has been rendered
 
 Option 2. Use an accessible alternative to chosen dropdown.  
 
-e.g. Here's [input box with autocomplete](https://alphagov.github.io/accessible-autocomplete/examples/form-single.html ) from alphagov. This has been super seeded by Gov Design System where I can't find autocomplete. Not sure if it ties with event-listeners to control the vis.
+e.g. Here's [input box with autocomplete](https://alphagov.github.io/accessible-autocomplete/examples/form-single.html) from alphagov. This has been super seeded by Gov Design System where I can't find autocomplete. Not sure if it ties with event-listeners to control the vis.
 
 Option 3. use label for multiselect and gov
 
@@ -110,9 +108,7 @@ Option 3. use label for multiselect and gov
 
 Difficulty 2/5
 
-Using images as buttons but no cont
-
-ext
+Using images as buttons but no context
 
 ### Template affected
 
@@ -128,7 +124,7 @@ Use `<button aria-label="copy link to clipboard"> </button>` markup instead.
 
 Difficulty 1/5
 
-Input not announced when button used to change input, they also lack labels
+Input not announced when button used to change input, they also lack labels. E.g. - or + buttons around a text field
 
 ### Templates affected
 
@@ -158,7 +154,7 @@ Either create a `label` for the input or use `aria-label`.
 
 ## Truncated links
 
-
+Difficulty 1/5
 
 Download the data buttons chopped off
 
