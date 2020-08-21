@@ -3,14 +3,20 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Test</title>
+  <title>Radio button group</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
   <style type="text/css">
+
+    text{
+      font-family: 'Open Sans'
+    }
     fieldset {
       border: none;
     }
 
     div {
-      margin: 0.5rem 0;
+      margin: 1rem 0;
+      position:relative;
     }
 
     input[type='radio'] {
@@ -18,20 +24,20 @@
     }
 
     input[type='radio']+label {
-      position: relative;
+      position: absolute;
       cursor: pointer;
-      left: 0px;
+      left: 5px;
     }
 
     input[type='radio']+label::before {
       content: '';
       position: absolute;
-      left: -4px;
-      top: -4px;
+      left: -8px;
+      top: -8px;
       border-radius: 0%;
-      border: 1px solid #206095;
-      width: 120%;
-      height: 20px;
+      border: 3px solid #206095;
+      width: 140%;
+      height: 24px;
       opacity: 1;
     }
 
@@ -50,29 +56,40 @@
       box-shadow: 0 0 0px 3pt orange;
       outline: 2px dotted transparent;
     }
+
+
   </style>
 </head>
 
 <body>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+
   <fieldset>
     <legend>Choose an amount</legend>
     <div>
-      <input type="radio" id="a25" name="amount" />
+      <input type="radio" id="a25" value="25" name="amount" />
       <label for="a25">£25</label>
     </div>
     <div>
-      <input type="radio" id="a50" name="amount" />
+      <input type="radio" id="a50" value="50" name="amount" />
       <label for="a50">£50</label>
     </div>
     <div>
-      <input type="radio" id="a75" name="amount" checked="checked" />
+      <input type="radio" id="a75" value="75" name="amount" checked="checked" />
       <label for="a75">£75</label>
     </div>
     <div>
-      <input type="radio" id="a100" name="amount" />
+      <input type="radio" id="a100" value="100" name="amount" />
       <label for="a100">£100</label>
     </div>
   </fieldset>
+
+  <script>
+   d3.selectAll('input[type="radio"]').on('change',function(d){
+     console.log(document.querySelector('input[name="amount"]:checked').value)
+   })
+  </script>
 </body>
 
 
