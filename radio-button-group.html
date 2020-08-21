@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Test</title>
+  <style type="text/css">
+    fieldset {
+      border: none;
+    }
+
+    div {
+      margin: 0.5rem 0;
+    }
+
+    input[type='radio'] {
+      opacity: 0;
+    }
+
+    input[type='radio']+label {
+      position: relative;
+      cursor: pointer;
+      left: 0px;
+    }
+
+    input[type='radio']+label::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: -4px;
+      border-radius: 0%;
+      border: 1px solid #206095;
+      width: 120%;
+      height: 20px;
+      opacity: 1;
+    }
+
+    input[type='radio']:checked+label::before {
+      background: #206095;
+      position: absolute;
+      z-index: -1;
+      /* to be below the parent element */
+    }
+
+    input[type='radio']:checked+label {
+      color: white;
+    }
+
+    input[type='radio']:focus+label::before {
+      box-shadow: 0 0 0px 3pt orange;
+      outline: 2px dotted transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <fieldset>
+    <legend>Choose an amount</legend>
+    <div>
+      <input type="radio" id="a25" name="amount" />
+      <label for="a25">£25</label>
+    </div>
+    <div>
+      <input type="radio" id="a50" name="amount" />
+      <label for="a50">£50</label>
+    </div>
+    <div>
+      <input type="radio" id="a75" name="amount" checked="checked" />
+      <label for="a75">£75</label>
+    </div>
+    <div>
+      <input type="radio" id="a100" name="amount" />
+      <label for="a100">£100</label>
+    </div>
+  </fieldset>
+</body>
+
+
+</html>

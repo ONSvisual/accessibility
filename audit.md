@@ -62,6 +62,10 @@ I wonder if one possible solution since most data vis are flat charts with no in
 
 
 
+Use backend to give screen readable description eg. this interactive has been skipped.
+
+
+
 ## Non descriptive links
 
 Difficulty 1/5
@@ -204,7 +208,7 @@ Every map
 
 ### Solution
 
-Provide accessible alternative. I think we're going to have to code up something that reads out the value once you put the postcode in that's visually hidden. And possibly what quintile you're in.
+Provide accessible alternative. I think we're going to have to code up something that reads out the value once you put the postcode in that's visually hidden. And possibly what quintile you're in. Read out the area name and value as a default (choropleth map). Anything that's a bit more bespoke e.g. deaths map read out the value. 
 
 
 
@@ -228,7 +232,7 @@ Reorder the page with better flow
 
 Buttons to choose things don't work with assistive technology
 
-Difficulty 5/5
+Difficulty 4/5
 
 ### Templates affected
 
@@ -352,7 +356,7 @@ Ensure CSS has `outline`.
 
 ## Status Message
 
-Tell use that error message occurs
+Tell user that error message occurs
 
 Difficulty 2/5
 
@@ -371,10 +375,13 @@ Implement **role=“status”** on the <div> containing the error so that screen
 ## Elements
 
 - Multiselect https://www.w3.org/TR/wai-aria-practices-1.1/examples/listbox/listbox-rearrangeable.html
-
 - Accessible sliders https://www.a11ywithlindsey.com/blog/creating-accessible-range-slider-css
 
+- Toggles (used in pop pyramids) https://a11y-style-guide.com/style-guide/section-forms.html#kssref-forms-toggles
 
 
 
+Burn up charts
+
+https://docs.google.com/spreadsheets/d/1y1dK7odpDK31EKRGCNHVIrgFF6-CmZqjYLaWNC0XXAM/edit#gid=0
 
