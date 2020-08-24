@@ -1,3 +1,5 @@
+
+
 ## Data vis accessibility issues
 
 
@@ -16,31 +18,32 @@ Search buttons are not announced by screenreader
 
 ### Solutions 
 
-Use `aria-label` within the button eg
+1. Use `aria-label` within the button eg
 
 ```html
-<button aria-label=“[Full descriptive text for calendar here]” class="btn btn--narrow btn--small datepicker__icon" id="js-start-date" type="button"><span
-
-class="icon icon-calendar--dark-small"></span></button>
+<button aria-label=“[Full descriptive text for calendar here]” class="btn btn--narrow btn--small datepicker__icon" id="js-start-date" type="button"><span class="icon icon-calendar--dark-small"></span></button>
 
 ```
+2.
+```html
+<button type="submit" class="search__button col--md-3 col--lg-3" id="nav-search- submit"> 
+  <span class="visuallyhidden">Search</span>
+ 	<span class="icon icon-search--light"></span>
+</button>
 
-
-
-Instead of `display:none` which hides it from screen readers too use 
-
+```
+Instead of `display:none` which hides it from screen readers too use `.visuallyhidden`
 ```css
 .visuallyhidden{
 position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
  clip: rect(0,0,0,0);  border: 0;
 }
 ```
-
 This will ensure that the text is hidden on screen but available to users of assistive technologies.
 
 
 
-## Tab order
+## iframe tab order
 
 Difficulty 5/5
 
@@ -63,6 +66,22 @@ I wonder if one possible solution since most data vis are flat charts with no in
 
 
 Use backend to give screen readable description eg. this interactive has been skipped.
+
+
+
+## Tab order within interactive 
+
+Difficulty 2/5
+
+Tab order of page need to be changed so it's logical, Top to bottom, left to right
+
+### Templates affected
+
+Commuting gender gap
+
+### Solution
+
+Reorder the page with better flow
 
 
 
@@ -212,19 +231,7 @@ Provide accessible alternative. I think we're going to have to code up something
 
 
 
-## Tab order
 
-Difficulty 2/5
-
-Tab order of page need to be changed so it's logical, Top to bottom, left to right
-
-### Templates affected
-
-Commuting gender gap
-
-### Solution
-
-Reorder the page with better flow
 
 
 
@@ -280,9 +287,11 @@ Replace chartbuilder palette, use new palette in old charts
 
 ## Focus indicator
 
-Difficulty 2/5
+### Issue
 
 Input did not have focus state with sufficient contrast
+
+Difficulty 2/5
 
 ### Templates affected
 
@@ -305,6 +314,22 @@ Older map templates
 ### Solution
 
 Update to latest mapbox CSS
+
+
+
+### Issue
+
+Ensure all interactive elements have focus
+
+Difficulty 1/5
+
+### Templates affected
+
+Gender commuting gap
+
+### Solution
+
+Ensure CSS has `outline`.
 
 
 
@@ -338,19 +363,7 @@ Use CSS media queries? Remove text at certain zooms, widths?
 
 
 
-## Focus indicator
 
-Ensure all interactive elements have focus
-
-Difficulty 1/5
-
-### Templates affected
-
-Gender commuting gap
-
-### Solution
-
-Ensure CSS has `outline`.
 
 
 
