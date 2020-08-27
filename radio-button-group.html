@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
-
 <head>
   <meta charset="utf-8">
+  <meta name='viewport' content='initial-scale=1,maximum-scale=5' />
+
   <title>Radio button group</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:400,700&display=swap" rel="stylesheet">
 
@@ -29,7 +29,7 @@
       position: absolute;
       cursor: pointer;
       left: 5px;
-      width: 90%;
+      width: calc(100% - 10px);
       vertical-align: middle;
       text-align: center;
     }
@@ -77,12 +77,20 @@
     }
 
     .grid-cell{
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
       position: relative;
     }
+
+    .grid--full > .grid-cell {
+      flex: 0 0 100%;
+    }
+
+    @media (min-width: 24em) {
+      .large-grid--fit > .grid-cell {
+        flex: 1;
+      }
+    }
+
+
 
   </style>
 </head>
@@ -93,7 +101,7 @@
 
     <fieldset>
       <legend>Choose an amount</legend>
-      <div class='grid'>
+      <div class='grid grid--full large-grid--fit '>
       <div class='grid-cell'>
         <input type="radio" id="a25" value="25" name="amount" />
         <label for="a25">£25</label>
@@ -109,6 +117,10 @@
       <div class='grid-cell'>
         <input type="radio" id="a100" value="100" name="amount" />
         <label for="a100">£100</label>
+      </div>
+      <div class='grid-cell'>
+        <input type="radio" id="a125" value="125" name="amount" />
+        <label for="a125">£125</label>
       </div>
       </div>
     </fieldset>
