@@ -6,21 +6,19 @@
   <meta charset="utf-8">
   <title>Radio button group</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+
   <style type="text/css">
-    body{
+    body {
       max-width: 700px;
       font-family: 'Open Sans', sans-serif;
     }
 
     fieldset {
       border: none;
-      display: flex;
-      width:100%
     }
 
     div {
       margin: 1rem 0;
-      position:relative;
     }
 
     input[type='radio'] {
@@ -31,9 +29,9 @@
       position: absolute;
       cursor: pointer;
       left: 5px;
-      width:90%;
+      width: 90%;
       vertical-align: middle;
-      text-align:center;
+      text-align: center;
     }
 
     input[type='radio']+label::before {
@@ -79,7 +77,11 @@
     }
 
     .grid-cell{
-      flex:1
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      position: relative;
     }
 
   </style>
@@ -88,32 +90,34 @@
 <body>
   <script src="https://d3js.org/d3.v5.min.js"></script>
 
-  <div>
-    <fieldset class='grid'>
+
+    <fieldset>
       <legend>Choose an amount</legend>
-    <div class='grid-cell'>
-      <input type="radio" id="a25" value="25" name="amount" />
-      <label for="a25">£25</label>
-    </div>
-    <div class='grid-cell'>
-      <input type="radio" id="a50" value="50" name="amount" />
-      <label for="a50">£50</label>
-    </div>
-    <div class='grid-cell'>
-      <input type="radio" id="a75" value="75" name="amount" checked="checked" />
-      <label for="a75">£75</label>
-    </div>
-    <div class='grid-cell'>
-      <input type="radio" id="a100" value="100" name="amount" />
-      <label for="a100">£100</label>
-    </div>
+      <div class='grid'>
+      <div class='grid-cell'>
+        <input type="radio" id="a25" value="25" name="amount" />
+        <label for="a25">£25</label>
+      </div>
+      <div class='grid-cell'>
+        <input type="radio" id="a50" value="50" name="amount" />
+        <label for="a50">£50</label>
+      </div>
+      <div class='grid-cell'>
+        <input type="radio" id="a75" value="75" name="amount" checked="checked" />
+        <label for="a75">£75</label>
+      </div>
+      <div class='grid-cell'>
+        <input type="radio" id="a100" value="100" name="amount" />
+        <label for="a100">£100</label>
+      </div>
+      </div>
     </fieldset>
-  </div>
+
 
   <script>
-   d3.selectAll('input[type="radio"]').on('change',function(d){
-     console.log(document.querySelector('input[name="amount"]:checked').value)
-   })
+    d3.selectAll('input[type="radio"]').on('change', function(d) {
+      console.log(document.querySelector('input[name="amount"]:checked').value)
+    })
   </script>
 </body>
 
