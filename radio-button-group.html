@@ -26,7 +26,7 @@
       position: absolute;
       cursor: pointer;
       left: 5px;
-      width: calc(100% - 10px);
+      width: calc(100% - 20px);
       vertical-align: middle;
       text-align: center;
     }
@@ -88,7 +88,16 @@
       }
     }
 
-
+    .visuallyhidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
 
   </style>
 </head>
@@ -99,6 +108,7 @@
 
     <fieldset>
       <legend>Choose an amount</legend>
+      <div aria-live="polite" class='visuallyhidden'><span id="selected"></span> selected</div>
       <div class='grid grid--full large-grid--fit '>
       <div class='grid-cell'>
         <input type="radio" id="a25" value="25" name="amount" />
@@ -109,7 +119,7 @@
         <label for="a50">£50</label>
       </div>
       <div class='grid-cell'>
-        <input type="radio" id="a75" value="75" name="amount" checked="checked" />
+        <input type="radio" id="a75" value="75" name="amount" checked="checked"/>
         <label for="a75">£75</label>
       </div>
       <div class='grid-cell'>
@@ -125,8 +135,11 @@
 
 
   <script>
+    d3.select('#selected').text(document.querySelector('input[name="amount"]:checked').value)
+
     d3.selectAll('input[type="radio"]').on('change', function(d) {
       console.log(document.querySelector('input[name="amount"]:checked').value)
+      d3.select('#selected').text(document.querySelector('input[name="amount"]:checked').value)
     })
   </script>
 </body>

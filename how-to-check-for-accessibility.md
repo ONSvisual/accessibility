@@ -2,6 +2,10 @@
 
 Inputs needs labels
 
+Groups of inputs are inside a fieldset
+
+Fieldsets have legends
+
 Links are described
 
 Buttons/imgs need labels
