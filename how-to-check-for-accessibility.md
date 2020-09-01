@@ -1,18 +1,28 @@
 # How to check for accessibility
 
-Inputs needs labels
+## How to use voiceover
 
-Groups of inputs are inside a fieldset
+Use voiceover for mac, cmd + f5
 
-Fieldsets have legends
+Ctrl + Alt + up/down = leave/enter group
 
-Links are described
+Ctrl + Alt + left/right = next item
 
-Buttons/imgs need labels
+## Checklist
 
-Tab order is logical
+Do inputs have labels?
 
-Interactive elements have focus states
+Groups of inputs are inside a fieldset?
+
+Fieldsets have legends?
+
+Links are described?
+
+Buttons/imgs have labels
+
+Tab order is logical (top to bottom, left to right)
+
+Interactive elements have keyboard focus states
 
 Contrast on text is sufficient
 
@@ -23,3 +33,4 @@ Pym is right height
 Page can be navigated by keyboard
 
 Text flows even when on high zoom
+
