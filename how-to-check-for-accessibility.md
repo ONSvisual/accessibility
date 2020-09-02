@@ -10,6 +10,8 @@ Ctrl + Alt + left/right = next item
 
 Ctrl + Alt + space = click
 
+Chrome has [lighthouse](https://developers.google.com/web/tools/lighthouse) to do automated checking
+
 ## Checklist
 
 Do inputs have labels?
