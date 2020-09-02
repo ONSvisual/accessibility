@@ -22,7 +22,7 @@ Buttons/imgs have labels
 
 Tab order is logical (top to bottom, left to right)
 
-Interactive elements have keyboard focus states
+Interactive elements have keyboard focus states, have high enough contrast 3:1?
 
 Contrast on text is sufficient
 
@@ -32,5 +32,4 @@ Pym is right height
 
 Page can be navigated by keyboard
 
-Text flows even when on high zoom
-
+Text/elements flows even when on high zoom?
