@@ -8,6 +8,8 @@ Ctrl + Alt + up/down = leave/enter group
 
 Ctrl + Alt + left/right = next item
 
+Ctrl + Alt + space = click
+
 ## Checklist
 
 Do inputs have labels?
