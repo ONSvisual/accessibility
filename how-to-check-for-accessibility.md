@@ -4,7 +4,7 @@
 
 Use voiceover for mac, cmd + f5
 
-Ctrl + Alt + up/down = leave/enter group
+Ctrl + Alt + shift + up/down = leave/enter group
 
 Ctrl + Alt + left/right = next item
 
