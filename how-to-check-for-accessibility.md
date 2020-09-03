@@ -24,7 +24,7 @@ Links are described?
 
 Buttons/imgs have labels
 
-Tab order is logical (top to bottom, left to right)
+Tab order is logical (top to bottom, left to right) TIdeally, tabindex should be =0 and elements reordered in the DOM
 
 Interactive elements have keyboard focus states, have high enough contrast 3:1?
 
@@ -37,3 +37,5 @@ Pym is right height
 Page can be navigated by keyboard
 
 Text/elements flows even when on high zoom?
+
+HTML element has a [lang] attribute
