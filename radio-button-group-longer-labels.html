@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name='viewport' content='initial-scale=1,maximum-scale=5' />
+
+  <title>Radio button group</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+
+  <style type="text/css">
+    body {
+      max-width: 700px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    fieldset {
+      border: none;
+      padding:0;
+    }
+
+    input[type='radio'] {
+      opacity: 0;
+    }
+
+    input[type='radio']+label {
+      cursor: pointer;
+      vertical-align: middle;
+      text-align: center;
+      color: #206095;
+    }
+
+    input[type='radio']+label::before {
+      content: '';
+      position: absolute;
+      left: -3px;
+      top: -10px;
+      border-radius: 0%;
+      border: 3px solid #206095;
+      width: 100%;
+      height: calc(100% + 20px);
+      opacity: 1;
+      font-weight: 700;
+      min-height:42px;
+    }
+
+    input[type='radio']:checked+label::before {
+      display: block;
+      background: #206095;
+      position: absolute;
+      z-index: -1;
+      /* to be below the parent element */
+    }
+
+    input[type='radio']:checked+label {
+      color: white;
+    }
+
+    input[type='radio']:focus+label::before, input[type='radio']:hover+label::before {
+      box-shadow: 0 0 0px 3pt orange;
+      outline: 2px dotted transparent;
+      border: 4px solid #206095;
+    }
+
+    .grid{
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding-top:14px;
+      padding-bottom:14px;
+      justify-content: space-between;
+    }
+
+    .grid-cell{
+      position: relative;
+      margin-left: 10px;
+      margin-right:10px;
+      text-align: center;
+    }
+
+    .grid-cell:first-child{
+      margin-left: 3px;
+    }
+
+    .grid-cell:last-child{
+      margin-right: 3px;
+    }
+
+    .grid--full > .grid-cell {
+      flex: 0 0 100%;
+    }
+
+    @media (min-width: 24em) {
+      .large-grid--fit > .grid-cell {
+        flex: 1;
+      }
+    }
+
+    .visuallyhidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+    <fieldset>
+      <legend>Choose an amount</legend>
+      <div aria-live="polite" class='visuallyhidden'><span id="selected"></span> selected</div>
+      <div class='grid grid--full large-grid--fit '>
+      <div class='grid-cell'>
+        <input class='visuallyhidden'type="radio" id="a25" value="25" name="amount" />
+        <label for="a25">£25</label>
+      </div>
+      <div class='grid-cell'>
+        <input class='visuallyhidden'type="radio" id="a50" value="50" name="amount" />
+        <label for="a50">£50</label>
+      </div>
+      <div class='grid-cell'>
+        <input class='visuallyhidden'type="radio" id="a75" value="75" name="amount" checked="checked"/>
+        <label for="a75">£75</label>
+      </div>
+      <div class='grid-cell'>
+        <input class='visuallyhidden'type="radio" id="a100" value="100" name="amount" />
+        <label for="a100">£100</label>
+      </div>
+      <div class='grid-cell'>
+        <input class='visuallyhidden'type="radio" id="a125" value="125" name="amount" />
+        <label for="a125">£125</label>
+      </div>
+      </div>
+    </fieldset>
+
+    <div class='grid grid--full large-grid--fit'>
+      <div class="grid-cell">
+        <input class='visuallyhidden' type="radio" id="b25" value="25" name="amount" />
+        <label for="b25">Twenty five pounds and twenty nice pence</label>
+
+      </div>
+      <div class="grid-cell">
+        <input class='visuallyhidden' type="radio" id="b75" value="75" name="amount" checked="checked"/>
+        <label for="b75">£75</label>
+      </div>
+      <div class="grid-cell">
+        <input class='visuallyhidden' type="radio" id="b125" value="125" name="amount" />
+        <label for="b125">One hundred and twenty five pounds and eighty nine</label>
+      </div>
+    </div>
+
+
+
+  <script>
+    d3.select('#selected').text(document.querySelector('input[name="amount"]:checked').value)
+
+    d3.selectAll('input[type="radio"]').on('change', function(d) {
+      console.log(document.querySelector('input[name="amount"]:checked').value)
+      d3.select('#selected').text(document.querySelector('input[name="amount"]:checked').value)
+    })
+  </script>
+</body>
+
+
+</html>
