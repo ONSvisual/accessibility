@@ -28,7 +28,7 @@ Tab order is logical (top to bottom, left to right) TIdeally, tabindex should be
 
 Interactive elements have keyboard focus states, have high enough contrast 3:1?
 
-Contrast on text is sufficient
+Contrast on text is sufficient (Firefox & Chrome have contrast checkers in dev tools) 
 
 Text updates and is read to you when something changes
 
