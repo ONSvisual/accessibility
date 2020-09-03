@@ -74,6 +74,7 @@ Use backend to give screen readable description eg. this interactive has been sk
 Difficulty 2/5
 
 Tab order of page need to be changed so it's logical, Top to bottom, left to right
+Try to use [tabindex=0](https://web.dev/tabindex/?utm_source=lighthouse&utm_medium=devtools) and reorder elements in the DOM if at all possible rather than use tabindex >0
 
 ### Templates affected
 
