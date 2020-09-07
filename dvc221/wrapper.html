@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Life expectancy calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="How long will your pension pot have to last? Investigate with this interactive"/>
+    <meta property="og:type" content="calculator"/>
+    <meta property="og:url" content="http://www.neighbourhood.statistics.gov.uk/HTMLDocs/dvc211/index.html"/>
+    <meta property="og:image" content="http://www.neighbourhood.statistics.gov.uk/HTMLDocs/dvc211/images/preview.png"/>
+
+    <link rel="stylesheet" href="css/styles.css" media="screen">
+    <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css">
+    
+    <style>
+		
+		body {
+			
+			color:#666;
+		}
+		
+		@font-face {
+			font-family: 'open_sanslight';		
+			src: url('assets/OpenSans-Light-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		@font-face {
+			font-family: 'open_sansitalic';		
+			src: url('assets/OpenSans-Italic-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		@font-face {
+			font-family: 'open_sansregular';		
+			src: url('assets/OpenSans-Regular-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		@font-face {
+			font-family: 'open_sanssemibold';		
+			src: url('assets/OpenSans-Semibold-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		.social {
+			padding-top:25px;
+			padding-left:5px;
+			float:right;
+			opacity:0.5;
+			cursor:pointer;
+		}
+		
+		.social:hover {
+			opacity:1;
+				
+		}
+		
+		
+		.social {
+			
+		}
+		
+		#embedrow {
+			padding-bottom:10px;
+		}
+		
+		
+		#close {
+			float:right;
+			padding-bottom:3px;	
+		}
+		
+		#example-1 {
+			width:100%;	
+		}
+		
+		#heading {
+			background-color:#FAFAFA; /*#a08cb0;*//*
+			color:#cbb9cf;*/
+		}
+		
+		  .jumbotron h1,
+		  .jumbotron .h1 {
+			font-size: 40px !important;
+			font-family:"open_sanssemibold",sans-serif,Helvetica,Arial;
+			color:#666;
+		  }		
+		
+		.lead {
+			color:#000 !important;
+		}	
+
+		
+		
+		@media screen and (min-width: 768px) {
+		  .jumbotron h1,
+		  .jumbotron .h1 {
+			font-size: 40px !important;
+			font-family:"open_sanssemibold",sans-serif,Helvetica,Arial;
+			color:#666;
+		  }
+		  
+		  .jumbotron p,
+		  .jumbotron .p {
+			font-size: 20px !important;
+		  }
+		}
+		
+		.jumbotron {
+			padding-top:0px !important;
+			font-size:
+		}	
+		
+	
+	</style>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="../bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+    <script>
+
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37894017-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+    </script>
+  </head>
+  <body>
+  <div class="jumbotron" id="heading">
+      <div class="container">
+		<div class="row" id="heading">
+          <div class="col-sm-10 col-xs-11">
+            <h1>How long will your pension pot need to last?</h1>
+            <p class="lead">This tool calculates the average life expectancy for men and women</p>
+          </div>
+           <div class="col-sm-2 col-xs-1" id="social">
+            <img class="social" id="twitter" src="images/twitter.svg"/>
+          	<img class="social" id="face" src="images/facebook.svg"/>
+            <img class="social" id="embed" src="images/embed.svg"/>
+            
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="container">
+
+   	<div class="row hide" id="embedrow">
+  		 <div class="col-sm-offset-6 col-sm-6 col-xs-12">
+
+            <div id="embedbox">
+                    <img id="close" src="images/cross.svg"/>
+                    <label class="control-label" for="inputType"></label>
+                    <input type="text" class="form-control" id="inputType" value="longevity.html">
+            </div>  
+        
+	     </div> 
+    </div>     
+   
+   <div class="row">
+           
+          <div class="col-sm-12 col-xs-12"> 
+              <div id="example-1"></div>
+              
+		</div>
+	</div><!-- end row --> 
+                
+                    
+     </div> <!--end container-->
+
+
+   <!-- <script src="js/jquery-1.11.1.min.js"></script>-->
+    <script src="js/jquery.js"></script> 
+    <script src="js/bootstrap.min.js"></script>
+ 	<script src="js/modernizr.custom.56904.js"></script>
+    <script src="js/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/pym.js" charset="utf-8"></script>
+    
+    <script>
+	$(document).ready(function () {
+		
+		var childURL = "longevity.html";
+		
+		var firstbit = window.location.href.split("index.html")[0];
+	
+		d3.select("#twitter").on("click",tweet);
+		d3.select("#face").on("click",faceb);
+		d3.select("#embed").on("click",embed);
+		d3.select("#close").on("click",embedclose);
+		d3.select("#inputType").attr("value",'<iframe width=940 height=700 src="' + firstbit + childURL + '" scrolling=no frameborder=0/>');
+		
+		//add pym chart
+		var pymParent = new pym.Parent('example-1', childURL);
+
+		
+		function faceb() {
+				var face = 'http://www.facebook.com/share.php?u=' + window.location.href;
+				window.open(face);
+		}
+		
+		function tweet() {
+				var myString="http://twitter.com/home?status="+escape("How long will your pension pot have to last? Investigate with this interactive"+ window.location.href);
+				window.open(myString);
+		}
+		
+		function embed() {
+				d3.select("#embedrow").attr("class","row show");
+		}
+		
+		function embedclose() {
+				d3.select("#embedrow").attr("class","row hide");
+		}
+		
+	
+	});
+	
+    
+    </script>
+  </body>
+</html>

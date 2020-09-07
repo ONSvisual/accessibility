@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
+  <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <title>Long term migration - figure 1</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="./lib/globalStyle.css" />
+
+        <style>
+            body {
+                max-width:700px;
+                margin: 0px auto;
+            }
+
+            svg {
+                margin-left: auto; margin-right: auto;
+                display: block;
+            }
+
+            line,
+            rect {
+                shape-rendering: crispEdges;
+            }
+
+            .axis path,
+            .axis line {
+                fill: none;
+                stroke: #000;
+                shape-rendering: crispEdges;
+            }
+
+            circle.dot {
+                fill: #FFF;
+                stroke-width: 1.5px;
+            }
+
+            .area.confidencea {
+                zoom: 1;
+                filter: alpha(opacity=30);
+                opacity: 0.07;
+            }
+
+            .area.confidenceb {
+                zoom: 1;
+                filter: alpha(opacity=30);
+                opacity: 0.2;
+            }
+
+            .area.confidencec {
+                zoom: 1;
+                filter: alpha(opacity=30);
+                opacity: 0.5;
+            }
+            .label {
+                font-size: 12px;
+                fill: #666;
+            }
+
+
+/*btn code*/
+.section__content--markdown a {
+    text-decoration: underline;
+}
+.btn--primary {
+    background-color: #0F8243;
+    color: #fff;
+}
+.btn {
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    display: inline-block;
+    width: auto;
+    cursor: pointer;
+    padding: 6px 16px 10px 16px;
+    border: 0 none;
+    text-align: center;
+    -webkit-appearance: none;
+    transition: background-color 0.25s ease-out;
+    line-height: 24px;
+}
+a {
+    text-decoration: underline;
+    color: #206095;
+    word-wrap: break-word;
+}
+
+h6 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 16px 0 0 0;
+}
+
+ul, ol {
+    margin: 0px 0;
+    padding-left: 16px;
+}
+
+li {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0px 0;
+    padding: 6px 0 10px 16px;
+}
+
+        </style>
+    </head>
+    <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <div id="graphic">
+    </div>
+    <div id="footer">
+      <h6>Source: Long-Term International Migration, Office for National Statistics</h6>
+      <h6>Notes:</h6>
+      <ol>
+        <li>Figures for 2017 and 2018 are provisional.</li>
+<li>The shading around the central estimates represents the associated uncertainty of the estimates due to the number of people surveyed, based on 30%, 60% and 95% confidence intervals. The highlighted central estimate is the most likely value, whilst the values towards the upper and lower limit are possible but less likely. Other sources of uncertainty, for example due to limitations of the survey methodology, are not represented.</li>
+<li>The dashed lines are illustrative revised trends, adjusted for the unusual pattern in IPS student immigration figures.
+</li>
+<li>Confidence intervals have not been calculated for the net migration estimates prior to 2012 due to the revisions made to data for 2001 to 2011 following the 2011 Census.</li>
+      </ol>
+      <h6>Download this chart</h6>
+      <a class="btn btn--primary"  href="image1.png" target="_blank" download>Image</a>
+      <a class="btn btn--primary"  href="data1.xls" target="_blank">.xls</a>
+      <a class="btn btn--primary"  href="data1.csv" target="_blank">.csv</a>
+    </div>
+        <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+        <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
+        <script src="https://cdn.ons.gov.uk/vendor/d3/4.13.0/d3.min.js" type="text/javascript"></script>
+        <script type="text/javascript"charset="utf-8">
+
+
+        var pymChild = new pym.Child();
+
+        d3.json("./lib/config1.json", function(error, config) {
+
+
+          // Settings
+
+          if (parseInt(d3.select("body").style("width")) < config.optional.mobileBreakpoint) {
+                  var margin = {	'top': 	config.optional.margin_sm[0],
+                          'right': 	config.optional.margin_sm[1],
+                          'bottom': config.optional.margin_sm[2],
+                          'left': 	config.optional.margin_sm[3]
+                  };
+  								var width = parseInt(d3.select("body").style("width")) - margin.left - margin.right;
+  								var height = Math.ceil((width * config.optional.aspectRatio_sm[1]) / config.optional.aspectRatio_sm[0]) - margin.top - margin.bottom;
+                  var no_ticks = config.optional.x_num_ticks_sm_md[0];
+          }
+  			  else {
+                  var margin = {	'top': 	config.optional.margin_md[0],
+                          'right': 	config.optional.margin_md[1],
+                          'bottom': config.optional.margin_md[2],
+                          'left': 	config.optional.margin_md[3]
+                  };
+  								var width = parseInt(d3.select("body").style("width")) - margin.left - margin.right;
+  		            var height = Math.ceil((width * config.optional.aspectRatio_md[1]) / config.optional.aspectRatio_md[0]) - margin.top - margin.bottom;
+                  var no_ticks = config.optional.x_num_ticks_sm_md[1];
+          }
+
+            // Config
+                parseDate = d3.timeParse(config.essential.dateFormat),
+                interpolation = "linear";
+
+            var Series1Color = config.essential.colour_palette[0],
+                Series2Color = config.essential.colour_palette[1],
+                Series3Color = config.essential.colour_palette[2],
+                displaySingle = false;
+                // false, "Series1", "Series2"
+
+            var useLabels = true,
+                yAxisTitle = config.essential.yAxisLabel;
+
+            //if (useLabels === true) { margin.right = 50; }
+            // for the labels; 40 + 10 for each array.length > 4
+
+            if (parseInt(d3.select("body").style("width")) < config.optional.mobileBreakpoint) {
+              tickvalues=[new Date(2008, 11, 1),
+			  			  new Date(2010, 11, 1),
+                          new Date(2012, 11, 1),
+                          new Date(2014, 11, 1),
+                          new Date(2018, 2, 1)]
+            }else{
+              tickvalues=[ new Date(2008, 11, 1), new Date(2009, 11, 1),
+                            new Date(2010, 11, 1),new Date(2011, 11, 1),
+                            new Date(2012, 11, 1),new Date(2013, 11, 1),
+                            new Date(2014, 11, 1),new Date(2015, 11, 1),
+                            new Date(2016, 11, 1),new Date(2018, 2, 1)]
+            }
+
+
+            var x = d3.scaleTime()
+                .range([0, width]);
+
+            var y = d3.scaleLinear()
+                .range([height, 0]);
+
+            var xAxis = d3.axisBottom(x)
+                .tickFormat(function(d,i) {
+                  if (parseInt(d3.select("body").style("width")) <= config.optional.mobileBreakpoint) {
+		                var fmt = d3.timeFormat(config.optional.xAxisTextFormat_sm_md[0]);
+		                if(i==4){return fmt(d)+'p';}else{return fmt(d);}
+		            } else {
+		                var fmt = d3.timeFormat(config.optional.xAxisTextFormat_sm_md[1]);
+		                if(i==9 ){return fmt(d)+'p';}else{return fmt(d);}
+		            }
+              })
+              .tickValues(tickvalues);
+
+            var yAxis = d3.axisLeft(y)
+
+            var y_axis_grid = function() { return yAxis; }
+
+            var lineseries={};
+            for(i=0;i<config.essential.dataSeriesNames.length;i++){
+              lineseries[config.essential.dataSeriesNames[i]] = d3.line()
+                    .defined(function(d){return d[config.essential.dataSeriesNames[i]]})
+                    .curve(d3.curveLinear)
+                    .x(function(d) { return x(d["date"]); })
+                    .y(function(d) { return y(d[config.essential.dataSeriesNames[i]]); });
+            }
+
+            var confidenceAreaSeriesA={}
+            var confidenceAreaSeriesB={}
+            var confidenceAreaSeriesC={}
+
+            for(i=0;i<config.essential.dataSeriesNames.length;i++){
+              confidenceAreaSeriesA[config.essential.dataSeriesNames[i]] = d3.area()
+                  .curve(d3.curveLinear)
+                  .defined(function(d){return d[config.essential.dataSeriesNames[i]]})
+                  .x(function(d) { return x(d["date"]); })
+                  .y0(function(d) {
+                      return y(d[config.essential.dataSeriesNames[i]] - d[config.essential.dataSeriesNames[i]+"a"]); })
+                  .y1(function(d) {
+                      return y(d[config.essential.dataSeriesNames[i]] + d[config.essential.dataSeriesNames[i]+"a"]); });
+
+              confidenceAreaSeriesB[config.essential.dataSeriesNames[i]] = d3.area()
+                  .curve(d3.curveLinear)
+                  .defined(function(d){return d[config.essential.dataSeriesNames[i]]})
+                  .x(function(d) { return x(d["date"]); })
+                  .y0(function(d) {
+                      return y(d[config.essential.dataSeriesNames[i]] - d[config.essential.dataSeriesNames[i]+"b"]); })
+                  .y1(function(d) {
+                      return y(d[config.essential.dataSeriesNames[i]] + d[config.essential.dataSeriesNames[i]+"b"]); });
+
+              confidenceAreaSeriesC[config.essential.dataSeriesNames[i]] = d3.area()
+                  .curve(d3.curveLinear)
+                  .defined(function(d){return d[config.essential.dataSeriesNames[i]]})
+                  .x(function(d) { return x(d["date"]); })
+                  .y0(function(d) {
+                      return y(d[config.essential.dataSeriesNames[i]] - d[config.essential.dataSeriesNames[i]+"c"]); })
+                  .y1(function(d) {
+                      return y(d[config.essential.dataSeriesNames[i]] + d[config.essential.dataSeriesNames[i]+"c"]); });
+            }
+
+            var svg = d3.select("#graphic").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height",height + margin.top + margin.bottom)
+                .append("g")
+                .attr("id","graphic")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            var filter = svg.append("defs")
+              .append("filter")
+                .attr("id", "blur")
+              .append("feGaussianBlur")
+                .attr("stdDeviation",config.essential.blur);
+
+
+            d3.csv(config.essential.graphic_data_url, function(error, data) {
+
+                data.forEach(function(d) {
+                    d.date = parseDate(d.date);
+                    for(i=0;i<config.essential.dataSeriesNames.length;i++){
+                      d[config.essential.dataSeriesNames[i]] = +d[config.essential.dataSeriesNames[i]]
+                      d[config.essential.dataSeriesNames[i]+"a"] = +d[config.essential.dataSeriesNames[i]+"a"]
+                      d[config.essential.dataSeriesNames[i]+"b"] = +d[config.essential.dataSeriesNames[i]+"b"]
+                      d[config.essential.dataSeriesNames[i]+"c"] = +d[config.essential.dataSeriesNames[i]+"c"]
+                    }
+                });
+
+                x.domain(d3.extent(data, function(d) {
+                    return d.date; }));
+
+                y.domain(config.essential.yAxisScale);
+
+                svg.datum(data);
+
+                // X axis
+                svg.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(xAxis);
+
+                // Y axis
+                svg.append("g")
+                    .attr("class", "y axis")
+                    .call(yAxis.ticks(5))
+                    .append("text")
+                    .attr("x", -margin.left + 3)
+                    .attr("y", -margin.top+5)
+                    .attr("dy", ".71em")
+                    .style("text-anchor", "start")
+                    .text(yAxisTitle);
+
+                svg.append('g')
+                    .attr('class', 'y grid')
+                    .call(y_axis_grid()
+                        .tickSize(-width, 0, 0)
+                        .tickFormat('')
+                    )
+
+
+					//Legend details
+               svg.append("g")
+                  .append("rect")
+                  .attr("x",width-130)
+                  .attr("y",-30)
+                  .attr("height",50)
+                  .attr("width",180)
+                  .attr("fill","rgba(255,255,255,0.8)");
+
+
+               svg.append("g")
+                  .append("line")
+                  .attr("x1",width-150)
+                  .attr("x2",width-120)
+                  .attr("y1",-20)
+                  .attr("y2",-20)
+                  .attr("stroke","#666")
+                  .attr("stroke-width","2px")
+
+               svg.append("g")
+                   .append("text")
+                   .attr("class","axis")
+				   .attr("x", width - 110)
+                    .attr("y", -margin.top+5)
+                    .attr("dy", ".71em")
+                    .attr("text-anchor", "start")
+                    .text("Estimate");
+
+                svg.append("g")
+                   .append("rect")
+                   .attr("x",width-150)
+                   .attr("y",-10)
+                   .attr("height",30)
+                   .attr("width",30)
+                   .attr("fill","#eee");
+
+               svg.append("g")
+                  .append("rect")
+                  .attr("x",width-148)
+                  .attr("y",-2.5)
+                  .attr("height",15)
+                  .attr("width",26)
+                  .attr("fill","#ccc")
+                  .attr("filter", "url(#blur)");
+
+              svg.append("g")
+                 .append("rect")
+                 .attr("x",width-148)
+                 .attr("y",2)
+                 .attr("height",7)
+                 .attr("width",26)
+                 .attr("fill","#bbb")
+                 .attr("filter", "url(#blur)");
+
+             svg.append("g")
+                 .append("text")
+                 .attr("class","axis")
+				 .attr("x", width - 110)
+                 .attr("y", -margin.top+30)
+                 .attr("dy", ".71em")
+                  .style("text-anchor", "start")
+                  .text("Known uncertainty in survey estimate");
+
+
+
+                      for(i=0;i<config.essential.dataSeriesNames.length;i++){
+                        svg.append("path")
+                            .attr("class", "area confidencea")
+                            .attr("fill", config.essential.colour_palette[i])
+                            .attr("d", confidenceAreaSeriesA[config.essential.dataSeriesNames[i]])
+
+                        svg.append("path")
+                            .attr("class", "area confidenceb")
+                            .attr("fill", config.essential.colour_palette[i])
+                            .attr("d", confidenceAreaSeriesB[config.essential.dataSeriesNames[i]])
+                            .attr("filter", "url(#blur)");
+
+                        svg.append("path")
+                            .attr("class", "area confidencec")
+                            .attr("fill", config.essential.colour_palette[i])
+                            .attr("d", confidenceAreaSeriesC[config.essential.dataSeriesNames[i]])
+                            .attr("filter", "url(#blur)");
+
+                      }
+
+
+                for(i=0;i<config.essential.dataSeriesNames.length;i++){
+                  svg.append("path")
+                      .attr("class", "line")
+                      .attr("id","line"+i)
+                      .attr("d", lineseries[config.essential.dataSeriesNames[i]])
+                      .attr("stroke", config.essential.colour_palette[i])
+                }
+
+                d3.select("#line3")
+                .attr("stroke-dasharray","4 4")
+                d3.select("#line4")
+                .attr("stroke-dasharray","4 4")
+
+                // // Dots
+                // var dots = svg.selectAll("circle")
+                //     .data(data)
+                //     .enter();
+                //
+                // if (displaySingle !== "Series2") {
+                //     var dotsSeries1 = dots.append("circle")
+                //         .attr({
+                //             "class": "dot",
+                //             "r": 3,
+                //             "cx": lineSeries1.x(),
+                //             "cy": lineSeries1.y(),
+                //             "stroke": Series1Color
+                //         });
+                // }
+                // if (displaySingle !== "Series1") {
+                //     var dotsSeries2 = dots.append("circle")
+                //         .attr({
+                //             "class": "dot",
+                //             "r": 3,
+                //             "cx": lineSeries2.x(),
+                //             "cy": lineSeries2.y(),
+                //             "stroke": Series2Color
+                //         });
+                // }
+
+
+                // labels for Graph label
+                if (useLabels === true) {
+
+                        for(i=0;i<config.essential.dataSeriesNames.length;i++){
+                          svg.append("text")
+                              .data(data)
+                              .attr("transform", function(d) {
+                                  return "translate(" + x(data[data.length-1]["date"]) + "," + y(data[data.length-1][config.essential.dataSeriesNames[i]]) + ")"; })
+                              .attr("x", 10)
+                              .attr("dy", ".35em")
+                              .attr("class", "label")
+                              .attr("id", "linelabel"+i)
+                              .style("fill",config.essential.colour_palette[i])
+                              .text(config.essential.legendLabels[i]);
+                        }
+
+                        d3.select("#linelabel3")
+                        .attr("transform",function(d){
+                          return "translate(" + (x(data[data.length-6]["date"])-10) + "," + (y(data[data.length-6][config.essential.dataSeriesNames[3]])-15) + ")";
+                        })
+
+                        d3.select("#linelabel4")
+                        .attr("transform",function(d){
+                          return "translate(" + (x(data[data.length-6]["date"])-10) + "," + (y(data[data.length-6][config.essential.dataSeriesNames[4]])-5) + ")";
+                        })
+
+
+                    if (pymChild) {
+            		        pymChild.sendHeight();
+            		    }
+                }
+            });//end d3.csv
+
+          });
+          pymChild.sendHeight();
+        </script>
+    </body>
+</html>

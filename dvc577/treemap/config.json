@@ -1,0 +1,22 @@
+{
+    "essential" : {
+            "graphic_data_url" : "data.csv",
+			"formatNumber" : ",.2f",
+			"totalLabel" : "Total household spend: ",
+			"prefix" : "£",
+			"suffix" : " per week",
+            "sourceText" : ["Family Spending, 2018"]
+    },
+    "optional" : {
+            "ratiovar" : 0.5,
+		    "margin_sm" : [10, 5, 0, 0],
+            "margin_md" : [10, 5, 0, 0],
+            "margin_lg" : [10, 5, 0, 0],
+
+            "aspectRatio_sm" : [4,4],
+            "aspectRatio_md" : [1,1],
+            "aspectRatio_lg" : [16,8],
+
+            "mobileBreakpoint" : 510  
+    }
+}

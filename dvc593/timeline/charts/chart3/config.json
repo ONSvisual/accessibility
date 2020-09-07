@@ -1,0 +1,106 @@
+{   "area_on_off": true,
+    
+    "area_on_off_2": true,
+    
+    "axis_scale_max": 400000,
+    
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "dateFormat":"%Y",
+            
+            "legendLabels" : ["immigration","emigration"],
+            "legendStyle": "rect", 
+            "colour_palette": [ "rgb(70, 130, 180)", "rgb(255, 150, 30)" ],
+            
+            "sourceText":["Long-Term International Migration and International Passenger Survey, ONS"],
+            "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/adhocs/006408longterminternationalmigrationintoandoutoftheukbycitizenship1964to2015"],
+			
+			"annotationPlace":[1,1,0],
+                
+            "annotationChart": [
+                "(not including British citizens)",
+                "generally more people come to  the UK than leave resulting in  positive net migration",				
+				"for example China, India, Australia and the USA",
+				"",
+				""
+            ],
+            "annotationXY":[
+                ["1976","275000"],
+                ["2015","400000"],
+				["1976","275000"],
+				["1976","110"],
+				["1976","110"]
+            ],
+            "annotationAlign":[
+                "start",
+                "end",
+				"start",
+				"start",
+				"start"
+            ],
+        
+            "circles" : false,    
+            "annotationCXCY":[
+                ["2003","68.4"],
+                ["2008","73"]
+            ],
+
+            "yAxisLabel":"",
+            "yAxisScale":[0,200],   
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65]            
+    },
+    
+    "optional" : {
+            "margin_sm": [40, 70, 10, 0],
+            "margin_md": [40, 70, 10, 0],
+            "margin_lg": [40, 70, 10, 0],
+        
+            "aspectRatio_sm" : [4,2],
+            "aspectRatio_md" : [5,1],
+            "aspectRatio_lg" : [5,1],
+        
+            "mobileBreakpoint" : 480, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%Y", "%Y", "%Y"], 
+                
+            "x_num_ticks_sm_md_lg" : [6,12,12],    
+            "y_num_ticks_sm_md_lg" : [5,11,11],
+        
+            "lineMarkers" : true,
+        
+            "vertical_line" : true,
+			"vertical_lines_on": [0,1],
+            "annotateLineX1_Y1_X2_Y2" : [ [["2015", "279000"],["2015", "92000"]],
+										  [["2015", "255000"],["2015", "88000"]],
+										  [["1999", "90000"],["2001", "90000"]]
+										],
+        
+            "annotateRect" : true,
+			"annotateRect_on" : [],
+            "annotateRectX_Y" : [ [["2015", 230],["2015", 0]], 
+								  [["2008", 230],["2010", 0]],
+								  [["2008", 230],["2010", 0]], 
+								  [["2008", 230],["2010", 0]],
+								  [["2008", 230],["2010", 0]], 
+								  [["2008", 230],["2010", 0]],
+								  [["2008", 230],["2010", 0]],
+								  [["2008", 230],["2010", 0]]
+							 ],
+            "lineColor_opcty" : [["#dadada", 1],
+								 ["#dadada", 1],
+								 ["#dadada", 0.5],
+								 ["#dadada", 0.5],
+								 ["#dadada", 0.5],
+								 ["#dadada", 0.5],
+								 ["#dadada", 0.5],
+								 ["#dadada", 0.5]
+							],
+        
+            "centre_line" : true,
+            "centre_line_value" : 25
+    }
+}
+
+

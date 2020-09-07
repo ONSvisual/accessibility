@@ -1,0 +1,73 @@
+{
+    "vars" : {
+			"groups":[ "grp0" , "grp1"  , "grp2" , "grp3" , "grp4" , "grp5" , "grp6", "Show all" ],
+			"variables":[ "Healthy Life Expectancy" , "Inequality within local authority" , "Healthy Life Expectancy " , "Inequality within local authority " , "var4" , "var5" ],
+            "dropOpt":[""],
+			"units":[ "Unit0" , "Unit1" , "Unit2" , "Unit3" , "Unit4" , "Unit5" ],
+			"labels":[ "y-axis" , "Axis limits" , "x-axis" ],
+			"grpColorArray":[ "rgba(0,0,0,0.4)" , "#FB9935" , "#00ACC3" , "#2AAF74" , "#EA6908" , "#662584", "#CDBB00", "#9D9D9D" ],
+			"singleColor":"#bd0021",
+			"tools":[ "Equality line", "Regression line" ],
+			"axisLimits":[ "Data" , "Fixed" ]
+	},
+    "essential" : {
+            "graphic_data_url": "data/dist_exp.csv",
+
+            "dateFormat":"%b-%y",
+
+            "legendLabels" : [ "Legend label 1" ],
+
+            "sourceText":["My source information text here"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+
+            "annotationChart": ["EU countries (closer  to us) the UK exports  heavily to","Large economies  that are further  away from UK"," Far away but  the UK has historical  trade links with"]
+            ,
+            "annotationBullet": ["EU countries (closer to us) the UK exports heavily to","Large economies  that are further  away from UK"," Far away but  the UK has historical  trade links with"],
+
+            "annotationXY":[[1000,30],[8000,40],[18500,21]
+            ],
+            "annotationAlign":["centre",
+			"centre",
+			"end"
+            ],
+            "circles" : false,
+            "annotationCXCY":[
+                [ 68, 24 ],
+                [ 0.0 , 100 ]
+            ],
+            "xAxisLabel":"xAxisLabel",
+            "yAxisLabel":"yAxisLabel",
+            "AxisScale":"auto_min_max",
+            "xAxisScaleDivisor":1,
+            "yAxisScaleDivisor":1,
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65]  ,
+			"dataGroups":[ "dataGroup1" ],
+			"xaxislabelPrecison":0,
+			"yaxislabelPrecison":0
+	},
+    "optional" : {
+            "margin_sm": [10, 15, 15, 32],
+            "margin_md": [10, 150, 15, 32],
+            "margin_lg": [10, 250, 40, 32],
+
+
+            "yline": [12.8,12.5],
+            "xline": [62.6,63.9],
+
+            "aspectRatio_sm" : [1,1],
+            "aspectRatio_md" : [1,1],
+            "aspectRatio_lg" : [1,1],
+
+            "mobileBreakpoint" : 610,
+
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%b %y"],
+
+            "x_num_ticks_sm_md_lg" : [6,8,10],
+            "y_num_ticks_sm_md_lg" : [6,8,10],
+            "centre_line" : false,
+            "centre_line_value" :500,
+			"regressionLine":false,
+			"equalityLine":false
+    }
+}

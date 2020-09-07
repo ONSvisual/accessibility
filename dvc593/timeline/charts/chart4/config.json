@@ -1,0 +1,117 @@
+{   "area_on_off": true,
+    
+    "area_on_off_2": true,
+    
+    "axis_scale_max": 150000,
+    
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "dateFormat":"%Y",
+            
+            "legendLabels" : ["immigration","emigration"],
+            "legendStyle": "rect", 
+            "colour_palette": [ "rgb(70, 130, 180)", "rgb(255, 150, 30)" ],
+            
+            "sourceText":["Long-Term International Migration and International Passenger Survey, ONS"],
+            "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/adhocs/006408longterminternationalmigrationintoandoutoftheukbycitizenship1964to2015"],
+			
+			"annotationPlace":[2,2,1,1,2,0,0],
+                
+            "annotationChart": [
+                "Bulgaria and Romania  join the EU",
+                "EU2 working  restrictions lifted",
+				"EU8 countries join the EU  (1st May 2004)",
+				"Includes Czech Republic, Estonia, Hungary,  Latvia, Lithuania, Poland, Slovakia and Slovenia",
+				"Includes Bulgaria and Romania",
+				"generally more people come to the UK than  leave resulting in positive net migration",
+				"(excluding British citizens)"
+            ],
+            "annotationXY":[
+                ["2007","130000"],
+                ["2014","130000"],
+				["2004","130000"],
+				["1976","110000"],
+				["1976","110000"],
+				["2015","150000"],
+				["1976","110000"]
+            ],
+            "annotationAlign":[
+                "end",
+                "end",
+				"end",
+				"start",
+				"start",
+				"end",
+				"start"
+            ],
+        
+            "circles" : false,    
+            "annotationCXCY":[
+                ["2003","68400"],
+                ["2008","73000"]
+            ],
+
+            "yAxisLabel":"",
+            "yAxisScale":[0,200],   
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65]            
+    },
+    
+    "optional" : {
+            "margin_sm": [40, 70, 10, 0],
+            "margin_md": [40, 70, 10, 0],
+            "margin_lg": [40, 70, 10, 0],
+        
+            "aspectRatio_sm" : [4,2],
+            "aspectRatio_md" : [5,1],
+            "aspectRatio_lg" : [5,1],
+        
+            "mobileBreakpoint" : 480, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%Y", "%Y", "%Y"], 
+                
+            "x_num_ticks_sm_md_lg" : [6,12,12],    
+            "y_num_ticks_sm_md_lg" : [5,11,11],
+        
+            "lineMarkers" : true,
+        
+            "vertical_line" : true,
+			"vertical_lines_on": [2,2,1,0,1,2],
+			"vertical_line_id":["annoLine1","annoLine2","annoLine3","annoLine4","annoLine5","annoLine6"],
+            "annotateLineX1_Y1_X2_Y2" : [ [["2007", "100000"],["2007", "0"]],
+										  [["2014", "100000"],["2014", "0"]],
+										  [["2004", "100000"],["2004", "0"]],
+										  [["2015", "120000"],["2015", "48000"]],
+										  [["2015", "75000"],["2015", "25000"]], 
+										  [["2015", "47000"],["2015", "5000"]]  
+										],
+        
+            "annotateRect" : true,
+			"annotateRect_on" : [],
+            "annotateRectX_Y" : [ [["2008", 230000],["2010", 0]], 
+								  [["2008", 230000],["2010", 0]],
+								  [["2008", 230000],["2010", 0]], 
+								  [["2008", 230000],["2010", 0]],
+								  [["2008", 230000],["2010", 0]], 
+								  [["2008", 230000],["2010", 0]],
+								  [["2008", 230000],["2010", 0]],
+								  [["2008", 230000],["2010", 0]]
+							 ],
+							 
+            "lineColor_opcty" : [["#dadada", 0.5],
+								 ["#dadada", 0.5],
+								 ["#dadada", 0.5],
+								 ["#dadada", 0.5],
+								 ["#dadada", 0.5],
+								 ["#dadada", 0.5],
+								 ["#dadada", 0.5],
+								 ["#dadada", 0.5]
+							],
+        
+            "centre_line" : true,
+            "centre_line_value" : 25
+    }
+}
+
+

@@ -1,0 +1,11 @@
+{"ons":{
+"maptitle": "Earnings per week",
+"varcolour": "PuBu",
+"varunit": "£s gross per week",
+"displaydecimals": 0,
+"legenddecimals": 0,
+"breaks": [350,450,550,650,750,1100],
+"dropticks": false,
+"numberBreaks": 5,
+"binInterval": 10
+}}

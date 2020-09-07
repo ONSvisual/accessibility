@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
+  <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <title>MSQR Feb 2019 - chart 1</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../lib/globalStyle.css" />
+
+        <style>
+            body {
+                max-width:700px;
+                margin: 0px auto;
+            }
+
+            svg {
+                margin-left: auto; margin-right: auto;
+                display: block;
+            }
+
+            line,
+            rect {
+                shape-rendering: crispEdges;
+            }
+
+            .axis path,
+            .axis line {
+                fill: none;
+                stroke: #000;
+                shape-rendering: crispEdges;
+            }
+
+            circle.dot {
+                fill: #FFF;
+                stroke-width: 1.5px;
+            }
+
+            .area.confidencea {
+                zoom: 1;
+                filter: alpha(opacity=30);
+                opacity: 0.07;
+            }
+
+            .area.confidenceb {
+                zoom: 1;
+                filter: alpha(opacity=30);
+                opacity: 0.2;
+            }
+
+            .area.confidencec {
+                zoom: 1;
+                filter: alpha(opacity=30);
+                opacity: 0.5;
+            }
+            .label {
+                font-size: 12px;
+                fill: #666;
+            }
+
+
+/*btn code*/
+.section__content--markdown a {
+    text-decoration: underline;
+}
+.btn--primary {
+    background-color: #0F8243;
+    color: #fff;
+}
+.btn {
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    display: inline-block;
+    width: auto;
+    cursor: pointer;
+    padding: 6px 16px 10px 16px;
+    border: 0 none;
+    text-align: center;
+    -webkit-appearance: none;
+    transition: background-color 0.25s ease-out;
+    line-height: 24px;
+}
+a {
+    text-decoration: underline;
+    color: #206095;
+    word-wrap: break-word;
+}
+
+h6 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 16px 0 0 0;
+}
+
+ul, ol {
+    margin: 0px 0;
+    padding-left: 16px;
+}
+
+li {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0px 0;
+    padding: 6px 0 10px 16px;
+}
+
+        </style>
+    </head>
+    <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <div id="graphic">
+    </div>
+    <div id="footer">
+      <h6>Source: Office for National Statistics - Long-Term International Migration</h6>
+      <h6>Notes:</h6>
+      <ol>
+        <li>Confidence intervals are not available for net migration estimates prior to 2012 as revisions were made to data for 2001 to 2011 following the 2011 Census. This does not mean the revised estimates are more certain.</li>
+        <li>Confidence intervals are not available for immigration and net migration estimates for the years ending September 2016, December 2016, March 2017 and June 2017 following revisions to the non-EU immigration for formal study. This does not mean the revised estimates are more certain.</li>
+        <!-- <li>IPS figures for 2017 and 2018 are provisional.</li>
+        <li>The shading around the central IPS estimates represents the associated uncertainty of the estimates due to the number of people surveyed, based on 30%, 60% and 95% confidence intervals. The highlighted central estimate is the most likely value, whilst the values towards the upper and lower limit are possible but less likely. Other sources of uncertainty, for example due to limitations of the survey methodology, are not represented.</li>
+        <li>The dashed line is an illustrative revised trend, adjusted for the unusual pattern in IPS student immigration figures</li>
+        <li>Visa data are Home Office entry clearance study visas for 12 months or more for main applicants only.</li>
+        <li>Student enrolment data are for 12 months of more and are ONS analysis of Higher Education Statistics Agency (HESA) first year student records. The data are for courses starting in the academic year from August to July, by length of study and domicile. HESA data are from Higher Education institutions in England and Wales only. We present these data compared to the equivalent year ending September.</li> -->
+      </ol>
+      <h6>Download this chart</h6>
+      <a class="btn btn--primary"  href="image.png" download>Image</a>
+      <a class="btn btn--primary"  href="data.xlsx" target="_blank">.xls</a>
+      <a class="btn btn--primary"  href="data.csv" target="_blank">.csv</a>
+    </div>
+        <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+        <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
+        <script src="https://cdn.ons.gov.uk/vendor/d3/4.13.0/d3.min.js" type="text/javascript"></script>
+        <script src="../lib/d3-annotation.js" type="text/javascript"></script>
+
+        <script type="text/javascript"charset="utf-8">
+
+
+        var pymChild = new pym.Child();
+
+        d3.json("config.json", function(error, config) {
+
+
+          // Settings
+
+          if (parseInt(d3.select("body").style("width")) < config.optional.mobileBreakpoint) {
+                  var margin = {	'top': 	config.optional.margin_sm[0],
+                          'right': 	config.optional.margin_sm[1],
+                          'bottom': config.optional.margin_sm[2],
+                          'left': 	config.optional.margin_sm[3]
+                  };
+  								var width = parseInt(d3.select("body").style("width")) - margin.left - margin.right;
+  								var height = Math.ceil((width * config.optional.aspectRatio_sm[1]) / config.optional.aspectRatio_sm[0]) - margin.top - margin.bottom;
+                  var no_ticks = config.optional.x_num_ticks_sm_md[0];
+          }
+  			  else {
+                  var margin = {	'top': 	config.optional.margin_md[0],
+                          'right': 	config.optional.margin_md[1],
+                          'bottom': config.optional.margin_md[2],
+                          'left': 	config.optional.margin_md[3]
+                  };
+  								var width = parseInt(d3.select("body").style("width")) - margin.left - margin.right;
+  		            var height = Math.ceil((width * config.optional.aspectRatio_md[1]) / config.optional.aspectRatio_md[0]) - margin.top - margin.bottom;
+                  var no_ticks = config.optional.x_num_ticks_sm_md[1];
+          }
+
+            // Config
+                parseDate = d3.timeParse(config.essential.dateFormat),
+                interpolation = "linear";
+
+            var Series1Color = config.essential.colour_palette[0],
+                Series2Color = config.essential.colour_palette[1],
+                Series3Color = config.essential.colour_palette[2],
+                displaySingle = false;
+                // false, "Series1", "Series2"
+
+            var useLabels = true,
+                yAxisTitle = config.essential.yAxisLabel;
+
+            //if (useLabels === true) { margin.right = 50; }
+            // for the labels; 40 + 10 for each array.length > 4
+
+            if (parseInt(d3.select("body").style("width")) < config.optional.mobileBreakpoint) {
+              tickvalues=[new Date(2008, 11, 1),
+                          new Date(2010, 8, 1),
+                          new Date(2012, 8, 1),
+                          new Date(2014, 8, 1),
+                          new Date(2016, 8, 1),
+                          new Date(2018, 8, 1)]
+            }else{
+              tickvalues=[new Date(2008, 11, 1),
+                            new Date(2009, 11, 1),
+                            new Date(2010, 8, 1),new Date(2011, 8, 1),
+                            new Date(2012, 8, 1),new Date(2013, 8, 1),
+                            new Date(2014, 8, 1),new Date(2015, 8, 1),
+                            new Date(2016, 8, 1),new Date(2017, 8, 1),new Date(2018, 8, 1)]
+            }
+
+            var x = d3.scaleTime()
+                .range([0, width]);
+
+            var y = d3.scaleLinear()
+                .range([height, 0]);
+
+                var xAxis = d3.axisBottom(x)
+                    .tickFormat(function(d,i) {
+                      if (parseInt(d3.select("body").style("width")) <= config.optional.mobileBreakpoint) {
+    		                var fmt = d3.timeFormat(config.optional.xAxisTextFormat_sm_md[0]);
+    		                if(i==5){return fmt(d)+'';}else{return fmt(d);}
+    		            } else {
+    		                var fmt = d3.timeFormat(config.optional.xAxisTextFormat_sm_md[1]);
+    		                if(i==10){return fmt(d)+'';}else{return fmt(d);}
+    		            }
+                  })
+              .tickValues(tickvalues);
+
+            var yAxis = d3.axisLeft(y)
+
+            var y_axis_grid = function() { return yAxis; }
+
+            var lineseries={};
+            for(i=0;i<config.essential.dataSeriesNames.length;i++){
+              lineseries[config.essential.dataSeriesNames[i]] = d3.line()
+                    .defined(function(d){return d[config.essential.dataSeriesNames[i]]})
+                    .curve(d3.curveLinear)
+                    .x(function(d) { return x(d["date"]); })
+                    .y(function(d) { return y(d[config.essential.dataSeriesNames[i]]); });
+            }
+
+
+
+            var justline = d3.line()
+                          .defined(function(d){return d.amt != '0'})
+                          .curve(d3.curveLinear)
+                          .x(function(d){return x(d.date)})
+                          .y(function(d){return y(d.amt)})
+
+
+            var confidenceAreaSeriesA={}
+            var confidenceAreaSeriesB={}
+            var confidenceAreaSeriesC={}
+
+            for(i=0;i<config.essential.dataSeriesNames.length;i++){
+              confidenceAreaSeriesA[config.essential.dataSeriesNames[i]] = d3.area()
+                  .curve(d3.curveLinear)
+                  .defined(function(d){return d[config.essential.dataSeriesNames[i]]})
+                  .x(function(d) { return x(d["date"]); })
+                  .y0(function(d) {
+                      return y(d[config.essential.dataSeriesNames[i]] - d[config.essential.dataSeriesNames[i]+"a"]); })
+                  .y1(function(d) {
+                      return y(d[config.essential.dataSeriesNames[i]] + d[config.essential.dataSeriesNames[i]+"a"]); });
+
+              confidenceAreaSeriesB[config.essential.dataSeriesNames[i]] = d3.area()
+                  .curve(d3.curveLinear)
+                  .defined(function(d){return d[config.essential.dataSeriesNames[i]]})
+                  .x(function(d) { return x(d["date"]); })
+                  .y0(function(d) {
+                      return y(d[config.essential.dataSeriesNames[i]] - d[config.essential.dataSeriesNames[i]+"b"]); })
+                  .y1(function(d) {
+                      return y(d[config.essential.dataSeriesNames[i]] + d[config.essential.dataSeriesNames[i]+"b"]); });
+
+              confidenceAreaSeriesC[config.essential.dataSeriesNames[i]] = d3.area()
+                  .curve(d3.curveLinear)
+                  .defined(function(d){return d[config.essential.dataSeriesNames[i]]})
+                  .x(function(d) { return x(d["date"]); })
+                  .y0(function(d) {
+                      return y(d[config.essential.dataSeriesNames[i]] - d[config.essential.dataSeriesNames[i]+"c"]); })
+                  .y1(function(d) {
+                      return y(d[config.essential.dataSeriesNames[i]] + d[config.essential.dataSeriesNames[i]+"c"]); });
+            }
+
+            var svg = d3.select("#graphic").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height",height + margin.top + margin.bottom)
+                .append("g")
+                .attr("id","graphic")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            var filter = svg.append("defs")
+              .append("filter")
+                .attr("id", "blur")
+              .append("feGaussianBlur")
+                .attr("stdDeviation",config.essential.blur);
+
+
+            d3.csv(config.essential.graphic_data_url, function(error, data) {
+
+                data.forEach(function(d) {
+                    d.date = parseDate(d.date);
+                    for(i=0;i<config.essential.dataSeriesNames.length;i++){
+                      d[config.essential.dataSeriesNames[i]] = +d[config.essential.dataSeriesNames[i]]
+                      d[config.essential.dataSeriesNames[i]+"a"] = +d[config.essential.dataSeriesNames[i]+"a"]
+                      d[config.essential.dataSeriesNames[i]+"b"] = +d[config.essential.dataSeriesNames[i]+"b"]
+                      d[config.essential.dataSeriesNames[i]+"c"] = +d[config.essential.dataSeriesNames[i]+"c"]
+                    }
+
+                    for(i=0;i<config.essential.lineSeriesNames.length;i++){
+                      d[config.essential.lineSeriesNames[i]] = +d[config.essential.lineSeriesNames[i]]
+                    }
+                });
+
+                var lineSeriesData={};
+                for(var column in data[0]){
+                  for (i=0;i<config.essential.dataSeriesNames.length;i++){
+                    if(column==config.essential.dataSeriesNames[i]){
+                      lineSeriesData[config.essential.dataSeriesNames[i]]=data.map(function(d){
+                        return {'date':d.date,'amt':d[config.essential.dataSeriesNames[i]]}
+                      })
+                    }
+                  }
+                }
+
+                keysSeries=d3.keys(lineSeriesData)
+                  for(i=0;i<keysSeries.length;i++){
+                    counter=0;
+                    lineSeriesData[keysSeries[i]].forEach(function(d,j){
+                      if(d.amt!="0"){
+                        counter=j;
+                      }else{
+                        d.date=lineSeriesData[keysSeries[i]][counter].date;
+                        d.amt=lineSeriesData[keysSeries[i]][counter].amt
+                      }
+                    })
+                  }
+
+                var lines = {};
+                for(var column in data[0]){
+                  for(i=0;i<config.essential.lineSeriesNames.length;i++){
+                      if(column==config.essential.lineSeriesNames[i]){
+                        lines[config.essential.lineSeriesNames[i]]=data.map(function(d){
+                          return {'date':d.date,'amt':d[config.essential.lineSeriesNames[i]]};
+                        });
+                      }
+                  }
+                }
+
+
+
+                keys=d3.keys(lines)
+                    for(i=0;i<keys.length;i++){
+                        lines[keys[i]].forEach(function(d,j){
+                          if(d.amt!="0"){
+                            counter = j;
+                          }else{
+                            d.date=lines[keys[i]][counter].date
+                            d.amt=lines[keys[i]][counter].amt
+                          }
+                        })
+                    }
+
+
+
+
+
+                x.domain(d3.extent(data, function(d) {
+                    return d.date; }));
+
+                y.domain(config.essential.yAxisScale);
+
+                svg.datum(data);
+                // X axis
+                // X axis
+                svg.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(xAxis)
+                    .append("text")
+                    .attr("x", width/2)
+                    .attr("y", 40)
+                    .attr("dy", "0em")
+                    .style("text-anchor", "middle")
+                    .text('Year ending')
+
+                svg
+                  .selectAll(".tick text")
+                  .call(wrap, 50)
+
+                // Y axis
+                svg.append("g")
+                    .attr("class", "y axis")
+                    .call(yAxis.ticks(5))
+                    .append("text")
+                    .attr("x", -margin.left + 3)
+                    .attr("y", -15)
+                    .attr("dy", "0em")
+                    .style("text-anchor", "start")
+                    .text(yAxisTitle);
+
+                svg.append('g')
+                    .attr('class', 'y grid')
+                    .call(y_axis_grid()
+                        .tickSize(-width, 0, 0)
+                        .tickFormat('')
+                    )
+
+                    //legend
+                    svg.append("g")
+                       .append("line")
+                       .attr("x1",-37)
+                       .attr("x2",-7)
+                       .attr("y1",-70)
+                       .attr("y2",-70)
+                       .attr("stroke","#666")
+                       .attr("stroke-width","2px")
+
+                    svg.append("g")
+                        .append("text")
+                        .attr("class","axis")
+     				            .attr("x",0)
+                        .attr("y", -margin.top+5)
+                        .attr("dy", ".71em")
+                        .attr("text-anchor", "start")
+                        .text("Estimate");
+
+                     svg.append("g")
+                        .append("rect")
+                        .attr("x",-37)
+                        .attr("y",-60)
+                        .attr("height",30)
+                        .attr("width",30)
+                        .attr("fill","#eee");
+
+                    svg.append("g")
+                       .append("rect")
+                       .attr("x",-35)
+                       .attr("y",-52.5)
+                       .attr("height",15)
+                       .attr("width",26)
+                       .attr("fill","#ccc")
+                       .attr("filter", "url(#blur)");
+
+                   svg.append("g")
+                      .append("rect")
+                      .attr("x",-35)
+                      .attr("y",-48)
+                      .attr("height",7)
+                      .attr("width",26)
+                      .attr("fill","#bbb")
+                      .attr("filter", "url(#blur)");
+
+                  svg.append("g")
+                      .append("text")
+                      .attr("class","axis")
+     				          .attr("x", 0)
+                      .attr("y", -margin.top+30)
+                      .attr("dy", ".71em")
+                      .style("text-anchor", "start")
+                      .text("Known uncertainty in survey estimate");
+
+
+
+                      for(i=0;i<config.essential.dataSeriesNames.length;i++){
+                        svg.append("path")
+                            .attr("class", "area confidencea")
+                            .attr("fill", config.essential.colour_palette[i])
+                            .attr("d", confidenceAreaSeriesA[config.essential.dataSeriesNames[i]])
+
+                        svg.append("path")
+                            .attr("class", "area confidenceb")
+                            .attr("fill", config.essential.colour_palette[i])
+                            .attr("d", confidenceAreaSeriesB[config.essential.dataSeriesNames[i]])
+                            .attr("filter", "url(#blur)");
+
+                        svg.append("path")
+                            .attr("class", "area confidencec")
+                            .attr("fill", config.essential.colour_palette[i])
+                            .attr("d", confidenceAreaSeriesC[config.essential.dataSeriesNames[i]])
+                            .attr("filter", "url(#blur)");
+
+                      }
+
+
+                for(i=0;i<config.essential.dataSeriesNames.length;i++){
+                  svg.append("path")
+                      .attr("class", "line")
+                      .attr("id","line"+i)
+                      .attr("d", function(d){return justline(d3.entries(lineSeriesData)[i].value)})
+                      .attr("stroke", config.essential.colour_palette[i])
+
+                }
+
+                //draw the lines that don't have confidence intervals
+                for(i=0;i<config.essential.lineSeriesNames.length;i++){
+                  svg.append("path")
+                      .attr("class","line")
+                      .attr("id","justline"+i)
+                      .attr("d",function(d){return justline(d3.entries(lines)[i].value)})
+                      .attr("stroke",config.essential.lineColourPalette[i])
+
+                }
+
+                //vertical line
+                  svg.append("line")
+                      .attr("id","vertical-line")
+                      .attr("stroke", "#666")
+                      .attr("stroke-width", 3)
+                      .attr('x1',x(new Date(2016, 5, 1)))
+                      .attr('x2',x(new Date(2016, 5, 1)))
+                      .attr('y1',y(config.essential.yAxisScale[1]))
+                      .attr('y2',y(0))
+                      .attr('stroke-dasharray', '4,4');
+
+                      //annotations
+                      var annotations = [
+                      {
+                        note: {
+                          label: "EU referendum",
+                          lineType: "none",
+                          align: "left",
+                          wrap:400,
+                        },
+                        //can use x, y directly instead of data
+                        data: { date: "04/2016", y: 40 },
+                        dy: 0,
+                        dx: 0
+                      }
+                    ]
+
+                      var makeAnnotations = d3.annotation()
+                        .type(d3.annotationLabel)
+                        .accessors({
+                          x: function(d){return margin.left+x(d3.timeParse("%m/%Y")(d.date))+15},
+                          y: function(d){return margin.top+y(d.y) }
+                        })
+                        .annotations(annotations)
+
+
+                                  d3.select("svg")
+                                    .append("g")
+                                    .attr("class", "annotation-group")
+                                    .call(makeAnnotations)
+
+
+                //wrapping long labels
+                function wrap(text, width) {
+                  text.each(function() {
+                    var text = d3.select(this),
+                        words = text.text().split(/\s+/).reverse(),
+                        word,
+                        line = [],
+                        lineNumber = 0,
+                        lineHeight = 1.1, // ems
+                        y = text.attr("y"),
+                        dy = parseFloat(text.attr("dy")),
+                        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em")
+                    while (word = words.pop()) {
+                      line.push(word)
+                      tspan.text(line.join(" "))
+                      if (tspan.node().getComputedTextLength() > width) {
+                        line.pop()
+                        tspan.text(line.join(" "))
+                        line = [word]
+                        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word)
+                      }
+                    }
+                  })
+                }
+
+                function arrangeLabels(classname) {
+                  var move = 1;
+                  while (move > 0) {
+                    move = 0;
+                    d3.selectAll("." + classname)
+                      .each(function(d, i) {
+                        var that = this,
+                          a = this.getBoundingClientRect();
+
+                        d3.selectAll("." + classname)
+                          .each(function() {
+                            if (this != that) {
+                              var b = this.getBoundingClientRect();
+                              if ((Math.abs(a.top - b.top) * 2.5 < (a.height + b.height))) {
+                                // overlap, move labels
+                                var dx = (Math.max(0, a.right - b.left) +
+                                    Math.min(0, a.left - b.right)) * 0.01,
+                                  dy = (Math.max(0, a.bottom - b.top) +
+                                    Math.min(0, a.top - b.bottom)) * 0.03;
+
+                                tt = getTransformation(d3.select(this).attr("transform")),
+                                to = getTransformation(d3.select(that).attr("transform"));
+                                move += Math.abs(dx) + Math.abs(dy);
+
+                                to.translateY = [to.translateX, to.translateY + dy];
+                                tt.translateY = [tt.translateX, tt.translateY - dy];
+
+                                d3.select(this).attr("transform", "translate(" + tt.translateY + ")");
+                                d3.select(that).attr("transform", "translate(" + to.translateY + ")");
+                                a = this.getBoundingClientRect();
+                              }
+                            }
+                          });
+                      });
+                  }
+                } // end of arangeLabels
+
+                function getTransformation(transform) {
+                  // Create a dummy g for calculation purposes only. This will never
+                  // be appended to the DOM and will be discarded once this function
+                  // returns.
+                  var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+
+                  // Set the transform attribute to the provided string value.
+                  g.setAttributeNS(null, "transform", transform);
+
+                  // consolidate the SVGTransformList containing all transformations
+                  // to a single SVGTransform of type SVG_TRANSFORM_MATRIX and get
+                  // its SVGMatrix.
+                  var matrix = g.transform.baseVal.consolidate().matrix;
+
+                  // Below calculations are taken and adapted from the private function
+                  // transform/decompose.js of D3's module d3-interpolate.
+               		// ES6, if this doesn't work, use below assignment
+
+        					var a=matrix.a, b=matrix.b, c=matrix.c, d=matrix.d, e=matrix.e, f=matrix.f; // ES5
+                  var scaleX, scaleY, skewX;
+                  if (scaleX = Math.sqrt(a * a + b * b)) a /= scaleX, b /= scaleX;
+                  if (skewX = a * c + b * d) c -= a * skewX, d -= b * skewX;
+                  if (scaleY = Math.sqrt(c * c + d * d)) c /= scaleY, d /= scaleY, skewX /= scaleY;
+                  if (a * d < b * c) a = -a, b = -b, skewX = -skewX, scaleX = -scaleX;
+                  return {
+                    translateX: e,
+                    translateY: f,
+                    rotate: Math.atan2(b, a) * 180 / Math.PI,
+                    skewX: Math.atan(skewX) * 180 / Math.PI,
+                    scaleX: scaleX,
+                    scaleY: scaleY
+                  };
+                } // end of getTrnsformatio
+
+                // d3.select("#line1")
+                // .attr("stroke-dasharray","4 4")
+
+                //  label the lines
+                if (useLabels === true) {
+                    // if (displaySingle !== "Series2") {
+                    for(i=0;i<config.essential.dataSeriesNames.length;i++){
+                      svg.append("text")
+                          .data(data)
+                          .attr("transform", function(d) {
+                              return "translate(" + x(data[data.length-1]["date"]) + "," + y(data[data.length-1][config.essential.dataSeriesNames[i]]) + ")"; })
+                          .attr("x", 10)
+                          .attr("dy", ".35em")
+                          .attr("class", "label")
+                          .attr("id", "linelabel"+i)
+                          .style("fill",config.essential.colour_palette[i])
+                          .text(config.essential.legendLabels[i]);
+                    }
+
+                    for(i=0;i<config.essential.lineSeriesNames.length;i++){
+                        svg.append("text")
+                            .data(data)
+                            .attr("id","justlinelabel"+i)
+                            .attr("transform", function(d) {
+                                return "translate(" + x(data[data.length-1]["date"]) + "," + y(data[data.length-1][config.essential.lineSeriesNames[i]]) + ")"; })
+                            .attr("x", 10)
+                            .attr("dy", ".35em")
+                            .attr("class", "label")
+                            .style("fill",config.essential.lineColourPalette[i])
+                            .text(config.essential.lineSeriesNames[i]);
+                    }
+                    d3.select("#justlinelabel1")
+                    .attr("transform",function(d){
+                      return "translate(" + x(data[data.length-9]["date"]) + "," + y(data[data.length-9][config.essential.lineSeriesNames[1]]+3) + ")";
+                    })
+
+                    d3.select("#linelabel1")
+                    .attr("transform",function(d){
+                      return "translate(" + x(data[data.length-1]["date"]) + "," + (y(data[data.length-1][config.essential.dataSeriesNames[1]])+13) + ")";
+                    })
+
+                    arrangeLabels("label");
+
+                    if (pymChild) {
+            		        pymChild.sendHeight();
+            		    }
+                }
+            });//end d3.csv
+
+          });
+          pymChild.sendHeight();
+        </script>
+    </body>
+</html>

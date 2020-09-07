@@ -1,0 +1,27 @@
+{"ons":{
+"datanames": ["children","working","retired"],
+"varlabel": ["Under 16 years","16 to 64 years", "65 years and over"],
+"varcolour": ["#f0f9e8","#bae4bc","#7bccc4","#43a2ca","#0868ac"],
+"varname": ["children","working","retired"],
+"varload": "children",
+"varunit":["% population under 16","% population between 16 and 64","% population 65 and over"],
+"varprefix":["","",""],
+"breaks":"jenks"
+    ,
+"average":[
+	[20.6 ,19, 18.9, 18.5, 17.5],
+	[63.5, 65.1, 62.9, 60.7, 58.5],
+	[15.9, 15.9, 18.2, 20.7, 24]
+],
+"averagelabel":"UK",
+"centre":[53.0,-1.91],
+"zoom":6,
+"sourceLabel":"Office for National Statistics, Northern Ireland Statistics and Research Agency, National Records of Scotland and Welsh Government",
+"sourceURL":"https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/articles/overviewoftheukpopulation/latest",
+"chartLabels":["97", "07", "17", "27", "37"],
+"timelineLabelsMB":["97", "07", "17", "27", "37"],
+"timelineLabelsDT":["1997", "2007", "2017", "2027", "2037"],
+"circles": "true"
+    
+    
+}}
