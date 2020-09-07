@@ -1,1510 +1,1576 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>How long will your pension pot need to last?</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/styles.css" media="screen">
-    <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css">
 
-    <style type="text/css">
-        html, body, div, span, applet, object, iframe,
-		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-		a, abbr, acronym, address, big, cite, code,
-		del, dfn, em, img, ins, kbd, q, s, samp,
-		small, strike, strong, sub, sup, tt, var,
-		b, u, i, center,
-		dl, dt, dd, ol, ul, li,
-		fieldset, form, label, legend,
-		table, caption, tbody, tfoot, thead, tr, th, td,
-		article, aside, canvas, details, embed,
-		figure, figcaption, footer, header, hgroup,
-		menu, nav, output, ruby, section, summary,
-		time, mark, audio, video
-		{
-			margin: 0;
-			padding: 0;
-			border: 0;
-			font-size: 100%;
-			font: inherit;y
-			vertical-align: baseline;
-		}
+<head>
+  <meta charset="utf-8">
+  <title>How long will your pension pot need to last?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/styles.css" media="screen">
+  <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css">
 
-		body {
-			max-width:800px;
-			margin: 0 auto;
-		}
+  <style type="text/css">
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      y vertical-align: baseline;
+    }
 
-
-		.btn-form-icon {
-            display: -webkit-inline-box;
-            display: -ms-inline-flexbox;
-            display: inline-flex;
-            font-family: 'Open Sans',Arial,sans-serif;
-            -webkit-font-smoothing: antialiased;
-            font-weight: 600;
-            font-size: 16px;
-            margin-bottom: 32px;
-          }
-
-          .form-group-icon {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            cursor: pointer;
-            height: 48px;
-            box-sizing: border-box;
-            text-align: center;
-          }
-
-          .form-group-icon:last-child {
-            border-right: solid 1px #A6A8AB;
-          }
-
-          #picto {
-            margin-bottom:20px;
-            border-bottom: 1px solid;
-            border-color: #d8dadb;
-
-          }
-
-
-		/* Neutral button group */
-
-          .label-neutral-icon {
-            padding: 12px 16px;
-            cursor: pointer;
-            color: #333;
-            background: #F9F9F9;
-            width: 144px;
-            border-top: solid 1px #A6A8AB;
-            border-left: solid 1px #A6A8AB;
-            border-bottom: solid 1px #A6A8AB;
-          }
-
-          .label-neutral-icon:hover {
-            background: #EAEAEA;
-          }
-
-          .radio-neutral-icon:checked + .label-neutral-icon {
-            background: #D0D2D3;
-            color: #323132;
-          }
-
-          .radio-neutral-icon:checked + .label-neutral-icon.male-neutral {
-            background: #D0D2D3;
-            color: #323132;
-            background-image: url("images/male.svg");
-            background-repeat: no-repeat;
-          }
-
-          .radio-neutral-icon:checked + .label-neutral-icon.female-neutral {
-            background: #D0D2D3;
-            color: #323132;
-            background-image: url("images/female.svg");
-            background-repeat: no-repeat;
-          }
-
-          .radio-neutral-icon {
-            display: none;
-          }
-
-		   .male-neutral {
-            background-image: url("images/male.svg");
-            background-repeat: no-repeat;
-          }
-
-          .male-neutral:hover {
-            background-image: url("images/male.svg");
-            background-repeat: no-repeat;
-          }
-
-          .female-neutral {
-            background-image: url("images/female.svg");
-            background-repeat: no-repeat;
-          }
-
-          .female-neutral:hover {
-            background-image: url("images/female.svg");
-            background-repeat: no-repeat;
-          }
+    body {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
 
+    .btn-form-icon {
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      font-family: 'Open Sans', Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
 
-      /* Primary button */
+    .form-group-icon {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      cursor: pointer;
+      height: 48px;
+      box-sizing: border-box;
+      text-align: center;
+    }
 
-      .btn-primary {
-        background-color: #206095;
-        color: #fff;
-      }
+    .form-group-icon:last-child {
+      border-right: solid 1px #A6A8AB;
+    }
 
-      .btn-primary:hover {
-        background-color:#003C57;
-      }
+    #picto {
+      margin-bottom: 20px;
+      border-bottom: 1px solid;
+      border-color: #d8dadb;
 
-      .btn-primary:focus {
-        outline: 3px solid #FF9933 !important;
-        outline-offset: -1px;
-        background-color:#003C57;
-      }
-
-      .large {
-        font-family: 'Open Sans',Arial,sans-serif;
-        font-weight: 600;
-        font-size: 16px;
-        display: inline-block;
-        cursor: pointer;
-        height: 40px;
-        padding: 0 32px 0 32px;
-        border: 0 none;
-        text-align: center;
-        -webkit-appearance: none;
-        transition: background-color 0.25s ease-out;
-        text-decoration: none;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      .small {
-        font-family: 'Open Sans',Arial,sans-serif;
-        font-size: 12px;
-        font-weight: 600;
-        height: 32px;
-        display: inline-block;
-        padding: 0 8px;
-        cursor: pointer;
-        border: 0 none;
-        text-align: center;
-        -webkit-appearance: none;
-        transition: background-color 0.25s ease-out;
-        text-decoration: none;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      .custom {
-        width: 280px;
-      }
-
-      /* Secondary button */
-
-      .btn-secondary {
-        background-color: #5F7682;
-        color: #FFFFFF;
-        border: none;
-      }
-
-      .btn-secondary:hover {
-        background-color: #45565E;
-        color: #FFFFFF;
-      }
-
-      .btn-secondary:focus {
-        outline: 3px solid #FF9933 !important;
-        outline-offset: -1px;
-        background-color: #45565E;
-      }
-
-      /* Neutral button */
-
-      .btn-neutral {
-        background-color: #F9F9F9;
-        color: #414042;
-        border: solid 1px #A6A8AB;
-      }
-
-      .btn-neutral:hover {
-        background-color: #E5E6E7;
-        color: #323132;
-      }
-
-      .btn-neutral:focus {
-        outline: 3px solid #FF9933 !important;
-        outline-offset: -1px;
-        background-color: #E5E6E7;
-        color: #323132;
-      }
-
-      /* Disabled button */
-	   #submitButton {
-		  cursor: not-allowed;
-	   }
-
-      .btn-disabled {
-        background-color:#003C57;
-        opacity: 0.7;
-        /*cursor: not-allowed;*/
-        background-color: #206095;
-        color: #fff;
-		pointer-events: none;
-      }
-
-      /* Disabled button */
-
-      .btn-disabled:focus {
-        outline: none;
-      }
+    }
 
 
-	.container-fluid {
-	  margin-right: auto;
-	  margin-left: auto;
-	  padding-left: 0px !important;
-	  padding-right: 0px !important;
-	}
+    /* Neutral button group */
 
+    .label-neutral-icon {
+      padding: 12px 16px;
+      cursor: pointer;
+      color: #333;
+      background: #F9F9F9;
+      width: 144px;
+      border-top: solid 1px #A6A8AB;
+      border-left: solid 1px #A6A8AB;
+      border-bottom: solid 1px #A6A8AB;
+    }
 
-	#MyAgeLine
-	{
-		stroke:solid;
-		stroke-width:1px;
-		stroke:#323132;
-		stroke-dasharray:5,5;
-	}
+    .label-neutral-icon:hover {
+      background: #EAEAEA;
+    }
+
+    .radio-neutral-icon:checked+.label-neutral-icon {
+      background: #D0D2D3;
+      color: #323132;
+    }
+
+    .radio-neutral-icon:checked+.label-neutral-icon.male-neutral {
+      background: #D0D2D3;
+      color: #323132;
+      background-image: url("images/male.svg");
+      background-repeat: no-repeat;
+    }
+
+    .radio-neutral-icon:checked+.label-neutral-icon.female-neutral {
+      background: #D0D2D3;
+      color: #323132;
+      background-image: url("images/female.svg");
+      background-repeat: no-repeat;
+    }
+
+    .radio-neutral-icon {
+      display: none;
+    }
+
+    .male-neutral {
+      background-image: url("images/male.svg");
+      background-repeat: no-repeat;
+    }
+
+    .male-neutral:hover {
+      background-image: url("images/male.svg");
+      background-repeat: no-repeat;
+    }
+
+    .female-neutral {
+      background-image: url("images/female.svg");
+      background-repeat: no-repeat;
+    }
+
+    .female-neutral:hover {
+      background-image: url("images/female.svg");
+      background-repeat: no-repeat;
+    }
 
 
 
-	#selectAgeProbabilites
-	{
-		position:absolute;
-		background-color:white;
-		opacity:1;/*
+    /* Primary button */
+
+    .btn-primary {
+      background-color: #206095;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background-color: #003C57;
+    }
+
+    .btn-primary:focus {
+      outline: 3px solid #FF9933 !important;
+      outline-offset: -1px;
+      background-color: #003C57;
+    }
+
+    .large {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      display: inline-block;
+      cursor: pointer;
+      height: 40px;
+      padding: 0 32px 0 32px;
+      border: 0 none;
+      text-align: center;
+      -webkit-appearance: none;
+      transition: background-color 0.25s ease-out;
+      text-decoration: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .small {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      height: 32px;
+      display: inline-block;
+      padding: 0 8px;
+      cursor: pointer;
+      border: 0 none;
+      text-align: center;
+      -webkit-appearance: none;
+      transition: background-color 0.25s ease-out;
+      text-decoration: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .custom {
+      width: 280px;
+    }
+
+    /* Secondary button */
+
+    .btn-secondary {
+      background-color: #5F7682;
+      color: #FFFFFF;
+      border: none;
+    }
+
+    .btn-secondary:hover {
+      background-color: #45565E;
+      color: #FFFFFF;
+    }
+
+    .btn-secondary:focus {
+      outline: 3px solid #FF9933 !important;
+      outline-offset: -1px;
+      background-color: #45565E;
+    }
+
+    /* Neutral button */
+
+    .btn-neutral {
+      background-color: #F9F9F9;
+      color: #414042;
+      border: solid 1px #A6A8AB;
+    }
+
+    .btn-neutral:hover {
+      background-color: #E5E6E7;
+      color: #323132;
+    }
+
+    .btn-neutral:focus {
+      outline: 3px solid #FF9933 !important;
+      outline-offset: -1px;
+      background-color: #E5E6E7;
+      color: #323132;
+    }
+
+    /* Disabled button */
+    #submitButton {
+      cursor: not-allowed;
+    }
+
+    .btn-disabled {
+      background-color: #003C57;
+      opacity: 0.7;
+      /*cursor: not-allowed;*/
+      background-color: #206095;
+      color: #fff;
+      pointer-events: none;
+    }
+
+    /* Disabled button */
+
+    .btn-disabled:focus {
+      outline: none;
+    }
+
+
+    .container-fluid {
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+
+
+    #MyAgeLine {
+      stroke: solid;
+      stroke-width: 1px;
+      stroke: #323132;
+      stroke-dasharray: 5, 5;
+    }
+
+
+
+    #selectAgeProbabilites {
+      position: absolute;
+      background-color: white;
+      opacity: 1;
+      /*
 		left:100px;
 		top:50px;*/
-		width:150px;
-		height:100px;
-		display:none;
-		border:solid;
-		border-radius:5px;
-		border-width:1px;
-		color:#323132;
-		pointer-events:none;
-		box-shadow: 5px 5px 5px #323132;
-	}
-		.oneinfour{
-          width: 20px;
-          border-radius: 10px;
-          float: left;
-          margin-top: 12px;
-          background-color: #008080;
-          height: 20px;
-		}
+      width: 150px;
+      height: 100px;
+      display: none;
+      border: solid;
+      border-radius: 5px;
+      border-width: 1px;
+      color: #323132;
+      pointer-events: none;
+      box-shadow: 5px 5px 5px #323132;
+    }
 
-		.oneinten{
+    .oneinfour {
+      width: 20px;
+      border-radius: 10px;
+      float: left;
+      margin-top: 12px;
+      background-color: #008080;
+      height: 20px;
+    }
+
+    .oneinten {
       width: 20px;
       border-radius: 10px;
       float: left;
       margin-top: 12px;
       background-color: #095674;
       height: 20px;
-		}
+    }
 
-		.onehundred{
+    .onehundred {
       width: 20px;
       border-radius: 10px;
       float: left;
       margin-top: 12px;
       background-color: #236092;
       height: 20px;
-		}
+    }
 
-		#peryear{
-			font-size:16px;
-			font-weight:400;
+    #peryear {
+      font-size: 16px;
+      font-weight: 400;
 
-		}
+    }
 
-		.labelt{
-			/*padding:5px 10px 0px 10px;
+    .labelt {
+      /*padding:5px 10px 0px 10px;
 			padding-left:10px;*/
-		}
+    }
 
-		.valuet {
-			/*padding:10px 10px 0px 10px;*/
-			padding:25px 10px 10px 0px;
-			color:#007F7F;
-			width:/*50px*/100%;
-			text-align:left;
-		}
+    .valuet {
+      /*padding:10px 10px 0px 10px;*/
+      padding: 25px 10px 10px 0px;
+      color: #007F7F;
+      width:
+        /*50px*/
+        100%;
+      text-align: left;
+    }
 
-		.valuet2 {
-			color:#007F7F;
-			width:50px;
-			text-align:left;
-		}
+    .valuet2 {
+      color: #007F7F;
+      width: 50px;
+      text-align: left;
+    }
 
-		.labels {/*
+    .labels {
+      /*
 			height:125px;*/
-			height:100px;
-			text-align:left;
+      height: 100px;
+      text-align: left;
 
-		}
+    }
 
-		.labels2 {
-			/*height:16px;*/
-			text-align:left;
-			margin:10px 0px 5px 0px;
-			display:block;
+    .labels2 {
+      /*height:16px;*/
+      text-align: left;
+      margin: 10px 0px 5px 0px;
+      display: block;
 
-		}
-
-
-
-
-
-/* Bootstrap Grid */
-
-			.col-xs-1p, .col-xs-2p, .col-xs-3p, .col-xs-4p, .col-xs-5p, .col-xs-6p, .col-xs-7p, .col-xs-8p, .col-xs-9p, .col-xs-10p, .col-xs-11p, .col-xs-12p {
-			  float: left;
-			  padding: 0px;
-			}
-			.col-xs-12p {
-			  width: 100%;
-			}
-			.col-xs-11p {
-			  width: 91.66666667%;
-			}
-			.col-xs-10p {
-			  width: 83.33333333%;
-			}
-			.col-xs-9p {
-			  width: 75%;
-			}
-			.col-xs-8p {
-			  width: 66.66666667%;
-			}
-			.col-xs-7p {
-			  width: 58.33333333%;
-			}
-			.col-xs-6p {
-			  width: 50%;
-			}
-			.col-xs-5p {
-			  width: 41.66666667%;
-			}
-			.col-xs-4p {
-			  width: 33.33333333%;
-			}
-			.col-xs-3p {
-			  width: 25%;
-			}
-			.col-xs-2p {
-			  width: 16.66666667%;
-			}
-			.col-xs-1p {
-			  width: 8.33333333%;
-			}
-
-@media (min-width: 768px) {
-
-
-		  	.jumbotron h1,
-		  	.jumbotron .h1
-		  	{
-				font-size: 16px !important;
-			}
-
-
-
-		  	.jumbotron p,
-		  	.jumbotron .p
-			{
-				font-size: 20px !important;
-			}
-
-
-	  .col-sm-1p, .col-sm-2p, .col-sm-3p, .col-sm-4p, .col-sm-5p, .col-sm-6p, .col-sm-7p, .col-sm-8p, .col-sm-9p, .col-sm-10p, .col-sm-11p, .col-sm-12p {
-			float: left;
-			padding: 0px;
-
-		  }
-		  .col-sm-12p {
-			width: 100%;
-		  }
-		  .col-sm-11p {
-			width: 91.66666667%;
-		  }
-		  .col-sm-10p {
-			width: 83.33333333%;
-		  }
-		  .col-sm-9p {
-			width: 75%;
-		  }
-		  .col-sm-8p {
-			width: 66.66666667%;
-		  }
-		  .col-sm-7p {
-			width: 58.33333333%;
-		  }
-		  .col-sm-6p {
-			width: 50%;
-		  }
-		  .col-sm-5p {
-			width: 41.66666667%;
-		  }
-		  .col-sm-4p {
-			width: 33.33333333%;
-		  }
-		  .col-sm-3p {
-			width: 25%;
-		  }
-		  .col-sm-2p {
-			width: 16.66666667%;
-		  }
-		  .col-sm-1p {
-			width: 8.33333333%;
-		  }
-
-}
+    }
 
 
 
 
-		@media (max-width: 400px) {
 
-			 .large {
-				font-family: 'Open Sans',Arial,sans-serif;
-				font-weight: 600;
-				font-size: 16px;
-				display: inline-block;
-				cursor: pointer;
-				height: 40px;
-				padding: 0 10px 0 10px;
-				border: 0 none;
-				text-align: center;
-				-webkit-appearance: none;
-				transition: background-color 0.25s ease-out;
-				text-decoration: none;
-				-webkit-font-smoothing: antialiased;
-			  }
+    /* Bootstrap Grid */
+
+    .col-xs-1p,
+    .col-xs-2p,
+    .col-xs-3p,
+    .col-xs-4p,
+    .col-xs-5p,
+    .col-xs-6p,
+    .col-xs-7p,
+    .col-xs-8p,
+    .col-xs-9p,
+    .col-xs-10p,
+    .col-xs-11p,
+    .col-xs-12p {
+      float: left;
+      padding: 0px;
+    }
+
+    .col-xs-12p {
+      width: 100%;
+    }
+
+    .col-xs-11p {
+      width: 91.66666667%;
+    }
+
+    .col-xs-10p {
+      width: 83.33333333%;
+    }
+
+    .col-xs-9p {
+      width: 75%;
+    }
+
+    .col-xs-8p {
+      width: 66.66666667%;
+    }
+
+    .col-xs-7p {
+      width: 58.33333333%;
+    }
+
+    .col-xs-6p {
+      width: 50%;
+    }
+
+    .col-xs-5p {
+      width: 41.66666667%;
+    }
+
+    .col-xs-4p {
+      width: 33.33333333%;
+    }
+
+    .col-xs-3p {
+      width: 25%;
+    }
+
+    .col-xs-2p {
+      width: 16.66666667%;
+    }
+
+    .col-xs-1p {
+      width: 8.33333333%;
+    }
+
+    @media (min-width: 768px) {
 
 
-			#LEDiv{
-
-
-			}
-
-			#pictoActualLabel,
-			#pictoNatLabel,
-			#pictoGuessLabel{
-				padding-top:10px;
-			}
-
-		  	.jumbotron h1,
-		  	.jumbotron .h1
-		  	{
-				font-size: 16px !important;
-			}
+      .jumbotron h1,
+      .jumbotron .h1 {
+        font-size: 16px !important;
+      }
 
 
 
-		  	.jumbotron p,
-		  	.jumbotron .p
-			{
-				font-size: 20px !important;
-			}
-			.picaarticle {
-				font-size:15px;
-			    line-height:20px;
-			}
+      .jumbotron p,
+      .jumbotron .p {
+        font-size: 20px !important;
+      }
 
-			.doublepica {
-				font-size:20px;
-				line-height:24px;
 
-			}
+      .col-sm-1p,
+      .col-sm-2p,
+      .col-sm-3p,
+      .col-sm-4p,
+      .col-sm-5p,
+      .col-sm-6p,
+      .col-sm-7p,
+      .col-sm-8p,
+      .col-sm-9p,
+      .col-sm-10p,
+      .col-sm-11p,
+      .col-sm-12p {
+        float: left;
+        padding: 0px;
 
-			.trafalger {
-				font-size: 16px;
-				line-height:0px;
+      }
+
+      .col-sm-12p {
+        width: 100%;
+      }
+
+      .col-sm-11p {
+        width: 91.66666667%;
+      }
+
+      .col-sm-10p {
+        width: 83.33333333%;
+      }
+
+      .col-sm-9p {
+        width: 75%;
+      }
+
+      .col-sm-8p {
+        width: 66.66666667%;
+      }
+
+      .col-sm-7p {
+        width: 58.33333333%;
+      }
+
+      .col-sm-6p {
+        width: 50%;
+      }
+
+      .col-sm-5p {
+        width: 41.66666667%;
+      }
+
+      .col-sm-4p {
+        width: 33.33333333%;
+      }
+
+      .col-sm-3p {
+        width: 25%;
+      }
+
+      .col-sm-2p {
+        width: 16.66666667%;
+      }
+
+      .col-sm-1p {
+        width: 8.33333333%;
+      }
+
+    }
+
+
+
+
+    @media (max-width: 400px) {
+
+      .large {
+        font-family: 'Open Sans', Arial, sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        display: inline-block;
+        cursor: pointer;
+        height: 40px;
+        padding: 0 10px 0 10px;
+        border: 0 none;
+        text-align: center;
+        -webkit-appearance: none;
+        transition: background-color 0.25s ease-out;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+      }
+
+
+      #LEDiv {}
+
+      #pictoActualLabel,
+      #pictoNatLabel,
+      #pictoGuessLabel {
+        padding-top: 10px;
+      }
+
+      .jumbotron h1,
+      .jumbotron .h1 {
+        font-size: 16px !important;
+      }
+
+
+
+      .jumbotron p,
+      .jumbotron .p {
+        font-size: 20px !important;
+      }
+
+      .picaarticle {
+        font-size: 15px;
+        line-height: 20px;
+      }
+
+      .doublepica {
+        font-size: 20px;
+        line-height: 24px;
+
+      }
+
+      .trafalger {
+        font-size: 16px;
+        line-height: 0px;
         margin-left: 38px;
         margin-top: -9px;
-        color:#728893;
+        color: #728893;
         float: left;
-			}
+      }
 
 
 
-			#hundredYearProbValue1,
-			#hundredYearProbValue2
-			{
-				font-size:8px;
-				font-weight:normal;
-				line-height:16px;
+      #hundredYearProbValue1,
+      #hundredYearProbValue2 {
+        font-size: 8px;
+        font-weight: normal;
+        line-height: 16px;
 
-				display:none;
-			}
-
-
-
-			#SPAValue1,
-			#SPAValue2
-			{
-
-				font-size:12px;
-				font-weight:normal;
-				line-height:16px;
-			}
-
-			#LE
-			{
-
-				font-size: 40px;
-				font-weight: 700;
-				color:#fff;
-				vertical-align:middle;
-				text-align:left;
-			}
-
-			#yearsPastSPA, #yearsFromNow
-			{
-
-				font-size:2.6em;
-				vertical-align:middle;
-				text-align: left;
-				padding-top:0px;
-			}
-
-		   .static{
-
-
-				color:#4f4f4f;
-				font-weight: 700;
-				font-size: 16px;
-		   }
-
-		   .staticLink{
-
-
-				color:#4f4f4f;
-				font-size:1.1em;
-		   }
-
-		   .sub_static{
-         width: calc(100% - 25px);
-         float:right;
-
-				color:#4f4f4f;
-				font-size:16px;
+        display: none;
+      }
 
 
 
-				color: #323132;
-				padding: 0px 10px 5px 10px;
-				font-weight: 600;
-				margin-top: 10px;
-		   }
+      #SPAValue1,
+      #SPAValue2 {
 
-			.caveat
-		   {
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 16px;
+      }
 
-				color:#236092;
-				font-size:16px;
-		   }
+      #LE {
 
-			#pictoText{
-				padding-top:10px;
-				background-color:#fff;
-				padding-bottom:10px;
-			}
+        font-size: 40px;
+        font-weight: 700;
+        color: #fff;
+        vertical-align: middle;
+        text-align: left;
+      }
 
-			#pictoGuessLabel{
+      #yearsPastSPA,
+      #yearsFromNow {
 
-				font-size:0.8em;
-			}
+        font-size: 2.6em;
+        vertical-align: middle;
+        text-align: left;
+        padding-top: 0px;
+      }
 
-			#pictoGuessValue{
+      .static {
 
-			}
 
-			#pictoActualLabel{
+        color: #4f4f4f;
+        font-weight: 700;
+        font-size: 16px;
+      }
 
-				font-size:0.8em;
-			}
+      .staticLink {
 
-			#pictoActualValue{
 
-				font-size:25px;
-				font-weight:700;
-				color:#159191;
-			}
+        color: #4f4f4f;
+        font-size: 1.1em;
+      }
 
-/*			#pictoActualValue, span{
+      .sub_static {
+        width: calc(100% - 25px);
+        float: right;
+
+        color: #4f4f4f;
+        font-size: 16px;
+
+
+
+        color: #323132;
+        padding: 0px 10px 5px 10px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+
+      .caveat {
+
+        color: #236092;
+        font-size: 16px;
+      }
+
+      #pictoText {
+        padding-top: 10px;
+        background-color: #fff;
+        padding-bottom: 10px;
+      }
+
+      #pictoGuessLabel {
+
+        font-size: 0.8em;
+      }
+
+      #pictoGuessValue {}
+
+      #pictoActualLabel {
+
+        font-size: 0.8em;
+      }
+
+      #pictoActualValue {
+
+        font-size: 25px;
+        font-weight: 700;
+        color: #159191;
+      }
+
+      /*			#pictoActualValue, span{
 
 				font-size:0.9em !important;
 				color:#CCC;
 			}*/
 
-			.spanClass{
+      .spanClass {
 
-				font-size:0.6em /*!important*/;
-				/* color:#4f4f4f; */
-			}
+        font-size: 0.6em
+          /*!important*/
+        ;
+        /* color:#4f4f4f; */
+      }
 
-			#pictoNatLabel{
+      #pictoNatLabel {
 
-				font-size:0.8em;
-			 }
+        font-size: 0.8em;
+      }
 
-			#pictoNatValue {
+      #pictoNatValue {
 
-				font-size:25px;
-				font-weight:700;
-				color:#095674;
-		   }
+        font-size: 25px;
+        font-weight: 700;
+        color: #095674;
+      }
 
-       #pictoStatic {
+      #pictoStatic {
 
- 				font-size:25px;
- 				font-weight:700;
- 				color:#236092;
- 		   }
+        font-size: 25px;
+        font-weight: 700;
+        color: #236092;
+      }
 
-		   #OneInFourLabel
-		   {
+      #OneInFourLabel {
 
-				font-size:16px;
-				color:#323132;
-				display:inline;
-		   }
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
 
-		   #OneInTenLabel
-		   {
+      #OneInTenLabel {
 
-				font-size:16px;
-				color:#323132;
-				display:inline;
-		   }
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
 
-		   #idYourSPA{
-				display:none;
-		   }
-		}
-
-
-		@media (min-width: 401px) {
-
-			#LEDiv{
+      #idYourSPA {
+        display: none;
+      }
+    }
 
 
-			}
+    @media (min-width: 401px) {
 
-			#pictoActualLabel,
-			#pictoNatLabel,
-			#pictoGuessLabel{
-				padding-top:10px;
-			}
+      #LEDiv {}
 
-		  	.jumbotron h1,
-		  	.jumbotron .h1
-		  	{
-				font-size: 16px !important;
-			}
+      #pictoActualLabel,
+      #pictoNatLabel,
+      #pictoGuessLabel {
+        padding-top: 10px;
+      }
+
+      .jumbotron h1,
+      .jumbotron .h1 {
+        font-size: 16px !important;
+      }
 
 
 
-		  	.jumbotron p,
-		  	.jumbotron .p
-			{
-				font-size: 20px !important;
-			}
-			.picaarticle {
-				font-size:16px;
-				line-height:22px;
-			}
+      .jumbotron p,
+      .jumbotron .p {
+        font-size: 20px !important;
+      }
 
-			.doublepica {
-				font-size:14px;
-				line-height:24px;
-			}
+      .picaarticle {
+        font-size: 16px;
+        line-height: 22px;
+      }
 
-			.trafalger {
-				font-size:14px;
-				line-height:0px;
+      .doublepica {
+        font-size: 14px;
+        line-height: 24px;
+      }
+
+      .trafalger {
+        font-size: 14px;
+        line-height: 0px;
         margin-left: 38px;
         margin-top: -9px;
-        color:#728893;
+        color: #728893;
         float: left;
-			}
+      }
 
 
-			#hundredYearProbValue1,
-			#hundredYearProbValue2
-			{
-				font-size:8px;
-				font-weight:normal;
-				line-height:16px;
+      #hundredYearProbValue1,
+      #hundredYearProbValue2 {
+        font-size: 8px;
+        font-weight: normal;
+        line-height: 16px;
 
-				display:none;
-			}
+        display: none;
+      }
 
-			#SPAValue1,
-			#SPAValue2
-			{
+      #SPAValue1,
+      #SPAValue2 {
 
-				font-size:12px;
-				font-weight:normal;
-				line-height:16px;
-			}
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 16px;
+      }
 
-			#LE
-			{
+      #LE {
 
-				font-size: 40px;
-				font-weight: 700;
-			/*	padding-top:25px;
+        font-size: 40px;
+        font-weight: 700;
+        /*	padding-top:25px;
 				padding-left:0px;
 				padding-bottom:0px;*/
-				color:#fff;
-				vertical-align:middle;
-				text-align:left;
-			}
+        color: #fff;
+        vertical-align: middle;
+        text-align: left;
+      }
 
-			#yearsPastSPA, #yearsFromNow
-			{
+      #yearsPastSPA,
+      #yearsFromNow {
 
-				font-size:2.6em;
-				vertical-align:middle;
-				text-align: left;
-				padding-top:0px;
-			}
+        font-size: 2.6em;
+        vertical-align: middle;
+        text-align: left;
+        padding-top: 0px;
+      }
 
-		   .static{
-
-
-				color:#4f4f4f;
-				font-weight: 700;
-				font-size: 20px;;
-		   }
-
-		   .staticLink{
+      .static {
 
 
-				color:#4f4f4f;
-				font-size:1.1em;
-		   }
+        color: #4f4f4f;
+        font-weight: 700;
+        font-size: 20px;
+        ;
+      }
 
-		   .sub_static{
+      .staticLink {
+
+
+        color: #4f4f4f;
+        font-size: 1.1em;
+      }
+
+      .sub_static {
         width: calc(100% - 25px);
-        float:right;
-				color:#4f4f4f;
-				font-size:16px;
-				color: #323132;
-				padding: 0px 10px 5px 10px;
-				font-weight: 600;
-				margin-top: 10px;
-		   }
+        float: right;
+        color: #4f4f4f;
+        font-size: 16px;
+        color: #323132;
+        padding: 0px 10px 5px 10px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
 
-			.caveat
-		   {
+      .caveat {
 
-				color:#236092;
-				font-size:20px;
-		   }
+        color: #236092;
+        font-size: 20px;
+      }
 
-			#pictoText{
-				padding-top:10px;
-				background-color:#fff;
-				padding-bottom:10px;
-			}
+      #pictoText {
+        padding-top: 10px;
+        background-color: #fff;
+        padding-bottom: 10px;
+      }
 
-			#pictoGuessLabel{
+      #pictoGuessLabel {
 
-				font-size:0.8em;
-			}
+        font-size: 0.8em;
+      }
 
-			#pictoGuessValue{
+      #pictoGuessValue {}
 
+      #pictoActualLabel {
 
-			}
+        font-size: 0.8em;
+      }
 
-			#pictoActualLabel{
+      #pictoActualValue {
 
-				font-size:0.8em;
-			}
+        font-size: 40px;
+        font-weight: 700;
+        color: #159191;
+      }
 
-			#pictoActualValue{
-
-				font-size:40px;
-				font-weight:700;
-				color:#159191;
-			}
-
-/*			#pictoActualValue, span{
+      /*			#pictoActualValue, span{
 
 				font-size:0.9em !important;
 				color:#CCC;
 			}*/
 
-			.spanClass{
+      .spanClass {
 
-				font-size:0.6em /*!important*/;
-				/* color:#4f4f4f; */
-			}
+        font-size: 0.6em
+          /*!important*/
+        ;
+        /* color:#4f4f4f; */
+      }
 
-			#pictoNatLabel{
+      #pictoNatLabel {
 
-				font-size:0.8em;
-			 }
+        font-size: 0.8em;
+      }
 
-			#pictoNatValue {
+      #pictoNatValue {
 
-				font-size:40px;
-				font-weight:700;
-				color:#095674;
-		   }
+        font-size: 40px;
+        font-weight: 700;
+        color: #095674;
+      }
 
-       #pictoStatic {
+      #pictoStatic {
 
- 				font-size:40px;
- 				font-weight:700;
- 				color:#236092;
- 		   }
+        font-size: 40px;
+        font-weight: 700;
+        color: #236092;
+      }
 
-		   #OneInFourLabel
-		   {
+      #OneInFourLabel {
 
-				font-size:16px;
-				color:#323132;
-				display:inline;
-		   }
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
 
-		   #OneInTenLabel
-		   {
+      #OneInTenLabel {
 
-				font-size:16px;
-				color:#323132;
-				display:inline;
-		   }
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
 
-		   #idYourSPA{
-				display:none;
-		   }
+      #idYourSPA {
+        display: none;
+      }
 
-		}
+    }
 
-		@media (min-width: 700px) {
+    @media (min-width: 700px) {
 
-			#LEDiv{
+      #LEDiv {}
 
-			}
+      #pictoActualLabel,
+      #pictoNatLabel,
+      #pictoGuessLabel {
+        padding-top: 10px;
+      }
 
-			#pictoActualLabel,
-			#pictoNatLabel,
-			#pictoGuessLabel{
-				padding-top:10px;
-			}
-
-		  	.jumbotron h1,
-		  	.jumbotron .h1
-		  	{
-				font-size: 16px !important;
-			}
+      .jumbotron h1,
+      .jumbotron .h1 {
+        font-size: 16px !important;
+      }
 
 
 
-		  	.jumbotron p,
-		  	.jumbotron .p
-			{
-				font-size: 20px !important;
-			}
+      .jumbotron p,
+      .jumbotron .p {
+        font-size: 20px !important;
+      }
 
-			.picaarticle {
-				font-size:18px;
-				line-height:24px;
-			}
+      .picaarticle {
+        font-size: 18px;
+        line-height: 24px;
+      }
 
-			.doublepica {
-				font-size:20px;
-				line-height:24px;
-			}
+      .doublepica {
+        font-size: 20px;
+        line-height: 24px;
+      }
 
-			.trafalger {
-				font-size:18px;
-				line-height:0px;
+      .trafalger {
+        font-size: 18px;
+        line-height: 0px;
         margin-left: 38px;
         margin-top: -9px;
-        color:#728893;
+        color: #728893;
         float: left;
-			}
+      }
 
 
 
-			#hundredYearProbValue1,
-			#hundredYearProbValue2
-			{
-				font-size:8px;
-				font-weight:normal;
-				line-height:16px;
+      #hundredYearProbValue1,
+      #hundredYearProbValue2 {
+        font-size: 8px;
+        font-weight: normal;
+        line-height: 16px;
 
-				display:none;
-			}
-
+        display: none;
+      }
 
 
-			#SPAValue1,
-			#SPAValue2
-			{
 
-				font-size:12px;
-				font-weight:normal;
-				line-height:16px;
-			}
+      #SPAValue1,
+      #SPAValue2 {
 
-			#LE
-			{
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 16px;
+      }
 
-				font-size: 40px;
-				font-weight: 700;
-			/*	padding-top:25px;
+      #LE {
+
+        font-size: 40px;
+        font-weight: 700;
+        /*	padding-top:25px;
 				padding-left:0px;
 				padding-bottom:0px;*/
-				color:#fff;
-				vertical-align:middle;
-				text-align: left;
-			}
+        color: #fff;
+        vertical-align: middle;
+        text-align: left;
+      }
 
-			#yearsPastSPA, #yearsFromNow
-			{
+      #yearsPastSPA,
+      #yearsFromNow {
 
-				font-size:2.6em;
-				vertical-align:middle;
-				text-align: left;
-				padding-top:0px;
-			}
+        font-size: 2.6em;
+        vertical-align: middle;
+        text-align: left;
+        padding-top: 0px;
+      }
 
-		   .static{
-
-
-				color:#4f4f4f;
-				font-weight: 700;
-				font-size: 20px;;
-		   }
-
-		   .staticLink{
+      .static {
 
 
-				color:#4f4f4f;
-				font-size:1.1em;
-		   }
+        color: #4f4f4f;
+        font-weight: 700;
+        font-size: 20px;
+        ;
+      }
 
-		   .sub_static{
+      .staticLink {
+
+
+        color: #4f4f4f;
+        font-size: 1.1em;
+      }
+
+      .sub_static {
         width: calc(100% - 25px);
-        float:right;
+        float: right;
 
-				color:#4f4f4f;
-				font-size:16px;
-
-
-				color: #323132;
-				padding: 0px 10px 5px 10px;
-				font-weight: 600;
-				margin-top: 10px;
-		   }
-
-			.caveat
-		   {
-
-				color:#236092;
-				font-size:20px;
-		   }
-
-			#pictoText{
-				padding-top:10px;
-				background-color:#fff;
-				padding-bottom:10px;
-			}
-
-			#pictoGuessLabel{
-
-				font-size:0.8em;
-			}
-
-			#pictoGuessValue{
+        color: #4f4f4f;
+        font-size: 16px;
 
 
-			}
+        color: #323132;
+        padding: 0px 10px 5px 10px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
 
-			#pictoActualLabel{
+      .caveat {
 
-				font-size:0.8em;
-			}
+        color: #236092;
+        font-size: 20px;
+      }
 
-			#pictoActualValue{
+      #pictoText {
+        padding-top: 10px;
+        background-color: #fff;
+        padding-bottom: 10px;
+      }
 
-				font-size:40px;
-				font-weight:700;
-				color:#159191;
-			}
+      #pictoGuessLabel {
 
-	/*		#pictoActualValue, span{
+        font-size: 0.8em;
+      }
+
+      #pictoGuessValue {}
+
+      #pictoActualLabel {
+
+        font-size: 0.8em;
+      }
+
+      #pictoActualValue {
+
+        font-size: 40px;
+        font-weight: 700;
+        color: #159191;
+      }
+
+      /*		#pictoActualValue, span{
 
 				font-size:0.9em !important;
 				color:#CCC;
 			}*/
 
-			.spanClass{
+      .spanClass {
 
-				font-size:0.6em /*!important*/;
-				/* color:#4f4f4f; */
-			}
+        font-size: 0.6em
+          /*!important*/
+        ;
+        /* color:#4f4f4f; */
+      }
 
-			#pictoNatLabel{
+      #pictoNatLabel {
 
-				font-size:0.8em;
-			 }
+        font-size: 0.8em;
+      }
 
-			#pictoNatValue {
+      #pictoNatValue {
 
-				font-size:40px;
-				font-weight:700;
-				color:#095674;
-		   }
+        font-size: 40px;
+        font-weight: 700;
+        color: #095674;
+      }
 
-       #pictoStatic {
+      #pictoStatic {
 
- 				font-size:40px;
- 				font-weight:700;
- 				color:#236092;
- 		   }
+        font-size: 40px;
+        font-weight: 700;
+        color: #236092;
+      }
 
-		   #OneInFourLabel
-		   {
+      #OneInFourLabel {
 
-				font-size:16px;
-				color:#323132;
-				display:inline;
-		   }
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
 
-		   #OneInTenLabel
-		   {
+      #OneInTenLabel {
 
-				font-size:16px;
-				color:#323132;
-				display:inline;
-		   }
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
 
-		   #idYourSPA{
-				display:none;
-		   }
+      #idYourSPA {
+        display: none;
+      }
 
-		}
+    }
 
 
-		@media screen and (min-width: 768px)
-		{
+    @media screen and (min-width: 768px) {
 
-			#LEDiv{
-			}
+      #LEDiv {}
 
-			#pictoActualLabel,
-			#pictoNatLabel,
-			#pictoGuessLabel{
-				padding-top:0px;
-			}
+      #pictoActualLabel,
+      #pictoNatLabel,
+      #pictoGuessLabel {
+        padding-top: 0px;
+      }
 
-		  	.picaarticle {
-				font-size:14px;
-				line-height:24px;
-			}
+      .picaarticle {
+        font-size: 14px;
+        line-height: 24px;
+      }
 
-			.doublepica {
-				font-size:14px;
-				line-height:24px;
-			}
+      .doublepica {
+        font-size: 14px;
+        line-height: 24px;
+      }
 
-			.trafalger {
-				font-size:14px;
-				line-height:0px;
+      .trafalger {
+        font-size: 14px;
+        line-height: 0px;
         margin-left: 38px;
         margin-top: -9px;
-        color:#728893;
+        color: #728893;
         float: left;
-			}
+      }
 
-			#LE
-			{
+      #LE {
 
-				font-size: 40px;
-				font-weight: 700;
-		/*		padding-top:25px;
+        font-size: 40px;
+        font-weight: 700;
+        /*		padding-top:25px;
 				padding-left:0px;
                                                                 font-weight:700;
 				padding-bottom:0px;*/
-				color:#fff;
-				vertical-align:middle;
-				text-align: left;
-			}
+        color: #fff;
+        vertical-align: middle;
+        text-align: left;
+      }
 
-			#yearsPastSPA, #yearsFromNow
-			{
+      #yearsPastSPA,
+      #yearsFromNow {
 
-				font-size:2.6em;
-				vertical-align:middle;
-				text-align: left;
-				padding-top:0px;
-			}
+        font-size: 2.6em;
+        vertical-align: middle;
+        text-align: left;
+        padding-top: 0px;
+      }
 
-		   .static{
-
-
-				color:#4f4f4f;
-				font-weight: 700;
-font-size: 20px;;
-		   }
-
-		   .staticLink{
+      .static {
 
 
-				color:#4f4f4f;
-				font-size:1.1em;
-		   }
+        color: #4f4f4f;
+        font-weight: 700;
+        font-size: 20px;
+        ;
+      }
 
-		   .sub_static{
-         width: calc(100% - 25px);
-         float:right;
-				color:#4f4f4f;
-				font-size:16px;
+      .staticLink {
 
 
-				color: #323132;
-				padding: 0px 10px 5px 10px;
-				font-weight: 600;
-				margin-top: 10px;
-		   }
+        color: #4f4f4f;
+        font-size: 1.1em;
+      }
 
-			.caveat
-		   {
-
-				color:#236092;
-				font-size:20px;
-		   }
+      .sub_static {
+        width: calc(100% - 25px);
+        float: right;
+        color: #4f4f4f;
+        font-size: 16px;
 
 
-		  	.jumbotron h1,
-		  	.jumbotron .h1
-		  	{
-				font-size: 16px !important;
-			}
+        color: #323132;
+        padding: 0px 10px 5px 10px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
 
-			#hundredYearProbValue1,
-			#hundredYearProbValue2
-			{
-				font-size:16px;
-				font-weight:normal;
-				line-height:22px;
+      .caveat {
 
-				display:none;
-			}
+        color: #236092;
+        font-size: 20px;
+      }
+
+
+      .jumbotron h1,
+      .jumbotron .h1 {
+        font-size: 16px !important;
+      }
+
+      #hundredYearProbValue1,
+      #hundredYearProbValue2 {
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 22px;
+
+        display: none;
+      }
 
 
 
-		  	.jumbotron p,
-		  	.jumbotron .p
-			{
-				font-size: 20px !important;
-			}
+      .jumbotron p,
+      .jumbotron .p {
+        font-size: 20px !important;
+      }
 
-			#pictoText{
-				padding-top:10px;
-				background-color:#fff;
-				padding-bottom:10px;
-			}
+      #pictoText {
+        padding-top: 10px;
+        background-color: #fff;
+        padding-bottom: 10px;
+      }
 
-			#pictoGuessLabel{
+      #pictoGuessLabel {
 
-				font-size:0.8em;
-			}
+        font-size: 0.8em;
+      }
 
-			#pictoGuessValue{
+      #pictoGuessValue {}
 
+      #pictoActualLabel {
 
-			}
+        font-size: 0.8em;
+      }
 
-			#pictoActualLabel{
+      #pictoActualValue {
 
-				font-size:0.8em;
-			}
+        font-size: 40px;
+        font-weight: 700;
+        color: #159191;
+      }
 
-			#pictoActualValue{
-
-				font-size:40px;
-				font-weight:700;
-				color:#159191;
-			}
-
-/*			#pictoActualValue, span{
+      /*			#pictoActualValue, span{
 
 				font-size:0.9em !important;
 				color:#CCC;
 			}
 */
-			.spanClass{
+      .spanClass {
 
-				font-size:0.6em /*!important*/;
-				/* color:#4f4f4f; */
-			}
+        font-size: 0.6em
+          /*!important*/
+        ;
+        /* color:#4f4f4f; */
+      }
 
-			#pictoNatLabel{
+      #pictoNatLabel {
 
-				font-size:0.8em;
-			 }
+        font-size: 0.8em;
+      }
 
-			#pictoNatValue {
+      #pictoNatValue {
 
-				font-size:40px;
-				font-weight:700;
-				color:#095674;
-		   }
+        font-size: 40px;
+        font-weight: 700;
+        color: #095674;
+      }
 
-       #pictoStatic {
+      #pictoStatic {
 
-         font-size:40px;
-         font-weight:700;
-         color:#236092;
-        }
+        font-size: 40px;
+        font-weight: 700;
+        color: #236092;
+      }
 
-		   #OneInFourLabel
-		   {
+      #OneInFourLabel {
 
-				font-size:16px;
-				color:#323132;
-				display:inline;
-		   }
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
 
-		   #OneInTenLabel
-		   {
+      #OneInTenLabel {
 
-				font-size:16px;
-				color:#323132;
-				display:inline;
-		   }
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
 
-		   #idYourSPA{
-				display:inline;
-		   }
-		}
-
-
-		@media (min-width: 1000px) {
+      #idYourSPA {
+        display: inline;
+      }
+    }
 
 
-			#LEDiv{
+    @media (min-width: 1000px) {
 
-			}
 
-		  	.picaarticle {
-				font-size:18px;
-				line-height:24px;
-			}
+      #LEDiv {}
 
-			.doublepica {
-				font-size:18px;
-				line-height:24px;
+      .picaarticle {
+        font-size: 18px;
+        line-height: 24px;
+      }
 
-			}
+      .doublepica {
+        font-size: 18px;
+        line-height: 24px;
 
-			.trafalger {
-				font-size:18px;
-				font-weight:normal;
-				line-height:0px;
-        color:#728893;
+      }
+
+      .trafalger {
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 0px;
+        color: #728893;
         float: left;
 
-			}
+      }
 
-			#hundredYearProbValue1,
-			#hundredYearProbValue2
-			{
-				font-size:16px;
-				font-weight:normal;
-				line-height:22px;
+      #hundredYearProbValue1,
+      #hundredYearProbValue2 {
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 22px;
 
-				display:inline;
-			}
+        display: inline;
+      }
 
-			#SPAValue1,
-			#SPAValue2
-			{
+      #SPAValue1,
+      #SPAValue2 {
 
-				font-size:18px;
-				font-weight:normal;
-				line-height:22px;
-			}
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 22px;
+      }
 
-			#LE
-			{
+      #LE {
 
-				font-size: 40px;
-				font-weight: 700;
-			/*	padding-top:25px;
+        font-size: 40px;
+        font-weight: 700;
+        /*	padding-top:25px;
 				padding-left:0px;
 				padding-bottom:0px;*/
-				color:#fff;
-				vertical-align:middle;
-				text-align: left;
-			}
+        color: #fff;
+        vertical-align: middle;
+        text-align: left;
+      }
 
-			#yearsPastSPA, #yearsFromNow
-			{
+      #yearsPastSPA,
+      #yearsFromNow {
 
-				font-size:2.6em;
-				vertical-align:middle;
-				text-align: left;
-				padding-top:0px;
-			}
+        font-size: 2.6em;
+        vertical-align: middle;
+        text-align: left;
+        padding-top: 0px;
+      }
 
-		   .static{
-
-
-				color:#4f4f4f;
-				font-weight: 700;
-font-size: 20px;;
-		   }
-
-		   .staticLink{
+      .static {
 
 
-				color:#4f4f4f;
-				font-size:1.1em;
-		   }
+        color: #4f4f4f;
+        font-weight: 700;
+        font-size: 20px;
+        ;
+      }
 
-		   .sub_static{
-         width: calc(100% - 25px);
-         float:right;
-
-				color:#4f4f4f;
-				font-size:16px;
+      .staticLink {
 
 
-				color: #323132;
-				padding: 0px 10px 5px 10px;
-				font-weight: 600;
-				margin-top: 10px;
-		   }
+        color: #4f4f4f;
+        font-size: 1.1em;
+      }
 
-			.caveat
-		   {
+      .sub_static {
+        width: calc(100% - 25px);
+        float: right;
 
-				color:#236092;
-				font-size:20px;
-		   }
+        color: #4f4f4f;
+        font-size: 16px;
 
-			#pictoText{
-				padding-top:10px;
-				background-color:#fff;
-				padding-bottom:10px;
-			}
 
-			#pictoGuessLabel{
+        color: #323132;
+        padding: 0px 10px 5px 10px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
 
-				font-size:0.8em;
-			}
+      .caveat {
 
-			#pictoGuessValue{
+        color: #236092;
+        font-size: 20px;
+      }
 
-			}
+      #pictoText {
+        padding-top: 10px;
+        background-color: #fff;
+        padding-bottom: 10px;
+      }
 
-			#pictoActualLabel{
+      #pictoGuessLabel {
 
-				font-size:0.8em;
-			}
+        font-size: 0.8em;
+      }
 
-			#pictoActualValue{
+      #pictoGuessValue {}
 
-				font-size:40px;
-				font-weight:700;
-				color:#159191;
-			}
+      #pictoActualLabel {
 
-/*			#pictoActualValue, span{
+        font-size: 0.8em;
+      }
+
+      #pictoActualValue {
+
+        font-size: 40px;
+        font-weight: 700;
+        color: #159191;
+      }
+
+      /*			#pictoActualValue, span{
 
 				font-size:0.9em !important;
 				color:#CCC;
 			}*/
 
-			.spanClass{
+      .spanClass {
 
-				font-size:0.6em /*!important*/;
-				/* color:#4f4f4f; */
-			}
+        font-size: 0.6em
+          /*!important*/
+        ;
+        /* color:#4f4f4f; */
+      }
 
-			#pictoNatLabel{
+      #pictoNatLabel {
 
-				font-size:0.8em;
-			 }
+        font-size: 0.8em;
+      }
 
-			#pictoNatValue {
+      #pictoNatValue {
 
-				font-size:40px;
-				font-weight:700;
-				color:#095674;
-		   }
+        font-size: 40px;
+        font-weight: 700;
+        color: #095674;
+      }
 
-       #pictoStatic {
+      #pictoStatic {
 
-         font-size:40px;
-         font-weight:700;
-         color:#236092;
-        }
+        font-size: 40px;
+        font-weight: 700;
+        color: #236092;
+      }
 
-		   #OneInFourLabel
-		   {
+      #OneInFourLabel {
 
-				font-size:16px;
-				color:#323132;
-				display:inline;
-		   }
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
 
-		   #OneInTenLabel
-		   {
+      #OneInTenLabel {
 
-				font-size:16px;
-				color:#323132;
-				display:inline;
-		   }
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
 
-		   #idYourSPA{
-				display:inline;
-		   }
+      #idYourSPA {
+        display: inline;
+      }
 
-	/*	   #introProbText
+      /*	   #introProbText
 		   {
 
 				font-size:16px;
 				color:#323132;
 				height:50px;
 		   }*/
-		}
+    }
 
 
 
 
 
 
-		/* base styles */
-        html
-		{
-			-webkit-text-size-adjust: none; /* prevent font scaling in landscape */
-		}
+    /* base styles */
+    html {
+      -webkit-text-size-adjust: none;
+      /* prevent font scaling in landscape */
+    }
 
 
 
-        body
-		{
-            margin: 0;
-            padding: 0%;
-            font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    body {
+      margin: 0;
+      padding: 0%;
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 
-        }
-
+    }
 
 
-		h4
-		{
 
-			font-size:16px;
-		}
+    h4 {
+
+      font-size: 16px;
+    }
 
 
 
@@ -1512,54 +1578,49 @@ font-size: 20px;;
 
 
 
-		@font-face
-		{
-			font-family: 'open_sansbold';
-			src: url('fonts/OpenSans-Bold-webfont.woff') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		}
+    @font-face {
+      font-family: 'open_sansbold';
+      src: url('fonts/OpenSans-Bold-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
 
-		@font-face
-		{
-			font-family: 'open_sansregular';
-			src: url('assets/OpenSans-Light-webfont.woff') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		}
+    @font-face {
+      font-family: 'open_sansregular';
+      src: url('assets/OpenSans-Light-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
 
 
 
-		@font-face
-		{
-			font-family: 'open_sansitalic';
-			src: url('assets/OpenSans-Italic-webfont.woff') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		}
+    @font-face {
+      font-family: 'open_sansitalic';
+      src: url('assets/OpenSans-Italic-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
 
 
 
-		@font-face
-		{
-			font-family: 'open_sansregular';
-			src: url('assets/OpenSans-Regular-webfont.woff') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		}
+    @font-face {
+      font-family: 'open_sansregular';
+      src: url('assets/OpenSans-Regular-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
 
 
 
-		@font-face
-		{
-			font-family: 'open_sanssemibold';
-			src: url('assets/OpenSans-Semibold-webfont.woff') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		}
+    @font-face {
+      font-family: 'open_sanssemibold';
+      src: url('assets/OpenSans-Semibold-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
 
 
-		/*
+    /*
 		.btn-primary
 		{
 			width:150px;
@@ -1567,148 +1628,131 @@ font-size: 20px;;
 
 
 
-		.lead
-		{
-			color:#000 !important;
-		}
+    .lead {
+      color: #000 !important;
+    }
 
 
-		.jumbotron
-		{
-			padding-top:0px !important;
-			font-size:
-		}
-
-
-
-		.social
-		{
-			padding-top:25px;
-			padding-left:5px;
-			float:right;
-			opacity:0.5;
-			cursor:pointer;
-		}
+    .jumbotron {
+      padding-top: 0px !important;
+      font-size:
+    }
 
 
 
-		.social:hover
-		{
-			opacity:1;
-
-		}
-
-
-		#embedrow
-		{
-			padding-bottom:10px;
-
-		}
+    .social {
+      padding-top: 25px;
+      padding-left: 5px;
+      float: right;
+      opacity: 0.5;
+      cursor: pointer;
+    }
 
 
 
-		#close
-		{
-			float:right;
-			opacity:0.5;
-			cursor:pointer;
-		}
+    .social:hover {
+      opacity: 1;
+
+    }
+
+
+    #embedrow {
+      padding-bottom: 10px;
+
+    }
 
 
 
-		#close:hover
-		{
-			opacity:1;
-		}
+    #close {
+      float: right;
+      opacity: 0.5;
+      cursor: pointer;
+    }
 
 
 
-		.axis path
-		{
-			fill: none;
-		}
+    #close:hover {
+      opacity: 1;
+    }
 
 
 
-		.axis line
-		{
-			fill: none;
-			stroke: #ccc;
-			stroke-width: 0.1%
-		}
+    .axis path {
+      fill: none;
+    }
 
 
 
-		.tick text
-		{
-
-			font-size:30px;
-			fill:#323132;
-			x:-6;
-		}
+    .axis line {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 0.1%
+    }
 
 
 
-		#mainChart
-		{
-			width:100%;
-		}
+    .tick text {
+
+      font-size: 30px;
+      fill: #323132;
+      x: -6;
+    }
 
 
 
-		#chart
-		{
-			height:600px;
-		}
+    #mainChart {
+      width: 100%;
+    }
 
 
 
-		#chart1,
-		#chart2,
-		#chart3
-		{
-				width:100%;
-		}
+    #chart {
+      height: 600px;
+    }
 
 
 
-		#bar0
-		{
-			fill: #8dd3c7;
-			opacity:0.7;
-		}
+    #chart1,
+    #chart2,
+    #chart3 {
+      width: 100%;
+    }
 
 
 
-		#bar1
-		{
-			fill: #bebada;
-			opacity:0.7;
-		}
+    #bar0 {
+      fill: #8dd3c7;
+      opacity: 0.7;
+    }
 
 
 
-		.labels
-		{
-			text-anchor:middle;
-			font-size:18px;
-		}
+    #bar1 {
+      fill: #bebada;
+      opacity: 0.7;
+    }
 
 
 
-		.infoText
-		{
-			display:none;
-		}
+    .labels {
+      text-anchor: middle;
+      font-size: 18px;
+    }
 
 
 
-		.row
-		{
-			padding-top:15px;
-			padding-bottom:15px;
-		}
-		/*
+    .infoText {
+      display: none;
+    }
+
+
+
+    .row {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    /*
 		label
 		{
 			font-size:15px;
@@ -1716,226 +1760,209 @@ font-size: 20px;;
 
 
 
-		#male
-		{
-			position:absolute;
-			left:0px;
-			top:25px;
-			display:block;
-			width:50px;
-			width:50px;
-			background-position: right;
-			opacity:0.5;
-		}
+    #male {
+      position: absolute;
+      left: 0px;
+      top: 25px;
+      display: block;
+      width: 50px;
+      width: 50px;
+      background-position: right;
+      opacity: 0.5;
+    }
 
 
 
-		#male:hover
-		{
-			float:right;
-			opacity:1.0;
-		}
+    #male:hover {
+      float: right;
+      opacity: 1.0;
+    }
 
 
 
-		#female
-		{
-			position:absolute;
-			left:125px;
-			top:25px;
-			display:block;
-			width:50px;
-			width:50px;
-			background-position: right;
-			opacity:0.5;
-		}
+    #female {
+      position: absolute;
+      left: 125px;
+      top: 25px;
+      display: block;
+      width: 50px;
+      width: 50px;
+      background-position: right;
+      opacity: 0.5;
+    }
 
 
 
-		#female:hover
-		{
-			float:right;
-			opacity:1.0;
-			stroke:red;
-		}
+    #female:hover {
+      float: right;
+      opacity: 1.0;
+      stroke: red;
+    }
 
 
 
-		#chart
-		{
-			width:100%;
-			height:100%;
-		}
+    #chart {
+      width: 100%;
+      height: 100%;
+    }
 
 
 
-		body
-		{
-		  font-size: 8px;
-		  color:#323132;
-		}
+    body {
+      font-size: 8px;
+      color: #323132;
+    }
 
 
 
-		.axis path,
-		.axis line
-		{
-		  fill: none;
-		  stroke: none;
-		  shape-rendering: crispEdges;
-		}
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: none;
+      shape-rendering: crispEdges;
+    }
 
 
 
-		.x.axis path
-		{
-		  display: inline;
-		  fill: none;
-		  stroke: black;
-		  stroke-width: 0.0em;
-		}
+    .x.axis path {
+      display: inline;
+      fill: none;
+      stroke: black;
+      stroke-width: 0.0em;
+    }
 
 
 
-		#probabilityLine
-		{
-			fill: none;
-		  	stroke-width: 4px;
-		}
+    #probabilityLine {
+      fill: none;
+      stroke-width: 4px;
+    }
 
 
 
-		#AltprobabilityLine
-		{
-			fill: none;
-		  	stroke-width: 1px;
-		}
+    #AltprobabilityLine {
+      fill: none;
+      stroke-width: 1px;
+    }
 
 
 
-		#SPAbar
-		{
-		  fill: red;
-		  stroke: #323132;
-		  stroke-width: 2px;
-		}
+    #SPAbar {
+      fill: red;
+      stroke: #323132;
+      stroke-width: 2px;
+    }
 
 
-		.axis text
-		{
+    .axis text {
 
-            font-weight: normal;
-            font-size: 1.1em;
-            fill: #333;
-            text-align: right;
-		}
+      font-weight: normal;
+      font-size: 1.1em;
+      fill: #333;
+      text-align: right;
+    }
 
 
 
-		.vertLines,
-		.horiLines
-		{
-			stroke-width:3px;
-		}
+    .vertLines,
+    .horiLines {
+      stroke-width: 3px;
+    }
 
 
 
-		#myAgeLine,
-		#LegendmyAgeLine
-		{
-			stroke:#323132;
-			stroke-dasharray:10,10;
-			stroke-width:1px;
-		}
+    #myAgeLine,
+    #LegendmyAgeLine {
+      stroke: #323132;
+      stroke-dasharray: 10, 10;
+      stroke-width: 1px;
+    }
 
 
 
-		#LELine,
-		#LegendLELine
-		{
-			stroke:/*#F39200*/#236092;
-			fill:/*#F39200*/#236092;
-			stroke-width:3px;
-		}
+    #LELine,
+    #LegendLELine {
+      stroke:
+        /*#F39200*/
+        #236092;
+      fill:
+        /*#F39200*/
+        #236092;
+      stroke-width: 3px;
+    }
 
 
 
-		#SPALine,
-		#LegendSPALine,
-		#SPAYearline,
-		#SPAYear
-		{
-			stroke:#1881BF;
-			stroke-width:0.3em;
-		}
+    #SPALine,
+    #LegendSPALine,
+    #SPAYearline,
+    #SPAYear {
+      stroke: #1881BF;
+      stroke-width: 0.3em;
+    }
 
 
 
-		#prob1Line
-		{
-			stroke:#683636;
-			stroke-width:0.3em;
-		}
+    #prob1Line {
+      stroke: #683636;
+      stroke-width: 0.3em;
+    }
 
 
 
-	 	#OneinTwoline,
-		#OneinTwoYear {
-			stroke:#66c2a5;
-			stroke-width:2px;
-		}
+    #OneinTwoline,
+    #OneinTwoYear {
+      stroke: #66c2a5;
+      stroke-width: 2px;
+    }
 
 
 
-		#prob2Line
-		{
-			stroke:#B06666;
-			stroke-width:0.3em;
-		}
+    #prob2Line {
+      stroke: #B06666;
+      stroke-width: 0.3em;
+    }
 
 
 
-	 	#OneinFourline,
-		#OneinFourYear {
-			stroke:#fc8d62;
-			stroke-width:2px;
-		}
+    #OneinFourline,
+    #OneinFourYear {
+      stroke: #fc8d62;
+      stroke-width: 2px;
+    }
 
 
 
-		#prob3Line
-		{
-			stroke:#CEA0A0;
-			stroke-width:0.3em;
-		}
+    #prob3Line {
+      stroke: #CEA0A0;
+      stroke-width: 0.3em;
+    }
 
 
 
-	 	#OneinTenline,
-		#OneinTenYear {
-			stroke:#8da0cb;
-			stroke-width:2px;
-		}
+    #OneinTenline,
+    #OneinTenYear {
+      stroke: #8da0cb;
+      stroke-width: 2px;
+    }
 
 
 
-		.tick text
-		{
+    .tick text {
 
-			font-size:16px;
-			fill:#323132;
-		}
+      font-size: 16px;
+      fill: #323132;
+    }
 
 
 
-		#xAxisTitle,
-		#yAxisTitle
-		{
+    #xAxisTitle,
+    #yAxisTitle {
 
-			font-size:16px;
-		}
+      font-size: 16px;
+    }
 
-	/*
+    /*
 	 	.tick line
 		{
 			stroke-width: 1px;
@@ -1944,477 +1971,459 @@ font-size: 20px;;
 		}*/
 
 
-		/* y-axis horizontal gridlines */
-		.axis.y .tick line
-		{
-			stroke-width: 1px;
-			stroke:#CCC;
-			stroke-opacity:0.33;
-		}
+    /* y-axis horizontal gridlines */
+    .axis.y .tick line {
+      stroke-width: 1px;
+      stroke: #CCC;
+      stroke-opacity: 0.33;
+    }
 
 
-		.axis.x .tick line
-		{
-			stroke-width: 1px;
-			stroke:#323132;
-			stroke-opacity:1.0;
-		}
-
-
-
-		.graphText,
-		.legendText
-		{
-
-			font-size:16px;
-			fill:/*#323132*/#0581c9;
-		}
-
-
-
-		.graphSubText
-		{
-
-			font-size:16px;
-			fill:#236092;
-		}
-
-    .graphSubText1
-    {
-
-      font-size:16px;
-      fill:#121212;
+    .axis.x .tick line {
+      stroke-width: 1px;
+      stroke: #323132;
+      stroke-opacity: 1.0;
     }
 
 
 
-		.graphRect
-		{
-			op
+    .graphText,
+    .legendText {
 
-			acity:0.66;
-		}
-
-
-
-		#rect1
-		{
-			stroke:#878786;
-			stroke-width:0px;
-			fill:#878786;
-		}
+      font-size: 16px;
+      fill:
+        /*#323132*/
+        #0581c9;
+    }
 
 
 
-		#rect2
-		{
-			stroke:#CECECD;
-			stroke-width:0px;
-			fill:#CECECD;
-		}
+    .graphSubText {
+
+      font-size: 16px;
+      fill: #236092;
+    }
+
+    .graphSubText1 {
+
+      font-size: 16px;
+      fill: #121212;
+    }
 
 
 
-		#rect3
-		{
-			stroke:#F0F0F0;
-			stroke-width:0px;
-			fill:#F0F0F0;
-		}
+    .graphRect {
+      op acity: 0.66;
+    }
 
 
 
-	 	#centreline {
-			stroke:#323132;
-			stroke-width:1px;
-		}
+    #rect1 {
+      stroke: #878786;
+      stroke-width: 0px;
+      fill: #878786;
+    }
 
 
 
-	 	#hundredYearline,
-		#hundredYear {
-			stroke: /*"#5782BB"*/green;
-			stroke-width:2px;
-		}
+    #rect2 {
+      stroke: #CECECD;
+      stroke-width: 0px;
+      fill: #CECECD;
+    }
 
 
-		.area {
-		    stroke-width: 0;
-		}
+
+    #rect3 {
+      stroke: #F0F0F0;
+      stroke-width: 0px;
+      fill: #F0F0F0;
+    }
 
 
-		#currentAge
-		{
-			width:50px;
-		}
 
-		.footnotes
-		{
-			color:#323132;
-			font-size:12px;
-
-			line-height:1.42857143;
-		}
-
-		.urlLink
-		{
-			color:#3B7A9E;
-			font-size:15px;
-
-			line-height:1.42857143;
-		}
-
-		#rowOne	{
-			padding-bottom:0px !important;
-		}
+    #centreline {
+      stroke: #323132;
+      stroke-width: 1px;
+    }
 
 
-		.left {
-		    text-align: center;
-		    width: 100%;/*
+
+    #hundredYearline,
+    #hundredYear {
+      stroke:
+        /*"#5782BB"*/
+        green;
+      stroke-width: 2px;
+    }
+
+
+    .area {
+      stroke-width: 0;
+    }
+
+
+    #currentAge {
+      width: 50px;
+    }
+
+    .footnotes {
+      color: #323132;
+      font-size: 12px;
+
+      line-height: 1.42857143;
+    }
+
+    .urlLink {
+      color: #3B7A9E;
+      font-size: 15px;
+
+      line-height: 1.42857143;
+    }
+
+    #rowOne {
+      padding-bottom: 0px !important;
+    }
+
+
+    .left {
+      text-align: center;
+      width: 100%;
+      /*
 		    background-color: #b0e0e6;*/
-			  font-size:18px;
-        color:#728893;
+      font-size: 18px;
+      color: #728893;
 
-		}
-
-
-		#tweet {
-		    position:absolute;
-			top:0px;
-			left:0px;
-		}
-
-		#twitter
-		{
-			width:30px;
-			height:30px;
-		}
-
-		#faceb
-		{
-			width:30px;
-			height:30px;
-		}
+    }
 
 
-		#introLine1
-		{
-		/*	padding-top:45px;
+    #tweet {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+
+    #twitter {
+      width: 30px;
+      height: 30px;
+    }
+
+    #faceb {
+      width: 30px;
+      height: 30px;
+    }
+
+
+    #introLine1 {
+      /*	padding-top:45px;
 			padding-left:0px;
 			padding-bottom:45px;*/
 
-			padding: 5px 10px 0px 0px;
-			color:#fff;
-			text-align:left;/*
+      padding: 5px 10px 0px 0px;
+      color: #fff;
+      text-align: left;
+      /*
 			height:100px;
 			line-height:100px;*/
-		}
+    }
 
 
-		#introLine2
-		{
-		/*	padding-top:45px;
+    #introLine2 {
+      /*	padding-top:45px;
 			padding-left:0px;
 			padding-bottom:45px;*/
-			color:white;
-			vertical-align:middle;
-			text-align: left;
-			height:100px;
-			line-height:100px;
-		}
+      color: white;
+      vertical-align: middle;
+      text-align: left;
+      height: 100px;
+      line-height: 100px;
+    }
 
 
-		#introLine3a
-		{
-			/*padding-left:25px;*/
-	/*		padding-top:10px;
+    #introLine3a {
+      /*padding-left:25px;*/
+      /*		padding-top:10px;
 			padding-left:0px;*/
-			vertical-align:middle;
-			text-align: left;
-			height:100px;
-			line-height:100px;
-		}
+      vertical-align: middle;
+      text-align: left;
+      height: 100px;
+      line-height: 100px;
+    }
 
 
-		#introLine4
-		{padding-top:25px;
-		padding-left:15px;
-		background-color:#fff;
-		font-weight:700;
+    #introLine4 {
+      padding-top: 25px;
+      padding-left: 15px;
+      background-color: #fff;
+      font-weight: 700;
 
-			/*padding-left:25px;*/
-	/*
+      /*padding-left:25px;*/
+      /*
 			padding-left:25px;
 			padding-right:25px;
 			padding-bottom:25px;*/
-		}
+    }
 
 
-		#introLine5
-		{
-			/*padding-left:25px;*/
-		/*	padding-top:25px;
+    #introLine5 {
+      /*padding-left:25px;*/
+      /*	padding-top:25px;
 			padding-left:25px;
 			padding-right:25px;
 			padding-bottom:25px;*/
-		}
+    }
 
 
 
-		#birthYearLabel
-		{
-			font-size:14px;
+    #birthYearLabel {
+      font-size: 14px;
 
-		}
-
-
-		#genderLabel
-		{
-			font-size:14px;
-
-		}
-		.panel-default {
-		  border-color: white;
-		}
+    }
 
 
-		#tweetSub
-		{
-			padding-top:30px;
-		}
+    #genderLabel {
+      font-size: 14px;
 
-		#errorLabel
-		{
-			font-size:16px;
+    }
 
-		}
-
-		.errorLabel {
-	    	margin-left: auto;
-    		margin-right: auto;
-		    width: 90%;
-    		background-color: white;
-			position: relative;
-			top: 50%;
-			transform: translateY(-125%);
-		}
+    .panel-default {
+      border-color: white;
+    }
 
 
-		#LEDiv{
+    #tweetSub {
+      padding-top: 30px;
+    }
 
-      background-color:#206095;
+    #errorLabel {
+      font-size: 16px;
+
+    }
+
+    .errorLabel {
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+      background-color: white;
+      position: relative;
+      top: 50%;
+      transform: translateY(-125%);
+    }
+
+
+    #LEDiv {
+
+      background-color: #206095;
       color: #fff;
-			line-height:38px;
+      line-height: 38px;
       padding: 5px;
       padding-left: 15px;
       padding-bottom: 20px;
-	      margin-top: 25px;
+      margin-top: 25px;
 
-		}
-
-
-		#LEDiv2{
-			background-color:#3B7A9E;
-			line-height:38px;
-			padding-top:25px;
-
-		}
+    }
 
 
-		#LEDiv3{
-			background-color:white;
-			line-height:38px;
-		}
+    #LEDiv2 {
+      background-color: #3B7A9E;
+      line-height: 38px;
+      padding-top: 25px;
 
-		#fromNowSpan{
-			vertical-align:middle;
-			text-align: left;
-		}
+    }
 
-		#yearsDiv
-		{
-			vertical-align:middle;
-			text-align: left;
-		}
 
-		#YFNValue
-		{
+    #LEDiv3 {
+      background-color: white;
+      line-height: 38px;
+    }
 
-			font-size:25px;
-			color:rgb(0, 114, 152);
-		}
+    #fromNowSpan {
+      vertical-align: middle;
+      text-align: left;
+    }
 
-		#YFN{
-			vertical-align:middle;
+    #yearsDiv {
+      vertical-align: middle;
+      text-align: left;
+    }
 
-			text-align: left;
-			font-size:2.4em;
-			color:rgb(0, 114, 152);
-			vertical-align:middle;
-			text-align: left;/*
+    #YFNValue {
+
+      font-size: 25px;
+      color: rgb(0, 114, 152);
+    }
+
+    #YFN {
+      vertical-align: middle;
+
+      text-align: left;
+      font-size: 2.4em;
+      color: rgb(0, 114, 152);
+      vertical-align: middle;
+      text-align: left;
+      /*
 			padding-bottom:25px;*/
-		}
+    }
 
-		#ID1in4{
+    #ID1in4 {
 
-			font-size:1.1em;
-			color:#008080;
-		}
+      font-size: 1.1em;
+      color: #008080;
+    }
 
-		#ID1in10{
+    #ID1in10 {
 
-			font-size:1.1em;
-			color:#B8860B;
-		}
+      font-size: 1.1em;
+      color: #B8860B;
+    }
 
-		.socialicon{
-			margin: 4px 7px;
-      vertical-align:middle;
+    .socialicon {
+      margin: 4px 7px;
+      vertical-align: middle;
       font-size: 14px;
-		}
+    }
 
 
-		.borderbox {
-			border: 2px solid #1B5F97;
-			padding-left: 0px;
-			padding-right: 0px;
-			display: flex;
-			align-items: center;
-		  width: 140px;
-			float: none;
-		}
+    .borderbox {
+      border: 2px solid #1B5F97;
+      padding-left: 0px;
+      padding-right: 0px;
+      display: flex;
+      align-items: center;
+      width: 140px;
+      float: none;
+    }
 
-		.borderbox button {
+    .borderbox button {
       width: 42px;
       height: 37px;
-			background-color: #1B5F97;
-			color: #fff;
-			border: 2px solid #1B5F97;
-			box-sizing: border-box;
-			font-size: 23px;
-			text-align: center;
-			cursor: pointer;
-			font-weight: bold;
-		}
+      background-color: #1B5F97;
+      color: #fff;
+      border: 2px solid #1B5F97;
+      box-sizing: border-box;
+      font-size: 23px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-		.typenumber {
-			width: 61.5%;
-			height: 29.5px;
-			border: solid transparent;
-			box-sizing: border-box;
-			text-align: center;
-			color: #1B5F97;
-			z-index: -1;
-			font-size: 16px;
-			margin-left: 2px;
-		}
-
-
-		button#plus.plus {
-			padding-left: 10px;
-		}
-
-		input[type=number]::-webkit-inner-spin-button,
-		input[type=number]::-webkit-outer-spin-button {
-		  -webkit-appearance: none;
-		  margin: 0;
-		}
-
-  /*Button styling*/
+    .typenumber {
+      width: 61.5%;
+      height: 29.5px;
+      border: solid transparent;
+      box-sizing: border-box;
+      text-align: center;
+      color: #1B5F97;
+      z-index: -1;
+      font-size: 16px;
+      margin-left: 2px;
+    }
 
 
+    button#plus.plus {
+      padding-left: 10px;
+    }
 
-  .btn {
-    position: relative;
-    color: #fff;
-    text-rendering: optimizeLegibility;
-    transition: background-color .2s ease-in, color .2s ease-in;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    display: inline-block;
-    width: auto;
-    cursor: pointer;
-    text-align: center;
-    -webkit-appearance: none;
-    transition: background-color 0.25s ease-out;
-    text-decoration: none;
-    line-height: 24px;
-    display: inline-block;
-    padding: 4px 12px;
-    margin-bottom: 0;
-    line-height: 1.42857143;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 0px;
-  }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
 
-  .btn--select {
-    color: #206095;
-    border: 2px solid #206095;
-    margin-right: 4px;
-    /* margin-right: 15px; */
-    transition: all ease .2s;
-    /* border-radius: 30px !important; */
-  }
-
-  .btn--primary {
-    background-color: #139060;
-  }
-
-  .btn--primary-disabled {
-    opacity: 0.7;
-    color: #5f7682;
-    background-color: #d0d2d3;
-    cursor: not-allowed;
-  }
-
-  .btn--primary-disabled:active {
-    opacity: 0.7;
-    color: #5f7682;
-    background-color: #d0d2d3;
-    cursor: not-allowed;
-  }
-
-  .selected {
-    background-color: #206095;
-    color: white !important;
-  }
+    /*Button styling*/
 
 
 
-  data-toggle="buttons"]>.btn input[type="checkbox"],
-  [data-toggle="buttons"]>.btn input[type="radio"],
-  [data-toggle="buttons"]>.btn-group>.btn input[type="checkbox"],
-  [data-toggle="buttons"]>.btn-group>.btn input[type="radio"] {
-    position: absolute;
-    clip: rect(0, 0, 0, 0);
-    pointer-events: none;
-  }
+    .btn {
+      position: relative;
+      color: #fff;
+      text-rendering: optimizeLegibility;
+      transition: background-color .2s ease-in, color .2s ease-in;
+      font-family: "Open Sans", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      display: inline-block;
+      width: auto;
+      cursor: pointer;
+      text-align: center;
+      -webkit-appearance: none;
+      transition: background-color 0.25s ease-out;
+      text-decoration: none;
+      line-height: 24px;
+      display: inline-block;
+      padding: 4px 12px;
+      margin-bottom: 0;
+      line-height: 1.42857143;
+      white-space: nowrap;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-image: none;
+      border: 1px solid transparent;
+      border-radius: 0px;
+    }
 
-  input[type="checkbox"],
-  input[type="radio"] {
-    -webkit-appearance: none;
-    appearance: none;
-    display: none;
-  }
+    .btn--select {
+      color: #206095;
+      border: 2px solid #206095;
+      margin-right: 4px;
+      /* margin-right: 15px; */
+      transition: all ease .2s;
+      /* border-radius: 30px !important; */
+    }
 
-  select::-ms-expand {
-    display: none;
-  }
+    .btn--primary {
+      background-color: #139060;
+    }
+
+    .btn--primary-disabled {
+      opacity: 0.7;
+      color: #5f7682;
+      background-color: #d0d2d3;
+      cursor: not-allowed;
+    }
+
+    .btn--primary-disabled:active {
+      opacity: 0.7;
+      color: #5f7682;
+      background-color: #d0d2d3;
+      cursor: not-allowed;
+    }
+
+    .selected {
+      background-color: #206095;
+      color: white !important;
+    }
 
 
-  /* input {
+
+    data-toggle="buttons"]>.btn input[type="checkbox"],
+    [data-toggle="buttons"]>.btn input[type="radio"],
+    [data-toggle="buttons"]>.btn-group>.btn input[type="checkbox"],
+    [data-toggle="buttons"]>.btn-group>.btn input[type="radio"] {
+      position: absolute;
+      clip: rect(0, 0, 0, 0);
+      pointer-events: none;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      -webkit-appearance: none;
+      appearance: none;
+      display: none;
+    }
+
+    select::-ms-expand {
+      display: none;
+    }
+
+
+    /* input {
     border: none;
     border-bottom-color: currentcolor;
     border-bottom-style: none;
@@ -2427,550 +2436,354 @@ font-size: 20px;;
     padding: 6px 0 0 0;
   } */
 
-  input,
-  select {
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-  }
+    input,
+    select {
+      font-family: "Open Sans", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+    }
 
 
-  .btn-group-vertical>.btn.active,
-  .btn-group-vertical>.btn:active,
-  .btn-group-vertical>.btn:focus,
-  .btn-group-vertical>.btn:hover,
-  .btn-group>.btn.active,
-  .btn-group>.btn:active,
-  .btn-group>.btn:focus,
-  .btn-group>.btn:hover {
-    z-index: 2;
-  }
+    .btn-group-vertical>.btn.active,
+    .btn-group-vertical>.btn:active,
+    .btn-group-vertical>.btn:focus,
+    .btn-group-vertical>.btn:hover,
+    .btn-group>.btn.active,
+    .btn-group>.btn:active,
+    .btn-group>.btn:focus,
+    .btn-group>.btn:hover {
+      z-index: 2;
+    }
 
-  .btn:active,
-  .btn.active {
-    -webkit-box-shadow: none;
-    box-shadow: 0 0 0pt 3pt orange;
-  }
+    .btn:active,
+    .btn.active {
+      -webkit-box-shadow: none;
+      box-shadow: 0 0 0pt 3pt orange;
+    }
 
-  .btn--select:hover {
-    background-color: #206095;
-    color: white !important;
-  }
+    .btn--select:hover {
+      background-color: #206095;
+      color: white !important;
+    }
 
-  .btn--select:active,
-  .btn--select.active {
-    color: white;
-    background-color: #206095;
-    box-shadow: 0 0 0pt 3pt orange;
-  }
+    .btn--select:active,
+    .btn--select.active {
+      color: white;
+      background-color: #206095;
+      box-shadow: 0 0 0pt 3pt orange;
+    }
 
-  .btn:focus,
-  .btn.focus {
-    outline: none;
-    box-shadow: 0px 0px 0 3px #FFA23A;
-    color: white;
-    outline-offset: 0px;
-  }
+    .btn:focus,
+    .btn.focus {
+      outline: none;
+      box-shadow: 0px 0px 0 3px #FFA23A;
+      color: white;
+      outline-offset: 0px;
+    }
+
+    button:focus {
+      outline: 3px solid #f93;
+      box-shadow: 0 0 0 3px orange;
+    }
+
+    .bold {
+      font-weight: 700;
+      color: #206595;
+      font-size: 20px;
+    }
+
+    .error_message {
+      margin-top: 10px;
+      padding: 13px;
+      border: solid 3px #D32F2F;
+    }
+
+    legend {
+      font-size: 20px;
+      font-weight: bold;
+      color: #206595;
+      margin-bottom: 10px;
+    }
+
+    .btn--social p {
+      float: right;
+      margin-top: 4px;
+    }
+
+    .btn--social svg {
+      margin-right: 10px;
+      margin-top: 4px;
+    }
+
+    /*Social stuff*/
+
+    /* social media buttons */
+
+    .social-btns {
+      padding-top: 15px;
+      width: 175px;
+      margin: 0 auto;
+      float: none !important;
+    }
+
+    .social-btn {
+      width: 50px;
+      display: block;
+      background: none;
+      border: 0;
+      /* margin-top:55px; */
+      margin: 0 auto;
+      float: left;
+    }
+
+    #twitter {
+      background: url('images/Twitter.svg') no-repeat;
+      height: 30px;
+      margin-right: 5px;
+    }
+
+    #twitter:hover, #twitter:focus {
+      background: url('images/Twitter_Hover.svg') no-repeat;
+      box-shadow: 0 0 0px 3px orange;
+    }
+
+    #facebook {
+      background: url('images/Facebook.svg') no-repeat;
+      height: 30px;
+      margin-right: 5px;
+    }
+
+    #facebook:hover,#facebook:focus {
+      background: url('images/Facebook_Hover.svg') no-repeat;
+      box-shadow: 0 0 0px 3px orange;
+    }
+
+    #link {
+      background: url('images/Link.svg') no-repeat;
+      height: 30px;
+      margin-right: 5px;
+    }
+
+    #link:hover,#link:focus {
+      background: url('images/Link_Hover.svg') no-repeat;
+      box-shadow: 0 0 0px 3px orange;
+    }
+
+    .visuallyhidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
 
 
-
-  button:focus {
-    outline: 3px solid #f93;
-  }
-
-
-
-
-  .bold {
-    font-weight: 700;
-    color: #206595;
-    font-size: 20px;
-  }
-
-  .error_message {
-    margin-top: 10px;
-    padding: 13px;
-    border: solid 3px #D32F2F;
-  }
-
-  legend {
-    font-size:20px;
-    font-weight:bold;
-    color:#206595;
-    margin-bottom:10px;
-  }
-
-  .btn--social p {
-    float:right;
-    margin-top:4px;
-  }
-
-  .btn--social svg {
-    margin-right:10px;
-    margin-top:4px;
-  }
-
-  /*Social stuff*/
-
-  /* social media buttons */
-
-  .social-btns{
-    padding-top: 15px;
-    width:175px;
-    margin: 0 auto;
-    float: none !important;
-  }
- .social-btn{
-   width:50px;
-   display:block;
-   background: none;
-   border: 0;
-   /* margin-top:55px; */
-   margin: 0 auto;
-   float:left;
- }
-
- #twitter {
-   background: url('images/Twitter.svg') no-repeat;
-   height:30px;
-   margin-right:5px;
- }
-
- #twitter:hover {
-   background: url('images/Twitter_Hover.svg') no-repeat;
- }
-
- #facebook {
-   background: url('images/Facebook.svg') no-repeat;
-   height:30px;
-   margin-right:5px;
- }
-
- #facebook:hover {
-   background: url('images/Facebook_Hover.svg') no-repeat;
- }
-
- #link {
-   background: url('images/Link.svg') no-repeat;
-   height:30px;
-   margin-right:5px;
- }
-
- #link:hover {
-   background: url('images/Link_Hover.svg') no-repeat;
- }
-
-
-
-	</style>
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
-      <script src="../bower_components/respond/dest/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MBCBVQS');
     </script>
-    <!-- End Google Tag Manager -->
+  <!-- End Google Tag Manager -->
 
 
 
-  </head>
-  <body>
+</head>
 
-      <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+<body>
 
-
-<div class="container-fluid">
-
-	<div class="row hide" id="embedrow">
-
-		 <div class="col-sm-offset-6 col-sm-6 col-xs-12">
-
-            <div id="embedbox">
-
-                    <img id="close" src="images/cross.svg"/>
-                    <label class="control-label" for="inputType"></label>
-                    <input type="text" class="form-control" id="inputType" value="longevity.html">
-
-            </div>  <!-- end id="embedbox"-->
-
-	     </div>  <!-- end class="col-sm-offset-6 col-sm-6 col-xs-12"-->
-
-    </div>  <!-- end class="row hide" id="embedrow"-->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
 
+  <div class="container-fluid">
 
+    <!-- <div class="row hide" id="embedrow">
 
-		<div class="col-sm-3 col-xs-12">
+      <div class="col-sm-offset-6 col-sm-6 col-xs-12">
 
-			<form id="longevityCalculator">
+        <div id="embedbox">
 
-				<div class="col-sm-4 col-xs-12" id="AgeDiv">
+          <img id="close" src="images/cross.svg" />
+          <label class="control-label" for="inputType"></label>
+          <input type="text" class="form-control" id="inputType" value="longevity.html">
 
-<!--            		<div id="byear" class="form-group">
+        </div> 
 
-                        <label id="birthYearLabel" for="currentAge">What is your age?</label> </br> </br>
-                        <input type="number" pattern="\d*" maxlength="3" class="form-control" tabindex="4" id="currentAge" onblur="onblurYourAge()">
+      </div>
 
-					</div> -->
-          <legend>Age</legend>
-
-                    <div class="borderbox" id="byear">
-                        <div><button type="button" id="minus" class="minus">-</button></div>
-                        <div style="text-align: center;"><input type="number" id="currentAge" tabindex="4" value=0 onblur="onblurYourAge()" class="typenumber"></div>
-                        <div><button type="button" id="plus" class="plus">+</button></div>
-                    </div>
-
-				</div>
-		</div>
-
-
-		<div class="col-sm-4 col-xs-12">
-
-				<div class="col-sm-12 col-xs-12" id="btnGrpDiv">
-
-					<div id="myear" class="form-group">
-
-
-<!--                        <div class="btn-group" id="btn-group_this" data-toggle="buttons">
-                            <label class="btn btn-default" id="btn-primary1">
-                                <input type="radio" name="options" id="option1" onClick="makeChart()">Male
-                            </label>
-
-                            <label class="btn btn-default" id="btn-primary2" >
-                                <input type="radio" name="options" id="option2" onClick="makeChart()">Female
-                            </label>
-                        </div>-->
-
-
-                          <!-- <div class="btn-form-icon" role="radiogroup">
-                            <div class="form-group-icon" role="radio" tabindex="5">
-                              <input id="option1" class="radio-neutral-icon" type="radio" name="button" value="7" aria-checked="false">
-                              <label class="label-neutral-icon male-neutral" for="button-7">Male</label>
-                            </div>
-                            <div class="form-group-icon" role="radio" tabindex="6">
-                              <input id="option2" class="radio-neutral-icon" type="radio" name="button" value="8" aria-checked="false">
-                              <label class="label-neutral-icon female-neutral" for="button-8">Female</label>
-                            </div>
-                          </div> -->
-
-                          <legend>Sex</legend>
-                          <div id="genderbuttons" style="padding-bottom:4px;">
-                            <div class="genderbuttons btn btn--select bold" aria-labelledby="Male">
-                              <input id="option1" type="radio" name="gender" value="7" autocomplete="off" tabindex="0">Male
-                            </div>
-                            <div class="genderbuttons btn btn--select bold" tabindex="0" aria-labelledby="Female">
-                              <input id="option2" type="radio" name="gender" value="8" autocomplete="off" tabindex="0">Female
-                            </div>
-                          </div>
-
-					</div>  <!-- end id="myear" class="form-group"-->
-
-            	</div>  <!-- end class="col-sm-6 col-xs-12-->
-
-            	<div class="col-sm-12 col-xs-12" id="CalculateDiv">
-
-                	<br>
-                	<!--<button type="submit" id="compareBtn" class="btn btn-primary disabled" >Calculate spanClass expectancy</button> -->
-
-
-				</div><!-- end  class="col-sm-12 col-xs-12" -->
+    </div> -->
 
 
 
 
-		</div><!-- end  class="col-sm-12 col-xs-12" -->
-        <div class="col-sm-12 col-xs-12">
-            <div id="submitButton">
-             <button id="compareBtn" class="btn-disabled large">Calculate your life expectancy</button>
+    <div class="col-sm-3 col-xs-12">
+      <form id="longevityCalculator">
+        <div class="col-sm-4 col-xs-12" id="AgeDiv">
+          <fieldset>
+            <legend>Age</legend>
+            <div class="borderbox" id="byear">
+              <div><button aria-label='Decease age by one year' type="button" id="minus" class="minus">-</button></div>
+              <div style="text-align: center;"><input aria-live='polite' type="number" id="currentAge" tabindex="0" value=0 onblur="onblurYourAge()" class="typenumber"><label class='visuallyhidden' for='currentAge'>Age</label></div>
+              <div><button aria-label='Decease age by one year' type="button" id="plus" class="plus">+</button></div>
             </div>
-          </div>
-	</form>
-	</br>
+          </fieldset>
+        </div>
+    </div>
+
+    <div class="col-sm-4 col-xs-12">
+      <div class="col-sm-12 col-xs-12" id="btnGrpDiv">
+        <div id="myear" class="form-group">
+          <fieldset>
+            <legend>Sex</legend>
+            <div id="genderbuttons" style="padding-bottom:4px;">
+              <div class="genderbuttons btn btn--select bold">
+                <input id="option1" type="radio" name="gender" value="7" autocomplete="off" tabindex="0" aria-labelledby="maleLabel"><label id="maleLabel" for="option1">Male</label>
+              </div>
+              <div class="genderbuttons btn btn--select bold" tabindex="0">
+                <input id="option2" type="radio" name="gender" value="8" aria-labelledby="femaleLabel" autocomplete="off" tabindex="0"><label id="femaleLabel" for="option2">Female</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-xs-12" id="CalculateDiv">
+        <br>
+      </div>
+    </div>
+    <div class="col-sm-12 col-xs-12">
+      <div id="submitButton">
+        <button aria-label="Calculate your life expectancy" id="compareBtn" class="btn-disabled large">Calculate your life expectancy</button>
+      </div>
+    </div>
+    </form>
+    </br>
 
     <div class="col-sm-12p col-xs-12p" id="quizContent" style="display: none;">
 
 
-        <div id="LEDiv" class="col-sm-12 col-xs-12">
-	        <p style="display: none;" id="introLine1" class="static">Your average life expectancy is</p>
-            <p style="display: none;" id="LE"></p><!-- &nbsp; <p id="introLine2" class="static" style="display: none;" >years</p>-->
+      <div id="LEDiv" class="col-sm-12 col-xs-12">
+        <p style="display: none;" id="introLine1" class="static" aria-live='polite'>Your average life expectancy is</p>
+        <p style="display: none;" id="LE" aria-live='polite'></p>
 
-            <!-- <p style="display: none;" id="LE"></p> &nbsp; <p id="introLine2" class="static" style="display: none;" > years</p> -->
+      </div>
+
+
+      <div id="LEDiv3" class="col-sm-4p col-xs-12p">
+
+      </div>
+
+
+
+
+
+
+
+      <div class="col-sm-12p col-xs-12p">
+        <p style="display: none;" id="introLine4" class="caveat">However there's a chance you might live longer...</p>
+      </div>
+
+
+
+      <div class="col-sm-12p col-xs-12p" id="pictoText" style="display: none;">
+
+        <div id="actualDiv" class="labels col-sm-4 col-xs-6 hide">
+
+          <div class="labelt doublepica" id="pictoActualLabel"><b class="oneinfour"></b>
+            <p id="pictoActualValue" class="sub_static"></p>
+          </div>
+          <div class="valuet trafalger">1 in 4 chance</div>
         </div>
 
 
-        <div id="LEDiv3" class="col-sm-4p col-xs-12p">
-			<!-- <p id="yearsFromNow" style="display: none;" ></p> -->
-            <!-- &nbsp; <p id="yearsFromNow2" class="static" style="display: none;" > years from now.</p>-->
-         <!--   <div id='YFN'>from now</div>-->
+
+
+
+        <div id="natDiv" class="labels col-sm-4 col-xs-6 hide">
+
+          <div class="labelt doublepica" id="pictoNatLabel"><b class="oneinten"></b>
+            <p id="pictoNatValue" class="sub_static"></p>
+          </div>
+          <div class="valuet trafalger">1 in 10 chance</div>
+        </div>
+
+        <div id="guessDiv" class="labels col-sm-4 col-xs-6 hidden-xs hide">
+
+          <div class="labelt doublepica" id="pictoGuessLabel"><b class="onehundred"></b><label class="sub_static" id="pictoStatic">100 <span class="spanClass">years</span></label></div>
+          <!--		<div class="valuet trafalger" id="pictoGuessValue"></div>-->
+          <div class="valuet trafalger" id="pictoGuessValue"></div>
         </div>
 
 
 
+      </div>
 
 
+      <div class="col-sm-12p col-xs-12p" id="picto" style="display: none;"> </div>
+
+      </br> </br>
 
 
-        <div class="col-sm-12p col-xs-12p">
-	        <p style="display: none;" id="introLine4" class="caveat">However there's a chance you might live longer...</p>
-<!--    	    <p style="display: none;" id="introLine5" class="caveat">The graphic below illustrates the chances you will reach different ages.</p>
--->        </div>
-
-
-
-<!--
-
-        <div class="col-sm-12p col-xs-12p" id="pictoText" style="display: none;">
-
-            <div id="actualDiv" class="labels col-sm-4p col-xs-12p hide">
-
-				<div class="labelt doublepica" id="pictoActualLabel"><p class="sub_static">You have a 1 in 4 chance of reaching</p></div>
-                <div class="valuet trafalger" id="pictoActualValue"></div>
-                <div id="yearsDiv"><span class='spanClass'> years</span></div>
-
-            </div>
-
-            <div id="natDiv" class="labels col-sm-4p col-xs-12p hide">
-
-                <div class="labelt doublepica" id="pictoNatLabel"><p class="sub_static">You have a 1 in 10 chance of reaching</p></div>
-                <div class="valuet trafalger" id="pictoNatValue"></div>
-                <div class="valuet trafalger""><span class='spanClass'> years</span></div>
-
-            </div>
-
-			<div id="guessDiv" class="labels col-sm-4p col-xs-12p hide">
-
-				<div class="labelt doublepica" id="pictoGuessLabel" ><label class="sub_static">Your chances of reaching 100 years</label></div>
-				<div class="valuet trafalger" id="pictoGuessValue"></div>
-
-            </div>
-
-        </div>  -->
-
-
-
-        <div class="col-sm-12p col-xs-12p" id="pictoText" style="display: none;">
-
-            <div id="actualDiv" class="labels col-sm-4 col-xs-6 hide">
-
-				<div class="labelt doublepica" id="pictoActualLabel"><b class="oneinfour"></b><p id="pictoActualValue" class="sub_static"></p></div>
-                <div class="valuet trafalger">1 in 4 chance</div>
-        <!--        <div class="valuet trafalger" id="pictoActualValue"></div>-->
-            </div>
-
-
-            <!--<div id="actualDiv2" class="labels col-sm-2p col-xs-4p hide">-->
-
-			<!--	<div class="labelt doublepica" id="pictoActualLabel"><p class="sub_static">You have a 1 in 4 chance of reaching</p></div>-->
-
-
-           <!-- </div> -->
-
-
-            <div id="natDiv" class="labels col-sm-4 col-xs-6 hide">
-
-                <div class="labelt doublepica" id="pictoNatLabel"><b class="oneinten"></b><p id="pictoNatValue" class="sub_static"></p></div>
-                <!--<div class="valuet trafalger" id="pictoNatValue"></div>-->
-            	<div class="valuet trafalger">1 in 10 chance</div>
-            </div>
-
-
-           <!-- <div id="natDiv2" class="labels col-sm-2p col-xs-4p hide">-->
-
-                <!--<div class="labelt doublepica" id="pictoNatLabel"><p class="sub_static">You have a 1 in 10 chance of reaching</p></div>-->
-
-
-           <!-- </div> -->
-
-
-			<div id="guessDiv" class="labels col-sm-4 col-xs-6 hidden-xs hide">
-
-				<div class="labelt doublepica" id="pictoGuessLabel" ><b class="onehundred"></b><label class="sub_static" id="pictoStatic">100 <span class="spanClass">years</span></label></div>
-		<!--		<div class="valuet trafalger" id="pictoGuessValue"></div>-->
-            	<div class="valuet trafalger" id="pictoGuessValue"></div>
-            </div>
-
-
-	<!--		<div id="guessDiv2" class="labels col-sm-2p col-xs-4p hide">-->
-
-<!--				<div class="labelt doublepica" id="pictoGuessLabel" ><label class="sub_static">Your chances of reaching 100 years</label></div>
--->
-
-       <!--     </div>      -->
-
-        </div>
-
-
-		<div class="col-sm-12p col-xs-12p" id="picto" style="display: none;"> </div>
-
-		</br> </br>
-
-		<!-- <div id="tweetSub" class="col-sm-12 col-xs-12">
-
-
-
-          <div id="twitterbtn" class="btn btn--select btn--social" aria-labelledby="tweet">
-            <svg></svg>
-            <p>Twitter</p>
-          </div>
-
-          <div id="facebookbtn" class="btn btn--select btn--social" aria-labelledby="facebook">
-            <svg></svg>
-            <p>Facebook</p>
-          </div>
-
-          <div id="copylink" class="btn btn--select btn--social" aria-labelledby="facebook">
-            <svg></svg>
-            <p>Copy link</p>
-          </div>
-
-
-        </div> -->
-<div class="left">Share your life expectancy</div>
-        <div class="col-sm-12 col-xs-12 offset-sm-7 social-btns" style="clear:both;">
-          <button onclick="faceb()" class="social-btn">
+      <div class="left">Share your life expectancy</div>
+      <div class="col-sm-12 col-xs-12 offset-sm-7 social-btns" style="clear:both;">
+        <button aria-label='Share this calculator on facebook' onclick="faceb()" class="social-btn">
           <div id="facebook"></div>
-          </a></button>
-          <button onclick="tweet()" class="social-btn">
+          </a>
+        </button>
+        <button aria-label='Share this calculator on twitter' onclick="tweet()" class="social-btn">
           <div id="twitter"></div>
-          </a></button>
-          <button onclick="copyLink()" class="social-btn">
+          </a>
+        </button>
+        <button aria-label='Copy the link for this calculator to your clipboard' onclick="copyLink()" class="social-btn">
           <div id="link"></div>
-          </button>
-        </div>
+        </button>
+      </div>
 
-        <div class="col-sm-12p col-xs-12p" id="pictoError" style="display: none;">
-			<div class="errorLabel" id="errorLabel">
-            	Unfortunately life expectancy statstics are not available for your age at this current time.
-            </br></br>
-            	Statistics are only available for males aged 65 and under, and females aged 60 or under.
-            </br>
-            </div>
+      <div class="col-sm-12p col-xs-12p" id="pictoError" style="display: none;">
+        <div aria-role='status' class="errorLabel" id="errorLabel">
+          Unfortunately life expectancy statstics are not available for your age at this current time.
+          </br></br>
+          Statistics are only available for males aged 65 and under, and females aged 60 or under.
+          </br>
         </div>
+      </div>
 
     </div>
-          </div><!-- end container-fluid -->
+  </div><!-- end container-fluid -->
 
 
-<!--    <div class="row">
-
-		<div class="col-sm-12 col-xs-12">
-
-            <div class="page-header"> </div>
-		    <br>
-
-     		<p class="footnotes">1. Life Expectancy</p>
-     		<p class="footnotes">This tool calculates life expectancy for men and women based on their gender and current age. Life expectancy is the average probability a person will reach a specific age when they die. More detailed information can be found in the 'Related Links' below. Life expectancy is calculated using 2012-based population projections developed by the Office for National Statistics.<br><br>
-     		<p class="footnotes">2. State Pension Age</p>
-     		<p class="footnotes">Your state pension age depends on your particular date of birth. This tool assumes your age as at 1st June of the year you were born to estimate your State Pension Age and the year you reach that age. For further information please refer to the 'Related Links' below.<br><br>
-
-	        <br>
-
-            <p> <a class="urlLink" href="mailto:info@ons.gsi.gov.uk">info@ons.gsi.gov.uk</a>   </p>
-			<p> <a class="urlLink" href="http://www.ons.gov.uk/ons/interactive/index.html" target="_blank">See more from ONS Digital</a> </p>
-
-		</div>
-
-    </div>-->
 
 
-</div> <!--end container -->
-<!--
-    <script src="js/jquery-1.10.1.min.js"></script>-->
-    <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
- 	<script src="js/modernizr.custom.56904.js"></script>
-    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
-    <script src="js/d3-jetpack.js" charset="utf-8"></script>
-    <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" type="text/javascript"></script>
-    <script src="js/script.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/tippy-bundle.min.js"></script>
+  </div>
 
-    <script>
+  <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/modernizr.custom.56904.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+  <script src="js/d3-jetpack.js" charset="utf-8"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" type="text/javascript"></script>
+  <script src="js/script.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/tippy-bundle.min.js"></script>
 
-//		d3.select("#twitter").on("click",tweet);
-//		d3.select("#face").on("click",faceb);
+  <script>
+    windowwidth = $(window).width()
 
-		windowwidth = $(window).width()
+    function tweet() {
+      var myString = "http://twitter.com/intent/tweet?text=" + escape("I have a 1 in 4 chance of reaching " + dvc.var1 + " " + document.referrer);
+      window.open(myString);
+    }
 
-    //
-		// 	links = d3.select("#copylink")
-    //     .on("mouseover", function(){d3.selectAll(".whatsicon").attr("fill","#fff");})
-    //     .on("mouseout", function(){d3.selectAll(".whatsicon").attr("fill","#1B5F97");})
-    //     .select("svg")
-    //     .attr("viewBox","0 0 30 30")
-		// 		.attr("class","socialicon")
-		// 		.attr("height","25px")
-		// 		.attr("width","25px");
-    //
-    //     // .append("a")
-    //     // .attr("href","whatsapp://send?text=What's your life expectancy " + document.referrer)
-    //     // .attr("cursor","pointer")
-    //     //
-    //
-		// 		links.append("path")
-		// 		.attr("class","whatsicon")
-		// 		.attr("d", "M13.6,27.6c-3.1,3.1-8.1,3.1-11.3,0s-3.1-8.1,0-11.3L8,10.8c3.1-3.1,8.1-3.1,11.3,0c0.5,0.5,0.9,1,1.2,1.6L17.8,15c-0.1,0.1-0.3,0.2-0.4,0.3c-0.2-0.6-0.5-1.2-1-1.7c-1.6-1.6-4.1-1.6-5.6,0l-5.6,5.6c-1.6,1.6-1.6,4.1,0,5.6s4.1,1.6,5.6,0l2-2c1.6,0.6,3.4,0.8,5.1,0.6L13.6,27.6z")
-		// 		.attr("fill","#1B5F97");
-    //
-    //
-		// 		links.append("path")
-		// 		.attr("class","whatsicon")
-		// 		.attr("d", "M27.7,13.6L22,19.2c-3.1,3.1-8.1,3.1-11.3,0c-0.5-0.5-0.9-1-1.2-1.6l2.6-2.6c0.1-0.1,0.3-0.2,0.4-0.3c0.2,0.6,0.5,1.2,1,1.7c1.6,1.6,4.1,1.6,5.6,0l5.6-5.6c1.6-1.6,1.6-4.1,0-5.6c-1.6-1.6-4.1-1.6-5.6,0l-2,2c-1.6-0.6-3.4-0.8-5.1-0.6l4.3-4.3c3.1-3.1,8.1-3.1,11.3,0C30.8,5.4,30.8,10.5,27.7,13.6z")
-		// 		.attr("fill","#1B5F97");
-    //
-    //
-		// d3.select("#twitterbtn")
-    //   .on("click", tweet)
-    //   .on("mouseover", function(){d3.selectAll(".tweeticon").attr("fill","#fff");})
-    //   .on("mouseout", function(){d3.selectAll(".tweeticon").attr("fill","#1B5F97");})
-		// 	.select("svg")
-    //   .attr("viewBox","0 0 30 30")
-		// 	.attr("class","socialicon")
-		// 	.attr("height","25px")
-		// 	.attr("width","25px")
-    //   .append("path")
-    //   .attr("class","tweeticon")
-		// 	.attr("d", "M9.4,27.1c11.3,0,17.5-9.4,17.5-17.5c0-0.3,0-0.5,0-0.8C28.1,8,29.2,6.9,30,5.7c-1.1,0.5-2.3,0.8-3.5,1c1.3-0.8,2.2-2,2.7-3.4c-1.2,0.7-2.5,1.2-3.9,1.5c-1.1-1.2-2.7-1.9-4.5-1.9c-3.4,0-6.1,2.8-6.1,6.1c0,0.5,0.1,0.9,0.2,1.4C9.7,10.1,5.1,7.6,2.1,3.9C1.6,4.8,1.3,5.9,1.3,7c0,2.1,1.1,4,2.7,5.1c-1,0-2-0.3-2.8-0.8c0,0,0,0,0,0.1c0,3,2.1,5.5,4.9,6c-0.5,0.1-1.1,0.2-1.6,0.2c-0.4,0-0.8,0-1.2-0.1c0.8,2.4,3.1,4.2,5.7,4.3c-2.1,1.6-4.8,2.6-7.6,2.6c-0.5,0-1,0-1.5-0.1C2.7,26.1,6,27.1,9.4,27.1")
-		// 	.attr("fill","#1B5F97")
-    //
-    //
-    //
-		// d3.select("#facebookbtn")
-    //   .on("mouseover", function(){d3.selectAll(".faceicon").attr("fill","#fff");})
-    //   .on("mouseout", function(){d3.selectAll(".faceicon").attr("fill","#1B5F97");})
-		// 	.select("svg")
-    //   .attr("viewBox","0 0 30 30")
-		// 	.attr("class","socialicon")
-		// 	.attr("height","25px")
-		// 	.attr("width","25px")
-		// 	.append("path")
-		// 	.attr("class","faceicon")
-		// 	.attr("d", "M17.4,30V16.3H22l0.7-5.3h-5.3V7.6C17.4,6,17.8,5,20,5h2.8V0.2C22.3,0.1,20.7,0,18.7,0c-4.1,0-6.9,2.5-6.9,7V11H7.3v5.3h4.6V30L17.4,30L17.4,30z")
-		// 	.attr("fill","#1B5F97")
-		// 	.on("click", faceb);
-
-
-		function tweet() {
-				var myString="http://twitter.com/intent/tweet?text="+escape("I have a 1 in 4 chance of reaching "+ dvc.var1 + " " + document.referrer);
-				window.open(myString);
-
-        console.log(myString)
-		}
-
-		function faceb() {
-				var face = 'http://www.facebook.com/share.php?u=' + document.referrer;
-				window.open(face);
-		}
+    function faceb() {
+      var face = 'http://www.facebook.com/share.php?u=' + document.referrer;
+      window.open(face);
+    }
 
     function copyLink() {
       var dummy = document.createElement('input'),
@@ -2990,9 +2803,7 @@ font-size: 20px;;
       trigger: 'click',
       duration: 1000,
     })
+  </script>
+</body>
 
-
-
-    </script>
-  </body>
 </html>

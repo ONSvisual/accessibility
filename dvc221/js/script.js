@@ -40,53 +40,30 @@
 			// window resize function
 			$( window ).resize(function()
 			{
-
-
 				// retrieve and update new height and width of picto div
 				graphicDivWidth = $picto.width();
 				graphicDivHeight = $picto.height();
 				bodyWidth = bodyElement.width();
-
-
 				// recalculate the graph width using new picto div dimensions
 				var width = $picto.width() - margin.left - margin.right;
 
-
 			  	// clauses to action depending on width of screen
 				if ( width < 768 ) {
-
-
 					// modify aspect ratio dimensions as appropriate
 					var graphic_aspect_width = 16;
 					var graphic_aspect_height = 16;
-
-
 					//	recalculate graphic height accordingly, with new aspect ration
 					var height = (Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom + 40);
-
-
 				}// end if ...
-
-
 				else {
-
-
 					// modify aspect ratio dimensions as appropriate
 					var graphic_aspect_width = 16;
 					var graphic_aspect_height = 16;
-
 
 					//	recalculate graphic height accordingly, with new aspect ration
 					var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom + 40;
 
-
 				}// end if ...
-
-
-				// errrr, dunno ...
-				d3.select("#picto");
-
-
 			}); // end window.resize function
 
 
