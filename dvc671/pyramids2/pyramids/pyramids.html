@@ -1284,6 +1284,7 @@ d3.selectAll('svg').attr('aria-hidden','true')
 				d3.select('#areaselect0_chosen1').select('abbr').on('keypress',function(evt){
 					if(d3.event.keyCode==13 || d3.event.keyCode==32){
 						d3.event.preventDefault();
+						$("#areaselect1").val("").trigger('chosen:updated');
 					}
 				})
 
