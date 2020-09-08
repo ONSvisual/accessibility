@@ -1,0 +1,19 @@
+{"ons":{
+"maptitle": "Map about population structure",
+"varcolour": "YlGnBu",
+"varlabels": ["Under 16","16-64","65+"],
+"timeload": "last",
+"timepoints": ["1998","2008","2018","2028","2038"],
+"varunit": ["%","%","%"],
+"displaydecimals": 1,
+"legenddecimals": 0,
+"breaks": "jenks",
+"dropticks": false,
+"numberBreaks": 5,
+"sourcetext": "Office for National Statistics, Northern Ireland Statistics and Research Agency, National Records of Scotland and Welsh Government",
+"sourceURL" : "https://www.ons.gov.uk",
+"chartLabels": ["1", "2", "3"],
+"timelineLabelsMB":["'98","'08","'18","'28","'38"],
+"timelineLabelsDT":["1998","2008","2018","2028","2038"],
+"average":[[20.54304696, 18.9440172, 19.00214418,18.36500866,17.44841045],[63.6039782,65.0530317,62.68603782,60.53449436,58.38373493],[15.85297484,16.0029511,18.311818,21.10049697,24.16785462]]
+}}

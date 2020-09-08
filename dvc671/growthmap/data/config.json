@@ -1,0 +1,10 @@
+{"ons":{
+"maptitle": "map about population growth",
+"varcolour": "PuBu",
+"varunit": "population growth (%)",
+"displaydecimals": 1,
+"legenddecimals": 0,
+"breaks": [-4,0,2,4,8,44],
+"dropticks": false,
+"numberBreaks": 5
+}}
