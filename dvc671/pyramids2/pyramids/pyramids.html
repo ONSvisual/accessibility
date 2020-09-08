@@ -305,7 +305,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <h5 class="visuallyhidden">This graphic allows users to explore and compare the shape of a population in two areas (by age and sex). See the accompanying data for the underlying figures. </h5
-<div class="container-fluid" aria-hidden="true">
+<div class="container-fluid" aria-hidden="true" role="presentation">
 		<div class="allContent">
 	        <div class="row">
                <!--<div id = "chartTitle">2014-based National Population Projections - Principal and Variants, 2014 - 2039</div>-->
@@ -521,7 +521,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
+d3.selectAll('svg').attr('aria-hidden','true')
 
 			//use pym to calculate chart dimensions
 		    if (pymChild) {
@@ -1274,6 +1274,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						})
 				})
 
+				d3.select('#areaselect0_chosen').select('abbr').on('keypress',function(evt){
+					if(d3.event.keyCode==13 || d3.event.keyCode==32){
+						d3.event.preventDefault();
+						$("#areaselect0").val("").trigger('chosen:updated');
+					}
+				})
+
+				d3.select('#areaselect0_chosen1').select('abbr').on('keypress',function(evt){
+					if(d3.event.keyCode==13 || d3.event.keyCode==32){
+						d3.event.preventDefault();
+					}
+				})
+
 			//	d3.select("#sel0").attr("tabindex", 0);
 			//	d3.select("#sel1").attr("tabindex", 0);
 
@@ -1489,16 +1502,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					$('#outlinesToggle').change(lockOutlines)
 				})
 
-$( "#outlinesToggle" ).parent().attr( "id", "outlinesButton" ).attr('tabindex',0)
+$( "#outlinesToggle" ).parent().attr( "id", "outlinesButton" ).attr('tabindex',0).attr("role","switch").attr("aria-checked", false)
+
 
 		d3.select("#outlinesButton").on("keypress",function(evt){
 			if(d3.event.keyCode==32||d3.event.keyCode==13){
 				document.getElementById("outlinesToggle").click()
 
 				if(dvc.lockOutlines==true){
-					d3.select("#outlinesButton").classed("off",false)
+					d3.select("#outlinesButton").classed("off",false).attr("aria-checked", true)
 				} else {
-					d3.select("#outlinesButton").classed("off",true)
+					d3.select("#outlinesButton").classed("off",true).attr("aria-checked", false)
 				}
 			}
 		});
@@ -1517,16 +1531,16 @@ $( "#outlinesToggle" ).parent().attr( "id", "outlinesButton" ).attr('tabindex',0
 
 				//get parent of overlap checbox and give id so can hide in mobile view
 
-				$( "#overlapToggle" ).parent().attr( "id", "overlapButton" ).attr('tabindex',0);
+				$( "#overlapToggle" ).parent().attr( "id", "overlapButton" ).attr('tabindex',0).attr("role","switch").attr("aria-checked", false);
 
 				d3.select("#overlapButton").on("keypress",function(evt){
 					if(d3.event.keyCode==32||d3.event.keyCode==13){
 						document.getElementById("overlapToggle").click()
 
 						if(dvc.overlap==true){
-							d3.select("#overlapButton").classed("off",false)
+							d3.select("#overlapButton").classed("off",false).attr("aria-checked", true)
 						} else {
-							d3.select("#overlapButton").classed("off",true)
+							d3.select("#overlapButton").classed("off",true).attr("aria-checked", false)
 						}
 					}
 				});
@@ -1556,7 +1570,9 @@ $( "#outlinesToggle" ).parent().attr( "id", "outlinesButton" ).attr('tabindex',0
 
 				})
 
-				$( "#dimensionsToggle" ).parent().attr( "id", "dimensionsButton" ).attr('tabindex',0);
+				$( "#dimensionsToggle" ).parent().attr( "id", "dimensionsButton" ).attr('tabindex',0).attr("role","switch").attr("aria-checked", false);
+
+				d3.select("#dimensionsButton").select(".toggle-group").select(".toggle-on").append("span").attr("class", "visuallyhidden").text(" or ")
 
 				d3.select("#dimensionsButton").on("keypress",function(evt){
 					if(d3.event.keyCode==32||d3.event.keyCode==13){
@@ -1564,9 +1580,9 @@ $( "#outlinesToggle" ).parent().attr( "id", "outlinesButton" ).attr('tabindex',0
 
 
 						if(dvc.varDimension=="0"){
-							d3.select("#dimensionsButton").classed("off",true)
+							d3.select("#dimensionsButton").classed("off",true).attr("aria-checked", false)
 						} else {
-							d3.select("#dimensionsButton").classed("off",false)
+							d3.select("#dimensionsButton").classed("off",false).attr("aria-checked", true)
 						}
 					}
 				});
@@ -1708,7 +1724,7 @@ $( "#outlinesToggle" ).parent().attr( "id", "outlinesButton" ).attr('tabindex',0
 
 						if (dvc.overlap==true){
 							dvc.overlap=false;
-
+							d3.select("#overlapButton").attr("aria-checked", false)
 							//move graph1
 							d3.select("#graph0")
 							.transition()
@@ -1754,7 +1770,7 @@ $( "#outlinesToggle" ).parent().attr( "id", "outlinesButton" ).attr('tabindex',0
 							.attr("opacity",0);
 						} else {
 							dvc.overlap=true;
-
+							d3.select("#overlapButton").attr("aria-checked", true)
 							dataLayer.push({
 								"event": "pyramidCustomView",
 								"selected": "overlap"
@@ -1814,6 +1830,7 @@ $( "#outlinesToggle" ).parent().attr( "id", "outlinesButton" ).attr('tabindex',0
 					if (dvc.lockOutlines)
 					{
 						dvc.lockOutlines=false;
+						d3.select("#outlinesButton").attr("aria-checked", false)
 												//having unlocked the outlines, we now need to restore them to the current timeIndex
 						modifyChart(0);
 						modifyChart(1);
@@ -1828,6 +1845,7 @@ $( "#outlinesToggle" ).parent().attr( "id", "outlinesButton" ).attr('tabindex',0
 					}	else
 					{
 						dvc.lockOutlines=true;
+						d3.select("#outlinesButton").attr("aria-checked", true)
 
 						dataLayer.push({
 								"event": "pyramidCustomView",
@@ -1853,6 +1871,7 @@ $( "#outlinesToggle" ).parent().attr( "id", "outlinesButton" ).attr('tabindex',0
 
 				if(dvc.varDimension=='0'){
 					dvc.varDimension="1";
+					d3.select("#dimensionsButton").attr("aria-checked", true)
 					dataLayer.push({
 						'event': 'pyramidCustomView',
 						'selected': 'percentage'
@@ -1860,6 +1879,7 @@ $( "#outlinesToggle" ).parent().attr( "id", "outlinesButton" ).attr('tabindex',0
 
 				} else {
 					dvc.varDimension="0";
+					d3.select("#dimensionsButton").attr("aria-checked", false)
 					dataLayer.push({
 						'event': 'pyramidCustomView',
 						'selected': 'value'
