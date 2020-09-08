@@ -304,7 +304,8 @@ button {
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-	<div class="container-fluid">
+<h5 class="visuallyhidden">This graphic allows users to explore and compare the shape of a population in two areas (by age and sex). See the accompanying data for the underlying figures. </h5
+<div class="container-fluid" aria-hidden="true">
 		<div class="allContent">
 	        <div class="row">
                <!--<div id = "chartTitle">2014-based National Population Projections - Principal and Variants, 2014 - 2039</div>-->
@@ -1439,7 +1440,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						}
 				})
 				$('#timeSlider').labeledslider( 'option', 'value', dvc.timeIndex);
-				
+
 
 				d3.select(".ui-slider-handle").attr('role', 'slider')
 							.attr("aria-valuemin", dvc.timeMin)
