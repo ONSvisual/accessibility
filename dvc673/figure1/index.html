@@ -133,7 +133,7 @@
         <!-- End Google Tag Manager (noscript) -->
 
         <main>
-          <div id="graphic">
+          <div id="graphic" aria-label="A graph displaying the immigration, emigration and net migration trends between June 2009 and March 2019">
           </div>
           <div id="footer">
             <p class="source">Source: Office for National Statistics – Long-Term International Migration (LTIM), LTIM with preliminary adjustments based on DWP and Home Office data</p>
@@ -294,7 +294,7 @@
             var svg = d3.select("#graphic").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height",height + margin.top + margin.bottom)
-                .attr("aria-disabled", true)
+                .attr("aria-hidden", true)
                 .append("g")
                 .attr("id","graphic")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
