@@ -1,0 +1,54 @@
+{
+    "essential" : {
+            "graphic_data_url": "migrationdata2.csv",
+            "dataSeriesNames":["series1","series2","series3"],
+            "legendLabels" : ["British", "EU","Non-EU",""],
+            "dateFormat":"%b-%y",
+            "blur":3,
+            "lineSeriesNames":[],
+            "lineColourPalette":["#B8860B","#266D4A"],
+
+            "legendStyle": "line",
+            "colour_palette": ["rgb(245,148,47)","rgb(0,117,163)", "rgb(38,109,74)","rgb(38,109,74)"],
+
+            "sourceText":["Statistics"],
+            "sourceURL":["http://www.ons.gov.uk"],
+            "draggable": true,
+           "annotationsChart" : [
+            ],
+
+            "wordwrap":[30,20,10],
+            "annoAlign": ["middle","middle","end"],
+            "annotationBullet" : [],
+
+            "circles" : true,
+            "annotationCXCY":[
+
+            ],
+
+            "yAxisLabel":"Thousands",
+            "yAxisScale":[-150,300],
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65]
+    },
+
+    "optional" : {
+            "margin_sm": [80, 80, 45, 40],
+            "margin_md": [80, 100, 50, 40],
+
+            "aspectRatio_sm" : [8,12],
+            "aspectRatio_md" : [16,12],
+
+            "mobileBreakpoint" : 600,
+
+            "xAxisTextFormat_sm_md" : ["%y", "%b %y"],
+
+            "x_num_ticks_sm_md" : [6,6],
+            "y_num_ticks_sm_md" : [5,11],
+
+            "lineMarkers" : true,
+
+            "centre_line" : true,
+            "centre_line_value" : 0
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+            "pickxdata":"gdhi",
+            "pickydata":"employment",
+            "fills":["#0075A3", "#B8860B"],
+            "legendLabels":["2011","2019"],
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+            "legendText":"Regional values for different time periods",
+            "highlight":"UnitedKingdom",
+            "highlightLegendText":"UK values",
+            "rectannotations":[],
+            "textAnnotations":[],
+            "textAnnotationWrap":100,
+            "tooltipX":"% Female (FT)",
+            "tooltipY":"Hourly earnings",
+            "tooltipXformat":".1f",
+            "tooltipYformat":".1f",
+            "d3AnnotationWrap":150,
+            "xAxisLabel":"% of full time employees who are women",
+            "yAxisLabel":"Median hourly earnings",
+            "AxisScale":"",
+      			"xAxisScale":[0,80],
+      			"yAxisScale":[0,30]
+
+	},
+    "optional" : {
+            "margin_sm": [50 ,20, 10, 17],
+            "margin_md": [50, 20, 10, 17],
+            "margin_lg": [50, 50, 10, 17],
+
+            "aspectRatio_sm" : [1.5,1],
+            "aspectRatio_md" : [1.5,1],
+            "aspectRatio_lg" : [1.5,1],
+
+            "mobileBreakpoint" : 610,
+
+            "x_num_ticks_sm_md_lg" : [4,5,5],
+            "y_num_ticks_sm_md_lg" : [4,5,5],
+
+            "annotateLineX1_Y1_X2_Y2":[[[0,-3],[0,3]],[[-1,0],[5,0]]],
+            "lineColor_opcty" : [["#666", 0.5],["#666", 0.5]]
+
+
+    }
+}

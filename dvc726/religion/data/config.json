@@ -1,0 +1,10 @@
+{"ons":{
+"maptitle": "Religion, Number of NA and zeroes estimates, by local authority, 2016",
+"varcolour": "PuBu",
+"varunit": "number of NA and zeroes estimates",
+"displaydecimals": 1,
+"legenddecimals": 0,
+"breaks": "equal",
+"dropticks": false,
+"numberBreaks": 5
+}}

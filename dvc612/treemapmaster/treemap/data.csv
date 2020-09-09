@@ -1,0 +1,106 @@
+id,parentId,name,size,realsize,percent
+c0,NULL,Total,305683,305683,null
+c1,c0,Head and neck ,9946,9946,3.3
+c1_1,c1,Lip,195,195,0.1
+c1_2,c1,Tongue,1112,1112,0.4
+c1_3,c1,Other and unspecified parts of tongue,1233,1233,0.4
+c1_4,c1,Gum,416,416,0.1
+c1_5,c1,Floor of mouth,462,462,0.2
+c1_6,c1,Palate,428,428,0.1
+c1_7,c1,Other and unspecified parts of mouth,533,533,0.2
+c1_8,c1,Parotid gland,402,402,0.1
+c1_9,c1,Other and unspecified major salivary glands,126,126,0.04
+c1_10,c1,Tonsil,1632,1632,0.5
+c1_11,c1,Propharynx,238,238,0.1
+c1_12,c1,Nasopharynx,218,218,0.1
+c1_13,c1,Pyriform sinus,285,285,0.1
+c1_14,c1,Hypopharynx,277,277,0.1
+c1_15,c1,"Other and ill-defined sites in the lip, oral cavity and pharynx",30,30,0.01
+c1_16,c1,Nasal cavity and middle ear,335,335,0.1
+c1_17,c1,Sinuses,194,194,0.1
+c1_18,c1,Larynx,1830,1830,0.6
+c2,c0,Colorectal,34825,34825,11.4
+c2_1,c2,Colon,23243,23243,7.6
+c2_2,c2,Rectosigmoid junction,1968,1968,0.6
+c2_3,c2,Rectum,9614,9614,3.1
+c3,c0,Rest of Digestive tract,31360,31360,10.3
+c3_1,c3,Oesophagus,7569,7569,2.5
+c3_2,c3,Stomach,5143,5143,1.7
+c3_3,c3,Small intestine,1473,1473,0.5
+c3_4,c3,Anus and anal canal,1226,1226,0.4
+c3_5,c3,Liver ,4975,4975,1.6
+c3_6,c3,Gallbladder,892,892,0.3
+c3_7,c3,Other and unspecified parts of biliary tract,955,955,0.3
+c3_8,c3,Pancreas,8829,8829,2.9
+c3_9,c3,Other and ill-defined digestive organs,298,298,0.1
+c4,c0,Lung,38906,38906,12.7
+c4_1,c4,Trachea,18,18,0.01
+c4_2,c4,Bronchus and lung,38888,38888,12.7
+c7,c0,Melanoma of the skin,13740,13740,4.5
+c8,c0,Gynecological,18026,18026,5.9
+c8_1,c8,Vulva,1107,1107,0.4
+c8_2,c8,Vagina,207,207,0.1
+c8_3,c8,Cervix,2591,2591,0.8
+c8_4,c8,Uterus,7862,7862,2.6
+c8_4_1,c8_4,Corpus uteri,7732,7732,2.5
+c8_4_2,c8_4,"Uterus, part unspecified",130,130,0.04
+c8_5,c8,Ovary and other unspecified female genital organs,6236,6236,2
+c8_5_1,c8_5,Ovary,5676,5676,1.9
+c8_5_2,c8_5,Other and unspecified female genital organs,560,560,0.2
+c8_6,c8,Placenta,23,23,0.01
+c9,c0,Prostate,41201,41201,13.5
+c10,c0,Central Nervous System,4769,4769,1.6
+c10_1,c10,Meninges,60,60,0.02
+c10_2,c10,Brain,4568,4568,1.5
+c10_3,c10,"Spinal cord, cranial nerves and other parts of central nervous system",141,141,0.05
+c11,c0,Urinary tract,19445,19445,6.4
+c11_1,c11,"Kidney, except renal pelvis",9298,9298,3
+c11_2,c11,Renal pelvis,692,692,0.2
+c11_3,c11,Ureter,596,596,0.2
+c11_4,c11,Bladder,8686,8686,2.8
+c11_5,c11,Other and unspecified urinary organs,173,173,0.1
+c12,c0,Leukaemia,8567,8567,2.8
+c12_1,c12,Lymphoid leukaemia,4226,4226,1.4
+c12_2,c12,Myeloid leukaemia,4102,4102,1.3
+c12_3,c12,Monocytic leukaemia,67,67,0.02
+c12_4,c12,Other leukaemias of specified cell type,51,51,0.02
+c12_5,c12,Leukaemia of unspecified cell type,121,121,0.04
+c13,c0,Non-Hodgkin's lymphoma,12065,12065,3.9
+c13_1,c13,Follicular (nodular) non-Hodgkin's lymphoma,2168,2168,0.7
+c13_2,c13,Diffuse non-Hodgkin's lymphoma,6391,6391,2.1
+c13_3,c13,Peripheral and cutaneous T-cell lymphomas,796,796,0.3
+c13_4,c13,Other and unspecified types of non-Hodgkin's lymphoma,2710,2710,0.9
+c14,c0,Other blood,7270,7270,2.4
+c14_1,c14,Hodgkin's disease,1802,1802,0.6
+c14_2,c14,Malignant immunoproliferative diseases,353,353,0.1
+c14_3,c14,Multiple myeloma and malignant plasma cell neoplasms,5034,5034,1.6
+c14_4,c14,"Other and unspecified malignant neoplasms of lymphoid, haematopoietic and related tissue",81,81,0.03
+c15,c0,Breast,46109,46109,15.1
+c16,c0,Other ,14648,14648,4.8
+c16_1,c16,Eye and adnexa,701,701,0.2
+c16_2,c16,Thyroid and other endocrine glands,3499,3499,1.1
+c16_2_1,c16_2,Thyroid gland,3254,3254,1.1
+c16_2_2,c16_2,Adrenal gland,159,159,0.1
+c16_2_3,c16_2,Other endocrine glands and related structures,86,86,0.03
+c16_3,c16,Thymus,300,300,0.1
+c16_4,c16,"Heart, mediastinum and pleura",124,124,0.04
+c16_5,c16,Other and ill-defined sites in the respiratory system and intrathoracic organs,1,1,null
+c16_6,c16,"Ill-defined, Secondary and without specification",7041,7041,2.3
+c16_6_1,c16_6,Other and ill-defined sites,149,149,0.05
+c16_6_2,c16_6,Secondary and unspecified  lymph nodes,613,613,0.2
+c16_6_3,c16_6,Secondary respiratory and digestive organs,1405,1405,0.5
+c16_6_4,c16_6,Secondary other sites,596,596,0.2
+c16_6_5,c16_6,Malignant neoplasm without specification of site,4278,4278,1.4
+c16_7,c16,Bone,483,483,0.2
+c16_7_1,c16_7,Bone and articular cartilage of limbs,252,252,0.1
+c16_7_2,c16_7,Bone and articular cartilage of other and unspecified sites,231,231,0.1
+c16_8,c16,Rest of male genitalia,2499,2499,0.8
+c16_8_1,c16_8,Penis,572,572,0.2
+c16_8_2,c16_8,Testis,1854,1854,0.6
+c16_8_3,c16_8,Other and unspecified male genital organs,73,73,0.02
+c17,c0,Mesothelial and soft tissue,4806,4806,1.6
+c17_1,c17,Mesothelioma,2329,2329,0.8
+c17_2,c17,Kaposi's sarcoma,119,119,0.04
+c17_3,c17,Peripheral nerves and autonomic nervous system,40,40,0.01
+c17_4,c17,Retroperitoneum and peritoneum,657,657,0.2
+c17_5,c17,Other connective and soft tissue,1661,1661,0.5

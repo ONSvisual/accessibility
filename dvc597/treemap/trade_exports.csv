@@ -1,0 +1,109 @@
+id,name,rank1,rank2,rank3,rank4,rank5,trade_val1,trade_val2,trade_val3,trade_val4,trade_val5,eu_row_split
+c0,Total,United States,Germany,Netherlands,France,Ireland,54908,36517,26487,24483,22211,0.49
+c1,Food & live animals,Ireland,France,Netherlands,Germany,United States,3979,1685,1286,1075,744,0.72
+c1_1,Live animals,Ireland,France,Hong Kong,Japan,United States,200,68,51,25,24,0.61
+c1_2,Meat & meat preparations,Ireland,France,Netherlands,Germany,Hong Kong,542,305,204,164,112,0.8
+c1_3,Dairy products & eggs,Ireland,Netherlands,France,Belgium,Germany,641,234,157,136,109,0.77
+c1_4,Fish & shellfish,France,United States,Spain,Ireland,China,512,221,206,181,161,0.7
+c1_5,Cereals,Ireland,France,Netherlands,United States,Germany,755,159,145,126,97,0.7
+c1_6,Animal feeding stuffs,Ireland,Germany,Netherlands,France,Australia,293,117,103,92,60,0.69
+c1_7,Vegetables & fruit,Ireland,Netherlands,France,Germany,Spain,452,151,120,74,65,0.77
+c1_8,Sugar,Ireland,Netherlands,Germany,United States,Spain,141,43,35,31,29,0.73
+c1_9,"Coffee, tea, cocoa etc",Ireland,Netherlands,Germany,France,Belgium,399,143,129,121,71,0.71
+c1_10,Miscellaneous foods,Ireland,Germany,Netherlands,France,China,375,267,164,130,109,0.64
+c2,Beverages & tobacco,United States,France,Ireland,Singapore,Spain,1798,639,452,400,352,0.36
+c2_1,Beverages,United States,France,Ireland,Singapore,Spain,1798,639,452,398,352,0.36
+c2_2,Tobacco,Turkey,South Korea,Poland,Russia,Ukraine,24,17,13,11,8,0.19
+c3,Crude materials,China,Turkey,India,Germany,United States,1020,729,713,509,489,0.35
+c3_1,Wood & cork,Ireland,India,France,Sweden,Denmark,104,18,7,5,4,0.83
+c3_2,Pulp & waste paper,China,India,Germany,Netherlands,Indonesia,289,103,39,38,37,0.17
+c3_3,Textile fibres,China,Ghana,Italy,Poland,Pakistan,90,87,62,62,62,0.36
+c3_4,Metal ores & scrap,Turkey,China,India,United States,Pakistan,675,549,512,390,328,0.25
+c3_5,"Hides, skins & furskins",Italy,China,Ireland,Turkey,Thailand,71,46,10,5,3,0.61
+c3_6,Oil-seeds & oleaginous fruits,Germany,France,Ireland,Sweden,Czech Republic,28,13,12,10,9,0.96
+c3_7,Crude rubber,Belgium,India,Germany,Italy,Singapore,137,41,23,21,20,0.65
+c3_8,Crude minerals & fertilisers,Ireland,Germany,United States,Netherlands,France,88,67,30,29,28,0.61
+c3_9,Other crude animal & vegetable materials,Ireland,Netherlands,Germany,United States,France,84,72,45,33,29,0.75
+c4,Animal & vegetable oils & fats,Netherlands,Ireland,Belgium,Germany,France,212,97,70,58,25,0.85
+c4_1,Animal oils & fats,Netherlands,Ireland,Belgium,United States,China,78,20,13,10,7,0.85
+c4_2,Vegetable oils & fats,Netherlands,Ireland,Belgium,Germany,France,100,65,43,37,19,0.85
+c4_3,Processed oils & fats,Netherlands,Germany,Belgium,Ireland,Norway,34,19,14,12,11,0.86
+c5,Fuels,Netherlands,China,United States,Belgium,Ireland,11562,4202,3398,3033,2781,0.64
+c5_1,Crude oil,Netherlands,China,Germany,South Korea,France,7913,3882,2157,2064,928,0.64
+c5_2,Refined oil,Netherlands,United States,Belgium,Ireland,Nigeria,3084,2802,1898,1724,877,0.59
+c5_3,"Coal, coke & briquettes",Ireland,Finland,Spain,Norway,Ukraine,55,19,12,12,9,0.72
+c5_4,Gas,Belgium,Netherlands,Ireland,France,Morocco,1094,553,542,203,139,0.89
+c5_5,Electricity,Ireland,France,Netherlands,,,95,23,12,NaN,NaN,1
+c6,Chemicals,United States,Germany,Netherlands,France,Belgium,10871,6632,4154,3625,3208,0.52
+c6_1,Organic chemicals,United States,Netherlands,Belgium,Germany,France,2729,1169,1098,796,426,0.51
+c6_2,Inorganic chemicals,United States,Spain,France,Germany,Sweden,271,261,239,219,103,0.65
+c6_3,"Dyeing, tanning & colouring materials",Germany,Netherlands,France,United States,Italy,264,168,160,151,151,0.61
+c6_4,Medicinal & pharmaceutical products,United States,Germany,Netherlands,France,China,5929,3059,1684,1259,1199,0.45
+c6_5,Toilet & cleansing preparations,Ireland,Germany,Belgium,United States,France,835,542,507,485,464,0.63
+c6_6,Plastics in primary forms,Germany,Belgium,France,United States,Ireland,556,400,365,247,229,0.69
+c6_7,Plastics in non-primary forms,Germany,United States,France,Ireland,Netherlands,399,336,278,269,164,0.63
+c6_8,Processed fertilisers,Ireland,Netherlands,Brazil,China,Poland,59,25,19,16,15,0.66
+c6_9,Other chemicals,Germany,United States,France,Ireland,Netherlands,788,711,427,338,329,0.53
+c7,Material manufactures,Germany,United States,Ireland,France,Belgium,4316,3376,2726,2239,2019,0.55
+c7_1,Leather manufactures,United States,Italy,Germany,Hong Kong,Czech Republic,65,34,27,21,16,0.53
+c7_2,Rubber manufactures,Germany,United States,France,Belgium,Ireland,244,214,174,170,132,0.61
+c7_3,Wood & cork manufactures,Ireland,France,United States,Netherlands,Belgium,147,36,27,24,21,0.8
+c7_4,Paper & paperboard,Ireland,Germany,France,United States,Netherlands,585,274,231,217,125,0.67
+c7_5,Textile fabrics,Germany,United States,Netherlands,Ireland,France,354,289,281,235,186,0.67
+c7_6,Mineral manufactures,Belgium,United States,Germany,Ireland,France,1125,591,368,349,264,0.64
+c7_7,Iron & steel,Germany,France,Sweden,United States,Ireland,545,411,410,402,397,0.67
+c7_8,Non-ferrous metals,Germany,Hong Kong,India,FYR Macedonia,United States,1792,1452,1059,839,777,0.37
+c7_9,Miscellaneous metal manufactures,United States,Germany,Ireland,France,Netherlands,794,699,637,569,370,0.56
+c8,Machinery & transport equipment,United States,Germany,France,China,Netherlands,24715,15536,10662,7540,5306,0.42
+c8_1,Mechanical power generators (consumer),,,,,,,,,,,0
+c8_2,Specialised machinery (consumer),Germany,Sweden,United States,Ireland,Spain,127,39,23,19,2,0.88
+c8_3,General industrial machinery (consumer),Ireland,United Arab Emirates,France,Saudi Arabia,Germany,26,8,7,6,5,0.59
+c8_4,Mechanical power generators (intermediate),United States,United Arab Emirates,Singapore,Germany,Hong Kong,4363,2321,2048,1805,1714,0.22
+c8_5,Specialised machinery (intermediate),United States,Germany,France,Ireland,Norway,416,178,127,96,88,0.39
+c8_6,Metal working machinery (intermediate),United States,Germany,China,Spain,Saudi Arabia,108,43,32,18,16,0.35
+c8_7,General industrial machinery (intermediate),United States,Germany,France,China,Netherlands,1158,610,373,330,289,0.4
+c8_8,Mechanical power generators (capital),United States,China,Japan,Germany,Belarus,722,255,182,136,130,0.23
+c8_9,Specialised machinery (capital),United States,Germany,Ireland,France,Poland,1292,534,474,462,275,0.46
+c8_10,Metal working machinery (capital),United States,Belgium,China,Germany,Ireland,120,89,59,58,50,0.52
+c8_11,General industrial machinery (capital),United States,Germany,France,Netherlands,Ireland,1207,985,619,414,384,0.51
+c8_12,Office machinery (consumer),Spain,Ireland,Italy,Germany,,4,3,3,1,,1
+c8_13,Telecoms & sound equipment (consumer),Ireland,United States,Germany,Netherlands,France,150,14,12,11,11,0.87
+c8_14,Miscellaneous electrical goods (consumer),Ireland,Germany,France,United States,Netherlands,268,118,102,52,52,0.81
+c8_15,Electric motors (intermediate),United States,United Arab Emirates,Romania,China,Germany,52,29,18,17,14,0.33
+c8_16,Office machinery (intermediate),Netherlands,United States,France,Germany,Ireland,459,110,97,87,84,0.75
+c8_17,Telecoms & sound equipment (intermediate),United States,France,Germany,China,Netherlands,180,82,80,47,37,0.47
+c8_18,Miscellaneous electrical goods (intermediate),United States,Germany,China,France,Ireland,1518,1020,615,580,402,0.45
+c8_19,Electric motors (capital),United States,Germany,China,United Arab Emirates,France,166,92,86,82,78,0.32
+c8_20,Office machinery (capital),Ireland,Germany,United States,Netherlands,France,645,578,512,356,311,0.63
+c8_21,Telecoms & sound equipment (capital),Germany,United States,Ireland,Netherlands,France,661,647,601,563,458,0.59
+c8_22,Miscellaneous electrical goods (capital),Germany,United States,France,Netherlands,China,715,605,243,221,218,0.46
+c8_23,Cars,United States,China,Belgium,Germany,Italy,7888,3813,2323,2176,1607,0.36
+c8_24,Road vehicles other than cars (consumer),France,Ireland,Germany,Netherlands,Italy,81,49,49,46,32,0.68
+c8_25,Road vehicles other than cars (intermediate),Germany,France,United States,China,Spain,1144,647,459,413,355,0.68
+c8_26,Road vehicles other than cars (capital),United States,Ireland,Belgium,Australia,Netherlands,422,317,150,107,105,0.43
+c8_27,Railway equipment (intermediate),China,Japan,Germany,Italy,India,47,35,32,23,12,0.42
+c8_28,Railway equipment (capital),China,Qatar,United States,Turkey,Germany,3,2,1,1,1,0.13
+c8_29,Aircraft,Germany,France,United States,Canada,Oman,4156,3761,2391,707,508,0.57
+c8_30,Ships,United States,Malta,Gibraltar,India,Spain,244,138,102,93,92,0.4
+c9,Miscellaneous manufactures,United States,Germany,Ireland,France,Switzerland,9126,5369,3904,3850,2532,0.48
+c9_1,Clothing,Germany,Ireland,France,Italy,United States,1561,1055,687,449,358,0.78
+c9_2,Footwear,Germany,Ireland,France,Italy,Netherlands,383,262,228,134,96,0.87
+c9_3,Scientific instruments (consumer),Czech Republic,Ireland,Indonesia,Sweden,Italy,2,2,1,1,1,0.86
+c9_4,Photographic & optical goods & clocks (consumer),United States,Switzerland,Hong Kong,France,Germany,344,236,161,134,108,0.38
+c9_5,Scientific instruments (intermediate),United States,Germany,Japan,Hong Kong,France,323,153,101,95,85,0.3
+c9_6,Photographic & optical goods & clocks (intermediate),United States,Japan,Germany,Netherlands,France,129,112,94,58,51,0.5
+c9_7,Scientific instruments (capital),United States,Germany,China,France,Netherlands,2033,849,641,529,355,0.37
+c9_8,Photographic & optical goods & clocks (capital),Ireland,United States,China,Saudi Arabia,Israel,14,2,1,1,1,0.74
+c9_9,Works of art,United States,Hong Kong,Switzerland,France,United Arab Emirates,3323,842,821,114,100,0.04
+c9_10,Jewellery,Switzerland,Hong Kong,France,Qatar,United States,909,614,527,456,247,0.23
+c9_11,"Plumbing, heating & lighting fixtures (consumer)",Ireland,Germany,France,United States,Switzerland,13,8,6,5,3,0.73
+c9_12,Furniture (consumer),Ireland,United States,France,Germany,Netherlands,252,123,75,63,33,0.6
+c9_13,"Travel goods, handbags etc",Germany,Italy,France,Ireland,Hong Kong,111,88,84,74,69,0.67
+c9_14,Other manufactures (consumer),United States,Germany,Ireland,France,Netherlands,1266,1081,1044,734,568,0.6
+c9_15,"Plumbing, heating & lighting fixtures (intermediate)",Ireland,Netherlands,France,United States,Germany,126,91,86,68,45,0.6
+c9_16,Furniture (intermediate),United States,France,China,Germany,Qatar,449,124,117,93,48,0.29
+c9_17,Other manufactures (intermediate),Germany,Ireland,Netherlands,France,United States,536,350,259,256,201,0.71
+c9_18,"Plumbing, heating & lighting fixtures (capital)",Germany,Ireland,France,United States,Spain,75,59,30,16,10,0.89
+c9_19,Furniture (capital),Ireland,Germany,France,United States,Netherlands,82,70,45,43,30,0.72
+c9_20,Other manufactures (capital),United States,France,Germany,Ireland,Netherlands,84,55,50,41,32,0.52
+c10,Unspecified goods,Switzerland,China,United States,Germany,Turkey,1082,532,367,231,219,0.14

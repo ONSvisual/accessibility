@@ -1,0 +1,60 @@
+{
+    "essential" : {
+            "graphic_data_url": "migrationdata7.csv",
+            "dataSeriesNames":["series1"],
+            "dateFormat":"%b-%y",
+            "blur":3,
+            "lineSeriesNames":["Visas", "NINos"],
+            "lineColourPalette":["#B8860B","#266D4A"],
+            "legendLabels" : ["Non-EU IPS"],
+            "legendStyle": "line",
+            "colour_palette": ["rgb(0,117,163)", "rgb(38,109,74)",  "rgb(245,148,47)"],
+
+            "sourceText":["Statistics"],
+            "sourceURL":["http://www.ons.gov.uk"],
+            "draggable": true,
+           "annotationsChart" : [
+            ],
+
+            "wordwrap":[30,20,10],
+            "annoAlign": ["middle","middle","end"],
+            "annotationBullet" : [],
+
+            "circles" : true,
+            "annotationCXCY":[
+
+            ],
+
+            "yAxisLabel":"Thousands",
+            "yAxisScale":[0,400],
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65]
+    },
+
+    "optional" : {
+      "margin_sm": [80, 90, 45, 40],
+      "margin_md": [80, 100, 50, 40],
+
+            "aspectRatio_sm" : [2,3],
+            "aspectRatio_md" : [16,12],
+
+            "mobileBreakpoint" : 600,
+
+            "xAxisTextFormat_sm_md" : ["%y", "%b %y"],
+
+            "x_num_ticks_sm_md" : [6,6],
+            "y_num_ticks_sm_md" : [5,11],
+
+            "lineMarkers" : true,
+
+            "vertical_line" : true,
+            "annotateLineX1_Y1_X2_Y2" : [ [["Jul-00", "200"],["Jul-00", "0"]], [["Jul-08", "100"],["Jul-08", "200"]] ],
+
+            "annotateRect" : true,
+            "annotateRectX_Y" : [ [["Jan-94", 200],["Jan-96", 0]], [["Jul-04", 180],["Jul-06", 40]] ],
+            "lineColor_opcty" : [["#ABCDEF", 0.2], ["#888", 0.4]],
+
+            "centre_line" : true,
+            "centre_line_value" : 25
+    }
+}

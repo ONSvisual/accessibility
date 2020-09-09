@@ -1,0 +1,15 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+            "colour_palette": ["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6"],
+            "sourceText":["The probability of automation in England: 2011 and 2017."],
+            "xAxisLabel":"% hrte",
+            "xAxisScale":[0.15,0.75],
+            "heightperstrip":65,
+            "dotradius":3
+    },
+    "optional" : {
+            "mobileBreakpoint" : 610,
+            "x_num_ticks_sm_md" : [6,10]
+    }
+}

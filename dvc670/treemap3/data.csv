@@ -1,0 +1,13 @@
+﻿id,parentId,name,size,realsize,percent,level
+World,null,World,100,100,null,0
+UK,World,UK,79.9,79.9,null,1
+EU,World,EU,4.1,4.1,null,1
+Non_EU,World,Non-EU,16.1,16.1,null,1
+Africa,Non_EU,Africa,2.8,2.8,null,2
+Asia_South,Non_EU,South Asia,10.9,10.9,null,2
+Asia_Other,Non_EU,Other Asia,0.3,0.3,null,2
+Australasia_Pacific,Non_EU,Australasia/Pacific,0.3,0.3,null,2
+Central_America,Non_EU,Central America,0.3,0.3,null,2
+Europe_Other,Non_EU,Other Europe,0.5,0.5,null,2
+Middle_East,Non_EU,Middle East,0.8,0.8,null,2
+North_&_South_America,Non_EU,North & South America,0.1,0.1,null,2

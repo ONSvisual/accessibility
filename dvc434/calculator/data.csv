@@ -1,0 +1,348 @@
+name,Area,name2
+Hartlepool,965,Hartlepool
+Middlesbrough,1063,Middlesbrough
+Redcar and Cleveland,1153,RedcarandCleveland
+Stockton-on-Tees,1245,StocktononTees
+Darlington,1227,Darlington
+Halton,1299,Halton
+Warrington,1709,Warrington
+Blackburn with Darwen,1042,BlackburnwithDarwen
+Blackpool,1086,Blackpool
+"Kingston upon Hull, City of",1082,KingstonuponHullCityof
+East Riding of Yorkshire,1562,EastRidingofYorkshire
+North East Lincolnshire,1103,NorthEastLincolnshire
+North Lincolnshire,1230,NorthLincolnshire
+York,2591,York
+Derby,1558,Derby
+Leicester,1621,Leicester
+Rutland,2302,Rutland
+Nottingham,1391,Nottingham
+"Herefordshire, County of",1985,HerefordshireCountyof
+Telford and Wrekin,1487,TelfordandWrekin
+Stoke-on-Trent,1106,StokeonTrent
+Bath and North East Somerset,3076,BathandNorthEastSomerset
+"Bristol, City of",2696,BristolCityof
+North Somerset,2504,NorthSomerset
+South Gloucestershire,2623,SouthGloucestershire
+Plymouth,1697,Plymouth
+Torbay,2040,Torbay
+Bournemouth,2953,Bournemouth
+Poole,3205,Poole
+Swindon,2224,Swindon
+Peterborough,1723,Peterborough
+Luton,2673,Luton
+Southend-on-Sea,2972,SouthendonSea
+Thurrock,3009,Thurrock
+Medway,2489,Medway
+Bracknell Forest,3865,BracknellForest
+West Berkshire,3468,WestBerkshire
+Reading,3552,Reading
+Slough,3882,Slough
+Windsor and Maidenhead,4951,WindsorandMaidenhead
+Wokingham,4112,Wokingham
+Milton Keynes,2604,MiltonKeynes
+Brighton and Hove,3964,BrightonandHove
+Portsmouth,2109,Portsmouth
+Southampton,2341,Southampton
+Isle of Wight,2110,IsleofWight
+County Durham,965,CountyDurham
+Cheshire East,2010,CheshireEast
+Cheshire West and Chester,1836,CheshireWestandChester
+Shropshire,1902,Shropshire
+Cornwall,2058,Cornwall
+Wiltshire,2521,Wiltshire
+Bedford,2537,Bedford
+Central Bedfordshire,2925,CentralBedfordshire
+Northumberland,1375,Northumberland
+Aylesbury Vale,3308,AylesburyVale
+Chiltern,4812,Chiltern
+South Bucks,5318,SouthBucks
+Wycombe,3999,Wycombe
+Cambridge,4747,Cambridge
+East Cambridgeshire,2581,EastCambridgeshire
+Fenland,1680,Fenland
+Huntingdonshire,2396,Huntingdonshire
+South Cambridgeshire,3278,SouthCambridgeshire
+Allerdale,1278,Allerdale
+Barrow-in-Furness,1184,BarrowinFurness
+Carlisle,1229,Carlisle
+Copeland,1072,Copeland
+Eden,1554,Eden
+South Lakeland,2062,SouthLakeland
+Amber Valley,1599,AmberValley
+Bolsover,1159,Bolsover
+Chesterfield,1504,Chesterfield
+Derbyshire Dales,2186,DerbyshireDales
+Erewash,1547,Erewash
+High Peak,1780,HighPeak
+North East Derbyshire,1671,NorthEastDerbyshire
+South Derbyshire,1709,SouthDerbyshire
+East Devon,2517,EastDevon
+Exeter,2496,Exeter
+Mid Devon,2073,MidDevon
+North Devon,2073,NorthDevon
+South Hams,2783,SouthHams
+Teignbridge,2314,Teignbridge
+Torridge,1936,Torridge
+West Devon,2056,WestDevon
+Christchurch,3449,Christchurch
+East Dorset,3152,EastDorset
+North Dorset,2387,NorthDorset
+Purbeck,2990,Purbeck
+West Dorset,2593,WestDorset
+Weymouth and Portland,2277,WeymouthandPortland
+Eastbourne,2647,Eastbourne
+Hastings,2261,Hastings
+Lewes,3276,Lewes
+Rother,2769,Rother
+Wealden,3143,Wealden
+Basildon,3211,Basildon
+Braintree,2768,Braintree
+Brentwood,4404,Brentwood
+Castle Point,3092,CastlePoint
+Chelmsford,3426,Chelmsford
+Colchester,2613,Colchester
+Epping Forest,4670,EppingForest
+Harlow,3063,Harlow
+Maldon,2864,Maldon
+Rochford,3233,Rochford
+Tendring,2189,Tendring
+Uttlesford,3376,Uttlesford
+Cheltenham,2710,Cheltenham
+Cotswold,2814,Cotswold
+Forest of Dean,1841,ForestofDean
+Gloucester,1982,Gloucester
+Stroud,2436,Stroud
+Tewkesbury,2408,Tewkesbury
+Basingstoke and Deane,3132,BasingstokeandDeane
+East Hampshire,3452,EastHampshire
+Eastleigh,2912,Eastleigh
+Fareham,2856,Fareham
+Gosport,2155,Gosport
+Hart,3864,Hart
+Havant,2644,Havant
+New Forest,3247,NewForest
+Rushmoor,3314,Rushmoor
+Test Valley,2903,TestValley
+Winchester,3711,Winchester
+Broxbourne,4007,Broxbourne
+Dacorum,4190,Dacorum
+Hertsmere,5100,Hertsmere
+North Hertfordshire,3674,NorthHertfordshire
+Three Rivers,5160,ThreeRivers
+Watford,4441,Watford
+Ashford,2630,Ashford
+Canterbury,3033,Canterbury
+Dartford,3379,Dartford
+Dover,2244,Dover
+Gravesham,2948,Gravesham
+Maidstone,2941,Maidstone
+Sevenoaks,4006,Sevenoaks
+Shepway,2425,Shepway
+Swale,2412,Swale
+Thanet,2256,Thanet
+Tonbridge and Malling,3392,TonbridgeandMalling
+Tunbridge Wells,3768,TunbridgeWells
+Burnley,829,Burnley
+Chorley,1545,Chorley
+Fylde,1751,Fylde
+Hyndburn,971,Hyndburn
+Lancaster,1535,Lancaster
+Pendle,981,Pendle
+Preston,1333,Preston
+Ribble Valley,1805,RibbleValley
+Rossendale,1172,Rossendale
+South Ribble,1601,SouthRibble
+West Lancashire,1654,WestLancashire
+Wyre,1482,Wyre
+Blaby,1963,Blaby
+Charnwood,1935,Charnwood
+Harborough,2287,Harborough
+Hinckley and Bosworth,1852,HinckleyandBosworth
+Melton,1955,Melton
+North West Leicestershire,1709,NorthWestLeicestershire
+Oadby and Wigston,1991,OadbyandWigston
+Boston,1380,Boston
+East Lindsey,1468,EastLindsey
+Lincoln,1546,Lincoln
+North Kesteven,1667,NorthKesteven
+South Holland,1588,SouthHolland
+South Kesteven,1785,SouthKesteven
+West Lindsey,1379,WestLindsey
+Breckland,1962,Breckland
+Broadland,2289,Broadland
+Great Yarmouth,1619,GreatYarmouth
+King's Lynn and West Norfolk,1910,KingsLynnandWestNorfolk
+North Norfolk,2218,NorthNorfolk
+Norwich,2197,Norwich
+South Norfolk,2232,SouthNorfolk
+Corby,1542,Corby
+Daventry,2276,Daventry
+East Northamptonshire,1883,EastNorthamptonshire
+Kettering,1730,Kettering
+Northampton,1985,Northampton
+South Northamptonshire,2682,SouthNorthamptonshire
+Wellingborough,1800,Wellingborough
+Craven,1832,Craven
+Hambleton,2037,Hambleton
+Harrogate,2527,Harrogate
+Richmondshire,1762,Richmondshire
+Ryedale,1857,Ryedale
+Scarborough,1578,Scarborough
+Selby,1733,Selby
+Ashfield,1294,Ashfield
+Bassetlaw,1328,Bassetlaw
+Broxtowe,1710,Broxtowe
+Gedling,1680,Gedling
+Mansfield,1254,Mansfield
+Newark and Sherwood,1597,NewarkandSherwood
+Rushcliffe,2337,Rushcliffe
+Cherwell,3010,Cherwell
+Oxford,4657,Oxford
+South Oxfordshire,4023,SouthOxfordshire
+Vale of White Horse,3315,ValeofWhiteHorse
+West Oxfordshire,3237,WestOxfordshire
+Mendip,2344,Mendip
+Sedgemoor,1915,Sedgemoor
+South Somerset,1989,SouthSomerset
+Taunton Deane,2053,TauntonDeane
+West Somerset,1988,WestSomerset
+Cannock Chase,1595,CannockChase
+East Staffordshire,1651,EastStaffordshire
+Lichfield,2193,Lichfield
+Newcastle-under-Lyme,1404,NewcastleunderLyme
+South Staffordshire,2005,SouthStaffordshire
+Stafford,1787,Stafford
+Staffordshire Moorlands,1585,StaffordshireMoorlands
+Tamworth,1841,Tamworth
+Babergh,2493,Babergh
+Forest Heath,2110,ForestHeath
+Ipswich,1940,Ipswich
+Mid Suffolk,2253,MidSuffolk
+St Edmundsbury,2502,StEdmundsbury
+Suffolk Coastal,2463,SuffolkCoastal
+Waveney,1790,Waveney
+Elmbridge,5922,Elmbridge
+Epsom and Ewell,5041,EpsomandEwell
+Guildford,4670,Guildford
+Mole Valley,4861,MoleValley
+Reigate and Banstead,4264,ReigateandBanstead
+Runnymede,4324,Runnymede
+Spelthorne,4526,Spelthorne
+Surrey Heath,3951,SurreyHeath
+Tandridge,4142,Tandridge
+Waverley,4440,Waverley
+Woking,4471,Woking
+North Warwickshire,1863,NorthWarwickshire
+Nuneaton and Bedworth,1603,NuneatonandBedworth
+Rugby,2026,Rugby
+Stratford-on-Avon,2784,StratfordonAvon
+Warwick,3033,Warwick
+Adur,3499,Adur
+Arun,2990,Arun
+Chichester,3506,Chichester
+Crawley,3237,Crawley
+Horsham,3723,Horsham
+Mid Sussex,3742,MidSussex
+Worthing,3181,Worthing
+Bromsgrove,2353,Bromsgrove
+Malvern Hills,2268,MalvernHills
+Redditch,1923,Redditch
+Worcester,2025,Worcester
+Wychavon,2243,Wychavon
+Wyre Forest,1769,WyreForest
+St Albans,5578,StAlbans
+Welwyn Hatfield,4122,WelwynHatfield
+East Hertfordshire,4127,EastHertfordshire
+Stevenage,2954,Stevenage
+Bolton,1314,Bolton
+Bury,1551,Bury
+Manchester,1630,Manchester
+Oldham,1304,Oldham
+Rochdale,1269,Rochdale
+Salford,1499,Salford
+Stockport,2103,Stockport
+Tameside,1418,Tameside
+Trafford,2480,Trafford
+Wigan,1264,Wigan
+Knowsley,1180,Knowsley
+Liverpool,1184,Liverpool
+St. Helens,1238,StHelens
+Sefton,1468,Sefton
+Wirral,1441,Wirral
+Barnsley,1160,Barnsley
+Doncaster,1201,Doncaster
+Rotherham,1280,Rotherham
+Sheffield,1626,Sheffield
+Newcastle upon Tyne,1608,NewcastleuponTyne
+North Tyneside,1611,NorthTyneside
+South Tyneside,1272,SouthTyneside
+Sunderland,1129,Sunderland
+Birmingham,1746,Birmingham
+Coventry,1761,Coventry
+Dudley,1649,Dudley
+Sandwell,1392,Sandwell
+Solihull,2541,Solihull
+Walsall,1532,Walsall
+Wolverhampton,1395,Wolverhampton
+Bradford,1396,Bradford
+Calderdale,1426,Calderdale
+Kirklees,1478,Kirklees
+Leeds,1811,Leeds
+Wakefield,1382,Wakefield
+Gateshead,1361,Gateshead
+City of London,12167,CityofLondon
+Barking and Dagenham,3589,BarkingandDagenham
+Barnet,5997,Barnet
+Bexley,3971,Bexley
+Brent,5870,Brent
+Bromley,4683,Bromley
+Camden,9985,Camden
+Croydon,4065,Croydon
+Ealing,5746,Ealing
+Enfield,4702,Enfield
+Greenwich,4402,Greenwich
+Hackney,6784,Hackney
+Hammersmith and Fulham,8879,HammersmithandFulham
+Haringey,5803,Haringey
+Harrow,5275,Harrow
+Havering,3984,Havering
+Hillingdon,5004,Hillingdon
+Hounslow,5050,Hounslow
+Islington,7828,Islington
+Kensington and Chelsea,17988,KensingtonandChelsea
+Kingston upon Thames,5702,KingstonuponThames
+Lambeth,6025,Lambeth
+Lewisham,4885,Lewisham
+Merton,5805,Merton
+Newham,4048,Newham
+Redbridge,4408,Redbridge
+Richmond upon Thames,7282,RichmonduponThames
+Southwark,6805,Southwark
+Sutton,4516,Sutton
+Tower Hamlets,6438,TowerHamlets
+Waltham Forest,5066,WalthamForest
+Wandsworth,7315,Wandsworth
+Westminster,13135,Westminster
+Isle of Anglesey,1428,IsleofAnglesey
+Gwynedd,1361,Gwynedd
+Conwy,1527,Conwy
+Denbighshire,1436,Denbighshire
+Flintshire,1507,Flintshire
+Wrexham,1422,Wrexham
+Ceredigion,1313,Ceredigion
+Pembrokeshire,1366,Pembrokeshire
+Carmarthenshire,1083,Carmarthenshire
+Swansea,1342,Swansea
+Neath Port Talbot,963,NeathPortTalbot
+Bridgend,1305,Bridgend
+Vale of Glamorgan,1817,ValeofGlamorgan
+Cardiff,1989,Cardiff
+Rhondda Cynon Taf,968,RhonddaCynonTaf
+Caerphilly,1152,Caerphilly
+Blaenau Gwent,775,BlaenauGwent
+Torfaen,1264,Torfaen
+Monmouthshire,1928,Monmouthshire
+Newport,1414,Newport
+Powys,1423,Powys
+Merthyr Tydfil,885,MerthyrTydfil

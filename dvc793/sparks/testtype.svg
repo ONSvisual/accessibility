@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.5, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px"
+	 height="100px" viewBox="0 0 300 100" enable-background="new 0 0 300 100" xml:space="preserve">
+<g id="Layer_1">
+</g>
+<g id="text">
+	<rect x="7.5" y="56.186" fill="none" width="76.499" height="17.564"/>
+	<text transform="matrix(1 0 0 1 7.5 68.9648)" fill="#206095" font-family="'MyriadPro-Semibold'" font-size="18">2,063,000</text>
+	<rect x="214.5" y="63.251" fill="none" width="82.5" height="18.163"/>
+	<text transform="matrix(1 0 0 1 214.5 76.0313)" fill="#206095" font-family="'MyriadPro-Semibold'" font-size="18">1,285,000</text>
+	<rect x="30.625" y="82.436" fill="none" width="51.749" height="17.564"/>
+	<text transform="matrix(1 0 0 1 30.6255 95.2148)" fill="#206095" font-family="'MyriadPro-Regular'" font-size="18">1981</text>
+	<rect x="229.645" y="82.436" fill="none" width="51.75" height="17.564"/>
+	<text transform="matrix(1 0 0 1 229.6445 95.2148)" fill="#206095" font-family="'MyriadPro-Regular'" font-size="18">2019</text>
+	<polyline fill="none" stroke="#206095" stroke-width="4" stroke-miterlimit="10" points="50,46.966 60.558,47.36 82.096,43.814 
+		103.211,34.75 113.769,21.746 124.326,11.5 134.884,22.14 145.441,27.657 157.688,39.479 162.757,39.085 168.246,42.632 
+		173.313,44.996 178.804,44.602 184.294,43.42 189.361,48.149 194.852,49.331 199.919,50.119 205.408,45.784 210.477,48.542 
+		215.967,48.542 221.035,54.06 226.524,51.695 232.015,55.636 237.082,56.03 242.572,56.03 245.105,56.818 247.64,57.213 
+		250.596,58 	"/>
+</g>
+<g id="balls">
+	<circle fill="#FF9933" cx="50.5" cy="47" r="5"/>
+	<circle fill="#FF9933" cx="250.5" cy="58" r="5"/>
+</g>
+</svg>

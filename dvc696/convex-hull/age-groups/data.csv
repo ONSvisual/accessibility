@@ -1,0 +1,28 @@
+name,Age,gdhi,employment,group
+Administrative and secretarial occupations,30-39,62.5,12.5,grp1
+Administrative and secretarial occupations,40-49,70.5,12.7,grp1
+Administrative and secretarial occupations,50-59,78.0,12.5,grp1
+Associate professional and technical occupations,30-39,39.6,17.0,grp2
+Associate professional and technical occupations,40-49,38.3,18.6,grp2
+Associate professional and technical occupations,50-59,40.9,17.3,grp2
+"Caring, leisure and other service occupations",30-39,69.1,10.3,grp3
+"Caring, leisure and other service occupations",40-49,73.8,10.5,grp3
+"Caring, leisure and other service occupations",50-59,73.5,10.5,grp3
+Elementary occupations,30-39,26.4,9.8,grp4
+Elementary occupations,40-49,30.4,10.0,grp4
+Elementary occupations,50-59,31.2,10.0,grp4
+"Managers, directors and senior officials",30-39,36.2,20.6,grp5
+"Managers, directors and senior officials",40-49,32.4,25.3,grp5
+"Managers, directors and senior officials",50-59,31.5,24.5,grp5
+"Process, plant and machine operatives",30-39,10.7,11.3,grp6
+"Process, plant and machine operatives",40-49,10.6,11.8,grp6
+"Process, plant and machine operatives",50-59,11.2,11.5,grp6
+Professional occupations,30-39,44.0,21.6,grp7
+Professional occupations,40-49,44.0,23.5,grp7
+Professional occupations,50-59,44.6,23.2,grp7
+Sales and customer service occupations,30-39,43.8,10.7,grp8
+Sales and customer service occupations,40-49,52.2,10.6,grp8
+Sales and customer service occupations,50-59,60.9,10.1,grp8
+Skilled trades occupations,30-39,6.4,13.0,grp9
+Skilled trades occupations,40-49,8.1,13.5,grp9
+Skilled trades occupations,50-59,10.7,13.9,grp9

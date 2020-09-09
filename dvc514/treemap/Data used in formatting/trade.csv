@@ -1,0 +1,565 @@
+id,name,rank1,rank2,rank3,rank4,rank5,trade_val1,trade_val2,trade_val3,trade_val4,trade_val5,eu_row_split
+c0,T: Total,Spain,Germany,C,D,E,5,4,3,2,1,0.5
+c1,"&nbsp0and1: Food, beverages & tobacco",A1,B1,C2,D3,E4,6,5,4,3,2,0.2
+c1_1,&nbsp&nbsp0: Food & live animals,A2,B2,C3,D4,E5,7,6,5,4,3,0.8
+c1_1_1,&nbsp&nbsp&nbsp00: Live animals,A3,B3,C4,D5,E6,8,7,6,5,4,0.4
+c1_1_1_1,&nbsp&nbsp&nbsp&nbsp01.4A: Live animals,A4,B4,C5,D6,E7,9,8,7,6,5,0.6
+c1_1_1_2,&nbsp&nbsp&nbsp&nbsp03.0A: Live marine mammals,A5,B5,C6,D7,E8,10,9,8,7,6,0.3
+c1_1_2,&nbsp&nbsp&nbsp01: Meat & meat preparations,A6,B6,C7,D8,E9,11,10,9,8,7,0.5
+c1_1_2_1,&nbsp&nbsp&nbsp&nbsp01.4B: Snails,A7,B7,C8,D9,E10,12,11,10,9,8,0.2
+c1_1_2_2,"&nbsp&nbsp&nbsp&nbsp10.1A: Fresh, chilled or frozen meat, meat products for human consumption",A8,B8,C9,D10,E11,13,12,11,10,9,0.8
+c1_1_2_3,&nbsp&nbsp&nbsp&nbsp10.8A: Meat extracts & juices,A9,B9,C10,D11,E12,14,13,12,11,10,0.4
+c1_1_3,&nbsp&nbsp&nbsp02: Dairy products & eggs,A10,B10,C11,D12,E13,15,14,13,12,11,0.6
+c1_1_3_1,&nbsp&nbsp&nbsp&nbsp01.4C: Eggs in shell,A11,B11,C12,D13,E14,16,15,14,13,12,0.3
+c1_1_3_2,"&nbsp&nbsp&nbsp&nbsp10.5A: Milk, butter, cheese, yoghurt, ice cream etc",A12,B12,C13,D14,E15,17,16,15,14,13,0.5
+c1_1_3_3,&nbsp&nbsp&nbsp&nbsp10.8B: Processed eggs,A13,B13,C14,D15,E16,18,17,16,15,14,0.5
+c1_1_4,&nbsp&nbsp&nbsp03: Fish & shellfish,A14,B14,C15,D16,E17,19,18,17,16,15,0.2
+c1_1_4_1,&nbsp&nbsp&nbsp&nbsp03.0B: Fresh or chilled fish & shellfish,A15,B15,C16,D17,E18,20,19,18,17,16,0.8
+c1_1_4_2,&nbsp&nbsp&nbsp&nbsp10.2A: Processed & preserved fish & shellfish,A16,B16,C17,D18,E19,21,20,19,18,17,0.4
+c1_1_5,&nbsp&nbsp&nbsp04and08: Cereals & animal feeding stuffs,A17,B17,C18,D19,E20,22,21,20,19,18,0.6
+c1_1_5_1,&nbsp&nbsp&nbsp&nbsp04: Cereals,A18,B18,C19,D20,E21,23,22,21,20,19,0.3
+c1_1_5_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp01.1A: Unmilled cereals,A19,B19,C20,D21,E22,24,23,22,21,20,0.5
+c1_1_5_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp10.6A: Processed cereals,A20,B20,C21,D22,E23,25,24,23,22,21,0.2
+c1_1_5_1_3,"&nbsp&nbsp&nbsp&nbsp&nbsp10.7A: Bread, cakes, biscuits & pasta",A21,B21,C22,D23,E24,26,25,24,23,22,0.8
+c1_1_5_1_4,&nbsp&nbsp&nbsp&nbsp&nbsp11.06: Malt,A22,B22,C23,D24,E25,27,26,25,24,23,0.4
+c1_1_5_2,&nbsp&nbsp&nbsp&nbsp08: Animal feeding stuffs,A23,B23,C24,D25,E26,28,27,26,25,24,0.6
+c1_1_5_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp01.1C: Straw & forage,A24,B24,C25,D26,E27,29,28,27,26,25,0.3
+c1_1_5_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp10.1B: Meat meal for animals,A25,B25,C26,D27,E28,30,29,28,27,26,0.5
+c1_1_5_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp10.2B: Fish meal for animals,A26,B26,C27,D28,E29,31,30,29,28,27,0.2
+c1_1_5_2_4,&nbsp&nbsp&nbsp&nbsp&nbsp10.3B: Vegetable waste,A27,B27,C28,D29,E30,32,31,30,29,28,0.8
+c1_1_5_2_5,&nbsp&nbsp&nbsp&nbsp&nbsp10.4A: Oilcake,A28,B28,C29,D30,E31,33,32,31,30,29,0.4
+c1_1_5_2_6,"&nbsp&nbsp&nbsp&nbsp&nbsp10.6D: Bran, residues of starch manufacture",A29,B29,C30,D31,E32,34,33,32,31,30,0.6
+c1_1_5_2_7,&nbsp&nbsp&nbsp&nbsp&nbsp10.8E: Residues of sugar manufactures,A30,B30,C31,D32,E33,35,34,33,32,31,0.3
+c1_1_5_2_8,&nbsp&nbsp&nbsp&nbsp&nbsp10.9: Prepared feeds for farm animals & pets,A31,B31,C32,D33,E34,36,35,34,33,32,0.5
+c1_1_5_2_9,&nbsp&nbsp&nbsp&nbsp&nbsp11.02A: Wine lees,A32,B32,C33,D34,E35,37,36,35,34,33,0.5
+c1_1_5_2_10,&nbsp&nbsp&nbsp&nbsp&nbsp11.05A: Brewing dregs,A33,B33,C34,D35,E36,38,37,36,35,34,0.2
+c1_1_6,&nbsp&nbsp&nbsp05: Vegetables & fruit,A34,B34,C35,D36,E37,39,38,37,36,35,0.8
+c1_1_6_1,&nbsp&nbsp&nbsp&nbsp01.1B: Fresh or chilled vegetables & vegetable products,A35,B35,C36,D37,E38,40,39,38,37,36,0.4
+c1_1_6_2,"&nbsp&nbsp&nbsp&nbsp01.2A: Fruits, nuts & berries",A36,B36,C37,D38,E39,41,40,39,38,37,0.6
+c1_1_6_3,"&nbsp&nbsp&nbsp&nbsp10.3A: Processed & preserved fruit & vegetable, fruit & vegetable juices",A37,B37,C38,D39,E40,42,41,40,39,38,0.3
+c1_1_6_4,"&nbsp&nbsp&nbsp&nbsp10.6B: Vegetable flour & meal, tapioca",A38,B38,C39,D40,E41,43,42,41,40,39,0.5
+c1_1_7,&nbsp&nbsp&nbsp06: Sugar,A39,B39,C40,D41,E42,44,43,42,41,40,0.5
+c1_1_7_1,&nbsp&nbsp&nbsp&nbsp01.4D: Honey,A40,B40,C41,D42,E43,45,44,43,42,41,0.2
+c1_1_7_2,&nbsp&nbsp&nbsp&nbsp10.5B: Lactose,A41,B41,C42,D43,E44,46,45,44,43,42,0.8
+c1_1_7_3,"&nbsp&nbsp&nbsp&nbsp10.6C: Glucose, fructose etc",A42,B42,C43,D44,E45,47,46,45,44,43,0.4
+c1_1_7_4,&nbsp&nbsp&nbsp&nbsp10.8C: Sugar & sugar confectionery,A43,B43,C44,D45,E46,48,47,46,45,44,0.6
+c1_1_8,"&nbsp&nbsp&nbsp07: Coffee, tea, cocoa etc",A44,B44,C45,D46,E47,49,48,47,46,45,0.3
+c1_1_8_1,&nbsp&nbsp&nbsp&nbsp01.2B: Beverage crops & raw spices,A45,B45,C46,D47,E48,50,49,48,47,46,0.5
+c1_1_8_2,"&nbsp&nbsp&nbsp&nbsp10.8D: Processed tea, coffee, cocoa, chocolate & spices",A46,B46,C47,D48,E49,51,50,49,48,47,0.5
+c1_1_9,&nbsp&nbsp&nbsp09: Miscellaneous foods,A47,B47,C48,D49,E50,52,51,50,49,48,0.5
+c1_1_9_1,&nbsp&nbsp&nbsp&nbsp01.4E: Other edible products of animal origin,A48,B48,C49,D50,E51,53,52,51,50,49,0.2
+c1_1_9_2,&nbsp&nbsp&nbsp&nbsp10.4B: Margarine & similiar edible fats,A49,B49,C50,D51,E52,54,53,52,51,50,0.8
+c1_1_9_3,&nbsp&nbsp&nbsp&nbsp10.7B: Couscous,A50,B50,C51,D52,E53,55,54,53,52,51,0.4
+c1_1_9_4,&nbsp&nbsp&nbsp&nbsp10.8F: Food products n.e.s,A51,B51,C52,D53,E54,56,55,54,53,52,0.6
+c1_2,&nbsp&nbsp1: Beverages & tobacco,A52,B52,C53,D54,E55,57,56,55,54,53,0.3
+c1_2_1,&nbsp&nbsp&nbsp11: Beverages,A53,B53,C54,D55,E56,58,57,56,55,54,0.5
+c1_2_1_1,&nbsp&nbsp&nbsp&nbsp11.01: Distilled alcoholic beverages,A54,B54,C55,D56,E57,59,58,57,56,55,0.5
+c1_2_1_2,&nbsp&nbsp&nbsp&nbsp11.02B: Wine,A55,B55,C56,D57,E58,60,59,58,57,56,0.5
+c1_2_1_3,&nbsp&nbsp&nbsp&nbsp11.03: Cider & other fruit wines,A56,B56,C57,D58,E59,61,60,59,58,57,0.2
+c1_2_1_4,&nbsp&nbsp&nbsp&nbsp11.04: Other non-distilled fermented beverages,A57,B57,C58,D59,E60,62,61,60,59,58,0.8
+c1_2_1_5,&nbsp&nbsp&nbsp&nbsp11.05B: Beer,A58,B58,C59,D60,E61,63,62,61,60,59,0.4
+c1_2_1_6,&nbsp&nbsp&nbsp&nbsp11.07: Soft drinks & bottled wines,A59,B59,C60,D61,E62,64,63,62,61,60,0.6
+c1_2_2,&nbsp&nbsp&nbsp12: Tobacco,A60,B60,C61,D62,E63,65,64,63,62,61,0.3
+c1_2_2_1,&nbsp&nbsp&nbsp&nbsp01.1D: Raw tobacco,A61,B61,C62,D63,E64,66,65,64,63,62,0.5
+c1_2_2_2,&nbsp&nbsp&nbsp&nbsp12.0: Tobacco products,A62,B62,C63,D64,E65,67,66,65,64,63,0.5
+c2,&nbsp2and4: Basic materials,A63,B63,C64,D65,E66,68,67,66,65,64,0.5
+c2_1,&nbsp&nbsp2: Crude materials,A64,B64,C65,D66,E67,69,68,67,66,65,0.2
+c2_1_1,&nbsp&nbsp&nbsp24: Wood & cork,A65,B65,C66,D67,E68,70,69,68,67,66,0.8
+c2_1_1_1,&nbsp&nbsp&nbsp&nbsp02.2: Wood in the rough,A66,B66,C67,D68,E69,71,70,69,68,67,0.4
+c2_1_1_2,&nbsp&nbsp&nbsp&nbsp02.3B: Raw cork,A67,B67,C68,D69,E70,72,71,70,69,68,0.6
+c2_1_1_3,&nbsp&nbsp&nbsp&nbsp16.1A: Wood simple worked,A68,B68,C69,D70,E71,73,72,71,70,69,0.3
+c2_1_1_4,&nbsp&nbsp&nbsp&nbsp16.2A: Processed & waste cork,A69,B69,C70,D71,E72,74,73,72,71,70,0.5
+c2_1_1_5,&nbsp&nbsp&nbsp&nbsp20.14A: Wood charcoal,A70,B70,C71,D72,E73,75,74,73,72,71,0.5
+c2_1_1_6,&nbsp&nbsp&nbsp&nbsp38.1C: Wood waste,A71,B71,C72,D73,E74,76,75,74,73,72,0.5
+c2_1_2,&nbsp&nbsp&nbsp25: Pulp & waste paper,A72,B72,C73,D74,E75,77,76,75,74,73,0.2
+c2_1_2_1,&nbsp&nbsp&nbsp&nbsp17.1A: Wood pulp,A73,B73,C74,D75,E76,78,77,76,75,74,0.8
+c2_1_2_2,&nbsp&nbsp&nbsp&nbsp38.1D: Paper waste & scrap,A74,B74,C75,D76,E77,79,78,77,76,75,0.4
+c2_1_3,&nbsp&nbsp&nbsp26: Textile fibres,A75,B75,C76,D77,E78,80,79,78,77,76,0.6
+c2_1_3_1,&nbsp&nbsp&nbsp&nbsp01.1F: Fibre crops,A76,B76,C77,D78,E79,81,80,79,78,77,0.3
+c2_1_3_2,&nbsp&nbsp&nbsp&nbsp01.4G: Shorn greasy wool & other animal hair,A77,B77,C78,D79,E80,82,81,80,79,78,0.5
+c2_1_3_3,&nbsp&nbsp&nbsp&nbsp10.1D: Pulled greasy wool,A78,B78,C79,D80,E81,83,82,81,80,79,0.5
+c2_1_3_4,&nbsp&nbsp&nbsp&nbsp10.4D: Cotton linters,A79,B79,C80,D81,E82,84,83,82,81,80,0.5
+c2_1_3_5,&nbsp&nbsp&nbsp&nbsp13.1A: Processed textile fibres,A80,B80,C81,D82,E83,85,84,83,82,81,0.2
+c2_1_3_6,&nbsp&nbsp&nbsp&nbsp13.9A: Rags & worn out textiles,A81,B81,C82,D83,E84,86,85,84,83,82,0.8
+c2_1_3_7,&nbsp&nbsp&nbsp&nbsp14.1A: Worn clothing,A82,B82,C83,D84,E85,87,86,85,84,83,0.4
+c2_1_3_8,&nbsp&nbsp&nbsp&nbsp20.6A: Unworked man-made fibres,A83,B83,C84,D85,E86,88,87,86,85,84,0.6
+c2_1_3_9,&nbsp&nbsp&nbsp&nbsp38.1E: Yarn waste,A84,B84,C85,D86,E87,89,88,87,86,85,0.3
+c2_1_4,&nbsp&nbsp&nbsp28: Metal ores & scrap,A85,B85,C86,D87,E88,90,89,88,87,86,0.5
+c2_1_4_1,&nbsp&nbsp&nbsp&nbsp07.1: Iron ores,A86,B86,C87,D88,E89,91,90,89,88,87,0.2
+c2_1_4_2,&nbsp&nbsp&nbsp&nbsp07.2: Non-ferrous metal ores & concentrates,A87,B87,C88,D89,E90,92,91,90,89,88,0.8
+c2_1_4_3,&nbsp&nbsp&nbsp&nbsp20.13B: Roasted iron pyrites,A88,B88,C89,D90,E91,93,92,91,90,89,0.4
+c2_1_4_4,&nbsp&nbsp&nbsp&nbsp24.1A: Remelting scrap ingots of iron or steel,A89,B89,C90,D91,E92,94,93,92,91,90,0.6
+c2_1_4_5,&nbsp&nbsp&nbsp&nbsp24.4A: Processed non-ferrous metal ores,A90,B90,C91,D92,E93,95,94,93,92,91,0.3
+c2_1_4_6,&nbsp&nbsp&nbsp&nbsp38.1G: Other metal waste,A91,B91,C92,D93,E94,96,95,94,93,92,0.5
+c2_1_5,&nbsp&nbsp&nbsp2OCM: Other crude materials,A92,B92,C93,D94,E95,97,96,95,94,93,0.2
+c2_1_5_1,"&nbsp&nbsp&nbsp&nbsp21: Hides, skins & furskins",A93,B93,C94,D95,E96,98,97,96,95,94,0.8
+c2_1_5_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp01.4F: Hides & skins of other animals,A94,B94,C95,D96,E97,99,98,97,96,95,0.4
+c2_1_5_1_2,"&nbsp&nbsp&nbsp&nbsp&nbsp10.1C: Hides & skins of cows, goats & sheep",A95,B95,C96,D97,E98,100,99,98,97,96,0.6
+c2_1_5_1_3,&nbsp&nbsp&nbsp&nbsp&nbsp38.1A: Leather waste,A96,B96,C97,D98,E99,101,100,99,98,97,0.3
+c2_1_5_2,&nbsp&nbsp&nbsp&nbsp22: Oil-seeds & oleaginous fruits,A97,B97,C98,D99,E100,102,101,100,99,98,0.5
+c2_1_5_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp01.1E: Oil seeds,A98,B98,C99,D100,E101,103,102,101,100,99,0.5
+c2_1_5_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp01.2C: Oleaginous fruits,A99,B99,C100,D101,E102,104,103,102,101,100,0.2
+c2_1_5_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp10.4C: Flours & meals of oils seeds & fruits,A100,B100,C101,D102,E103,105,104,103,102,101,0.8
+c2_1_5_3,&nbsp&nbsp&nbsp&nbsp23: Crude rubber,A101,B101,C102,D103,E104,106,105,104,103,102,0.4
+c2_1_5_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp01.2D: Natural rubber,A102,B102,C103,D104,E105,107,106,105,104,103,0.6
+c2_1_5_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp02.3A: Natural gums,A103,B103,C104,D105,E106,108,107,106,105,104,0.3
+c2_1_5_3_3,&nbsp&nbsp&nbsp&nbsp&nbsp20.17: Synthetic rubber,A104,B104,C105,D106,E107,109,108,107,106,105,0.5
+c2_1_5_3_4,&nbsp&nbsp&nbsp&nbsp&nbsp22.1A: Reclaimed rubber,A105,B105,C106,D107,E108,110,109,108,107,106,0.2
+c2_1_5_3_5,&nbsp&nbsp&nbsp&nbsp&nbsp38.1B: Rubber waste,A106,B106,C107,D108,E109,111,110,109,108,107,0.8
+c2_1_5_4,&nbsp&nbsp&nbsp&nbsp27: Crude minerals & fertilisers,A107,B107,C108,D109,E110,112,111,110,109,108,0.4
+c2_1_5_4_1,&nbsp&nbsp&nbsp&nbsp&nbsp06.1A: Bituminous or oil shale & tar sands,A108,B108,C109,D110,E111,113,112,111,110,109,0.6
+c2_1_5_4_2,"&nbsp&nbsp&nbsp&nbsp&nbsp08.1: Unworked stone, gravel, sand, clays & kaolin",A109,B109,C110,D111,E112,114,113,112,111,110,0.3
+c2_1_5_4_3,&nbsp&nbsp&nbsp&nbsp&nbsp08.9A: Other minerals,A110,B110,C111,D112,E113,115,114,113,112,111,0.5
+c2_1_5_4_4,&nbsp&nbsp&nbsp&nbsp&nbsp10.8G: Food-grade salt,A111,B111,C112,D113,E114,116,115,114,113,112,0.2
+c2_1_5_4_5,&nbsp&nbsp&nbsp&nbsp&nbsp20.13A: Processed sulphur,A112,B112,C113,D114,E115,117,116,115,114,113,0.8
+c2_1_5_4_6,&nbsp&nbsp&nbsp&nbsp&nbsp20.15A: Animal & vegetable fertilisers,A113,B113,C114,D115,E116,118,117,116,115,114,0.4
+c2_1_5_4_7,&nbsp&nbsp&nbsp&nbsp&nbsp23.5A: Plaster & calcined dolomite,A114,B114,C115,D116,E117,119,118,117,116,115,0.6
+c2_1_5_4_8,&nbsp&nbsp&nbsp&nbsp&nbsp23.9A: Tarred macadam,A115,B115,C116,D117,E118,120,119,118,117,116,0.3
+c2_1_5_4_9,&nbsp&nbsp&nbsp&nbsp&nbsp32.1A: Worked industrial diamonds & powder of precious stones,A116,B116,C117,D118,E119,121,120,119,118,117,0.5
+c2_1_5_4_10,&nbsp&nbsp&nbsp&nbsp&nbsp38.1F: Slag from iron & steel manufacture,A117,B117,C118,D119,E120,122,121,120,119,118,0.5
+c2_1_5_4_11,&nbsp&nbsp&nbsp&nbsp&nbsp38.2A: Ash from waste incineration,A118,B118,C119,D120,E121,123,122,121,120,119,0.2
+c2_1_5_5,&nbsp&nbsp&nbsp&nbsp29: Other crude animal & vegetable materials,A119,B119,C120,D121,E122,124,123,122,121,120,0.8
+c2_1_5_5_1,"&nbsp&nbsp&nbsp&nbsp&nbsp01.1G: Cut flowers, seeds",A120,B120,C121,D122,E123,125,124,123,122,121,0.4
+c2_1_5_5_2,&nbsp&nbsp&nbsp&nbsp&nbsp01.2E: Other perennial crops,A121,B121,C122,D123,E124,126,125,124,123,122,0.6
+c2_1_5_5_3,&nbsp&nbsp&nbsp&nbsp&nbsp01.3: Planting material,A122,B122,C123,D124,E125,127,126,125,124,123,0.3
+c2_1_5_5_4,&nbsp&nbsp&nbsp&nbsp&nbsp01.4H: Bovine semen,A123,B123,C124,D125,E126,128,127,126,125,124,0.5
+c2_1_5_5_5,&nbsp&nbsp&nbsp&nbsp&nbsp02.1: Trees & their seeds,A124,B124,C125,D126,E127,129,128,127,126,125,0.5
+c2_1_5_5_6,&nbsp&nbsp&nbsp&nbsp&nbsp02.3C: Other wild growing products,A125,B125,C126,D127,E128,130,129,128,127,126,0.2
+c2_1_5_5_7,&nbsp&nbsp&nbsp&nbsp&nbsp03.0C: Other aquatic plant & animal products,A126,B126,C127,D128,E129,131,130,129,128,127,0.8
+c2_1_5_5_8,"&nbsp&nbsp&nbsp&nbsp&nbsp10.1E: Inedible offal, unworked bird skins & feathers",A127,B127,C128,D129,E130,132,131,130,129,128,0.4
+c2_1_5_5_9,&nbsp&nbsp&nbsp&nbsp&nbsp10.2C: Inedible products of fish & shellfish,A128,B128,C129,D130,E131,133,132,131,130,129,0.6
+c2_1_5_5_10,&nbsp&nbsp&nbsp&nbsp&nbsp10.8H: Vegetable extracts,A129,B129,C130,D131,E132,134,133,132,131,130,0.3
+c2_1_5_5_11,&nbsp&nbsp&nbsp&nbsp&nbsp96.0: Human hair,A130,B130,C131,D132,E133,135,134,133,132,131,0.5
+c2_2,&nbsp&nbsp4: Animal & vegetable oils & fats,A131,B131,C132,D133,E134,136,135,134,133,132,0.5
+c2_2_1,&nbsp&nbsp&nbsp41: Animal oils & fats,A132,B132,C133,D134,E135,137,136,135,134,133,0.5
+c2_2_1_1,&nbsp&nbsp&nbsp&nbsp10.1F: Crude animal fats,A133,B133,C134,D135,E136,138,137,136,135,134,0.2
+c2_2_1_2,&nbsp&nbsp&nbsp&nbsp10.4E: Processed animal oils & fats,A134,B134,C135,D136,E137,139,138,137,136,135,0.8
+c2_2_1_3,&nbsp&nbsp&nbsp&nbsp13.1B: Wool grease,A135,B135,C136,D137,E138,140,139,138,137,136,0.4
+c2_2_2,&nbsp&nbsp&nbsp42: Vegetable oils & fats,A136,B136,C137,D138,E139,141,140,139,138,137,0.6
+c2_2_2_1,&nbsp&nbsp&nbsp&nbsp10.4F: Vegetable oils,A137,B137,C138,D139,E140,142,141,140,139,138,0.3
+c2_2_2_2,&nbsp&nbsp&nbsp&nbsp10.6E: Maize oil,A138,B138,C139,D140,E141,143,142,141,140,139,0.5
+c2_2_3,&nbsp&nbsp&nbsp43: Processed oils & fats,A139,B139,C140,D141,E142,144,143,142,141,140,0.5
+c2_2_3_1,&nbsp&nbsp&nbsp&nbsp01.4I: Beeswax,A140,B140,C141,D142,E143,145,144,143,142,141,0.5
+c2_2_3_2,&nbsp&nbsp&nbsp&nbsp10.4G: Hydrogenated fats & oils and vegetable juices,A141,B141,C142,D143,E144,146,145,144,143,142,0.2
+c2_2_3_3,&nbsp&nbsp&nbsp&nbsp20.5A: Chemically modified fats & oils,A142,B142,C143,D144,E145,147,146,145,144,143,0.8
+c3,&nbsp3: Fuels,CountryA,CountryB,CountryC,CountryD,CountryE,148,147,146,145,144,0.4
+c3_1,&nbsp&nbsp33: Oil,A140,B140,C141,D142,E143,149,148,147,146,145,0.6
+c3_1_1,&nbsp&nbsp&nbsp33O: Crude oil,A141,B141,C142,D143,E144,150,149,148,147,146,0.3
+c3_1_1_1,&nbsp&nbsp&nbsp&nbsp06.1B: Crude petroleum oils,A142,B142,C143,D144,E145,151,150,149,148,147,0.5
+c3_1_2,&nbsp&nbsp&nbsp33R: Refined oil,A143,B143,C144,D145,E146,152,151,150,149,148,0.5
+c3_1_2_1,&nbsp&nbsp&nbsp&nbsp19.1B: Coal tar & pitch,A144,B144,C145,D146,E147,153,152,151,150,149,0.5
+c3_1_2_2,&nbsp&nbsp&nbsp&nbsp19.2B: Refined oils & other petroleum products,A145,B145,C146,D147,E148,154,153,152,151,150,0.2
+c3_1_2_3,&nbsp&nbsp&nbsp&nbsp20.14B: Products of tar distillation,A146,B146,C147,D148,E149,155,154,153,152,151,0.8
+c3_1_2_4,&nbsp&nbsp&nbsp&nbsp23.9B: Bituminous mixtures,A147,B147,C148,D149,E150,156,155,154,153,152,0.4
+c3_1_2_5,&nbsp&nbsp&nbsp&nbsp38.1H: Waste oils,A148,B148,C149,D150,E151,157,156,155,154,153,0.6
+c3_2,&nbsp&nbsp3OF: Fuels other than oil,A149,B149,C150,D151,E152,158,157,156,155,154,0.3
+c3_2_1,"&nbsp&nbsp&nbsp32: Coal, coke & briquettes",A150,B150,C151,D152,E153,159,158,157,156,155,0.5
+c3_2_1_1,&nbsp&nbsp&nbsp&nbsp05.1: Coal,A151,B151,C152,D153,E154,160,159,158,157,156,0.5
+c3_2_1_2,&nbsp&nbsp&nbsp&nbsp05.2: Lignite,A152,B152,C153,D154,E155,161,160,159,158,157,0.5
+c3_2_1_3,&nbsp&nbsp&nbsp&nbsp08.9B: Peat,A153,B153,C154,D155,E156,162,161,160,159,158,0.2
+c3_2_1_4,"&nbsp&nbsp&nbsp&nbsp19.1A: Coke, semi-coke & retort carbon",A154,B154,C155,D156,E157,163,162,161,160,159,0.8
+c3_2_1_5,&nbsp&nbsp&nbsp&nbsp19.2A: Briquettes,A155,B155,C156,D157,E158,164,163,162,161,160,0.4
+c3_2_2,&nbsp&nbsp&nbsp34: Gas,A156,B156,C157,D158,E159,165,164,163,162,161,0.6
+c3_2_2_1,&nbsp&nbsp&nbsp&nbsp06.2: Natural gas,A157,B157,C158,D159,E160,166,165,164,163,162,0.3
+c3_2_2_2,&nbsp&nbsp&nbsp&nbsp19.2C: Petroleum gases & other gaseous hydrocarbons,A158,B158,C159,D160,E161,167,166,165,164,163,0.5
+c3_2_2_3,&nbsp&nbsp&nbsp&nbsp35.2: Manufactured gas,A159,B159,C160,D161,E162,168,167,166,165,164,0.5
+c3_2_3,&nbsp&nbsp&nbsp35: Electricity,A160,B160,C161,D162,E163,169,168,167,166,165,0.5
+c3_2_3_1,&nbsp&nbsp&nbsp&nbsp35.1: Electricity,A161,B161,C162,D163,E164,170,169,168,167,166,0.2
+c4,&nbsp5to8: Manufactures,A162,B162,C163,D164,E165,171,170,169,168,167,0.8
+c4_1,&nbsp&nbsp5and6: Semi-manufactures,A163,B163,C164,D165,E166,172,171,170,169,168,0.4
+c4_1_1,&nbsp&nbsp&nbsp5: Chemicals,A164,B164,C165,D166,E167,173,172,171,170,169,0.6
+c4_1_1_1,&nbsp&nbsp&nbsp&nbsp51: Organic chemicals,A165,B165,C166,D167,E168,174,173,172,171,170,0.3
+c4_1_1_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp20.14C: Organic compounds n.e.s,A166,B166,C167,D168,E169,175,174,173,172,171,0.5
+c4_1_1_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp20.4A: Glycerol,A167,B167,C168,D169,E170,176,175,174,173,172,0.2
+c4_1_1_1_3,&nbsp&nbsp&nbsp&nbsp&nbsp21.1A: Pharmaceutical compounds,A168,B168,C169,D170,E171,177,176,175,174,173,0.8
+c4_1_1_2,&nbsp&nbsp&nbsp&nbsp52: Inorganic chemicals,A169,B169,C170,D171,E172,178,177,176,175,174,0.4
+c4_1_1_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp20.11: Industrial gases,A170,B170,C171,D172,E173,179,178,177,176,175,0.6
+c4_1_1_2_2,"&nbsp&nbsp&nbsp&nbsp&nbsp20.12A: Metal oxides, peroxides & hydroxides",A171,B171,C172,D173,E174,180,179,178,177,176,0.3
+c4_1_1_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp20.13C: Inorganic chemicals n.e.s,A172,B172,C173,D174,E175,181,180,179,178,177,0.5
+c4_1_1_2_4,&nbsp&nbsp&nbsp&nbsp&nbsp20.15B: Chemicals used as fertilisers,A173,B173,C174,D175,E176,182,181,180,179,178,0.2
+c4_1_1_2_5,&nbsp&nbsp&nbsp&nbsp&nbsp23.9C: Artificial corundum,A174,B174,C175,D176,E177,183,182,181,180,179,0.8
+c4_1_1_2_6,&nbsp&nbsp&nbsp&nbsp&nbsp24.4B: Processed nuclear fuel,A175,B175,C176,D177,E178,184,183,182,181,180,0.4
+c4_1_1_2_7,&nbsp&nbsp&nbsp&nbsp&nbsp38.1I: Spent fuel elements of nuclear reactors,A176,B176,C177,D178,E179,185,184,183,182,181,0.6
+c4_1_1_3,"&nbsp&nbsp&nbsp&nbsp53: Dyeing, tanning & colouring materials",A177,B177,C178,D179,E180,186,185,184,183,182,0.3
+c4_1_1_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp20.12B: Other dyes & pigments,A178,B178,C179,D180,E181,187,186,185,184,183,0.5
+c4_1_1_3_2,"&nbsp&nbsp&nbsp&nbsp&nbsp20.3: Paints, varnishes & printing ink",A179,B179,C180,D181,E182,188,187,186,185,184,0.5
+c4_1_1_4,&nbsp&nbsp&nbsp&nbsp54: Medicinal & pharmaceutical products,A180,B180,C181,D182,E183,189,188,187,186,185,0.2
+c4_1_1_4_1,&nbsp&nbsp&nbsp&nbsp&nbsp21.1B: Other basic pharmaceutical products,A181,B181,C182,D183,E184,190,189,188,187,186,0.8
+c4_1_1_4_2,&nbsp&nbsp&nbsp&nbsp&nbsp21.2: Pharmaceutical preparations,A182,B182,C183,D184,E185,191,190,189,188,187,0.4
+c4_1_1_4_3,&nbsp&nbsp&nbsp&nbsp&nbsp22.2A: Appliances for ostomy use,A183,B183,C184,D185,E186,192,191,190,189,188,0.6
+c4_1_1_4_4,&nbsp&nbsp&nbsp&nbsp&nbsp32.5A: Medical articles n.e.s,A184,B184,C185,D186,E187,193,192,191,190,189,0.3
+c4_1_1_4_5,&nbsp&nbsp&nbsp&nbsp&nbsp38.1J: Pharmaceutical waste,A185,B185,C186,D187,E188,194,193,192,191,190,0.5
+c4_1_1_5,&nbsp&nbsp&nbsp&nbsp55: Toilet & cleansing preparations,A186,B186,C187,D188,E189,195,194,193,192,191,0.2
+c4_1_1_5_1,"&nbsp&nbsp&nbsp&nbsp&nbsp20.4B: Perfumes, cleaning, polishing & toilet peparations n.e.s",A187,B187,C188,D189,E190,196,195,194,193,192,0.8
+c4_1_1_5_2,&nbsp&nbsp&nbsp&nbsp&nbsp20.5B: Essential oils,A188,B188,C189,D190,E191,197,196,195,194,193,0.4
+c4_1_1_6,&nbsp&nbsp&nbsp&nbsp57and58: Plastics,A189,B189,C190,D191,E192,198,197,196,195,194,0.6
+c4_1_1_6_1,&nbsp&nbsp&nbsp&nbsp&nbsp57: Plastics in primary forms,A190,B190,C191,D192,E193,199,198,197,196,195,0.3
+c4_1_1_6_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp20.16: Plastics in primary forms,A191,B191,C192,D193,E194,200,199,198,197,196,0.5
+c4_1_1_6_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp38.1K: Plastic waste,A192,B192,C193,D194,E195,201,200,199,198,197,0.2
+c4_1_1_6_2,&nbsp&nbsp&nbsp&nbsp&nbsp58: Plastics in non-primary forms,A193,B193,C194,D195,E196,202,201,200,199,198,0.8
+c4_1_1_6_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp22.2B: Plastics in non-primary forms,A194,B194,C195,D196,E197,203,202,201,200,199,0.4
+c4_1_1_7,&nbsp&nbsp&nbsp&nbsp56and59: Fertilisers & other chemicals,A195,B195,C196,D197,E198,204,203,202,201,200,0.6
+c4_1_1_7_1,&nbsp&nbsp&nbsp&nbsp&nbsp56: Processed fertilisers,A196,B196,C197,D198,E199,205,204,203,202,201,0.3
+c4_1_1_7_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp20.15C: Other mineral & chemical fertilisers,A197,B197,C198,D199,E200,206,205,204,203,202,0.5
+c4_1_1_7_2,&nbsp&nbsp&nbsp&nbsp&nbsp59: Other chemicals,A198,B198,C199,D200,E201,207,206,205,204,203,0.5
+c4_1_1_7_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp10.5C: Casein,A199,B199,C200,D201,E202,208,207,206,205,204,0.2
+c4_1_1_7_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp10.6F: Starches,A200,B200,C201,D202,E203,209,208,207,206,205,0.8
+c4_1_1_7_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp20.14D: Derivates of vegetables or resin products,A201,B201,C202,D203,E204,210,209,208,207,206,0.4
+c4_1_1_7_2_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp20.2: Pesticides & other agrochemical products,A202,B202,C203,D204,E205,211,210,209,208,207,0.6
+c4_1_1_7_2_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp20.4C: Artificial waxes,A203,B203,C204,D205,E206,212,211,210,209,208,0.3
+c4_1_1_7_2_6,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp20.5C: Other chemical products,A204,B204,C205,D206,E207,213,212,211,210,209,0.5
+c4_1_1_7_2_7,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.6A: Ready-mixed concrete & mortars,A205,B205,C206,D207,E208,214,213,212,211,210,0.5
+c4_1_1_7_2_8,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.9D: Graphite preparations,A206,B206,C207,D208,E209,215,214,213,212,211,0.2
+c4_1_1_7_2_9,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp37.0: Sewage sludge,A207,B207,C208,D209,E210,216,215,214,213,212,0.8
+c4_1_1_7_2_10,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp38.1L: Municipal waste, other chemical waste & residues",A208,B208,C209,D210,E211,217,216,215,214,213,0.4
+c4_1_1_7_2_11,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp38.2B: Waste organic solvents,A209,B209,C210,D211,E212,218,217,216,215,214,0.6
+c4_1_2,&nbsp&nbsp&nbsp6: Material manufactures,A210,B210,C211,D212,E213,219,218,217,216,215,0.3
+c4_1_2_1,&nbsp&nbsp&nbsp&nbsp61: Leather manufactures,A211,B211,C212,D213,E214,220,219,218,217,216,0.5
+c4_1_2_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp15.1A: Leather & leather articles n.e.s,A212,B212,C213,D214,E215,221,220,219,218,217,0.5
+c4_1_2_2,&nbsp&nbsp&nbsp&nbsp62: Rubber manufactures,A213,B213,C214,D215,E216,222,221,220,219,218,0.5
+c4_1_2_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp22.1B: Rubber products n.e.s,A214,B214,C215,D216,E217,223,222,221,220,219,0.2
+c4_1_2_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp38.1M: Used rubber tyres,A215,B215,C216,D217,E218,224,223,222,221,220,0.8
+c4_1_2_3,&nbsp&nbsp&nbsp&nbsp63: Wood & cork manufactures,A216,B216,C217,D218,E219,225,224,223,222,221,0.4
+c4_1_2_3_1,"&nbsp&nbsp&nbsp&nbsp&nbsp16.1B: Wooden stakes, wood flour etc",A217,B217,C218,D219,E220,226,225,224,223,222,0.6
+c4_1_2_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp16.2B: Wood & cork manufactures n.e.s,A218,B218,C219,D220,E221,227,226,225,224,223,0.3
+c4_1_2_4,&nbsp&nbsp&nbsp&nbsp64: Paper & paperboard,A219,B219,C220,D221,E222,228,227,226,225,224,0.5
+c4_1_2_4_1,&nbsp&nbsp&nbsp&nbsp&nbsp17.1B: Paper & paperboard,A220,B220,C221,D222,E223,229,228,227,226,225,0.5
+c4_1_2_4_2,&nbsp&nbsp&nbsp&nbsp&nbsp17.2A: Paper & paperboard articles n.e.s,A221,B221,C222,D223,E224,230,229,228,227,226,0.5
+c4_1_2_5,&nbsp&nbsp&nbsp&nbsp65: Textile fabrics,A222,B222,C223,D224,E225,231,230,229,228,227,0.2
+c4_1_2_5_1,&nbsp&nbsp&nbsp&nbsp&nbsp13.1C: Textile yarn,A223,B223,C224,D225,E226,232,231,230,229,228,0.8
+c4_1_2_5_2,&nbsp&nbsp&nbsp&nbsp&nbsp13.2: Woven textiles,A224,B224,C225,D226,E227,233,232,231,230,229,0.4
+c4_1_2_5_3,&nbsp&nbsp&nbsp&nbsp&nbsp13.9B: Textile articles n.e.s,A225,B225,C226,D227,E228,234,233,232,231,230,0.6
+c4_1_2_5_4,&nbsp&nbsp&nbsp&nbsp&nbsp14.1B: Hat shapes & forms,A226,B226,C227,D228,E229,235,234,233,232,231,0.3
+c4_1_2_5_5,&nbsp&nbsp&nbsp&nbsp&nbsp17.2B: Wadding & textile wall coverings,A227,B227,C228,D229,E230,236,235,234,233,232,0.5
+c4_1_2_5_6,&nbsp&nbsp&nbsp&nbsp&nbsp20.6B: Man-made filament yarn,A228,B228,C229,D230,E231,237,236,235,234,233,0.5
+c4_1_2_5_7,&nbsp&nbsp&nbsp&nbsp&nbsp22.1C: Rubberized textile fabrics,A229,B229,C230,D231,E232,238,237,236,235,234,0.5
+c4_1_2_5_8,&nbsp&nbsp&nbsp&nbsp&nbsp22.2C: Linoleum etc,A230,B230,C231,D232,E233,239,238,237,236,235,0.2
+c4_1_2_5_9,&nbsp&nbsp&nbsp&nbsp&nbsp23.1A: Yarn of glass fibre,A231,B231,C232,D233,E234,240,239,238,237,236,0.8
+c4_1_2_6,&nbsp&nbsp&nbsp&nbsp66: Mineral manufactures,A232,B232,C233,D234,E235,241,240,239,238,237,0.4
+c4_1_2_6_1,&nbsp&nbsp&nbsp&nbsp&nbsp66lessP: Mineral manufactures less precious stones,A233,B233,C234,D235,E236,242,241,240,239,238,0.6
+c4_1_2_6_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.1B: Glass & glass products n.e.s,A234,B234,C235,D236,E237,243,242,241,240,239,0.3
+c4_1_2_6_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.2: Refactory products,A235,B235,C236,D237,E238,244,243,242,241,240,0.5
+c4_1_2_6_1_3,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.3: Bricks, tiles etc",A236,B236,C237,D238,E239,245,244,243,242,241,0.5
+c4_1_2_6_1_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.4A: Ceramic articles n.e.s,A237,B237,C238,D239,E240,246,245,244,243,242,0.5
+c4_1_2_6_1_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.5B: Cement & lime,A238,B238,C239,D240,E241,247,246,245,244,243,0.2
+c4_1_2_6_1_6,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.6B: Articles of concrete, plaster & cement n.e.s",A239,B239,C240,D241,E242,248,247,246,245,244,0.8
+c4_1_2_6_1_7,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.7: Cut, shaped & finished stones",A240,B240,C241,D242,E243,249,248,247,246,245,0.4
+c4_1_2_6_1_8,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.9E: Mineral manufactures n.e.s,A241,B241,C242,D243,E244,250,249,248,247,246,0.6
+c4_1_2_6_1_9,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp38.1N: Glass waste,A242,B242,C243,D244,E245,251,250,249,248,247,0.3
+c4_1_2_6_2,&nbsp&nbsp&nbsp&nbsp&nbsp66P: Precious stones,A243,B243,C244,D245,E246,252,251,250,249,248,0.5
+c4_1_2_6_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp03.0D: Unworked pearls,A244,B244,C245,D246,E247,253,252,251,250,249,0.5
+c4_1_2_6_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp08.9C: Unworked precious stones,A245,B245,C246,D247,E248,254,253,252,251,250,0.5
+c4_1_2_6_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp20.13D: Unworked synthetic precious stones,A246,B246,C247,D248,E249,255,254,253,252,251,0.2
+c4_1_2_6_2_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.1B: Worked pearls & precious stones,A247,B247,C248,D249,E250,256,255,254,253,252,0.8
+c4_1_2_7,&nbsp&nbsp&nbsp&nbsp67: Iron & steel,A248,B248,C249,D250,E251,257,256,255,254,253,0.4
+c4_1_2_7_1,&nbsp&nbsp&nbsp&nbsp&nbsp24.1B: Other basic iron & steel,A249,B249,C250,D251,E252,258,257,256,255,254,0.6
+c4_1_2_7_2,"&nbsp&nbsp&nbsp&nbsp&nbsp24.2: Non-cast steel tubes, pipes & hollow profiles",A250,B250,C251,D252,E253,259,258,257,256,255,0.3
+c4_1_2_7_3,&nbsp&nbsp&nbsp&nbsp&nbsp24.3A: Other cold drawn steel products,A251,B251,C252,D253,E254,260,259,258,257,256,0.5
+c4_1_2_7_4,&nbsp&nbsp&nbsp&nbsp&nbsp24.5: Cast iron & steel tubes & pipes,A252,B252,C253,D254,E255,261,260,259,258,257,0.2
+c4_1_2_8,&nbsp&nbsp&nbsp&nbsp68: Non-ferrous metals,A253,B253,C254,D255,E256,262,261,260,259,258,0.8
+c4_1_2_8_1,&nbsp&nbsp&nbsp&nbsp&nbsp68lessS: Non-ferrous metals less silver,A254,B254,C255,D256,E257,263,262,261,260,259,0.4
+c4_1_2_8_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp24.4D: Non-ferrous metals n.e.s,A255,B255,C256,D257,E258,264,263,262,261,260,0.6
+c4_1_2_8_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp38.1O: Other non-ferrous metal waste,A256,B256,C257,D258,E259,265,264,263,262,261,0.3
+c4_1_2_8_1_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp38.3: Secondary raw materials for other non-ferrous base metals,A257,B257,C258,D259,E260,266,265,264,263,262,0.5
+c4_1_2_8_2,&nbsp&nbsp&nbsp&nbsp&nbsp68S: Silver,A258,B258,C259,D260,E261,267,266,265,264,263,0.2
+c4_1_2_8_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp24.4C: Silver,A259,B259,C260,D261,E262,268,267,266,265,264,0.8
+c4_1_2_9,&nbsp&nbsp&nbsp&nbsp69: Miscellaneous metal manufactures,A260,B260,C261,D262,E263,269,268,267,266,265,0.4
+c4_1_2_9_1,&nbsp&nbsp&nbsp&nbsp&nbsp24.3B: Sandwich panels of coated steel sheet,A261,B261,C262,D263,E264,270,269,268,267,266,0.6
+c4_1_2_9_2,&nbsp&nbsp&nbsp&nbsp&nbsp24.4E: Non-ferrous metal products n.e.s,A262,B262,C263,D264,E265,271,270,269,268,267,0.3
+c4_1_2_9_3,&nbsp&nbsp&nbsp&nbsp&nbsp25.1A: Structural metal products,A263,B263,C264,D265,E266,272,271,270,269,268,0.5
+c4_1_2_9_4,"&nbsp&nbsp&nbsp&nbsp&nbsp25.2A: Metal tanks, reservoirs & containers",A264,B264,C265,D266,E267,273,272,271,270,269,0.5
+c4_1_2_9_5,"&nbsp&nbsp&nbsp&nbsp&nbsp25.7A: Cutlery, locks, hinges & tools",A265,B265,C266,D267,E268,274,273,272,271,270,0.2
+c4_1_2_9_6,&nbsp&nbsp&nbsp&nbsp&nbsp25.9A: Fabricated metal products n.e.s,A266,B266,C267,D268,E269,275,274,273,272,271,0.8
+c4_1_2_9_7,&nbsp&nbsp&nbsp&nbsp&nbsp27.5A: Non-electric domestic cookers & heaters,A267,B267,C268,D269,E270,276,275,274,273,272,0.4
+c4_2,&nbsp&nbsp7and8: Finished manufactures,A268,B268,C269,D270,E271,277,276,275,274,273,0.6
+c4_2_1,&nbsp&nbsp&nbsp7: Machinery & transport equipment,A269,B269,C270,D271,E272,278,277,276,275,274,0.3
+c4_2_1_1,&nbsp&nbsp&nbsp&nbsp71to77: Machinery,A270,B270,C271,D272,E273,279,278,277,276,275,0.5
+c4_2_1_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp7M: Mechanical machinery,A271,B271,C272,D273,E274,280,279,278,277,276,0.2
+c4_2_1_1_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp7MC: Mechanical machinery (consumer),A272,B272,C273,D274,E275,281,280,279,278,277,0.8
+c4_2_1_1_1_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp71MC: Mechanical power generators (consumer),A273,B273,C274,D275,E276,282,281,280,279,278,0.4
+c4_2_1_1_1_1_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.1A: Outboard motors,A274,B274,C275,D276,E277,283,282,281,280,279,0.6
+c4_2_1_1_1_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp72C: Specialised machinery (consumer),A275,B275,C276,D277,E278,284,283,282,281,280,0.3
+c4_2_1_1_1_1_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.3A: Lawnmowers,A276,B276,C277,D278,E279,285,284,283,282,281,0.5
+c4_2_1_1_1_1_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.9A: Household sewing machines,A277,B277,C278,D279,E280,286,285,284,283,282,0.2
+c4_2_1_1_1_1_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp74C: General industrial machinery (consumer),A278,B278,C279,D280,E281,287,286,285,284,283,0.8
+c4_2_1_1_1_1_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.5B: Domestic fans & ventilating hoods,A279,B279,C280,D281,E282,288,287,286,285,284,0.4
+c4_2_1_1_1_1_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2E: Self-contained air conditioning machines; household weighing machines,A280,B280,C281,D282,E283,289,288,287,286,285,0.6
+c4_2_1_1_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp7MI: Mechanical machinery (intermediate),A281,B281,C282,D283,E284,290,289,288,287,286,0.3
+c4_2_1_1_1_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp71MI: Mechanical power generators (intermediate),A282,B282,C283,D284,E285,291,290,289,288,287,0.5
+c4_2_1_1_1_2_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp25.3B: Parts of steam generators & nuclear reactors,A283,B283,C284,D285,E286,292,291,290,289,288,0.5
+c4_2_1_1_1_2_1_2,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.1C: Gas turbines and parts of engines, turbines & fluid power equipment",A284,B284,C285,D286,E287,293,292,291,290,289,0.2
+c4_2_1_1_1_2_1_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp29.1A: Internal combustion engines for motor vehicles,A285,B285,C286,D287,E288,294,293,292,291,290,0.8
+c4_2_1_1_1_2_1_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp30.3A: Aircraft engines,A286,B286,C287,D288,E289,295,294,293,292,291,0.4
+c4_2_1_1_1_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp72I: Specialised machinery (intermediate),A287,B287,C288,D289,E290,296,295,294,293,292,0.6
+c4_2_1_1_1_2_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp18.1: Printing type & blocks,A288,B288,C289,D290,E291,297,296,295,294,293,0.3
+c4_2_1_1_1_2_2_2,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2B: Buckets, shovels, grabs & grips for cranes & excavators",A289,B289,C290,D291,E292,298,297,296,295,294,0.5
+c4_2_1_1_1_2_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.3C: Parts of agricultural machinery,A290,B290,C291,D292,E293,299,298,297,296,295,0.5
+c4_2_1_1_1_2_2_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.4B: Parts of specialised machine tools,A291,B291,C292,D293,E294,300,299,298,297,296,0.2
+c4_2_1_1_1_2_2_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.9C: Parts of special purpose machinery n.e.s,A292,B292,C293,D294,E295,301,300,299,298,297,0.8
+c4_2_1_1_1_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp73I: Metal working machinery (intermediate),A293,B293,C294,D295,E296,302,301,300,299,298,0.4
+c4_2_1_1_1_2_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.9B: Parts of electric soldering & welding machines,A294,B294,C295,D296,E297,303,302,301,300,299,0.6
+c4_2_1_1_1_2_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2D: Parts of non-electric soldering & welding machines,A295,B295,C296,D297,E298,304,303,302,301,300,0.3
+c4_2_1_1_1_2_3_3,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.4D: Parts of metal working tools, work holders & tool holders",A296,B296,C297,D298,E299,305,304,303,302,301,0.5
+c4_2_1_1_1_2_3_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.9E: Parts of machines for metallurgy,A297,B297,C298,D299,E300,306,305,304,303,302,0.5
+c4_2_1_1_1_2_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp74I: General industrial machinery (intermediate),A298,B298,C299,D300,E301,307,306,305,304,303,0.5
+c4_2_1_1_1_2_4_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp25.9B: Ships'propellers,A299,B299,C300,D301,E302,308,307,306,305,304,0.2
+c4_2_1_1_1_2_4_2,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.1E: Tapes, valves, bearings, gears etc",A300,B300,C301,D302,E303,309,308,307,306,305,0.8
+c4_2_1_1_1_2_4_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2G: Parts of general purpose machinery n.e.s,A301,B301,C302,D303,E304,310,309,308,307,306,0.4
+c4_2_1_1_1_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp7MK: Mechanical machinery (capital),A302,B302,C303,D304,E305,311,310,309,308,307,0.6
+c4_2_1_1_1_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp71MK: Mechanical power generators (capital),A303,B303,C304,D305,E306,312,311,310,309,308,0.3
+c4_2_1_1_1_3_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp20.13E: Fuel elements for nuclear reactors,A304,B304,C305,D306,E307,313,312,311,310,309,0.5
+c4_2_1_1_1_3_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp25.3A: Steam generators & nuclear reactors,A305,B305,C306,D307,E308,314,313,312,311,310,0.5
+c4_2_1_1_1_3_1_3,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.1B: Other engines, turbines, hydraulic & pneumatic motors",A306,B306,C307,D308,E309,315,314,313,312,311,0.5
+c4_2_1_1_1_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp72K: Specialised machinery (capital),A307,B307,C308,D309,E310,316,315,314,313,312,0.2
+c4_2_1_1_1_3_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2A: Sheet-fed offset printing machinery,A308,B308,C309,D310,E311,317,316,315,314,313,0.8
+c4_2_1_1_1_3_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.3B: Agricultural machinery n.e.s,A309,B309,C310,D311,E312,318,317,316,315,314,0.4
+c4_2_1_1_1_3_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.4A: Specialised machine tools,A310,B310,C311,D312,E313,319,318,317,316,315,0.6
+c4_2_1_1_1_3_2_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.9B: Special purpose machinery n.e.s,A311,B311,C312,D313,E314,320,319,318,317,316,0.3
+c4_2_1_1_1_3_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp73K: Metal working machinery (capital),A312,B312,C313,D314,E315,321,320,319,318,317,0.5
+c4_2_1_1_1_3_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.9A: Electric soldering & welding machines,A313,B313,C314,D315,E316,322,321,320,319,318,0.5
+c4_2_1_1_1_3_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2C: Non-electric soldering & welding machines,A314,B314,C315,D316,E317,323,322,321,320,319,0.5
+c4_2_1_1_1_3_3_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.4C: Metal working tools,A315,B315,C316,D317,E318,324,323,322,321,320,0.2
+c4_2_1_1_1_3_3_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.9D: Machinery for metallurgy,A316,B316,C317,D318,E319,325,324,323,322,321,0.8
+c4_2_1_1_1_3_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp74K: General industrial machinery (capital),A317,B317,C318,D319,E320,326,325,324,323,322,0.4
+c4_2_1_1_1_3_4_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp25.7B: Moulds for metal foundry,A318,B318,C319,D320,E321,327,326,325,324,323,0.6
+c4_2_1_1_1_3_4_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.5C: Non-electric water heaters,A319,B319,C320,D321,E322,328,327,326,325,324,0.3
+c4_2_1_1_1_3_4_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.1D: Pumps & compressors,A320,B320,C321,D322,E323,329,328,327,326,325,0.5
+c4_2_1_1_1_3_4_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2F: General purpose machinery n.e.s,A321,B321,C322,D323,E324,330,329,328,327,326,0.5
+c4_2_1_1_1_3_4_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.3D: Agricultural spraying machinery,A322,B322,C323,D324,E325,331,330,329,328,327,0.5
+c4_2_1_1_1_3_4_6,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.9F: Special purpose machinery classified as general purpose in SITC,A323,B323,C324,D325,E326,332,331,330,329,328,0.2
+c4_2_1_1_1_3_4_7,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.5B: Medical sterilisers & laboratory centrifuges,A324,B324,C325,D326,E327,333,332,331,330,329,0.8
+c4_2_1_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp7E: Electrical machinery,A325,B325,C326,D327,E328,334,333,332,331,330,0.4
+c4_2_1_1_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp7EC: Electrical machinery (consumer),A326,B326,C327,D328,E329,335,334,333,332,331,0.6
+c4_2_1_1_2_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp75C: Office machinery (consumer),A327,B327,C328,D329,E330,336,335,334,333,332,0.3
+c4_2_1_1_2_1_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2H: Pocket calculators,A328,B328,C329,D330,E331,337,336,335,334,333,0.5
+c4_2_1_1_2_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp76C: Telecoms & sound equipment (consumer),A329,B329,C330,D331,E332,338,337,336,335,334,0.5
+c4_2_1_1_2_1_2_1,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.4A: Consumer radios, televisions etc",A330,B330,C331,D332,E333,339,338,337,336,335,0.5
+c4_2_1_1_2_1_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp77C: Miscellaneous electrical goods (consumer),A331,B331,C332,D333,E334,340,339,338,337,336,0.2
+c4_2_1_1_2_1_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.2A: Batteries,A332,B332,C333,D334,E335,341,340,339,338,337,0.8
+c4_2_1_1_2_1_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.4A: Filament light bulbs,A333,B333,C334,D335,E336,342,341,340,339,338,0.4
+c4_2_1_1_2_1_3_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.5D: Electric domestic appliances,A334,B334,C335,D336,E337,343,342,341,340,339,0.6
+c4_2_1_1_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp7EI: Electrical machinery (intermediate),A335,B335,C336,D337,E338,344,343,342,341,340,0.3
+c4_2_1_1_2_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp71EI: Electric motors (intermediate),A336,B336,C337,D338,E339,345,344,343,342,341,0.5
+c4_2_1_1_2_2_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.1B: Parts of electric motors & generators,A337,B337,C338,D339,E340,346,345,344,343,342,0.2
+c4_2_1_1_2_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp75I: Office machinery (intermediate),A338,B338,C339,D340,E341,347,346,345,344,343,0.8
+c4_2_1_1_2_2_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.2B: Parts of computers,A339,B339,C340,D341,E342,348,347,346,345,344,0.4
+c4_2_1_1_2_2_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2J: Parts of office machines,A340,B340,C341,D342,E343,349,348,347,346,345,0.6
+c4_2_1_1_2_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp76I: Telecoms & sound equipment (intermediate),A341,B341,C342,D343,E344,350,349,348,347,346,0.3
+c4_2_1_1_2_2_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.1A: Pick-up cartridges,A342,B342,C343,D344,E345,351,350,349,348,347,0.5
+c4_2_1_1_2_2_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.3B: Parts of telephone & broadcasting equipment,A343,B343,C344,D345,E346,352,351,350,349,348,0.2
+c4_2_1_1_2_2_3_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.4C: Parts of sound & video equipment,A344,B344,C345,D346,E347,353,352,351,350,349,0.8
+c4_2_1_1_2_2_3_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.5B: Parts of navigating equipment,A345,B345,C346,D347,E348,354,353,352,351,350,0.4
+c4_2_1_1_2_2_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp77I: Miscellaneous electrical goods (intermediate),A346,B346,C347,D348,E349,355,354,353,352,351,0.6
+c4_2_1_1_2_2_4_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.1C: Glass electrical insulators,A347,B347,C348,D349,E350,356,355,354,353,352,0.3
+c4_2_1_1_2_2_4_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.4C: Ceramic insulators & insulating fittings,A348,B348,C349,D350,E351,357,356,355,354,353,0.5
+c4_2_1_1_2_2_4_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.1C: Electronic components & printed circuits,A349,B349,C350,D351,E352,358,357,356,355,354,0.5
+c4_2_1_1_2_2_4_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.6B: Parts of electrodiagnostic & radiological apparatus,A350,B350,C351,D352,E353,359,358,357,356,355,0.2
+c4_2_1_1_2_2_4_5,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.1D: Parts of electric power machinery, electricity distribution & control apparatus",A351,B351,C352,D353,E354,360,359,358,357,356,0.8
+c4_2_1_1_2_2_4_6,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.2B: Accumulators and parts of batteries & accumulators,A352,B352,C353,D354,E355,361,360,359,358,357,0.4
+c4_2_1_1_2_2_4_7,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.3A: Electronic & electric wires, cable trays for electrical circuites",A353,B353,C354,D355,E356,362,361,360,359,358,0.6
+c4_2_1_1_2_2_4_8,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.4B: Non-filament bulbs,A354,B354,C355,D356,E357,363,362,361,360,359,0.3
+c4_2_1_1_2_2_4_9,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.5F: Parts of electric domestic appliances,A355,B355,C356,D357,E358,364,363,362,361,360,0.5
+c4_2_1_1_2_2_4_10,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.9D: Parts of other electrical equipment,A356,B356,C357,D358,E359,365,364,363,362,361,0.2
+c4_2_1_1_2_2_4_11,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp29.3A: Electrical equipment for motor vehicles,A357,B357,C358,D359,E360,366,365,364,363,362,0.8
+c4_2_1_1_2_2_4_12,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp38.1P: Waste & scrap of batteries & accumulators,A358,B358,C359,D360,E361,367,366,365,364,363,0.4
+c4_2_1_1_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp7EK: Electrical machinery (intermediate),A359,B359,C360,D361,E362,368,367,366,365,364,0.6
+c4_2_1_1_2_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp71EK: Electric motors (capital),A360,B360,C361,D362,E363,369,368,367,366,365,0.3
+c4_2_1_1_2_3_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.1A: Electric motors & generators,A361,B361,C362,D363,E364,370,369,368,367,366,0.5
+c4_2_1_1_2_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp75K: Office machinery (capital),A362,B362,C363,D364,E365,371,370,369,368,367,0.2
+c4_2_1_1_2_3_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.2A: Computers & peripherals,A363,B363,C364,D365,E366,372,371,370,369,368,0.8
+c4_2_1_1_2_3_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2I: Other office machines,A364,B364,C365,D366,E367,373,372,371,370,369,0.4
+c4_2_1_1_2_3_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.9G: Printers & fax machines not connected to computers,A365,B365,C366,D367,E368,374,373,372,371,370,0.6
+c4_2_1_1_2_3_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp76K: Telecoms & sound equipment (capital),A366,B366,C367,D368,E369,375,374,373,372,371,0.3
+c4_2_1_1_2_3_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.2C: Computer monitors & projectors,A367,B367,C368,D369,E370,376,375,374,373,372,0.5
+c4_2_1_1_2_3_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.3A: Telephone & broadcasting equipment,A368,B368,C369,D370,E371,377,376,375,374,373,0.5
+c4_2_1_1_2_3_3_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.4B: Industrial sound & video equipment,A369,B369,C370,D371,E372,378,377,376,375,374,0.2
+c4_2_1_1_2_3_3_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.5A: Navigating equipment,A370,B370,C371,D372,E373,379,378,377,376,375,0.8
+c4_2_1_1_2_3_3_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.7A: Digital cameras,A371,B371,C372,D373,E374,380,379,378,377,376,0.4
+c4_2_1_1_2_3_3_6,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2K: Dictating machines,A372,B372,C373,D374,E375,381,380,379,378,377,0.6
+c4_2_1_1_2_3_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp77K: Miscellaneous electrical goods (capital),A373,B373,C374,D375,E376,382,381,380,379,378,0.3
+c4_2_1_1_2_3_4_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.4B: Non-metal magnets,A374,B374,C375,D376,E377,383,382,381,380,379,0.5
+c4_2_1_1_2_3_4_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp25.9C: Metal magnets,A375,B375,C376,D377,E378,384,383,382,381,380,0.5
+c4_2_1_1_2_3_4_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.1B: Multi-chip integrated circuits,A376,B376,C377,D378,E379,385,384,383,382,381,0.2
+c4_2_1_1_2_3_4_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.3C: Burglar & fire alarms,A377,B377,C378,D379,E380,386,385,384,383,382,0.8
+c4_2_1_1_2_3_4_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.6A: Electrodiagnostic & radiological apparatus,A378,B378,C379,D380,E381,387,386,385,384,383,0.4
+c4_2_1_1_2_3_4_6,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.1C: Electric power machinery,A379,B379,C380,D381,E382,388,387,386,385,384,0.6
+c4_2_1_1_2_3_4_7,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.5E: Non-electric vacuum cleaners,A380,B380,C381,D382,E383,389,388,387,386,385,0.3
+c4_2_1_1_2_3_4_8,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.9C: Other electrical equipment,A381,B381,C382,D383,E384,390,389,388,387,386,0.5
+c4_2_1_1_2_3_4_9,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2L: Electromechanical hand tools,A382,B382,C383,D384,E385,391,390,389,388,387,0.5
+c4_2_1_1_2_3_4_10,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.4E: Electroplating machinery,A383,B383,C384,D385,E386,392,391,390,389,388,0.5
+c4_2_1_1_2_3_4_11,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.9H: Sun-tanning equipment,A384,B384,C385,D386,E387,393,392,391,390,389,0.2
+c4_2_1_2,&nbsp&nbsp&nbsp&nbsp78: Road vehicles,A385,B385,C386,D387,E388,394,393,392,391,390,0.8
+c4_2_1_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp78M: Cars,A386,B386,C387,D388,E389,395,394,393,392,391,0.4
+c4_2_1_2_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp29.1B: Cars,A387,B387,C388,D389,E390,396,395,394,393,392,0.6
+c4_2_1_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp78C: Road vehicles other than cars (consumer),A388,B388,C389,D390,E391,397,396,395,394,393,0.3
+c4_2_1_2_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp29.2A: Caravans,A389,B389,C390,D391,E392,398,397,396,395,394,0.5
+c4_2_1_2_2_2,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp30.9A: Motor cycles, bicyles & invalid carriage",A390,B390,C391,D392,E393,399,398,397,396,395,0.5
+c4_2_1_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp78I: Road vehicles other than cars (intermediate),A391,B391,C392,D393,E394,400,399,398,397,396,0.5
+c4_2_1_2_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp29.2C: Motor vehicle bodies and parts of trailers & other vehicles,A392,B392,C393,D394,E395,401,400,399,398,397,0.2
+c4_2_1_2_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp29.3B: Other motor vehicle parts & accessories,A393,B393,C394,D395,E396,402,401,400,399,398,0.8
+c4_2_1_2_3_3,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp30.9C: Motor cycle, bicycle & invalid carriage parts & accessories",A394,B394,C395,D396,E397,403,402,401,400,399,0.4
+c4_2_1_2_4,&nbsp&nbsp&nbsp&nbsp&nbsp78K: Road vehicles other than cars (capital),A395,B395,C396,D397,E398,404,403,402,401,400,0.6
+c4_2_1_2_4_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.3E: Self-loading trailers for agriculture,A396,B396,C397,D398,E399,405,404,403,402,401,0.3
+c4_2_1_2_4_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.9I: Dumpers for off-highway use,A397,B397,C398,D399,E400,406,405,404,403,402,0.5
+c4_2_1_2_4_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp29.1C: Other road motor vehicles,A398,B398,C399,D400,E401,407,406,405,404,403,0.5
+c4_2_1_2_4_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp29.2B: Other trailers,A399,B399,C400,D401,E402,408,407,406,405,404,0.5
+c4_2_1_2_4_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp30.9B: Vehicles not mechanically propelled,A400,B400,C401,D402,E403,409,408,407,406,405,0.2
+c4_2_1_3,&nbsp&nbsp&nbsp&nbsp79: Other transport equipment,A401,B401,C402,D403,E404,410,409,408,407,406,0.8
+c4_2_1_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp791I: Railway equipment (intermediate),A402,B402,C403,D404,E405,411,410,409,408,407,0.4
+c4_2_1_3_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp30.2B: Railway parts,A403,B403,C404,D405,E406,412,411,410,409,408,0.6
+c4_2_1_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp791K: Railway equipment (capital),A404,B404,C405,D406,E407,413,412,411,410,409,0.3
+c4_2_1_3_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp30.2A: Railway vehicles & equipment,A405,B405,C406,D407,E408,414,413,412,411,410,0.5
+c4_2_1_3_3,&nbsp&nbsp&nbsp&nbsp&nbsp792/3: Ships & aircraft,A406,B406,C407,D408,E409,415,414,413,412,411,0.5
+c4_2_1_3_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp792: Aircraft,A407,B407,C408,D409,E410,416,415,414,413,412,0.5
+c4_2_1_3_3_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.9J: Aircraft launching gear,A408,B408,C409,D410,E411,417,416,415,414,413,0.2
+c4_2_1_3_3_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp30.3B: Aircraft,A409,B409,C410,D411,E412,418,417,416,415,414,0.8
+c4_2_1_3_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp793: Ships,A410,B410,C411,D412,E413,419,418,417,416,415,0.4
+c4_2_1_3_3_2_1,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp30.1: Ships, boats & floating structures",A411,B411,C412,D413,E414,420,419,418,417,416,0.6
+c4_2_1_3_3_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp38.1Q: Ships for breaking up,A412,B412,C413,D414,E415,421,420,419,418,417,0.3
+c4_2_2,&nbsp&nbsp&nbsp8: Miscellaneous manufactures,A413,B413,C414,D415,E416,422,421,420,419,418,0.5
+c4_2_2_1,&nbsp&nbsp&nbsp&nbsp84and85: Clothing & footwear,A414,B414,C415,D416,E417,423,422,421,420,419,0.5
+c4_2_2_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp84: Clothing,A415,B415,C416,D417,E418,424,423,422,421,420,0.5
+c4_2_2_1_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13.9D: Imitation fur,A416,B416,C417,D418,E419,425,424,423,422,421,0.2
+c4_2_2_1_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp14.1C: Clothes & clothing accessories,A417,B417,C418,D419,E420,426,425,424,423,422,0.8
+c4_2_2_1_1_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp14.2: Articles of fur,A418,B418,C419,D420,E421,427,426,425,424,423,0.4
+c4_2_2_1_1_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp14.3: Knitted & crotcheted hosiery & cardigans,A419,B419,C420,D421,E422,428,427,426,425,424,0.6
+c4_2_2_1_1_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp22.1D: Rubber clothes & clothing accessories,A420,B420,C421,D422,E423,429,428,427,426,425,0.3
+c4_2_2_1_1_6,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp22.2E: Plastic clothes & clothing accessories,A421,B421,C422,D423,E424,430,429,428,427,426,0.5
+c4_2_2_1_1_7,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.9A: Protective gloves & headwear,A422,B422,C423,D424,E425,431,430,429,428,427,0.2
+c4_2_2_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp85: Footwear,A423,B423,C424,D425,E426,432,431,430,429,428,0.8
+c4_2_2_1_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp15.2: Footwear,A424,B424,C425,D426,E427,433,432,431,430,429,0.4
+c4_2_2_1_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp16.2D: Wooden parts of footwear,A425,B425,C426,D427,E428,434,433,432,431,430,0.6
+c4_2_2_1_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp22.1E: Rubber soles & heels,A426,B426,C427,D428,E429,435,434,433,432,431,0.3
+c4_2_2_1_2_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp22.2F: Plastic soles & heels,A427,B427,C428,D429,E430,436,435,434,433,432,0.5
+c4_2_2_1_2_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.3A: Ski-boots,A428,B428,C429,D430,E431,437,436,435,434,433,0.2
+c4_2_2_2,&nbsp&nbsp&nbsp&nbsp87and88: Scientific & photographic,A429,B429,C430,D431,E432,438,437,436,435,434,0.8
+c4_2_2_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp87and88C: Scientific & photographic (consumer),A430,B430,C431,D432,E433,439,438,437,436,435,0.4
+c4_2_2_2_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp87C: Scientific instruments (consumer),A431,B431,C432,D433,E434,440,439,438,437,436,0.6
+c4_2_2_2_1_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.7B: Binoculars,A432,B432,C433,D434,E435,441,440,439,438,437,0.3
+c4_2_2_2_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp88C: Photographic & optical goods & clocks (consumer),A433,B433,C434,D435,E436,442,441,440,439,438,0.5
+c4_2_2_2_1_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp15.1C: Non-metal watch straps,A434,B434,C435,D436,E437,443,442,441,440,439,0.5
+c4_2_2_2_1_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.5E: Consumer watches & clocks,A435,B435,C436,D437,E438,444,443,442,441,440,0.2
+c4_2_2_2_1_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.7E: Cameras & other photographic equipment,A436,B436,C437,D438,E439,445,444,443,442,441,0.8
+c4_2_2_2_1_2_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.1C: Metal watch straps,A437,B437,C438,D439,E440,446,445,444,443,442,0.4
+c4_2_2_2_1_2_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.5D: Spectacles & spectacle lenses,A438,B438,C439,D440,E441,447,446,445,444,443,0.6
+c4_2_2_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp87and88I: Scientific & photographic (intermediate),A439,B439,C440,D441,E442,448,447,446,445,444,0.3
+c4_2_2_2_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp87I: Scientific instruments (intermediate),A440,B440,C441,D442,E443,449,448,447,446,445,0.5
+c4_2_2_2_2_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.5D: Parts of measuring & testing equipment,A441,B441,C442,D443,E444,450,449,448,447,446,0.2
+c4_2_2_2_2_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.7D: Parts of optical instruments,A442,B442,C443,D444,E445,451,450,449,448,447,0.8
+c4_2_2_2_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp88I: Photographic & optical goods & clocks (intermediate),A443,B443,C444,D445,E446,452,451,450,449,448,0.4
+c4_2_2_2_2_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp20.5D: Unexposed photographic film & other photographic supplies,A444,B444,C445,D446,E447,453,452,451,450,449,0.6
+c4_2_2_2_2_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.5G: Instrumental panel clocks and parts of watches & clocks,A445,B445,C446,D447,E448,454,453,452,451,450,0.3
+c4_2_2_2_2_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.7G: Other optical goods,A446,B446,C447,D448,E449,455,454,453,452,451,0.5
+c4_2_2_2_2_2_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.3B: Optical fibre bundles,A447,B447,C448,D449,E450,456,455,454,453,452,0.2
+c4_2_2_2_2_2_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.5E: Spectacle frames & contact lenses,A448,B448,C449,D450,E451,457,456,455,454,453,0.8
+c4_2_2_2_2_2_6,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp59.1A: Exposed cinematographic film,A449,B449,C450,D451,E452,458,457,456,455,454,0.4
+c4_2_2_2_2_2_7,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp74.2: Exposed photographic film,A450,B450,C451,D452,E453,459,458,457,456,455,0.6
+c4_2_2_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp87and88K: Scientific & photographic (capital),A451,B451,C452,D453,E454,460,459,458,457,456,0.3
+c4_2_2_2_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp87K: Scientific instruments (capital),A452,B452,C453,D454,E455,461,460,459,458,457,0.5
+c4_2_2_2_3_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.5C: Measuring & testing equipment,A453,B453,C454,D455,E456,462,461,460,459,458,0.5
+c4_2_2_2_3_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.7C: Other optical instruments,A454,B454,C455,D456,E457,463,462,461,460,459,0.2
+c4_2_2_2_3_1_3,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.2M: Levels, tape measures etc",A455,B455,C456,D457,E458,464,463,462,461,460,0.8
+c4_2_2_2_3_1_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.9K: Machines for balancing mechanical parts,A456,B456,C457,D458,E459,465,464,463,462,461,0.4
+c4_2_2_2_3_1_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.5C: Medical instruments n.e.s,A457,B457,C458,D459,E460,466,465,464,463,462,0.6
+c4_2_2_2_3_1_6,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.9B: Breathing appliances, gas masks & demonstration models",A458,B458,C459,D460,E461,467,466,465,464,463,0.3
+c4_2_2_2_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp88K: Photographic & optical goods & clocks (capital),A459,B459,C460,D461,E462,468,467,466,465,464,0.5
+c4_2_2_2_3_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.5F: Industrial clocks,A460,B460,C461,D462,E463,469,468,467,466,465,0.5
+c4_2_2_2_3_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.7F: Cinematographic cameras & projectors,A461,B461,C462,D463,E464,470,469,468,467,466,0.2
+c4_2_2_3,&nbsp&nbsp&nbsp&nbsp8O: Other manufactures,A462,B462,C463,D464,E465,471,470,469,468,467,0.8
+c4_2_2_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp896: Works of art,A463,B463,C464,D465,E466,472,471,470,469,468,0.4
+c4_2_2_3_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp90.0: Paintings & sculptures,A464,B464,C465,D466,E467,473,472,471,470,469,0.6
+c4_2_2_3_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp91.0: Antiques & collections,A465,B465,C466,D467,E468,474,473,472,471,470,0.3
+c4_2_2_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp897C: Jewellery,A466,B466,C467,D468,E469,475,474,473,472,471,0.5
+c4_2_2_3_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.1D: Jewellery,A467,B467,C468,D469,E470,476,475,474,473,472,0.5
+c4_2_2_3_3,&nbsp&nbsp&nbsp&nbsp&nbsp8OC: Other miscellaneous manufactures (consumer),A468,B468,C469,D470,E471,477,476,475,474,473,0.5
+c4_2_2_3_3_1,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp81C: Plumbing, heating & lighting fixtures (consumer)",A469,B469,C470,D471,E472,478,477,476,475,474,0.2
+c4_2_2_3_3_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.4C: Table & floor-standing lamps,A470,B470,C471,D472,E473,479,478,477,476,475,0.8
+c4_2_2_3_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp82C: Furniture (consumer),A471,B471,C472,D473,E474,480,479,478,477,476,0.4
+c4_2_2_3_3_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp31.0A: Household furniture,A472,B472,C473,D474,E475,481,480,479,478,477,0.6
+c4_2_2_3_3_2_2,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13.9C: Cushions, pillows, quilts etc",A473,B473,C474,D475,E476,482,481,480,479,478,0.3
+c4_2_2_3_3_3,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp83: Travel goods, handbags etc",A474,B474,C475,D476,E477,483,482,481,480,479,0.5
+c4_2_2_3_3_3_1,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp15.1B: Travel goods, handbags etc",A475,B475,C476,D477,E478,484,483,482,481,480,0.5
+c4_2_2_3_3_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp89OC: Other manufactures (consumer),A476,B476,C477,D478,E479,485,484,483,482,481,0.5
+c4_2_2_3_3_4_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13.9E: Powder puffs,A477,B477,C478,D479,E480,486,485,484,483,482,0.2
+c4_2_2_3_3_4_2,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp16.2E: Basketware, wickerwork & other articles of plaiting materials",A478,B478,C479,D480,E481,487,486,485,484,483,0.8
+c4_2_2_3_3_4_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp20.5E: Matches,A479,B479,C480,D481,E482,488,487,486,485,484,0.4
+c4_2_2_3_3_4_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp22.2G: Other plastic articles,A480,B480,C481,D482,E483,489,488,487,486,485,0.6
+c4_2_2_3_3_4_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.2D: Solid-state non-volatile storage devices,A481,B481,C482,D483,E484,490,489,488,487,486,0.3
+c4_2_2_3_3_4_6,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.4D: Video game consoles,A482,B482,C483,D484,E485,491,490,489,488,487,0.5
+c4_2_2_3_3_4_7,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.6C: Hearing aids & pacemakers,A483,B483,C484,D485,E486,492,491,490,489,488,0.5
+c4_2_2_3_3_4_8,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.8: Magnetic & optical media,A484,B484,C485,D486,E487,493,492,491,490,489,0.5
+c4_2_2_3_3_4_9,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.3C: Plastic ducting, trunking & cable trays for electrical circuits",A485,B485,C486,D487,E488,494,493,492,491,490,0.2
+c4_2_2_3_3_4_10,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.4E: Christmas lights,A486,B486,C487,D488,E489,495,494,493,492,491,0.8
+c4_2_2_3_3_4_11,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp30.9D: Baby carriages,A487,B487,C488,D489,E490,496,495,494,493,492,0.4
+c4_2_2_3_3_4_12,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.2A: Musical instruments,A488,B488,C489,D490,E491,497,496,495,494,493,0.6
+c4_2_2_3_3_4_13,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.3B: Sports goods,A489,B489,C490,D491,E492,498,497,496,495,494,0.3
+c4_2_2_3_3_4_14,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.4A: Consumer games & toys,A490,B490,C491,D492,E493,499,498,497,496,495,0.5
+c4_2_2_3_3_4_15,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.5F: Orthopaedic appliances,A491,B491,C492,D493,E494,500,499,498,497,496,0.5
+c4_2_2_3_3_4_16,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.9C: Other manufactured consumer articles,A492,B492,C493,D494,E495,501,500,499,498,497,0.5
+c4_2_2_3_3_4_17,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp58.1A: Consumer printed matter,A493,B493,C494,D495,E496,502,501,500,499,498,0.2
+c4_2_2_3_3_4_18,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp58.2: Packaged computer software,A494,B494,C495,D496,E497,503,502,501,500,499,0.8
+c4_2_2_3_3_4_19,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp59.1B: Video recordings,A495,B495,C496,D497,E498,504,503,502,501,500,0.4
+c4_2_2_3_3_4_20,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp59.2: Audio recordings & printed music,A496,B496,C497,D498,E499,505,504,503,502,501,0.6
+c4_2_2_3_4,&nbsp&nbsp&nbsp&nbsp&nbsp8OI: Other miscellaneous manufactures (intermediate),A497,B497,C498,D499,E500,506,505,504,503,502,0.3
+c4_2_2_3_4_1,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp81I: Plumbing, heating & lighting fixtures (intermediate)",A498,B498,C499,D500,E501,507,506,505,504,503,0.5
+c4_2_2_3_4_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp16.2C: Prefabricated buildings of wood,A499,B499,C500,D501,E502,508,507,506,505,504,0.5
+c4_2_2_3_4_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp22.2D: Plastic parts of lamps,A500,B500,C501,D502,E503,509,508,507,506,505,0.5
+c4_2_2_3_4_1_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.1D: Glass parts of lamps,A501,B501,C502,D503,E504,510,509,508,507,506,0.2
+c4_2_2_3_4_1_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.4D: Ceramic sanitary fixtures,A502,B502,C503,D504,E505,511,510,509,508,507,0.8
+c4_2_2_3_4_1_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp23.6C: Prefabricated buildings of concrete,A503,B503,C504,D505,E506,512,511,510,509,508,0.4
+c4_2_2_3_4_1_6,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp25.1B: Prefrabricated buildings of metal,A504,B504,C505,D506,E507,513,512,511,510,509,0.6
+c4_2_2_3_4_1_7,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp25.2C: Parts of central heating boilers,A505,B505,C506,D507,E508,514,513,512,511,510,0.3
+c4_2_2_3_4_1_8,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.4D: Other lamps,A506,B506,C507,D508,E509,515,514,513,512,511,0.5
+c4_2_2_3_4_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp82I: Furniture (intermediate),A507,B507,C508,D509,E510,516,515,514,513,512,0.2
+c4_2_2_3_4_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp29.3C: Seats for motor vehicles,A508,B508,C509,D510,E511,517,516,515,514,513,0.8
+c4_2_2_3_4_2_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp30.3C: Seats for aircraft,A509,B509,C510,D511,E512,518,517,516,515,514,0.4
+c4_2_2_3_4_2_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp31.0C: Parts of assets,A510,B510,C511,D512,E513,519,518,517,516,515,0.6
+c4_2_2_3_4_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp89I: Other manufactures (intermediate),A511,B511,C512,D513,E514,520,519,518,517,516,0.3
+c4_2_2_3_4_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp10.1G: Worked bird skins & feathers,A512,B512,C513,D514,E515,521,520,519,518,517,0.5
+c4_2_2_3_4_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13.9F: Parachutes,A513,B513,C514,D515,E516,522,521,520,519,518,0.2
+c4_2_2_3_4_3_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp16.2F: Handles for umbrellas & walking sticks,A514,B514,C515,D516,E517,523,522,521,520,519,0.8
+c4_2_2_3_4_3_4,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp17.2C: Paper labels,A515,B515,C516,D517,E518,524,523,522,521,520,0.4
+c4_2_2_3_4_3_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp20.5F: Writing & drawing ink,A516,B516,C517,D518,E519,525,524,523,522,521,0.6
+c4_2_2_3_4_3_6,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp22.2H: Plastic packing goods, floor coverings, office supplies etc",A517,B517,C518,D519,E520,526,525,524,523,522,0.3
+c4_2_2_3_4_3_7,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp25.9E: Metal office supplies,A518,B518,C519,D520,E521,527,526,525,524,523,0.5
+c4_2_2_3_4_3_8,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.2B: Musical accessories & parts of musical instruments,A519,B519,C520,D521,E522,528,527,526,525,524,0.5
+c4_2_2_3_4_3_9,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.9E: Other manufactured articles,A520,B520,C521,D522,E523,529,528,527,526,525,0.2
+c4_2_2_3_4_3_10,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp58.1B: Commercial printed matter,A521,B521,C522,D523,E524,530,529,528,527,526,0.8
+c4_2_2_3_4_3_11,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp71.1: Architectural plans & drawings,A522,B522,C523,D524,E525,531,530,529,528,527,0.4
+c4_2_2_3_5,&nbsp&nbsp&nbsp&nbsp&nbsp8OK: Other miscellaneous manufactures (capital),A523,B523,C524,D525,E526,532,531,530,529,528,0.6
+c4_2_2_3_5_1,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp81K: Plumbing, heating & lighting fixtures (capital)",A524,B524,C525,D526,E527,533,532,531,530,529,0.3
+c4_2_2_3_5_1_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp25.2B: Central heating radiators & boilers,A525,B525,C526,D527,E528,534,533,532,531,530,0.5
+c4_2_2_3_5_1_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp27.5G: Non-electric air heaters,A526,B526,C527,D528,E529,535,534,533,532,531,0.2
+c4_2_2_3_5_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp82K: Furniture (capital),A527,B527,C528,D529,E530,536,535,534,533,532,0.8
+c4_2_2_3_5_2_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp31.0B: Office furniture,A528,B528,C529,D530,E531,537,536,535,534,533,0.4
+c4_2_2_3_5_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp89K: Other manufactures (capital),A529,B529,C530,D531,E532,538,537,536,535,534,0.6
+c4_2_2_3_5_3_1,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp24.4F: Platinum catalysts,A530,B530,C531,D532,E533,539,538,537,536,535,0.3
+c4_2_2_3_5_3_2,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp25.9D: Metal office equipment,A531,B531,C532,D533,E534,540,539,538,537,536,0.5
+c4_2_2_3_5_3_3,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp26.1D: Smart cards,A532,B532,C533,D534,E535,541,540,539,538,537,0.2
+c4_2_2_3_5_3_4,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp28.9L: Fairground amusements, casino tables etc",A533,B533,C534,D535,E536,542,541,540,539,538,0.8
+c4_2_2_3_5_3_5,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.1E: Other articles of precious metal,A534,B534,C535,D536,E537,543,542,541,540,539,0.4
+c4_2_2_3_5_3_6,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.4B: Amusement arcade games,A535,B535,C536,D537,E538,544,543,542,541,540,0.6
+c4_2_2_3_5_3_7,&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp32.9D: Tailors' dummies,A536,B536,C537,D538,E539,545,544,543,542,541,0.3
+c5,&nbsp9: Unspecified goods,A537,B537,C538,D539,E540,546,545,544,543,542,0.5
+c5_1,&nbsp&nbsp91: Parcel Post,A538,B538,C539,D540,E541,547,546,545,544,543,0.5
+c5_1_1,&nbsp&nbsp&nbsp13.9P: Other textiles (Post),A539,B539,C540,D541,E542,548,547,546,545,544,0.2
+c5_1_2,&nbsp&nbsp&nbsp14.1P: Other wearing apparel (Post),A540,B540,C541,D542,E543,549,548,547,546,545,0.8
+c5_1_3,&nbsp&nbsp&nbsp22.2P: Other plastic products (Post),A541,B541,C542,D543,E544,550,549,548,547,546,0.4
+c5_1_4,&nbsp&nbsp&nbsp25.9P: Other fabricated metal products (Post),A542,B542,C543,D544,E545,551,550,549,548,547,0.6
+c5_1_5,&nbsp&nbsp&nbsp26.2P: Other computers & peripherals (Post),A543,B543,C544,D545,E546,552,551,550,549,548,0.3
+c5_1_6,&nbsp&nbsp&nbsp26.3P: Other communication equipment (Post),A544,B544,C545,D546,E547,553,552,551,550,549,0.5
+c5_1_7,"&nbsp&nbsp&nbsp26.5P: Other M, T & N equipment, watches and clocks (Post)",A545,B545,C546,D547,E548,554,553,552,551,550,0.5
+c5_1_8,&nbsp&nbsp&nbsp29.3P: Other motor vehicle parts & accessories (Post),A546,B546,C547,D548,E549,555,554,553,552,551,0.2
+c5_1_9,&nbsp&nbsp&nbsp32.1P: Other jewellery and related articles (Post),A547,B547,C548,D549,E550,556,555,554,553,552,0.8
+c5_1_10,&nbsp&nbsp&nbsp32.5P: Other medical & dental I&S (Post),A548,B548,C549,D550,E551,557,556,555,554,553,0.4
+c5_2,&nbsp&nbsp9OG: Miscellaneous unspecified goods,A549,B549,C550,D551,E552,558,557,556,555,554,0.6
+c5_2_1,&nbsp&nbsp&nbsp96: Coins,A550,B550,C551,D552,E553,559,558,557,556,555,0.3
+c5_2_1_1,&nbsp&nbsp&nbsp&nbsp32.1F: Coins,A551,B551,C552,D553,E554,560,559,558,557,556,0.5
+c5_2_2,&nbsp&nbsp&nbsp97: Non-monetary gold,A552,B552,C553,D554,E555,561,560,559,558,557,0.5
+c5_2_2_1,&nbsp&nbsp&nbsp&nbsp24.4G: Non-monetary gold,A553,B553,C554,D555,E556,562,561,560,559,558,0.5
+c5_2_2_2,&nbsp&nbsp&nbsp&nbsp38.1R: Gold waste,A554,B554,C555,D556,E557,563,562,561,560,559,0.2
+c5_2_3,&nbsp&nbsp&nbsp98: Defence equipment,A555,B555,C556,D557,E558,564,563,562,561,560,0.8
+c5_2_3_1,&nbsp&nbsp&nbsp&nbsp25.4: Weapons & ammunition,A556,B556,C557,D558,E559,565,564,563,562,561,0.4
+c5_2_3_2,"&nbsp&nbsp&nbsp&nbsp25.7C: Swords, bayonets etc",A557,B557,C558,D559,E560,566,565,564,563,562,0.6
+c5_2_3_3,&nbsp&nbsp&nbsp&nbsp30.4: Military fighting vehicles,A558,B558,C559,D560,E561,567,566,565,564,563,0.3
+,,,,,,,,,,,,

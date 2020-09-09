@@ -1,0 +1,109 @@
+id,parentId,name,size
+c0,NULL,Total,476319
+c1,c0,Food & live animals,38958
+c1_1,c1,Live animals,536
+c1_2,c1,Meat & meat preparations,6685
+c1_3,c1,Dairy products & eggs,3187
+c1_4,c1,Fish & shellfish,3224
+c1_5,c1,Cereals,3849
+c1_6,c1,Animal feeding stuffs,2164
+c1_7,c1,Vegetables & fruit,11093
+c1_8,c1,Sugar,1321
+c1_9,c1,"Coffee, tea, cocoa etc",3755
+c1_10,c1,Miscellaneous foods,3144
+c2,c0,Beverages & tobacco,8049
+c2_1,c2,Beverages,6360
+c2_2,c2,Tobacco,1689
+c3,c0,Crude materials,10300
+c3_1,c3,Wood & cork,2888
+c3_2,c3,Pulp & waste paper,554
+c3_3,c3,Textile fibres,424
+c3_4,c3,Metal ores & scrap,3085
+c3_5,c3,"Hides, skins & furskins",37
+c3_6,c3,Oil-seeds & oleaginous fruits,576
+c3_7,c3,Crude rubber,271
+c3_8,c3,Crude minerals & fertilisers,730
+c3_9,c3,Other crude animal & vegetable materials,1735
+c4,c0,Animal & vegetable oils & fats,1547
+c4_1,c4,Animal oils & fats,97
+c4_2,c4,Vegetable oils & fats,1142
+c4_3,c4,Processed oils & fats,308
+c5,c0,Fuels,45474
+c5_1,c5,Crude oil,16398
+c5_2,c5,Refined oil,18384
+c5_3,c5,"Coal, coke & briquettes",1006
+c5_4,c5,Gas,8821
+c5_5,c5,Electricity,865
+c6,c0,Chemicals,60151
+c6_1,c6,Organic chemicals,7505
+c6_2,c6,Inorganic chemicals,2122
+c6_3,c6,"Dyeing, tanning & colouring materials",1851
+c6_4,c6,Medicinal & pharmaceutical products,27753
+c6_5,c6,Toilet & cleansing preparations,6504
+c6_6,c6,Plastics in primary forms,5734
+c6_7,c6,Plastics in non-primary forms,3455
+c6_8,c6,Processed fertilisers,695
+c6_9,c6,Other chemicals,4532
+c7,c0,Material manufactures,52298
+c7_1,c7,Leather manufactures,308
+c7_2,c7,Rubber manufactures,3716
+c7_3,c7,Wood & cork manufactures,2538
+c7_4,c7,Paper & paperboard,6073
+c7_5,c7,Textile fabrics,5712
+c7_6,c7,Mineral manufactures,6704
+c7_7,c7,Iron & steel,6501
+c7_8,c7,Non-ferrous metals,10658
+c7_9,c7,Miscellaneous metal manufactures,10088
+c8,c0,Machinery & transport equipment,180993
+c8_1,c8,Mechanical power generators (consumer),19
+c8_2,c8,Specialised machinery (consumer),258
+c8_3,c8,General industrial machinery (consumer),209
+c8_4,c8,Mechanical power generators (intermediate),21157
+c8_5,c8,Specialised machinery (intermediate),2597
+c8_6,c8,Metal working machinery (intermediate),417
+c8_7,c8,General industrial machinery (intermediate),7418
+c8_8,c8,Mechanical power generators (capital),1613
+c8_9,c8,Specialised machinery (capital),4518
+c8_10,c8,Metal working machinery (capital),743
+c8_11,c8,General industrial machinery (capital),8462
+c8_12,c8,Office machinery (consumer),15
+c8_13,c8,Telecoms & sound equipment (consumer),2332
+c8_14,c8,Miscellaneous electrical goods (consumer),4405
+c8_15,c8,Electric motors (intermediate),419
+c8_16,c8,Office machinery (intermediate),1904
+c8_17,c8,Telecoms & sound equipment (intermediate),1669
+c8_18,c8,Miscellaneous electrical goods (intermediate),15778
+c8_19,c8,Electric motors (capital),1072
+c8_20,c8,Office machinery (capital),11881
+c8_21,c8,Telecoms & sound equipment (capital),18223
+c8_22,c8,Miscellaneous electrical goods (capital),4543
+c8_23,c8,Cars,34255
+c8_24,c8,Road vehicles other than cars (consumer),1129
+c8_25,c8,Road vehicles other than cars (intermediate),13738
+c8_26,c8,Road vehicles other than cars (capital),6802
+c8_27,c8,Railway equipment (intermediate),532
+c8_28,c8,Railway equipment (capital),1147
+c8_29,c8,Aircraft,11489
+c8_30,c8,Ships,2249
+c9,c0,Miscellaneous manufactures,74151
+c9_1,c9,Clothing,20030
+c9_2,c9,Footwear,5283
+c9_3,c9,Scientific instruments (consumer),16
+c9_4,c9,Photographic & optical goods & clocks (consumer),2328
+c9_5,c9,Scientific instruments (intermediate),1378
+c9_6,c9,Photographic & optical goods & clocks (intermediate),1382
+c9_7,c9,Scientific instruments (capital),8262
+c9_8,c9,Photographic & optical goods & clocks (capital),74
+c9_9,c9,Works of art,2211
+c9_10,c9,Jewellery,2716
+c9_11,c9,"Plumbing, heating & lighting fixtures (consumer)",165
+c9_12,c9,Furniture (consumer),4689
+c9_13,c9,"Travel goods, handbags etc",2380
+c9_14,c9,Other manufactures (consumer),13552
+c9_15,c9,"Plumbing, heating & lighting fixtures (intermediate)",2157
+c9_16,c9,Furniture (intermediate),1327
+c9_17,c9,Other manufactures (intermediate),3891
+c9_18,c9,"Plumbing, heating & lighting fixtures (capital)",596
+c9_19,c9,Furniture (capital),1083
+c9_20,c9,Other manufactures (capital),631
+c10,c0,Unspecified goods,4398

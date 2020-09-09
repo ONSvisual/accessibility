@@ -1,0 +1,156 @@
+﻿id,parentId,classification,payment holiday possible,code,name,size,realsize,percent
+c0,null,,,,Total,10,830.9814,null
+c1,c0,,,,"Non-discretionary, no payment holiday possible",4,269.3901,32
+c1_1,c1,ND,N,1.1.1,"Bread, rice and cereals",5.5117,5.5117,null
+c1_2,c1,ND,N,1.1.2,Pasta products,0.4385,0.4385,null
+c1_3,c1,ND,N,1.1.4,Pastry (savoury),0.9613,0.9613,null
+c1_4,c1,ND,N,1.1.5,"Beef (fresh, chilled or frozen)",1.9166,1.9166,null
+c1_5,c1,ND,N,1.1.6,"Pork (fresh, chilled or frozen)",0.5444,0.5444,null
+c1_6,c1,ND,N,1.1.7,"Lamb (fresh, chilled or frozen)",0.5618,0.5618,null
+c1_7,c1,ND,N,1.1.8,"Poultry (fresh, chilled or frozen)",2.3433,2.3433,null
+c1_8,c1,ND,N,1.1.9,Bacon and ham,0.8231,0.8231,null
+c1_9,c1,ND,N,1.1.10,Other meat and meat preparations,6.5698,6.5698,null
+c1_10,c1,ND,N,1.1.11,Fish and fish products,2.9785,2.9785,null
+c1_11,c1,ND,N,1.1.12,Milk,2.174,2.174,null
+c1_12,c1,ND,N,1.1.13,Cheese and curd,2.0649,2.0649,null
+c1_13,c1,ND,N,1.1.14,Eggs,0.7432,0.7432,null
+c1_14,c1,ND,N,1.1.15,Other milk products,2.2687,2.2687,null
+c1_15,c1,ND,N,1.1.16,Butter,0.4948,0.4948,null
+c1_16,c1,ND,N,1.1.17,"Margarine, other vegetable fats and peanut butter",0.6043,0.6043,null
+c1_17,c1,ND,N,1.1.18,Cooking oils and fats,0.3468,0.3468,null
+c1_18,c1,ND,N,1.1.19,Fresh fruit,4.0649,4.0649,null
+c1_19,c1,ND,N,1.1.20,"Other fresh, chilled or frozen fruits",0.4711,0.4711,null
+c1_20,c1,ND,N,1.1.21,Dried fruit and nuts,0.8557,0.8557,null
+c1_21,c1,ND,N,1.1.22,Preserved fruit and fruit based products,0.1534,0.1534,null
+c1_22,c1,ND,N,1.1.23,Fresh vegetables,4.3799,4.3799,null
+c1_23,c1,ND,N,1.1.24,Dried vegetables,0.0548,0.0548,null
+c1_24,c1,ND,N,1.1.25,Other preserved or processed vegetables,1.7407,1.7407,null
+c1_25,c1,ND,N,1.1.26,Potatoes,0.7359,0.7359,null
+c1_26,c1,ND,N,1.1.27,Other tubers and products of tuber vegetables,1.7989,1.7989,null
+c1_27,c1,ND,N,1.1.28,Sugar and sugar products,0.3912,0.3912,null
+c1_28,c1,ND,N,1.1.29,"Jams, marmalades",0.2933,0.2933,null
+c1_29,c1,ND,N,1.1.33,Other food products,2.7056,2.7056,null
+c1_30,c1,ND,N,1.2.1,Coffee,0.9877,0.9877,null
+c1_31,c1,ND,N,1.2.2,Tea,0.462,0.462,null
+c1_32,c1,ND,N,1.2.3,Cocoa and powdered chocolate,0.1013,0.1013,null
+c1_33,c1,ND,N,1.2.4,Fruit and vegetable juices (inc. fruit squash),1.0638,1.0638,null
+c1_34,c1,ND,N,4.4.1,Electricity,12.322,12.322,null
+c1_35,c1,ND,N,4.4.2,Gas,10.3928,10.3928,null
+c1_36,c1,ND,N,4.4.3,Other fuels,1.9238,1.9238,null
+c1_37,c1,ND,N,5.6.1,Cleaning materials,2.5356,2.5356,null
+c1_38,c1,ND,N,5.6.2,Household goods and hardware,1.7746,1.7746,null
+c1_39,c1,ND,N,6.1.1,"Medicines, prescriptions, healthcare products etc.",2.5752,2.5752,null
+c1_40,c1,ND,N,6.2,Hospital services,3.7446,3.7446,null
+c1_41,c1,ND,N,7.2.2,"Petrol, diesel and other motor oils",23.192,23.192,null
+c1_42,c1,ND,N,9.3.5,Pets and pet food,5.7882,5.7882,null
+c1_43,c1,ND,N,12.1.2,Toilet paper,0.8699,0.8699,null
+c1_44,c1,ND,N,12.1.3,Toiletries and soap,2.4831,2.4831,null
+c1_45,c1,ND,N,12.1.4,Baby toiletries and accessories (disposable),0.6184,0.6184,null
+c1_46,c1,ND,N,12.3,Social protection,3.2113,3.2113,null
+c1_47,c1,ND,N,12.5.3,Other services and professional fees,2.0957,2.0957,null
+c1_48,c1,ND,N,13.2,"Licences, fines and transfers",4.1833,4.1833,null
+c1_49,c1,ND,N,13.4.3,Club instalment payments (child) and interest on credit cards,1.1198,1.1198,null
+c1_50,c1,ND,N,14.3,"Income tax, payments less refunds",103.5372,103.5372,null
+c1_51,c1,ND,N,14.4,National insurance contributions,35.4167,35.4167,null
+c2,c0,,,,"Non-discretionary, payment holiday possible",3,172.7614,21
+c2_1,c2,ND,Y,4.1.3,Net rent,37.2996,37.2996,null
+c2_2,c2,ND,Y,4.1.4,Second dwelling rent,0.121,0.121,null
+c2_3,c2,ND,Y,4.3,Water supply and miscellaneous services relating to the dwelling,9.7893,9.7893,null
+c2_4,c2,ND,Y,12.4.3,Vehicle insurance including boat insurance,11.2832,11.2832,null
+c2_5,c2,ND,Y,12.5.2,"Bank, building society, post office, credit card charges",0.5348,0.5348,null
+c2_6,c2,ND,Y,13.1,"Housing: mortgage interest payments, council tax etc.",46.506,46.506,null
+c2_7,c2,ND,Y,14.5,"Purchase or alteration of dwellings, mortgages",67.2275,67.2275,null
+c3,c0,,,,Discretionary ,2,206.5197,25
+c3_1,c3,D,N,9.1.1,"Audio equipment and accessories, CD players",1.0239,1.0239,null
+c3_2,c3,D,N,9.1.2,"TV, video and computers",3.4362,3.4362,null
+c3_3,c3,D,N,9.1.3,"Photographic, cine and optical equipment",0.4247,0.4247,null
+c3_4,c3,D,N,9.2,Other major durables for recreation and culture,2.4298,2.4298,null
+c3_5,c3,D,N,9.3.1,"Games, toys and hobbies",2.8575,2.8575,null
+c3_6,c3,D,N,9.3.2,Computer software and games,0.9923,0.9923,null
+c3_7,c3,D,N,9.3.3,"Equipment for sport, camping and open-air recreation",1.1834,1.1834,null
+c3_8,c3,D,N,9.3.4,"Horticultural goods, garden equipment and plants",3.1983,3.1983,null
+c3_9,c3,D,N,9.4.3,"TV, video, satellite rental, cable subscriptions and TV licences",4.5072,4.5072,null
+c3_10,c3,D,N,9.4.4,Miscellaneous entertainments,1.6485,1.6485,null
+c3_11,c3,D,N,9.4.5,"Development of film, deposit for film development, passport photos, holiday and school photos",0.1839,0.1839,null
+c3_12,c3,D,N,9.4.6,Gambling payments,2.573,2.573,null
+c3_13,c3,D,N,9.5.1,Books,1.197,1.197,null
+c3_14,c3,D,N,9.5.2,"Diaries, address books, cards etc.",2.0899,2.0899,null
+c3_15,c3,D,N,9.5.3,Newspapers,1.3908,1.3908,null
+c3_16,c3,D,N,9.5.4,Magazines and periodicals,0.6226,0.6226,null
+c3_17,c3,D,N,10.1,Education fees,5.046,5.046,null
+c3_18,c3,D,N,11.1.3,Take away meals eaten at home,5.3836,5.3836,null
+c3_19,c3,D,N,11.1.4,Other take-away and snack food,5.6306,5.6306,null
+c3_20,c3,D,N,12.2,Personal effects,3.6137,3.6137,null
+c3_21,c3,D,N,12.5.1,Moving house,2.9324,2.9324,null
+c3_22,c3,D,N,13.4.1,"Money, cash gifts given to children",0.2707,0.2707,null
+c3_23,c3,D,N,13.4.2,Cash gifts and donations,12.5556,12.5556,null
+c3_24,c3,D,N,14.2,Other insurance inc. friendly societies,2.3472,2.3472,null
+c3_25,c3,D,N,14.6,Savings and investments,8.1923,8.1923,null
+c3_26,c3,D,Y,12.4.2,Medical insurance premiums,2.7496,2.7496,null
+c3_27,c3,D,Y,14.1,Life assurance and contributions to pension funds,28.632,28.632,null
+c3_28,c3,D,N,1.1.3,"Buns, cakes, biscuits etc.",3.9125,3.9125,null
+c3_29,c3,D,N,1.1.30,Chocolate,2.0798,2.0798,null
+c3_30,c3,D,N,1.1.31,Confectionery products,0.809,0.809,null
+c3_31,c3,D,N,1.1.32,Edible ices and ice cream,0.7739,0.7739,null
+c3_32,c3,D,N,1.2.5,Mineral or spring waters,0.4239,0.4239,null
+c3_33,c3,D,N,1.2.6,Soft drinks (inc. fizzy and ready to drink fruit drinks),2.2985,2.2985,null
+c3_34,c3,D,N,2.1.1,Spirits and liqueurs (brought home),2.0277,2.0277,null
+c3_35,c3,D,N,2.1.2,"Wines, fortified wines (brought home)",4.5535,4.5535,null
+c3_36,c3,D,N,2.1.3,"Beer, lager, ciders and perry (brought home)",2.4758,2.4758,null
+c3_37,c3,D,N,2.1.4,Alcopops (brought home),0.0253,0.0253,null
+c3_38,c3,D,N,2.2.1,Cigarettes,2.6947,2.6947,null
+c3_39,c3,D,N,2.2.2,"Cigars, other tobacco products and narcotics",1.2122,1.2122,null
+c3_40,c3,D,N,4.2,Maintenance and repair of dwelling,7.5242,7.5242,null
+c3_41,c3,D,N,5.1.1,Furniture and furnishings,18.7085,18.7085,null
+c3_42,c3,D,N,5.1.2,Floor coverings,4.2474,4.2474,null
+c3_43,c3,D,N,5.2,Household textiles,2.1737,2.1737,null
+c3_44,c3,D,N,5.3,Household appliances,3.7379,3.7379,null
+c3_45,c3,D,N,5.4,"Glassware, tableware and household utensils",1.8413,1.8413,null
+c3_46,c3,D,N,5.5,Tools and equipment for house and garden,2.8909,2.8909,null
+c3_47,c3,D,N,6.1.2,"Spectacles, lenses, accessories and repairs",1.6679,1.6679,null
+c3_48,c3,D,N,7.2.1,Spares and accessories,2.2199,2.2199,null
+c3_49,c3,D,N,8.1,Postal services,0.5741,0.5741,null
+c3_50,c3,D,N,8.2,Telephone and telefax equipment,1.0434,1.0434,null
+c3_51,c3,D,N,8.3,Telephone and telefax services,8.8946,8.8946,null
+c3_52,c3,D,N,8.4,Internet subscription fees (ex. combined packages),0.7865,0.7865,null
+c3_53,c3,D,N,8.5,Combined telecom services,10.0393,10.0393,null
+c3_54,c3,D,N,12.1.5,"Hair products, cosmetics and related electrical appliances",4.6436,4.6436,null
+c3_55,c3,D,Y,12.4.1,"Household insurances - structural, contents and appliances",5.0716,5.0716,null
+c3_56,c3,D,Y,14.7,Pay off loan to clear other debt,0.0554,0.0554,null
+c5,c0,,,,Prevented during lockdown,1,182.3102,22
+c5_1,c5,P,N,3.1.1,Men's outer garments,4.8207,4.8207,null
+c5_2,c5,P,N,3.1.2,Men's under garments,0.487,0.487,null
+c5_3,c5,P,N,3.1.3,Women's outer garments,8.4151,8.4151,null
+c5_4,c5,P,N,3.1.4,Women's under garments,1.2005,1.2005,null
+c5_5,c5,P,N,3.1.5,Boys' outer garments (5-15),0.8139,0.8139,null
+c5_6,c5,P,N,3.1.6,Girls' outer garments (5-15),1.0895,1.0895,null
+c5_7,c5,P,N,3.1.7,Infants' outer garments (under 5),0.6157,0.6157,null
+c5_8,c5,P,N,3.1.8,Children's under garments (under 16),0.4242,0.4242,null
+c5_9,c5,P,N,3.1.9,Accessories,0.7397,0.7397,null
+c5_10,c5,P,N,3.1.10,Haberdashery and clothing hire,0.3126,0.3126,null
+c5_11,c5,P,N,3.1.11,"Dry cleaners, laundry and dyeing",0.2246,0.2246,null
+c5_12,c5,P,N,3.2,Footwear,5.2911,5.2911,null
+c5_13,c5,P,N,5.6.3,"Domestic services, carpet cleaning, hire/repair of furniture/furnishings",2.8872,2.8872,null
+c5_14,c5,P,Y,7.1.1,Purchase of new cars and vans,8.6575,8.6575,null
+c5_15,c5,P,Y,7.1.2,Purchase of second hand cars or vans,14.7007,14.7007,null
+c5_16,c5,P,Y,7.1.3,Purchase of motorcycles and other vehicles,0.6368,0.6368,null
+c5_17,c5,P,N,7.2.3,Repairs and servicing,6.8386,6.8386,null
+c5_18,c5,P,N,7.2.4,Other motoring costs,2.7951,2.7951,null
+c5_19,c5,P,N,7.3.1,Rail and tube fares,4.6396,4.6396,null
+c5_20,c5,P,N,7.3.2,Bus and coach fares,1.6449,1.6449,null
+c5_21,c5,P,N,7.3.3,Combined fares,0.7169,0.7169,null
+c5_22,c5,P,N,7.3.4,Other travel and transport,14.1309,14.1309,null
+c5_23,c5,P,N,9.4.1,"Sports admissions, subscriptions, leisure class fees and equipment hire",7.5389,7.5389,null
+c5_24,c5,P,N,9.4.2,"Cinema, theatre and museums etc.",3.4146,3.4146,null
+c5_25,c5,P,N,9.6.1,Package holidays - UK,2.0891,2.0891,null
+c5_26,c5,P,N,9.6.2,Package holidays - abroad,28.3503,28.3503,null
+c5_27,c5,P,N,10.2,"Payments for school trips, other ad-hoc expenditure",0.6045,0.6045,null
+c5_28,c5,P,N,11.1.1,Restaurant and café meals,19.3604,19.3604,null
+c5_29,c5,P,N,11.1.2,Alcoholic drinks (away from home),7.9969,7.9969,null
+c5_30,c5,P,N,11.1.5,Contract catering (food) and canteens,2.3463,2.3463,null
+c5_31,c5,P,N,11.2.1,Holiday in the UK,5.6451,5.6451,null
+c5_32,c5,P,N,11.2.2,Holiday abroad,4.8313,4.8313,null
+c5_33,c5,P,N,11.2.3,Room hire,0.1084,0.1084,null
+c5_34,c5,P,N,12.1.1,"Hairdressing, beauty treatment",4.3411,4.3411,null
+c5_35,c5,P,Y,12.4.4,"Non-package holiday, other travel insurance",1.0354,1.0354,null
+c5_36,c5,P,N,13.3,Holiday spending,12.5651,12.5651,null

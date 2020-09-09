@@ -1,0 +1,36 @@
+{"code":"accoma",
+ "filepth":"",
+ "description":{
+        "title":"Fairly/very satisfied with their accommodation",
+        "unit":"%"
+    },
+    "months":[],
+    "days":[],
+    "quarters":[],
+    "years":{
+            "catLabels":[
+                "2009",
+                "2010",
+                "2011",
+                "2012",
+                "2013",
+                "2014",
+                "2015",
+				"2016",
+				"2017",
+        "2018"
+
+            ],
+            "dataValues":[
+                90.2,
+                91.2,
+                90.8,
+                91.2,
+                90.6,
+                89.2,
+                89.9,
+				90.3,
+				90.3,
+        90.1            ]
+    }
+}

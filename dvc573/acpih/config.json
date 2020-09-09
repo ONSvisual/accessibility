@@ -1,0 +1,78 @@
+{
+    "essential" : {
+
+            "dataURL": "cpih.csv",
+
+            "period": "month",
+
+            "dateFormat": ["%b %Y"],
+
+            "dateMxMn": ["Jan 2008"],
+
+            "dateStart": ["Jan 2012"],
+
+            "dateCutOff": ["Jun 2016"],
+
+            "dateEnd": ["Nov 2018"],
+
+            "clampStart": ["Jul 2016"],
+
+            "clampEnd": ["Dec 2018"],
+        
+            "domMax": 5,
+            "domMin": 0,
+        
+            "decimalPlaces": 1,
+            "difference": 0.4,
+			"minimumCircle":["8yr min", 0.2],
+			"maximumCircle":["8yr max", 4.8],
+            "legendLabels" : [ ],
+
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+
+            "annotationChart": ["Hold and Drag", "Drag"],
+
+            "annotationBullet": [ ],
+
+            "annotationXY":[["Aug 2016", 1], ["Dec 2016", 1]],
+
+            "annotationAlign":["start"],
+
+            "circles" : false,
+            "annotationCXCY":[ ],
+
+            "xAxisLabel":[],
+
+            "yAxisLabel": "%",
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65],
+
+             "feedback": ["Excellent! Your guess of ",
+                          "% is not far off the rate in November 2018, which was 2.2%.",
+                          "Your guess of ",
+                          "% is too high, the rate in November 2018 was 2.2%.",
+                          "% is too low, the rate in November 2018 was 2.2%.",
+                          "Didn't fancy a guess then. Try the next one.",
+						  "% is absolutely correct for the rate in November 2018"],
+
+			"appendText": ["The rate of inflation has almost tripled from 0.8% in June 2016 to 2.2% in November 2018, although that’s down from a high of 2.8% in autumn last year. Inflation was outstripped by pay growth in the three months to October 2018 (3.3% excluding bonuses), meaning that wages rose in real terms."]
+
+    },
+    "optional" : {
+            "margin_sm": [40, 45, 20, 25],
+            "margin_md": [40, 25, 30, 25],
+            "margin_lg": [40, 25, 30, 25],
+
+            "aspectRatio_sm" : [16,16],
+            "aspectRatio_md" : [16,18],
+            "aspectRatio_lg" : [14,16],
+
+            "mobileBreakpoint" : [410,600],
+            "xAxisTextFormat_sm_md_lg" :["%y", "%b %y", "%b %y"],
+            "x_num_ticks_sm_md_lg" : [6,6,6],
+            "y_num_ticks_sm_md_lg" : [5,5,5],
+            "centre_line" : false,
+            "centre_line_value" :0
+    }
+}

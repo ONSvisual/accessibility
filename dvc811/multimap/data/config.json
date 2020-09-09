@@ -1,0 +1,12 @@
+{"ons":{
+"maptitle": "Multi Map about covid deaths",
+"varcolour": "YlGnBu",
+"varlabels": ["All deaths","Covid-19 deaths"],
+"varload": 1,
+"varunit": ["rate per 100,000 people","rate per 100,000 people"],
+"displaydecimals": 0,
+"legenddecimals": 0,
+"breaks": "jenks",
+"dropticks": true,
+"numberBreaks": 5
+}}

@@ -1,0 +1,19 @@
+name,Age,gdhi,employment,group
+Administrative and secretarial occupations,2019,70.50369644,12.68950186,grp1
+Administrative and secretarial occupations,2011,73.00919615,12.85733663,grp1
+Associate professional and technical occupations,2019,38.32429975,18.56105598,grp2
+Associate professional and technical occupations,2011,35.36091446,19.05565924,grp2
+"Caring, leisure and other service occupations",2019,73.7681953,10.51831376,grp3
+"Caring, leisure and other service occupations",2011,73.35125635,10.42296248,grp3
+Elementary occupations,2019,30.3542648,10,grp4
+Elementary occupations,2011,28.54208885,9.842062321,grp4
+"Managers, directors and senior officials",2019,32.41998681,25.25299588,grp5
+"Managers, directors and senior officials",2011,26.98308133,24.62333569,grp5
+"Process, plant and machine operatives",2019,10.55080125,11.78602065,grp6
+"Process, plant and machine operatives",2011,8.653950812,11.49811987,grp6
+Professional occupations,2019,43.95575312,23.46461984,grp7
+Professional occupations,2011,41.62834905,23.53683344,grp7
+Sales and customer service occupations,2019,52.17778607,10.56749758,grp8
+Sales and customer service occupations,2011,57.30016058,10.01586642,grp8
+Skilled trades occupations,2019,8.133870519,13.51861457,grp9
+Skilled trades occupations,2011,7.076030419,13.71518087,grp9

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,900|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title>Top baby names in your area</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	
+     <link rel="stylesheet" href="../lib/globalStyle.css" />    
+     <link rel="stylesheet" href="../lib/style-chosen.css"/>
+     <link rel="stylesheet" href="../lib/odometer-theme-minimal.css" />
+     <link rel="stylesheet" href="../lib/ONSstyle.css" />
+
+     
+      <style type="text/css">
+  
+	body{
+		
+	}
+	
+	#key path {
+		  display: none;
+
+	}
+
+	#key line {
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+
+	#key g {
+		font-size:11px;
+		fill:#666;
+	}
+
+	#key rect {
+		stroke:#666;
+		stroke-width:0.5px;
+		z-index:+1;
+	}
+	
+	.bar_selected{
+		stroke: teal;
+	}
+	
+				
+	
+	
+#sel{padding-left:0px!important;}	
+
+#title{
+		font-size:30px;
+		font-weight:700;
+		color:#206095;
+		margin-top:10px;
+		line-height:1.1em;
+}
+
+#boy_info{
+    color:#008080;
+    font-size:24px;
+    font-weight:700;
+ line-height:28px;
+    margin-bottom: 20px;
+}
+
+#girl_info{
+    color:#6e66a0;
+    font-size:24px;
+    font-weight:700;
+ line-height:28px;
+    margin: 20px 0px;
+    float: left;
+   clear: left;
+}
+	
+@media (min-width: 710px) {
+	#title{
+		font-size:40px;
+	}
+}
+#selectIntro{
+	font-size:22px;
+	font-weight:700;
+	color:#206095;
+	line-height:0.8em;
+}
+
+#selectBlurb{
+	font-size:16px;
+	font-weight:500;
+	color:#206095;
+	line-height:1.2em;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+	
+}
+
+td, th {
+   	font-size:18px;
+	font-weight:500;
+    text-align: left;
+    padding: 5px;
+}
+
+td span{
+	font-weight:700;
+}
+
+.boys_table{
+	background:#008080;
+	color:white;
+	padding:20px;
+}
+
+#boy_info{
+	color:#008080;
+	font-size:24px;
+	font-weight:700;
+	margin-bottom: 20px;
+}
+
+.boys_table p{
+	font-size:24px;
+	font-weight:700;
+	margin-bottom:5px;
+	padding-bottom:10px;
+	border-bottom: 1px solid white;
+}
+.girls_table{
+	background:#6e66a0;
+	color:white;
+	padding:20px;
+}
+
+#girl_info{
+	color:#6e66a0;
+	font-size:24px;
+	font-weight:700;
+	margin: 20px 0px;
+	float: left;
+    clear: left;
+}
+
+.girls_table p{
+	font-size:24px;
+	font-weight:700;
+	margin-bottom:5px;
+	padding-bottom:10px;
+	border-bottom: 1px solid white;
+}
+
+
+.boys_table{
+	margin-right:0px;	
+	margin-bottom: 5px;
+}
+
+.girls_table{
+	margin-left:0px;
+	margin-top:5px;	
+}
+
+@media (min-width: 580px) {
+	.boys_table{
+		margin-right:5px;	
+		margin-bottom:0px;
+	}
+	
+	.girls_table{
+		margin-left:5px;
+		margin-top:0px;	
+	}	
+}
+
+.hide{
+	display:none!important;
+}
+
+.show{
+	display:block!important;
+}
+
+#selectNav, #girl_roller, #boy_roller{
+	margin-bottom:25px;
+	margin-top:10px;
+}
+
+#girlRollers, #boyRollers{
+	display:grid;
+	padding-bottom: 20px;
+ }
+
+#boyRollers, #boy_roller1, #girl_roller1{
+	float:left;
+	clear:left;
+}
+ 
+#girlRollers, #boy_roller2, #boy_roller3, #boy_roller4, #girl_roller2, #girl_roller3, #girl_roller4{
+	float:left;
+	clear:left;
+}
+
+
+#grey-line{
+	 border-top: 4px solid #e8e8e8;
+	 margin-top:5px;
+}
+
+@media only screen and (max-width: 600px) {
+	td, th {
+		font-size:18px;
+		line-height:1.3em;
+	}
+	
+}
+    </style>
+    
+
+    <noscript>
+    <p>A modern browser with JavaScript and a stable internet connection is required to view this interactive</p>
+    </noscript> 
+    
+</head>
+<body>
+	<div id="grey-line"></div>
+    <div class="row visible-xs">
+    	<!--<div class="col-xs-12" id="title">Explore the top baby names by area</div>
+        --><div id="scene-image">
+     		<img src="../images/babynamesMobile.svg" id="scene" alt="stork image" > </img>  
+        </div>
+    </div>
+    <div class="row hidden-xs">
+    	<div class="col-sm-5" id="scene-image">
+     		<img src="../images/babynamesDesktop.svg" id="scene" alt="stork image" style="height:90px; margin-top:10px;"> </img>  
+        </div>
+     	<!--<div class="col-sm-7" id="title">Explore the top baby names by area</div>-->
+    </div>
+    <div class="row" >
+    	<p id='selectIntro'>Select an area</p>
+        <p id="selectBlurb">Start typing or select an area in the box below</p>
+    </div>
+    <div class="row" id='selectNav'></div>
+    
+    <div id="boy_info" class="hide"><text></text></div>
+    <div id="boyRollers">
+        <div id="boy_roller1" class="textroller hide"></div>
+        <div id="boy_roller2" class="textroller hide"></div>
+        <div id="boy_roller3" class="textroller hide"></div>
+        <div id="boy_roller4" class="textroller hide"></div>
+    </div>
+   
+    <div id="girl_info" class="hide"><text></text></div>
+    <div id="girlRollers">
+        <div id="girl_roller1" class="textroller hide"></div>
+        <div id="girl_roller2" class="textroller hide"></div>
+        <div id="girl_roller3" class="textroller hide"></div>
+        <div id="girl_roller4" class="textroller hide"></div>
+    </div>
+   
+    <div class="row">
+
+    </div>
+    
+	<div id="graphic">
+    </div>
+	    
+    <div id="keypoints">
+        <p></p>
+    </div>
+
+
+   <div class="footer">        
+   </div>
+<!--   
+   <div id="footer"></div>
+-->
+    
+   
+    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" type='text/javascript'></script>
+	<script src="../lib/modernizr.svg.min.js" type="text/javascript"></script> 
+	<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.v1-3-2.min.js" charset="utf-8"></script>
+	    
+<!--    <script src="../lib/footer.js"></script>-->
+<!--    <script src="../lib/saveSvgAsPng.js" type="text/javascript"></script>-->
+    
+    <script src="../lib/topojson.js"></script>
+    <script src="../lib/queue.js" charset="utf-8"></script>
+    <script src="../lib/ss.js"></script>
+    
+	<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../lib/chosen.jquery.js" type="text/javascript"></script>
+    <script src="../lib/TextRoll.js" type="text/javascript"></script>
+
+    <script>
+
+		var graphic = d3.select('#graphic');
+		var keypoints = d3.select('#keypoints');
+		//var footer = d3.select(".footer");
+		var pymChild = null;
+		dvc = {};		
+		
+		
+			
+		function drawGraphic(width) {
+			
+		    // clear out existing graphics
+		    graphic.selectAll("*").remove();
+			keypoints.selectAll("*").remove();
+			//footer.selectAll("*").remove();
+			
+			boyroller1    = document.getElementById("boy_roller1");			
+			 boyroller1.textroller  = new TextRoller({
+				  el: boyroller1,
+				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
+				  //align: "middle",    // right, left or middle. default : middle
+				  delay: 1500,      // in milliseconds,       default : 5000
+				  loop: false       // at the end, restart.   default : true
+			  });
+			 boyroller2    = document.getElementById("boy_roller2");			
+			 boyroller2.textroller  = new TextRoller({
+				  el: boyroller2,
+				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
+				  //align: "middle",    // right, left or middle. default : middle
+				  delay: 1500,      // in milliseconds,       default : 5000
+				  loop: false       // at the end, restart.   default : true
+			  }); 
+			  boyroller3    = document.getElementById("boy_roller3");			
+			 boyroller3.textroller  = new TextRoller({
+				  el: boyroller3,
+				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
+				  //align: "middle",    // right, left or middle. default : middle
+				  delay: 1500,      // in milliseconds,       default : 5000
+				  loop: false       // at the end, restart.   default : true
+			  });
+			 boyroller4    = document.getElementById("boy_roller4");			
+			 boyroller4.textroller  = new TextRoller({
+				  el: boyroller4,
+				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
+				  //align: "middle",    // right, left or middle. default : middle
+				  delay: 1500,      // in milliseconds,       default : 5000
+				  loop: false       // at the end, restart.   default : true
+			  });
+			  
+			girlroller1    = document.getElementById("girl_roller1");			
+			 girlroller1.textroller  = new TextRoller({
+				  el: girlroller1,
+				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
+				  //align: "middle",    // right, left or middle. default : middle
+				  delay: 1500,      // in milliseconds,       default : 5000
+				  loop: false       // at the end, restart.   default : true
+			  });
+			girlroller2    = document.getElementById("girl_roller2");			
+			 girlroller2.textroller  = new TextRoller({
+				  el: girlroller2,
+				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
+				  //align: "middle",    // right, left or middle. default : middle
+				  delay: 1500,      // in milliseconds,       default : 5000
+				  loop: false       // at the end, restart.   default : true
+			  });
+			girlroller3    = document.getElementById("girl_roller3");			
+			 girlroller3.textroller  = new TextRoller({
+				  el: girlroller3,
+				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
+				  //align: "middle",    // right, left or middle. default : middle
+				  delay: 1500,      // in milliseconds,       default : 5000
+				  loop: false       // at the end, restart.   default : true
+			  });
+			girlroller4    = document.getElementById("girl_roller4");			
+			 girlroller4.textroller  = new TextRoller({
+				  el: girlroller4,
+				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
+				  //align: "middle",    // right, left or middle. default : middle
+				  delay: 1500,      // in milliseconds,       default : 5000
+				  loop: false       // at the end, restart.   default : true
+			  });
+				
+			
+			
+		}
+
+
+		
+		
+		//check whether browser can cope with svg	
+		if (Modernizr.svg == true) {
+		   
+			
+			queue()
+				.defer(d3.json, "geog_ew_la.json")
+				.defer(d3.json, "config.json")
+				.defer(d3.csv, "data_boys_2017.csv")
+				.defer(d3.csv, "data_girls_2017.csv")
+				.await(ready);
+		
+			function ready(error, geog, config, data_boys, data_girls) {
+
+				geog2 = geog;
+				data2 = data_boys;
+				data1 = data_girls;
+				config2 = config;
+
+
+				pymChild = new pym.Child({ renderCallback:selectlist(data2) });			
+
+
+			};
+//			
+
+
+		function selectlist(data2) {
+
+			var areacodes =  data2.map(function(d) { return d.AREACD; });
+			var areanames =  data2.map(function(d) { return d.AREANM; });
+			var menuarea = d3.zip(areanames,areacodes).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
+
+			// Build option menu for occupations
+			var optns = d3.select("#selectNav").append("div").attr("id","sel").attr("style","padding-left:2%")
+				.append("select")
+				.attr("id","areaselect")
+			 	.attr("style", function(d,i){
+					if(parseInt(graphic.style("width")) <580){
+						return "width:99%"
+					} else {
+						return "width:300px"
+					}	
+				})
+				.attr("class","chosen-select");
+
+
+			optns.append("option")
+				.attr("value",null)
+				.text("");
+
+			optns.selectAll("p").data(menuarea).enter().append("option")
+				.attr("value", function(d){ return d[1]})
+				.text(function(d){ return d[0]});
+
+
+			$('#areaselect').chosen({max_shown_results: 7}).on('change',function(evt,params){
+
+					if(typeof params != 'undefined') {
+												
+							data1.filter(function(d){
+								if(d.AREACD == $('#areaselect').val()){
+									girl_babynames = d.babyname;
+									girl_value = d.value;
+								}								 
+							})
+							
+							data2.filter(function(d){
+								if(d.AREACD == $('#areaselect').val()){
+									boy_babynames = d.babyname;
+									boy_value = d.value;
+								}								 
+							})
+							
+							d3.select("#boy_info").classed("hide", false);
+							d3.select("#girl_info").classed("hide", false);
+							 
+							d3.select(".boys_table").classed("hide", true);
+							d3.select(".girls_table").classed("hide", true);
+							 
+							if($('#areaselect').val() == "E09000001" || $('#areaselect').val() == "E06000053") {
+								d3.select("#boy_info").select("text").text("Data not available for this area as there were less than 3 baby boys born with the top name")		
+							} else {					
+								d3.select("#boy_info").select("text").text(
+								function(d){ 
+									if(boy_babynames.indexOf(", ") == -1){
+										return "The most popular name given to "+boy_value+" baby boys in 2017:";
+									} else {
+										return "The most popular names given to "+boy_value+" baby boys in 2017:";
+									}
+								})
+							}
+							
+							if( $('#areaselect').val() == "E06000053") {
+								d3.select("#girl_info").select("text").text("Data not available for this area as there were less than 3 baby girls born with the top name")		
+							} else {	
+								d3.select("#girl_info").select("text").text(
+								function(d){ 
+									if(boy_babynames.indexOf(", ") == -1){
+										return "The most popular name given to "+girl_value+" baby girls in 2017:";
+									} else {
+										return "The most popular names given to "+girl_value+" baby girls in 2017:";
+									}
+								})
+							}
+							boyArray = boy_babynames.split(", ")
+							girlArray = girl_babynames.split(", ")
+							if(boyArray[0] == ""){
+								d3.select("#boy_roller1").classed("hide", true);
+								d3.select("#boy_roller2").classed("hide", true);	
+								d3.select("#boy_roller3").classed("hide", true);
+								d3.select("#boy_roller4").classed("hide", true);
+							} else if (boyArray.length==1){
+								d3.select("#boy_roller1").classed("hide", false);
+								d3.select("#boy_roller2").classed("hide", true);	
+								d3.select("#boy_roller3").classed("hide", true);
+								d3.select("#boy_roller4").classed("hide", true);
+								setTimeout(function(){
+									boyroller1.innerHTML = boyArray[0]
+								},100)							
+							} else if (boyArray.length==2){
+								d3.select("#boy_roller1").classed("hide", false);
+								d3.select("#boy_roller2").classed("hide", false);	
+								d3.select("#boy_roller3").classed("hide", true);
+								d3.select("#boy_roller4").classed("hide", true);
+								setTimeout(function(){
+									boyroller1.innerHTML = boyArray[0]
+									boyroller2.innerHTML = boyArray[1]
+								},100)					
+							} else if (boyArray.length==3){
+								d3.select("#boy_roller1").classed("hide", false);
+								d3.select("#boy_roller2").classed("hide", false);	
+								d3.select("#boy_roller3").classed("hide", false);
+								d3.select("#boy_roller4").classed("hide", true);
+								setTimeout(function(){
+									boyroller1.innerHTML = boyArray[0]
+									boyroller2.innerHTML = boyArray[1]
+									boyroller3.innerHTML = boyArray[2]
+								},100)								
+							} else {
+								d3.select("#boy_roller1").classed("hide", false);
+								d3.select("#boy_roller2").classed("hide", false);	
+								d3.select("#boy_roller3").classed("hide", false);
+								d3.select("#boy_roller4").classed("hide", false);
+								setTimeout(function(){
+									boyroller1.innerHTML = boyArray[0]
+									boyroller2.innerHTML = boyArray[1]
+									boyroller3.innerHTML = boyArray[2]
+									boyroller4.innerHTML = boyArray[3]
+								},100)
+							}
+							
+							
+							if(girlArray[0] == ""){
+								d3.select("#girl_roller1").classed("hide", true);
+								d3.select("#girl_roller2").classed("hide", true);	
+								d3.select("#girl_roller3").classed("hide", true);	
+								d3.select("#girl_roller4").classed("hide", true);	
+							} else if(girlArray.length==1){
+								d3.select("#girl_roller1").classed("hide", false);
+								d3.select("#girl_roller2").classed("hide", true);	
+								d3.select("#girl_roller3").classed("hide", true);	
+								d3.select("#girl_roller4").classed("hide", true);		
+								setTimeout(function(){
+								girlroller1.innerHTML = girlArray[0]
+							},100)					
+							} else if (girlArray.length==2){
+								d3.select("#girl_roller1").classed("hide", false);
+								d3.select("#girl_roller2").classed("hide", false);	
+								d3.select("#girl_roller3").classed("hide", true);	
+								d3.select("#girl_roller4").classed("hide", true);
+								setTimeout(function(){
+									girlroller1.innerHTML = girlArray[0]
+									girlroller2.innerHTML = girlArray[1]
+								},100)							
+							} else if (girlArray.length==3){
+								d3.select("#girl_roller1").classed("hide", false);
+								d3.select("#girl_roller2").classed("hide", false);	
+								d3.select("#girl_roller3").classed("hide", false);	
+								d3.select("#girl_roller4").classed("hide", true);
+								setTimeout(function(){
+									girlroller1.innerHTML = girlArray[0]
+									girlroller2.innerHTML = girlArray[1]
+									girlroller3.innerHTML = girlArray[2]
+								},100)							
+							} else {
+								d3.select("#girl_roller1").classed("hide", false);
+								d3.select("#girl_roller2").classed("hide", false);	
+								d3.select("#girl_roller3").classed("hide", false);
+								d3.select("#girl_roller4").classed("hide", false);
+								setTimeout(function(){
+									girlroller1.innerHTML = girlArray[0]
+									girlroller2.innerHTML = girlArray[1]
+									girlroller3.innerHTML = girlArray[2]
+									girlroller4.innerHTML = girlArray[3]
+								},100)	
+							}
+							
+							
+							setTimeout(function(d){
+								d3.selectAll(".odometer-value").each(function(d){ 
+									if(d3.select(this)[0][0].innerHTML=="Q"){
+									 d3.select(this).remove()	
+									}							
+								})
+							}, 2500)
+							
+							
+					}
+					else {
+							d3.select("#boy_info").select("text").text("")	
+							d3.select("#girl_info").select("text").text("")	
+					}
+					if (pymChild) {
+						pymChild.sendHeight();
+					}
+			});
+
+			 $('#areaselect').on("chosen:showing_dropdown", function(){
+		
+				 d3.select("body").style("min-height","500px")
+				 if (pymChild) {
+				   pymChild.sendHeight();
+				 };
+			 });
+		
+			 $('#areaselect').on("chosen:hiding_dropdown", function(){
+		
+			   d3.select("body").style("min-height","0px")
+			   if (pymChild) {
+				 pymChild.sendHeight();
+			   };
+			 });
+
+		 drawGraphic();
+
+		if (pymChild) {
+			pymChild.sendHeight();
+		}
+	};//end of selectlist
+
+
+		} else {
+			 //use pym to create iframe containing fallback image (which is set as default)
+			 pymChild = new pym.Child();
+			
+			$("#selectIntro").text("A modern browser with JavaScript and a stable internet connection is required to view this interactive.")
+			$("#selectBlurb").text("")
+			 
+			if (pymChild) {
+		        pymChild.sendHeight();
+		    }
+		}
+    </script>
+</body>
+</html>

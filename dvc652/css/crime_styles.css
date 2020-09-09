@@ -1,0 +1,82 @@
+#question_num{
+  font-size: 18px;
+  color:#206095;
+  font-weight: 400;
+}
+
+#question{
+  font-size: 22px;
+  color:#206095;
+  font-weight: 700;
+}
+
+.icon_btn{
+  background: #206095;
+  color: white;
+  border: 3px solid white;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.icon_btn:hover{
+  border: 3px solid orange;
+  cursor: pointer;
+  background: lightgrey;
+  color: #206095;
+}
+
+body {
+  max-width: 800px;
+  margin: 0px auto;
+}
+
+
+.bold{
+  font-weight: 700;
+}
+
+.answer{
+  background: #206095;
+  color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.right_wrong{
+  font-weight: 700;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid white;
+}
+
+.right_wrong_blurb{
+  font-size: 16px;
+  padding-top: 20px;
+}
+
+.tick text{
+  font-family: "Open Sans", sans-serif!important;
+}
+
+#age_chart .key li {
+    display: inline-block;
+    margin: 0 18px 0 0;
+    padding: 0;
+    line-height: 15px;
+}
+
+#age_chart .key b {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 4px 7px 10px 5px;
+    float: left;
+}
+
+#age_chart .key label {
+    white-space: nowrap;
+    font-size: 12px;
+    color: #333;
+    font-weight: 400;
+}

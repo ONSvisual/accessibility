@@ -1,0 +1,35 @@
+{"code":"safedk",
+ "filepth":"",
+ "description":{
+        "title":"Felt safe/very safe walking alone after dark",
+        "unit":"%",
+		"labels": ["men", "women"]
+    },
+    "months":[],
+    "days":[],
+    "quarters":[],
+    "years":{
+            "catLabels":[
+                "2011",
+                "2012",
+                "2013",
+                "2014",
+                "2015",
+                "2016",
+				"2017",
+        "2018"
+
+            ],
+            "dataValues":[
+                [86, 63.5],
+                [87, 64.6],
+                [84.7, 56.7],
+                [85.1, 58],
+                [85.8, 61.7],
+                [87.9, 61.7],
+				[87.2, 63.7],
+        [88.4,68.8]
+            ]
+    }
+}
+                 

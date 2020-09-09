@@ -1,0 +1,348 @@
+local authority,price per m2 of housing (excludes newly built properties and flats)
+Hartlepool,965
+Middlesbrough,1063
+Redcar and Cleveland,1153
+Stockton-on-Tees,1245
+Darlington,1227
+Halton,1299
+Warrington,1709
+Blackburn with Darwen,1042
+Blackpool,1086
+"Kingston upon Hull, City of",1082
+East Riding of Yorkshire,1562
+North East Lincolnshire,1103
+North Lincolnshire,1230
+York,2591
+Derby,1558
+Leicester,1621
+Rutland,2302
+Nottingham,1391
+"Herefordshire, County of",1985
+Telford and Wrekin,1487
+Stoke-on-Trent,1106
+Bath and North East Somerset,3076
+"Bristol, City of",2696
+North Somerset,2504
+South Gloucestershire,2623
+Plymouth,1697
+Torbay,2040
+Bournemouth,2953
+Poole,3205
+Swindon,2224
+Peterborough,1723
+Luton,2673
+Southend-on-Sea,2972
+Thurrock,3009
+Medway,2489
+Bracknell Forest,3865
+West Berkshire,3468
+Reading,3552
+Slough,3882
+Windsor and Maidenhead,4951
+Wokingham,4112
+Milton Keynes,2604
+Brighton and Hove,3964
+Portsmouth,2109
+Southampton,2341
+Isle of Wight,2110
+County Durham,965
+Cheshire East,2010
+Cheshire West and Chester,1836
+Shropshire,1902
+Cornwall,2058
+Wiltshire,2521
+Bedford,2537
+Central Bedfordshire,2925
+Northumberland,1375
+Aylesbury Vale,3308
+Chiltern,4812
+South Bucks,5318
+Wycombe,3999
+Cambridge,4747
+East Cambridgeshire,2581
+Fenland,1680
+Huntingdonshire,2396
+South Cambridgeshire,3278
+Allerdale,1278
+Barrow-in-Furness,1184
+Carlisle,1229
+Copeland,1072
+Eden,1554
+South Lakeland,2062
+Amber Valley,1599
+Bolsover,1159
+Chesterfield,1504
+Derbyshire Dales,2186
+Erewash,1547
+High Peak,1780
+North East Derbyshire,1671
+South Derbyshire,1709
+East Devon,2517
+Exeter,2496
+Mid Devon,2073
+North Devon,2073
+South Hams,2783
+Teignbridge,2314
+Torridge,1936
+West Devon,2056
+Christchurch,3449
+East Dorset,3152
+North Dorset,2387
+Purbeck,2990
+West Dorset,2593
+Weymouth and Portland,2277
+Eastbourne,2647
+Hastings,2261
+Lewes,3276
+Rother,2769
+Wealden,3143
+Basildon,3211
+Braintree,2768
+Brentwood,4404
+Castle Point,3092
+Chelmsford,3426
+Colchester,2613
+Epping Forest,4670
+Harlow,3063
+Maldon,2864
+Rochford,3233
+Tendring,2189
+Uttlesford,3376
+Cheltenham,2710
+Cotswold,2814
+Forest of Dean,1841
+Gloucester,1982
+Stroud,2436
+Tewkesbury,2408
+Basingstoke and Deane,3132
+East Hampshire,3452
+Eastleigh,2912
+Fareham,2856
+Gosport,2155
+Hart,3864
+Havant,2644
+New Forest,3247
+Rushmoor,3314
+Test Valley,2903
+Winchester,3711
+Broxbourne,4007
+Dacorum,4190
+Hertsmere,5100
+North Hertfordshire,3674
+Three Rivers,5160
+Watford,4441
+Ashford,2630
+Canterbury,3033
+Dartford,3379
+Dover,2244
+Gravesham,2948
+Maidstone,2941
+Sevenoaks,4006
+Shepway,2425
+Swale,2412
+Thanet,2256
+Tonbridge and Malling,3392
+Tunbridge Wells,3768
+Burnley,829
+Chorley,1545
+Fylde,1751
+Hyndburn,971
+Lancaster,1535
+Pendle,981
+Preston,1333
+Ribble Valley,1805
+Rossendale,1172
+South Ribble,1601
+West Lancashire,1654
+Wyre,1482
+Blaby,1963
+Charnwood,1935
+Harborough,2287
+Hinckley and Bosworth,1852
+Melton,1955
+North West Leicestershire,1709
+Oadby and Wigston,1991
+Boston,1380
+East Lindsey,1468
+Lincoln,1546
+North Kesteven,1667
+South Holland,1588
+South Kesteven,1785
+West Lindsey,1379
+Breckland,1962
+Broadland,2289
+Great Yarmouth,1619
+King's Lynn and West Norfolk,1910
+North Norfolk,2218
+Norwich,2197
+South Norfolk,2232
+Corby,1542
+Daventry,2276
+East Northamptonshire,1883
+Kettering,1730
+Northampton,1985
+South Northamptonshire,2682
+Wellingborough,1800
+Craven,1832
+Hambleton,2037
+Harrogate,2527
+Richmondshire,1762
+Ryedale,1857
+Scarborough,1578
+Selby,1733
+Ashfield,1294
+Bassetlaw,1328
+Broxtowe,1710
+Gedling,1680
+Mansfield,1254
+Newark and Sherwood,1597
+Rushcliffe,2337
+Cherwell,3010
+Oxford,4657
+South Oxfordshire,4023
+Vale of White Horse,3315
+West Oxfordshire,3237
+Mendip,2344
+Sedgemoor,1915
+South Somerset,1989
+Taunton Deane,2053
+West Somerset,1988
+Cannock Chase,1595
+East Staffordshire,1651
+Lichfield,2193
+Newcastle-under-Lyme,1404
+South Staffordshire,2005
+Stafford,1787
+Staffordshire Moorlands,1585
+Tamworth,1841
+Babergh,2493
+Forest Heath,2110
+Ipswich,1940
+Mid Suffolk,2253
+St Edmundsbury,2502
+Suffolk Coastal,2463
+Waveney,1790
+Elmbridge,5922
+Epsom and Ewell,5041
+Guildford,4670
+Mole Valley,4861
+Reigate and Banstead,4264
+Runnymede,4324
+Spelthorne,4526
+Surrey Heath,3951
+Tandridge,4142
+Waverley,4440
+Woking,4471
+North Warwickshire,1863
+Nuneaton and Bedworth,1603
+Rugby,2026
+Stratford-on-Avon,2784
+Warwick,3033
+Adur,3499
+Arun,2990
+Chichester,3506
+Crawley,3237
+Horsham,3723
+Mid Sussex,3742
+Worthing,3181
+Bromsgrove,2353
+Malvern Hills,2268
+Redditch,1923
+Worcester,2025
+Wychavon,2243
+Wyre Forest,1769
+St Albans,5578
+Welwyn Hatfield,4122
+East Hertfordshire,4127
+Stevenage,2954
+Bolton,1314
+Bury,1551
+Manchester,1630
+Oldham,1304
+Rochdale,1269
+Salford,1499
+Stockport,2103
+Tameside,1418
+Trafford,2480
+Wigan,1264
+Knowsley,1180
+Liverpool,1184
+St. Helens,1238
+Sefton,1468
+Wirral,1441
+Barnsley,1160
+Doncaster,1201
+Rotherham,1280
+Sheffield,1626
+Newcastle upon Tyne,1608
+North Tyneside,1611
+South Tyneside,1272
+Sunderland,1129
+Birmingham,1746
+Coventry,1761
+Dudley,1649
+Sandwell,1392
+Solihull,2541
+Walsall,1532
+Wolverhampton,1395
+Bradford,1396
+Calderdale,1426
+Kirklees,1478
+Leeds,1811
+Wakefield,1382
+Gateshead,1361
+City of London,12167
+Barking and Dagenham,3589
+Barnet,5997
+Bexley,3971
+Brent,5870
+Bromley,4683
+Camden,9985
+Croydon,4065
+Ealing,5746
+Enfield,4702
+Greenwich,4402
+Hackney,6784
+Hammersmith and Fulham,8879
+Haringey,5803
+Harrow,5275
+Havering,3984
+Hillingdon,5004
+Hounslow,5050
+Islington,7828
+Kensington and Chelsea,17988
+Kingston upon Thames,5702
+Lambeth,6025
+Lewisham,4885
+Merton,5805
+Newham,4048
+Redbridge,4408
+Richmond upon Thames,7282
+Southwark,6805
+Sutton,4516
+Tower Hamlets,6438
+Waltham Forest,5066
+Wandsworth,7315
+Westminster,13135
+Isle of Anglesey,1428
+Gwynedd,1361
+Conwy,1527
+Denbighshire,1436
+Flintshire,1507
+Wrexham,1422
+Ceredigion,1313
+Pembrokeshire,1366
+Carmarthenshire,1083
+Swansea,1342
+Neath Port Talbot,963
+Bridgend,1305
+Vale of Glamorgan,1817
+Cardiff,1989
+Rhondda Cynon Taf,968
+Caerphilly,1152
+Blaenau Gwent,775
+Torfaen,1264
+Monmouthshire,1928
+Newport,1414
+Powys,1423
+Merthyr Tydfil,885

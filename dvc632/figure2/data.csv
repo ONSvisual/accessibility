@@ -1,0 +1,47 @@
+"Figure 2: Net migration by citizenship, UK, year ending December 2008 to year ending December 2018",,,,,,,,,,,,
+Units: Thousands,,,,,,,,,,,,
+Source: Office for National Statistics – Long-Term International Migration ,,,,,,,,,,,,
+Notes:,,,,,,,,,,,,
+"1.       Confidence intervals are not available for immigration and net migration estimates for the years ending September 2016, December 2016, March 2017 and June 2017 following revisions to the non-EU immigration for formal study. This does not mean the revised estimates are more certain",,,,,,,,,,,,
+YE,British net migration,British net migration 95% CI,British net migration 60% CI,British net migration 30% CI,EU net migration,EU net migration 95% CI,EU net migration 60% CI,EU net migration 30% CI,non-EU net migration,Non-EU net migration 95%,Non-EU net migration 60% CI,Non-EU net migration 30% CI
+YE Dec 08,-87,28,12,6,63,43,18,9,187,25,11,5
+YE Mar 09,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A
+YE Jun 09,-70,22,9,4,62,34,15,7,174,23,10,5
+YE Sep 09,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A
+YE Dec 09,-44,18,8,4,58,25,11,5,184,20,9,4
+YE Mar 10,-34,18,8,4,58,26,11,5,199,20,9,4
+YE Jun 10,-33,18,8,4,72,26,11,5,196,19,8,4
+YE Sep 10,-44,18,8,4,81,27,12,5,218,19,8,4
+YE Dec 10,-43,18,8,4,77,25,11,5,217,19,8,4
+YE Mar 11,-50,17,7,3,77,24,10,5,215,19,8,4
+YE Jun 11,-55,17,7,3,79,24,10,5,222,20,9,4
+YE Sep 11,-60,17,7,3,75,22,9,4,228,21,9,4
+YE Dec 11,-70,18,8,4,82,23,10,5,204,20,9,4
+YE Mar 12,-77,18,8,4,76,23,10,5,185,21,9,4
+YE Jun 12,-76,19,8,4,72,21,9,4,172,19,8,4
+YE Sep 12,-72,19,8,4,65,21,9,4,160,19,8,4
+YE Dec 12,-63,19,8,4,82,21,9,4,157,19,8,4
+YE Mar 13,-65,18,8,4,95,22,9,4,145,18,8,4
+YE Jun 13,-63,17,7,3,106,24,10,5,139,18,8,4
+YE Sep 13,-58,17,7,3,130,25,11,5,138,19,8,4
+YE Dec 13,-57,17,7,3,123,24,10,5,142,19,8,4
+YE Mar 14,-50,16,7,3,130,26,11,5,156,20,9,4
+YE Jun 14,-48,17,7,3,138,27,12,5,164,20,9,4
+YE Sep 14,-54,20,9,4,158,28,12,6,188,24,10,5
+YE Dec 14,-55,19,8,4,174,29,12,6,194,25,11,5
+YE Mar 15,-48,18,8,4,184,28,12,6,200,23,10,5
+YE Jun 15,-46,18,8,4,180,27,12,5,202,22,9,4
+YE Sep 15,-40,18,8,4,171,26,11,5,192,20,9,4
+YE Dec 15,-40,18,8,4,184,27,12,5,189,20,9,4
+YE Mar 16,-43,19,8,4,178,28,12,6,193,21,9,4
+YE Jun 16,-49,18,8,4,189,30,13,6,196,21,9,4
+YE Sep 161,-56,18,8,4,165,30,13,6,197,#N/A,#N/A,#N/A
+YE Dec 161,-60,19,8,4,133,29,12,6,208,#N/A,#N/A,#N/A
+YE Mar 171,-59,20,9,4,123,28,12,6,212,#N/A,#N/A,#N/A
+YE Jun 171,-48,20,9,4,103,29,12,6,204,#N/A,#N/A,#N/A
+YE Sep 17,-51,20,9,4,106,33,14,7,222,26,11,5
+YE Dec 17,-48,21,9,4,99,34,15,7,234,26,11,5
+YE Mar 18p,-55,20,9,4,86,34,15,7,235,27,12,5
+YE Jun 18p,-49,23,10,5,74,34,15,7,248,27,12,5
+YE Sep 18p,-35,24,10,5,57,36,15,7,261,29,12,6
+YE Dec 18p,-48,24,10,5,74,36,15,7,232,28,12,6

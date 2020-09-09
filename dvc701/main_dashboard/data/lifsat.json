@@ -1,0 +1,14 @@
+{"code":"lifsat",
+ "filepth":"https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/bulletins/measuringnationalwellbeing/july2017tojune2018",
+ "description":{
+        "title":"Very high rating of satisfaction with their lives overall",
+        "unit":"%"
+    },
+    "months":[],
+    "days":[],
+    "quarters":[],
+    "years":{
+            "catLabels":["2012","2013","2014","2015","2016","2017","2018","2019"],
+            "dataValues":[26.2,26.0,26.9,28.8,29.2,30.0,30.0,30.7]
+    }
+}

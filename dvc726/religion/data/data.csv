@@ -1,0 +1,349 @@
+AREANM,AREACD,yr1,supergroup
+Hartlepool,E06000001,4,Services and Industrial Legacy   
+Middlesbrough,E06000002,2,Urban Settlements
+Redcar and Cleveland,E06000003,4,Services and Industrial Legacy   
+Stockton-on-Tees,E06000004,3,Services and Industrial Legacy   
+Darlington,E06000005,3,Services and Industrial Legacy   
+Halton,E06000006,4,Services and Industrial Legacy   
+Warrington,E06000007,2,Town and Country Living
+Blackburn with Darwen,E06000008,4,Urban Settlements
+Blackpool,E06000009,4,Services and Industrial Legacy   
+"Kingston upon Hull, City of",E06000010,2,Urban Settlements
+East Riding of Yorkshire,E06000011,2,Countryside Living
+North East Lincolnshire,E06000012,4,Services and Industrial Legacy   
+North Lincolnshire,E06000013,4,Town and Country Living
+York,E06000014,2,"Business, Education and Heritage Centres "
+Derby ,E06000015,1,Urban Settlements
+Leicester,E06000016,1,Ethnically Diverse Metropolitan Living
+Rutland ,E06000017,5,Countryside Living
+Nottingham,E06000018,0,"Business, Education and Heritage Centres "
+"Herefordshire, County of",E06000019,5,Countryside Living
+Telford and Wrekin,E06000020,1,Urban Settlements
+Stoke-on-Trent,E06000021,1,Urban Settlements
+Bath and North East Somerset,E06000022,3,"Business, Education and Heritage Centres "
+"Bristol, City of",E06000023,0,"Business, Education and Heritage Centres "
+North Somerset,E06000024,3,Countryside Living
+South Gloucestershire,E06000025,2,Town and Country Living
+Plymouth,E06000026,4,"Business, Education and Heritage Centres "
+Torbay,E06000027,4,Countryside Living
+Bournemouth,E06000028,1,"Business, Education and Heritage Centres "
+Poole,E06000029,3,Town and Country Living
+Swindon,E06000030,3,Urban Settlements
+Peterborough,E06000031,2,Urban Settlements
+Luton,E06000032,1,Ethnically Diverse Metropolitan Living
+Southend-on-Sea,E06000033,1,Urban Settlements
+Thurrock,E06000034,1,Urban Settlements
+Medway,E06000035,0,Urban Settlements
+Bracknell Forest,E06000036,2,Affluent England  
+West Berkshire,E06000037,2,Affluent England  
+Reading,E06000038,1,"Business, Education and Heritage Centres "
+Slough,E06000039,1,Ethnically Diverse Metropolitan Living
+Windsor and Maidenhead,E06000040,2,Affluent England  
+Wokingham,E06000041,1,Affluent England  
+Milton Keynes,E06000042,1,Urban Settlements
+Brighton and Hove,E06000043,1,"Business, Education and Heritage Centres "
+Portsmouth,E06000044,0,"Business, Education and Heritage Centres "
+Southampton,E06000045,1,"Business, Education and Heritage Centres "
+Isle of Wight,E06000046,5,Countryside Living
+County Durham,E06000047,2,Services and Industrial Legacy   
+Cheshire East,E06000049,1,Town and Country Living
+Cheshire West and Chester,E06000050,3,Town and Country Living
+Shropshire,E06000051,3,Countryside Living
+Cornwall,E06000052,4,Countryside Living
+Wiltshire,E06000054,1,Town and Country Living
+Bedford,E06000055,2,Urban Settlements
+Central Bedfordshire,E06000056,2,Affluent England  
+Northumberland,E06000057,4,Countryside Living
+Aylesbury Vale,E07000004,0,Affluent England  
+Chiltern,E07000005,2,Affluent England  
+South Bucks,E07000006,1,Affluent England  
+Wycombe,E07000007,2,Affluent England  
+Cambridge,E07000008,1,"Business, Education and Heritage Centres "
+East Cambridgeshire,E07000009,5,Town and Country Living
+Fenland,E07000010,5,Town and Country Living
+Huntingdonshire,E07000011,4,Town and Country Living
+South Cambridgeshire,E07000012,2,Affluent England  
+Allerdale,E07000026,6,Countryside Living
+Barrow-in-Furness,E07000027,5,Services and Industrial Legacy   
+Carlisle,E07000028,5,Services and Industrial Legacy   
+Copeland,E07000029,6,Services and Industrial Legacy   
+Eden,E07000030,6,Countryside Living
+South Lakeland,E07000031,3,Countryside Living
+Amber Valley,E07000032,4,Town and Country Living
+Bolsover,E07000033,6,Services and Industrial Legacy   
+Chesterfield,E07000034,5,Services and Industrial Legacy   
+Derbyshire Dales,E07000035,6,Countryside Living
+Erewash,E07000036,5,Town and Country Living
+High Peak,E07000037,4,Town and Country Living
+North East Derbyshire,E07000038,4,Town and Country Living
+South Derbyshire,E07000039,2,Town and Country Living
+East Devon,E07000040,4,Countryside Living
+Exeter,E07000041,3,"Business, Education and Heritage Centres "
+Mid Devon,E07000042,5,Countryside Living
+North Devon,E07000043,5,Countryside Living
+South Hams,E07000044,4,Countryside Living
+Teignbridge,E07000045,4,Countryside Living
+Torridge,E07000046,5,Countryside Living
+West Devon,E07000047,6,Countryside Living
+Christchurch,E07000048,5,Countryside Living
+East Dorset,E07000049,2,Countryside Living
+North Dorset,E07000050,5,Countryside Living
+Purbeck,E07000051,6,Countryside Living
+West Dorset,E07000052,5,Countryside Living
+Weymouth and Portland,E07000053,5,Countryside Living
+Eastbourne,E07000061,3,"Business, Education and Heritage Centres "
+Hastings,E07000062,4,Urban Settlements
+Lewes,E07000063,3,Countryside Living
+Rother,E07000064,5,Countryside Living
+Wealden,E07000065,4,Countryside Living
+Basildon,E07000066,2,Urban Settlements
+Braintree,E07000067,3,Town and Country Living
+Brentwood,E07000068,3,Affluent England  
+Castle Point,E07000069,5,Town and Country Living
+Chelmsford,E07000070,3,Affluent England  
+Colchester,E07000071,2,Affluent England  
+Epping Forest,E07000072,3,Affluent England  
+Harlow,E07000073,3,Urban Settlements
+Maldon,E07000074,4,Town and Country Living
+Rochford,E07000075,5,Town and Country Living
+Tendring,E07000076,3,Countryside Living
+Uttlesford,E07000077,5,Affluent England  
+Cheltenham,E07000078,2,"Business, Education and Heritage Centres "
+Cotswold,E07000079,5,Countryside Living
+Forest of Dean,E07000080,5,Town and Country Living
+Gloucester,E07000081,4,Urban Settlements
+Stroud,E07000082,4,Town and Country Living
+Tewkesbury,E07000083,5,Town and Country Living
+Basingstoke and Deane,E07000084,2,Affluent England  
+East Hampshire,E07000085,5,Affluent England  
+Eastleigh,E07000086,3,Town and Country Living
+Fareham,E07000087,5,Town and Country Living
+Gosport,E07000088,4,Services and Industrial Legacy   
+Hart,E07000089,3,Affluent England  
+Havant,E07000090,5,Services and Industrial Legacy   
+New Forest,E07000091,3,Countryside Living
+Rushmoor,E07000092,3,Urban Settlements
+Test Valley,E07000093,5,Affluent England  
+Winchester,E07000094,5,Affluent England  
+Broxbourne,E07000095,2,Urban Settlements
+Dacorum,E07000096,1,Affluent England  
+Hertsmere,E07000098,1,Affluent England  
+North Hertfordshire,E07000099,3,Affluent England  
+Three Rivers,E07000102,3,Affluent England  
+Watford,E07000103,3,Urban Settlements
+Ashford,E07000105,2,Town and Country Living
+Canterbury,E07000106,3,"Business, Education and Heritage Centres "
+Dartford,E07000107,5,Urban Settlements
+Dover,E07000108,4,Countryside Living
+Gravesham,E07000109,2,Urban Settlements
+Maidstone,E07000110,2,Affluent England  
+Sevenoaks,E07000111,6,Affluent England  
+Shepway,E07000112,3,Countryside Living
+Swale,E07000113,5,Town and Country Living
+Thanet,E07000114,1,Countryside Living
+Tonbridge and Malling,E07000115,4,Affluent England  
+Tunbridge Wells,E07000116,3,Affluent England  
+Burnley,E07000117,4,Urban Settlements
+Chorley,E07000118,6,Town and Country Living
+Fylde,E07000119,4,Countryside Living
+Hyndburn,E07000120,4,Urban Settlements
+Lancaster,E07000121,3,"Business, Education and Heritage Centres "
+Pendle,E07000122,5,Urban Settlements
+Preston,E07000123,3,"Business, Education and Heritage Centres "
+Ribble Valley,E07000124,6,Countryside Living
+Rossendale,E07000125,4,Services and Industrial Legacy   
+South Ribble,E07000126,5,Town and Country Living
+West Lancashire,E07000127,5,Town and Country Living
+Wyre,E07000128,5,Countryside Living
+Blaby,E07000129,3,Town and Country Living
+Charnwood,E07000130,1,Town and Country Living
+Harborough,E07000131,4,Town and Country Living
+Hinckley and Bosworth,E07000132,3,Town and Country Living
+Melton,E07000133,5,Town and Country Living
+North West Leicestershire,E07000134,4,Town and Country Living
+Oadby and Wigston,E07000135,2,Town and Country Living
+Boston,E07000136,6,Urban Settlements
+East Lindsey,E07000137,4,Countryside Living
+Lincoln,E07000138,3,"Business, Education and Heritage Centres "
+North Kesteven,E07000139,4,Countryside Living
+South Holland,E07000140,5,Town and Country Living
+South Kesteven,E07000141,3,Town and Country Living
+West Lindsey,E07000142,5,Countryside Living
+Breckland,E07000143,4,Countryside Living
+Broadland,E07000144,4,Town and Country Living
+Great Yarmouth,E07000145,4,Countryside Living
+King's Lynn and West Norfolk,E07000146,5,Countryside Living
+North Norfolk,E07000147,5,Countryside Living
+Norwich,E07000148,1,"Business, Education and Heritage Centres "
+South Norfolk,E07000149,4,Town and Country Living
+Corby,E07000150,5,Urban Settlements
+Daventry,E07000151,4,Town and Country Living
+East Northamptonshire,E07000152,5,Town and Country Living
+Kettering,E07000153,5,Urban Settlements
+Northampton,E07000154,3,Urban Settlements
+South Northamptonshire,E07000155,5,Town and Country Living
+Wellingborough,E07000156,3,Urban Settlements
+Craven,E07000163,5,Countryside Living
+Hambleton,E07000164,5,Countryside Living
+Harrogate,E07000165,4,Countryside Living
+Richmondshire,E07000166,4,Countryside Living
+Ryedale,E07000167,5,Countryside Living
+Scarborough,E07000168,4,Countryside Living
+Selby,E07000169,6,Town and Country Living
+Ashfield,E07000170,6,Services and Industrial Legacy   
+Bassetlaw,E07000171,4,Town and Country Living
+Broxtowe,E07000172,2,Town and Country Living
+Gedling,E07000173,3,Town and Country Living
+Mansfield,E07000174,5,Services and Industrial Legacy   
+Newark and Sherwood,E07000175,4,Town and Country Living
+Rushcliffe,E07000176,4,Affluent England  
+Cherwell,E07000177,3,Affluent England  
+Oxford,E07000178,0,"Business, Education and Heritage Centres "
+South Oxfordshire,E07000179,4,Affluent England  
+Vale of White Horse,E07000180,3,Affluent England  
+West Oxfordshire,E07000181,3,Affluent England  
+Mendip,E07000187,4,Countryside Living
+Sedgemoor,E07000188,5,Countryside Living
+South Somerset,E07000189,4,Countryside Living
+Taunton Deane,E07000190,3,Countryside Living
+West Somerset,E07000191,6,Countryside Living
+Cannock Chase,E07000192,4,Services and Industrial Legacy   
+East Staffordshire,E07000193,5,Town and Country Living
+Lichfield,E07000194,4,Town and Country Living
+Newcastle-under-Lyme,E07000195,4,Town and Country Living
+South Staffordshire,E07000196,3,Town and Country Living
+Stafford,E07000197,3,Town and Country Living
+Staffordshire Moorlands,E07000198,5,Town and Country Living
+Tamworth,E07000199,6,Services and Industrial Legacy   
+Babergh,E07000200,3,Town and Country Living
+Forest Heath,E07000201,3,Affluent England  
+Ipswich,E07000202,3,Urban Settlements
+Mid Suffolk,E07000203,5,Town and Country Living
+St Edmundsbury,E07000204,2,Town and Country Living
+Suffolk Coastal,E07000205,4,Countryside Living
+Waveney,E07000206,5,Countryside Living
+Elmbridge,E07000207,1,Affluent England  
+Epsom and Ewell,E07000208,2,Affluent England  
+Guildford,E07000209,3,Affluent England  
+Mole Valley,E07000210,2,Affluent England  
+Reigate and Banstead,E07000211,2,Affluent England  
+Runnymede,E07000212,3,Affluent England  
+Spelthorne,E07000213,2,Affluent England  
+Surrey Heath,E07000214,4,Affluent England  
+Tandridge,E07000215,4,Affluent England  
+Waverley,E07000216,3,Affluent England  
+Woking,E07000217,2,Affluent England  
+North Warwickshire,E07000218,6,Town and Country Living
+Nuneaton and Bedworth,E07000219,3,Urban Settlements
+Rugby,E07000220,3,Urban Settlements
+Stratford-on-Avon,E07000221,4,Countryside Living
+Warwick,E07000222,2,"Business, Education and Heritage Centres "
+Adur,E07000223,5,Town and Country Living
+Arun,E07000224,5,Countryside Living
+Chichester,E07000225,3,Countryside Living
+Crawley,E07000226,3,Urban Settlements
+Horsham,E07000227,2,Affluent England  
+Mid Sussex,E07000228,5,Affluent England  
+Worthing,E07000229,3,Urban Settlements
+Bromsgrove,E07000234,4,Town and Country Living
+Malvern Hills,E07000235,5,Countryside Living
+Redditch,E07000236,4,Urban Settlements
+Worcester,E07000237,4,Urban Settlements
+Wychavon,E07000238,3,Town and Country Living
+Wyre Forest,E07000239,4,Town and Country Living
+St Albans,E07000240,1,Affluent England  
+Welwyn Hatfield,E07000241,1,"Business, Education and Heritage Centres "
+East Hertfordshire,E07000242,2,Affluent England  
+Stevenage,E07000243,3,Urban Settlements
+Bolton,E08000001,2,Urban Settlements
+Bury,E08000002,1,Urban Settlements
+Manchester,E08000003,0,"Business, Education and Heritage Centres "
+Oldham ,E08000004,3,Urban Settlements
+Rochdale,E08000005,4,Urban Settlements
+Salford,E08000006,0,Urban Settlements
+Stockport,E08000007,1,Town and Country Living
+Tameside,E08000008,2,Urban Settlements
+Trafford,E08000009,0,Urban Settlements
+Wigan,E08000010,2,Services and Industrial Legacy   
+Knowsley ,E08000011,4,Services and Industrial Legacy   
+Liverpool,E08000012,0,"Business, Education and Heritage Centres "
+St. Helens,E08000013,4,Services and Industrial Legacy   
+Sefton,E08000014,2,Services and Industrial Legacy   
+Wirral,E08000015,2,Services and Industrial Legacy   
+Barnsley,E08000016,4,Services and Industrial Legacy   
+Doncaster,E08000017,2,Services and Industrial Legacy   
+Rotherham ,E08000018,3,Services and Industrial Legacy   
+Sheffield,E08000019,1,"Business, Education and Heritage Centres "
+Newcastle upon Tyne,E08000021,1,"Business, Education and Heritage Centres "
+North Tyneside,E08000022,2,Services and Industrial Legacy   
+South Tyneside,E08000023,3,Services and Industrial Legacy   
+Sunderland,E08000024,1,Services and Industrial Legacy   
+Birmingham,E08000025,0,Ethnically Diverse Metropolitan Living
+Coventry,E08000026,1,"Business, Education and Heritage Centres "
+Dudley ,E08000027,2,Services and Industrial Legacy   
+Sandwell ,E08000028,1,Urban Settlements
+Solihull,E08000029,2,Town and Country Living
+Walsall,E08000030,2,Urban Settlements
+Wolverhampton,E08000031,1,Urban Settlements
+Bradford ,E08000032,0,Urban Settlements
+Calderdale,E08000033,1,Urban Settlements
+Kirklees ,E08000034,0,Urban Settlements
+Leeds ,E08000035,0,"Business, Education and Heritage Centres "
+Wakefield,E08000036,2,Services and Industrial Legacy   
+Gateshead,E08000037,3,Services and Industrial Legacy   
+Barking and Dagenham,E09000002,1,Ethnically Diverse Metropolitan Living
+Barnet,E09000003,0,Ethnically Diverse Metropolitan Living
+Bexley,E09000004,1,Urban Settlements
+Brent ,E09000005,0,Ethnically Diverse Metropolitan Living
+Bromley,E09000006,0,Affluent England  
+Camden,E09000007,1,London Cosmopolitan
+Croydon,E09000008,1,Ethnically Diverse Metropolitan Living
+Ealing,E09000009,0,Ethnically Diverse Metropolitan Living
+Enfield,E09000010,1,Ethnically Diverse Metropolitan Living
+Greenwich,E09000011,0,Ethnically Diverse Metropolitan Living
+Hackney ,E09000012,0,London Cosmopolitan
+Hammersmith and Fulham ,E09000013,1,London Cosmopolitan
+Haringey,E09000014,0,London Cosmopolitan
+Harrow,E09000015,0,Ethnically Diverse Metropolitan Living
+Havering,E09000016,0,Urban Settlements
+Hillingdon,E09000017,0,Ethnically Diverse Metropolitan Living
+Hounslow,E09000018,1,Ethnically Diverse Metropolitan Living
+Islington,E09000019,1,London Cosmopolitan
+Kensington and Chelsea,E09000020,1,London Cosmopolitan
+Kingston upon Thames,E09000021,1,"Business, Education and Heritage Centres "
+Lambeth ,E09000022,1,London Cosmopolitan
+Lewisham ,E09000023,0,Ethnically Diverse Metropolitan Living
+Merton,E09000024,0,Ethnically Diverse Metropolitan Living
+Newham ,E09000025,1,Ethnically Diverse Metropolitan Living
+Redbridge,E09000026,0,Ethnically Diverse Metropolitan Living
+Richmond upon Thames,E09000027,0,Affluent England  
+Southwark,E09000028,0,London Cosmopolitan
+Sutton,E09000029,1,Urban Settlements
+Tower Hamlets,E09000030,0,London Cosmopolitan
+Waltham Forest,E09000031,0,Ethnically Diverse Metropolitan Living
+Wandsworth,E09000032,1,London Cosmopolitan
+Westminster,E09000033,1,London Cosmopolitan
+Isle of Anglesey / Ynys Mon,W06000001,5,Countryside Living
+Gwynedd / Gwynedd,W06000002,3,Countryside Living
+Conwy / Conwy,W06000003,5,Countryside Living
+Denbighshire / Sir Ddinbych,W06000004,5,Countryside Living
+Flintshire / Sir y Fflint,W06000005,4,Town and Country Living
+Wrexham / Wrecsam,W06000006,4,Services and Industrial Legacy   
+Ceredigion / Ceredigion,W06000008,4,Countryside Living
+Pembrokeshire / Sir Benfro,W06000009,4,Countryside Living
+Carmarthenshire / Sir Gaerfyrddin,W06000010,4,Countryside Living
+Swansea / Abertawe,W06000011,3,Services and Industrial Legacy   
+Neath Port Talbot / Castell-nedd Port Talbot,W06000012,5,Services and Industrial Legacy   
+Bridgend / Pen-y-bont ar Ogwr,W06000013,5,Services and Industrial Legacy   
+Vale of Glamorgan / Bro Morgannwg,W06000014,4,Town and Country Living
+Cardiff / Caerdydd,W06000015,1,"Business, Education and Heritage Centres "
+Rhondda Cynon Taf / Rhondda Cynon Taf,W06000016,3,Services and Industrial Legacy   
+Caerphilly / Caerffili,W06000018,5,Services and Industrial Legacy   
+Blaenau Gwent / Blaenau Gwent,W06000019,5,Services and Industrial Legacy   
+Torfaen / Tor-faen,W06000020,5,Services and Industrial Legacy   
+Monmouthshire / Sir Fynwy,W06000021,5,Countryside Living
+Newport / Casnewydd,W06000022,4,Urban Settlements
+Powys / Powys,W06000023,5,Countryside Living
+Merthyr Tydfil / Merthyr Tudful,W06000024,5,Services and Industrial Legacy   
+Isles of Scilly,E06000053,8,Countryside Living
+City of London,E09000001,8,London Cosmopolitan

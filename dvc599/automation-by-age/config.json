@@ -1,0 +1,48 @@
+{
+    "essential" : {
+			"GraphType" : "clusterBar" ,
+            "graphic_data_url": "data.csv",
+            "colour_palette": [ "#0075A3"],
+            "dateFormat":"%Y-%y",
+            "legendLabels" :[ "Sandwich carers"],
+      			"legendStyle": "rect",
+      			"sourceText":["The probability of automation in England: 2011 and 2017."],
+            "sourceURL":["http://www.ons.gov.uk"],
+
+            "annotationChart": [
+            ],
+            "annotationBullet": [
+            ],
+            "annotationXY":[
+            ],
+            "annotationAlign":[
+            ],
+
+            "circles" : false,
+            "annotationCXCY":[
+            ],
+            "yAxisLabel":"Age group",
+            "xAxisLabel":"Proportion of people",
+            "xAxisScale":[0,20],
+            "barHeight_sm_md_lg" : [40,40,40]
+
+    },
+    "optional" : {
+            "margin_sm": [10, 20, 70, 60],
+            "margin_md": [10, 50, 70, 60],
+            "margin_lg": [10, 20, 70, 60],
+
+            "aspectRatio_sm" : [16,16],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,8],
+
+            "mobileBreakpoint" : 550,
+
+            "xAxisTextFormat_sm_md_lg" : ["%Y-%y", "%Y-%y", "%Y-%y"],
+
+            "x_num_ticks_sm_md_lg" : [5,9,9],
+            "y_num_ticks_sm_md_lg" : [6,8,10],
+            "centre_line" : false,
+            "centre_line_value" : 21.6
+    }
+}
