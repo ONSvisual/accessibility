@@ -72,6 +72,9 @@
                 background-color: #0F8243;
                 color: #fff;
             }
+            .btn--primary:focus {
+              background-color: #0b5d30;
+            }
             .btn {
                 font-family: "Open Sans",Helvetica,Arial,sans-serif;
                 font-weight: 400;
@@ -85,13 +88,17 @@
                 -webkit-appearance: none;
                 transition: background-color 0.25s ease-out;
                 line-height: 24px;
+                text-decoration: none;
+            }
+            .btn:focus {
+                text-decoration: underline;
             }
             a {
                 text-decoration: underline;
                 color: #206095;
                 word-wrap: break-word;
             }
-            h6 {
+            h4 {
                 font-size: 14px;
                 font-weight: 700;
                 margin: 16px 0 0 0;
@@ -107,6 +114,11 @@
                 margin: 0px 0;
                 padding: 6px 0 10px 16px;
             }
+            .source {
+                font-size: 14px;
+                font-weight: 700;
+                margin: 16px 0 0 0;
+            }
         </style>
     </head>
     <body>
@@ -115,11 +127,11 @@
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
 
-        <div id="graphic">
+        <div id="graphic" aria-label="A graph displaying the EU2, EU8 and EU15 net migration trends between June 2009 and March 2019">
         </div>
         <div id="footer">
-          <h6>Source: Office for National Statistics – Long-Term International Migration (LTIM), LTIM with preliminary adjustments based on DWP and Home Office data</h6>
-          <h6>Notes:</h6>
+          <p class="source">Source: Office for National Statistics – Long-Term International Migration (LTIM), LTIM with preliminary adjustments based on DWP and Home Office data</p>
+          <h4>Notes:</h4>
           <ol>
             <li>Preliminary adjusted estimates are shown as dashed lines on the chart.</li>
             <li>Preliminary adjusted estimates for EU8 citizens have been produced for year ending June 2009 to year ending March 2016.</li>
@@ -127,10 +139,10 @@
             <li>Confidence intervals for the preliminary adjusted estimates are not yet available. This does not mean that the estimates are more certain. As we refine our methods, we will develop our approach for displaying uncertainty around estimates based on multiple data sources.</li>
             
           </ol>
-          <h6>Download this chart</h6>
-          <a class="btn btn--primary"  href="image.png" download>Image</a>
-          <a class="btn btn--primary"  href="data.xlsx" target="_blank">.xls</a>
-          <a class="btn btn--primary"  href="data.csv" target="_blank">.csv</a>
+          <h4>Download this chart</h4>
+          <a class="btn btn--primary" aria-label="Download MSQR August 2019 - chart 4 as PNG" href="image.png" download>Image</a>
+          <a class="btn btn--primary" aria-label="Download MSQR August 2019 - chart 4 as XLS" href="data.xlsx" target="_blank">.xls</a>
+          <a class="btn btn--primary" aria-label="Download MSQR August 2019 - chart 4 as CSV" href="data.csv" target="_blank">.csv</a>
         </div>
         <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
         <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
@@ -275,6 +287,7 @@
             var svg = d3.select("#graphic").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height",height + margin.top + margin.bottom)
+                .attr("aria-hidden", true)
                 .append("g")
                 .attr("id","graphic")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
