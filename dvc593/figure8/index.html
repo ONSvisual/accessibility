@@ -88,16 +88,22 @@
     transition: background-color 0.25s ease-out;
     line-height: 24px;
 }
+
+.btn:hover, .btn:focus{
+  background-color: #0b5d30;
+  box-shadow: 0 0 0 3px orange;
+}
+
 a {
     text-decoration: underline;
     color: #206095;
     word-wrap: break-word;
 }
 
-h6 {
-    font-size: 14px;
+h4 {
+    font-size: 16px;
     font-weight: 700;
-    margin: 16px 0 0 0;
+    margin: 16px 0 8px 0;
 }
 
 ul, ol {
@@ -121,11 +127,11 @@ li {
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-    <div id="graphic">
+    <div id="graphic" aria-label="Non-EU student immigration has risen in the last year after remaining broadly stable from 2013 to 2017.">
     </div>
     <div id="footer">
-      <h6>Source: Office for National Statistics - International Passenger Survey, Home Office - long-term study visas, Higher Education Statistics Agency - first year student enrolments</h6>
-      <h6>Notes:</h6>
+      <h4>Source: Office for National Statistics - International Passenger Survey, Home Office - long-term study visas, Higher Education Statistics Agency - first year student enrolments</h6>
+      <h4>Notes:</h6>
       <ol>
         <li>Confidence intervals are not available for the years ending September 2016, December 2016, March 2017 and June 2017 following revisions to the non-EU immigration for formal study. This does not mean the revised estimates are more certain.</li>
 
@@ -136,9 +142,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li>Student enrolment data are for 12 months of more and are ONS analysis of Higher Education Statistics Agency (HESA) first year student records. The data are for courses starting in the academic year from August to July, by length of study and domicile. HESA data are from Higher Education institutions in England and Wales only. We present these data compared to the equivalent year ending September.</li> -->
       </ol>
       <h6>Download this chart</h6>
-      <a class="btn btn--primary"  href="image.png" download>Image</a>
-      <a class="btn btn--primary"  href="data.xls" target="_blank">.xls</a>
-      <a class="btn btn--primary"  href="data.csv" target="_blank">.csv</a>
+      <a class="btn btn--primary" aria-label="Download this chart as an image" href="image.png" download>Image</a>
+      <a class="btn btn--primary" aria-label="Download this chart as an .xls file" href="data.xls" target="_blank">.xls</a>
+      <a class="btn btn--primary" aria-label="Download this chart as a .csv file" href="data.csv" target="_blank">.csv</a>
     </div>
         <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
         <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
@@ -282,6 +288,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
 
             var svg = d3.select("#graphic").append("svg")
+                .attr('aria-hidden','true')
                 .attr("width", width + margin.left + margin.right)
                 .attr("height",height + margin.top + margin.bottom)
                 .append("g")
