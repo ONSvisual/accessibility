@@ -25,11 +25,11 @@
  */
 
 .ui-slider-wrapper { position: relative; }
-.ui-slider-wrapper .ui-slider-horizontal { width: 100%; border:none !important}
+.ui-slider-wrapper .ui-slider-horizontal { border-radius: 5px; width: 100%; border:none !important}
 
 .ui-slider-labels { position: absolute; border: 1px solid transparent; }
 .ui-slider-label-ticks { border: 1px solid transparent; position: absolute; white-space: nowrap;}
-.ui-slider-label-ticks span { font-size: 12px; min-width: 1.2em; color:#666; font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+.ui-slider-label-ticks span { font-size: 15px; min-width: 1.2em; color:#666; font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
  }
 
 /*.ui-slider-wrapper.horizontal { height: 4.5em; }*/
