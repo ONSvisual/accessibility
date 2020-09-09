@@ -1276,9 +1276,9 @@
 
 
       <div id="LEDiv" class="col-sm-12 col-xs-12">
-        <p style="display: none;" id="introLine1" class="static" aria-live='polite'>Your average life expectancy is</p>
-        <p style="display: none;" id="LE" aria-live='polite'></p>
-
+        <p style="display: none;" id="introLine1" class="static">Your average life expectancy is</p>
+        <p style="display: none;" id="LE"></p>
+        <p class="visuallyhidden" aria-live='polite'><span id="acc_LE"></span><span id="acc_25pc"></span><span id="acc_10pc"></span><span id="acc_100"></span></p>
       </div>
 
 
@@ -1347,7 +1347,7 @@
           <div id="twitter"></div>
           </a>
         </button>
-        <button aria-label='Copy the link for this calculator to your clipboard' onclick="copyLink()" class="social-btn">
+        <button id="copyButton" aria-label='Copy the link for this calculator to your clipboard' onclick="copyLink()" class="social-btn">
           <div id="link"></div>
         </button>
       </div>
@@ -1404,12 +1404,22 @@
       document.body.removeChild(dummy);
     }
 
-    tippy('#link', {
+    copy = tippy('#copyButton', {
       placement: "top-start",
       content: "Link copied to clipboard",
       trigger: 'click',
       duration: 1000,
     })
+
+    d3.select("#copyButton").on('keypress',function(evt){
+      if(d3.event.keyCode==13 || d3.event.keyCode==32){
+        d3.event.preventDefault();
+        copyLink();
+        copy[0].show();
+        setTimeout(function(){copy[0].hide();},2000)
+      }
+    })
+
   </script>
 </body>
 
