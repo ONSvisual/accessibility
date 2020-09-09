@@ -225,6 +225,14 @@ font-weight: 700;
    margin-left:1px !important;
 }
 
+.btn:focus{
+	box-shadow: 0 0 0px 3pt orange;
+}
+
+.ui-slider-handle:focus{
+	box-shadow: 0 0 0px 3pt orange;
+}
+
 button {
    cursor: pointer;
 }
@@ -277,7 +285,16 @@ button {
 	}
 }
 
-
+.visuallyhidden {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				margin: -1px;
+				padding:0;
+				overflow: hidden;
+				clip: rect(0,0,0,0); border: 0;
+				display:block !important;
+		}
 
     </style>
 </head>
@@ -287,7 +304,8 @@ button {
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-	<div class="container-fluid">
+<h5 class="visuallyhidden">This graphic allows users to explore and compare the shape of a population in two areas (by age and sex). See the accompanying data for the underlying figures. </h5
+<div class="container-fluid" aria-hidden="true" role="presentation">
 		<div class="allContent">
 	        <div class="row">
                <!--<div id = "chartTitle">2014-based National Population Projections - Principal and Variants, 2014 - 2039</div>-->
@@ -298,6 +316,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	         <div class="row">
 	        	<div class="col-sm-6 col-xs-12" id="txtTotals0"></div>
 	            <div class="col-sm-6 hidden-xs" id="txtTotals1"></div>
+							<div aria-live="polite" id="keyvaluehidden" class="visuallyhidden"></div>
 	        </div>
 
 	         <div class="row ageRow">
@@ -321,12 +340,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 	        <div class="row" id="graphic"></div>
 
-            	<div class="row" id="controls1"></div>
+            	<div class="row" id="controls1" ></div>
                 <div class="row" id="controls2">
-					<input type="checkbox" id="outlinesToggle">
-					<input type="checkbox" id="overlapToggle">
-					<input type="checkbox" id="dimensionsToggle">
-                    <button type="button" id="clearBtn" class="btn btn--secondary btn-xs" disabled="disabled">Clear selection</button>
+										<fieldset>
+											<legend class="visuallyhidden">Secondary population pyramid controls</legend>
+											<label class="visuallyhidden" for="outlinesToggle">Toggle pyramid outline for current time period</label>
+											<input type="checkbox" id="outlinesToggle">
+											<label class="visuallyhidden" for="overlapToggle">Toggle pyramid overlap to compare areas</label>
+											<input type="checkbox" id="overlapToggle">
+											<label class="visuallyhidden" for="dimensionsToggle">Toggle between percentage of population and number of people</label>
+											<input type="checkbox" id="dimensionsToggle">
+											<button aria-label="Clear selection" type="button" id="clearBtn" class="btn btn--secondary btn-xs" disabled="disabled">Clear selection</button>
+										</fieldset>
                 </div>
              <div class="row" id="source">Office for National Statistics, Northern Ireland Statistics and Research Agency, National Records of Scotland and Welsh Government</div>
 		</div>
@@ -347,12 +372,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             		dvc.aspectRatio_md = [6,3],
             		dvc.aspectRatio_lg = [6,3],
 					dvc.nodata =["Antrim and Newtownabbey", "Armagh City, Banbridge and Craigavon", "Belfast", "Causeway Coast and Glens", "Derry City and Strabane", "Fermanagh and Omagh", "Lisburn and Castlereagh", "Mid and East Antrim", "Mid Ulster", "Newry, Mourne and Down", "Ards and North Down"]
-					
+
 					dvc.scotland =["Clackmannanshire", "Dumfries and Galloway", "East Ayrshire", "East Lothian", "East Renfrewshire", "Na h-Eileanan Siar", "Falkirk", "Fife", "Highland", "Inverclyde", "Midlothian", "Moray", "North Ayrshire", "Orkney Islands", "Perth and Kinross", "Scottish Borders", "Shetland Islands", "South Ayrshire", "South Lanarkshire", "Stirling", "Aberdeen City", "Aberdeenshire", "Argyll and Bute", "City of Edinburgh", "Renfrewshire", "West Dunbartonshire", "West Lothian", "Angus", "Dundee City", "North Lanarkshire", "East Dunbartonshire", "Glasgow City"]
-					
+
 					dvc.ageover85 =["86", "87", "88", "89", "90+"]
 
-					
+
 
 					dvc.cenGap=14;//central gap between 2 histograms in a pyramid
 					dvc.chartColors=["#5F7682","#008080"];
@@ -496,7 +521,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
+d3.selectAll('svg').attr('aria-hidden','true')
 
 			//use pym to calculate chart dimensions
 		    if (pymChild) {
@@ -525,18 +550,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			var myYear=dvc.data[chartNo].ons.time.index[dvc.timeIndex];
 			//var myMales=myFormat(dvc.data[chartNo].ons.sums.series1[dvc.timeIndex]);
 			//var myFemales=myFormat(dvc.data[chartNo].ons.sums.series2[dvc.timeIndex]);
-			
+
 			if(dvc.timeIndex==0 && dvc.nodata.indexOf(dvc.settings.config.vars[dvc.defaultSelections[chartNo]][1]) != -1){
 				console.log("I'm here")
 				$("#txtTotals"+chartNo).html("<span class='txtTotals'>No comparable data in "+ myYear +"<br/></span>");
 			} else {
-				$("#txtTotals"+chartNo).html("<span class='txtTotals'>"+myTotal+"</span> people in "+ myYear +"<br/>"); 
+				$("#txtTotals"+chartNo).html("<span class='txtTotals'>"+myTotal+"</span> people in "+ myYear +"<br/>");
 			}
 
-			
-			
-			
-			
+
+
 			//$("#txtTotals"+chartNo).html("<span class='txtTotals'>"+myTotal+"</span> people in "+ myYear +"<br/>"/*<span class='txtTotals'>"+myMales+"</span> males<br/><span class='txtTotals'>"+myFemales+"</span> females<br/><span class='txtAdvice'>mouse or touch the graph to see more data</span>"*/);
 
 			var svg = d3.select("MFbars"+chartNo);
@@ -555,7 +578,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						if(i==0) {
 							return (i*50) +"%";
 						} else {
-							return ((i*50)+6) +"%";	
+							return ((i*50)+6) +"%";
 						}
 						})
 					.attr("width", function(d){
@@ -570,9 +593,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 			var infoValues = d3.select("#infoValues"+chartNo)
 			var infoPercent =d3.select("#infoPercent"+chartNo)
-			
+
 			if(dvc.timeIndex==0 && dvc.nodata.indexOf(dvc.settings.config.vars[dvc.defaultSelections[chartNo]][1]) != -1){
-				
+
 				infoValues.html("No male data available<span></span>"+"<br>No female data available")
 				infoPercent.html("")
 			} /*else  if (dvc.timeIndex==0 && dvc.scotland.indexOf(dvc.settings.config.vars[dvc.defaultSelections[chartNo]][1]) == -1 && dvc.ageover85.indexOf(age.substring(age.lastIndexOf("e ")+1, age.lastIndexOf("</")))){
@@ -601,6 +624,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				dvc.selMade=false;
 			}
 
+
+		if(chartNo == 0 ){
+				pyram_area =d3.select("#sel0").select(".chosen-container").select(".chosen-single").select("span").property("innerHTML")
+		}	else {
+				pyram_area =d3.select("#sel1").select(".chosen-container").select(".chosen-single").select("span").property("innerHTML")
+		}
+
+			d3.select("#keyvaluehidden")
+						.html("The total population of "+ pyram_area + " in " + myYear + " was " +
+							myTotal + ". There were " +
+								myTotalM + " males and " +
+								myTotalF + " females.")
+
+// console.log("The total population of "+ pyram_area + " in " + myYear + " was " +
+// myTotal + ". There were " +
+// 	myTotalM + " males and " +
+// 	myTotalF + " females.")
 
 		 } // end setTotals
 
@@ -718,7 +758,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		 } //end drawIntBars
 
 		 function removeChart(chartIndex) {
-			 
+
 			chartTarget=document.getElementById("graph"+chartIndex);
 			hostLayer=chartTarget.parentNode;
 			hostLayer.removeChild(chartTarget);
@@ -863,7 +903,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 			//draw first series - typically male - create a group, create rectangles and update path data for outlines
-			console.log(chartData.ons.value[0]);
+		//	console.log(chartData.ons.value[0]);
 
 				d3.select("#aniContainer"+chartIndex).append("g")
 					.attr("id","seriesA"+chartIndex)
@@ -898,7 +938,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						return dvc.xScale2(d[dvc.timeIndex][dvc.varDimension]);
 					});
 
-			console.log(chartData.ons.value[1]);
+		//	console.log(chartData.ons.value[1]);
 				//draw second series - typically female
 				d3.select("#aniContainer"+chartIndex).append("g")
 					.attr("id","seriesB"+chartIndex)
@@ -1234,12 +1274,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						})
 				})
 
-				d3.select("#sel0").attr("tabindex", 1);
-				d3.select("#sel1").attr("tabindex", 2);
+				d3.select('#areaselect0_chosen').select('abbr').on('keypress',function(evt){
+					if(d3.event.keyCode==13 || d3.event.keyCode==32){
+						d3.event.preventDefault();
+						$("#areaselect0").val("").trigger('chosen:updated');
+					}
+				})
+
+				d3.select('#areaselect0_chosen1').select('abbr').on('keypress',function(evt){
+					if(d3.event.keyCode==13 || d3.event.keyCode==32){
+						d3.event.preventDefault();
+						$("#areaselect1").val("").trigger('chosen:updated');
+					}
+				})
+
+			//	d3.select("#sel0").attr("tabindex", 0);
+			//	d3.select("#sel1").attr("tabindex", 0);
 
 			}
 
 
+			d3.select("#areaselect0_chosen").select("input.chosen-search-input").attr("id", "chosensearchinput1")
+			d3.select("#areaselect1_chosen").select("input.chosen-search-input").attr("id", "chosensearchinput2")
+
+			 d3.select("#areaselect0_chosen").select("div.chosen-search")
+			 	.insert("label","input.chosen-search-input")
+	 			.attr("class", "visuallyhidden")
+				.attr("for", "chosensearchinput1")
+				.html("Type to select first comparison area")
+
+				d3.select("#areaselect1_chosen").select("div.chosen-search")
+ 			 	.insert("label","input.chosen-search-input")
+ 	 			.attr("class", "visuallyhidden")
+ 				.attr("for", "chosensearchinput2")
+ 				.html("Type to select second comparison area")
+
+		//	d3.select("#areaselect1_chosen").select(".chosen-search").insert("label","input.chosen-search-input2").attr("class", "visuallyhidden").attr("for". "chosen-search-input2").html("Type to select 2nd comaprison area")
 
 			function updateUI(chartNo, area){
 				var name = '#opt'+chartNo+'_'+dvc.defaultSelections[chartNo];
@@ -1285,12 +1355,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						.attr("id", "btns")
 						.attr("class", "col-sm-7 col-xs-12 btn-group")
 						.attr("role", "group")
-						.attr("aria-label", "...");
+						.attr("aria-label", "Pyramid controls to change time period");
 
 				span1 = group.append("button")
 						.attr("type","button")
 						.attr("class", "btn btn-group__btn btn--primary btn--previous")
-						.attr("id", "backStepBtn");
+						.attr("id", "backStepBtn")
+						.attr("aria-label", "Step back one period in time");
 
 //				span1.append("span")
 //						.attr("class","glyphicon glyphicon-step-backward");
@@ -1299,7 +1370,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				span2 = group.append("button")
 						.attr("type","button")
 						.attr("class", "btn btn-group__btn btn--primary btn--play")
-						.attr("id", "playPauseBtn");
+						.attr("id", "playPauseBtn")
+						.attr("aria-label", "Click to play or pause animation");;
 
 //				span2.append("span")
 //						.attr("class","glyphicon glyphicon-play");
@@ -1308,7 +1380,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				span3 = group.append("button")
 						.attr("type","button")
 						.attr("class", "btn btn-group__btn btn--primary btn--next")
-						.attr("id", "forwardStepBtn");
+						.attr("id", "forwardStepBtn")
+						.attr("aria-label", "Step forward one period in time");
+
+
 
 
 //				span3.append("span")
@@ -1361,7 +1436,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 							 dvc.timeIndex =ui.value;
 
-
+							 d3.select(".ui-slider-handle").attr("aria-valuenow", dvc.settings.config.years[dvc.timeIndex])
 
 							//	testFunction();
 							 	modifyChart(0);
@@ -1379,6 +1454,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						}
 				})
 				$('#timeSlider').labeledslider( 'option', 'value', dvc.timeIndex);
+
+
+				d3.select(".ui-slider-handle").attr('role', 'slider')
+							.attr("aria-valuemin", dvc.timeMin)
+							.attr("aria-valuenow", dvc.settings.config.years[dvc.timeIndex])
+							.attr("aria-valuemax", dvc.timeMax)
+
 			}//end if
 
 
@@ -1421,7 +1503,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					$('#outlinesToggle').change(lockOutlines)
 				})
 
+$( "#outlinesToggle" ).parent().attr( "id", "outlinesButton" ).attr('tabindex',0).attr("role","switch").attr("aria-checked", false)
 
+
+		d3.select("#outlinesButton").on("keypress",function(evt){
+			if(d3.event.keyCode==32||d3.event.keyCode==13){
+				document.getElementById("outlinesToggle").click()
+
+				if(dvc.lockOutlines==true){
+					d3.select("#outlinesButton").classed("off",false).attr("aria-checked", true)
+				} else {
+					d3.select("#outlinesButton").classed("off",true).attr("aria-checked", false)
+				}
+			}
+		});
 
 				$(function() {
 					$('#overlapToggle').bootstrapToggle({
@@ -1436,7 +1531,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				})
 
 				//get parent of overlap checbox and give id so can hide in mobile view
-				$( "#overlapToggle" ).parent().attr( "id", "overlapButton" );
+
+				$( "#overlapToggle" ).parent().attr( "id", "overlapButton" ).attr('tabindex',0).attr("role","switch").attr("aria-checked", false);
+
+				d3.select("#overlapButton").on("keypress",function(evt){
+					if(d3.event.keyCode==32||d3.event.keyCode==13){
+						document.getElementById("overlapToggle").click()
+
+						if(dvc.overlap==true){
+							d3.select("#overlapButton").classed("off",false).attr("aria-checked", true)
+						} else {
+							d3.select("#overlapButton").classed("off",true).attr("aria-checked", false)
+						}
+					}
+				});
+
+
 				if(graphic.width() < dvc.threshold_sm){
 						$("#overlapButton").hide();
 						dvc.overlap=false
@@ -1457,30 +1567,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				   	});
 					$('#dimensionsToggle').bootstrapToggle('on')
 
-					$('#dimensionsToggle').change(function() {
-						//identify selected dimenion
-						if($(this).prop('checked')==true){
-							dvc.varDimension="1";
-							dataLayer.push({
-								'event': 'pyramidCustomView',
-								'selected': 'percentage'
-							})
+					$('#dimensionsToggle').change(dimensions)
 
-						} else {
-							dvc.varDimension="0";
-							dataLayer.push({
-								'event': 'pyramidCustomView',
-								'selected': 'value'
-							})
-						}
-						determineMax();
-						redrawCharts();
-				 	})
 				})
 
+				$( "#dimensionsToggle" ).parent().attr( "id", "dimensionsButton" ).attr('tabindex',0).attr("role","switch").attr("aria-checked", false);
+
+				d3.select("#dimensionsButton").select(".toggle-group").select(".toggle-on").append("span").attr("class", "visuallyhidden").text(" or ")
+
+				d3.select("#dimensionsButton").on("keypress",function(evt){
+					if(d3.event.keyCode==32||d3.event.keyCode==13){
+						document.getElementById("dimensionsToggle").click()
 
 
-
+						if(dvc.varDimension=="0"){
+							d3.select("#dimensionsButton").classed("off",true).attr("aria-checked", false)
+						} else {
+							d3.select("#dimensionsButton").classed("off",false).attr("aria-checked", true)
+						}
+					}
+				});
 
 
 				$( "#clearBtn" ).click(clearSel);
@@ -1531,6 +1637,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										calcValues(0,dvc.selStart,dvc.selEnd)
 										calcValues(1,dvc.selStart,dvc.selEnd)
 						$('#timeSlider').labeledslider( 'option', 'value', dvc.timeIndex);
+						d3.select(".ui-slider-handle").attr("aria-valuenow", dvc.settings.config.years[dvc.timeIndex])
+
 								}
 							dvc.bAnimate=true;
 							d3.select("#playPauseBtn").attr("class","btn btn-group__btn btn--primary btn--pause");
@@ -1561,6 +1669,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								calcValues(0,dvc.selStart,dvc.selEnd)
 								calcValues(1,dvc.selStart,dvc.selEnd)
 						$('#timeSlider').labeledslider( 'option', 'value', dvc.timeIndex);
+						d3.select(".ui-slider-handle").attr("aria-valuenow", dvc.settings.config.years[dvc.timeIndex])
 
 
 								//updateChart();
@@ -1582,6 +1691,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								calcValues(0,dvc.selStart,dvc.selEnd)
 								calcValues(1,dvc.selStart,dvc.selEnd)
 						$('#timeSlider').labeledslider( 'option', 'value', dvc.timeIndex);
+						d3.select(".ui-slider-handle").attr("aria-valuenow", dvc.settings.config.years[dvc.timeIndex])
 								//updateChart();
 				//			} else {
 				//				$('#forwardStepBtn').prop('disabled', true);
@@ -1606,7 +1716,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			calcValues(0,dvc.selStart,dvc.selEnd)
 			calcValues(1,dvc.selStart,dvc.selEnd)
 			$('#timeSlider').labeledslider( 'option', 'value', dvc.timeIndex);
-
+			d3.select(".ui-slider-handle").attr("aria-valuenow", dvc.settings.config.years[dvc.timeIndex])
 
 		}
 
@@ -1615,7 +1725,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 						if (dvc.overlap==true){
 							dvc.overlap=false;
-
+							d3.select("#overlapButton").attr("aria-checked", false)
 							//move graph1
 							d3.select("#graph0")
 							.transition()
@@ -1661,7 +1771,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							.attr("opacity",0);
 						} else {
 							dvc.overlap=true;
-
+							d3.select("#overlapButton").attr("aria-checked", true)
 							dataLayer.push({
 								"event": "pyramidCustomView",
 								"selected": "overlap"
@@ -1721,6 +1831,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					if (dvc.lockOutlines)
 					{
 						dvc.lockOutlines=false;
+						d3.select("#outlinesButton").attr("aria-checked", false)
 												//having unlocked the outlines, we now need to restore them to the current timeIndex
 						modifyChart(0);
 						modifyChart(1);
@@ -1735,6 +1846,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					}	else
 					{
 						dvc.lockOutlines=true;
+						d3.select("#outlinesButton").attr("aria-checked", true)
 
 						dataLayer.push({
 								"event": "pyramidCustomView",
@@ -1754,6 +1866,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				updateHash();
 			};
 
+
+			function dimensions() {
+				//identify selected dimenion
+
+				if(dvc.varDimension=='0'){
+					dvc.varDimension="1";
+					d3.select("#dimensionsButton").attr("aria-checked", true)
+					dataLayer.push({
+						'event': 'pyramidCustomView',
+						'selected': 'percentage'
+					})
+
+				} else {
+					dvc.varDimension="0";
+					d3.select("#dimensionsButton").attr("aria-checked", false)
+					dataLayer.push({
+						'event': 'pyramidCustomView',
+						'selected': 'value'
+					})
+				}
+				determineMax();
+				redrawCharts();
+			}
 
 		 function tellMe(evt)
 		{
@@ -2141,11 +2276,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				d3.select("#age"+chartNo).html(age);
 				d3.select("#infoValues"+chartNo).html(Values);
 				d3.select("#infoPercent"+chartNo).html(Percent);
-				d3.select("#combinedTotal"+chartNo).html(combined)				
+				d3.select("#combinedTotal"+chartNo).html(combined)
 			}
-			
 
-			
+
+
 
 			}
 
@@ -2161,13 +2296,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			if(dvc.timeIndex==0 && dvc.nodata.indexOf(dvc.settings.config.vars[dvc.defaultSelections[chartNo]][1]) != -1){
 				d3.select("#age"+chartNo).html("<span id='age' class='col-sm-4'> No data available</span>")
 				d3.select("#infoValues"+chartNo).html("");
-				d3.select("#infoPercent"+chartNo).html("");			
+				d3.select("#infoPercent"+chartNo).html("");
 			} /*else if(dvc.timeIndex==0 && dvc.scotland.indexOf(dvc.settings.config.vars[dvc.defaultSelections[chartNo]][1]) == -1 && dvc.ageover85.indexOf(age.substring(age.lastIndexOf("e ")+1, age.lastIndexOf("</"))) == -1){
 				d3.select("#age"+chartNo).html("sdfsdfNo data at single year of age above 84");
 				d3.select("#infoValues"+chartNo).html("");
 				d3.select("#infoPercent"+chartNo).html("");
 				d3.select("#combinedTotal"+chartNo).html("");
-			}*/ else {			
+			}*/ else {
 				d3.select("#age"+chartNo).html("<span id='age' class='col-sm-4'> All ages</span>")
 				d3.select("#infoValues"+chartNo).html("<span id='infobold'>" + myTotalM +"</span> males<span></span>"+"<br>" +"<span id='infobold'>" + myTotalF+"</span> females");
 				d3.select("#infoPercent"+chartNo).html(myPercent(myPerM)+ " <br>"+ myPercent(myPerF));
