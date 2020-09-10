@@ -40,53 +40,30 @@
 			// window resize function
 			$( window ).resize(function()
 			{
-
-
 				// retrieve and update new height and width of picto div
 				graphicDivWidth = $picto.width();
 				graphicDivHeight = $picto.height();
 				bodyWidth = bodyElement.width();
-
-
 				// recalculate the graph width using new picto div dimensions
 				var width = $picto.width() - margin.left - margin.right;
 
-
 			  	// clauses to action depending on width of screen
 				if ( width < 768 ) {
-
-
 					// modify aspect ratio dimensions as appropriate
 					var graphic_aspect_width = 16;
 					var graphic_aspect_height = 16;
-
-
 					//	recalculate graphic height accordingly, with new aspect ration
 					var height = (Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom + 40);
-
-
 				}// end if ...
-
-
 				else {
-
-
 					// modify aspect ratio dimensions as appropriate
 					var graphic_aspect_width = 16;
 					var graphic_aspect_height = 16;
-
 
 					//	recalculate graphic height accordingly, with new aspect ration
 					var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom + 40;
 
-
 				}// end if ...
-
-
-				// errrr, dunno ...
-				d3.select("#picto");
-
-
 			}); // end window.resize function
 
 
@@ -192,7 +169,23 @@
 
 						}
 
+						function eventFire(el, etype){
+						  if (el.fireEvent) {
+						    el.fireEvent('on' + etype);
+						  } else {
+						    var evObj = document.createEvent('Events');
+						    evObj.initEvent(etype, true, false);
+						    el.dispatchEvent(evObj);
+						  }
+						}
 
+
+						d3.selectAll('.genderbuttons').on('keypress',function(evt){
+							if(d3.event.keyCode==13 || d3.event.keyCode==32){
+								d3.event.preventDefault();
+								eventFire(this,'click')
+							}
+						})
 
 						/*
 							NAME: 			loadchartData
@@ -798,11 +791,8 @@
 
 							// update HTML components on graph
 							d3.select("#LE").html( dvc.LE + " years");
-							//d3.select("#yearsFromNow").html( "This is <span id='YFN'>" +  + "</span> years from now" ).style("color" , "#007298");
 
-							//d3.select("#fromnow").remove();
-
-							//d3.select("#LEDiv").append('p').attr("id","fromnow").style("padding-bottom","10px").html("<span id='peryear'>(that's </span><span id='peryear' style='font-weight:bold'>" + dvc.yearsFromNow + "</span><span id='peryear'> years from now)</span>")
+							d3.select("#acc_LE").html("Your average life expectancy is "+dvc.LE+" years.");
 
 							// store as local INTEGER variables your current age and your SPA values
 							var myAge = parseInt(dvc.myCurrentAge);
@@ -830,7 +820,7 @@
 								d3.select("#guessDiv").attr("class" , "labels col-sm-4 col-xs-6 hidden-xs");
 								d3.select("#guessDiv2").attr("class" , "labels col-sm-4 col-xs-4 hidden-xs");
 								d3.select("#pictoGuessValue").html(dvc.hundredYearProb[0] + "% chance");
-
+								d3.select("#acc_100").html("There is a " +dvc.hundredYearProb[0]+ " percent chance you will live to 100.");
 
 							}// end if ...
 							else {
@@ -851,6 +841,10 @@
 							// display bootstrap components for 1 in 4 and 1 in 10 chances probabilities
 							d3.select("#pictoActualValue").html(dvc.var1 + "<span class='spanClass'> years</span>");
 							d3.select("#pictoNatValue").html(dvc.var2 + "<span class='spanClass'> years</span>");
+
+							d3.select("#acc_25pc").html("However there's a chance you might live longer. There is a 1 in 4 chance you will live to "+dvc.var1+" years.")
+							d3.select("#acc_10pc").html("There is a 1 in 10 chance you will live to "+dvc.var2+" years.")
+
 
 
 							// update graph sizing accordingly to resizing
