@@ -7,6 +7,7 @@
 	width: 100%;
 	font-weight: bold;
 	font-size: 18px;
+	float: left;
 }
 
 /* Nav */
@@ -63,18 +64,27 @@
 }
 
 .tabs nav li.tab-current a {
-	color: #74777b;
+	background-color: #1c5e97;
+	color: #fff;
+	height: 46px !important;
+	width: 100%;
 }
 
-.tabs nav a:focus {
-	outline: none;
+.tabs nav li:focus {
+	outline: orange 2px solid;
+}
+
+.focus {
+	background-color: #1c5e97;
+	color: #fff;
+	width: 100%;
 }
 
 /* Icons */
 .icon::before {
 	z-index: 10;
 	display: inline-block;
-	margin: 0 0.4em 0 0;
+/*	margin: 0 0.4em 0 0;*/
 	vertical-align: middle;
 	text-transform: none;
 	font-weight: normal;
@@ -176,4 +186,5 @@
 	.tabs nav a:before {
 		margin-right: 0;
 	}
+	
 }
