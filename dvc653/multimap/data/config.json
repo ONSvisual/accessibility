@@ -30,7 +30,14 @@
         "displaydecimals": 0,
         "legenddecimals": 0,
         "breaks": [
-            
+            [
+                24,
+                53,
+                82,
+                111,
+                139,
+                168
+            ],
             [
                 -34,
                 -23,

@@ -21,6 +21,7 @@ if(Modernizr.webgl) {
 		oldAREACD = "";
 		selected = false;
 		firsthover = true;
+		buttonVal = dvc.varload;
 
 		//Get column names
 		variables = [];
@@ -210,64 +211,64 @@ if(Modernizr.webgl) {
 
 		}
 
-		function defineBreaks(){
+		function defineBreaks() {
 
 			rateById = {};
 			areaById = {};
 
-			data.forEach(function(d) {rateById[d.AREACD] = +d[variables[a]]; areaById[d.AREACD] = d.AREANM}); //change to brackets
+			data.forEach(function (d) { rateById[d.AREACD] = +d[variables[a]]; areaById[d.AREACD] = d.AREANM }); //change to brackets
 
-			console.log('config.ons.breaks', config.ons.breaks)
+
 			//Flatten data values and work out breaks
-			if(config.ons.breaks =="jenks" || config.ons.breaks =="equal") {
-				var values =  data.map(function(d) { return +d[variables[a]]; }).filter(function(d) {return !isNaN(d)}).sort(d3.ascending);
+			if (config.ons.breaks[buttonVal] == "jenks" || config.ons.breaks[buttonVal] == "equal") {
+				var values = data.map(function (d) { return +d[variables[a]]; }).filter(function (d) { return !isNaN(d) }).sort(d3.ascending);
 			};
 
-			if(config.ons.breaks =="jenks") {
+			if (config.ons.breaks[buttonVal] == "jenks") {
 				breaks = [];
 
-				ss.ckmeans(values, (dvc.numberBreaks)).map(function(cluster,i) {
-					if(i<dvc.numberBreaks-1) {
+				ss.ckmeans(values, (dvc.numberBreaks[buttonVal])).map(function (cluster, i) {
+					if (i < dvc.numberBreaks[buttonVal] - 1) {
 						breaks.push(cluster[0]);
 					} else {
 						breaks.push(cluster[0])
 						//if the last cluster take the last max value
-						breaks.push(cluster[cluster.length-1]);
+						breaks.push(cluster[cluster.length - 1]);
 					}
 				});
 			}
-			else if (config.ons.breaks == "equal") {
-				breaks = ss.equalIntervalBreaks(values, dvc.numberBreaks);
+			else if (config.ons.breaks[buttonVal] == "equal") {
+				breaks = ss.equalIntervalBreaks(values, dvc.numberBreaks[buttonVal]);
 			}
-			else {breaks = config.ons.breaks[a];};
+			else { breaks = config.ons.breaks[buttonVal]; };
 
-			console.log('.breaks', breaks)
+
 			//round breaks to specified decimal places
-			breaks = breaks.map(function(each_element){
+			breaks = breaks.map(function (each_element) {
 				return Number(each_element.toFixed(dvc.legenddecimals));
 			});
 
 			//work out halfway point (for no data position)
-			midpoint = breaks[0] + ((breaks[dvc.numberBreaks] - breaks[0])/2)
+			midpoint = breaks[0] + ((breaks[dvc.numberBreaks[buttonVal]] - breaks[0]) / 2)
 
 		}
 
 		function setupScales() {
 			//set up d3 color scales
 			//Load colours
-			if(typeof dvc.varcolour === 'string') {
-				color=chroma.scale(dvc.varcolour).colors(dvc.numberBreaks)
-				colour=[]
-				color.forEach(function(d){colour.push(chroma(d).darken(0.4).saturate(0.6).hex())})
-				// colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
+			if (typeof dvc.varcolour[buttonVal] === 'string') {
+				color = chroma.scale(dvc.varcolour[buttonVal]).colors(dvc.numberBreaks[buttonVal])
+				colour = []
+				color.forEach(function (d) { colour.push(chroma(d).darken(0.4).saturate(0.6).hex()) })
+				// colour = colorbrewer[dvc.varcolour[buttonVal]][dvc.numberBreaks];
 			} else {
-				colour = dvc.varcolour;
+				colour = dvc.varcolour[buttonVal];
 			}
 
 			//set up d3 color scales
 			color = d3.scaleThreshold()
-					.domain(breaks.slice(1))
-					.range(colour);
+				.domain(breaks.slice(1))
+				.range(colour);
 
 		}
 
@@ -527,29 +528,28 @@ if(Modernizr.webgl) {
 
 		function setAxisVal(code) {
 			d3.select('#accessibilityInfo').select('p.visuallyhidden')
-			.text(function(){
-				if (!isNaN(rateById[code])) {
-					return areaById[code]+": "+ displayformat(rateById[code]) +" "+ dvc.varunit[a];
-				} else {
-					return "Data unavailable";
-				}
-			});
-
+				.text(function () {
+					if (!isNaN(rateById[code])) {
+						return areaById[code] + ": " + displayformat(rateById[code]) + " " + dvc.varunit[a];
+					} else {
+						return "Data unavailable";
+					}
+				});
 
 			d3.select("#currLine")
-				.style("opacity", function(){if(!isNaN(rateById[code])) {return 1} else{return 0}})
+				.style("opacity", function () { if (!isNaN(rateById[code])) { return 1 } else { return 0 } })
 				.transition()
 				.duration(400)
-				.attr("x1", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{return x(midpoint)}})
-				.attr("x2", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{return x(midpoint)}});
+				.attr("x1", function () { if (!isNaN(rateById[code])) { return x(rateById[code]) } else { return x(midpoint) } })
+				.attr("x2", function () { if (!isNaN(rateById[code])) { return x(rateById[code]) } else { return x(midpoint) } });
 
 
 			d3.select("#currVal")
-				.text(function(){if(!isNaN(rateById[code]))  {return displayformat(rateById[code])} else {return "Data unavailable"}})
-				.style("opacity",1)
+				.text(function () { if (!isNaN(rateById[code])) { return displayformat(rateById[code]) } else { return "Data unavailable" } })
+				.style("opacity", 1)
 				.transition()
 				.duration(400)
-				.attr("x", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{return x(midpoint)}});
+				.attr("x", function () { if (!isNaN(rateById[code])) { return x(rateById[code]) } else { return x(midpoint) } });
 
 		}
 
