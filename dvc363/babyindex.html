@@ -301,6 +301,12 @@ input{
           min-height:42px;
         }
 
+        @media (max-width: 24em) {
+          input[type='radio']+label::before {
+                box-sizing: border-box;
+            }
+        }
+
         input[type='radio']:checked+label::before {
           display: block;
           background: #206095;
@@ -319,7 +325,7 @@ input{
           border: 4px solid #206095;
         }
 
-        .grid{
+        .grid {
           display: flex;
           flex-wrap: wrap;
           list-style: none;
@@ -329,11 +335,29 @@ input{
           justify-content: space-between;
         }
 
+        @media (max-width: 24em) {
+          .grid {
+                padding-left: 6px;
+            }
+        }
+
         .grid-cell{
           position: relative;
-          margin-left: 5px;
-          margin-right:5px;
           text-align: center;
+        }
+
+        @media (max-width: 24em) {
+            .grid-cell:last-child {
+                margin-top: 24px;
+            }
+        }
+
+
+        @media (min-width: 24em) {
+          .grid-cell {
+                margin-left: 5px;
+                margin-right:5px;
+            }
         }
 
         .grid--full > .grid-cell {
