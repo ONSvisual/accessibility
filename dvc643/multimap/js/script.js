@@ -125,87 +125,87 @@ if(Modernizr.webgl) {
 
 		function buildNav() {
 
-			fieldset=d3.select('#nav').append('fieldset');
+			fieldset = d3.select('#nav').append('fieldset');
 
 			fieldset
-			.append('legend')
-			.attr('class','visuallyhidden')
-			.html('Choose a variable');
+				.append('legend')
+				.attr('class', 'visuallyhidden')
+				.html('Choose a variable');
 
 			fieldset
-			.append("div")
-			.attr('class','visuallyhidden')
-			.attr('aria-live','polite')
-			.append('span')
-			.attr('id','selected');
+				.append("div")
+				.attr('class', 'visuallyhidden')
+				.attr('aria-live', 'polite')
+				.append('span')
+				.attr('id', 'selected');
 
-			grid=fieldset.append('div')
-			.attr('class','grid grid--full large-grid--fit');
+			grid = fieldset.append('div')
+				.attr('class', 'grid grid--full large-grid--fit');
 
-			cell=grid.selectAll('div')
-			.data(dvc.varlabels)
-			.enter()
-			.append('div')
-			.attr('class','grid-cell');
+			cell = grid.selectAll('div')
+				.data(dvc.varlabels)
+				.enter()
+				.append('div')
+				.attr('class', 'grid-cell');
 
 			cell.append('input')
-			.attr('type','radio')
-			.attr('class','visuallyhidden')
-			.attr('id',function(d,i){return 'button'+i;})
-			.attr('value',function(d,i){return i;})
-			.attr('name','button');
+				.attr('type', 'radio')
+				.attr('class', 'visuallyhidden')
+				.attr('id', function (d, i) { return 'button' + i; })
+				.attr('value', function (d, i) { return i; })
+				.attr('name', 'button');
 
 			cell.append('label')
-			.attr('for',function(d,i){return 'button'+i;})
-			.html(function(d){return d;});
+				.attr('for', function (d, i) { return 'button' + i; })
+				.html(function (d) { return d; });
 
-			d3.selectAll('input[type="radio"]').on('change', function(d) {
+			d3.selectAll('input[type="radio"]').on('change', function (d) {
 				onchange(document.querySelector('input[name="button"]:checked').value);
 				d3.select('#selected').text(dvc.varlabels[document.querySelector('input[name="button"]:checked').value] + " is selected");
 			});
 
-			d3.select('#button'+dvc.varload).property('checked',true);
+			d3.select('#button' + dvc.varload).property('checked', true);
 			d3.select('#selected').text(dvc.varlabels[document.querySelector('input[name="button"]:checked').value] + " is selected");
 
-		// formgroup = d3.select('#nav')
-		// 			.append('form')
-		// 			.attr('class','btn-form-fullwidth')
-		// 			.attr('role','radiogroup')
-		// 			.selectAll('div')
-		// 			.data(dvc.varlabels)
-		// 			.enter()
-		// 			.append('div')
-		// 			.attr("class",'form-group-fullwidth')
-		// 			.attr("role","radio")
-		// 			.attr("tabindex", function(d,i){return 0})
-		//
-		// formgroup.append('input')
-		// 	.attr("id",function(d,i){return "button" + i})
-		// 	.attr('class','radio-primary-fullwidth')
-		// 	.attr("type","radio")
-		// 	.attr("name","button")
-		// 	.attr("value",function(d,i){return i})
-		// 	.attr("aria-checked", function(d,i){if(i == dvc.varload){return "true"}})
-		// 	.property("checked", function(d, i) {return i===dvc.varload;})
-		//
-		// formgroup.append('label')
-		// 	.attr('class','label-primary-fullwidth')
-		// 	.attr("for",function(d,i){return "button" + i})
-		// 	.text(function(d,i){return dvc.varlabels[i]})
-		// 	.on('click',function(d,i){onchange(i)})
+			// formgroup = d3.select('#nav')
+			// 			.append('form')
+			// 			.attr('class','btn-form-fullwidth')
+			// 			.attr('role','radiogroup')
+			// 			.selectAll('div')
+			// 			.data(dvc.varlabels)
+			// 			.enter()
+			// 			.append('div')
+			// 			.attr("class",'form-group-fullwidth')
+			// 			.attr("role","radio")
+			// 			.attr("tabindex", function(d,i){return 0})
+			//
+			// formgroup.append('input')
+			// 	.attr("id",function(d,i){return "button" + i})
+			// 	.attr('class','radio-primary-fullwidth')
+			// 	.attr("type","radio")
+			// 	.attr("name","button")
+			// 	.attr("value",function(d,i){return i})
+			// 	.attr("aria-checked", function(d,i){if(i == dvc.varload){return "true"}})
+			// 	.property("checked", function(d, i) {return i===dvc.varload;})
+			//
+			// formgroup.append('label')
+			// 	.attr('class','label-primary-fullwidth')
+			// 	.attr("for",function(d,i){return "button" + i})
+			// 	.text(function(d,i){return dvc.varlabels[i]})
+			// 	.on('click',function(d,i){onchange(i)})
 
 
-		selectgroup = d3.select('#selectnav')
-						.append('select')
-						.attr('class','dropdown')
-						.on('change', onselect)
-						.selectAll("option")
-						.data(dvc.varlabels)
-						.enter()
-						.append('option')
-						.attr("value", function(d,i){return i})
-						.property("selected", function(d, i) {return i===dvc.varload;})
-						.text(function(d,i){return dvc.varlabels[i]});
+			selectgroup = d3.select('#selectnav')
+				.append('select')
+				.attr('class', 'dropdown')
+				.on('change', onselect)
+				.selectAll("option")
+				.data(dvc.varlabels)
+				.enter()
+				.append('option')
+				.attr("value", function (d, i) { return i })
+				.property("selected", function (d, i) { return i === dvc.varload; })
+				.text(function (d, i) { return dvc.varlabels[i] });
 
 
 		}
