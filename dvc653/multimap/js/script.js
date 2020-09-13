@@ -21,7 +21,7 @@ if(Modernizr.webgl) {
 		oldAREACD = "";
 		selected = false;
 		firsthover = true;
-		buttonVal = dvc.varload;
+		a = dvc.varload;
 
 		//Get column names
 		variables = [];
@@ -30,9 +30,6 @@ if(Modernizr.webgl) {
 			if (column == 'AREANM') continue;
 			variables.push(column);
 		}
-
-		a = dvc.varload;
-
 
 		//BuildNavigation
 		if(dvc.varlabels.length > 1)	{
@@ -220,15 +217,15 @@ if(Modernizr.webgl) {
 
 
 			//Flatten data values and work out breaks
-			if (config.ons.breaks[buttonVal] == "jenks" || config.ons.breaks[buttonVal] == "equal") {
+			if (config.ons.breaks[a] == "jenks" || config.ons.breaks[a] == "equal") {
 				var values = data.map(function (d) { return +d[variables[a]]; }).filter(function (d) { return !isNaN(d) }).sort(d3.ascending);
 			};
 
-			if (config.ons.breaks[buttonVal] == "jenks") {
+			if (config.ons.breaks[a] == "jenks") {
 				breaks = [];
 
-				ss.ckmeans(values, (dvc.numberBreaks[buttonVal])).map(function (cluster, i) {
-					if (i < dvc.numberBreaks[buttonVal] - 1) {
+				ss.ckmeans(values, (dvc.numberBreaks[a])).map(function (cluster, i) {
+					if (i < dvc.numberBreaks[a] - 1) {
 						breaks.push(cluster[0]);
 					} else {
 						breaks.push(cluster[0])
@@ -237,10 +234,10 @@ if(Modernizr.webgl) {
 					}
 				});
 			}
-			else if (config.ons.breaks[buttonVal] == "equal") {
-				breaks = ss.equalIntervalBreaks(values, dvc.numberBreaks[buttonVal]);
+			else if (config.ons.breaks[a] == "equal") {
+				breaks = ss.equalIntervalBreaks(values, dvc.numberBreaks[a]);
 			}
-			else { breaks = config.ons.breaks[buttonVal]; };
+			else { breaks = config.ons.breaks[a]; };
 
 
 			//round breaks to specified decimal places
@@ -249,20 +246,20 @@ if(Modernizr.webgl) {
 			});
 
 			//work out halfway point (for no data position)
-			midpoint = breaks[0] + ((breaks[dvc.numberBreaks[buttonVal]] - breaks[0]) / 2)
+			midpoint = breaks[0] + ((breaks[dvc.numberBreaks[a]] - breaks[0]) / 2)
 
 		}
 
 		function setupScales() {
 			//set up d3 color scales
 			//Load colours
-			if (typeof dvc.varcolour[buttonVal] === 'string') {
-				color = chroma.scale(dvc.varcolour[buttonVal]).colors(dvc.numberBreaks[buttonVal])
+			if (typeof dvc.varcolour[a] === 'string') {
+				color = chroma.scale(dvc.varcolour[a]).colors(dvc.numberBreaks[a])
 				colour = []
 				color.forEach(function (d) { colour.push(chroma(d).darken(0.4).saturate(0.6).hex()) })
-				// colour = colorbrewer[dvc.varcolour[buttonVal]][dvc.numberBreaks];
+				// colour = colorbrewer[dvc.varcolour[a]][dvc.numberBreaks];
 			} else {
-				colour = dvc.varcolour[buttonVal];
+				colour = dvc.varcolour[a];
 			}
 
 			//set up d3 color scales
@@ -581,7 +578,7 @@ if(Modernizr.webgl) {
 
 			// Set up scales for legend
 			x = d3.scaleLinear()
-				.domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+				.domain([breaks[0], breaks[dvc.numberBreaks[a]]]) /*range for data*/
 				.range([0,keywidth-30]); /*range for pixels*/
 
 
