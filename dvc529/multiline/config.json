@@ -1,17 +1,18 @@
 {
     "essential" : {
-			      "graphic_data_array":["all.csv","men.csv","women.csv"],
+		     "fallback_screenreader_description": "This graphic allows users to see the how suicide rates have faired over the past 35 years for Men, Women and All - by region. The underlying data is available in the accompanying data download.",
+			"graphic_data_array":["all.csv","men.csv","women.csv"],
             "tab_names":["Persons","Male", "Female"],
             "dateFormat":"%Y",
-            "lineColours":["#66c2a5","#fc8d62","#8da0cb","#e78ac3","#a6d854","#666"],
-
             "legendLabels" : [],
+		    "buttonLabels" : ["All","Male","Female"],
+            "varload" : 0,
             "sourceText":["Suicide in the UK, 2017"],
             "sourceURL":[""],
 
 
 
-			      "keepurl":false,
+			"keepurl":false,
             "yAxisLabel":"rate per 100,000 population",
             "yAxisLabel2":"",
             "yAxisScale":[0,24],
