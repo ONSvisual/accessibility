@@ -774,7 +774,7 @@ if(Modernizr.webgl) {
 			 $('#areaselect').chosen({placeholder_text_single:"Select an area",allow_single_deselect:true})
 
 			 d3.select('input.chosen-search-input').attr('id','chosensearchinput')
-	     d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
+	     d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput')
 
 			$('#areaselect').on('change',function(){
 
