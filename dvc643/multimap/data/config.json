@@ -1,13 +1,27 @@
-{"ons":{
-"maptitle": "Smoking prevalence",
-"varcolour": "YlGnBu",
-"varlabels": ["All","Male","Female"],
-"varload": 0,
-"varunit": ["% who were current smokers","% who were current smokers","% who were current smokers"],
-"displaydecimals": 1,
-"legenddecimals": 0,
-"breaks": "jenks",
-"dropticks": false,
-"numberBreaks": 5,
-"reference": [15.1,17.0,13.3]
-}}
+{
+    "ons": {
+        "maptitle": "Smoking prevalence",
+        "varcolour": "YlGnBu",
+        "varlabels": [
+            "All",
+            "Male",
+            "Female"
+        ],
+        "varload": 0,
+        "varunit": [
+            "% who were current smokers",
+            "% who were current smokers",
+            "% who were current smokers"
+        ],
+        "displaydecimals": 1,
+        "legenddecimals": 0,
+        "breaks": "jenks",
+        "dropticks": false,
+        "numberBreaks": 5,
+        "reference": [
+            15.1,
+            17.0,
+            13.3
+        ]
+    }
+}
