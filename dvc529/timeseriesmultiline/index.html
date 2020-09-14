@@ -6,7 +6,7 @@
 (window,document,'script','dataLayer','GTM-MBCBVQS');
 </script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <title>Top 100 baby names graphic</title>
+    <title>Suicide by regions graphic</title>
 
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -348,9 +348,13 @@ input{
         }
 
         @media (max-width: 24em) {
-            .grid-cell:last-child {
+            .grid-cell:not(:first-child) {
                 margin-top: 24px;
             }
+
+            /* .grid-cell:last-child {
+                margin-top: 24px;
+            } */
         }
 
 
@@ -542,7 +546,9 @@ input{
 
 		    // parse data into columns
 		    lines = {};
-            babynames = [];
+        babynames = [];
+        indexno = [];
+        j=0;
 
 			var myDeselect;
 
@@ -552,9 +558,10 @@ input{
 		        if (column == 'date') continue;
 
                  babynames.push(column);
+                 indexno.push("index" +j);
 
 
-		        lines[column] = graphic_data.map(function(d) {
+		        lines["index"+j] = graphic_data.map(function(d) {
 
 
 		            return {
@@ -562,6 +569,7 @@ input{
 		                'amt': d[column]
 		            };
 		        });
+            j++;
 		    }
 
             selectlist();
@@ -745,7 +753,6 @@ input{
 						.attr("stroke","#eee")
 						.style("stroke-width","1px")
             .attr('id', function(d, i) {
-              console.log(stripspaces(d.key))
   						   return stripspaces(d.key);
   		      })
             .attr('d', function(d) {
@@ -768,8 +775,8 @@ input{
 						.attr("opacity",0)
 						.style("stroke-width","4px")
             .attr('id', function(d, i) {
-  						   return stripspaces(d.key);
-  		      })
+							return "index"+i;
+			       })
             .attr('d', function(d) {
                 return line(d.value);
             })
@@ -802,7 +809,7 @@ input{
 
 						  $("#occselect").val(listplus);
 				      $("#occselect").trigger("chosen:updated");
-							$("#occselect").setSelectionOrder(listplus, true);
+							$("#occselect").setSelectionOrder(listplus, 'true');
 
 //							setTimeout(function(){d3.selectAll(".search-choice")
 //										.style("background-color",function(d,i){return colours[i]})
@@ -953,7 +960,7 @@ input{
 
 			//var areacodes =  datacsv.map(function(d) { return d.AREACD; });
 			//var areanames =  datacsv.map(function(d) { return d.AREANM; });
-			var menunames = d3.zip(babynames,babynames).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
+      var menunames = d3.zip(babynames,indexno).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
 
 
 			// Build option menu for occupations
@@ -984,8 +991,6 @@ input{
 
 
 										myId=params.selected;
-
-                    console.log(params)
 
 										selection_dropdown = params.selected
 
@@ -1285,7 +1290,6 @@ input{
 			listnamesAll = 	listnamesLocal;
 		} else if(listnamesParent != undefined) {
 			listnamesAll = 	listnamesParent;
-			console.log(listnamesAll);
 		} else {var listnamesAll}
 
 
@@ -1303,7 +1307,6 @@ input{
 
 
 			listnames.forEach(function(d,i){
-					console.log(d,i)
 					hoverLine(d,i,"sel");
 			});
 
@@ -1353,7 +1356,6 @@ input{
               }
 
           } else {
-            console.log("hello2");
           }
         }
 

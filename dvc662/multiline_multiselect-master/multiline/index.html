@@ -732,7 +732,7 @@ areaname = dataarray[0].columns[parseInt(currclass.replace("index", ""))+1]
 
 								if(typeof params != 'undefined') {
 
-
+                  console.log(params)
 										myId=params.selected;
 
                     if(myId != undefined){
@@ -794,6 +794,8 @@ areaname = dataarray[0].columns[parseInt(currclass.replace("index", ""))+1]
 	}
 
     function hoverLine(myId,no,method){
+
+      console.log(myId)
 
                 var currpath = d3.select("#graphic")
                         .select("#" + myId)
