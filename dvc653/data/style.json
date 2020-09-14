@@ -32,7 +32,7 @@
     }
   },
   "sprite": "https://cdn.ons.gov.uk/maptiles/osm/spritesv1/sprite",
-  "glyphs": "https://cdn.ons.gov.uk/maptiles/osm/fontsv1/{fontstack}/{range}.pbf",
+  "glyphs": "https://cdn.ons.gov.uk/maptiles/osm/fontsv1/{fontstack}/{range}.pbf?key=7rA0yA362pBi9PZxyYlY",
   "layers": [
     {
       "id": "background",
