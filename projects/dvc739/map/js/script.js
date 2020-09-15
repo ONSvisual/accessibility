@@ -480,7 +480,7 @@ if(Modernizr.webgl) {
 				.attr("id", "key")
 				.attr('aria-hidden',true)
 				.attr("width", keywidth)
-				.attr("height",75);
+				.attr("height",90);
 
 
 			var color = d3.scaleThreshold()
@@ -573,6 +573,26 @@ if(Modernizr.webgl) {
 						if(i % 2){return "translate(0,10)"} }
 				);
 			}
+
+			keyhor.append("text")
+	            .attr("id", "moreless")
+	            .attr("fill", "black")
+	            .attr("font-size","14px")
+	            .attr("font","Open Sans")
+	            .attr("x", x(0))
+	            .attr("y", 45)
+	            .style("text-anchor","start")
+	            .html("&nbsp;&#8594; more")
+
+	        keyhor.append("text")
+	            .attr("id", "moreless")
+	            .attr("fill", "black")
+	            .attr("font-size","14px")
+	            .attr("font","Open Sans")
+	            .attr("x", x(0))
+	            .attr("y", 45)
+	            .style("text-anchor","end")
+	            .html("fewer pubs &#8592;&nbsp;")
 
 			//label the units
 			d3.select("#keydiv").append("p").attr("id","keyunit").attr('aria-hidden',true).style("margin-top","-10px").style("margin-left","10px").style('font-size','14px').text(dvc.varunit);

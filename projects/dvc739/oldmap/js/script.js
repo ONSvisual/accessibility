@@ -499,8 +499,8 @@ if(Modernizr.webgl) {
 						if(i % 2){return "translate(0,10)"} }
 				);
 			}
-			
-			
+
+
 		keyhor.append("text")
             .attr("id", "moreless")
             .attr("fill", "black")
