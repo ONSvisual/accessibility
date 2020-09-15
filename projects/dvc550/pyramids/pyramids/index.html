@@ -15,7 +15,7 @@
 
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css" />-->
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="../css/jquery.ui.labeledslider.css">
     <link rel="stylesheet" href="../css/jquery-ui-1.10.4.custom.min.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/all.css" rel='stylesheet'>
+    <link rel="stylesheet" href="../css/all.css">
     <link rel="stylesheet" href="../css/bootstrap-toggle.css">
 
     <script type="text/javascript" src="../lib/d3.v3.min.js" ></script>
@@ -108,7 +108,7 @@
     	text-align:right;
     }
 
-    #infobold {
+    .infobold {
     font-weight: 700;
     }
 
@@ -589,7 +589,7 @@
     					.style("fill-opacity", 0.6)
     					.style("stroke", dvc.chartColors[chartNo]);
 
-    			d3.select("#age"+chartNo).html("<span id='age'> </span>");
+    			d3.select("#age"+chartNo).html("<span > </span>");
 
     			var infoValues = d3.select("#infoValues"+chartNo)
     			var infoPercent =d3.select("#infoPercent"+chartNo)
@@ -1222,10 +1222,14 @@
 
     			dropdown0.append("div").text("Choose an area")
 
-    			var optns0 =dropdown0.append("div").attr("id","sel0")
-    					.append("select").attr("id","areaselect0")
-    					.attr("class","chosen-select");
+					dropdown0.append("div").attr("id","sel0")
+						.insert("label","areaselect0")
+		  			.attr("class", "visuallyhidden")
+			 			.attr("for", "areaselect0")
+			 			.html("Inactive dropdown element, replaced by custom dropdown")
 
+					var optns0 = d3.select("#sel0").append("select").attr("id","areaselect0")
+							.attr("class","chosen-select");
 
     				optns0.selectAll("p").data(dvc.settings.config.vars).enter().append("option")
     					.attr("value", function(d){ return d[0]}) /* Optional */
@@ -1237,9 +1241,14 @@
 
     			dropdown1.append("div").text("Choose an area")
 
-    			var optns1 =dropdown1.append("div").attr("id","sel1")
-    					.append("select").attr("id","areaselect1")
-    					.attr("class","chosen-select");
+					dropdown1.append("div").attr("id","sel1")
+						.insert("label","areaselect1")
+		  			.attr("class", "visuallyhidden")
+			 			.attr("for", "areaselect1")
+			 			.html("Inactive dropdown element, replaced by custom dropdown")
+
+					var optns1 = d3.select("#sel1").append("select").attr("id","areaselect1")
+							.attr("class","chosen-select");
 
     				optns1.selectAll("p").data(dvc.settings.config.vars).enter().append("option")
     					.attr("value", function(d){ return d[0]}) /* Optional */
@@ -2174,7 +2183,7 @@
     				var roundedTotalF= Math.round(totalF/dvc.roundTo)*dvc.roundTo;
     				//console.log(total+"  "+roundedTotal);
     				//build up a string for text on page
-    				age="<span id='age' class='col-sm-12 col-xs-12'>"+dvc.data[chartNo].ons.dimension.label+" "+dvc.data[chartNo].ons.dimension.index[loopSt]+" to "+dvc.data[chartNo].ons.dimension.index[loopEnd]+"</span>"
+    				age="<span  class='col-sm-12 col-xs-12'>"+dvc.data[chartNo].ons.dimension.label+" "+dvc.data[chartNo].ons.dimension.index[loopSt]+" to "+dvc.data[chartNo].ons.dimension.index[loopEnd]+"</span>"
 
     				Values = "<span id='infobold'>" + myFormat(roundedTotalM) +"</span> males"+"<br><span id='infobold'>" + myFormat(roundedTotalF) +"</span> females";
 
@@ -2216,7 +2225,7 @@
     				var myFormat=d3.format("0,000");
     				var myPercent = d3.format(".1%");
 
-    				age="<span id='age class='col-sm-3'>"+dvc.data[chartNo].ons.dimension.label+" "+dvc.data[0].ons.dimension.index[int1]+"</span>"
+    				age="<span id= class='col-sm-3'>"+dvc.data[chartNo].ons.dimension.label+" "+dvc.data[0].ons.dimension.index[int1]+"</span>"
 
     				Values = "<span id='infobold'>" + myFormat(malesAgeTimeNumRound) +"</span> males"+"<br><span id='infobold'>" + myFormat(femalesAgeTimeNumRound) +"</span> females";
 
@@ -2242,7 +2251,7 @@
     				var myPerM=(dvc.data[chartNo].ons.sums.series1[dvc.timeIndex]/((dvc.data[chartNo].ons.sums.series1[dvc.timeIndex])+(dvc.data[chartNo].ons.sums.series2[dvc.timeIndex])));
     				var myPerF=(dvc.data[chartNo].ons.sums.series2[dvc.timeIndex]/((dvc.data[chartNo].ons.sums.series1[dvc.timeIndex])+(dvc.data[chartNo].ons.sums.series2[dvc.timeIndex])));
 
-    				age="<span id='age'> All ages </span>";
+    				age="<span > All ages </span>";
     				Values = "<span id='infobold'>" + myTotalM +"</span> males"+"<br>" +"<span id='infobold'>" + myTotalF+"</span> females";
 
     				//infoValues.html("<span id='infobold'>" + myTotalM +"</span> males<span></span>"+"<br>" +"<span id='infobold'>" + myTotalF+" females</span>")
@@ -2294,7 +2303,7 @@
     			var myPerF=(dvc.data[chartNo].ons.sums.series2[dvc.timeIndex]/(dvc.data[chartNo].ons.sums.series1[dvc.timeIndex]+dvc.data[chartNo].ons.sums.series2[dvc.timeIndex]))
 
     			if(dvc.timeIndex==0 && dvc.nodata.indexOf(dvc.settings.config.vars[dvc.defaultSelections[chartNo]][1]) != -1){
-    				d3.select("#age"+chartNo).html("<span id='age' class='col-sm-4'> No data available</span>")
+    				d3.select("#age"+chartNo).html("<span  class='col-sm-4'> No data available</span>")
     				d3.select("#infoValues"+chartNo).html("");
     				d3.select("#infoPercent"+chartNo).html("");
     			} /*else if(dvc.timeIndex==0 && dvc.scotland.indexOf(dvc.settings.config.vars[dvc.defaultSelections[chartNo]][1]) == -1 && dvc.ageover85.indexOf(age.substring(age.lastIndexOf("e ")+1, age.lastIndexOf("</"))) == -1){
@@ -2303,7 +2312,7 @@
     				d3.select("#infoPercent"+chartNo).html("");
     				d3.select("#combinedTotal"+chartNo).html("");
     			}*/ else {
-    				d3.select("#age"+chartNo).html("<span id='age' class='col-sm-4'> All ages</span>")
+    				d3.select("#age"+chartNo).html("<span  class='col-sm-4'> All ages</span>")
     				d3.select("#infoValues"+chartNo).html("<span id='infobold'>" + myTotalM +"</span> males<span></span>"+"<br>" +"<span id='infobold'>" + myTotalF+"</span> females");
     				d3.select("#infoPercent"+chartNo).html(myPercent(myPerM)+ " <br>"+ myPercent(myPerF));
     			}
