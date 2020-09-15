@@ -454,7 +454,6 @@
 
     <div class="container-fluid">
       <div id="main-wrapper">
-
         <div id="mainContent" style="display:none">
 
           <div id="blurb" class="row">
@@ -1371,7 +1370,6 @@
         }
       } //end stack bar chart
 
-
       function makeChart(width, fullheight) {
 
         margin = {top: 10, right: 0, bottom: 0, left: 0}
@@ -1444,7 +1442,7 @@
               }
               return objectToDecorate;
             });
-    //console.log(JSON.stringify(root));
+          //console.log(JSON.stringify(root));
 
           dataset = root;
           initialize(root);
@@ -1452,8 +1450,13 @@
           layout(root);
           display(root);
 
-          d3.select("#blurb").select("#txt2").html("Goods exports 2018: ")
-          d3.select("#blurb").select("#txt3").html("£" + formatNumber(dataset.size) + " million");
+          var heading = "Goods exports 2018: ";
+          var value = "£"+formatNumber(dataset.size)+" million";
+          var label = `A chart displaying goods exported (${value}) broken down by type of goods and country of origin.`;
+          $('#main-wrapper').attr('aria-label', label);
+          d3.select("#blurb").select("#txt2").html(heading);
+          d3.select("#blurb").select("#txt3").html(value);
+
           d3.json("config.json", function (error, config) {
             dvc = config
             d3.csv("trade_exports.csv", function (data) {
@@ -1465,10 +1468,7 @@
             }) // end trade csv
           }) //end json config
         }); //end treemap csv load
-
-
       }
-
 
       function initialize(root) {
         root.x = root.y = 0;
@@ -1717,7 +1717,6 @@
           });
       }
 
-
       function rect(rect) {
         rect.attr("x", function (d) {
           return x(d.x);
@@ -1743,7 +1742,6 @@
       //            ? desc(d.parent) + " > " + d.desc
       //            : d.desc;
       //      }
-
 
       function mouseover(d) {
 

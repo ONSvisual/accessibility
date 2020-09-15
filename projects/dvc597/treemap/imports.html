@@ -390,7 +390,7 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="container-fluid">
-      <div id="main-wrapper" aria-label="A chart displaying goods imported (in £) broken down by type of goods and country of origin.">
+      <div id="main-wrapper">
         <div id="mainContent" style="display:none">
           <div id="blurb" class="row">
             <text id="txt2"></text>
@@ -1175,7 +1175,6 @@
         layer.exit().remove();
       } //end stack bar chart
 
-
       function makeChart(width, fullheight) {
         margin = {top: 10, right: 0, bottom: 0, left: 0}
           formatNumber = d3.format(",.0f"),
@@ -1243,11 +1242,13 @@
           layout(root);
           display(root);
 
-          var baseLabel = $('#main-wrapper').attr('aria-label');
-          var fullLabel = baseLabel + " Goods imports 2018: " + "£"+formatNumber(dataset.size)+" million";
-          $('#main-wrapper').attr('aria-label', fullLabel)
-          d3.select("#blurb").select("#txt2").html("Goods imports 2018: ")
-          d3.select("#blurb").select("#txt3").html("£"+formatNumber(dataset.size)+" million");
+          var heading = "Goods imports 2018: ";
+          var value = "£"+formatNumber(dataset.size)+" million";
+          var label = `A chart displaying goods imported (${value}) broken down by type of goods and country of origin.`;
+          $('#main-wrapper').attr('aria-label', label);
+          d3.select("#blurb").select("#txt2").html(heading);
+          d3.select("#blurb").select("#txt3").html(value);
+
           d3.json("config.json", function(error, config) {
             dvc=config
             d3.csv("trade_imports.csv", function(data){
