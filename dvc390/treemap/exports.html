@@ -331,7 +331,7 @@
 
   <body id="childt">
     <div class="container-fluid">
-      <div id="main-wrapper" aria-label="Chart displaying value of exports (in £) to the EU, European Free Trade Association and Rest of the world, broken down by country.">
+      <div id="main-wrapper">
         <div id="mainContent" style="display:none">
           <div id="blurb" class="row">
             <text id="txt2"></text>
@@ -508,14 +508,12 @@
 
           var heading = "Total exports: ";
           var value = "£" + formatNumber(dataset.vals[1] / 1000) + " billion";
-          var baseLabel = $('#main-wrapper').attr('aria-label');
-          var fullLabel = baseLabel + " " + heading + value;
-          $('#main-wrapper').attr('aria-label', fullLabel);
+          var label = `Chart displaying value of exports (${value}) to the EU, European Free Trade Association and Rest of the world, broken down by country.`;
+          $('#main-wrapper').attr('aria-label', label);
           d3.select("#blurb").select("#txt2").html(heading);
           d3.select("#blurb").select("#txt3").html(value);
         });
       }
-
 
       function initialize(root) {
         root.x = root.y = 0;
