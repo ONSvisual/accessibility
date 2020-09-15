@@ -390,7 +390,7 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="container-fluid">
-      <div id="main-wrapper" aria-label="A chart displaying goods imported (in £) broken down by type of goods and country of origin">
+      <div id="main-wrapper" aria-label="A chart displaying goods imported (in £) broken down by type of goods and country of origin.">
         <div id="mainContent" style="display:none">
           <div id="blurb" class="row">
             <text id="txt2"></text>
@@ -1243,6 +1243,9 @@
           layout(root);
           display(root);
 
+          var baseLabel = $('#main-wrapper').attr('aria-label');
+          var fullLabel = baseLabel + " Goods imports 2018: " + "£"+formatNumber(dataset.size)+" million";
+          $('#main-wrapper').attr('aria-label', fullLabel)
           d3.select("#blurb").select("#txt2").html("Goods imports 2018: ")
           d3.select("#blurb").select("#txt3").html("£"+formatNumber(dataset.size)+" million");
           d3.json("config.json", function(error, config) {
