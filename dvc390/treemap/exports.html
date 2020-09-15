@@ -650,7 +650,15 @@
 
             window.location.hash = encodeURI(selectedView)
           }
+          
+          if(selectedArray.length == 0){
+            d3.select("#topBtn").style("visibility", "hidden");
+            d3.select("#upBtn").style("visibility", "hidden");
 
+          } else {
+            d3.select("#topBtn").style("visibility", "visible");
+            d3.select("#upBtn").style("visibility", "visible");
+          }
 
           if (transitioning || !d) return;
           transitioning = true;
