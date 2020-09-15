@@ -122,14 +122,18 @@
       }
 
       #blurb{
-        pointer-events:none;
-        line-height: 2.2em;
-        font-size:1em;
-        font-weight: 600;
+        height: 80px;
+        pointer-events: none;
+        line-height: 1.2em;
+        font-size: 30px;
       }
 
       #txt2{
-        font-weight:200;
+        font-weight:700;
+      }
+
+      #txt3{
+        font-weight:500;
       }
 
       @media (max-width: 500px) {
@@ -315,15 +319,16 @@
       }
     </style>
   </head>
+
   <body id="childt">
 
-    <div class="container-fluid" aria-label="Chart displaying value of imports (in £) from the EU, European Free Trade Association and Rest of the world, broken down by country">
-      <div id="main-wrapper">
-        <div id="mainContent" aria-hidden="true" style="display:none">
+    <div class="container-fluid">
+      <div id="main-wrapper" aria-label="Chart displaying value of imports (in £) from the EU, European Free Trade Association and Rest of the world, broken down by country.">
+        <div id="mainContent" style="display:none">
 
           <div id="blurb" class="row">
-            <text id ="txt2"></tspan>
-            <text id ="txt3"></tspan>
+            <text id ="txt2"></text>
+            <text id ="txt3"></text>
           </div>
           <div class="row">
             <button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up" style="visibility:hidden">
@@ -472,7 +477,13 @@
           layout(root);
           display(root);
 
-          d3.select("#blurb").select("#txt3").html("Total imports: £"+formatNumber(dataset.vals[1]/1000)+" billion");
+          var heading = "Total imports: ";
+          var value = "£"+formatNumber(dataset.vals[1]/1000)+" billion";
+          var baseLabel = $('#main-wrapper').attr('aria-label');
+          var fullLabel = baseLabel + " " + heading + value;
+          $('#main-wrapper').attr('aria-label', fullLabel);
+          d3.select("#blurb").select("#txt2").html(heading);
+          d3.select("#blurb").select("#txt3").html(value);
         });
       }
 
