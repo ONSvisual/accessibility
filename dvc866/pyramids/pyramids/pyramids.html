@@ -1222,10 +1222,14 @@
 
 			dropdown0.append("div").text("Choose an area")
 
-			var optns0 =dropdown0.append("div").attr("id","sel0")
-					.append("select").attr("id","areaselect0")
-					.attr("class","chosen-select");
+			dropdown0.append("div").attr("id","sel0")
+				.insert("label","areaselect0")
+  			.attr("class", "visuallyhidden")
+	 			.attr("for", "areaselect0")
+	 			.html("Inactive dropdown element, replaced by custom dropdown")
 
+			var optns0 = d3.select("#sel0").append("select").attr("id","areaselect0")
+					.attr("class","chosen-select");
 
 				optns0.selectAll("p").data(dvc.settings.config.vars).enter().append("option")
 					.attr("value", function(d){ return d[0]}) /* Optional */
@@ -1237,8 +1241,13 @@
 
 			dropdown1.append("div").text("Choose an area")
 
-			var optns1 =dropdown1.append("div").attr("id","sel1")
-					.append("select").attr("id","areaselect1")
+			dropdown1.append("div").attr("id","sel1")
+				.insert("label","areaselect1")
+  			.attr("class", "visuallyhidden")
+	 			.attr("for", "areaselect1")
+	 			.html("Inactive dropdown element, replaced by custom dropdown")
+
+			var optns1 = d3.select("#sel1").append("select").attr("id","areaselect1")
 					.attr("class","chosen-select");
 
 				optns1.selectAll("p").data(dvc.settings.config.vars).enter().append("option")
