@@ -1,6 +1,6 @@
 {"ons":{
 "maptitle": "Change in pub numbers - 2001 to 2018",
-"varcolour": ["#b2182b","#ef8a62","#fddbc7","#f7f7f7","#2166ac"],
+"varcolour": ["#b2182b","#ef8a62","#fddbc7","#e8dfe8","#2166ac"],
 "varunit": "% change 2001 to 2018",
 "displaydecimals": 0,
 "legenddecimals": 0,
