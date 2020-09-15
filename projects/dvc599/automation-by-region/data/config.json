@@ -1,10 +1,10 @@
 {"ons":{
-"maptitle": "Probability of automation by region of place of work",
+"maptitle": "Map about...",
 "varcolour": "YlGnBu",
-"varunit": "%",
-"displaydecimals": 2,
+"varunit": "£'s",
+"displaydecimals": 0,
 "legenddecimals": 0,
-"breaks": "jenks",
-"dropticks": true,
+"breaks": "equal",
+"dropticks": false,
 "numberBreaks": 5
 }}
