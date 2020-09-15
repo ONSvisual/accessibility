@@ -1248,6 +1248,9 @@
 	 			.attr("for", "areaselect1")
 	 			.html("Inactive dropdown element, replaced by custom dropdown")
 
+			var optns1 = d3.select("#sel1").append("select").attr("id","areaselect1")
+					.attr("class","chosen-select");
+
         optns1.selectAll("p").data(dvc.settings.config.vars).enter().append("option")
           .attr("value", function(d){ return d[0]}) /* Optional */
           .attr("id", function(d,i){ return "opt1_"+i}) /* Optional */
