@@ -2,7 +2,7 @@
 
 
 /*****************************/
-/* Falling Icon, from http://vintageproductions.eu/grid/interactivity/ */ 
+/* Falling Icon, from http://vintageproductions.eu/grid/interactivity/ */
 /*****************************/
 
 .tabs-style-iconfall {
@@ -12,12 +12,12 @@
 .tabs-style-iconfall nav a {
 	display: inline-block;
 	overflow: visible;
-	color: #74777b;
+	color: #1c5e97;
 /*	padding-left: 29%;
 	padding-right: 29%;*/
 /*	line-height: 1;*/
 	height: 46px;
-/*	-webkit-transition: color 0.3s cubic-bezier(0.7,0,0.3,1); 
+/*	-webkit-transition: color 0.3s cubic-bezier(0.7,0,0.3,1);
 	transition: color 0.3s cubic-bezier(0.7,0,0.3,1);*/
 }
 
@@ -28,7 +28,8 @@
 }*/
 
 .tabs-style-iconfall nav a span {
-	font-weight: 700;
+	font-weight: 400;
+    font-size: 18px;
 }
 
 /*.tabs-style-iconfall nav li::before {
