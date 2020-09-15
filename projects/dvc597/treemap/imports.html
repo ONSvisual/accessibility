@@ -66,10 +66,10 @@
         fill: #bbb;
         fill-opacity: .2;
       }
-      .children:hover rect.child {
+      .children:hover rect.child, .children:focus rect.child {
         fill: #bbb;
       }
-      .child:hover {
+      .child:hover, .child:focus {
         fill: #bbb;
       }
       *[code*=c1_], *[code*=c2_], *[code*=c3_], *[code*=c4_], *[code*=c5_], *[code*=c6_], *[code*=c7_], *[code*=c8_], *[code*=c9_], #c10 {
@@ -1318,7 +1318,14 @@
 
         g.filter(function(d) { return d._children; })
           .classed("children", true)
-          .on("click", transition);
+          .attr('tabindex', 0)
+          .on("click", transition)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode == 13) {
+              var evt = new MouseEvent("click");
+              d3.event.target.dispatchEvent(evt);
+            }
+          });
 
         g.selectAll(".child")
           .data(function(d) { return d._children || [d]; })
