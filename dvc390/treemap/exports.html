@@ -292,574 +292,574 @@
   </head>
 
   <body id="childt">
-  <div class="container-fluid">
-    <div id="main-wrapper" aria-label="Chart displaying value of exports (in £) to the EU, European Free Trade Association and Rest of the world, broken down by country.">
-      <div id="mainContent" style="display:none">
-        <div id="blurb" class="row">
-          <text id="txt2"></text>
-          <text id="txt3"></text>
+    <div class="container-fluid">
+      <div id="main-wrapper" aria-label="Chart displaying value of exports (in £) to the EU, European Free Trade Association and Rest of the world, broken down by country.">
+        <div id="mainContent" style="display:none">
+          <div id="blurb" class="row">
+            <text id="txt2"></text>
+            <text id="txt3"></text>
+          </div>
+          <div class="row">
+            <button type="button" id="upBtn" class="nav btn btn-ons ">
+              <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Up a level
+            </button>
+            <button type="button" id="topBtn" class="nav btn btn-ons ">
+              <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Back to top
+            </button>
+          </div>
+
+
+          <div class="row">
+            <div id="chart"></div>
+
+          </div>
+
+          <div id="source">
+            Source: <a
+              href="https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/datasets/9geographicalbreakdownofthecurrentaccountthepinkbook2016"
+              target="_blank">Geographical breakdown of the current account, The Pink Book: 2017</a>, ONS
+          </div>
+
+
         </div>
-        <div class="row">
-          <button type="button" id="upBtn" class="nav btn btn-ons ">
-            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Up a level
-          </button>
-          <button type="button" id="topBtn" class="nav btn btn-ons ">
-            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Back to top
-          </button>
+        <div id="ieMsg" style="display:none">
+          <div id="suptext">
+            <h1>Browser requirements</h1>
+            <p><b>For a safer, faster, better experience online you should upgrade your browser. You would have been
+              able to play with this lovely interactive graphic below. <a
+                  href="https://www.gov.uk/support/browsers" target="_blank">Find out more about browsers</a></b>
+            </p>
+          </div>
+          <img id="thumbNail" src="exports.png">
         </div>
-
-
-        <div class="row">
-          <div id="chart"></div>
-
-        </div>
-
-        <div id="source">
-          Source: <a
-            href="https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/datasets/9geographicalbreakdownofthecurrentaccountthepinkbook2016"
-            target="_blank">Geographical breakdown of the current account, The Pink Book: 2017</a>, ONS
-        </div>
-
-
       </div>
-      <div id="ieMsg" style="display:none">
-        <div id="suptext">
-          <h1>Browser requirements</h1>
-          <p><b>For a safer, faster, better experience online you should upgrade your browser. You would have been
-            able to play with this lovely interactive graphic below. <a
-                href="https://www.gov.uk/support/browsers" target="_blank">Find out more about browsers</a></b>
-          </p>
-        </div>
-        <img id="thumbNail" src="exports.png">
-      </div>
-    </div>
-  </div><!--end of .container-fluid-->
+    </div><!--end of .container-fluid-->
 
-  <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
-  <script src="js/modernizr.custom.56904.js"></script>
-  <script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
-  <script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.js" charset="utf-8"></script>
-  <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/modernizr.custom.56904.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.js" charset="utf-8"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
 
-  <script>
+    <script>
 
-    if (Modernizr.inlinesvg = true) {
+      if (Modernizr.inlinesvg = true) {
 
-      $("#main-wrapper").fadeIn(1000);
-      $("#mainContent").fadeIn(1000);
+        $("#main-wrapper").fadeIn(1000);
+        $("#mainContent").fadeIn(1000);
 
-    } else {
-      $("#ieMsg").fadeIn(1000);
-    }
-
-
-    pymChild = new pym.Child();
-
-
-    var transitioning;
-    var widthCalc;
-    var heightCalc;
-
-
-    getSizes();
-
-
-    $(window).resize(function () {
-      if (window.innerWidth != bwidth) {
-        getSizes();
-      }
-    });
-
-
-    function getSizes() {
-
-      bodywidth = d3.select("body").style("width");
-      bwidth = bodywidth.replace('px', '');
-      divwidth = d3.select("#chart").style("width");
-      width = divwidth.replace('px', '') - 30;
-      if (bwidth >= 767) {
-        fullheight = 500;
-        ratiovar = 0.5;
       } else {
-        var url = (window.location != window.parent.location);
-        if (url == false) {
-          ratiovar = 0.2;
-          windowheight = window.innerHeight;
-
-          if (windowheight <= 500) {
-            fullheight = window.innerHeight;
-          } else if (windowheight > 500 && windowheight <= 800) {
-            fullheight = window.innerHeight - 250;
-          } else if (windowheight > 800 && windowheight <= 2000) {
-            fullheight = window.innerHeight - 350;
-          }
-        } else {
-          ratiovar = 0.2;
-          windowheight = 500;
-          fullheight = 550;
-        }
+        $("#ieMsg").fadeIn(1000);
       }
 
-      d3.select("#svgEle").remove();
-      makeChart(width, fullheight);
 
-    }
-
-    function makeChart(width, fullheight) {
-
-      margin = {top: 0, right: 0, bottom: 0, left: 0}
-      formatNumber = d3.format(",.1f"),
+      pymChild = new pym.Child();
 
 
-        atTop = true,
-        level = 0,
-        levelArray = Array(level);
-
-      height = fullheight - margin.top - margin.bottom;
-
-      x = d3.scale.linear()
-        .domain([0, width])
-        .range([0, width]);
-
-      y = d3.scale.linear()
-        .domain([0, height])
-        .range([0, height]);
-
-      treemap = d3.layout.treemap()
-        .children(function (d, depth) {
-          return depth ? null : d._children;
-        })
-        .sort(function (a, b) {
-          return a.vals[0] - b.vals[0];
-        })
-        .ratio(height / width * ratiovar * (1 + Math.sqrt(5)))
-        .value(function (d) {
-          return d.vals[0] / 1000;
-        })
-        .round(false);
-
-      svg = d3.select("#chart")
-        .append("svg")
-        .attr("id", "svgEle")
-        .attr("width", width + "px")
-        .attr("height", height + "px")
-        //.attr("viewBox", "0 0 "+width+" "+ (height))
-        .attr("preserveAspectRatio", "xMidYMid meet")
-        .style("margin-left", -margin.left + "px")
-        .style("margin.right", -margin.right + "px")
-        .append("g")
-        .attr("id", "tree")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-      // .style("shape-rendering", "crispEdges");
-
-      grandparent = svg.append("g")
-        .attr("class", "grandparent")
-        .append("rect")
-        .attr("id", "gparent")
-        .attr("y", -margin.top)
-        .attr("width", width)
-        .attr("height", margin.top);
+      var transitioning;
+      var widthCalc;
+      var heightCalc;
 
 
-      d3.json("tree_exp.json", function (root) {
-        dataset = root;
-        initialize(root);
-        accumulate(root);
-        layout(root);
-        display(root);
+      getSizes();
 
-        var heading = "Total exports: ";
-        var value = "£" + formatNumber(dataset.vals[1] / 1000) + " billion";
-        var baseLabel = $('#main-wrapper').attr('aria-label');
-        var fullLabel = baseLabel + " " + heading + value;
-        $('#main-wrapper').attr('aria-label', fullLabel);
-        d3.select("#blurb").select("#txt2").html(heading);
-        d3.select("#blurb").select("#txt3").html(value);
+
+      $(window).resize(function () {
+        if (window.innerWidth != bwidth) {
+          getSizes();
+        }
       });
-    }
 
 
-    function initialize(root) {
-      root.x = root.y = 0;
-      root.dx = width;
-      root.dy = height;
-      root.depth = 0;
-    }
+      function getSizes() {
 
-    // Aggregate the values for internal nodes. This is normally done by the
-    // treemap layout, but not here because of our custom implementation.
-    // We also take a snapshot of the original children (_children) to avoid
-    // the children being overwritten when when layout is computed.
-    function accumulate(d) {
-      //console.log('accumulate')
-      return (d._children = d.children)
-        ? d.vals[0] = d.children.reduce(function (p, v) {
-          return p + accumulate(v);
-        }, 0)
-        : d.vals[0];
-
-    }
-
-    // Compute the treemap layout recursively such that each group of siblings
-    // uses the same size (1×1) rather than the dimensions of the parent cell.
-    // This optimizes the layout for the current zoom state. Note that a wrapper
-    // object is created for the parent node for each group of siblings so that
-    // the parent’s dimensions are not discarded as we recurse. Since each group
-    // of sibling was laid out in 1×1, we must rescale to fit using absolute
-    // coordinates. This lets us use a viewport to zoom.
-    function layout(d) {
-
-      if (d._children) {
-
-        treemap.nodes({_children: d._children});
-        d._children.forEach(function (c) {
-          c.x = d.x + c.x * d.dx;
-          c.y = d.y + c.y * d.dy;
-          c.dx *= d.dx;
-          c.dy *= d.dy;
-          c.parent = d;
-
-          layout(c);
-        });
-      }
-    }
-
-    function display(d) {
-
-      grandparent
-        .datum(d.parent)
-        .on("click", transition)
-  //            .select("text")
-  //            .text(desc(d))
-
-      d3.select("#titleText")
-        .datum(d.parent)
-      // .text(desc(d))
-
-      var g1 = svg.insert("g", ".grandparent")
-        .datum(d)
-        .attr("class", "depth");
-
-      var g = g1.selectAll("g")
-        .data(d._children)
-        .enter().append("g");
-
-      g.filter(function (d) {
-        return d._children;
-      })
-        .classed("children", true)
-        .on("click", transition);
-
-      g.selectAll(".child")
-        .data(function (d) {
-          return d._children || [d];
-        })
-        .enter().append("rect")
-        .attr("class", "child")
-        .attr("code", function (d) {
-          return d.code
-        })
-        .attr("desc", function (d) {
-          return d.desc
-        })
-        .attr("id", function (d) {
-          return d.code
-        })
-        .attr("vals", function (d) {
-          return d.vals[0] / 1000
-        })
-        .attr("realvals", function (d) {
-          return d.vals[1] / 1000
-        })
-        .on("mouseover", mouseover)
-        .on("mouseout", mouseout)
-        .call(rect);
-
-      g.append("rect")
-        .attr("class", "parent")
-        .attr("desc", function (d) {
-          return d.desc
-        })
-        .attr("id", function (d) {
-          return d.code
-        })
-        .attr("vals", function (d) {
-          return d.vals[0] / 1000
-        })
-        .attr("realvals", function (d) {
-          return d.vals[1] / 1000
-        })
-        .on("mouseover", mouseover)
-        .on("mouseout", mouseout)
-        .call(rect);
-
-      g.append("text")
-        .attr("class", "parentLabels")
-        .attr("dy", "1em")
-        .text(function (d) {
-          return d.desc + " £" + formatNumber(d.vals[1] / 1000) + " billion";
-        })
-        .call(resize)
-        .call(text);
-
-
-      function transition(d) {
-        if (d3.select(this).attr("id") != "gparent") {
-          selectedArray.push(d3.select(this).select('.parent').attr("id"))
-          selectedView = selectedArray.join().replace(/,/g, "/")
-
-          window.location.hash = encodeURI(selectedView);
+        bodywidth = d3.select("body").style("width");
+        bwidth = bodywidth.replace('px', '');
+        divwidth = d3.select("#chart").style("width");
+        width = divwidth.replace('px', '') - 30;
+        if (bwidth >= 767) {
+          fullheight = 500;
+          ratiovar = 0.5;
         } else {
-          selectedArray.splice(-1, 1)
-          selectedView = selectedArray.join().replace(/,/g, "/")
+          var url = (window.location != window.parent.location);
+          if (url == false) {
+            ratiovar = 0.2;
+            windowheight = window.innerHeight;
 
-          window.location.hash = encodeURI(selectedView)
+            if (windowheight <= 500) {
+              fullheight = window.innerHeight;
+            } else if (windowheight > 500 && windowheight <= 800) {
+              fullheight = window.innerHeight - 250;
+            } else if (windowheight > 800 && windowheight <= 2000) {
+              fullheight = window.innerHeight - 350;
+            }
+          } else {
+            ratiovar = 0.2;
+            windowheight = 500;
+            fullheight = 550;
+          }
         }
 
-
-        if (transitioning || !d) return;
-        transitioning = true;
-
-        var g2 = display(d),
-          t1 = g1.transition().duration(400),
-          t2 = g2.transition().duration(400);
-
-        // Update the domain only after entering new elements.
-        x.domain([d.x, d.x + d.dx]);
-        y.domain([d.y, d.y + d.dy]);
-
-        // Enable anti-aliasing during the transition.
-        svg.style("shape-rendering", null);
-
-        // Draw child nodes on top of parent nodes.
-        svg.selectAll(".depth").sort(function (a, b) {
-          return a.depth - b.depth;
-        });
-
-        // Fade-in entering text.
-        g2.selectAll("text").style("fill-opacity", 0);
-
-
-        // Transition to the new view.
-        t1.selectAll("rect").call(rect);
-        t1.selectAll("text").call(text).style("fill-opacity", 1);
-        // t1.selectAll(".childLabels").call(text).style("fill-opacity",1);
-        t1.selectAll(".parentLabels").call(text).style("fill-opacity", 1);
-
-        t2.selectAll("rect").call(rect);
-        t2.selectAll("text").call(resize).call(text).style("fill-opacity", 1);
-        //  t2.selectAll(".childLabels").call(text).call(resize2).style("fill-opacity", 1);
-        t2.selectAll(".parentLabels").call(resize).call(text).style("fill-opacity", 1);
-
-
-        // Remove the old node when the transition is finished.
-        t1.remove().each("end", function () {
-          svg.style("shape-rendering", "crispEdges");
-          transitioning = false;
-        });
-
-        myClass = $(this).attr("class");
-
-        if (myClass == "children") {
-          level = level + 1;
-          levelArray = Array(level);
-        } else {
-          level = level - 1;
-          levelArray = Array(level);
-        }
+        d3.select("#svgEle").remove();
+        makeChart(width, fullheight);
 
       }
 
-      return g;
-      g.each(function (d, i) {
-        d3.selectAll(".children").selectAll("text")
-          .data(d._children).enter().append("text")
-          .attr("class", "childLabels")
-          .attr("dy", "0.5em")
+      function makeChart(width, fullheight) {
+
+        margin = {top: 0, right: 0, bottom: 0, left: 0}
+        formatNumber = d3.format(",.1f"),
+
+
+          atTop = true,
+          level = 0,
+          levelArray = Array(level);
+
+        height = fullheight - margin.top - margin.bottom;
+
+        x = d3.scale.linear()
+          .domain([0, width])
+          .range([0, width]);
+
+        y = d3.scale.linear()
+          .domain([0, height])
+          .range([0, height]);
+
+        treemap = d3.layout.treemap()
+          .children(function (d, depth) {
+            return depth ? null : d._children;
+          })
+          .sort(function (a, b) {
+            return a.vals[0] - b.vals[0];
+          })
+          .ratio(height / width * ratiovar * (1 + Math.sqrt(5)))
+          .value(function (d) {
+            return d.vals[0] / 1000;
+          })
+          .round(false);
+
+        svg = d3.select("#chart")
+          .append("svg")
+          .attr("id", "svgEle")
+          .attr("width", width + "px")
+          .attr("height", height + "px")
+          //.attr("viewBox", "0 0 "+width+" "+ (height))
+          .attr("preserveAspectRatio", "xMidYMid meet")
+          .style("margin-left", -margin.left + "px")
+          .style("margin.right", -margin.right + "px")
+          .append("g")
+          .attr("id", "tree")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        // .style("shape-rendering", "crispEdges");
+
+        grandparent = svg.append("g")
+          .attr("class", "grandparent")
+          .append("rect")
+          .attr("id", "gparent")
+          .attr("y", -margin.top)
+          .attr("width", width)
+          .attr("height", margin.top);
+
+
+        d3.json("tree_exp.json", function (root) {
+          dataset = root;
+          initialize(root);
+          accumulate(root);
+          layout(root);
+          display(root);
+
+          var heading = "Total exports: ";
+          var value = "£" + formatNumber(dataset.vals[1] / 1000) + " billion";
+          var baseLabel = $('#main-wrapper').attr('aria-label');
+          var fullLabel = baseLabel + " " + heading + value;
+          $('#main-wrapper').attr('aria-label', fullLabel);
+          d3.select("#blurb").select("#txt2").html(heading);
+          d3.select("#blurb").select("#txt3").html(value);
+        });
+      }
+
+
+      function initialize(root) {
+        root.x = root.y = 0;
+        root.dx = width;
+        root.dy = height;
+        root.depth = 0;
+      }
+
+      // Aggregate the values for internal nodes. This is normally done by the
+      // treemap layout, but not here because of our custom implementation.
+      // We also take a snapshot of the original children (_children) to avoid
+      // the children being overwritten when when layout is computed.
+      function accumulate(d) {
+        //console.log('accumulate')
+        return (d._children = d.children)
+          ? d.vals[0] = d.children.reduce(function (p, v) {
+            return p + accumulate(v);
+          }, 0)
+          : d.vals[0];
+
+      }
+
+      // Compute the treemap layout recursively such that each group of siblings
+      // uses the same size (1×1) rather than the dimensions of the parent cell.
+      // This optimizes the layout for the current zoom state. Note that a wrapper
+      // object is created for the parent node for each group of siblings so that
+      // the parent’s dimensions are not discarded as we recurse. Since each group
+      // of sibling was laid out in 1×1, we must rescale to fit using absolute
+      // coordinates. This lets us use a viewport to zoom.
+      function layout(d) {
+
+        if (d._children) {
+
+          treemap.nodes({_children: d._children});
+          d._children.forEach(function (c) {
+            c.x = d.x + c.x * d.dx;
+            c.y = d.y + c.y * d.dy;
+            c.dx *= d.dx;
+            c.dy *= d.dy;
+            c.parent = d;
+
+            layout(c);
+          });
+        }
+      }
+
+      function display(d) {
+
+        grandparent
+          .datum(d.parent)
+          .on("click", transition)
+    //            .select("text")
+    //            .text(desc(d))
+
+        d3.select("#titleText")
+          .datum(d.parent)
+        // .text(desc(d))
+
+        var g1 = svg.insert("g", ".grandparent")
+          .datum(d)
+          .attr("class", "depth");
+
+        var g = g1.selectAll("g")
+          .data(d._children)
+          .enter().append("g");
+
+        g.filter(function (d) {
+          return d._children;
+        })
+          .classed("children", true)
+          .on("click", transition);
+
+        g.selectAll(".child")
+          .data(function (d) {
+            return d._children || [d];
+          })
+          .enter().append("rect")
+          .attr("class", "child")
+          .attr("code", function (d) {
+            return d.code
+          })
+          .attr("desc", function (d) {
+            return d.desc
+          })
+          .attr("id", function (d) {
+            return d.code
+          })
+          .attr("vals", function (d) {
+            return d.vals[0] / 1000
+          })
+          .attr("realvals", function (d) {
+            return d.vals[1] / 1000
+          })
+          .on("mouseover", mouseover)
+          .on("mouseout", mouseout)
+          .call(rect);
+
+        g.append("rect")
+          .attr("class", "parent")
+          .attr("desc", function (d) {
+            return d.desc
+          })
+          .attr("id", function (d) {
+            return d.code
+          })
+          .attr("vals", function (d) {
+            return d.vals[0] / 1000
+          })
+          .attr("realvals", function (d) {
+            return d.vals[1] / 1000
+          })
+          .on("mouseover", mouseover)
+          .on("mouseout", mouseout)
+          .call(rect);
+
+        g.append("text")
+          .attr("class", "parentLabels")
+          .attr("dy", "1em")
           .text(function (d) {
-            return d.desc;
+            return d.desc + " £" + formatNumber(d.vals[1] / 1000) + " billion";
+          })
+          .call(resize)
+          .call(text);
+
+
+        function transition(d) {
+          if (d3.select(this).attr("id") != "gparent") {
+            selectedArray.push(d3.select(this).select('.parent').attr("id"))
+            selectedView = selectedArray.join().replace(/,/g, "/")
+
+            window.location.hash = encodeURI(selectedView);
+          } else {
+            selectedArray.splice(-1, 1)
+            selectedView = selectedArray.join().replace(/,/g, "/")
+
+            window.location.hash = encodeURI(selectedView)
+          }
+
+
+          if (transitioning || !d) return;
+          transitioning = true;
+
+          var g2 = display(d),
+            t1 = g1.transition().duration(400),
+            t2 = g2.transition().duration(400);
+
+          // Update the domain only after entering new elements.
+          x.domain([d.x, d.x + d.dx]);
+          y.domain([d.y, d.y + d.dy]);
+
+          // Enable anti-aliasing during the transition.
+          svg.style("shape-rendering", null);
+
+          // Draw child nodes on top of parent nodes.
+          svg.selectAll(".depth").sort(function (a, b) {
+            return a.depth - b.depth;
           });
-      })
-    }
 
-    function resize(text, width) {
+          // Fade-in entering text.
+          g2.selectAll("text").style("fill-opacity", 0);
 
-      text.each(function (d, i) {
 
-        var text = d3.select(this).style("font-size", function (d) {
-          return Math.sqrt((d.widthCalc * d.heightCalc)) / Math.log(this.getComputedTextLength()) * 0.45 + "px";
+          // Transition to the new view.
+          t1.selectAll("rect").call(rect);
+          t1.selectAll("text").call(text).style("fill-opacity", 1);
+          // t1.selectAll(".childLabels").call(text).style("fill-opacity",1);
+          t1.selectAll(".parentLabels").call(text).style("fill-opacity", 1);
+
+          t2.selectAll("rect").call(rect);
+          t2.selectAll("text").call(resize).call(text).style("fill-opacity", 1);
+          //  t2.selectAll(".childLabels").call(text).call(resize2).style("fill-opacity", 1);
+          t2.selectAll(".parentLabels").call(resize).call(text).style("fill-opacity", 1);
+
+
+          // Remove the old node when the transition is finished.
+          t1.remove().each("end", function () {
+            svg.style("shape-rendering", "crispEdges");
+            transitioning = false;
+          });
+
+          myClass = $(this).attr("class");
+
+          if (myClass == "children") {
+            level = level + 1;
+            levelArray = Array(level);
+          } else {
+            level = level - 1;
+            levelArray = Array(level);
+          }
+
+        }
+
+        return g;
+        g.each(function (d, i) {
+          d3.selectAll(".children").selectAll("text")
+            .data(d._children).enter().append("text")
+            .attr("class", "childLabels")
+            .attr("dy", "0.5em")
+            .text(function (d) {
+              return d.desc;
+            });
         })
-      });
-    };
+      }
 
-    function text(text, width) {
-      text.each(function (d, i) {
-        var text = d3.select(this),
-          words = text.text().split(/\s+/).reverse(),
-          word,
-          line = [],
-          y = text.attr("y"),
-          dy = parseFloat(text.attr("dy")),
-          tspan = text.text(null).append("tspan")/*.attr("x", 0).attr("y", y)*/.attr("dy", "1em");
+      function resize(text, width) {
 
-        while (word = words.pop()) {
-          line.push(word + " ");
-          tspan.text(line.join(" "));
+        text.each(function (d, i) {
 
-          if (tspan.node().getComputedTextLength() > d.widthCalc - 10) {
-            line.pop();
+          var text = d3.select(this).style("font-size", function (d) {
+            return Math.sqrt((d.widthCalc * d.heightCalc)) / Math.log(this.getComputedTextLength()) * 0.45 + "px";
+          })
+        });
+      };
+
+      function text(text, width) {
+        text.each(function (d, i) {
+          var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            y = text.attr("y"),
+            dy = parseFloat(text.attr("dy")),
+            tspan = text.text(null).append("tspan")/*.attr("x", 0).attr("y", y)*/.attr("dy", "1em");
+
+          while (word = words.pop()) {
+            line.push(word + " ");
             tspan.text(line.join(" "));
-            line = [word + " "];
 
-            tspan = text.append("tspan").attr("x", function (d) {
-              return x(d.x) + 6;
-            }).attr("dy", dy + "em").text(word + " ");
+            if (tspan.node().getComputedTextLength() > d.widthCalc - 10) {
+              line.pop();
+              tspan.text(line.join(" "));
+              line = [word + " "];
+
+              tspan = text.append("tspan").attr("x", function (d) {
+                return x(d.x) + 6;
+              }).attr("dy", dy + "em").text(word + " ");
+
+            }
+          }
+        });
+
+        d3.selectAll(".parentLabels").attr("y", function (d) {
+          return y(d.y) + 6;
+        })
+          .attr("x", function (d) {
+            return x(d.x) + 6;
+          });
+      }
+
+
+      function rect(rect) {
+        rect.attr("x", function (d) {
+          return x(d.x);
+        })
+          .attr("y", function (d) {
+            return y(d.y);
+          })
+          .attr("width", function (d) {
+            widthCalc = x(d.x + d.dx) - x(d.x);
+
+            d["widthCalc"] = widthCalc;
+            return widthCalc;
+          })
+          .attr("height", function (d) {
+            heightCalc = y(d.y + d.dy) - y(d.y);
+            d["heightCalc"] = heightCalc;
+            return heightCalc;
+          })
+      }
+
+      //      function desc(d) {
+      //		return d.parent
+      //            ? desc(d.parent) + " > " + d.desc
+      //            : d.desc;
+      //      }
+
+
+      function mouseover(d) {
+
+        var selectClass = $(this).attr('desc');
+        var selectValue = $(this).attr('realvals');
+        d3.select("#blurb").select("#txt3").html(selectClass + ": £" + formatNumber(selectValue) + " billion");
+
+      };
+
+      function mouseout() {
+        d3.select("#blurb").select("#txt3").html("Total exports: £" + formatNumber(dataset.vals[1] / 1000) + " billion");
+      };
+
+      function simulateClick(elem /* Must be the element */) {
+        var evt = document.createEvent("MouseEvents");
+        evt.initMouseEvent(
+          "click", /* type */
+          true, /* canBubble */
+          true, /* cancelable */
+          window, /* view */
+          0, /* detail */
+          0, /* screenX */
+          0, /* screenY */
+          0, /* clientX */
+          0, /* clientY */
+          false, /* ctrlKey */
+          false, /* altKey */
+          false, /* shiftKey */
+          false, /* metaKey */
+          0, /* button */
+          null); /* relatedTarget */
+        elem.dispatchEvent(evt);
+      }
+
+      d3.select("#upBtn").on('click', function () {
+        simulateClick(grandparent[0][0]);
+
+      });
+
+      d3.select("#topBtn").on('click', function () {
+        backToTop();
+      });
+
+
+      setTimeout(function () {
+        if (pymChild) {
+          pymChild.sendHeight();
+
+
+          var url = decodeURI(window.location.hash);
+
+
+          selectedArray = []
+          if (url == "") {
+            selectedView = "c0"
+          } else {
+            params = url.split("/");
+            params[0] = params[0].replace("#", "")
+            storyArray = params;
+            selectedView = storyArray.join().replace(/,/g, "/")
+
+            $(storyArray).each(function (i) {
+
+              setTimeout(function () {
+                storyId = "#" + storyArray[i];
+                simulateClick(d3.select(storyId)[0][0]);
+              }, 760 * i);
+            });
 
           }
-        }
-      });
 
-      d3.selectAll(".parentLabels").attr("y", function (d) {
-        return y(d.y) + 6;
-      })
-        .attr("x", function (d) {
-          return x(d.x) + 6;
+        }
+      }, 700)
+
+
+      function backToTop() {
+
+        $(levelArray).each(function (i) {
+          setTimeout(function () {
+            simulateClick(grandparent[0][0]);
+          }, 760 * i);
         });
-    }
+      };
 
 
-    function rect(rect) {
-      rect.attr("x", function (d) {
-        return x(d.x);
-      })
-        .attr("y", function (d) {
-          return y(d.y);
-        })
-        .attr("width", function (d) {
-          widthCalc = x(d.x + d.dx) - x(d.x);
-
-          d["widthCalc"] = widthCalc;
-          return widthCalc;
-        })
-        .attr("height", function (d) {
-          heightCalc = y(d.y + d.dy) - y(d.y);
-          d["heightCalc"] = heightCalc;
-          return heightCalc;
-        })
-    }
-
-    //      function desc(d) {
-    //		return d.parent
-    //            ? desc(d.parent) + " > " + d.desc
-    //            : d.desc;
-    //      }
-
-
-    function mouseover(d) {
-
-      var selectClass = $(this).attr('desc');
-      var selectValue = $(this).attr('realvals');
-      d3.select("#blurb").select("#txt3").html(selectClass + ": £" + formatNumber(selectValue) + " billion");
-
-    };
-
-    function mouseout() {
-      d3.select("#blurb").select("#txt3").html("Total exports: £" + formatNumber(dataset.vals[1] / 1000) + " billion");
-    };
-
-    function simulateClick(elem /* Must be the element */) {
-      var evt = document.createEvent("MouseEvents");
-      evt.initMouseEvent(
-        "click", /* type */
-        true, /* canBubble */
-        true, /* cancelable */
-        window, /* view */
-        0, /* detail */
-        0, /* screenX */
-        0, /* screenY */
-        0, /* clientX */
-        0, /* clientY */
-        false, /* ctrlKey */
-        false, /* altKey */
-        false, /* shiftKey */
-        false, /* metaKey */
-        0, /* button */
-        null); /* relatedTarget */
-      elem.dispatchEvent(evt);
-    }
-
-    d3.select("#upBtn").on('click', function () {
-      simulateClick(grandparent[0][0]);
-
-    });
-
-    d3.select("#topBtn").on('click', function () {
-      backToTop();
-    });
-
-
-    setTimeout(function () {
-      if (pymChild) {
-        pymChild.sendHeight();
-
-
-        var url = decodeURI(window.location.hash);
-
-
-        selectedArray = []
-        if (url == "") {
-          selectedView = "c0"
-        } else {
-          params = url.split("/");
-          params[0] = params[0].replace("#", "")
-          storyArray = params;
-          selectedView = storyArray.join().replace(/,/g, "/")
-
-          $(storyArray).each(function (i) {
-
-            setTimeout(function () {
-              storyId = "#" + storyArray[i];
-              simulateClick(d3.select(storyId)[0][0]);
-            }, 760 * i);
-          });
-
-        }
+      function updateHash() {
 
       }
-    }, 700)
 
 
-    function backToTop() {
+    </script>
 
-      $(levelArray).each(function (i) {
-        setTimeout(function () {
-          simulateClick(grandparent[0][0]);
-        }, 760 * i);
-      });
-    };
+    <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37894017-1']);
+    _gaq.push(['_trackPageview']);
 
 
-    function updateHash() {
-
-    }
-
-
+    (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
   </script>
-
-  <script>
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-37894017-1']);
-  _gaq.push(['_trackPageview']);
-
-
-  (function () {
-    var ga = document.createElement('script');
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-</body>
+  </body>
 </html>
