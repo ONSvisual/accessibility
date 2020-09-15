@@ -391,10 +391,10 @@
 
     <div class="container-fluid">
       <div id="main-wrapper" aria-label="A chart displaying goods imported (in £) broken down by type of goods and country of origin">
-        <div id="mainContent" aria-hdden="true" style="display:none">
+        <div id="mainContent" style="display:none">
           <div id="blurb" class="row">
-            <text id ="txt2"></text>
-            <text id ="txt3"></text>
+            <text id="txt2"></text>
+            <text id="txt3"></text>
           </div>
           
           <div class="row">
@@ -532,7 +532,7 @@
         $('#areaselect').chosen({allow_single_deselect:true})
 
         $('.chosen-search').find('input').attr('id', 'filterSearch');
-        $('.chosen-search').prepend("<label for='filterSearch' class='visuallyhidden'>Filters for the chart below, the chart and the results of the filters are not currently accessible by screen readers</label>");
+        $('.chosen-search').prepend("<label for='filterSearch' class='visuallyhidden'>Filters for the chart below, the results of the filters are not currently accessible by screen readers</label>");
 
         //$('#areaselect').on('input',function(){console.log("click")})
 
