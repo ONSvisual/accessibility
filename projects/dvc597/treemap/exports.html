@@ -63,7 +63,6 @@
         /*	pointer-events:none;*/
       }
 
-
       rect.parent,
       .grandparent rect {
         stroke-width: 2px;
@@ -91,11 +90,11 @@
         fill-opacity: .2;
       }
 
-      .children:hover rect.child {
+      .children:hover rect.child, .children:focus rect.child {
         fill: #bbb;
       }
 
-      .child:hover {
+      .child:hover, .child:focus {
         fill: #bbb;
       }
 
@@ -443,6 +442,7 @@
 
     </style>
   </head>
+
   <body id="childt">
 
     <!-- Google Tag Manager (noscript) -->
@@ -1540,7 +1540,16 @@
           return d._children;
         })
           .classed("children", true)
-          .on("click", transition);
+          .on("click", transition)
+          .attr('tabindex', 0)
+          .on("click", transition)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode == 13) {
+              var evt = new MouseEvent("click");
+              d3.event.target.dispatchEvent(evt);
+            }
+          });
+
 
         g.selectAll(".child")
           .data(function (d) {
