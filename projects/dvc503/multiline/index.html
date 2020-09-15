@@ -188,7 +188,8 @@
 
 
 .search-choice-close:focus {
-    outline: orange 2px solid;
+    outline: orange 3px solid;
+    box-shadow: 0 0 0 6px black;
 }
 
 .intro {
@@ -985,7 +986,7 @@ input{
 			removenames = [];
 			oldlistnames = [];
 
-			$('#occselect').chosen({width: "98%", max_selected_options: 6/*, allow_single_deselect:true*/}).on('change',function(evt,params){
+			$('#occselect').chosen({width: "98%", max_selected_options: 6,placeholder_text_multiple:"Choose some areas"}).on('change',function(evt,params){
 
 								if(typeof params != 'undefined') {
 
