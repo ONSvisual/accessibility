@@ -1614,6 +1614,7 @@
           .attr("realvals", function (d) {
             return d.size
           })
+          .attr('aria-label', function(d) { return d.name + " £" + formatNumber(d.size) + "m"; })
           .on("mouseover", mouseover)
           .on("focus", mouseover)
           .on("mouseout", mouseout)
