@@ -39,3 +39,5 @@ Page can be navigated by keyboard
 Text/elements flows even when on high zoom?
 
 HTML element has a [lang] attribute
+
+Is minimum-scale=1, maximum-scale=1, user-scalable=no" removed from viewport
