@@ -288,8 +288,8 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <div aria-label="Chart depicting household spending (£ per week) broken down by the type of purchase">
-      <div aria-hidden="true">
+    <div id="main-wrapper">
+      <div id="mainContent">
         <div id="blurb" >
           <text id ="txt2"></text>
           <text id ="txt3"></text>
@@ -431,6 +431,10 @@
           layout(root);
           display(root);
 
+          var value = dvc.essential.prefix+formatNumber(treedata[0].realsize)+dvc.essential.suffix;
+          var label = `Chart depicting total household spending (${value})  broken down by the type of purchase.`;
+          $('#main-wrapper').attr('aria-label', label);
+
           d3.select("#blurb").select("#txt2").html(dvc.essential.totalLabel)
           d3.select("#blurb").select("#txt3").html(function(){
             if(treedata[0].percent == "null"){
@@ -445,7 +449,6 @@
         d3.select("#footer").append("p")
           .text("Source: "+dvc.essential.sourceText);
       } //end drawGraphic function
-
 
       function initialize(root) {
         root.x = root.y = 0;
