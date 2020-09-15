@@ -479,7 +479,17 @@
         text-align: right;
         padding-right: 5px !important;
       }
-
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        border: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
     </style>
   </head>
 
@@ -653,7 +663,10 @@
           });
 
 
-        $('#areaselect').chosen({allow_single_deselect: true})
+        $('#areaselect').chosen({allow_single_deselect: true});
+
+        $('.chosen-search').find('input').attr('id', 'filterSearch');
+        $('.chosen-search').prepend("<label for='filterSearch' class='visuallyhidden'>Filters for the chart below, the results of the filters are not currently accessible by screen readers</label>");
 
         //$('#areaselect').on('input',function(){console.log("click")})
 
