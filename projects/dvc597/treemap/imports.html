@@ -66,7 +66,7 @@
         fill: #bbb;
         fill-opacity: .2;
       }
-      .children:hover rect.child, .children:focus rect.child {
+      .children:hover rect.child, .children .parent:focus ~ rect.child {
         fill: #bbb;
       }
       .child:hover, .child:focus {
@@ -1329,30 +1329,30 @@
 
         g.filter(function(d) { return d._children; })
           .classed("children", true)
-          .attr('tabindex', 0)
-          .on("click", transition)
+          .on("click", transition);
+
+        g.append("rect")
+          .attr("class", "parent")
+          .attr("desc",function(d) { return d.name} )
+          .attr("id",function(d) { return d.id} )
+          .attr("vals",function(d) { return d.size} )
+          .attr("realvals",function(d) { return d.size} )
+          .on("mouseover", mouseover)
+          .on("focus", mouseover)
+          .on("mouseout", mouseout)
+          .on("blur", mouseout)
           .on("keyup", function(d) {
             if (d3.event.keyCode == 13) {
-              var evt = new MouseEvent("click");
-              d3.event.target.dispatchEvent(evt);
+              $(d3.event.target).parent().d3Click();
             }
-          });
+          })
+          .call(rect);
 
         g.selectAll(".child")
           .data(function(d) { return d._children || [d]; })
           .enter().append("rect")
           .attr("class", "child")
           .attr("code",function(d) { return d.id} )
-          .attr("desc",function(d) { return d.name} )
-          .attr("id",function(d) { return d.id} )
-          .attr("vals",function(d) { return d.size} )
-          .attr("realvals",function(d) { return d.size} )
-          .on("mouseover", mouseover)
-          .on("mouseout", mouseout)
-          .call(rect);
-
-        g.append("rect")
-          .attr("class", "parent")
           .attr("desc",function(d) { return d.name} )
           .attr("id",function(d) { return d.id} )
           .attr("vals",function(d) { return d.size} )

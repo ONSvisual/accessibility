@@ -87,7 +87,7 @@
         fill-opacity: .2;
       }
 
-      .children:hover rect.child, .children:focus rect.child {
+      .children:hover rect.child, .children .parent:focus ~ rect.child {
         fill: #bbb;
       }
 
@@ -1599,25 +1599,9 @@
         })
           .classed("children", true)
           .on("click", transition)
-          .attr('tabindex', 0)
-          .on("click", transition)
-          .on("keyup", function(d) {
-            if (d3.event.keyCode == 13) {
-              var evt = new MouseEvent("click");
-              d3.event.target.dispatchEvent(evt);
-            }
-          });
 
-
-        g.selectAll(".child")
-          .data(function (d) {
-            return d._children || [d];
-          })
-          .enter().append("rect")
-          .attr("class", "child")
-          .attr("code", function (d) {
-            return d.id
-          })
+        g.append("rect")
+          .attr("class", "parent")
           .attr("desc", function (d) {
             return d.name
           })
@@ -1631,11 +1615,25 @@
             return d.size
           })
           .on("mouseover", mouseover)
+          .on("focus", mouseover)
           .on("mouseout", mouseout)
+          .on("blur", mouseout)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode == 13) {
+              $(d3.event.target).parent().d3Click();
+            }
+          })
           .call(rect);
 
-        g.append("rect")
-          .attr("class", "parent")
+        g.selectAll(".child")
+          .data(function (d) {
+            return d._children || [d];
+          })
+          .enter().append("rect")
+          .attr("class", "child")
+          .attr("code", function (d) {
+            return d.id
+          })
           .attr("desc", function (d) {
             return d.name
           })
@@ -1819,7 +1817,6 @@
       //      }
 
       function mouseover(d) {
-
         var selectClass = $(this).attr('desc');
         var selectValue = $(this).attr('realvals');
         //	console.log($(this).attr('name'))
