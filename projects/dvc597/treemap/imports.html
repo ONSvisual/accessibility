@@ -390,7 +390,7 @@
             <!--  <button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up">
               Up a level
             </button> -->
-            <button type="button" id="topBtn" class="btn btn-group__btn btn--primary btn--green btn--top">
+            <button type="button" id="topBtn" class="btn btn-group__btn btn--primary btn--green btn--top" style="visibility:hidden">
               Back to top
             </button>
             
@@ -1348,6 +1348,15 @@
             selectedView = selectedArray.join().replace(/,/g , "/")
 
             window.location.hash = encodeURI(selectedView)
+          }
+
+          if(selectedArray.length == 0){
+            d3.select("#topBtn").style("visibility", "hidden");
+            d3.select("#upBtn").style("visibility", "hidden");
+                  
+          } else {
+            d3.select("#topBtn").style("visibility", "visible");
+            d3.select("#upBtn").style("visibility", "visible");
           }
 
           if (transitioning || !d) return;
