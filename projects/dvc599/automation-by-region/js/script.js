@@ -93,12 +93,12 @@ if(Modernizr.webgl) {
 		}
 
 		//Work out extend of loaded geography file so we can set map to fit total extent
-		bounds = turf.extent(areas);
-
-		//set map to total extent
-		setTimeout(function(){
-			map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]])
-		},1000);
+		// bounds = turf.extent(areas);
+		//
+		// //set map to total extent
+		// setTimeout(function(){
+		// 	map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]])
+		// },1000);
 
 
 
