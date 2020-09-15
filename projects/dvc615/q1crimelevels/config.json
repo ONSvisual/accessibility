@@ -1,0 +1,80 @@
+{
+    "essential" : {
+
+            "dataURL": "data.csv",
+
+            "period": "year",
+
+            "dateFormat": ["%b-%y"],
+
+            "dateMxMn": ["Dec-81"],
+
+            "dateStart": ["Dec-81"],
+
+            "dateCutOff": ["Mar-08"],
+
+            "dateBegin": ["Dec-18"],
+
+            "clampStart": ["Mar-09"],
+
+            "clampEnd": ["Dec-19"],
+
+            "domMax": 20,
+            "domMin": 0,
+
+            "legendLabels" : [ ],
+
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+
+            "annotationChart": ["Hold and Drag", "Drag", "", ""],
+
+            "annotationBullet": [ ],
+
+            "annotationXY":[
+				["Mar-08", 3.000],
+				["Mar-05", 2.400],
+				["Mar-85", 10.500]
+			],
+
+            "annotationAlign":["start"],
+
+            "circles" : false,
+            "annotationCXCY":[ ],
+
+            "xAxisLabel":[],
+
+            "yAxisLabel": "Number of incidents (millions)",
+            "yAxisScaleDivisor": 1,
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65],
+
+             "feedback": ["Excellent! Your guess of ",
+                          " for the latest year is not far off.",
+                          "Your guess of ",
+                          " for the latest year is too high. ",
+                          " for the latest year is too low. ",
+                          "Didn't fancy a guess then. Try the next one.",
+						  "Spot on! "
+						  ],
+
+			"appendText": ["<p>The number of crimes recorded by the police has risen each year for the past four years to 5.8 million (including fraud) and 5.2 million (excluding fraud) in the year ending December 2018. This is mostly because police forces have improved their recording practices, and more victims have come forward to report crimes.</p><p>The Crime Survey for England and Wales (CSEW) provides a consistent measure of crime and includes crimes not reported to the police. Over the same period it has shown a decrease in the overall level of crime, down to 6.4 million incidents in the year ending December 2018.</p>"]
+
+    },
+    "optional" : {
+            "margin_sm": [40, 6, 10, 40],
+            "margin_md": [40, 10, 10, 40],
+            "margin_lg": [40, 10, 10, 40],
+
+            "aspectRatio_sm" : [16,16],
+            "aspectRatio_md" : [16,18],
+            "aspectRatio_lg" : [14,16],
+
+            "mobileBreakpoint" : [410,600],
+            "xAxisTextFormat_sm_md_lg" :["%y", "%Y", "%Y"],
+            "x_num_ticks_sm_md_lg" : [4,7,10],
+            "y_num_ticks_sm_md_lg" : [6,6,6],
+            "centre_line" : false,
+            "centre_line_value" :0
+    }
+}
