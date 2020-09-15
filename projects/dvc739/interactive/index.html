@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})
+  (window,document,'script','dataLayer','GTM-MBCBVQS');
+  </script>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="lib/style.css" />
+
+  <title>Document</title>
+</head>
+<body>
+  <noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  <div style="max-width:400px;">
+
+
+
+  <div>
+    <h1 id="title">Explore the changing pub and bar trade in your area</h1>
+  </div>
+
+  <div id='selectNav'>
+    <span id="postcodetext">Enter your postcode</span>
+  </div>
+      <form id="pcForm">
+        <div id="input-container">
+          <input id="pcText" class="picaarticle" type="text" tabindex="1" placeholder="e.g. NP10 8XG">
+        </div>
+        <div id="submit-container">
+            <button class="btnEnable" id="submitPost" type="submit"><img src="img/search.png" id="button-pic" alt=""></button>
+        </div>
+      </form>
+
+  <div id="place-holder">
+    <img src="img/bar.svg" alt="">
+  </div>
+
+  <div id="container">
+    <div id="results">
+      <p id="sentence">In your local authority, <span class="area-name data-view"></span>, there are around <span id=pubs-person class="data-view"></span> pubs per 10,000 people.
+        <span id="sentence-difference">This is <span id="higher-lower"></span> than the UK average of <span id="difference-average" class="data-view"></span> pubs.</span>
+        <span id="sentence-around">This is similar to the UK average.</span></p>
+      </p>
+      <p id="chart1-sentence">
+        <span id="pub-normal">There are now around <span id="num-pubs" class="data-view num-pubs"></span> <span id="more-less"></span> pubs in <span class="area-name data-view"></span> than in 2001.</span>
+        <span id="pub-same">There are around the same number of pubs in <span class="area-name data-view"></span> as there were in 2001.</span>
+      </p>
+      <div id="chart1"></div>
+      <p id="chart2-sentence">
+        <span id="job-normal">In <span class="area-name data-view"></span> there are around <span id='num-jobs' class="data-view"></span> jobs in pubs and bars. This is <span id="change-jobs" class="data-view"></span> <span id="hilo-jobs"></span> than in 2001.</span>
+        <span id="job-same">There are around the same number of jobs in <span class="area-name data-view"></span> as there were in 2001.</span>
+      </p>
+      <div id="chart2"></div>
+    </div>
+  </div>
+  <div id="keydiv">
+
+  </div>
+    </div>
+
+<script src="https://cdn.ons.gov.uk/vendor/d3/4.2.7/d3.min.js" type="text/javascript"></script>
+<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" type="text/javascript"></script>
+<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+<script src="lib/modernizr.svg.min.js" type="text/javascript"></script>
+<script src="lib/script3.js"></script>
+
+
+
+
+</body>
+</html>

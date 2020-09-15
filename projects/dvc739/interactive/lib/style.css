@@ -1,0 +1,145 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+body {
+  font-family: 'Open Sans';
+	width: 1px;
+	min-width: 100%;
+	*width: 100%;
+  /* max-width: 400px; */
+  color: #4d4d4d;
+}
+
+#title {
+  font-size: 24px;
+}
+
+#selectNav {
+  /* position:absolute; */
+  top:0px;
+  left:0px;
+  /* width:100%; */
+  /* height:40px; */
+  background-color:rgba(255,255,255,0.8);
+  z-index:1;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+#postcodetext {
+  margin:15px 0px;
+  font-weight:bold;
+  color:#0075A3;
+}
+
+#pcForm {
+  margin-top: 10px;
+  height: 40px
+}
+
+#input-container {
+  display:inline;
+  float:left;
+	width: 100%;
+  max-width:calc(100% - 40px)
+}
+
+#submit-container {
+  display:inline;
+  float:right;
+}
+
+#pcText {
+			width: 100%;
+			height:40px;
+			/* padding: 3px; */
+      /* padding-bottom: 10px; */
+			color: #999999;
+      font-size: 16px;
+      box-sizing: border-box;
+      border:1px solid #f93;
+}
+
+#pcText:focus{
+  border:1px solid #36add9
+}
+
+#button-pic {
+  height: 30px;
+}
+
+.btnEnable {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    border: none;
+    padding: 0px 0!important;
+    background-color: #0075A3;
+    font: 700 16px Arial;
+    color: #FFF;
+    filter: inherit;
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+#place-holder img {
+  margin-top: 5px;
+  width: 100%;
+}
+
+.data-view {
+  font-weight: bold;
+  color: #0075a3;
+}
+
+#sentence {
+	margin-bottom: 15px;
+	font-size: 16px;
+}
+
+#chart1-sentence {
+	margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+#chart2-sentence {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.share {
+
+	margin-top:8px;
+	margin-right:20px;
+	margin-bottom:8px;
+	padding: 10px;
+	font-weight: bold;
+	text-align:center;
+	font-size: 16px;
+	color:#246193;
+	background-color:#DEE7EF;
+}
+
+#keydiv {
+	width:100%;
+	background-color:rgba(255,255,255,0.8);
+}
