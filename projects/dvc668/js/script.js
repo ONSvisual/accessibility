@@ -509,6 +509,8 @@ if (Modernizr.webgl) {
       } //end of create text loop
 
 
+      d3.select("div#info").select('p').text("In "+areaById[code]+", the "+dvc.textChartTitle + " is " + dataById[code][columnNames[0]] + " "+ dvc.labelNames[0]);
+
     }
 
     function hideaxisVal() {
@@ -670,6 +672,7 @@ if (Modernizr.webgl) {
 
         g2.append("text")
           .attr("id", "currVal" + i)
+          .attr("class","currVal")
           .attr("x", x[columnNames[i]](10))
           .attr("y", function () {
             if(columnNames[i] === dvc.columnMap) {
