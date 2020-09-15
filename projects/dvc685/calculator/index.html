@@ -52,6 +52,13 @@
 		.btn:focus, .btn:hover {
 			border-color:white!important;
 		}
+        .btn:focus,
+        .btn active,
+        .btn:hover {
+          outline: none !important;
+          box-shadow: 0px 0px 0 3px #FFA23A;
+          outline-offset: 0px;
+        }
 		.franksbutton {
 			border-radius:0px !important;
 			border-color:white!important;
@@ -188,6 +195,12 @@
 			margin-top:0px!important;
 		}
 
+        .form-control:focus {
+            outline: none !important;
+            box-shadow: 0px 0px 0 3px #FFA23A;
+            outline-offset: 0px;
+        }
+
 		.input-group, .form-control {
 			height:45px!important;
 			width:100px!important;
@@ -213,6 +226,12 @@
 			background-color:#2D6976;
 			color:white;
 		}
+        #Option3 {
+            border-right: 2px solid white;
+        }
+        #Option4 {
+            border-left: 2px solid white;
+        }
 		.franksButton {
 			background-color:#1F4851!important;
 		}
@@ -266,7 +285,7 @@
 <!-- Title and Instruction -->
 
 <div style="padding-left:3px; padding-right:0px;">
-<p class="TitleWords">Context Calculator</p>
+<h4 class="TitleWords">Context Calculator</h4>
 <p>This handy calculator is here to help you make meaning of the many large numbers used in the EU debate, particularly the figures on the UK's net contribution to the EU.</p>
 <p>Click on either of the two buttons - or just type in a figure - and it will break it down for you.</p>
 </div>
