@@ -125,32 +125,74 @@ if(Modernizr.webgl) {
 
 		function buildNav() {
 
-		formgroup = d3.select('#nav')
-					.append('form')
-					.attr('class','btn-form-fullwidth')
-					.attr('role','radiogroup')
-					.selectAll('div')
-					.data(dvc.varlabels)
-					.enter()
-					.append('div')
-					.attr("class",'form-group-fullwidth')
-					.attr("role","radio")
-					.attr("tabindex", function(d,i){return i+1})
+			fieldset=d3.select('#nav').append('fieldset');
 
-		formgroup.append('input')
-			.attr("id",function(d,i){return "button" + i})
-			.attr('class','radio-primary-fullwidth')
-			.attr("type","radio")
-			.attr("name","button")
-			.attr("value",function(d,i){return i})
-			.attr("aria-checked", function(d,i){if(i == dvc.varload){return true}})
-			.property("checked", function(d, i) {return i===dvc.varload;})
+			fieldset
+			.append('legend')
+			.attr('class','visuallyhidden')
+			.html('Choose a variable');
 
-		formgroup.append('label')
-			.attr('class','label-primary-fullwidth')
-			.attr("for",function(d,i){return "button" + i})
-			.text(function(d,i){return dvc.varlabels[i]})
-			.on('click',function(d,i){onchange(i)})
+			fieldset
+			.append("div")
+			.attr('class','visuallyhidden')
+			.attr('aria-live','polite')
+			.append('span')
+			.attr('id','selected');
+
+			grid=fieldset.append('div')
+			.attr('class','grid grid--full large-grid--fit');
+
+			cell=grid.selectAll('div')
+			.data(dvc.varlabels)
+			.enter()
+			.append('div')
+			.attr('class','grid-cell');
+
+			cell.append('input')
+			.attr('type','radio')
+			.attr('class','visuallyhidden')
+			.attr('id',function(d,i){return 'button'+i;})
+			.attr('value',function(d,i){return i;})
+			.attr('name','button');
+
+			cell.append('label')
+			.attr('for',function(d,i){return 'button'+i;})
+			.html(function(d){return d;});
+
+			d3.selectAll('input[type="radio"]').on('change', function(d) {
+				onchange(document.querySelector('input[name="button"]:checked').value);
+				d3.select('#selected').text(dvc.varlabels[document.querySelector('input[name="button"]:checked').value] + " is selected");
+			});
+
+			d3.select('#button'+dvc.varload).property('checked',true);
+			d3.select('#selected').text(dvc.varlabels[document.querySelector('input[name="button"]:checked').value] + " is selected");
+
+		// formgroup = d3.select('#nav')
+		// 			.append('form')
+		// 			.attr('class','btn-form-fullwidth')
+		// 			.attr('role','radiogroup')
+		// 			.selectAll('div')
+		// 			.data(dvc.varlabels)
+		// 			.enter()
+		// 			.append('div')
+		// 			.attr("class",'form-group-fullwidth')
+		// 			.attr("role","radio")
+		// 			.attr("tabindex", function(d,i){return 0})
+		//
+		// formgroup.append('input')
+		// 	.attr("id",function(d,i){return "button" + i})
+		// 	.attr('class','radio-primary-fullwidth')
+		// 	.attr("type","radio")
+		// 	.attr("name","button")
+		// 	.attr("value",function(d,i){return i})
+		// 	.attr("aria-checked", function(d,i){if(i == dvc.varload){return "true"}})
+		// 	.property("checked", function(d, i) {return i===dvc.varload;})
+		//
+		// formgroup.append('label')
+		// 	.attr('class','label-primary-fullwidth')
+		// 	.attr("for",function(d,i){return "button" + i})
+		// 	.text(function(d,i){return dvc.varlabels[i]})
+		// 	.on('click',function(d,i){onchange(i)})
 
 
 		selectgroup = d3.select('#selectnav')
@@ -158,7 +200,7 @@ if(Modernizr.webgl) {
 						.attr('class','dropdown')
 						.on('change', onselect)
 						.selectAll("option")
-						.data(dvc.varlabels)
+						.data(dvc.varlabels[a])
 						.enter()
 						.append('option')
 						.attr("value", function(d,i){return i})
@@ -177,15 +219,15 @@ if(Modernizr.webgl) {
 
 
 			//Flatten data values and work out breaks
-			if(config.ons.breaks =="jenks" || config.ons.breaks =="equal") {
+			if(config.ons.breaks[a] === "jenks" || config.ons.breaks[a] === "equal") {
 				var values =  data.map(function(d) { return +d[variables[a]]; }).filter(function(d) {return !isNaN(d)}).sort(d3.ascending);
 			};
 
-			if(config.ons.breaks =="jenks") {
+			if(config.ons.breaks[a] === "jenks") {
 				breaks = [];
 
-				ss.ckmeans(values, (dvc.numberBreaks)).map(function(cluster,i) {
-					if(i<dvc.numberBreaks-1) {
+				ss.ckmeans(values, (dvc.numberBreaks[a])).map(function(cluster,i) {
+					if(i<dvc.numberBreaks[a]-1) {
 						breaks.push(cluster[0]);
 					} else {
 						breaks.push(cluster[0])
@@ -194,8 +236,8 @@ if(Modernizr.webgl) {
 					}
 				});
 			}
-			else if (config.ons.breaks == "equal") {
-				breaks = ss.equalIntervalBreaks(values, dvc.numberBreaks);
+			else if (config.ons.breaks[a] === "equal") {
+				breaks = ss.equalIntervalBreaks(values, dvc.numberBreaks[a]);
 			}
 			else {breaks = config.ons.breaks[a];};
 
@@ -206,17 +248,20 @@ if(Modernizr.webgl) {
 			});
 
 			//work out halfway point (for no data position)
-			midpoint = breaks[0] + ((breaks[dvc.numberBreaks] - breaks[0])/2)
+			midpoint = breaks[0] + ((breaks[dvc.numberBreaks[a]] - breaks[0])/2)
 
 		}
 
 		function setupScales() {
 			//set up d3 color scales
 			//Load colours
-			if(typeof dvc.varcolour === 'string') {
-				colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
+			if(typeof dvc.varcolour[a] === 'string') {
+				color=chroma.scale(dvc.varcolour[a]).colors(dvc.numberBreaks[a])
+				colour=[]
+				color.forEach(function(d){colour.push(chroma(d).darken(0.4).saturate(0.6).hex())})
+				// colour = colorbrewer[dvc.varcolour[a]][dvc.numberBreaks];
 			} else {
-				colour = dvc.varcolour;
+				colour = dvc.varcolour[a];
 			}
 
 			//set up d3 color scales
@@ -242,7 +287,7 @@ if(Modernizr.webgl) {
 							property: 'fill'
 					   },
 					  'fill-opacity': 0.7,
-					  'fill-outline-color': '#ccc'
+					  'fill-outline-color': '#fff'
 				  }
 			  }, 'place_city');
 
@@ -366,18 +411,16 @@ if(Modernizr.webgl) {
 				setAxisVal($("#areaselect").val());
 			}
 			updateLayers();
+
 			dataLayer.push({
-				'event': 'navSelect',
-				'selected': i
-			})
-
-
+          'event': 'navSelect',
+          'selected': i
+      })
 		}
 
 		function onselect() {
 			a = $(".dropdown").val();
 			onchange(a);
-
 		}
 
 
@@ -391,13 +434,13 @@ if(Modernizr.webgl) {
 
 
 				if(firsthover) {
-					dataLayer.push({
-						'event': 'mapHoverSelect',
-						'selected': newAREACD
-					})
+            dataLayer.push({
+                'event': 'mapHoverSelect',
+                'selected': newAREACD
+            })
 
-					firsthover = false;
-				}
+            firsthover = false;
+        }
 
 
 				if(newAREACD != oldAREACD) {
@@ -415,8 +458,7 @@ if(Modernizr.webgl) {
 				map.getCanvasContainer().style.cursor = null;
 				map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
 				oldAREACD = "";
-				$("#areaselect").val(null).trigger('change.select2');
-
+				$("#areaselect").val(null).trigger('chosen:updated');
 				hideaxisVal();
 		};
 
@@ -431,13 +473,12 @@ if(Modernizr.webgl) {
 					selectArea(e.features[0].properties.AREACD);
 					setAxisVal(e.features[0].properties.AREACD);
 				}
+
 				dataLayer.push({
-					'event':'mapClickSelect',
-					'selected': newAREACD
-				})
-
+            'event':'mapClickSelect',
+            'selected': newAREACD
+        })
 		};
-
 
 		function disableMouseEvents() {
 				map.off("mousemove", "area", onMove);
@@ -455,15 +496,16 @@ if(Modernizr.webgl) {
 		}
 
 		function selectArea(code) {
-			$("#areaselect").val(code).trigger('change.select2');
+			$("#areaselect").val(code).trigger('chosen:updated');
+			d3.select('abbr').on('keypress',function(evt){
+				if(d3.event.keyCode==13 || d3.event.keyCode==32){
+					d3.event.preventDefault();
+					onLeave();
+					resetZoom();
+				}
+			})
 		}
 
-		$('#areaselect').on('select2:unselect', function () {
-			dataLayer.push({
-				'event': 'deselectCross',
-				'selected': 'deselect'
-			})
-		});
 
 		function zoomToArea(code) {
 
@@ -485,6 +527,16 @@ if(Modernizr.webgl) {
 
 
 		function setAxisVal(code) {
+			d3.select('#accessibilityInfo').select('p.visuallyhidden')
+			.text(function(){
+				if (!isNaN(rateById[code])) {
+					return areaById[code]+": "+ displayformat(rateById[code]) +" "+ dvc.varunit[a];
+				} else {
+					return "Data unavailable";
+				}
+			});
+
+
 			d3.select("#currLine")
 				.style("opacity", function(){if(!isNaN(rateById[code])) {return 1} else{return 0}})
 				.transition()
@@ -519,8 +571,9 @@ if(Modernizr.webgl) {
 			var svgkey = d3.select("#keydiv")
 				.append("svg")
 				.attr("id", "key")
+				.attr('aria-hidden',true)
 				.attr("width", keywidth)
-				.attr("height",65);
+				.attr("height",75);
 
 
 			var color = d3.scaleThreshold()
@@ -529,7 +582,7 @@ if(Modernizr.webgl) {
 
 			// Set up scales for legend
 			x = d3.scaleLinear()
-				.domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+				.domain([breaks[0], breaks[dvc.numberBreaks[a]]]) /*range for data*/
 				.range([0,keywidth-30]); /*range for pixels*/
 
 
@@ -539,7 +592,7 @@ if(Modernizr.webgl) {
 				.tickFormat(legendformat);
 
 			var g2 = svgkey.append("g").attr("id","horiz")
-				.attr("transform", "translate(15,30)");
+				.attr("transform", "translate(15,35)");
 
 
 			keyhor = d3.select("#horiz");
@@ -580,8 +633,6 @@ if(Modernizr.webgl) {
 				.attr("fill","#000")
 				.text("");
 
-
-
 			keyhor.selectAll("rect")
 				.data(color.range().map(function(d, i) {
 				  return {
@@ -615,10 +666,9 @@ if(Modernizr.webgl) {
 						if(i % 2){return "translate(0,10)"} }
 				);
 			}
-			//Temporary	hardcode unit text
-			dvc.unittext = "change in life expectancy";
 
-			d3.select("#keydiv").append("p").attr("id","keyunit").style("margin-top","-10px").style("margin-left","10px").text(dvc.varunit[a]);
+			//label the units
+			d3.select("#keydiv").append("p").attr("id","keyunit").attr('aria-hidden',true).style("margin-top","-10px").style("margin-left","10px").style('font-size','14px').text(dvc.varunit[a]);
 
 	} // Ends create key
 
@@ -665,10 +715,9 @@ if(Modernizr.webgl) {
 
 	function geolocate() {
 		dataLayer.push({
-				'event': 'geoLocate',
-				'selected': 'geolocate'
+								'event': 'geoLocate',
+								'selected': 'geolocate'
 		})
-
 
 		var options = {
 		  enableHighAccuracy: true,
@@ -706,13 +755,10 @@ if(Modernizr.webgl) {
 			var areanames =  datacsv.map(function(d) { return d.AREANM; });
 			var menuarea = d3.zip(areanames,areacodes).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
 
-			// menuarea.shift();
-			// menuarea.shift();
-
 			// Build option menu for occupations
 			var optns = d3.select("#selectNav").append("div").attr("id","sel").append("select")
 				.attr("id","areaselect")
-				.attr("style","width:98%")
+				.attr("style","width:calc(100% - 6px)")
 				.attr("class","chosen-select");
 
 			optns.append("option")
@@ -726,17 +772,14 @@ if(Modernizr.webgl) {
 
 			myId=null;
 
-			 $('#areaselect').select2({placeholder:"Select an area",allowClear:true,dropdownParent:$('#sel')})
+			 $('#areaselect').chosen({placeholder_text_single:"Select an area",allow_single_deselect:true})
 
-			 $('#areaselect').on('input',function(){console.log("click")})
+			 d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+	     d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
 
 			$('#areaselect').on('change',function(){
 
 					if($('#areaselect').val() != "") {
-					//if(typeof params != 'undefined') {
-
-							//d3.select("#map").node().focus();
-
 							areacode = $('#areaselect').val()
 
 							disableMouseEvents();
@@ -748,26 +791,24 @@ if(Modernizr.webgl) {
 							zoomToArea(areacode);
 
 							dataLayer.push({
-								'event': 'mapDropSelect',
-								'selected': areacode
-							})
-
-
-
+                  'event': 'mapDropSelect',
+                  'selected': areacode
+              })
 					}
 					else {
+							dataLayer.push({
+									'event': 'deselectCross',
+									'selected': 'deselect'
+							})
+
 							enableMouseEvents();
 							hideaxisVal();
 							onLeave();
 							resetZoom();
-
 					}
-
 			});
-
-	};
-
-	}
+	};//end selectlist
+}//end ready
 
 } else {
 
