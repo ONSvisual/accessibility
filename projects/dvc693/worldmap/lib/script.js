@@ -33,7 +33,8 @@ function ready (error, dataexports, dataimports, geog){
 
   var svg = d3.select("#mapDiv")
               .append("svg")
-			  .attr("id","svgMap")
+              .attr('aria-hidden','true')
+	            .attr("id","svgMap")
               .attr("width", width-20)
               .attr("height", height)
               .append('g')
@@ -457,6 +458,15 @@ function highlightcountry(countrycode) {
     //Update dropdown
     $("#areaselect").val(countrycode).trigger('chosen:updated');
 
+    // add keybindings to cross
+    d3.select('abbr').on('keypress',function(evt){
+      if(d3.event.keyCode==13 || d3.event.keyCode==32){
+        d3.event.preventDefault();
+        onLeave();
+        resetZoom();
+      }
+    })
+
     //Draw barcode highlight rects on top of all bars
     if(mobile == false) {
 
@@ -582,10 +592,10 @@ function createBarcode(){
 
     barcodeLabels = d3.select("#barcode")
         .append("div")
-		.attr("id","barcodelabels")
-		.attr("class","hidden-xs")
-		.html("<span style='font-weight:bold'>Trade in goods</span> "+dvcyear)
-		.append("div")
+    		.attr("id","barcodelabels")
+    		.attr("class","hidden-xs")
+    		.html("<span style='font-weight:bold'>Trade in goods</span> "+dvcyear)
+    		.append("div")
         .style("padding-left",barcodemarginDT[3] + "px")
         .style("padding-right",barcodemarginDT[1] + "px")
         .style("width","calc(100%-" + barcodemarginDT[3]+ " - " + barcodemarginDT[1] + ")" )
@@ -608,6 +618,7 @@ function createBarcode(){
 		.range([barcodeHeight-barcodemarginDT[0]-barcodemarginDT[2],0]);
 
 	barcodePlot = d3.select("#barcode").append("svg")
+    .attr('aria-hidden','true')
 		.attr("id","barcodeplot")
 		.attr("width",barcodeWidth)
 		.attr("height",barcodeHeight);
@@ -705,6 +716,7 @@ function createBarcode(){
 			.range([0,barcodeWidth-barcodemarginMB[1]-barcodemarginMB[3]]);
 
 		barcodePlot = d3.select("#barcode").append("svg")
+      .attr('aria-hidden','true')
 			.attr("id","barcodeplot")
 			.attr("width",barcodeWidth)
 			.attr("height",barcodeHeight);
@@ -871,6 +883,9 @@ function selectList() {
 
  	$('#areaselect').chosen({allow_single_deselect:true,no_results_text:"No results found for:",width:"67%"})
 
+  d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+    d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select a country as a trading partner with the UK")
+
 	$('#areaselect').on('change',function(){
 
 			if($('#areaselect').val() != "") {
@@ -969,6 +984,7 @@ xAxis = d3.axisBottom(x)
 	.ticks(4);
 
 	svgBarI = d3.select('#imports').append('svg')
+        .attr('aria-hidden','true')
         .attr("id","importsChart")
         .attr("width", chartWidth )
         .attr("height", (height/2)+ margin.top + margin.bottom)
@@ -1001,6 +1017,7 @@ xAxis = d3.axisBottom(x)
           .attr("x", function(d){return x(0)})
 	//Exports Bars
 	svgBarE = d3.select('#exports').append('svg')
+        .attr('aria-hidden','true')
         .attr("id","exportsChart")
         .attr("width", chartWidth )
         .attr("height", (height/2)+ margin.top + margin.bottom)
@@ -1069,6 +1086,8 @@ lineE = d3.line()
 
 svgSparkI = d3.select("#sparklineI")
               .append('svg')
+              .attr('aria-hidden','true')
+
               .attr("id","sparkchartI")
               //.style("background-color","#fff")
 							.attr("width", chartWidth/3)
@@ -1147,6 +1166,7 @@ svgSparkI.append('g').attr("id","sparkyI").selectAll('path')
 
 svgSparkE = d3.select("#sparklineE")
               .append('svg')
+              .attr('aria-hidden','true')
               .attr("id","sparkchartE")
               //.style("background-color","#fff")
 							.attr("width", chartWidth/3)
