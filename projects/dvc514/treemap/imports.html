@@ -725,7 +725,8 @@
           });
 
 
-        $('#areaselect').select2({placeholder: "Total",/*allowClear:true,*/dropdownParent: $('#sel')})
+        $('#areaselect').select2({placeholder: "Total",/*allowClear:true,*/dropdownParent: $('#sel')});
+        $('.select2-selection__rendered').attr('aria-label', 'Filters for the chart below, the results of the filters are not currently accessible by screen readers')
 
         //$('#areaselect').on('input',function(){console.log("click")})
 
