@@ -1,0 +1,20 @@
+{"ons":{
+"maptitle": "Time series map about life expectancy",
+"varcolour": "YlGnBu",
+"varlabels": ["Female","Male"],
+"timeload": "last",
+"timepoints": ["2014","2015","2016","2017"],
+"varunit": [],
+"displaydecimals": 1,
+"legenddecimals": 0,
+"breaks": "jenks",
+"dropticks": false,
+"numberBreaks": 5,
+"sourcetext": "Office for National Statistics",
+"sourceURL" : "https://www.ons.gov.uk",
+"chartLabels": ["1", "2", "3", "4"],
+"timelineLabelsMB":["01", "02", "03", "04"],
+"timelineLabelsDT":["2001","2002","2003","2004"],
+"average": [["2", "3","1","1"],["2", "3","1","1"]]
+
+}}
