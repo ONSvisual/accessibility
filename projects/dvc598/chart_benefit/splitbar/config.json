@@ -1,0 +1,20 @@
+{
+    "essential" : {
+
+            "colour_palette": [ "#3e76ad" , "#339a59", "#e2bc22", "#601552" ],
+      		"sourceText":["NHS Digital"],
+            "sourceURL":["https://www.gov.uk/government/publications/adult-education-survey-2016"],
+
+            "xAxisLabel":"%",
+            "xAxisScale":[0,50],
+            "barHeight_sm_md_lg" : [30,30,30]
+
+    },
+    "optional" : {
+            "margin_sm": [8, 0, 25, 75],
+            "margin_md": [8, 0, 25, 75],
+
+            "mobileBreakpoint" : 610
+
+    }
+}
