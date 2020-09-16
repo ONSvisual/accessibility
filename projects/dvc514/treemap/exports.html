@@ -28,6 +28,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="css/styles.css" media="screen">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+    <link href="https://onsvisual.github.io/pattern-library/dist/fontawesome/css/all.css" rel="stylesheet">
 
     <style>
       body {
@@ -75,10 +76,6 @@
       .grandparent line {
         stroke: #606060;
         stroke-width: 1px;
-      }
-
-      .btn {
-        font-size: 15px
       }
 
       .children rect.parent,
@@ -183,20 +180,63 @@
         margin: 0px 0px 5px -5px;
       }
 
-      .btn-ons {
-        color: #4a494b;
-        background-color: #ededed;
+      .btn {
+        position: relative;
+        padding: 10px 15px;
+        margin: 0 0 20px;
+        line-height: normal;
+        color: #fff;
+        font-size: 1.3em !important;
+        border-radius: 0px;
+        display: inline-block;
+        text-rendering: optimizeLegibility;
+        transition: background-color .2s ease-in, color .2s ease-in;
+
+        font-family: "Open Sans",Helvetica,Arial,sans-serif;
+        font-weight: 400;
+        width: auto;
+        cursor: pointer;
+        border: 0 none;
+        text-align: center;
+        text-decoration: none;
+
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+        user-select: none;
+        background-image: none;
+      }
+      .btn:hover {
+        color: #ffffff;
+      }
+      .btn:focus {
+        outline: none;
+        box-shadow: 0px 0px 0 3px #FFA23A;
+        color: white;
+        outline-offset: 0px;
+      }
+      .btn:hover, .btn:focus {
+        text-decoration: none;
       }
 
-      .btn-ons:hover,
-      .btn-ons:focus,
-      .btn-ons.focus,
-      .btn-ons:active,
-      .btn-ons.active,
-      .open > .dropdown-toggle.btn-ons {
-        color: #6f6f6f;
-        background-color: #E7E7E7;
-        border-color: #D3D3D3;
+      .btn--primary {
+        background-color: #206095 !important;
+      }
+      .btn--primary:hover {
+        background-color: #174c78 !important;
+      }
+      .btn--up::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f3bf";
+        margin-right: 10px;
+      }
+
+      .btn--top::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f139";
+        margin-right: 10px;
       }
 
       hr {
@@ -517,6 +557,17 @@
         line-height: 35px !important;
       }
       /*  SELECT DROPBOX END */
+
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
     </style>
   </head>
 
@@ -530,20 +581,20 @@
 
     <div class="container-fluid">
       <div id="main-wrapper">
-
         <div id="mainContent" style="display:none">
+          <p id="chartDescription" class="visuallyhidden"></p>
 
-          <div id="blurb" class="row">
+          <p id="blurb" class="row">
             <text id="txt2"></text>
             <text id="txt3"></text>
-          </div>
+          </p>
           <div class="row">
-            <!--					<button type="button" id="upBtn" class="nav btn btn-ons ">
-                        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Up a level
-                      </button>
+            <!--	<button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up" style="visibility:hidden">
+                    Up a level
+                  </button>
             -->
-            <button type="button" id="topBtn" class="nav btn btn-ons ">
-              <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top
+            <button type="button" id="topBtn" class="btn btn-group__btn btn--primary btn--green btn--top" style="visibility:hidden">
+              Back to top
             </button>
             <div id="selectNav">
 
@@ -572,6 +623,7 @@
 
 
         </div>
+
         <div id="ieMsg" style="display:none">
           <div id="suptext">
             <h1>Browser requirements</h1>
@@ -1518,8 +1570,12 @@
         layout(root);
         display(root);
 
-        d3.select("#blurb").select("#txt2").html("Goods exports 2017: ")
-        d3.select("#blurb").select("#txt3").html("£" + formatNumber(dataset.size) + " million");
+        var heading = "Goods exports 2017: ";
+        var value = "£" + formatNumber(dataset.size) + " million";
+        var label = `A chart displaying value of goods exported in 2017 (${value}) broken down by industry.`;
+        $('#chartDescription').html(label);
+        d3.select("#blurb").select("#txt2").html(heading);
+        d3.select("#blurb").select("#txt3").html(value);
         d3.json("config.json", function (error, config) {
           dvc = config
           d3.csv("trade_exports.csv", function (data) {
@@ -1531,8 +1587,6 @@
           }) // end trade csv
         }) //end json config
       }); //end treemap csv load
-
-
     }
 
     function initialize(root) {
@@ -1659,7 +1713,6 @@
         .call(resize)
         .call(text);
 
-
       function transition(d) {
         if (d3.select(this).attr("id") != "gparent") {
           selectedArray2.push(d3.select(this).select('.parent').attr("id"))
@@ -1673,6 +1726,14 @@
           window.location.hash = encodeURI(selectedView)
         }
 
+        if (selectedArray2.length == 0) {
+          d3.select("#topBtn").style("visibility", "hidden");
+          d3.select("#upBtn").style("visibility", "hidden");
+
+        } else {
+          d3.select("#topBtn").style("visibility", "visible");
+          d3.select("#upBtn").style("visibility", "visible");
+        }
 
         if (transitioning || !d) return;
         transitioning = true;
