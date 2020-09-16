@@ -288,6 +288,17 @@
           text-align: left;
         }
       }
+
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
     </style>
   </head>
 
@@ -300,10 +311,12 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="main-wrapper">
       <div id="mainContent">
-        <div id="blurb">
+        <p id="chartDescription" class="visuallyhidden"></p>
+
+        <p id="blurb">
           <text id="txt2"></text>
           <text id="txt3"></text>
-        </div>
+        </p>
 
         <div class="btnDiv ">
           <button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up" style="visibility:hidden">
@@ -463,8 +476,8 @@
           var heading = dvc.essential.totalLabel;
           var value = dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix;
           var label = `A chart displaying total household spending (${value}) broken down by type of cost.`;
-          $('#main-wrapper').attr('aria-label', label);
-          d3.select("#blurb").select("#txt2").html(dvc.essential.totalLabel)
+          $('#chartDescription').html(label);
+          d3.select("#blurb").select("#txt2").html(heading);
           d3.select("#blurb").select("#txt3").html(function () {
             if (treedata[0].percent == "null") {
               return dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix
