@@ -490,6 +490,16 @@
         clip: rect(0 0 0 0);
         white-space: nowrap;
       }
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
     </style>
   </head>
 
@@ -505,11 +515,12 @@
     <div class="container-fluid">
       <div id="main-wrapper">
         <div id="mainContent" style="display:none">
+        <p id="chartDescription" class="visuallyhidden"></p>
 
-          <div id="blurb" class="row">
+          <p id="blurb" class="row">
             <text id="txt2"></text>
             <text id="txt3"></text>
-          </div>
+          </p>
           <div class="row">
             <!--  <button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up" style="visibility:hidden">
                 Up a level
@@ -1511,7 +1522,7 @@
           var heading = "Goods exports 2018: ";
           var value = "£"+formatNumber(dataset.size)+" million";
           var label = `A chart displaying goods exported (${value}) broken down by type of goods and country of origin.`;
-          $('#main-wrapper').attr('aria-label', label);
+          $('#chartDescription').html(label);
           d3.select("#blurb").select("#txt2").html(heading);
           d3.select("#blurb").select("#txt3").html(value);
 
