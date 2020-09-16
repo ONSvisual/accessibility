@@ -26,6 +26,7 @@ if (Modernizr.webgl) {
     chartDrawn = false;
     thisdata = data;
     overallwidth = d3.select("body").node().getBoundingClientRect().width;
+    navvalue = 0;
 
     if (overallwidth < 600) {
       mobile = true;
@@ -565,11 +566,13 @@ if (Modernizr.webgl) {
         }
       }
       if (mobile == false) {
-        d3.select("#currPoint2")
-          .transition()
-          .duration(300)
-          .attr("cx", x(dvc.timepoints[a]))
-          .attr("cy", y(dvc.average[0][a]))
+        if (dvc.average[navvalue] != null) {
+          d3.select("#currPoint2")
+            .transition()
+            .duration(300)
+            .attr("cx", x(dvc.timepoints[a]))
+            .attr("cy", y(dvc.average[navvalue][a]))          
+        }
       }
     }
 
@@ -1075,14 +1078,10 @@ if (Modernizr.webgl) {
           .attr("fill", "#000")
           .text("");
 
-        if (typeof navvalue === 'undefined') {
-          var varNum = 0
-        } else {
-          var varNum = navvalue;
-        };
+        varNum = navvalue;
 
         // check there are average values
-        if (dvc.average[varNum] == null) {
+        if (dvc.average[varNum] != null) {
           linedata2 = d3.zip(dvc.timepoints, dvc.average[varNum]);
 
           line2 = d3.line()
