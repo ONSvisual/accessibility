@@ -512,7 +512,7 @@
       /*  SELECT DROPBOX END */
     </style>
   </head>
-  
+
   <body id="childt">
     <!-- Google Tag Manager (noscript) -->
     <noscript>
@@ -523,7 +523,6 @@
 
     <div class="container-fluid">
       <div id="main-wrapper">
-
         <div id="mainContent" style="display:none">
 
           <div id="blurb" class="row">
@@ -1484,7 +1483,6 @@
             //d.var2 = Number(d.var2);
           });
 
-
           var tree = DataStructures.Tree.createFromFlatTable(data),
             root = tree.toSimpleObject(function (objectToDecorate, originalNode) {
               objectToDecorate.size = originalNode.size;
@@ -1493,7 +1491,7 @@
               }
               return objectToDecorate;
             });
-    //console.log(JSON.stringify(root));
+          //console.log(JSON.stringify(root));
 
           dataset = root;
           initialize(root);
@@ -1501,8 +1499,12 @@
           layout(root);
           display(root);
 
-          d3.select("#blurb").select("#txt2").html("Goods imports 2017: ")
-          d3.select("#blurb").select("#txt3").html("£" + formatNumber(dataset.size) + " million");
+          var heading = "Goods imports 2017: ";
+          var value = "£" + formatNumber(dataset.size) + " million";
+          var label = `A chart displaying value of goods imported in 2017 (${value}) broken down by industry.`;
+          $('#main-wrapper').attr('aria-label', label);
+          d3.select("#blurb").select("#txt2").html(heading);
+          d3.select("#blurb").select("#txt3").html(value);
           d3.json("config.json", function (error, config) {
             dvc = config
             d3.csv("trade_imports.csv", function (data) {
@@ -1513,8 +1515,6 @@
             }) // end trade csv
           }) //end json config
         }); //end treemap csv load
-
-
       }
 
       function initialize(root) {
