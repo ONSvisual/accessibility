@@ -10,7 +10,7 @@
 
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <link rel="stylesheet" href="./lib/globalStyle.css" />
@@ -187,7 +187,8 @@
 
 
 .search-choice-close:focus {
-    outline: orange 2px solid;
+    outline: orange 3px solid;
+    box-shadow: 0 0 0 6px black;
 }
 
 .intro {
@@ -778,6 +779,7 @@ input{
               $("#occselect").val(listnames);
               $("#occselect").trigger("chosen:updated");
               $('#occselect').setSelectionOrder(listnames, 'true');
+              addCloseButtonDesc()
 
             }).on("mouseover",function(d,i){
 
@@ -801,6 +803,7 @@ input{
 						  $("#occselect").val(listplus);
 				      $("#occselect").trigger("chosen:updated");
 							$("#occselect").setSelectionOrder(listplus, true);
+              addCloseButtonDesc()
 
 //							setTimeout(function(){d3.selectAll(".search-choice")
 //										.style("background-color",function(d,i){return colours[i]})
@@ -827,6 +830,7 @@ input{
 							$("#occselect").val(listnames);
 				      $("#occselect").trigger("chosen:updated");
 							$("#occselect").setSelectionOrder(listnames, 'true');
+              addCloseButtonDesc();
 
 							listnames.forEach(function(d,i){
 									if(myDeselect === undefined){
@@ -959,6 +963,7 @@ input{
 				.attr("id","occselect")
 				.attr("style","width:98%")
 				.attr("multiple",true)
+        .attr("data-placeholder","Choose some names")
 				.attr("class","chosen-select");
 
 
@@ -1016,8 +1021,9 @@ input{
 											}
 										});
 
+                    addCloseButtonDesc();
 
-                    d3.selectAll(".search-choice-close").attr("aria-label", function(d,i) {return "remove selection - " + listnames[i]})
+
 
 										oldlistnames = listnames;
 
@@ -1034,6 +1040,11 @@ input{
 			});
 
 	};
+
+
+    function addCloseButtonDesc() {
+      d3.selectAll(".search-choice-close").append("span").attr("class","visuallyhidden").text(function(d,i) {return "remove " + listnames[i]})
+    }
 
 
     function hoverLine(myId,no,method){
@@ -1302,6 +1313,7 @@ input{
 			$("#occselect").val(listnames);
 			$("#occselect").trigger("chosen:updated");
 			$("#occselect").setSelectionOrder(listnames, 'true');
+      addCloseButtonDesc();
 		}
 
 	}
