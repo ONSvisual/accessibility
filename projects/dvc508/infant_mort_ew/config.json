@@ -1,0 +1,74 @@
+{
+    "essential" : {
+
+            "dataURL": "data.csv",
+
+            "period": "year",
+
+            "dateFormat": ["%Y"],
+
+            "dateMxMn": ["1948"],
+
+            "dateStart": ["1948"],
+
+            "dateCutOff": ["1967"],
+
+            "dateBegin": ["2016"],
+
+            "clampStart": ["1968"],
+
+            "clampEnd": ["2017"],
+
+            "domMax": 30000,
+            "domMin": 0,
+
+            "legendLabels" : [ ],
+
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+
+            "annotationChart": ["Hold and Drag", "Drag"],
+
+            "annotationBullet": [ ],
+
+            "annotationXY":[["1969", 13000], ["1967", 8900]],
+
+            "annotationAlign":["start"],
+
+            "circles" : false,
+            "annotationCXCY":[ ],
+
+            "xAxisLabel":[],
+
+            "yAxisLabel": "Number of infant deaths, England & Wales",
+            "yAxisScaleDivisor": 1,
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65],
+
+             "feedback": ["Excellent! Your guess of ",
+                          " is not far off the number for infant mortality in 2016, which was 2,711.",
+                          "Your guess of ",
+                          " is too high - infant mortality in 2016 was 2,711.",
+                          " is too low - in 2016 the number of infant deaths was 2,711.",
+                          "Didn't fancy a guess then. Try the next one."],
+
+			"appendText": ["Infant mortality has decreased in England and Wales since the early 1900s, but between 1948 and 2016, the number of deaths has plummeted, from 26,766 in 1948 to 2,711 in 2016. This can, in part, be explained by vaccination programmes against infections, such as measles and polio."]
+
+    },
+    "optional" : {
+            "margin_sm": [40, 6, 10, 76],
+            "margin_md": [40, 10, 10, 76],
+            "margin_lg": [40, 10, 10, 76],
+
+            "aspectRatio_sm" : [16,16],
+            "aspectRatio_md" : [16,18],
+            "aspectRatio_lg" : [14,16],
+
+            "mobileBreakpoint" : [410,600],
+            "xAxisTextFormat_sm_md_lg" :["%y", "%Y", "%Y"],
+            "x_num_ticks_sm_md_lg" : [4,7,10],
+            "y_num_ticks_sm_md_lg" : [6,6,6],
+            "centre_line" : false,
+            "centre_line_value" :0
+    }
+}

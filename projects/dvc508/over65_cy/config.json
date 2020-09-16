@@ -1,0 +1,76 @@
+{
+    "essential" : {
+
+            "dataURL": "over65.csv",
+
+            "period": "year",
+
+            "dateFormat": ["%Y"],
+
+            "dateMxMn": ["1948"],
+
+            "dateStart": ["1948"],
+
+            "dateCutOff": ["1970"],
+
+            "dateBegin": ["2016"],
+
+            "clampStart": ["1971"],
+
+            "clampEnd": ["2017"],
+
+            "domMax": 30,
+            "domMin": 0,
+
+            "legendLabels" : [ ],
+
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+
+            "annotationChart": ["Llusgwch", "Llusgwch"],
+
+            "annotationBullet": [ ],
+
+            "annotationXY":["1970", 14.5],
+
+            "annotationAlign":["start"],
+
+            "circles" : false,
+            "annotationCXCY":[ ],
+
+            "xAxisLabel":[],
+
+            "yAxisLabel": "Canran y boblogaeth 65 oed a hŷn, Prydain Fawr",
+            "yAxisScaleDivisor": 1,
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65],
+
+             "feedback": [
+                 "Ardderchog! Rydych wedi dyfalu ",
+                 "% Dydy hynny ddim yn bell ohoni ar gyfer cyfradd y bobl 65 oed a hŷn yn 2016.",
+                 "Rydych wedi dyfalu ",
+                 "% mae hynny’n rhy uchel.",
+                 " mae hynny’n rhy isel.",
+                 "",
+                 "Ddim awydd rhoi cynnig arni felly. Rhowch gynnig ar y nesaf."],
+
+			"appendText": ["Ym 1948, roedd 11% o boblogaeth Prydain Fawr yn 65 oed neu'n hŷn. Erbyn 2016, roedd hyn wedi cynyddu i 18%. Mae hynny'n gynnydd o tua phum miliwn i ychydig dros 11.5 miliwn o bobl."]
+
+    },
+    "optional" : {
+            "margin_sm": [30, 10, 20, 30],
+            "margin_md": [40, 15, 20, 30],
+            "margin_lg": [40, 15, 20, 30],
+
+            "aspectRatio_sm" : [16,16],
+            "aspectRatio_md" : [16,18],
+            "aspectRatio_lg" : [14,16],
+
+            "mobileBreakpoint" : [410,600],
+            "xAxisTextFormat_sm_md_lg" :["%y", "%y", "%Y"],
+            "x_num_ticks_sm_md_lg" : [4,7,7],
+            "y_num_ticks_sm_md_lg" : [6,6,6],
+            "centre_line" : false,
+            "centre_line_value" :0
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "essential" : {
+
+            "dataURL": "data.csv",
+
+            "period": "year",
+
+            "dateFormat": ["%Y"],
+
+            "dateMxMn": ["1950"],
+
+            "dateStart": ["1950"],
+
+            "dateCutOff": ["1965"],
+
+            "dateBegin": ["2016"],
+
+            "clampStart": ["1971"],
+
+            "clampEnd": ["2017"],
+
+            "domMax": 5000,
+            "domMin": 0,
+
+            "legendLabels" : [ ],
+
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+
+            "annotationChart": ["Hold and Drag", "Drag"],
+
+            "annotationBullet": [ ],
+
+            "annotationXY":[["1966", 2850], ["1960", 2900]],
+
+            "annotationAlign":["start"],
+
+            "circles" : false,
+            "annotationCXCY":[ ],
+
+            "xAxisLabel":[],
+
+            "yAxisLabel": "Number of infant deaths, Scotland",
+            "yAxisScaleDivisor": 1,
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65],
+
+             "feedback": ["Excellent! Your guess of ",
+                          " is not far off the number for infant mortality in 2016, which was 181.",
+                          "Your guess of ",
+                          " is too high - infant mortality in 2016 was 181.",
+                          " is too low - in 2016 the number of infant deaths was 181.",
+                          "Didn't fancy a guess then. Try the next one."],
+
+			"appendText": ["Between 1946 and 2016 the number of deaths has plummeted, from 4,789 in 1946 to 181 in 2016. This can, in part, be explained by vaccination programmes against infections such as measles and polio."]
+
+    },
+    "optional" : {
+            "margin_sm": [40, 6, 10, 76],
+            "margin_md": [40, 10, 10, 76],
+            "margin_lg": [40, 10, 10, 76],
+
+            "aspectRatio_sm" : [16,16],
+            "aspectRatio_md" : [16,18],
+            "aspectRatio_lg" : [14,16],
+
+            "mobileBreakpoint" : [410,600],
+            "xAxisTextFormat_sm_md_lg" :["%y", "%Y", "%Y"],
+            "x_num_ticks_sm_md_lg" : [4,7,10],
+            "y_num_ticks_sm_md_lg" : [6,6,6],
+            "centre_line" : false,
+            "centre_line_value" :0
+    }
+}
