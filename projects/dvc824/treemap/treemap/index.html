@@ -90,7 +90,7 @@
         fill-opacity: 0.01;
       }
 
-      .children:hover rect.child, .children:focus rect.child {
+      .children:hover rect.child, .children .parent:focus ~ rect.child {
         fill: #eaeaea;
       }
 
@@ -102,7 +102,7 @@
         fill: white;
       }
 
-      .children:hover text {
+      .children:hover text, .children .parent:focus ~ text {
         fill: #323123;
       }
 
