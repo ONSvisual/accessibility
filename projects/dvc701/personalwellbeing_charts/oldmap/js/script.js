@@ -12,7 +12,7 @@ if (Modernizr.webgl) {
   d3.queue()
     .defer(d3.csv, "data/data0.csv")
     .defer(d3.json, "data/config.json")
-    .defer(d3.json, "data/geog.json")
+    .defer(d3.json, "data/geogUK.json")
     .await(ready);
 
 
@@ -153,75 +153,70 @@ if (Modernizr.webgl) {
 
     function buildNav() {
 
-      fieldset=d3.select('#nav').append('fieldset');
+      formgroup = d3.select('#nav')
+        .append('form')
+        .attr('class', 'form-group-fullwidth')
+        .attr('role', 'radiogroup')
+        .selectAll('div')
+        .data(dvc.varlabels)
+        .enter()
+        .append('div')
+        .attr("class", 'form-group-fullwidth')
+        .attr("role", "radio")
+        .attr("tabindex", "1");
 
-      fieldset
-      .append('legend')
-      .attr('class','visuallyhidden')
-      .html('Choose a variable');
+      formgroup.append('input')
+        .attr("id", function(d, i) {
+          return "button" + i
+        })
+        .attr('class', 'radio-primary-fullwidth')
+        .attr("type", "radio")
+        .attr("name", "button")
+        .attr("value", function(d, i) {
+          return i
+        })
+        .attr("aria-checked", function(d, i) {
+          if (i == b) {
+            return true
+          }
+        })
+        .property("checked", function(d, i) {
+          return i === b;
+        })
 
-      fieldset
-      .append("div")
-      .attr('class','visuallyhidden')
-      .attr('aria-role','polite')
-      .append('span')
-      .attr('id','selected');
+      formgroup.append('label')
+        .attr('class', 'label-primary-fullwidth')
+        .attr("for", function(d, i) {
+          return "button" + i
+        })
+        .text(function(d, i) {
+          return dvc.varlabels[i]
+        })
+        .on('click', function(d, i) {
+          onchange(i)
+        })
 
-      grid=fieldset.append('div')
-      .attr('class','grid grid--full large-grid--fit');
-
-      cell=grid.selectAll('div')
-      .data(dvc.varlabels)
-      .enter()
-      .append('div')
-      .attr('class','grid-cell');
-
-      cell.append('input')
-      .attr('type','radio')
-      .attr('class','visuallyhidden')
-      .attr('id',function(d,i){return 'button'+i;})
-      .attr('value',function(d,i){return i;})
-      .attr('name','button');
-
-      cell.append('label')
-      .attr('for',function(d,i){return 'button'+i;})
-      .html(function(d){return d;});
-
-      d3.selectAll('input[type="radio"]').on('change', function(d) {
-        onchange(document.querySelector('input[name="button"]:checked').value);
-        d3.select('#selected').text(dvc.varlabels[document.querySelector('input[name="button"]:checked').value] + " is selected");
-      });
-
-      d3.select('#button0').property('checked',true);
-      d3.select('#selected').text(dvc.varlabels[document.querySelector('input[name="button"]:checked').value] + " is selected");
-
-
-      //mobile nav
-      selectgroup = d3.select('#selectnav');
-
-      selectgroup.append('label')
-        .attr('for','mobileDropdown')
-        .attr('class','visuallyhidden')
-        .html('Choose a variable');
-
-
-      selectgroup.append('select')
+      selectgroup = d3.select('#selectnav')
+        .append('select')
         .attr('class', 'dropdown')
-        .attr('id','mobileDropdown')
         .on('change', onselect)
         .selectAll("option")
         .data(dvc.varlabels)
         .enter()
         .append('option')
         .attr("value", function(d, i) {
-          return i;
+          return i
         })
         .property("selected", function(d, i) {
           return i === b;
         })
         .text(function(d, i) {
-          return dvc.varlabels[i];
+          return dvc.varlabels[i]
         });
+
+
+
+
     }
 
     function setRates(thisdata) {
@@ -237,7 +232,7 @@ if (Modernizr.webgl) {
     }
 
     function setTimeLabel() {
-      d3.select("#timePeriod").select('p').text(dvc.timepoints[a]);
+      d3.select("#timePeriod").text(dvc.timepoints[a]);
     }
 
     function checkIfFirstorLast() {
@@ -297,9 +292,11 @@ if (Modernizr.webgl) {
       } else if (config.ons.breaks == "equal") {
         breaks = ss.equalIntervalBreaks(allvalues, dvc.numberBreaks);
       } else {
-        breaks = config.ons.breaks;
+			   if (b==0){breaks = config.ons.breaks0;}
+    		 else if (b==1){breaks = config.ons.breaks1;}
+    		 else if (b==2){breaks = config.ons.breaks2;}
+         else if (b==3){breaks = config.ons.breaks3;}
       };
-
 
       //round breaks to specified decimal places
       breaks = breaks.map(function(each_element) {
@@ -315,14 +312,7 @@ if (Modernizr.webgl) {
       //set up d3 color scales
       //Load colours
       if (typeof dvc.varcolour === 'string') {
-        // colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
-        color = chroma.scale(dvc.varcolour).colors(dvc.numberBreaks)
-        colour = []
-        color.forEach(function(d) {
-          colour.push(chroma(d).darken(0.4).saturate(0.6).hex())
-        })
-
-
+        colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
       } else {
         colour = dvc.varcolour;
       }
@@ -436,8 +426,7 @@ if (Modernizr.webgl) {
       //Add click event
       map.on("click", "area", onClick);
 
-      // start playing map by default
-      onPlay()
+
 
 
     }
@@ -468,7 +457,7 @@ if (Modernizr.webgl) {
     function onchange(i) {
 
       chartDrawn = false;
-      navvalue = i;
+
       //load new csv file
 
       filepth = "data/data" + i + ".csv"
@@ -499,7 +488,36 @@ if (Modernizr.webgl) {
     }
 
     function setButtons() {
-      d3.select("#play").on("click", onPlay)
+      d3.select("#play").on("click", function() {
+        dataLayer.push({
+          'event': 'playButton',
+          'selected': 'play'
+        })
+
+        animating = setInterval(function() {
+          animate()
+        }, 2000);
+        d3.selectAll(".btn--neutral").classed("btn--neutral-disabled", true)
+
+        d3.select("#playImage").attr("src", "images/pause.svg");
+
+        d3.select("#play").attr("id", "pause");
+
+        d3.select("#pause").on("click", function() {
+          dataLayer.push({
+            'event': 'playButton',
+            'selected': 'pause'
+          })
+
+          d3.select("#pause").attr("id", "play")
+          d3.select("#playImage").attr("src", "images/play.svg");
+          setButtons();
+          clearInterval(animating);
+          d3.selectAll(".btn--neutral").classed("btn--neutral-disabled", false)
+        });
+
+
+      })
 
       d3.select("#forward").on("click", animate);
 
@@ -507,77 +525,69 @@ if (Modernizr.webgl) {
 
     }
 
-    function onPlay() {
-      // if playing, pause
-      if(d3.select("#play").classed('playing')===true){
-        d3.select("#play").classed('playing',false);
-        d3.select("#play").attr('aria-checked',"false");
-
-        d3.select("#playImage").attr("src", "images/play.svg");
-        setButtons();
-        clearInterval(animating);
-        d3.selectAll(".btn--neutral").classed("btn--neutral-disabled", false);
-
-      // if paused, play
-      }else{
-        d3.select("#play").attr('aria-checked',"true");
-        d3.select("#play").classed('playing',true);
-
-        animate()
-        animating = setInterval(function() {
-          animate();
-        }, 2000);
-        d3.selectAll(".btn--neutral").classed("btn--neutral-disabled", true);
-        d3.select("#playImage").attr("src", "images/pause.svg");
-
-      }
-    }
-
     function animate() {
 
       if (a < variables.length - 1) {
         a = a + 1;
+        setRates(thisdata);
+        updateLayers();
+        updateTimeLabel();
+
+        if (selected) {
+          setAxisVal($("#areaselect").val());
+          if (mobile == false) {
+            updateChart($("#areaselect").val());
+          }
+        }
       } else {
         a = 0;
+        setRates(thisdata);
+        updateLayers();
+        updateTimeLabel();
+
+        if (selected) {
+          setAxisVal($("#areaselect").val());
+          if (mobile == false) {
+            updateChart($("#areaselect").val());
+          }
+        }
       }
-      updateFrame();
+
     }
 
     function rev_animate() {
 
       if (a > 0) {
         a = a - 1;
+        setRates(thisdata);
+        updateLayers();
+        updateTimeLabel();
+
+        if (selected) {
+          setAxisVal($("#areaselect").val());
+          if (mobile == false) {
+            updateChart($("#areaselect").val());
+          }
+        }
       } else {
         a = variables.length - 1;
-      }
-      updateFrame();
-    }
+        setRates(thisdata);
+        updateLayers();
+        updateTimeLabel();
 
-    function updateFrame() {
-      setRates(thisdata);
-      updateLayers();
-      updateTimeLabel();
-
-      if (selected) {
-        setAxisVal($("#areaselect").val());
-        if (mobile == false) {
-          updateChart($("#areaselect").val());
+        if (selected) {
+          setAxisVal($("#areaselect").val());
+          if (mobile == false) {
+            updateChart($("#areaselect").val());
+          }
         }
       }
-      if (mobile == false) {
-        console.log(x(dvc.timepoints[a]))
-        console.log(y(dvc.average[0][a]))
-        d3.select("#currPoint2")
-          .transition()
-          .duration(300)
-          .attr("cx", x(dvc.timepoints[a]))
-          .attr("cy", y(dvc.average[0][a]))
-      }
+
     }
 
     function updateTimeLabel() {
 
-      d3.select("#timePeriod").select('p').text(dvc.timepoints[a])
+      d3.select("#timePeriod").text(dvc.timepoints[a])
 
     }
 
@@ -619,7 +629,7 @@ if (Modernizr.webgl) {
       map.getCanvasContainer().style.cursor = null;
       map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
       oldAREACD = "";
-      $("#areaselect").val(null).trigger('chosen:updated');
+      $("#areaselect").val(null).trigger('change.select2');
       hideaxisVal();
     };
 
@@ -641,8 +651,9 @@ if (Modernizr.webgl) {
       dataLayer.push({
         'event': 'mapClickSelect',
         'selected': newAREACD
-      });
-    }
+      })
+
+    };
 
     function disableMouseEvents() {
       map.off("mousemove", "area", onMove);
@@ -660,15 +671,15 @@ if (Modernizr.webgl) {
     }
 
     function selectArea(code) {
-      $("#areaselect").val(code).trigger('chosen:updated');
-      d3.select('abbr').on('keypress',function(evt){
-				if(d3.event.keyCode==13 || d3.event.keyCode==32){
-					$("#areaselect").val("").trigger('chosen:updated');
-				}
-			})
+      $("#areaselect").val(code).trigger('change.select2');
     }
 
-
+    $('#areaselect').on('select2:unselect', function() {
+      dataLayer.push({
+        'event': 'deselectCross',
+        'selected': 'deselect'
+      })
+    });
 
     function zoomToArea(code) {
 
@@ -703,16 +714,8 @@ if (Modernizr.webgl) {
 
 
     function setAxisVal(code) {
-      d3.select('#accessibilityInfo').select('p.visuallyhidden')
-      .text(function(){
-        if (!isNaN(rateById[code])) {
-          return areaById[code]+": "+ displayformat(rateById[code]) +" "+ dvc.varunit[b];
-        } else {
-          return "Data unavailable";
-        }
-      });
 
-
+      console.log(rateById[code])
       if (mobile == false) {
         d3.select("#currLine")
           .style("opacity", function() {
@@ -755,7 +758,7 @@ if (Modernizr.webgl) {
           .attr("x", x(dvc.timepoints[a]))
           .attr("y", function() {
             if (!isNaN(rateById[code])) {
-              return y(rateById[code]) - 20
+              return y(rateById[code]) - 10
             } else {
               return y(midpoint)
             }
@@ -775,7 +778,7 @@ if (Modernizr.webgl) {
           .attr("x", x(dvc.timepoints[a]))
           .attr("y", function() {
             if (!isNaN(rateById[code])) {
-              return y(rateById[code]) - 20
+              return y(rateById[code]) - 10
             } else {
               return y(midpoint)
             }
@@ -870,12 +873,13 @@ if (Modernizr.webgl) {
         });
 
         selectedarea.forEach(function(d) {
-          valuesx = variables.map(function(name) {
+          valuesx = variables.map(function(name) {console.log(d)
             return +d[name]
           });
         });
 
         values = valuesx.slice(0);
+
 
 
 
@@ -893,11 +897,10 @@ if (Modernizr.webgl) {
           });
 
 
-        var gline1 = svgkey.append("g")
+        svgkey.append("g")
           .attr("transform", "translate(45,10)")
           .attr("id", "chartgroup")
-
-        gline1.append("path")
+          .append("path")
           .attr("id", "line1")
           .style("opacity", 1)
           .attr("d", line1(linedata))
@@ -905,14 +908,6 @@ if (Modernizr.webgl) {
           .attr("stroke-width", "2px")
           .attr("fill", "none");
 
-        gline1.append("circle")
-          .attr("id", "currPoint")
-          .attr("r", "4px")
-          .attr("cy", y(linedata[a][1]))
-          .attr("cx", x(dvc.timepoints[a]))
-          .attr("fill", "#999")
-          .attr("stroke", "black")
-          .style("opacity", 0)
 
       } else {
 
@@ -953,8 +948,7 @@ if (Modernizr.webgl) {
 
       d3.select("#currVal").text("")
         .style("opacity", 0);
-
-      d3.select("#currVal2")
+      d3.select("#currVal2").text("")
         .style("opacity", 0);
     }
 
@@ -968,54 +962,49 @@ if (Modernizr.webgl) {
 
       if (mobile == false) {
 
-        d3.select("#keydiv").append("p").attr("id", "keyunit").attr('aria-hidden',true).style("margin-top", "25px").style("margin-left", "10px").style("font-size","14px").text(dvc.varunit[b]);
+        d3.select("#keydiv").append("p").attr("id", "keyunit").style("margin-top", "25px").style("margin-left", "10px").text(dvc.varunit[b]);
 
         keyheight = 150;
 
         keywidth = d3.select("#keydiv").node().getBoundingClientRect().width;
 
-        svgkey = d3.select("#keydiv")
-          .append("svg")
-          .attr('aria-hidden',true)
-          .attr("id", "key")
-          .attr("width", keywidth)
-          .attr("height", keyheight + 30);
+				svgkey = d3.select("#keydiv")
+					.append("svg")
+					.attr("id", "key")
+					.attr("width", keywidth)
+					.attr("height",keyheight + 30);
 
-        // Set up scales for legend
-        y = d3.scaleLinear()
-          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
-          .range([keyheight, 0]); /*range for pixels*/
+				// Set up scales for legend
+				y = d3.scaleLinear()
+					.domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+					.range([keyheight, 10]); /*range for pixels*/
 
-        // Set up scales for chart
-        x = d3.scalePoint()
-          .domain(dvc.timepoints) /*range for data*/
-          .range([0, keywidth - 60])
-          .align(0.5); /*range for pixels*/
-
-
-        var yAxis = d3.axisLeft(y)
-          .tickSize(15)
-          .tickValues(color.domain())
-          .tickFormat(legendformat);
+				// Set up scales for chart
+				x = d3.scalePoint()
+					.domain(dvc.timepoints) /*range for data*/
+					.range([0,keywidth-70])
+					.align(0.5); /*range for pixels*/
 
 
-        //Add
-        var xAxisTime = d3.axisBottom(x)
-          .tickSize(5)
-          .tickValues(dvc.timelineLabelsDT)
+				var yAxis = d3.axisLeft(y)
+					.tickSize(15)
+					.tickValues(color.domain())
+					.tickFormat(legendformat);
 
-        // create g2 before g so that its contents sit behind
-        var g2 = svgkey.append("g")
-          .attr("transform", "translate(45,10)")
-          .attr("id", "chartgroup")
 
-        var g = svgkey.append("g").attr("id", "vert")
-          .attr("transform", "translate(45,10)")
-          .attr("font-weight", "600")
-          .style("font-family", "'open sans'")
-          .style("font-size", "12px");
+//Add
+				var xAxisTime = d3.axisBottom(x)
+					.tickSize(5)
+					.tickValues([dvc.timepoints[0], dvc.timepoints[7]])
+					// .tickFormat(legendformat);
 
-        d3.selectAll("path").attr("display", "none")
+				var g = svgkey.append("g").attr("id","vert")
+					.attr("transform", "translate(45,10)")
+					.attr("font-weight","600")
+					.style("font-family","'open sans'")
+					.style("font-size","12px");
+
+					d3.selectAll("path").attr("display", "none")
 
         g.selectAll("rect")
           .data(color.range().map(function(d, i) {
@@ -1028,10 +1017,10 @@ if (Modernizr.webgl) {
           .enter().append("rect")
           .attr("width", 8)
           .attr("x", -8)
-          .attr("y", function(d) {
+          .attr("y", function(d) {console.log(d)
             return d.y1;
           })
-          .attr("height", function(d) {
+          .attr("height", function(d) {console.log(d)
             return d.y0 - d.y1;
           })
           .style("fill", function(d) {
@@ -1048,7 +1037,7 @@ if (Modernizr.webgl) {
           .call(xAxisTime)
 
 
-        //
+				//
         // g.append("line")
         //   .attr("id", "currLine")
         //   .attr("y1", y(10))
@@ -1059,79 +1048,69 @@ if (Modernizr.webgl) {
         //   .attr("stroke", "#000")
         //   .attr("opacity", 0);
 
-        g.append("text")
-          .attr("id", "currVal")
-          .attr("y", y(11))
-          .attr("fill", "#000")
-          .attr("paint-order", "stroke")
-          .attr("stroke", "#fff")
-          .attr("stroke-width", "5px")
-          .attr("stroke-linecap", "butt")
-          .attr("stroke-linejoin", "miter")
-          .text("");
+				g.append("text")
+					.attr("id", "currVal")
+					.attr("y", y(11))
+					.attr("fill","#000")
+					.attr("paint-order","stroke")
+					.attr("stroke","#fff")
+					.attr("stroke-width","5px")
+					.attr("stroke-linecap","butt")
+					.attr("stroke-linejoin","miter")
+					.text("");
 
 
-        g.append("text")
-          .attr("id", "currVal2")
-          .attr("y", y(11))
-          .attr("fill", "#000")
-          .text("");
+				g.append("text")
+					.attr("id", "currVal2")
+					.attr("y", y(11))
+					.attr("fill","#000")
+					.text("");
 
-        if (typeof navvalue === 'undefined') {
-          var varNum = 0
-        } else {
-          var varNum = navvalue;
-        };
-
-        // check there are average values
-        if (dvc.average[varNum] == null) {
-          linedata2 = d3.zip(dvc.timepoints, dvc.average[varNum]);
-
-          line2 = d3.line()
-            .defined(function(d) {
-              return !isNaN(d[0]);
-            })
-            .x(function(d) {
-              return x(d[0]);
-            })
-            .y(function(d) {
-              return y(d[1]);
-            });
+				g.append("circle")
+					.attr("id", "currPoint")
+					.attr("r","4px")
+					.attr("cy", y(10))
+					.attr("cx", x(dvc.timepoints[a]))
+					.attr("fill","#666")
+					.attr("opacity",0);
 
 
-          g2.append("path")
-            .attr("id", "line2")
-            .style("opacity", 0.3)
-            .attr("d", line2(linedata2))
-            .attr("stroke", "#666")
-            .attr("stroke-width", "2px")
-            .attr("fill", "none");
 
-          // add time dot for line2
-          g2.append("circle")
-            .attr("id", "currPoint2")
-            .attr('r',"4px")
-            .attr("cy", y(10)) // set start position
-            .attr("cx", x(dvc.timepoints[a]))
-            .attr("fill", "#cacaca")
-            .attr("stroke", "black")
 
-            svgkey.append("text")
-              .attr("id", "averagelabel")
-              .attr("x", function(d) {
-                return x(linedata2[linedata2.length - 1][0])
-              })
-              .attr("y", function(d) {
-                return y(linedata2[linedata2.length - 1][1])
-              })
-              .attr("font-size", "12px")
-              .style("opacity", 0.3)
-              .attr("fill", "#666")
-              .attr("text-anchor", "middle")
-              .text(dvc.averageText);
+					if (typeof navvalue === 'undefined' ){
+						linedata2 = d3.zip(dvc.timepoints, dvc.average[0]);
 
-          }
+					} else {
 
+					 	linedata2 = d3.zip(dvc.timepoints, dvc.average[navvalue]); };
+            console.log(linedata2)
+
+										line2 = d3.line()
+														.defined(function(linedata2){return !isNaN(linedata2[0]); })
+														.x(function(d,i) { return x(linedata2[i][0]); })
+														.y(function(d,i) { return y(linedata2[i][1]); });
+
+
+										svgkey.append("g")
+															.attr("transform", "translate(45,10)")
+															.attr("id","chartgroup")
+															.append("path")
+															.attr("id","line2")
+															.style("opacity",0.3)
+															.attr("d", line2(linedata2))
+															.attr("stroke", "#666")
+															.attr("stroke-width", "2px")
+															.attr("fill","none");
+
+											svgkey.append("text")
+													.attr("id", "averagelabel")
+													.attr("x", function(d){ return x(linedata2[linedata2.length-1][0])})
+													.attr("y", function(d) { return y(linedata2[linedata2.length-1][1])})
+													.attr("font-size", "12px")
+													.style("opacity",0.3)
+													.attr("fill","#666")
+													.attr("text-anchor", "middle")
+													.text("E&W Average");
 
       } else {
         // Horizontal legend
@@ -1141,7 +1120,6 @@ if (Modernizr.webgl) {
 
         svgkey = d3.select("#keydiv")
           .append("svg")
-          .attr("aria-hidden",true)
           .attr("id", "key")
           .attr("width", keywidth)
           .attr("height", keyheight);
@@ -1162,6 +1140,7 @@ if (Modernizr.webgl) {
 
         var g2 = svgkey.append("g").attr("id", "horiz")
           .attr("transform", "translate(15,30)");
+
 
         keyhor = d3.select("#horiz");
 
@@ -1240,17 +1219,16 @@ if (Modernizr.webgl) {
           .style("fill", "#ccc")
           .attr("x", xkey(0));
 
-        d3.select("#keydiv")
-          .append("p")
-          .attr('aria-hidden',true)
-          .attr("id", "keyunit")
-          .style("margin-top", "-10px")
-          .style("margin-left", "10px")
-          .text(dvc.varunit[b]);
+					d3.select("#keydiv")
+						.append("p")
+						.attr("id","keyunit")
+						.style("margin-top","-10px")
+						.style("margin-left","10px")
+						.text(dvc.varunit[b]);
 
 
         if (dvc.dropticks) {
-          d3.select("#timeaxis").selectAll("text").attr("transform", function(d, i) {
+          d3.select("#horiz").selectAll("text").attr("transform", function(d, i) {
             // if there are more that 4 breaks, so > 5 ticks, then drop every other.
             if (i % 2) {
               return "translate(0,10)"
@@ -1335,12 +1313,23 @@ if (Modernizr.webgl) {
 
 
     };
+		function setSource() {
 
-    function setSource() {
-      d3.select("#source")
-        .append("h5")
-        .text("Source: "+dvc.sourcetext)
-    }
+
+					d3.select("#source")
+						.append("h6")
+						.attr("class", "source")
+						.attr("text-anchor", "start")
+						.style("font-size", "14px")
+						.style("fill", "#666")
+						.style("font-weight", 700)
+						.text("Source: ")
+						.append("a")
+						.style("fill", "#4774cc")
+						.attr("href", dvc.sourceURL)
+						.attr("target", "_blank")
+						.text(dvc.sourcetext);
+	}
 
     function selectlist(datacsv) {
 
@@ -1353,11 +1342,6 @@ if (Modernizr.webgl) {
       var menuarea = d3.zip(areanames, areacodes).sort(function(a, b) {
         return d3.ascending(a[0], b[0]);
       });
-
-      //hide area dropdown to screen reader if on mobile
-      if(mobile==true){
-        d3.select("selectNav").attr('aria-hidden',true)
-      }
 
       // Build option menu for occupations
       var optns = d3.select("#selectNav").append("div").attr("id", "sel").append("select")
@@ -1379,13 +1363,11 @@ if (Modernizr.webgl) {
 
       myId = null;
 
-      $('#areaselect').chosen({
-        placeholder_text_single: "Select an area",
-        allow_single_deselect: true
+      $('#areaselect').select2({
+        placeholder: "Select an area",
+        allowClear: true,
+        dropdownParent: $('#sel')
       })
-
-      d3.select('input.chosen-search-input').attr('id','chosensearchinput')
-      d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
 
       $('#areaselect').on('change', function() {
 
@@ -1409,12 +1391,6 @@ if (Modernizr.webgl) {
             'selected': areacode
           })
         } else {
-
-          dataLayer.push({
-            'event': 'deselectCross',
-            'selected': 'deselect'
-          })
-
           enableMouseEvents();
           hideaxisVal();
           onLeave();
