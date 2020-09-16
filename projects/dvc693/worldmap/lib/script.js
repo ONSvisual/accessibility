@@ -411,7 +411,7 @@ function getCentroids() {
 			centr['CL'] = ['[-72.94,-45.39]'];//Chile
 			centr['CA'] = ['[-107.57,52.0]'];//Canada
 			centr['US'] = ['[-101,39.23]'];//US
-			centr['TH'] = ['[-1.41,52.7]'];//Thailand
+			centr['TH'] = ['[100.99,15.8]'];//Thailand
 			centr['NZ'] = ['[176,-39.27]'];//NZ
 			centr['NO'] = ['[8.47,60.47]'];//Norway
 			centr['GR'] = ['[22.06,39.19]'];//Greece
@@ -467,7 +467,6 @@ function highlightcountry(countrycode) {
       //Draw arc from UK to destination
       var coordsfrom = d3.select("#shapeUK").attr("data-cd");
       var coordsto = d3.select("#shape" + countrycode).attr("data-cd");
-
       lines = [];
 
       lines.push({
