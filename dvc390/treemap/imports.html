@@ -10,7 +10,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="css/styles.css" media="screen">
     <link href="https://onsvisual.github.io/pattern-library/dist/fontawesome/css/all.css" rel="stylesheet">
-    
+
     <style>
       body{
         max-width:700px;
@@ -320,6 +320,19 @@
         width:80px;
         height:80px;
       }
+
+      /* Accessibility */
+
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
     </style>
   </head>
 
@@ -329,10 +342,12 @@
       <div id="main-wrapper">
         <div id="mainContent" style="display:none">
 
-          <div id="blurb" class="row">
-            <text id ="txt2"></text>
-            <text id ="txt3"></text>
-          </div>
+          <p id="chartDescription" class="visuallyhidden"></p>
+
+          <p id="blurb" class="row">
+            <span id ="txt2"></span>
+            <span id ="txt3"></span>
+          </p>
           <div class="row">
             <button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up" style="visibility:hidden">
               Up a level
@@ -483,13 +498,14 @@
           var heading = "Total imports: ";
           var value = "£"+formatNumber(dataset.vals[1]/1000)+" billion";
           var label = `Chart displaying value of imports (${value}) to the EU, European Free Trade Association and Rest of the world, broken down by country.`;
-          $('#main-wrapper').attr('aria-label', label);
+          $('#chartDescription').html(label);
           d3.select("#blurb").select("#txt2").html(heading);
           d3.select("#blurb").select("#txt3").html(value);
         });
       }
 
       function initialize(root) {
+        //console.log('initialize')
         root.x = root.y = 0;
         root.dx = width;
         root.dy = height;
