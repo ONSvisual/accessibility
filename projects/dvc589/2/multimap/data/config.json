@@ -1,12 +1,12 @@
 {"ons":{
 "maptitle": "Female avoidable deaths",
-"varcolour": "PuBu",
+"varcolour": ["PuBu", "PuBu"],
 "varlabels": ["Male","Female"],
 "varload": 0,
 "varunit": ["Avoidable mortality rate","Avoidable mortality rate"],
 "displaydecimals": 0,
 "legenddecimals": 0,
-"breaks": "jenks",
+"breaks": ["jenks", "jenks"],
 "dropticks": false,
-"numberBreaks": 5
+"numberBreaks": [5, 5]
 }}
