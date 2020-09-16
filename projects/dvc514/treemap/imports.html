@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -1608,12 +1607,12 @@
         grandparent
           .datum(d.parent)
           .on("click", transition)
-    //            .select("text")
-    //            .text(desc(d))
+          //  .select("text")
+          //  .text(desc(d))
 
         d3.select("#titleText")
           .datum(d.parent)
-        // .text(desc(d))
+          // .text(desc(d))
 
         var g1 = svg.insert("g", ".grandparent")
           .datum(d)
@@ -1696,6 +1695,14 @@
             window.location.hash = encodeURI(selectedView)
           }
 
+          if (selectedArray.length == 0) {
+            d3.select("#topBtn").style("visibility", "hidden");
+            d3.select("#upBtn").style("visibility", "hidden");
+
+          } else {
+            d3.select("#topBtn").style("visibility", "visible");
+            d3.select("#upBtn").style("visibility", "visible");
+          }
 
           if (transitioning || !d) return;
           transitioning = true;
