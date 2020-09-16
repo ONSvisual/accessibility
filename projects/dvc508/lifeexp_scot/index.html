@@ -118,7 +118,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				  line-height: 24px;
 				  -webkit-font-smoothing: antialiased;
 				}
-        
+
         .btn:hover, .btn:focus {
             /* background-color: #0b5d30; */
             outline: 3px solid orange;
@@ -128,6 +128,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			max-width: 600px;
 			margin: auto;
 		}
+
+    .visuallyhidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
 
 	</style>
 
@@ -140,7 +151,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-<div id="graphic"> <img id="fallback" src="fallback.png" alt="[Chart]" />
+  <div class="visuallyhidden">
+      <h5>This interface allows people to draw a line as a guess of how this variable has changed over time. Press the button to reveal a description of the trend.</h5>
+  </div>
+<div id="graphic" aria-hidden="true"> <img id="fallback" src="fallback.png" alt="[Chart]" />
 </div>
 
  <div id="buttonRow" style="text-align:center;">
