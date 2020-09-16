@@ -47,6 +47,10 @@ function changeValue() {
 	mes3 = (mes2 / 365);
 	mes4 = ((usernumber*timesBy) / publicSpending) * 100;
 	//puts calculated numbers in the display
+
+	// Announcement for screen readers.
+	document.getElementById('announcement').innerHTML=("You've entered " + usernumber + " billion. That would be £" + numberFormat(mes1) + " million per week, £" + numberFormat(mes2) + " per person per year, £" + numberFormat2(mes3) + " per person per day, and " + numberFormat3(mes4) + "% of 2018 government spending");
+
 	document.getElementById('selectedmeasure1').innerHTML=("£" + numberFormat(mes1) + " million");
 	document.getElementById('selectedmeasure2').innerHTML=("£" + numberFormat(mes2));
 	document.getElementById('selectedmeasure3').innerHTML=("£" + numberFormat2(mes3));

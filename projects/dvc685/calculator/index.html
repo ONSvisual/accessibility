@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Context Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/styles.css" media="screen">
@@ -43,7 +43,7 @@
             padding-right:0px;
             text-align:left;
 			margin-left:0px;
-			color:#CCC;
+			color:#888;
         }
 
 		/* BUTTON STYLING */
@@ -52,6 +52,13 @@
 		.btn:focus, .btn:hover {
 			border-color:white!important;
 		}
+        .btn:focus,
+        .btn active,
+        .btn:hover {
+          outline: none !important;
+          box-shadow: 0px 0px 0 3px #FFA23A;
+          outline-offset: 0px;
+        }
 		.franksbutton {
 			border-radius:0px !important;
 			border-color:white!important;
@@ -150,13 +157,13 @@
 			background-color:#1F4851;
 		}
 		#color2 {
-			background-color:#2D6976;
+			background-color:#24535d;
 		}
 		#color3 {
-			background-color:#3C8A9A;
+			background-color:#285d69;
 		}
 		#color4 {
-			background-color:#4EA8BB;
+			background-color:#2D6976;
 		}
 
 
@@ -188,6 +195,12 @@
 			margin-top:0px!important;
 		}
 
+        .form-control:focus {
+            outline: none !important;
+            box-shadow: 0px 0px 0 3px #FFA23A;
+            outline-offset: 0px;
+        }
+
 		.input-group, .form-control {
 			height:45px!important;
 			width:100px!important;
@@ -206,13 +219,19 @@
 
 
 		#Option2, #Option3, #Option4 {
-			background-color:#3C8A9A;
-			color:white;
-		}
-		#Option2:hover, #Option3:hover, #Option4:hover {
 			background-color:#2D6976;
 			color:white;
 		}
+		#Option2:hover, #Option3:hover, #Option4:hover {
+			background-color:#1F4851;
+			color:white;
+		}
+        #Option3 {
+            border-right: 2px solid white;
+        }
+        #Option4 {
+            border-left: 2px solid white;
+        }
 		.franksButton {
 			background-color:#1F4851!important;
 		}
@@ -245,7 +264,7 @@
 		#BillionLabel {
 			margin-left:10px;
 		}
-		#buttonNumber {
+		.buttonNumber {
 			font-size:22px;
 			font-weight:bold;
 		}
@@ -253,6 +272,19 @@
 			font-size:15px;
 			font-weight:normal;
 		}
+
+        /* Accessibility */
+
+        .visuallyhidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding:0;
+            overflow: hidden;
+            clip: rect(0,0,0,0); border: 0;
+            display:block !important;
+        }
 
 
 
@@ -266,14 +298,14 @@
 <!-- Title and Instruction -->
 
 <div style="padding-left:3px; padding-right:0px;">
-<p class="TitleWords">Context Calculator</p>
+<h4 class="TitleWords">Context Calculator</h4>
 <p>This handy calculator is here to help you make meaning of the many large numbers used in the EU debate, particularly the figures on the UK's net contribution to the EU.</p>
 <p>Click on either of the two buttons - or just type in a figure - and it will break it down for you.</p>
 </div>
 
 <div class="btn-group btn-group-justified selectOptions">
-  <a href="#" data-nm="11" class="btn btn-default selectable" id="Option3" onClick="ChangeBack(this.id)"><span id="buttonNumber">£11 billion</span></br>ONS net contribution figure<sup>1</sup></a>
-  <a href="#" data-nm="7.8" class="btn btn-default selectable" id="Option4" onClick="ChangeBack(this.id)"><span id="buttonNumber">£7.8 billion</span></br>European Commission net contribution figure<sup>2</sup></a>
+  <a href="#" data-nm="11" class="btn btn-default selectable" id="Option3" onClick="ChangeBack(this.id)"><span class="buttonNumber">£11 billion</span><br/>ONS net contribution figure<sup>1</sup></a>
+  <a href="#" data-nm="7.8" class="btn btn-default selectable" id="Option4" onClick="ChangeBack(this.id)"><span class="buttonNumber">£7.8 billion</span><br/>European Commission net contribution figure<sup>2</sup></a>
 </div>
 
 <div class="row" style="margin-bottom:20px;">
@@ -291,13 +323,15 @@
     <div id="PoundSign" class="InputSides">£</div>
     	<div class="noPadding">
             <form>
-                <input type="number" value="0" class="form-control" min="0" max="999">
+                <label for="amount" class="visuallyhidden">Amount in billions</label>
+                <input id="amount" type="number" value="0" class="form-control" min="0" max="999">
             </form>
         </div>
     <div id="BillionLabel" class="InputSides">billion</div>
 </div>
 
 <!-- Revealed stuff -->
+<span role="alert" id="announcement" class="visuallyhidden"></span>
 
 <div class="row answerrow">
 
