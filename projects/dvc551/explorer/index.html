@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>What is the gender pay gap for your job?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css" media="screen">
+    
+    
+
+    <link rel="stylesheet" href="css/style-chosen.css">
+    <link rel="stylesheet" href="css/globalStyle.css">
+	
+    
+    <style>
+		
+		body {
+			
+			color:#666;
+			background-color:#FFF;
+			max-width:900px;
+			margin: 0px auto;
+		}
+		
+	
+		
+		h2 {
+			font-size:26px;
+			font-weight:500;
+			padding-bottom:20px;
+		}
+		
+		.foot {
+			font-size:12px;
+		}
+
+
+    	.line_pos, .rect2 { fill: #332288; }
+        .line_neg, .rect1 { fill: #E36A32; }
+		
+		.backrect1 {
+			fill: none;
+			stroke: #eee;
+			stroke-width: 0.5px;
+		
+		}
+		
+		.backrect2 {
+			fill: #eee;
+			opacity:0;
+		}
+		
+		.backrect2hover {
+			fill: #eee;
+			opacity:0.7;
+		}
+		
+		#selectedbar {
+			fill: #eee !important;
+			opacity:0.7 !important;
+		}
+		
+         .circle1 { fill: #332288; }
+		 .circle2 { fill: #E36A32; }
+		 .med { fill: #E36A32; }
+		 
+		.background0 { background: #E36A32; }
+        .background1 { background: #332288; }        
+    	
+		/*#circle1{ fill:#7BCAE2;!important }*/
+
+        #graphic /* required */
+		{
+            height: 600px;
+			overflow-x:hidden;
+        }
+		
+
+		#sortoptions {
+			padding: 10px 0px;	
+		}
+		.btn-default {
+			
+			background-color: #fff;
+	
+		}
+		
+		#filters {
+			margin-top:9px;	
+		}
+
+
+		#filtercheck { 
+			margin-left:9px;	
+			margin-right:3px;	
+		}
+		
+		#filtergrp {
+			display:none;
+		}
+		
+		.spanper {
+			font-size:24px;
+			font-weight:bold;	
+			color:#332288;
+		}
+		
+		.btn-group, #occselect_chosen {
+			margin-top:10px;	
+		}
+		
+		#results {
+			height:0px;
+			opacity:0;
+		}
+		
+		#share {
+			height:0px;
+			opacity:0;
+		}
+		
+		.share {
+			cursor:pointer;
+			opacity:0.7;
+		}
+		
+		.share:hover {
+			
+			opacity:1;
+		}
+		
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+
+	</style>
+
+
+  </head>
+  <body id="childt">
+ 
+    <div id="altern"><p>Unfortunately your browser cannot display this graphic. You might need to upgrade to a modern browser - Find out more information here <a href="https://www.gov.uk/help/browsers">https://www.gov.uk/help/browsers</a></p><img style="max-width:800px" src="images/alt.png"/>
+    </div>
+
+   
+   
+   <div class="container-fluid">   
+   <div class="row">
+          <div> 
+                <div id="occupation" class="col-sm-6 col-xs-12"></div>
+                <div id="fullpart" class="col-sm-6 col-xs-12">
+                    <div class="btn-group">
+                    	<div id="all" class="fullpart btn btn-default active">All</div>
+                        <div id="full" class="fullpart btn btn-default">Full-time</div>
+                        <div id="part" class="fullpart btn btn-default">Part-time</div>
+                    </div>                
+                </div>
+                <div class="col-sm-offset-8 col-xs-12 hidden-xs" id="filters">
+                	<span class="input-group">
+        				<input type="checkbox" id="filtercheck" aria-label="..."></input>
+                        Show filter & sort options
+      				</span>
+                </div>
+
+                
+                
+
+                <div class="col-sm-12 col-xs-12" id="filtergrp">
+                         <div id="sortoptions" class="col-sm-12 col-xs-12">
+                            <div class="btn-group col-sm-12 col-xs-12" role="group" aria-label="Sort options">
+                                <div id="sortby" class="col-sm-1 col-xs-12">Sort by:</div>
+                                <div id="gpg_pct" class="col-md-3 col-sm-3 col-xs-12 sort btn btn-default active">Gender Pay Gap (%)</div>
+                                <div id="gpg_pnd" class="col-md-3 col-sm-3 col-xs-12 sort btn btn-default">Gender Pay Gap (£)</div>
+                                <div id="sal" class="col-md-3 col-sm-3 col-xs-12 sort btn btn-default">Average Earnings</div>
+                            </div>
+                        </div>
+                
+                		<div id="sortby" class="col-sm-1 col-xs-12">Filter:</div>
+                		<div id="occgroup" class="col-sm-5 col-xs-12">
+                        </div>
+                
+                </div>
+                <div>
+                    <div style="padding-top:15px; padding-bottom:15px; margin-bottom:10px; border-bottom: 1px solid #dddddd;" class="col-sm-8 col-xs-9" id="results">
+    
+                    </div>
+                    <div style="padding-top:15px; padding-bottom:15px; border-bottom: 1px solid #dddddd;" class="col-sm-4 col-xs-3" id="share">
+                        <p style="font-weight:bold">Share your pay gap</p>
+                    </div>
+                </div>
+                
+          </div>
+	</div><!-- end row --> 
+    <div class="row">     
+            <div id="static_graphic">
+            </div> 
+    </div><!-- end row -->    
+    <div class="row">     
+            <div id="graphic">
+                <img src="fallback.png" alt="[Chart]" />
+            </div> 
+    </div><!-- end row -->
+    
+    
+    <div class="row">
+     <div class="col-sm-12 col-xs-12 foot">
+     <div class="page-header">
+     </div>
+     <br>
+	     <p>Source: <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/latest" target="_blank">Annual Survey of Hours and Earnings - 2018 provisional</a></p>
+     	<p>Pay gap is calculated using median hourly pay rates (excluding overtime)</p>
+        <p>*Some data is unavailable as considered unreliable (small sample size)</p>
+        <p>Some occupations can be included in more than one grouping</p>
+        <p>Employment splits are based on <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/datasets/employmentbyoccupationemp04" target="_blank">LFS data</a> </p>
+        <p>The quality of earning estimates vary by occupation - <a href="http://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2016provisionalresults/relateddata" target="_blank">quality measures available</a></p>
+     <p>Please note that the percentages in this visual may differ to the figures in the accompanying published data tables by 0.1% due to the effects of rounding.</p>
+     <p> When conducting any analyses please use the data from the tables.</p>
+     </div>
+     </div>
+     </div> <!--end container -->
+
+<!-- Constant libraries / frameworks -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+ 	<script src="js/modernizr.custom.56904.js"></script>
+    <script src="js/chosen.jquery.js"></script>
+    <script src="js/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.v1-3-2.min.js"></script>
+	<script></script>
+
+    <script src="js/script1.js"></script>
+
+    <script>
+	
+		  /* Analytics */
+
+		  /* Google */
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37894017-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+
+    </script>
+
+
+  </body>
+</html>
