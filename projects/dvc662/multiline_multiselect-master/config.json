@@ -1,0 +1,57 @@
+{
+    "essential" : {
+            "fallback_screenreader_description": "This graphic allows users to see employee jobs and self-employee jobs by gender and by selected industries. The underlying data is available in the accompanying data download.",
+            "graphic_data_array":["data2.csv","data3.csv","data4.csv","data5.csv","data6.csv","data7.csv"],
+            "dateFormat":"%Y",
+
+            "legendLabels" : [],
+            "buttonLabels" : ["Total workforce jobs: Male",
+    				"Total workforce jobs: Female","Employee jobs: Male","Employee jobs: Female","Self employed jobs: Male","Self employed jobs: Female"],
+            "varload" : 0,
+
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":[""],
+
+            "annotationChart": [
+
+            ],
+            "annotationBullet": [
+
+            ],
+            "annotationXY":[
+
+            ],
+            "annotationAlign":[
+
+            ],
+
+            "circles" : true,
+            "annotationCXCY":[
+
+            ],
+
+            "yAxisLabel":"Rate per 100,000 population",
+			"yAxisLabela":"",
+            "yAxisScale":[0, 3000000],
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [52, 52, 52]
+    },
+    "optional" : {
+            "margin_sm": [10, 15, 28, 78],
+            "margin_md": [10, 15, 28, 78],
+            "margin_lg": [10, 15, 28, 78],
+
+            "aspectRatio_sm" : [16,13],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,8],
+
+            "mobileBreakpoint" : 610,
+
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%Y"],
+
+            "x_num_ticks_sm_md_lg" : [7,10,10],
+            "y_num_ticks_sm_md_lg" : [6,5,5],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
