@@ -10,7 +10,6 @@
 
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <link rel="stylesheet" href="./lib/globalStyle.css" />
@@ -188,7 +187,8 @@
 
 
 .search-choice-close:focus {
-    outline: orange 2px solid;
+  outline: orange 3px solid;
+  box-shadow: 0 0 0 6px black;
 }
 
 .intro {
@@ -971,6 +971,7 @@ input{
 			var optns = d3.select("#chosensel").append("div").attr("id","sel").append("select")
 				.attr("id","occselect")
 				.attr("style","width:98%")
+        .attr("data-placeholder", "Choose some names")
 				.attr("multiple",true)
 				.attr("class","chosen-select");
 
