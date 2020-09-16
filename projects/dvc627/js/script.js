@@ -756,10 +756,17 @@ if(Modernizr.webgl) {
 			var menuarea = d3.zip(areanames,areacodes).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
 
 			// Build option menu for occupations
-			var optns = d3.select("#selectNav").append("div").attr("id","sel").append("select")
+			var container = d3.select("#selectNav").append("div").attr("id", "sel")
+
+			var optns = container.append("select")
 				.attr("id","areaselect")
 				.attr("style","width:calc(100% - 6px)")
 				.attr("class","chosen-select");
+
+			container.append('label')
+				.attr('for', 'areaselect')
+				.attr('class', 'visuallyhidden')
+				.text('Select an area');
 
 			optns.append("option")
 				// .attr("value","first")
