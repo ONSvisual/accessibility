@@ -90,11 +90,11 @@
         fill-opacity: 0.01;
       }
 
-      .children:hover rect.child {
+      .children:hover rect.child, .children:focus rect.child {
         fill: #eaeaea;
       }
 
-      .child:hover {
+      .child:hover, .child:focus {
         fill: #eaeaea;
       }
 
@@ -543,18 +543,8 @@
           .classed("children", true)
           .on("click", transition);
 
-        g.selectAll(".child")
-          .data(function (d) {
-            return d._children || [d];
-          })
-          .enter().append("rect")
-          .attr("class", "child")
-          .attr("code", function (d) {
-            return d.id
-          })
-          .attr("level", function (d) {
-            return d.id.split("_").length
-          })
+        g.append("rect")
+          .attr("class", "parent")
           .attr("desc", function (d) {
             return d.name
           })
@@ -570,12 +560,36 @@
           .attr("percent", function (d) {
             return d.percent
           })
+          .attr('aria-label', function(d) {
+            if (d.realsize == 0) {
+              return d.name + " - Less than £1 " + dvc.essential.suffix;
+            } else {
+              return d.name + " - " + dvc.essential.prefix + formatNumber(d.realsize) + dvc.essential.suffix;
+            }
+          })
           .on("mouseover", mouseover)
           .on("mouseout", mouseout)
+          .on("mouseout", mouseout)
+          .on("blur", mouseout)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode == 13) {
+              $(d3.event.target).parent().d3Click();
+            }
+          })
           .call(rect);
 
-        g.append("rect")
-          .attr("class", "parent")
+        g.selectAll(".child")
+          .data(function (d) {
+            return d._children || [d];
+          })
+          .enter().append("rect")
+          .attr("class", "child")
+          .attr("code", function (d) {
+            return d.id
+          })
+          .attr("level", function (d) {
+            return d.id.split("_").length
+          })
           .attr("desc", function (d) {
             return d.name
           })
