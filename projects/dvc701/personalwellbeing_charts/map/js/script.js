@@ -565,8 +565,6 @@ if (Modernizr.webgl) {
         }
       }
       if (mobile == false) {
-        console.log(x(dvc.timepoints[a]))
-        console.log(y(dvc.average[0][a]))
         d3.select("#currPoint2")
           .transition()
           .duration(300)
