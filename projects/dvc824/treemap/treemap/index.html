@@ -49,7 +49,7 @@
       #footer {
         font-weight: 700;
       }
-      
+
       .grandparent text {
         /*font-weight: bold;*/
         fill: #606060;
@@ -257,26 +257,29 @@
               height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <div id="main-wrapper">
+      <div id="mainContent">
+        <div id="blurb">
+          <text id="txt2"></text>
+          <text id="txt3"></text>
+        </div>
 
-    <div id="blurb">
-      <text id="txt2"></text>
-      <text id="txt3"></text>
+        <div class="btnDiv ">
+          <button type="button" id="topBtn" class="nav btn btn-ons" style="visibility:hidden">
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top
+          </button>
+          <button type="button" id="upBtn" class="nav btn btn-ons" style="visibility:hidden">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Up a level
+          </button>
+
+        </div>
+
+        <div id="graphic">
+          <img src="fallback.png" alt="[Chart]"/>
+        </div>
+        <div id="footer"></div>
+      </div>
     </div>
-
-    <div class="btnDiv ">
-      <button type="button" id="topBtn" class="nav btn btn-ons" style="visibility:hidden">
-        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top
-      </button>
-      <button type="button" id="upBtn" class="nav btn btn-ons" style="visibility:hidden">
-        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Up a level
-      </button>
-
-    </div>
-
-    <div id="graphic">
-      <img src="fallback.png" alt="[Chart]"/>
-    </div>
-    <div id="footer"></div>
 
     <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
     <script src="../lib/modernizr.svg.min.js"></script>
@@ -410,6 +413,10 @@
           layout(root);
           display(root);
 
+          var heading = dvc.essential.totalLabel;
+          var value = dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix;
+          var label = `A chart displaying total household spending (${value}) broken down by type of cost.`;
+          $('#main-wrapper').attr('aria-label', label);
           d3.select("#blurb").select("#txt2").html(dvc.essential.totalLabel)
           d3.select("#blurb").select("#txt3").html(function () {
             if (treedata[0].percent == "null") {
@@ -418,16 +425,12 @@
               return dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix + " (" + treedata[0].percent + "%)"
             }
           });
-
-
         }); //end treemap csv load
-
 
         //create link to source
         d3.select("#footer").append("p")
           .text("Source: " + dvc.essential.sourceText);
       } //end drawGraphic function
-
 
       function initialize(root) {
         root.x = root.y = 0;
