@@ -1,12 +1,12 @@
 {"ons":{
 "maptitle": "Non-UK born / Non-British Nationals",
-"varcolour": "YlGnBu",
+"varcolour": ["YlGnBu", "YlGnBu"],
 "varlabels": ["Percentage Non-UK born","Percentage Non-British nationals"],
 "varload": 0,
 "varunit": ["%","%"],
 "displaydecimals": 1,
 "legenddecimals": 0,
-"breaks": "jenks",
+"breaks": ["jenks", "jenks"],
 "dropticks": false,
-"numberBreaks": 5
+"numberBreaks": [5, 5]
 }}
