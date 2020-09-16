@@ -1,0 +1,49 @@
+{
+    "essential" : {
+            "graphic_data_url": "data/YMH_2to4.csv",
+
+            "dateFormat":"",
+
+            "legendLabels" : ["All", "Female","Male"],
+            "legendStyle": "circles",
+            "colour_palette": ["#159191", "#ccc" , "#ccc"],
+
+            "sourceText":["Ketchup"],
+            "sourceURL":[""],
+
+            "annotationChart": [
+                "Line annotation",
+                "2nd annotation"
+            ],
+            "annotationBullet": [],
+            "annotationXY":[
+
+            ],
+            "annotationAlign":[
+                "middle",
+                "middle"
+            ],
+      			"minmaxonly":"true",
+      			"arrows":"starttoend",
+            "tooltip":"false",
+            "xAxisLabel":"% of children with a mental disorder",
+            "yAxisLabel":"",
+            "xAxisScale":[0,40]
+
+    },
+    "optional" : {
+            "margin_sm": [35, 10, 5, 130],
+            "margin_md": [35, 20, 5, 130],
+            "margin_lg": [35, 20, 5, 130],
+
+            "aspectRatio_sm" : [2,1.5],
+            "aspectRatio_md" : [1,5],
+            "aspectRatio_lg" : [1,1],
+
+            "mobileBreakpoint" : 510,
+
+            "x_num_ticks_sm_md_lg" : [4,5,5],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}

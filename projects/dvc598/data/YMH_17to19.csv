@@ -1,0 +1,15 @@
+﻿category,subcat,boys,girls,all
+average,Average,10.3,23.9,16.9
+ethnicity,White background,11.5,23.4,17.1
+ethnicity,Black and Minority Ethnic background,5.7,25.4,16.2
+famfunc,Healthy functioning,9.7,21.5,15.2
+famfunc,Unhealthy functioning,36.4,37.2,36.8
+pmental,Good mental health,10.6,20.5,15.1
+pmental,Poor mental health,34.0,40.8,37.7
+benefits,No,9.7,25.4,16.9
+benefits,Yes,32.4,29.9,31.1
+income,"£43,624 or more",5.8,21.8,13.0
+income,"£27,274 to £43,624",11.0,25.9,17.9
+income,"£17,529 to £27,273",19.9,34.7,26.0
+income,"£10,636 to £17,528",24.7,24.6,24.7
+income,"£0 to £10,635",13.9,25.7,20.4
