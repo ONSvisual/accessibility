@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
+	<!-- End Google Tag Manager -->
+
+	<meta charset="UTF-8">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<title>Job automation chatbot</title>
+	<link href="https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/js/jquery-ui.css" rel="stylesheet" type="text/css"/>
+	<!-- <script src="https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/js/jquery-1.6.2.min.js"></script> -->
+	<!-- <script src="https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/js/jquery-ui-1.8.16.custom.min.js"></script> -->
+	<!-- <script type="text/javascript" src="https://www.ons.gov.uk/ons/js/main.js"></script> -->
+	<script type="text/javascript" src="data/soc_support_js.js"></script>
+	<script type="text/javascript" src="data/socDB.js"></script>
+	<!-- <script type="text/javascript" src="coding_tool2.js"></script> -->
+
+	<!-- <script type="text/javascript">	stayhere = false; ismobilebrowser = false;</script>
+	<script type="text/javascript" src="https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/js/detectmobilebrowser.js"></script> -->
+
+
+	<!-- for mobile screens -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- stylesheets are conveniently separated into components -->
+	<link rel="stylesheet" media="all" href="component/styles/setup.css">
+	<link rel="stylesheet" media="all" href="component/styles/says.css">
+	<link rel="stylesheet" media="all" href="component/styles/reply.css">
+	<link rel="stylesheet" media="all" href="component/styles/typing.css">
+	<link rel="stylesheet" media="all" href="component/styles/input.css">
+	<style>
+	.fb-icon{
+
+	}
+	.fb-icon:{
+
+	}
+	body {
+		font-family: 'Open Sans';
+	}
+	.statsbot {
+		width: 60px !important;
+		height: 70px;
+	}
+	.age {
+		width: 100% !important;
+		padding-left: 12px;
+		/* height: 314px !important; */
+	}
+	.bubble-container {
+		height: 100vh;
+	}
+	.bubble-container .input-wrap textarea {
+		margin: 0;
+		width: calc(100% - 30px);
+	}
+
+	#openning {
+		font-size: 14px;
+		font-weight: bold;
+	}
+
+	#chat {
+		background: transparent;
+		box-sizing: border-box;
+		height: 500px;
+		max-width: 700px;
+		border: 2px solid #DDE4EC;
+	}
+
+	@-moz-document url-prefix() {
+		.bubble-wrap:after {
+			content: "" !important;
+			height: 50px !important;
+			display: block !important;
+			max-width: 700px !important;
+		}
+	}
+
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		.bubble-wrap:after {
+			content: "" !important;
+			height: 50px !important;
+			display: block !important;
+			max-width: 700px !important;
+		}
+	}
+
+
+	.bubble-wrap {
+		overflow-x: hidden;
+		max-width: 700px;
+	}
+	</style>
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+
+<!-- container element for chat window -->
+<div id="results_table"></div>
+<div id="chat"></div>
+
+<!-- import the JavaScript file -->
+<script src="component/Bubbles.js"></script>
+<script src="https://cdn.ons.gov.uk/vendor/d3/4.2.7/d3.min.js"></script>
+<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
+<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript">
+	// if this page was called with a code to display, identify said code
+	// GETvars = window.location.search.replace("?","").split("=");
+	// loadedsearch = "";
+	// if (GETvars) {
+	// 	if (GETvars[0] == "soc") { loadedsearch = GETvars[1].replace("%20"," "); };
+	// 	if (GETvars[0] == "fullversion") { if (GETvars[1].toLowerCase()=="yes"){stayhere=true;}; if (GETvars[1].toLowerCase()=="no"){stayhere=false;ismobilebrowser=true;}; };
+	// };
+
+	// // if the user is using a mobile browser, and they have not specified using the full version of the tool, redirect to the mobile version
+	// if (ismobilebrowser && !stayhere) { window.location="mobile_occupation_coding_tool.html?fullversion=no"; };
+</script>
+
+<script>
+
+// --------------------------- Helper functions to manipulate data etc --------------------------------
+
+// pym
+
+var pymChild = new pym.Child;
+
+// function ready(error, data) {
+
+// for first andl last elemnt selection
+
+d3.selection.prototype.first = function() {
+    return d3.select(
+        this.nodes()[0]
+    );
+};
+
+d3.selection.prototype.last = function() {
+    return d3.select(
+        this.nodes()[this.size() - 1]
+    );
+};
+
+// to sort the job names arrays and count occurances
+function sortArray(arr) {
+  var a = [], b = [], prev;
+
+  arr.sort();
+  for ( var i = 0; i < arr.length; i++ ) {
+      if ( arr[i] !== prev ) {
+          a.push(arr[i]);
+          b.push(1);
+      } else {
+          b[b.length-1]++;
+      }
+      prev = arr[i];
+  }
+
+  return [a, b];
+}
+
+// capitalize string
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
+function shareFb() {
+	// ParentURL = (window.location != window.parent.location)
+  //                                       ? document.referrer
+  //                                       : document.location;
+	//
+	// window.open("https://www.facebook.com/sharer/sharer.php?u=" + ParentURL, '_blank')
+}
+
+// --------------------------- End of helper functions to manipulate data etc --------------------------------
+
+// define a few basic global arrays to contain data
+var myArray = [];
+var socREC = [];
+var replacementword_full_1 = [];
+var replacementword_full_2 = [];
+var replacementword_sngl_1 = [];
+var replacementword_sngl_2 = [];
+var job_dictionary = [];
+var defaultnorecords = 100;
+var displayed = 0;
+var wholedisplaytext = "";
+var changes_to_text = "";
+var numTOtext = new Array("zero", "one", "two", "three", "four", "five","six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty");
+// NB if you need more, just add them to the string
+
+// once the document has loaded, import the raw data we need for the functionality
+// NB this makes use of JQuery predefined codes
+ $(document).ready(function(){
+		 $.ajax({
+					type:"GET",
+					url:"data/jobrecords.txt",
+					dataType:"text",
+					success:onLoadDatabase
+		 })
+		 $.ajax({
+					type:"GET",
+					url:"data/replacements-full.txt",
+					dataType:"text",
+					success:onLoadReplaceFull
+		 })
+		 $.ajax({
+					type:"GET",
+					url:"data/replacements-single.txt",
+					dataType:"text",
+					success:onLoadReplaceSngl
+		 })
+		 updatePbar("progressbar_srch",0);
+		 updatePbar("progressbar_mtch",0);
+		 updatePbar("progressbar_oput",0);
+		 //document.pinpoint_form.search_term.focus();
+		 // document.getElementById("search_jobs").disabled = false;
+		 // refresh_table();
+ });//end ready function
+
+// define the SOC code database using the imported data
+		 function onLoadDatabase(data)
+ {
+		 myArray = data.split("\n");
+		 for (i=0;i<myArray.length;i++) {
+				 fullterm = "";
+				 tempvalue = myArray[i].split("#");
+				 // replace all the following in order: ,*: then leading/trailing spaces...
+				 // then anything except a-z,0-9 and ' then any line breaks then any tabs
+				 extrawords = tempvalue[1].replace(/^,*:/g," ").replace(/^\s+|\s+$/g,'').toLowerCase();
+				 extrawords = extrawords.replace(/[^a-z0-9' ]+/g,'').replace(/(\r\n|\n|\r)/gm,"").replace(/(\t)/gm,"");
+				 //'
+				 extrawords = extrawords.replace(/[ ]/g,"#");
+				// if there are any numbers, replace them with words
+				otherwords = extrawords.split("#");
+				for (j=0;j<otherwords.length;j++) {
+					if (otherwords[j] == 0 || otherwords[j] == 1 || otherwords[j] == 2 || otherwords[j] == 3 || otherwords[j] == 4 || otherwords[j] ==  5 || otherwords[j] == 6 || otherwords[j] == 7 || otherwords[j] == 8 || otherwords[j] == 9 || otherwords[j] == 10 || otherwords[j] == 11 || otherwords[j] ==  12 || otherwords[j] == 13 || otherwords[j] == 14 || otherwords[j] == 15 || otherwords[j] == 16 || otherwords[j] == 17 || otherwords[j] == 18 || otherwords[j] == 19 || otherwords[j] == 20) { otherwords[j] = convertnumber(otherwords[j]); };
+// meanwhile generate an entire dictionary of individual words contained within job titles
+					job_dictionary[otherwords[j]] = 0;
+				};
+				extrawords = otherwords.join("#");
+
+				fullterm = 0 + "#" + tempvalue[1] + "#" + tempvalue[0] + "#" + extrawords;
+				socREC[i] = fullterm.split("#");
+		 };
+ };
+// define any search words we need to replace (full phrases)
+ function onLoadReplaceFull(data)
+ {
+		 myArray = data.split("\n");
+		 for (i=0;i<myArray.length;i++) {
+				 tempvalue = myArray[i].split("#");
+				 replacementword_full_1[i] = tempvalue[0].toLowerCase();
+				 replacementword_full_2[i] = tempvalue[1].replace(/(\r\n|\n|\r)/gm,"").toLowerCase();
+		 };
+ };
+// define any search words we need to replace (single words)
+ function onLoadReplaceSngl(data)
+ {
+		 myArray = data.split("\n");
+		 for (i=0;i<myArray.length;i++) {
+				 tempvalue = myArray[i].split("#");
+				 replacementword_sngl_1[i] = tempvalue[0].toLowerCase();
+				 replacementword_sngl_2[i] = tempvalue[1].replace(/(\r\n|\n|\r)/gm,"").toLowerCase();
+		 };
+		 // for(i = 0; i<socREC.length; i++) {
+			// if (socREC[i][2].substr(0,3)=="SE:") {
+			// 	console.log(socREC)
+			// }
+			// else { console.log('none')}
+		 // };
+ };
+// if the user presses the 'Enter' key, handle it properly...
+//   ie submit the form but not through the standard FORM system
+ function disableEnterKey(e,n) {
+	var key;
+	if(window.event) {
+		key = window.event.keyCode; // for IE
+	} else {
+		key = e.which; // for FF
+	};
+	if(key==13) {
+		if(n == 0) { showknownterm(); return false; };
+		if(n == 1) { refresh_table(); return false; };
+		if(n > 1) { return false; };
+	} else { return true; };
+ };
+
+
+ // Array that holds jobs
+ var jobNames = [];
+ // Array that holds job major group
+ var jobMajor = [];
+ // Array that holds job major group codes
+ var jobMajorCode = [];
+ //
+ var names;
+ var occ;
+
+ var questions = ["Tell me more about the occupations at risk of automation", "Hit  me with some general facts", "I want to put in another occupation"];
+ var usedQuestions = [];
+ var usedAnswers = [];
+ var answers = ["firstQuestion", "secondQuestion", "automationRisk"];
+
+ var questionsGeneral = ["Tell me more about risk of automation by different local authorities in England", "Tell me about the risk of automation by gender", "Tell me about the risk of automation by age"];
+ var usedQuestions = [];
+ var usedAnswers = [];
+ var answers = ["firstQuestionGeneral", "secondQuestionGeneral", "thirdQuestionGeneral"];
+
+ var switchFunction = 0;
+
+
+
+
+
+// initialize by constructing a named function...
+// ...and add text processing plugin:
+var chatWindow = new Bubbles(document.getElementById("chat"), "chatWindow", {
+
+	inputCallbackFn: function(o) {
+				wrapper(o.input)
+	}
+}) // done setting up chat-bubble
+
+
+
+
+// conversation object defined separately, but just the same as in the
+// "Basic chat-bubble Example" (1-basics.html)
+var convo = {
+  greeting: {
+    says: [
+			"<img src ='data/statbot.svg' class='statsbot'>",
+			"<span id='openning'>Oh hey! 👋</span>",
+			"Let’s chat about job automation.",
+			"I can help you understand the risk of automation for different roles, or I can share some general facts about automation. Tell me what you’re interested in!"
+		],
+    reply: [
+      {
+				question: "Hit me with some general facts",
+				answer: "secondQuestion"
+      },
+      {
+				question: "What are the risks to a particular occupation being automated?",
+				answer: "automationRisk"
+      }
+    ]
+  },
+	jobInputInvitation: {
+		says: [
+			"Okay, I’m going to need to know the occupation in question.",
+			"Type it in below."
+		]
+	},
+	pleaseWait: {
+		says: [
+			"Give me a few seconds to see if I can find that..."
+		],
+		reply: [
+		]
+	},
+
+	jobList: {
+		says: [
+		],
+		reply: [
+		]
+	},
+	shareSocial: {
+		says: [],
+		reply: []
+	},
+	automationScore: {
+		says: [],
+		reply: [
+			{
+				question: "Hit  me with some general facts",
+				answer: "secondQuestion"
+			},
+			{
+				question: "Tell me more about the occupations at risk of automation",
+				answer: "firstQuestion"
+			},
+			{
+				question: "I want to put in another occupation",
+				answer: "automationRisk"
+			}
+		]
+	},
+	linkConvo: {
+		says:[],
+		// reply:
+	},
+	story: {
+		says:[],
+		reply: [
+			{
+				question: "Hit  me with some general facts",
+				answer: ""
+			},
+			{
+				question: "Tell me more about the occupations at risk of automation",
+				answer: ""
+			},
+			{
+				question: "I want to put in another occupation",
+				answer: ""
+			}
+		]
+	},
+	storyGeneralQuestions: {
+		says: [],
+		reply: [
+			{
+				question: "Let’s start over",
+				answer: "startAgainFunction"
+			},
+			{
+				question: "Tell me about the risk of automation by age",
+				answer:"thirdQuestionGeneralFunc"
+			},
+			{
+				question:"Tell me about the risk of automation by gender",
+				answer:"secondQuestionGeneralFunc"
+			},
+			{
+				question: "Tell me more about risk of automation by local authorities in England",
+				answer: "firstQuestionGeneralFunc"
+			},
+		]
+	},
+
+	firstQuestionGeneral: {
+		says: [
+			"So let’s talk geography 📍  and automation.",
+			"Please note that the data only currently applies to England.",
+			"Here are some media reports about automation in <a href='https://www.bbc.co.uk/news/uk-wales-43712829' target='_blank'>Wales</a>, or <a href='https://www.bbc.co.uk/news/uk-scotland-42853756' target='_blank'>Scotland</a>, or here for <a href='https://www.bbc.co.uk/news/uk-northern-ireland-47364072' target='_blank'>Northern Ireland</a>. Just so you know, these links take you off site.",
+			"So first I need a postcode to look up, please type it below. I’ll then show you the risk of automation based on where people live, though this may not be the same as where they work."
+		],
+		// reply: [
+		// 	{
+		// 		question: "Let’s start over",
+		// 		answer: "greeting"
+		// 	},
+		// 	{
+		// 		question: "Tell me about the risk of automation by age",
+		// 		answer:"thirdQuestionGeneralFunc"
+		// 	},
+		// 	{
+		// 		question:"Tell me about the risk of automation by gender",
+		// 		answer:"secondQuestionGeneralFunc"
+		// 	},
+		// 	{
+		// 		question: "Tell me more about risk of automation by local authorities in England",
+		// 		answer: "firstQuestionGeneralFunc"
+		// 	},
+		// ]
+	},
+
+	secondQuestionGeneral: {
+		says: [
+			"Males are less likely than females to be at risk of having their job automated.",
+			"Of all the jobs that are high risk, 70% are held by women.",
+			"But remember it’s occupation that drives the risk of automation, and more women tend to work in roles where the risk of automation is higher, and that’s what accounts for the difference."
+		],
+		reply: [
+			{
+				question: "Let’s start over",
+				answer: "startAgainFunction"
+			},
+			{
+				question: "Tell me about the risk of automation by age",
+				answer:"thirdQuestionGeneralFunc"
+			},
+			{
+				question:"Tell me again about the risk of automation by gender",
+				answer:"secondQuestionGeneralFunc"
+			},
+			{
+				question: "Tell me more about risk of automation by local authorities in England",
+				answer: "firstQuestionGeneralFunc"
+			},
+		]
+	},
+
+	thirdQuestionGeneral: {
+		says: [
+			"Let’s look at age.",
+			"The youngest people in the workforce are in jobs at greatest risk of automation. This could be explained by the types of roles younger people tend to do, and their pattern of work at those ages.",
+			"45% of the jobs at high risk of automation are done by workers aged 20 to 29 years old. 2.8% of workers in a role at high risk of automation aged 35 to 39.",
+			"You can see the probability of automation for roles by different ages here:",
+			"<img src='data/age.svg' class='age'>"
+		],
+		reply: [
+			{
+				question: "Let’s start over",
+				answer: "startAgainFunction"
+			},
+			{
+				question: "Tell me again about the risk of automation by age",
+				answer:"thirdQuestionGeneralFunc"
+			},
+			{
+				question:"Tell me how gender impacts automation risk",
+				answer:"secondQuestionGeneralFunc"
+			},
+			{
+				question: "Tell me more about risk of automation by local authorities in England",
+				answer: "firstQuestionGeneralFunc"
+			},
+		]
+
+	},
+
+	errorFirstGeneral: {
+		says: ["Sorry, we don't have data for this postcode or it doesn't exist"],
+		reply: [
+			{
+				question: "Let’s start over",
+				answer: "startAgainFunction"
+			},
+			{
+				question: "Tell me about the risk of automation by age",
+				answer:"thirdQuestionGeneralFunc"
+			},
+			{
+				question:"Tell me about the risk of automation by gender",
+				answer:"secondQuestionGeneralFunc"
+			},
+			{
+				question: "I want to enter another location",
+				answer: "firstQuestionGeneralFunc"
+			},
+
+		]
+	},
+
+	areaAutomation: {
+		says:[],
+		reply: [
+			{
+				question: "Let’s start over",
+				answer: "startAgainFunction"
+			},
+			{
+				question: "Tell me about the risk of automation by age",
+				answer:"thirdQuestionGeneralFunc"
+			},
+			{
+				question:"Tell me about the risk of automation by gender",
+				answer:"secondQuestionGeneralFunc"
+			},
+			{
+				question: "I want to enter another location",
+				answer: "firstQuestionGeneralFunc"
+			},
+		]
+	}
+
+}
+
+automationRisk = function() {
+	// google analytics
+	dataLayer.push({
+					 'event': 'buttonClicked',
+					 'selected': 'Occupation start'
+				 })
+
+	switchFunction = 0
+	document.getElementById("input-area").style.display = "block";
+	document.getElementById("input-area").disabled = false;
+
+	chatWindow.talk(convo, "jobInputInvitation");
+}
+
+function jobListFun() {
+		switchFunction = 1;
+		document.getElementById("input-area").style.display = "none";
+		document.getElementById("input-area").disabled = true;
+
+
+		d3.selectAll('.bubble-button-active')
+			.attr('class', 'bubble-button bubble-pick bubble-button-deactivated');
+
+	 sortable = sortArray(jobMajorCode);
+	 names = sortable[0];
+	 occ = sortable[1];
+
+	 //1) combine the arrays:
+	var list = [];
+	for (var j = 0; j < names.length; j++)
+	    list.push({'name': names[j], 'occ': +occ[j]});
+
+	//2) sort:
+	list.sort(function(a, b) {
+	    return ((a.occ < b.occ) ? -1 : ((a.occ == b.occ) ? 0 : 1));
+	    //Sort could be modified to, for example, sort on the age
+	    // if the name is the same.
+	});
+
+	//3) separate them back out:
+	for (var k = 0; k < list.length; k++) {
+	    names[k] = list[k].name;
+	    occ[k] = list[k].occ;
+	}
+
+	var lengthArr = [];
+
+	if(names.length > 3) {
+		convo.jobList.says = [
+			// "But first I should say that the data only currently applies to England.",
+			// "Sorry Wales, Scotland and Northern Ireland.",
+			// "Click to read some media reports about automation in <a href='https://www.bbc.co.uk/news/uk-wales-43712829' target='_blank'>Wales</a>, or <a href='https://www.bbc.co.uk/news/uk-scotland-42853756' target='_blank'>Scotland</a>, or here for <a href='https://www.bbc.co.uk/news/uk-northern-ireland-47364072' target='_blank'>Northern Ireland</a>.",
+			// "Note these links take you off site.",
+			"Please choose an occupation"
+		];
+		convo.jobList.reply.push({"question":"Load more", "answer":"loadMore"});
+		for(i=names.length-3; i < names.length; i++) {
+				convo.jobList.reply.push({"question":socDB[names[i]].unit.toLowerCase().capitalize(), "answer":"automationScoreFun"});
+		}
+	} else if (names.length === 3) {
+		convo.jobList.says = [
+			// "But first I should say that the data only currently applies to England.",
+			// "Sorry Wales, Scotland and Northern Ireland.",
+			// "Click to read some media reports about automation in <a href='https://www.bbc.co.uk/news/uk-wales-43712829' target='_blank'>Wales</a>, or <a href='https://www.bbc.co.uk/news/uk-scotland-42853756' target='_blank'>Scotland</a>, or here for <a href='https://www.bbc.co.uk/news/uk-northern-ireland-47364072' target='_blank'>Northern Ireland</a>.",
+			// "Note these links take you off site.",
+			"Please choose an occupation"
+		];
+		for(i=names.length-3; i < names.length; i++) {
+				convo.jobList.reply.push({"question":socDB[names[i]].unit.toLowerCase().capitalize(), "answer":"automationScoreFun"});
+		}
+	} else if (names.length > 0 && names.length < 3){
+		convo.jobList.says = [
+			// "But first I should say that the data only currently applies to England.",
+			// "Sorry Wales, Scotland and Northern Ireland.",
+			// "Click to read some media reports about automation in <a href='https://www.bbc.co.uk/news/uk-wales-43712829' target='_blank'>Wales</a>, or <a href='https://www.bbc.co.uk/news/uk-scotland-42853756' target='_blank'>Scotland</a>, or here for <a href='https://www.bbc.co.uk/news/uk-northern-ireland-47364072' target='_blank'>Northern Ireland</a>.",
+			// "Note these links take you off site.",
+			"Please choose an occupation"
+		];
+		for(i=0; i < names.length; i++) {
+				convo.jobList.reply.push({"question":socDB[names[i]].unit.toLowerCase().capitalize(), "answer":"automationScoreFun"});
+		}
+	} else if(names.length === 0) {
+			switchFunction = 0;
+			convo.jobList.says = ["Sorry, didn't get that", "Can you try again?"]
+			document.getElementById("input-area").style.display = "block";
+			document.getElementById("input-area").disabled = false;
+
+	}
+
+	chatWindow.talk(convo, "jobList");
+}
+
+loadMore = function() {
+
+	// google analytics
+	dataLayer.push({
+					 'event': 'buttonClicked',
+					 'selected': 'Load more'
+				 })
+
+	d3.selectAll('.bubble-button-active')
+		.attr('class', 'bubble-button-deactivated bubble-button');
+
+	convo.jobList.reply = [];
+
+	names.splice((names.length-3), 3)
+
+	if(names.length > 3) {
+		convo.jobList.reply.push({"question":"Load more", "answer":"loadMore"});
+		for(i=names.length-3; i < names.length; i++) {
+				convo.jobList.reply.push({"question":socDB[names[i]].unit.toLowerCase().capitalize(), "answer":"automationScoreFun"});
+		}
+	} else if (names.length === 3) {
+		for(i=names.length-3; i < names.length; i++) {
+				convo.jobList.reply.push({"question":socDB[names[i]].unit.toLowerCase().capitalize(), "answer":"automationScoreFun"});
+		}
+	} else{
+		for(i=0; i < names.length; i++) {
+				convo.jobList.reply.push({"question":socDB[names[i]].unit.toLowerCase().capitalize(), "answer":"automationScoreFun"});
+		}
+	}
+	chatWindow.talk(convo, "jobList");
+}
+
+automationScoreFun = function() {
+	var lengthNodes = d3.selectAll(".bubble-button-active").size()
+	d3.selectAll(".bubble-button-active")
+		.attr('class', function(d,i) {
+			if(i===3) {
+				return "bubble-button-deactivated bubble-button " + i
+			} else {
+				return "bubble-button-deactivated bubble-button " + names[names.length-1-i] + " " + i
+			}
+		});
+	setTimeout(giveAutomationScore, 1000)
+}
+
+function giveAutomationScore() {
+	var idCode = d3.selectAll(".bubble-pick").last().attr("class").split(" ")[2];
+	var majorGroup = idCode;
+	var automationProb;
+
+	// google analytics
+	dataLayer.push({
+					 'event': 'lineDropSelect',
+					 'selected': socDB[majorGroup].unit.toLowerCase().capitalize()
+				 })
+
+	d3.csv("data/data.csv", function(data) {
+		// console.log(data)
+		var filtered = data.filter(function(d,i) {
+			return +d.SOC2010 === +majorGroup
+		})
+
+		automationProb = +filtered[0].value;
+
+		var riskCategory;
+
+		if(automationProb < 0.3) {
+			riskCategory = 'low';
+		} else if (automationProb < 0.7 && automationProb > 0.3) {
+			riskCategory = 'medium'
+		} else if (automationProb > 0.7) {
+			riskCategory = 'high'
+		}
+
+		convo.shareSocial.says = [
+			"Right, so there is a " + d3.format(".0%")(automationProb) + " risk of some or all of the duties and tasks in this role being automated.",
+			"That puts the occupation in the " + riskCategory + " risk category.",
+			"However, automation itself doesn’t mean jobs will necessarily be lost - it could mean the jobs change as a result or that new roles emerge because of automation.",
+			"It doesn’t mean the robots are taking over!",
+			"Do you want to share this?"
+		]
+
+		convo.shareSocial.reply = [
+					{
+						question: "Enough already, I want to find out more about automation 😃",
+						answer: "automationScore"
+					},
+					{
+						question:"Give me a link",
+						answer:"linkFun"
+					},
+					{
+						question:"Share on Facebook",
+						answer:"facebookFn"
+					},
+					{
+						question: "Share on Twitter",
+						answer:"twitterFn"
+					},
+				]
+
+
+		// reset all the arrays for new search
+		// Array that holds jobs
+		jobNames = [];
+		// Array that holds job major group
+		jobMajor = [];
+		// Array that holds job major group codes
+		jobMajorCode = [];
+		//
+		names = [];
+		occ = [];
+
+		convo.jobList.reply = [];
+
+		chatWindow.talk(convo, "shareSocial");
+	})
+}
+
+linkFun = function() {
+
+	convo.automationScore.says = ["Here's a link", "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/articles/whichoccupationsareathighestriskofbeingautomated/2019-03-25"]
+	chatWindow.talk(convo, "automationScore");
+	convo.automationScore.says = [];
+
+}
+
+storyFunction = function() {
+
+	for(i=0; i < questions.length; i++) {
+		convo.story.reply.push({"question":questions[i], "answer":answers[i]})
+	}
+	chatWindow.talk(convo, "story");// the conversation can be easily restarted from here.
+}
+
+firstQuestion = function() {
+	// google analytics
+	dataLayer.push({
+					 'event': 'buttonClicked',
+					 'selected': 'I want to know more about occupation'
+				 })
+	// questions = ["Tell me about industries at risk", "I would like to know more about areas"];
+	// answers = ["secondQuestion", "thirdQuestion"];
+
+	convo.story.reply = [];
+	if(usedQuestions.length === 2) {
+		convo.story.says = [
+			"So you want to know a bit more about the occupations at risk of automation.",
+			"No problem.",
+			"Occupation clearly is important when we talk about job automation, because it’s the skills that people use at work and the tasks they carry out that determine whether the job is likely to be automated.",
+			"The occupations at most risk of automation are waiting staff, shelf fillers, elementary sales roles, and bar staff 💁🍺.",
+			"These occupations have a higher than 70% risk of some or all of their duties being automated.",
+			"While the occupations where the risk of automation is lowest are medical practitioners, higher education teaching professionals, senior professionals in education, occupational therapists, and a range of specific medical roles, such as physios, radiographers, dental practitioners and psychologists 😷⚕️🏥.",
+			"These roles have an 18 to 21% risk of some or all of their duties being automated."
+		];
+		// convo.story.reply.push({"question": "give me the details", "answer": "sex"});
+	} else {
+		convo.story.says = [
+			"So you want to know a bit more about the occupations at risk of automation.",
+			"No problem.",
+			"Occupation clearly is important when we talk about job automation, because it’s the skills that people use at work and the tasks they carry out that determine whether the job is likely to be automated.",
+			"The occupations at most risk of automation are waiting staff, shelf fillers, elementary sales roles, and bar staff 💁🍺.",
+			"These occupations have a higher than 70% risk of some or all of their duties being automated.",
+			"While the occupations where the risk of automation is lowest are medical practitioners, higher education teaching professionals, senior professionals in education, occupational therapists, and a range of specific medical roles, such as physios, radiographers, dental practitioners and psychologists 😷⚕️🏥.",
+			"These roles have an 18 to 21% risk of some or all of their duties being automated."
+		];
+
+		usedQuestions.push("Tell me more about the occupations at risk of automation");
+		usedAnswers.push("firstQuestion");
+
+		for(i=0; i < questions.length; i++) {
+			if(usedQuestions.includes(questions[i]) === false) {
+				convo.story.reply.push({"question":questions[i], "answer":answers[i]});
+			}
+		}
+	}
+	chatWindow.talk(convo, "story");// the conversation can be easily restarted from here.
+}
+
+secondQuestion = function() {
+
+	// google analytics
+	dataLayer.push({
+					 'event': 'buttonClicked',
+					 'selected': 'General facts'
+				 })
+	convo.story.reply = [];
+	if(usedQuestions.length === 2) {
+		convo.storyGeneralQuestions.says = [
+			"So you want some general facts? Ok, no problem.",
+			"ONS crunched the numbers of jobs that are likely to be at risk of automation in future.",
+			"About 1.5 million jobs in England (7.4% of roles analysed) have a high risk of automation, while 13 million have a medium risk and 5.5 million have a low risk."
+		];
+		// convo.story.reply.push({"question": "give me the details", "answer": "sex"});
+	} else {
+		usedQuestions.push("Tell me about industries at risk");
+		usedAnswers.push("secondQuestion");
+
+		convo.storyGeneralQuestions.says = [
+			"So you want some general facts? Ok, no problem.",
+			"ONS crunched the numbers of jobs that are likely to be at risk of automation in future.",
+			"About 1.5 million jobs in England (7.4% of roles analysed) have a high risk of automation, while 13 million have a medium risk and 5.5 million have a low risk."
+
+		];
+
+		for(i=0; i < questions.length; i++) {
+			if(usedQuestions.includes(questions[i])=== false) {
+				convo.story.reply.push({"question":questions[i], "answer":answers[i]});
+			}
+		}
+	}
+	chatWindow.talk(convo, "storyGeneralQuestions");// the conversation can be easily restarted from here.
+}
+
+// thirdQuestion = function() {
+//
+// 	convo.story.reply = [];
+// 	if(usedQuestions.length === 2) {
+// 		convo.story.says = [
+// 		];
+// 		convo.story.reply.push({"question": "give me the details", "answer": "sex"});
+// 	} else {
+// 		usedQuestions.push("I would like to know more about areas");
+// 		usedAnswers.push("thirdQuestion");
+//
+// 		convo.story.says = [
+// 			// "Occupation clearly is important when we talk about job automation, because it’s the skills that people use at work and the tasks they carry out that determine whether the job is likely to be automated.",
+// 		];
+//
+// 		for(i=0; i < questions.length; i++) {
+// 			if(usedQuestions.includes(questions[i]) === false) {
+//
+// 				convo.story.reply.push({"question":questions[i], "answer":answers[i]});
+// 			}
+// 		}
+// 	}
+// 	chatWindow.talk(convo, "story");// the conversation can be easily restarted from here.
+// }
+
+firstQuestionGeneralFunc = function() {
+
+	// google analytics
+	dataLayer.push({
+					 'event': 'buttonClicked',
+					 'selected': 'Tell me more about local authorities'
+				 })
+
+	switchFunction = 1;
+	// convo.firstQuestionGeneral.says = [
+	// 	"So let’s talk geography and automation.",
+	// 	"Please note that the data we have only covers England. Sorry Wales, Scotland and Northern Ireland.",
+	// 	"Here are some media reports about automation in <a href='https://www.bbc.co.uk/news/uk-wales-43712829' target='_blank'>Wales</a>, or <a href='https://www.bbc.co.uk/news/uk-scotland-42853756' target='_blank'>Scotland</a>, or here for <a href='https://www.bbc.co.uk/news/uk-northern-ireland-47364072' target='_blank'>Northern Ireland</a>. Just so you know, these links take you off site.",
+	// 	"So first I need a postcode to look up, please type it below. I’ll then show you the risk of automation based on the jobs people do in the areas in which they live."
+	// ];
+
+	chatWindow.talk(convo, "firstQuestionGeneral");
+	document.getElementById("input-area").style.display = "block";
+	document.getElementById("input-area").disabled = false;
+}
+
+function areaAutomationFunc(area, laCode) {
+	document.getElementById("input-area").style.display = "none";
+	document.getElementById("input-area").disabled = true;
+
+	d3.csv("data/data_la.csv", function(data_la) {
+		var filtered_la = data_la.filter(function(d,i) {
+			return d.AREACD === laCode
+		});
+
+		if(filtered_la.length === 0) {
+			errorPostcode()
+		} else {
+			if(filtered_la[0].number==="" || filtered_la[0].proportion==="") {
+				convo.areaAutomation.says = [
+					"Okay, so that’s in " + area + ".",
+					"There’s a " + d3.format(".0%")(filtered_la[0]["2017"]) + " risk of the jobs in this area having some or all of their tasks automated.",
+					"The risk of automation is driven by the types of roles in the area, and the types of skills used in those jobs."
+				];
+			} else {
+				convo.areaAutomation.says = [
+					"Okay, so that’s in " + area + ".",
+					"There’s a " + d3.format(".0%")(filtered_la[0]["2017"]) + " risk of the jobs in this area having some or all of their tasks automated.",
+					filtered_la[0].proportion+"% jobs are at high risk of automation - that’s around " + d3.format(",")(+filtered_la[0].number) + " jobs.",
+					"The risk of automation is driven by the types of roles in the area, and the types of skills used in those jobs."
+				];
+			}
+			chatWindow.talk(convo, "areaAutomation");
+
+		}
+
+	})
+}
+
+function facebookFn(){
+	var ParentURL = (window.location != window.parent.location)? document.referrer: document.location;
+	window.open("https://www.facebook.com/sharer/sharer.php?u="+ParentURL,"_blank")
+	dataLayer.push({
+					 'event': 'buttonClicked',
+					 'selected': 'facebook'
+				 })
+	chatWindow.talk(convo,"automationScore")
+}
+
+function twitterFn(){
+	var ParentURL = (window.location != window.parent.location)? document.referrer: document.location;
+	window.open("https://twitter.com/intent/tweet?text="+ParentURL,"_blank")
+	dataLayer.push({
+					 'event': 'buttonClicked',
+					 'selected': 'twitter'
+				 })
+ 	chatWindow.talk(convo,"automationScore")
+}
+
+function errorPostcode() {
+		document.getElementById("input-area").style.display = "none";
+		document.getElementById("input-area").disabled = true;
+
+		convo.firstQuestionGeneral.says = [
+			"I need a postcode to look up, please type it below."
+		];
+
+
+		switchFunction = 1;
+		chatWindow.talk(convo, "errorFirstGeneral");
+
+}
+
+secondQuestionGeneralFunc = function() {
+
+	// google analytics
+	dataLayer.push({
+					 'event': 'buttonClicked',
+					 'selected': 'Gender'
+				 })
+
+	chatWindow.talk(convo, "secondQuestionGeneral");
+}
+
+thirdQuestionGeneralFunc = function() {
+
+	// google analytics
+	dataLayer.push({
+           'event': 'buttonClicked',
+           'selected': 'Age'
+         })
+
+	chatWindow.talk(convo, "thirdQuestionGeneral");
+}
+
+startAgainFunction = function() {
+
+	// google analytics
+	dataLayer.push({
+					 'event': 'buttonClicked',
+					 'selected': 'Start over'
+				 })
+
+	usedQuestions = [];
+	usedAnswers = [];
+
+	convo.greeting.reply = [
+		{
+			question: "Hit me with some general facts",
+			answer: "secondQuestion"
+		},
+		{
+			question: "What are the risks to a particular occupation being automated?",
+			answer: "automationRisk"
+		}
+	]
+
+	convo.storyGeneralQuestions.reply = [
+		{
+			question: "Let’s start over",
+			answer: "startAgainFunction"
+		},
+		{
+			question: "Tell me about the risk of automation by age",
+			answer:"thirdQuestionGeneralFunc"
+		},
+		{
+			question:"Tell me about the risk of automation by gender",
+			answer:"secondQuestionGeneralFunc"
+		},
+		{
+			question: "Tell me more about risk of automation by local authorities in England",
+			answer: "firstQuestionGeneralFunc"
+		},
+	]
+
+
+	chatWindow.talk(convo, "greeting");
+
+	// workaround()
+	//
+	// function workaround() {
+	// 	// workaround to delete background for statsbot
+	// 	document.getElementById("statsbot").parentNode.parentNode.style.background = "transparent"
+	//
+	// }
+	var botBackground = document.getElementsByClassName("statsbot");
+
+	for(i=0; i<botBackground.length; i++) {
+		document.getElementsByClassName("statsbot")[i].parentNode.parentNode.style.background = "transparent"
+
+	}
+
+}
+
+// pass JSON to your function and you're done!
+chatWindow.talk(convo, "greeting");
+
+// workaround to delete background for statsbot
+document.getElementsByClassName("statsbot")[0].parentNode.parentNode.style.background = "transparent"
+
+
+if (pymChild) {
+	pymChild.sendHeight();
+}
+
+// ------------------------------- Job matching functions ----------------------------------
+// When the page loads, or when the user attempts a search, this function initiates the process
+// USED IN: called by HTML page elements
+// LEADS TO: "initiatesearch" macro
+var jobKey;
+
+function wrapper(wrapperInput) {
+	if(switchFunction === 0) {
+		document.getElementById("input-area").style.display = "none";
+		document.getElementById("input-area").disabled = true;
+
+		// document.getElementById('input-area').placeholder = 'occc'
+		switchFunction = 1;
+		chatWindow.talk(convo, "pleaseWait");
+
+		refresh_table(wrapperInput);
+	} else if(switchFunction === 1) {
+		switchFunction = 0
+		getPostcode(wrapperInput)
+	}
+}
+
+function getPostcode(postcode) {
+
+	// google analytics
+	dataLayer.push({
+					 'event': 'buttonClicked',
+					 'selected': 'Postcode entered'
+				 })
+
+	var myURIstring=encodeURI("https://api.postcodes.io/postcodes/"+postcode);
+	$.support.cors = true;
+	$.ajax({
+		type: "GET",
+		crossDomain: true,
+		dataType: "jsonp",
+		url: myURIstring,
+		error: function (xhr, ajaxOptions, thrownError) {
+			errorPostcode()
+			},
+		success: function(data1){
+			if(data1.status == 200 ){
+				//$("#pcError").hide();
+				area = data1.result.admin_district
+				laCode =data1.result.codes.admin_district
+				areaAutomationFunc(area, laCode)
+
+
+
+				// success(lat,lng)
+			} else {
+				errorPostcode()
+				// $("#pcText").val("Sorry, invalid postcode.");
+			}
+		}
+
+	});
+}
+
+function refresh_table(jobInput) {
+
+	// google analytics
+	dataLayer.push({
+					 'event': 'buttonClicked',
+					 'selected': 'Occupation entered'
+				 })
+
+ // google analytics
+	dataLayer.push({
+					 'event': 'mapDropSelect',
+					 'selected': jobInput
+				 })
+
+
+	jobKey = jobInput;
+
+	// reset the text in the result table
+	// document.getElementById("results_table").innerHTML = "";
+
+	// check whether anything has been typed into the search box
+	if (jobKey == "") {
+		document.getElementById("results_table").innerHTML = "Insufficient text provided in search box.";
+	} else {
+		// reset all the progress bars and images to show we are starting fresh
+		document.getElementById('results_table').scrollIntoView();
+		// updatePbar("progressbar_srch",0);
+		// updatePbar("progressbar_mtch",0);
+		// updatePbar("progressbar_oput",0);
+		// document.getElementById("img_mtch").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/pause.gif";
+		// document.getElementById("img_oput").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/pause.gif";
+		// document.getElementById("progressbarwrapper").style.display = "block";
+		// document.getElementById("progresstitle").innerHTML = "Please wait, searching for occupation titles:";
+		// document.getElementById("search_jobs").disabled = true;
+		// document.getElementById("search_cancel").disabled = false;
+		killme = false;
+	 	z = setTimeout("initiatesearch(jobKey)",1);
+	};
+	return false;
+};
+
+// reset all the variables and scores before we start searching
+// USED IN: called by "refresh_table" macro only
+// LEADS TO: "clean_search_term" macro
+function initiatesearch() {
+	// reset all the scores
+	// document.getElementById("img_srch").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/progress.gif";
+	wholedisplaytext = "";
+	displayed = 0;
+	changes_to_text = "";
+	for(w=0;w<socREC.length;w++) { socREC[w][0] = 0; };
+	updatePbar("progressbar_srch",5);
+	for (var i in job_dictionary) { job_dictionary[i] = 0; };
+	updatePbar("progressbar_srch",10);
+ 	z = setTimeout("clean_search_term()",1);
+};
+
+// clean and correct whatever the user typed into the search box
+// note we keep reference of what we have changed so we can warn the user what we have done
+// USED IN: called by "initiatesearch" macro only
+// LEADS TO: "dictionaryiteration" macro
+function clean_search_term() {
+	// replace any doubled spaces and set to lower case
+	search_term = jobKey.replace(/^\s\s*/,'').replace(/\s\s*$/, '').toLowerCase();
+	updatePbar("progressbar_srch",15);
+
+	// based on our database of known issues, replace any full search phrases with corrected versions
+	//   eg "h g v" should be "hgv", or "part-time" should be deleted
+	for (x=0;x<replacementword_full_1.length;x++) {
+		before = search_term;
+		search_term = search_term.replace(replacementword_full_1[x],replacementword_full_2[x]);
+		if (before != search_term) {
+			if (replacementword_full_2[x] == "" || replacementword_full_2[x] == " ") {
+				changes_to_text = changes_to_text + ", deleted term: '" + replacementword_full_1[x] + "'";
+			} else {
+				changes_to_text = changes_to_text + ", replaced term: '" + replacementword_full_1[x] + "' with '" + replacementword_full_2[x] + "'";
+			};
+		};
+	};
+	updatePbar("progressbar_srch",30);
+
+	// replace anything non-alpha-numeric
+	search_term = search_term.replace(/[^a-z0-9' ]+/g,'');
+	//'
+
+	// work through each word in turn, performing the same replacement function as before but for individual words
+	//   eg "it" should be "information technology", but the full search would find any occurrence of the term "it" and replace them
+	search_words = search_term.split(' ');
+	updatePbar("progressbar_srch",35);
+	for (x=0;x<search_words.length;x++) {
+		for (y=0;y<replacementword_sngl_1.length;y++) {
+			if (search_words[x] == replacementword_sngl_1[y]) {
+				search_words[x] = replacementword_sngl_2[y];
+				if (replacementword_sngl_2[y] == "" || replacementword_sngl_2[y] == " ") {
+					changes_to_text = changes_to_text + ", deleted term: '" + replacementword_sngl_1[y] + "'";
+				} else {
+					changes_to_text = changes_to_text + ", replaced term: '" + replacementword_sngl_1[y] + "' with '" + replacementword_sngl_2[y] + "'";
+				};
+			};
+		};
+		// if we remove any search word, make sure it is totally removed
+		if (search_words[x] == "" || search_words[x] == " ") { search_words.splice(x,1); };
+		updatePbar("progressbar_srch",35+(45*x/search_words.length));
+	};
+
+	// if the search term contains numbers, convert them to words - the dictionary is built upon words not numbers
+	for (x=0;x<search_words.length;x++) {
+		if (search_words[x] == 0 || search_words[x] == 1 || search_words[x] == 2 || search_words[x] == 3 || search_words[x] == 4 || search_words[x] ==  5 || search_words[x] == 6 || search_words[x] == 7 || search_words[x] == 8 || search_words[x] == 9 || search_words[x] == 10 || search_words[x] == 11 || search_words[x] ==  12 || search_words[x] == 13 || search_words[x] == 14 || search_words[x] == 15 || search_words[x] == 16 || search_words[x] == 17 || search_words[x] == 18 || search_words[x] == 19 || search_words[x] == 20) {
+			changes_to_text = changes_to_text + ", replaced word: '" + search_words[x] + "' with '" + convertnumber(search_words[x]) + "'";
+			search_words[x] = convertnumber(search_words[x]);
+		};
+	};
+
+	// stitch everything back together
+	search_term = search_words.join(' ');
+	if (search_term.replace(/\s/g, '') == "") {
+		document.getElementById("results_table").innerHTML = "<B>You searched for: <\/B><FONT COLOR=\"blue\">" + (search_term==""?"- no text -":search_term) + "</FONT>" + (changes_to_text==""?"":"<BR>(where the following changes were made: " + changes_to_text.substr(2,changes_to_text.length) + ")") + "<BR><BR>There were <B>no results</B> to display. Perhaps you could try alternative words/terms in your search.";
+		updatePbar("progressbar_oput",100);
+		document.getElementById("img_oput").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/done.gif";
+		document.getElementById("progresstitle").innerHTML = "Search complete!";
+		document.getElementById("search_jobs").disabled = false;
+		document.getElementById("search_cancel").disabled = true;
+		document.getElementById("progressbarwrapper").style.display = "none";
+	} else {
+		updatePbar("progressbar_srch",100);
+		// document.getElementById("img_srch").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/done.gif";
+		// document.getElementById("img_mtch").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/progress.gif";
+		// start the iterative matching process
+		z = setTimeout("dictionaryiteration(0)",2);
+	};
+};
+
+// using our dictionary of 'all individual words that appear in any SOC term'
+//   apply a match score for each search term against each known word
+// note this function is split to calculate for each search term in order one-by-one
+// USED IN: called by "clean_search_term" macro, uses "match" function many times
+// LEADS TO: "searchiteration" macro
+function dictionaryiteration(myval) {
+	if (killme == true) {
+		cancelsearch();
+	} else {
+ 		for (var i in job_dictionary) {
+ 			newscore = 0;
+ 			newscore = match(i,search_words[myval].replace(/[-]+/g,''));
+ 			// assuming this word matches the search term better than any previous ones, apply this score instead
+ 		 	if (newscore > job_dictionary[i]) { job_dictionary[i] = newscore; };
+ 		};
+		updatePbar("progressbar_mtch",(50*myval/search_words.length));
+ 		myval = myval + 1;
+ 		// if there are any search terms not yet matched, move to the next one, otherwise start the next process
+ 		if (myval >= search_words.length) {
+			z = setTimeout("searchiteration(0)",1);
+ 		} else {
+ 			z = setTimeout("dictionaryiteration(" + myval + ")",2);
+ 		};
+	};
+};
+
+// iterate through the SOC code database and apply an appropriate score to each term
+// this uses the scores we applied to the dictionary in the previous macro
+// note this function is split to calculate for each 60 SOC codes in turn
+// USED IN: called by "dictionaryiteration" macro only
+// LEADS TO: "sortscores" macro, and calls "score_this_term" function
+function searchiteration(myval) {
+	if (killme == true) {
+		cancelsearch();
+	} else {
+		if ((myval + 50) >= socREC.length) { topval = socREC.length; } else { topval = myval + 51; };
+		for(w=myval;w<topval;w++) { socREC[w][0] = score_this_term(w); };
+		myval = myval + 50;
+		updatePbar("progressbar_mtch",50+(50*w/socREC.length));
+		if (myval >= socREC.length) { z = setTimeout("sortscores()",2); } else { z = setTimeout("searchiteration(" + myval + ")",1); };
+	};
+};
+
+// Add together the scores for each word in the job title, then standardise for the number of words
+// USED IN: "searchiteration" macro only
+// LEADS TO: self-contained function
+function score_this_term(w) {
+	totalscore = 0;
+	// note that while we allow words to contain hyphens, the job dictionary array cannot handle them
+	for(y=3;y<socREC[w].length;y++) { totalscore = totalscore + job_dictionary[socREC[w][y].replace(/[-]+/g,'')]; };
+	return (totalscore / (socREC[w].length - 3));
+};
+
+// Sort the scores of each SOC code into descending order in advance of displaying them
+// USED IN: called by "searchiteration" macro only
+// LEADS TO: "displayrecords" macro
+function sortscores() {
+	// document.getElementById("img_mtch").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/done.gif";
+	// document.getElementById("img_oput").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/progress.gif";
+	scoreranking = new Array(); x = 0; for(w=0;w<socREC.length;w++) {
+		if (isNumeric(socREC[w][0]) && socREC[w][0] > 40) {
+//scoreranking[x++] = Math.round(socREC[w][0]*1000) / 1000;
+// adjusted score = socREC[w][0]
+// raw score = Math.round(socREC[w][0] * (socREC[w].length - 3))
+
+	rawscore = 0;
+	rawscore = Math.round(socREC[w][0] * (socREC[w].length - 3));
+	temprawscore = rawscore.toString();
+	do { temprawscore = "0" + temprawscore; } while (temprawscore.length<9);
+	tempadjscore = 0;
+	tempadjscore = Math.round(socREC[w][0]*1000);
+	tempfinalscore = tempadjscore + temprawscore;
+	scoreranking[x++] = (tempfinalscore*1);
+};
+	};
+	updatePbar("progressbar_oput",5);
+	rankedscores = new Array(); rankedscores = scoreranking.sort(function(a,b){return (b-a)});
+	updatePbar("progressbar_oput",20);
+	w=1; do {
+		if (rankedscores[w] == rankedscores[w-1]) { rankedscores.splice(w,1); } else { w++; };
+	} while (w<rankedscores.length);
+	updatePbar("progressbar_oput",35);
+	z = setTimeout("displayrecords(0,"+defaultnorecords+")",1);
+};
+
+// prepare the top x-number of scored terms for displaying to the user
+// USED IN: called by "sortscores" macro only
+// LEADS TO: "finishoff" macro
+function displayrecords(w,norecs) {
+	// jobListFun()
+
+	if (killme == true) {
+		cancelsearch();
+	} else {
+		if (w<rankedscores.length && displayed < norecs) {
+			for (x=0;x<socREC.length;x++) {
+
+			// fix to force the sorting by adjusted score then raw score
+			rawscore = 0;
+			rawscore = Math.round(socREC[x][0] * (socREC[x].length - 3));
+			temprawscore = rawscore.toString();
+			do { temprawscore = "0" + temprawscore; } while (temprawscore.length<9);
+			tempadjscore = 0;
+			tempadjscore = Math.round(socREC[x][0]*1000);
+			tempfinalscore = tempadjscore + temprawscore;
+			// end of fix
+			if (rankedscores[w] == (tempfinalscore*1) && rankedscores[w] != 0 && displayed < norecs) {
+				if (socREC[x][2].substr(0,3)=="SE:") {
+					// console.log("first:", socREC[x][2])
+					// console.log(socREC[x][1].replace(/\s\s*$/, ''))
+					jobNames.push(socREC[x][2].substr(3,socREC[x][2].length-3));
+
+
+					wholedisplaytext = wholedisplaytext + "<BR><SPAN CLASS=\"soc-class\" onmouseover=\"this.style.backgroundColor='#D7E866';\" onmouseout=\"this.style.backgroundColor='transparent';\" onclick=\"z = window.open('https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/SeeAlso.html','_blank','channelmode=no,directories=no,fullscreen=no,height=500,left=50,location=no,menubar=no,resizable=yes,scrollbars=yes,status=yes,titlebar=no,toolbar=no,top=50,width=700',false);\">for &#8220;" + socREC[x][1].replace(/\s\s*$/, '') + "&#8221; " + socREC[x][2].substr(3,socREC[x][2].length-3) + "</SPAN> ";
+				} else {
+					// if(socDB[socREC[x][2]]) {
+						jobNames.push(socREC[x][1].replace(/\s\s*$/, ''));
+						jobMajor.push(socDB[socREC[x][2]].unit);
+						jobMajorCode.push(socREC[x][2]);
+					// }
+
+					wholedisplaytext = wholedisplaytext + "<BR><SPAN CLASS=\"soc-class\" onmouseover=\"this.style.backgroundColor='#D7E866';\" onmouseout=\"this.style.backgroundColor='transparent';\" onclick=\"openinfo(0," + socREC[x][2] + ");\">" + socREC[x][2] + ", &#8220;" + socREC[x][1].replace(/\s\s*$/, '') + "&#8221;</SPAN> ";
+				};
+					displayed++;
+				};
+			};
+			w++;
+			updatePbar("progressbar_oput",35+(60 * Math.max((w/rankedscores.length),(displayed/norecs))));
+			z = setTimeout("displayrecords(" + w + ","+norecs+")",1);
+		} else { jobListFun(); };
+	};
+
+};
+
+
+// the final stage - actually displaying the results of what we found to the user
+// USED IN: called by "displayrecords" macro only
+// LEADS TO: nothing
+function finishoff(norecs) {
+	if (displayed == 0) {
+		document.getElementById("results_table").innerHTML = "<B>You searched for: <\/B><FONT COLOR=\"blue\">" + (search_term==""?"- no text -":search_term) + "</FONT>" + (changes_to_text==""?"":"<BR>(where the following changes were made: " + changes_to_text.substr(2,changes_to_text.length) + ")") + "<BR><BR>There were <B>no results</B> to display. Perhaps you could try alternative words/terms in your search.";
+	} else {
+		document.getElementById("results_table").innerHTML = "<B>You searched for: <\/B><FONT COLOR=\"blue\">" + (search_term==""?"- no text -":search_term) + "</FONT>" + (changes_to_text==""?"":"<BR>(where the following changes were made: " + changes_to_text.substr(2,changes_to_text.length) + ")") + "<BR><BR>The <B>results of your search<\/B> are listed below, and are presented in reverse word order with the most likely matches first. You can click on the links for further information, and to discover your related NS-SEC code." + wholedisplaytext + (displayed==norecs?"<BR><BR><FONT COLOR=\"darkgreen\"><B>Your search returned more than "+norecs+" results. To display the next "+defaultnorecords+" results, <INPUT ID=\"display_more\" TYPE=\"BUTTON\" CLASS=\"SOCbutton\" VALUE=\"click this button\" onclick=\"showmoreresults("+norecs+");\" /> or try refining your search term.<\/B><\/FONT>":"") + "<BR><BR>For further information about coding, please refer to the <A HREF=\"http://www.ons.gov.uk/ons/guide-method/classifications/current-standard-classifications/soc2010/soc2010-volume-2-the-structure-and-index/index.html\" TARGET=\"_blank\" TITLE=\"Link to the SOC 2010 Volume 2 coding index\">SOC 2010 Volume 2 coding index</A>.<BR>";
+	};
+	updatePbar("progressbar_oput",100);
+	document.getElementById("img_oput").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/done.gif";
+	document.getElementById("progresstitle").innerHTML = "Search complete!";
+	document.getElementById("search_jobs").disabled = false;
+	document.getElementById("search_cancel").disabled = true;
+	document.getElementById("progressbarwrapper").style.display = "none";
+};
+
+function showmoreresults(norecs) {
+
+	document.getElementById("results_table").innerHTML = "";
+	document.getElementById('results_table').scrollIntoView();
+	wholedisplaytext = "";
+	displayed = 0;
+	updatePbar("progressbar_oput",0);
+	document.getElementById("img_oput").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/progress.gif";
+	document.getElementById("progresstitle").innerHTML = "Appending more records to results...";
+	document.getElementById("progressbarwrapper").style.display = "block";
+
+	z = setTimeout("displayrecords(0,"+(norecs+defaultnorecords)+")",1);
+};
+
+// if the user clicked cancel, set the progress sections to show a warning and stop processing
+// USED IN: most processing macros
+// LEADS TO: nothing
+function cancelsearch() {
+	document.getElementById("search_jobs").disabled = false;
+	document.getElementById("search_cancel").disabled = true;
+	document.getElementById("img_srch").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/warning.gif";
+	document.getElementById("img_mtch").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/warning.gif";
+	document.getElementById("img_oput").src = "https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/warning.gif";
+	document.getElementById("progresstitle").innerHTML = "Search cancelled!";
+	killme = false;
+	clearTimeout(z);
+};
+
+// convert a known number to its word equivalent
+function convertnumber(mynum) { return numTOtext[mynum]; };
+
+// check whether a value is numeric or not
+function isNumeric(x) { return !isNaN(parseFloat(x)) && isFinite(x); };
+
+// update the progress bar using JQuery
+function updatePbar(pbtgt,pbval) {
+	$(function() {
+		// $( "#"+pbtgt ).progressbar({
+		// 	value: pbval
+		//  });
+	});
+};
+
+// if the user clicked on a link to show more information about a code, open said pop-up window
+function openinfo(n,myvar) {
+	z = window.open((n==0?"https://onsdigital.github.io/dp-classification-tools/standard-occupational-classification/data/":"") + "SingleClass.html?soc="+myvar,"_blank","channelmode=no,directories=no,fullscreen=no,height="+(myvar>999?500:350)+",left=50,location=no,menubar=no,resizable=yes,scrollbars=yes,status=yes,titlebar=no,toolbar=no,top=50,width=700",false);
+};
+
+// if the user typed in a SOC code they think they know, check it exists, then open a pop-up for it
+function showknownterm() {
+	start_term = document.pinpoint_form.known_term.value.replace(/(\r\n|\n|\r)/gm,"").replace(/(\t)/gm,"");
+	if (start_term.charAt(0) == "0") {
+		do { start_term = start_term.substr(1,start_term.length-1); } while (start_term.charAt(0) == "0");
+	};
+	specificcode = start_term.replace(/[^0-9]+/g,'');
+	if (start_term == specificcode && specificcode > 0 && specificcode < 10000) {
+		if (!socDB[specificcode]) {
+			alert("The code you entered was not recognised by the database. Perhaps you typed a digit incorrectly. Please try again.");
+		} else {
+			openinfo(0,specificcode);
+		};
+	} else {
+		alert("The SOC code you entered is not a value code - it should be a numeric code of upto four digits - please try again");
+	};
+};
+
+// if some sort of descriptive text contains a SOC code, convert that code into a clickable link
+function replace_refs(tempvar) {
+	endvar = tempvar;
+	do {
+		z = tempvar.search(/[0-9]/);
+		if (z != -1) {
+			if (isNumeric(tempvar.substr(z,1)) && isNumeric(tempvar.substr(z+1,1)) && isNumeric(tempvar.substr(z+2,1)) && isNumeric(tempvar.substr(z+3,1))) {
+				wheretoinsert = endvar.indexOf(tempvar.substr(z,4));
+				endvar = endvar.substr(0,wheretoinsert) + "<SPAN CLASS=\"soc-class\" onclick=\"openinfo(1," + tempvar.substr(z,4) + ");\">" + tempvar.substr(z,4) + "</SPAN>" + endvar.substr(wheretoinsert+4,endvar.length - (wheretoinsert+4));
+			};
+			tempvar = tempvar.substr(z+1,tempvar.length - z);
+		};
+	} while (tempvar.search(/[0-9]/) != -1);
+	return endvar;
+};
+
+// ------------------------------- End of job matching functions ----------------------------------
+
+// }
+// end of ready
+
+// load data
+
+// // load data
+// d3.queue()
+// 	.defer(d3.csv, 'regression_data_mix.csv')
+// 	.await(ready)
+
+</script>
+</body>

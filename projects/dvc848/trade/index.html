@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
+  <!-- End Google Tag Manager -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <title>R&D Sankey diagram</title>
+
+  <meta name="description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <link rel="stylesheet" href="css/globalStyle.css" />
+  <link rel="stylesheet" href="css/style-chosen.css">
+  <link rel="stylesheet" href="css/bootstrap-grid.css" />
+
+  <style type="text/css">
+    body {
+      max-width: 700px;
+      margin: 0px auto;
+    }
+
+
+    h3 {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    h5,.footer {
+        font-size: 16px;
+        margin: 16px 0 8px 0;
+        line-height: 24px;
+        color: #323132;
+        font-weight: 700;
+    }
+
+    .btn--primary {
+      background-color: #0F8243;
+      color: #fff!important;
+    }
+    .btn {
+        font-family: "Open Sans",Helvetica,Arial,sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        display: inline-block;
+        width: auto;
+        cursor: pointer;
+        padding: 6px 16px 10px 16px;
+        border: 0 none;
+        text-align: center;
+        -webkit-appearance: none;
+        transition: background-color 0.25s ease-out;
+        line-height: 24px;
+    }
+    a {
+        text-decoration: underline;
+        color: #206095;
+        word-wrap: break-word;
+    }
+
+    .node text {
+      pointer-events: none;
+      font-size: 12px;
+      font-weight: 200;
+      fill: #7d7d7d;
+    }
+
+    .table>tbody>tr>td {
+      pointer-events: none;
+      font-size: 11px;
+      font-weight: 200;
+      fill: #999;
+      border-top: 2px solid white;
+    }
+
+    .text-left {
+      text-align: left;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .bold {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+
+    .link {
+      fill: none;
+      stroke: #000;
+      stroke-opacity: 0.1;
+    }
+
+    .link:hover {
+      stroke-opacity: 0.5;
+    }
+
+    #info {
+      padding-top: 5px;
+      height: 50px;
+      color: #636363;
+    }
+
+
+    .node .highlight {
+      opacity: 0.9;
+    }
+
+    .node rect {
+      opacity: 0.7;
+    }
+
+    .headings {
+      font-size: 22px;
+      font-weight: 200;
+      padding-top: 5px;
+    }
+
+    .explanation {
+      font-size: 14px;
+      font-weight: 200;
+    }
+
+    .yearTxt {
+      line-height: 2.9em;
+      display: inline-block;
+    }
+
+    .table>thead>tr>th,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>th,
+    .table>thead>tr>td,
+    .table>tbody>tr>td,
+    .table>tfoot>tr>td {
+      padding: 4px;
+      line-height: 1.42857143;
+      vertical-align: middle;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="altern">
+    <p>Unfortunately your browser cannot display this graphic. You might need to upgrade to a modern browser - Find out more information here <a href="https://www.gov.uk/help/browsers">https://www.gov.uk/help/browsers</a></p>
+    <img src="alt.png"></img>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 order-2 order-md-1">
+        <div class="row headings">
+          <div class="col-5">Wave 2</div>
+          <div class="col-5 offset-2 text-right">Wave 5</div>
+        </div>
+        <div class="row">
+          <div class="col-12  text-center" id="info"></div>
+          <div class="col-12" id="graphic"></div>
+        </div>
+
+      </div>
+      <!-- <div class="col-md-3 order-1 order-md-2">Legend
+        <div class="row no-gutters align-self-center">
+          <div class="col-6 col-md-12" id="table1"></div>
+          <div class="col-6 col-md-12" id="table2"></div>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="footer"></div>
+  </div>
+  <!--end container-fluid-->
+<!--
+  <h5 style="  font-size: 16px;
+    margin: 16px 0 8px 0;
+    line-height: 24px;
+    color: #323132;
+    font-weight: 700;">Download this chart</h5>
+  <a class="btn btn--primary" href="image.png" download>Image</a>
+  <a class="btn btn--primary" href="data.xls">.xls</a>
+  <a class="btn btn--primary" href="datadownload.csv">.csv</a> -->
+
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+  <script src="js/modernizr.custom.56904.js"></script>
+  <script src="js/chosen.jquery.js"></script>
+  <script src="js/d3.v3.min.js" charset="utf-8"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" charset="utf-8"></script>
+  <script src="js/sankey.js"></script>
+
+  <script>
+    var graphic = $('#graphic');
+    var keypoints = $('#keypoints');
+    var footer = $(".footer");
+    var pymChild = null;
+
+
+
+    function drawGraphic(width) {
+      var threshold_md = 788;
+      var threshold_sm = dvc.optional.mobileBreakpoint;
+
+      //set variables for chart dimensions dependent on width of #graphic
+      if (graphic.width() < threshold_sm) {
+        var margin = {
+          top: dvc.optional.margin_sm[0],
+          right: dvc.optional.margin_sm[1],
+          bottom: dvc.optional.margin_sm[2],
+          left: dvc.optional.margin_sm[3]
+        };
+        var width = graphic.width() - margin.left - margin.right;
+        var height = Math.ceil((width * dvc.optional.aspectRatio_sm[1]) / dvc.optional.aspectRatio_sm[0]) - margin.top - margin.bottom;
+      } else if (graphic.width() < threshold_md) {
+        var margin = {
+          top: dvc.optional.margin_md[0],
+          right: dvc.optional.margin_md[1],
+          bottom: dvc.optional.margin_md[2],
+          left: dvc.optional.margin_md[3]
+        };
+        var width = graphic.width() - margin.left - margin.right;
+        var height = Math.ceil((width * dvc.optional.aspectRatio_md[1]) / dvc.optional.aspectRatio_md[0]) - margin.top - margin.bottom;
+      } else {
+        var margin = {
+          top: dvc.optional.margin_lg[0],
+          right: dvc.optional.margin_lg[1],
+          bottom: dvc.optional.margin_lg[2],
+          left: dvc.optional.margin_lg[3]
+        }
+        var width = graphic.width() - margin.left - margin.right;
+        var height = Math.ceil((width * dvc.optional.aspectRatio_lg[1]) / dvc.optional.aspectRatio_lg[0]) - margin.top - margin.bottom;
+      }
+
+      // clear out existing graphics
+      graphic.empty();
+      keypoints.empty();
+      footer.empty();
+
+	  d3.select("#table1").selectAll("*").remove();
+	  d3.select("#table2").selectAll("*").remove();
+
+      fmt = d3.format(dvc.essential.labelNumberFormat)
+
+      //generate the legend table
+
+      //first split the legend into two parts
+      var legendbits = []
+      for (i = 0; i < dvc.essential.legendLongLabels.length; i++) {
+        legendbits.push({
+          labels: [dvc.essential.legendShortLabels[i], dvc.essential.legendLongLabels[i]],
+          colour: dvc.essential.legendColours[i]
+        })
+      }
+      firsthalf = legendbits.slice(0, Math.ceil(dvc.essential.legendLongLabels.length / 2))
+      secondhalf = legendbits.slice(Math.ceil(dvc.essential.legendLongLabels.length / 2))
+
+
+      var firsttable = d3.select("#table1").append('table').attr("class", "table").append('tbody')
+      var firstRows = firsttable.selectAll('tr').data(firsthalf).enter().append('tr')
+
+      var firstCells = firstRows
+        .selectAll('td')
+        .data(function(row, i) {
+          return row.labels.map(function(d) {
+            return {
+              "colour": row.colour,
+              "value": d
+            }
+          })
+        })
+        .enter()
+        .append('td')
+        .style('background-color', function(d, i) {
+          if (i == 0) {
+            return d.colour
+          }
+        })
+        .style('opacity', function(d, i) {
+          if (i == 0) {
+            return 0.7
+          }
+        })
+        .text(function(d) {
+          return d.value
+        })
+
+      var secondtable = d3.select('#table2').append('table').attr("class", "table").append('tbody')
+      var secondRows = secondtable.selectAll('tr').data(secondhalf).enter().append('tr')
+
+      var secondCells = secondRows
+        .selectAll('td')
+        .data(function(row, i) {
+          return row.labels.map(function(d) {
+            return {
+              "colour": row.colour,
+              "value": d
+            }
+          })
+        })
+        .enter()
+        .append('td')
+        .style('background-color', function(d, i) {
+          if (i == 0) {
+            return d.colour
+          }
+        })
+        .style('opacity', function(d, i) {
+          if (i == 0) {
+            return 0.7
+          }
+        })
+        .text(function(d) {
+          return d.value
+        })
+
+      var colors = d3.scale.ordinal()
+        .domain(["Business Enterprise asset",
+        "Business Enterprise liability",
+        "Government & Research Councils asset",
+        "Higher Education asset",
+        "Private Non-Profit asset",
+        "Government & Research Councils liability",
+        "Higher Education Funding Councils liability",
+        "Overseas liability",
+        "Private Non-Profit liability",
+        "Higher Education liability",
+      ])
+        .range([
+          "#5999D1",
+          "#BE3E24",
+          "#352a63",
+          "#1E5C92",
+          "#CD842F",
+          "#3A1E82",
+          "#1E5C92",
+          "#3A1E82",
+          "#CD842F",
+          "#1E5C92"
+        ]);
+
+
+      // FoF_labels={}
+      // for(i=0;i<dvc.essential.legendLongLabels.length;i++){
+      //   FoF_labels[dvc.essential.legendShortLabels[i]]=dvc.essential.legendLongLabels[i]
+      // }
+      // console.log(FoF_labels)
+      //
+      // console.log(nodes)
+
+      // FoF_labels = {
+      //   "PC": "Public Corporation",
+      //   "PNFC": "Private Non-Financial Corporation",
+      //   "MFI": "Monetary Financial Institutions",
+      //   "OFI": "Other Financial Intermediaries and Financial Auxiliaries",
+      //   "ICPF": "Insurance Corporations and Pension Funds",
+      //   "CG": "Central Government",
+      //   "LG": "Local Government",
+      //   "HH&NPISH": "Households and Non-Profit Institutions Serving Households",
+      //   "RoW": "Rest of the World",
+      //   "Unknown": "Unknown"
+      // }
+
+      //create svg
+      var svg = d3.select("#graphic").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+      // Set the sankey diagram properties
+      var sankey = d3.sankey()
+        .nodeWidth(20)
+        .nodePadding(7)
+        .size([width, height])
+        .nodes(nodes)
+        .links(linksX)
+        .layout(0);
+
+      var path = sankey.link();
+
+      // add in the links
+      var link = svg.append("g").selectAll(".link")
+        .data(linksX)
+        .enter()
+        .append("path")
+        .attr("class", function(d) {
+          return "link" + " " + d.liaIns + " " + d.color + " " + d.first.replace(/ &/gi,"").replace(/ /gi,"") + "L" + " " + d.third.replace(/ &/gi,"").replace(/ /gi,"") + "A";
+        })
+        .attr("d", path)
+        .style("stroke-width", function(d) {
+          if (d.dy > 0.0006) {
+            return Math.max(1, d.dy);
+          } else {
+            return 0;
+          }
+        })
+        .style("stroke", function(d) {
+          return colors(d.color);
+        })
+        .sort(function(a, b) {
+          return b.dy - a.dy;
+        })
+        .on('mouseover', function(d) {
+          if (d.value != 0.0006) {
+            source = d.source.name.replace(/ liability| asset|/gi, "");
+            target = d.target.name.replace(/ liability| asset|/gi, "");
+            if(d.value <10){
+              d3.select("#info").html(source + " &#8594; " + target + ": <span class='bold'> less than 10 </span>")
+             } else {
+               d3.select("#info").html(source + " &#8594; " + target + ": <span class='bold'> " + fmt(d.value) + "  </span>")
+             }
+
+            d3.select(this).style("stroke-opacity", 0.5)
+          }
+        })
+        .on('mouseout', function() {
+          $("#info").empty();
+          d3.selectAll("path").style("stroke-opacity", 0.1)
+        })
+
+      // add in the nodes
+      var node = svg.append("g").selectAll(".node")
+        .data(nodes)
+        .enter().append("g")
+        .attr("class", "node")
+        .attr("transform", function(d) {
+          return "translate(" + d.x + "," + d.y + ")";
+        })
+
+
+      // add the rectangles for the nodes
+      node.append("rect")
+        .attr("height", function(d) {
+          return d.dy;
+        })
+        .attr("width", sankey.nodeWidth())
+        .style("fill", function(d) {
+          var name = d.name.replace(/ liability| asset|/gi, "");
+          return d.color = colors(name);
+        })
+        .on('mouseover', function(d) {
+          node = d.name.replace(/ liability| asset|/gi, "");
+          if (d.name.substr(d.name.lastIndexOf(" ass") + 1) == "asset") {
+            text = ""
+            label = node.replace("&", "") + "A"
+
+          } else if (d.name.substr(d.name.lastIndexOf(" lia") + 1) == "liability") {
+            text = ""
+            label = node.replace("&", "") + "L"
+          } else {
+            text = "";
+          }
+          if(d.value <10){
+            d3.select("#info").html(node + " " + text + ": <span class='bold'> less than 10  </span>");
+          } else {
+            d3.select("#info").html(node + " " + text + ": <span class='bold'> " + fmt(d.value) + "  </span>");
+          }
+        d3.select(this).classed("highlight", true);
+          var name = d.name.replace(/ liability| asset|/gi, "");
+          d3.selectAll("." + label.replace(/ &/gi,"").replace(/ /gi,"")).style("stroke-opacity", 0.5)
+        })
+        .on('mouseout', function(d) {
+          $("#info").empty();
+          d3.select(this).classed("highlight", false)
+          d3.selectAll("path").style("stroke-opacity", 0.1)
+        })
+
+      // add in the title for the nodes
+      node.append("text")
+        .attr("x", -6)
+        .attr("y", function(d) {
+          return d.dy / 2;
+        })
+        .attr("dy", ".35em")
+        .attr("text-anchor", "end")
+        .attr("transform", null)
+        .text(function(d) {
+          asset = d.name.replace(" asset", "");
+          liability = asset.replace(" liability", "");
+        //  return liability;
+        return ""
+        })
+        .filter(function(d) {
+          return d.x < width / 2;
+        })
+        .attr("x", 6 + sankey.nodeWidth())
+        .attr("text-anchor", "start")
+        .text(function(d) {
+          asset = d.name.replace(" asset", "");
+          liability = asset.replace(" liability", "");
+          return liability;
+          //return ""
+        });
+
+      //create link to source
+      d3.select(".footer").append("h5")
+        .text("Source: " + dvc.essential.sourceText)
+
+      //use pym to calculate chart dimensions
+      if (pymChild) {
+        pymChild.sendHeight();
+      }
+    } // end drawGraphic
+
+
+    //check whether browser can cope with svg
+    if (Modernizr.svg) {
+      d3.select("#altern").remove();
+
+      //load config
+      d3.json("config.json", function(error, config) {
+        dvc = config
+
+        //d3.json("sankey-formatted.json", function(error, data) {
+        d3.csv("data.csv", function(error, csvData) {
+          graphic_data = csvData;
+          //console.log(data)
+
+
+          csvData.forEach(function(d) {
+            d.Y2014 = parseFloat(d.Y2014);
+          });
+
+
+          links = [];
+          nodes = [];
+
+
+          //get all source and target into nodes
+          //will reduce to unique in the next step
+          //also get links in object form
+          csvData.forEach(function(d) {
+            // nodes.push({ "name": d.Instrument });
+            nodes.push({
+              "name": d.Asset + " asset"
+            });
+            nodes.push({
+              "name": d.Liability + " liability"
+            });
+            links.push({
+              "source": d.Liability + " liability", //d.Instrument,
+              "target": d.Asset + " asset",
+              "Y2014": d.Y2014,
+              "liability": d.Liability + " liability",
+              "asset": d.Asset + " asset",
+              "color": d.Liability,
+              "first": d.Liability.replace("&", ""),
+              "third": d.Asset.replace("&", "")
+            });
+          });
+
+
+          // Reduce to unique set of nodes
+          nodes = d3.keys(d3.nest()
+            .key(function(d) {
+              return d.name;
+            })
+            .map(nodes));
+
+          // Substitute source and target with node id
+          links.forEach(function(d) {
+            d.source = nodes.indexOf(d.source);
+            d.target = nodes.indexOf(d.target);
+            d.liability = nodes.indexOf(d.liability);
+            d.asset = nodes.indexOf(d.asset);
+          });
+
+
+          // Get back nodes as an array of objects
+          nodes.forEach(function(d, i) {
+            nodes[i] = {
+              "name": d
+            };
+          });
+
+
+          linksX = [];
+          var year = "Y2014" // change this to change the year
+          links.forEach(function(d) {
+            if (d[year] != 0) {
+              linksX.push({
+                "source": d.source,
+                "target": d.target,
+                "value": d[year],
+                "color": d.color,
+                "liaIns": "L" + d.liability + d.asset, // + d.instrument,
+                "liaIns2": d.first + /*"_" + d.second + */ "_" + d.third,
+                "first": d.first,
+                "third": d.third
+              });
+            }
+          });
+          //use pym to create iframed chart dependent on specified variables
+          pymChild = new pym.Child({
+            renderCallback: drawGraphic
+          });
+        })
+      })
+    } else {
+      $('.container-fluid').remove();
+      //use pym to create iframe containing fallback image (which is set as default)
+      pymChild = new pym.Child();
+      if (pymChild) {
+        pymChild.sendHeight();
+      }
+    }
+  </script>
+</body>
+</html>

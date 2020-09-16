@@ -1,0 +1,28 @@
+{
+    "essential" : {
+
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/economy/nationalaccounts/uksectoraccounts/articles/nationalaccountsarticles/theukflowoffundsprojectcomprehensivereviewoftheukfinancialaccounts"],
+            "legendShortLabels": ["", "", "", "", "", ""],
+            "legendLongLabels":[
+              "Expect workforce size to decrease",
+              "Expect workforce size to increase",
+              "Expect workforce size to stay the same",
+              "Not sure"
+
+            ],
+            "legendColours":["#5999D1","#BE3E24","#352a63","#1E5C92","#CD842F","#3A1E82"],
+            "labelNumberFormat":"0,.0f"
+    },
+    "optional" : {
+            "margin_sm": [20, 0, 5, 0],
+            "margin_md": [20, 0, 5, 0],
+            "margin_lg": [20, 0, 5, 0],
+
+            "aspectRatio_sm" : [6,6],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,12],
+
+            "mobileBreakpoint" : 610
+    }
+}

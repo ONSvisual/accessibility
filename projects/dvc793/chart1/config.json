@@ -1,0 +1,34 @@
+{
+    "essential" : {
+            "percent" : true,
+
+            "dateFormat":"%Y",
+            "legendXY":[2000, 27],
+            "legendLabels" : [],
+            "buttonNames" : ["Percent", "Figures"],
+
+            "sourceText":["ONS, crime"],
+            "sourceURL":["https://www.ons.gov.uk"],
+
+            "xAxisLabel":"",
+            "xAxisScale":10000,
+            "multiplier": 1000,
+
+            "margin_centre": [2,2,2]
+    },
+    "optional" : {
+            "margin_sm": [18, 15, 20, 38],
+            "margin_md": [20, 15, 20, 38],
+            "margin_lg": [20, 15, 20, 38],
+
+            "aspectRatio_sm" : [8,8],
+            "aspectRatio_md" : [12,10],
+            "aspectRatio_lg" : [12,10],
+
+            "mobileBreakpoint" : 510,
+
+            "x_num_ticks_sm_md_lg" : [3,6,6],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}

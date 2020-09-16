@@ -1,0 +1,10 @@
+{"ons":{
+"maptitle": "NHS Workforce qualified overseas",
+"varcolour": "PuBu",
+"varunit": "% qualified outside UK",
+"displaydecimals": 1,
+"legenddecimals": 0,
+"breaks": "jenks",
+"dropticks": false,
+"numberBreaks": 5
+}}

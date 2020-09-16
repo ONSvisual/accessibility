@@ -1,0 +1,21 @@
+{
+	"essential": {
+		"graphic_data_url": "datapercent.csv",
+
+		"fieldsToIgnore": ["AREACD", "AREANM"],
+
+        "margins": [5, 5, 0, 5],
+        "breaksAll": "jenks",
+        "aspectRatio": [3, 4],
+		"dateFormat": "%Y",
+		"colour":["#e5f5e0", "#e5f5e0", "#e5f5e0", "#e5f5e0", "#e5f5e0", "#e5f5e0", "#74c476", "#74c476", "#238b45", "#00441b"],
+		"colour":["#CDE9E9", "#CDE9E9", "#CDE9E9", "#CDE9E9", "#CDE9E9", "#CDE9E9", "#69BDBD", "#69BDBD", "#159191", "#004949"],
+		"xAxisLabel": "Year",
+		"yAxisLabel": "%",
+
+		"yAxisBreak_sm_md_lg": [65, 65, 65],
+		"numRows_sm_md_lg": [105, 60, 40],
+		"numColumns_sm_md_lg": [1, 2, 3],
+		"breakDivisions": 9
+	}
+}

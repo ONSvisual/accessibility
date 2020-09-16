@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>What is the gender pay gap for your job?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css" media="screen">
+
+  <link rel="stylesheet" href="css/chosen.css">
+  <link rel="stylesheet" href="css/globalStyle.css">
+
+
+  <style>
+    body {
+      color: #236092;
+      background-color: #FFF;
+      max-width: 944px;
+      margin: 0px auto;
+    }
+
+    h2 {
+      font-size: 26px;
+      font-weight: 500;
+      padding-bottom: 20px;
+    }
+
+    .foot {
+      font-size: 12px;
+    }
+
+    #sel {
+      height: 70px;
+    }
+
+    .domain {
+      stroke: none !important;
+    }
+
+    .line_pos,
+    .rect2 {
+      fill: #19a7a1;
+    }
+
+    .line_neg,
+    .rect1 {
+      fill: #19a7a1;
+    }
+
+    .backline1 {
+      fill: none;
+      stroke: #eee;
+      stroke-width: 0.5px;
+
+    }
+
+    .backrect2 {
+      fill: #eee;
+      opacity: 0;
+    }
+
+    .backrect2hover {
+      fill: #eee;
+      opacity: 0.7;
+    }
+
+    #selectedbar {
+      fill: #eee !important;
+      opacity: 0.7 !important;
+    }
+
+    .circle1 {
+      fill: #244e6e;
+    }
+
+    .circle2 {
+      fill: #19a7a1;
+    }
+
+    .med {
+      fill: #19a7a1;
+    }
+
+    .background0 {
+      background: #244e6e;
+    }
+
+    .background1 {
+      background: #19a7a1;
+    }
+
+    fieldset>legend {
+      color: #206095;
+    }
+
+    #graphic {
+      height: 600px;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    #sortoptions {
+      padding: 10px 0px;
+    }
+
+    .btn:focus,
+    .btn active,
+    .btn:hover {
+      outline: none !important;
+      box-shadow: 0px 0px 0 3px #FFA23A;
+      outline-offset: 0px;
+    }
+
+    .details__summary:focus {
+      outline: none;
+      box-shadow: 0px 0px 0 3px #FFA23A;
+      outline-offset: 0px;
+    }
+
+    .btn-default {
+      background-color: #fff;
+    }
+
+    #filters {
+      margin-top: 9px;
+    }
+
+    #filtercheck {
+      margin-left: 9px;
+      margin-right: 3px;
+    }
+
+    #filtergrp {
+      display: none;
+    }
+
+    .spanper {
+      font-size: 18px;
+      font-weight: bold;
+      color: #19a7a1;
+    }
+
+    .btn-group,
+    #occselect_chosen {
+      margin-top: 10px;
+    }
+
+    .full-part-group {
+      margin-top: 31px;
+    }
+
+    #results {
+      height: 0px;
+      opacity: 0;
+      font-size: 18px
+    }
+
+    #share {
+      font-size: 18px;
+      height: 0px;
+      opacity: 0;
+    }
+
+    .share {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+    .share:hover {
+
+      opacity: 1;
+    }
+
+    .col-sm-5,
+    .col-sm-6,
+    .col-xs-12,
+    .col-sm-12 {
+      position: relative;
+      min-height: 1px;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+
+    @media (min-width: 768px) {
+      .offset-sm-1 {
+        margin-left: 8.333333%;
+      }
+    }
+
+    .selectJobs {
+      margin-top: 25px;
+      margin-bottom: 5px;
+
+    }
+
+    /*details*/
+    .details {
+      position: relative;
+      margin-bottom: 0px;
+    }
+
+    details {
+      margin-top: 20px;
+      display: block;
+    }
+
+    .details__summary {
+      color: #236092;
+      font-size: 16px;
+      padding: 4px;
+      padding-left: 2px;
+      margin-left: 3px;
+      margin-right: 3px;
+      text-decoration: underline;
+    }
+
+    @-moz-document url-prefix() {
+
+      .details__summary {
+        padding-left: 25px;
+      }
+
+      .details__summary::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent;
+        border-left-color: transparent;
+        -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+        clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+        border-width: 7px 0 7px 12.124px;
+        border-left-color: inherit;
+      }
+
+      details[open]>.details__summary::before {
+        content: "";
+        position: absolute;
+        top: -33px;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent;
+        border-top-color: transparent;
+        -webkit-clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+        clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+        border-width: 12.124px 7px 0 7px;
+        border-top-color: inherit;
+      }
+}
+
+
+
+    .details__body {
+      margin-top: 8px;
+    }
+
+    [aria-hidden*=false] {
+      display: block;
+      visibility: visible;
+    }
+
+    .embed-code__label {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    label {
+      font-size: 1.1em;
+    }
+
+    label {
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
+      line-height: 24px;
+      display: inline-block;
+      max-width: 100%;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .social-btn {
+      width: 42px;
+      display: inline-block;
+      background: none;
+      border: 0;
+      margin-top: 15px;
+    }
+
+    #twitter {
+      background: url('images/twitter.svg') no-repeat;
+      height: 30px;
+      margin-right: 5px;
+    }
+
+    #twitter:hover,
+    #twitter:focus {
+      background: url('images/twitter_hover.svg') no-repeat;
+      box-shadow: 0 0 0 3px orange;
+
+    }
+
+    #facebook {
+      background: url('images/facebook.svg') no-repeat;
+      height: 30px;
+      margin-right: 5px;
+    }
+
+    #facebook:hover,
+    #facebook:focus {
+      background: url('images/facebook_hover.svg') no-repeat;
+      box-shadow: 0 0 0 3px orange;
+    }
+
+    #link {
+      background: url('images/link.svg') no-repeat;
+      height: 30px;
+      margin-right: 5px;
+    }
+
+    #link:hover,
+    #link:focus {
+      background: url('images/link_hover.svg') no-repeat;
+      box-shadow: 0 0 0 3px orange;
+    }
+
+    #source {
+      font: "Open Sans";
+      font-size: 16px;
+      font-weight: 700;
+      color: #323132;
+
+    }
+
+    #notes {
+      padding-top: 20px;
+      font: "Open Sans";
+      font-size: 16px;
+      font-weight: 700;
+      color: #323132;
+    }
+
+    ol {
+      padding-left: 32px;
+    }
+
+    li {
+      margin: 0 0 8px 0;
+      line-height: 32px;
+      font-weight: 400;
+      font-size: 16px;
+      color: #323132;
+      padding: 0;
+    }
+
+    div.tippy {
+        position: absolute;
+        text-align: center;
+        padding: 15px;
+        font: 16px sans-serif;
+        background: #206095;
+        color:white;
+        box-shadow: 0 0 0 3px orange;
+        border: 0px;
+        border-radius: 8px;
+        pointer-events: none;
+    }
+
+    .visuallyhidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
+
+
+</head>
+
+<body id="childt">
+
+  <div id="altern">
+    <p>Unfortunately your browser cannot display this graphic. You might need to upgrade to a modern browser - Find out more information here <a href="https://www.gov.uk/help/browsers">https://www.gov.uk/help/browsers</a></p><img style="max-width:800px"
+      src="images/alt.png" />
+  </div>
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div>
+        <div class="col-sm-6 col-xs-12">
+          <fieldset>
+            <legend>
+              <h4 class="selectJobs">Search by job</h4>
+            </legend>
+            <div>For example, 'Graphic Designers'</div>
+            <div id="occupation"></div>
+          </fieldset>
+        </div>
+        <div id="fullpart" class="col-sm-5 offset-xs-0 offset-sm-1 col-xs-12">
+          <fieldset>
+            <legend>
+              <h4 class="selectJobs" id="filterJobType">Filter by job type</h4>
+            </legend>
+            <div class="btn-group full-part-group" role="group">
+              <button aria-label="Show gender pay gap data for both full time and part time employees" id="all" tabindex=0 class="fullpart btn btn-default active">All</button>
+              <button aria-label="Show gender pay gap data for full time employees" id="full" tabindex=0 class="fullpart btn btn-default">Full-time</button>
+              <button aria-label="Show gender pay gap data for part time employees" id="part" tabindex=0 class="fullpart btn btn-default">Part-time</button>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-12">
+
+          <details class="details hidden-xs" role="group">
+            <summary tabindex=0 class="details__summary">Show or hide more options</summary>
+            <div class="details__body" id="details-content-3">
+              <label class="embed-code__label" id="people">Advanced filter options</label>
+              <div id="sortoptions" class="col-sm-12 col-xs-12">
+                <div class="btn-group col-sm-12 col-xs-12" role="group" aria-label="Choose how to sort occupations">
+                  <div id="sortby" class="col-sm-1 col-xs-12">Sort by:</div>
+                  <button aria-label="Sort by the gender pay gap (%)" id="gpg_pct" tabindex=0 class="col-md-3 col-sm-3 col-xs-12 sort btn btn-default active">Gender Pay Gap (%)</button>
+                  <button aria-label="Sort by the gender pay gap (£)" id="gpg_pnd" tabindex=0 class="col-md-3 col-sm-3 col-xs-12 sort btn btn-default">Gender Pay Gap (£)</button>
+                  <button aria-label="Sort by average earnings (£)" id="sal" tabindex=0 class="col-md-3 col-sm-3 col-xs-12 sort btn btn-default">Average Earnings</button>
+                </div>
+              </div>
+
+              <div id="sortby" class="col-sm-1 col-xs-12">Filter:</div>
+              <div id="occgroup" class="col-sm-5 col-xs-12">
+              </div>
+            </div>
+          </details>
+        </div>
+
+
+
+        <div class="col-sm-12 col-xs-12">
+        </div>
+        <div>
+          <div style="padding-top:15px; padding-bottom:15px; margin-bottom:10px;" class="col-sm-6 col-xs-12" id="results">
+
+          </div>
+          <div class="col-sm-1 col-xs-0">
+          </div>
+          <div style="padding-top:15px; padding-bottom:15px;" class="col-sm-5 col-xs-12" id="share">
+            <p style="font-weight:bold">Share your pay gap</p>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- end row -->
+    <details class="details" role="group" open>
+      <summary tabindex=0 class="details__summary visible-xs" role="button" aria-controls="details-content-3" aria-expanded="true">See how the pay gap compares</summary>
+      <div class="details__body" id="details-content-3" aria-hidden="false">
+        <div class="row">
+          <div id="static_graphic">
+          </div>
+        </div><!-- end row -->
+        <div class="row">
+
+          <div id="graphic">
+            <img src="fallback.png" alt="[Chart]" />
+
+          </div>
+
+        </div>
+      </div><!-- end row -->
+    </details>
+
+    <div class="row">
+      <div class="col-sm-12 col-xs-12 foot">
+        <div class="page-header">
+        </div>
+        <br>
+
+        <p id="source">Source: Annual Survey of Hours and Earnings - 2019 provisional, Office for National Statistics</a></p>
+        <div id="notes">Notes:</div>
+        <ol>
+          <li>Pay gap is calculated using median hourly pay rates (excluding overtime)</li>
+          <li>Some data is unavailable as considered unreliable (small sample size)</li>
+          <li>Some occupations can be included in more than one grouping</li>
+          <li>Employment splits are based on <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/datasets/employmentbyoccupationemp04" target="_blank">LFS data</a> </li>
+          <li>The quality of earning estimates vary by occupation - <a href="http://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2016provisionalresults/relateddata" target="_blank">quality
+              measures available</a></li>
+          <li>Please note that the percentages in this visual may differ to the figures in the accompanying published data tables by 0.1% due to the effects of rounding.</li>
+          <li> When conducting any analyses please use the data from the tables.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!--end container -->
+
+  <!-- Constant libraries / frameworks -->
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/modernizr.custom.56904.js"></script>
+  <script src="js/chosen.jquery.js"></script>
+  <script src="js/d3.v3.min.js" charset="utf-8"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.v1-3-2.min.js"></script>
+  <script src="js/script1.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+   })(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
+   <!-- End Google Tag Manager -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How well are you doing compared with other young people?</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="lib/globalStyle.css" />
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="lib/bootstrap-grid.css" rel="stylesheet" />
+
+<style>
+#primary {
+  margin-bottom: 32px;
+}
+
+.btn-form {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: 'Open Sans',Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 32px;
+  width:100%;
+}
+
+.form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  height: 40px;
+  box-sizing: border-box;
+  text-align: center;
+  width:100%;
+}
+
+.form-group:last-child {
+  border-right: solid 1px #A6A8AB;
+}
+
+/* Primary button group */
+
+.label-primary {
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #333;
+  background: #F9F9F9;
+  width: 100%;
+  min-width: 75px;
+  border-top: solid 1px #A6A8AB;
+  border-left: solid 1px #A6A8AB;
+  border-bottom: solid 1px #A6A8AB;
+}
+
+.label-primary:hover {
+  background: #003C57;
+  color: #fff;
+  border-color: #003C57;
+}
+
+.radio-primary {
+  display: none;
+}
+
+.radio-primary:checked + .label-primary {
+  background: #206095;
+  color: #fff;
+  border-color: #206095;
+  cursor: default;
+}
+
+[role="radio"]:focus {
+  outline: 3px solid #FF9933 !important;
+  outline-offset: -2px;
+  /* background-color:#003C57; */
+  z-index: 1;
+}
+
+form {
+  height:40px;
+}
+h1{
+  font-size:36px;
+}
+/* Primary button */
+
+.btn-primary {
+  background-color: #206095;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color:#003C57;
+}
+
+.btn-primary:focus {
+  outline: 3px solid #FF9933 !important;
+  outline-offset: -1px;
+  /* background-color:#003C57; */
+}
+
+.large {
+  font-family: 'Open Sans',Arial,sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  display: inline-block;
+  cursor: pointer;
+  height: 40px;
+  padding: 0 32px 0 32px;
+  border: 0 none;
+  text-align: center;
+  -webkit-appearance: none;
+  transition: background-color 0.25s ease-out;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.small {
+  font-family: 'Open Sans',Arial,sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  height: 32px;
+  display: inline-block;
+  padding: 0 8px;
+  cursor: pointer;
+  border: 0 none;
+  text-align: center;
+  -webkit-appearance: none;
+  transition: background-color 0.25s ease-out;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.custom {
+
+  float:  left;
+  background-color: #0F8243;
+  margin-top:30px;
+}
+
+@media(max-width:540px){
+  .custom{
+    float: left;
+    width:100%;
+  }
+}
+
+h3{
+  padding-top: 20px;
+  margin-bottom: 5px;
+}
+
+.btn-form-fullwidth {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: 'Open Sans',Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: normal;
+  font-size: 16px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.form-group-fullwidth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  height: 40px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+}
+
+.label-tab-fullwidth2{
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #206095;
+  background: #eaeaea;
+  width: 100%;
+  text-decoration: underline;
+  border-bottom: solid 2px #206095;
+  background-clip: content-box;
+  padding:0px 3px;
+  padding-bottom: 3px;
+  line-height: 37px;
+}
+
+
+
+.label-tab-fullwidth {
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #206095;
+  background: #eaeaea;
+  width: 100%;
+  text-decoration: underline;
+  border-bottom: solid 2px #206095;
+  background-clip: content-box;
+  padding:0px 5px;
+  padding-bottom: 3px;
+  line-height: 37px;
+}
+
+
+.label-tab-fullwidth:hover {
+  background: #003C57;
+  color: #fff;
+  border-color: #003C57;
+  background-clip: content-box;
+  padding:0px 3px;
+  padding-bottom: 3px;
+}
+
+.radio-tab-fullwidth {
+  display: none;
+}
+
+.radio-tab-fullwidth:checked + .label-tab-fullwidth  {
+  background: #ffffff;
+  color: #206095;
+  font-weight: bold;
+  border-color: #206095;
+  cursor: default;
+  border-top: solid 2px #206095;
+  border-left: solid 2px #206095;
+  border-right: solid 2px #206095;
+  border-bottom: none;
+  text-decoration: none;
+  background-clip: content-box;
+  padding:0px 3px;
+  line-height: 37px;
+}
+.radio-tab-fullwidth:checked + .label-tab-fullwidth2 {
+  background: #ffffff;
+  color: #206095;
+  font-weight: bold;
+  border-color: #206095;
+  cursor: default;
+  border-top: solid 2px #206095;
+  border-left: solid 2px #206095;
+  border-right: solid 2px #206095;
+  border-bottom: none;
+  text-decoration: none;
+  background-clip: content-box;
+  padding:0px 3px;
+  line-height: 37px;
+
+
+}
+@media (max-width: 540px){
+  .label-tab-fullwidth2,   .radio-tab-fullwidth:checked + .label-tab-fullwidth2:checked{
+    line-height: 18px !important;
+  }
+}
+/*  highlight boxes */
+.highlightbox{
+  padding: 1px 10px;
+  margin:10px 0px;
+  width:97%;
+  background-color: #206095;
+}
+
+.highlightbox p{
+  font-size: 20px;
+  color: white;
+  margin:14px 0px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+/*  stacked bar colours */
+.bar-0 { fill: #003C57; }
+    .bar-1 { fill: #3B7A9E; }
+    .bar-2 { fill: #008080; }
+.bar-3 { fill: #274796; }
+.bar-4 { fill: #979796; }
+    .key-0 b {margin-top:0px !important; width: 15px !important; background-color: #003C57; }
+    .key-1 b {margin-top:0px !important; width: 15px !important; background-color: #3B7A9E; }
+    .key-2 b {margin-top:0px !important; width: 15px !important; background-color: #008080; }
+.key-3 b {margin-top:0px !important; width: 15px !important; background-color: #274796; }
+.key-4 b {margin-top:0px !important; width: 15px !important; background-color: #979796; }
+
+.key b {
+  display:inline-block;
+  height:15px;
+  margin-right: 6px;
+  float:left;
+  border-radius: 10px;
+
+}
+ul.key {
+  padding-left: 0;
+  padding-top:10px;
+  margin:0;
+  border-top:dashed 2px;
+  border-color: #e5e6e7;
+
+}
+.key li{
+  display:inline-block;
+  margin:0 18px 0 0;
+  padding: 0;
+  line-height: 15px;
+}
+
+g.x.axis {
+  fill:none;
+  stroke-width: 0.5px;
+}
+
+.tick line{
+  stroke: #d0d2d3;
+}
+
+.x.grid path{
+  stroke:none;
+}
+g.x.axis path{
+  stroke:none;
+}
+.tick text{
+  fill: #000;
+  font-family: 'Open Sans',Arial,sans-serif;
+  font-size: 16px;
+  fill: #206095
+}
+#savings-input, #debt-input, #earnings-input{
+  border-style: solid;
+  border-color:#A6A8AB;
+
+}
+#earnings-input{
+  padding-right:1px;
+}
+input[type="number"]{
+  font-family: 'Open Sans',Arial,sans-serif;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #206095;
+    color: white;
+}
+
+#disclaimertext{
+  font-size: 14px
+}
+
+select {
+	width: 100%;
+    border: 2px solid #A6A8AB;
+    height: 40px;
+	font-size: 16px;
+  font-family: 'Open Sans',Arial,sans-serif;
+}
+
+</style>
+  </head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+    <!-- <h1>How well are you doing compared with other young people?</h1> -->
+    <div id="results0div" style="display:block">
+      <div class="row">
+
+        <!-- user input page -->
+        <div id="page1">
+
+           <div class="col-xs-12 col-sm-12">
+              <h3>How old are you?</h3>
+            <div class="col-xs-12 col-sm-6">
+            <form class="btn-form col-xs-12 col-sm-6" role="radiogroup" width="100%">
+              <div class="form-group" role="radio" tabindex="0">
+                <input id="button-1" class="radio-primary" type="radio" name="button" value="18 to 21" aria-checked="true" checked>
+                <label class="label-primary" for="button-1" >18 to 21</label>
+              </div>
+              <div class="form-group" role="radio" tabindex="0">
+                <input id="button-2" class="radio-primary" type="radio" name="button" value="22 to 29" aria-checked="false">
+                <label class="label-primary" for="button-2" >22 to 29</label>
+              </div>
+            </form>
+            </div>
+            </div>
+
+
+          <h3>What do you earn before tax?</h3>
+        <div class="col-xs-6 col-sm-3">
+
+          <div class="input-value col-xs-12 col-sm-12">
+            <form class="input" style="width:99%">
+              <div class="pound">
+                £
+              </div>
+              <div class="input-window">
+                <input style="text-align: right;" id="earnings-input" type="number"  min="0" value="0" tabindex="0">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-6">
+        <div id="dropdown2" class="col-xs-12 col-sm-6"></div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12">
+          <h3>What is your living situation?</h3>
+            <div id="dropdown3" class="col-xs-12 col-sm-3"></div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12">
+          <h3>What savings do you have?</h3>
+          <div class="input-value col-xs-12 col-sm-3">
+            <form class="input">
+              <div class="pound">
+                £
+              </div>
+              <div class="input-window">
+                <input style="text-align: right;" id="savings-input" type="number" min="0" value="0" tabindex="0">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12">
+          <h3>How much debt do you have? <small>(Not including Student Loans Company debt)</small></h3>
+          <div class="input-value col-xs-12 col-sm-3">
+            <form class="input">
+              <div class="pound">
+                £
+              </div>
+              <div class="input-window">
+                <input style="text-align: right;" id="debt-input" type="number" min="0" value="0" tabindex="0">
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+      <button class="btn-primary large custom" onclick="submit()">Submit</button>
+        <br><br>
+
+      </div>
+<!-- end of user input page -->
+
+        <div id="page2" style="display:none">
+<!-- tabs -->
+        <form class="btn-form-fullwidth" role="radiogroup">
+        <div class="form-group-fullwidth" role="radio" tabindex="0">
+          <input id="button-13" class="radio-tab-fullwidth" type="radio" name="button2" value="1" aria-checked="true">
+          <label class="label-tab-fullwidth" for="button-13">Salary</label>
+        </div>
+        <div class="form-group-fullwidth" role="radio" tabindex="0">
+          <input id="button-14" class="radio-tab-fullwidth" type="radio" name="button2" value="2" aria-checked="false">
+          <label class="label-tab-fullwidth2" for="button-14">Living situation</label>
+        </div>
+        <div class="form-group-fullwidth" role="radio" tabindex="0">
+          <input id="button-15" class="radio-tab-fullwidth" type="radio" name="button2" value="3" aria-checked="false">
+          <label class="label-tab-fullwidth" for="button-15">Savings</label>
+        </div>
+        <div class="form-group-fullwidth" role="radio" tabindex="0">
+          <input id="button-16" class="radio-tab-fullwidth" type="radio" name="button2" value="4" aria-checked="false">
+          <label class="label-tab-fullwidth" for="button-16">Debt</label>
+        </div>
+      </form>
+
+  <!-- salary results page -->
+      <div class="highlightbox highlight1" id="highlight1">
+        <strong><p>Your salary is <span id="salarycomment"></span> people aged <span id="agecomment"></span></p></strong>
+      </div>
+
+      <div class="highlightbox highlight1" id="highlight2" style="display:none">
+        <strong><p>Your living situation is <span id="livingcomment"></span> people aged <span id="agecomment2"></span></p></strong>
+      </div>
+
+      <div class="highlightbox highlight1" id="highlight3" style="display:none">
+        <strong><p>Your savings are <span id="savingscomment"></span> people aged <span id="agecomment3"></span></p></strong>
+      </div>
+
+      <div class="highlightbox highlight1 " id="highlight4" style="display:none">
+        <strong><p>Your debt is <span id="debtcomment"></span> people aged <span id="agecomment4"></span></p></strong>
+      </div>
+      <div id="svg2"></div>
+      <div id="svg"></div>
+
+      <button class="btn-primary large" onclick="startover()">Start over</button>
+        <br><br>
+      <p id="disclaimertext"></p>
+      </div>
+
+    <!--Library-->
+
+    <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/d3/4.2.7/d3.js"></script>
+    <script src="lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <!-- <script src="lib/queue.js" type="text/javascript"></script> -->
+    <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" type="text/javascript"></script>
+
+
+
+
+    <script>
+
+	function initialise() {
+
+	 pymChild = new pym.Child();
+
+   //load salary data
+   d3.queue()
+   .defer(d3.csv, "salary_18to21.csv")
+   .defer(d3.csv, "salary_22to29.csv")
+   .defer(d3.csv, "living.csv")
+   .defer(d3.csv, "savings_18to21.csv")
+   .defer(d3.csv, "savings_22to25.csv")
+   .defer(d3.csv, "debt_18to21.csv")
+   .defer(d3.csv, "debt_22to29.csv")
+   .await(ready);
+
+   //dropdowns
+   timeperiods=["Per month","Per week","Per year"]
+
+   livingsituation=["Homeowner","Renter","Living with parents"]
+
+   //clear the existing dropdowns
+
+
+   d3.select("#dropdown2").selectAll("*").remove()
+   d3.select("#dropdown3").selectAll("*").remove()
+
+   d3.select("#dropdown2").append("select").attr("id","period").attr("style","width:99%;float:right;")
+   d3.select("#dropdown3").append("select").attr("id","period3").attr("style","width:100%")
+
+
+   d3.select("#period").selectAll("p").data(timeperiods).enter().append("option")
+   .attr("value",function(d){return d})
+   .text(function(d){return d});
+   // $('#period').select2({minimumResultsForSearch: -1, allowClear:false})
+   //
+   // $('#period').on('select2:select',function(g){
+   //   dataLayer.push({
+   //       "event": "mapDropSelect",
+   //       "selected": g.params.data.text
+   //   })
+   // })
+
+   d3.select("#period3").selectAll("p").data(livingsituation).enter().append("option")
+   .attr("value",function(d){return d})
+   .text(function(d){return d});
+   // $('#period3').select2({minimumResultsForSearch: -1, allowClear:false})
+   //
+   // $('#period3').on('select2:select',function(g){
+   //   dataLayer.push({
+   //       "event": "mapDropSelect",
+   //       "selected": g.params.data.text
+   //   })
+   // })
+
+
+
+document.getElementById("button-14").onclick=livingbutton;
+document.getElementById("button-15").onclick=savingsbutton;
+document.getElementById("button-16").onclick=debtbutton;
+document.getElementById("button-13").onclick=salarybutton;
+
+ 	} //end initialise
+
+function submit(){
+  d3.select("#page1").style("display","none")
+  d3.select("#page2").style("display","block")
+
+  earnings=+document.getElementById("earnings-input").value
+  earningsperiod=document.getElementById("period").value
+  livingsitu=document.getElementById("period3").value
+  savings=+document.getElementById("savings-input").value
+  debt=+document.getElementById("debt-input").value
+  age=document.querySelector('input[name="button"]:checked').value
+
+  dataLayer.push({
+                      'event': 'buttonClicked',
+                      'selected': age
+                    })
+  dataLayer.push({
+        "event": "mapDropSelect",
+        "selected": earningsperiod
+    })
+  dataLayer.push({
+        "event": "mapDropSelect",
+        "selected": livingsitu
+    })
+
+  //work out yearly earnings
+  if(earningsperiod=="Per month"){yearlyearnings=earnings*12}
+  else if(earningsperiod=="Per week"){yearlyearnings=earnings*52}
+  else {yearlyearnings=earnings}
+
+
+  d3.select("#button-13").property("checked","true")
+
+  //compare with median salaries
+salarybutton();
+
+}
+
+
+
+function salarybutton() {
+
+d3.select("#disclaimertext").text("Note: Salaries refer to employees (not self-employed) in 2017")
+
+  dataLayer.push({
+                      'event': 'buttonClicked',
+                      'selected': 'salarybutton'
+                    })
+
+d3.select("#svg2").selectAll("*").remove()
+d3.select("#svg").selectAll("*").remove()
+
+
+  d3.select("#highlight1")
+    .style("display", "block");
+
+  d3.select("#highlight2")
+    .style("display", "none");
+
+    d3.select("#highlight3")
+      .style("display", "none");
+
+      d3.select("#highlight4")
+        .style("display", "none");
+
+
+  if(age=="18 to 21"){
+    median=9911.8,
+    salarydata=glob_eighteen
+  }
+  else {
+    median=20562.6,
+    salarydata=glob_twentytwo
+  }
+
+
+  if(yearlyearnings>median){document.getElementById("salarycomment").innerHTML="above average compared to"}
+  else if(yearlyearnings<median){document.getElementById("salarycomment").innerHTML="below average compared to"}
+  else {document.getElementById("salarycomment").innerHTML="the same as the average for"}
+
+  if(age=="18 to 21"){document.getElementById("agecomment").innerHTML="18 to 21."}
+  else {document.getElementById("agecomment").innerHTML="22 to 29."}
+
+
+  //find index of salary
+  salaryarray=[]
+  salarydata.forEach(function(d){salaryarray.push(+d.Salary)})
+  salaryarray.push(9999999999999)
+
+  bandlimit=salaryarray.find(function(e){return e>yearlyearnings})
+  bandindex=salaryarray.indexOf(bandlimit)-1
+
+  //make an svg
+  width=parseInt(d3.select("#svg").style("width"))
+  margin={top:50,right:25,bottom:70,left:15}
+
+
+  if(width<540 && width >361){
+    margin={top:75,right:20,bottom:70,left:15}
+  } else if(width <= 360){
+    margin={top:90,right:30,bottom:70,left:15}
+
+  }else{
+  //margins 18 to 21
+  if(age=="18 to 21"&&bandindex==0){margin.top=90}
+  if(age=="18 to 21"&&bandindex==1){margin.top=70}
+  if(age=="18 to 21"&&bandindex==2){margin.top=60}
+
+//margins 26 to 29
+  if(age=="22 to 29"&&bandindex==0){margin.top=70}
+  if(age=="22 to 29"&&bandindex==1){margin.top=80}
+}
+
+  chartwidth=width-margin.left-margin.right
+  height=0.3*chartwidth
+
+  d3.select("#svg").append("svg").attr("id","chart")
+  .attr("width",width+margin.left+margin.right)
+  .attr("height",height+margin.top+margin.bottom)
+  .append("g").attr("id","chart2")
+  .attr("transform","translate("+margin.left+","+margin.top+")");
+
+  if(age=="18 to 21"){domainend=35000}
+  else {domainend=70000}
+
+  if(age=="18 to 21"){ydomainend=27}
+  else {ydomainend=35}
+
+  var x=d3.scaleLinear()
+    .range([0,chartwidth])
+    .domain([0,domainend])
+
+  var y=d3.scaleLinear()
+    .range([height,0])
+    .domain([0,ydomainend])
+
+  d3.select("#chart2").selectAll("*").remove()
+
+  //make the rects
+  d3.select("#chart2").append("g").selectAll("rect")
+    .data(salarydata)
+    .enter()
+    .append("rect")
+    .attr("fill","#e2eff9")
+    .attr("width",chartwidth/7)
+    .attr("x",function(d){return x(d.Salary)})
+    .attr("y",function(d){return y(d.Percentage)})
+    .attr("height",function(d){return y(0)-y(d.Percentage)})
+    .attr("id",function(d,i){return "rect"+i})
+
+
+    //make selected rect a certain colour
+    d3.select("#rect"+bandindex)
+    .style("fill","#206095")
+
+    //add white lines
+    d3.select("#chart2").selectAll("line").data(salarydata).enter().append("line")
+    .attr("x1",function(d){return x(d.Salary)})
+    .attr("y1",function(d){return y(d.Percentage)})
+    .attr("x2",function(d){return x(d.Salary)})
+    .attr("y2",y(0))
+    .style("stroke","white")
+    .style("stroke-width",1)
+
+    //label x axis
+    d3.select("#chart2").selectAll("text").data(salarydata).enter().append("text")
+    .attr("x",function(d){return x(d.Salary)})
+    .attr("y",height+20)
+    .attr("text-anchor","middle")
+    .style("fill", "#206095")
+    .text(function(d,i){if(width<540){ if(i%2 != true){ return "£"+d3.formatPrefix(".0",1e3)(d.Salary)}}else{return "£"+d3.formatPrefix(".0",1e3)(d.Salary)}})
+
+    //make a pointer
+    d3.select("#chart2").append("path").attr("id","pointer")
+    .attr("d","M46.063,0h-73.531c-6.627,0-12,5.373-12,12v34.01 c0,6.627,5.373,12,12,12l25.453,0.25L9.298,69.573L20.61,58.26l25.453-0.25c6.627,0,12-5.373,12-12V12 C58.063,5.373,52.69,0,46.063,0z")
+    .attr("fill","#206095")
+    .attr("transform","translate("+(1/14*chartwidth+1/7*bandindex*chartwidth-10)+","+(y(salarydata[bandindex].Percentage)-75)+")")
+
+    d3.select("#chart2").append("text")
+    .attr("id","tspans")
+    .append("tspan")
+    .attr("y",y(salarydata[bandindex].Percentage)-55)
+    .attr("x",1/14*chartwidth+1/7*bandindex*chartwidth)
+    .attr("dy","0")
+    .attr("text-anchor","middle")
+    .style("fill","white")
+    .text("You")
+
+    d3.select("#tspans").append("tspan")
+    .attr("y",y(salarydata[bandindex].Percentage)-55)
+    .attr("x",1/14*chartwidth+1/7*bandindex*chartwidth)
+    .attr("dy","1.2em")
+    .attr("text-anchor","middle")
+    .attr("font-weight","bold")
+    .style("fill","white")
+    .text("£"+d3.format(",")(yearlyearnings))
+
+    //make a median line
+    d3.select("#chart2").append("line")
+    .attr("x1",x(median))
+    .attr("y1",function(){if(age=="18 to 21"){return y(salarydata[1].Percentage)-20}
+          else{return y(salarydata[2].Percentage)-35}})
+    .attr("x2",x(median))
+    .attr("y2",y(0))
+    .style("stroke","#0F8243")
+    .style("stroke-width",3)
+    .style("stroke-dasharray","3 3")
+
+
+    //annotations
+    percentageabove=0
+    for(i=bandindex+1;i<salarydata.length;i++)
+        {percentageabove=percentageabove+(+salarydata[i].Percentage)}
+    percentagebelow=100-percentageabove-salarydata[bandindex].Percentage
+
+    if(width<540){
+      if (Math.round(percentageabove)<=50){
+
+        d3.select("#chart2").append("text")
+        .attr("x",chartwidth)
+        .attr("text-anchor","end")
+        .attr("y",height+45)
+        .style("fill", "#206095")
+        .style("font-size", "16px")
+        .text(function(d){if(bandindex<salarydata.length-1){return d3.format(".0f")(percentageabove)+"% of people earn more than £"+d3.formatPrefix(".0",1e3)(salarydata[bandindex+1].Salary)+" per year ▶️"}})
+      }else if(Math.round(percentageabove)>51){
+
+      d3.select("#chart2").append("text")
+      .attr("x",x(0))
+      .attr("y",height+45)
+      .style("font-size", "16px")
+      .style("fill", "#206095")
+      .text(function(d){if(bandindex!=0){return "◀️ "+d3.format(".0f")(percentagebelow)+"% of people earn less than £"+d3.formatPrefix(".0",1e3)(salarydata[bandindex].Salary) + " per year"}})
+    }
+  }else{
+      d3.select("#chart2").append("text")
+      .attr("x",x(0))
+      .attr("y",height+45)
+      .style("font-size", "14px")
+      .style("fill", "#206095")
+      .text(function(d){if(bandindex!=0){return "◀️ "+d3.format(".0f")(percentagebelow)+"% of people earn less than £"+d3.formatPrefix(".0",1e3)(salarydata[bandindex].Salary) + " per year"}})
+
+      d3.select("#chart2").append("text")
+      .attr("x",chartwidth)
+      .attr("text-anchor","end")
+      .attr("y",height+45)
+      .style("fill", "#206095")
+      .style("font-size", "14px")
+      .text(function(d){if(bandindex<salarydata.length-1){return d3.format(".0f")(percentageabove)+"% of people earn more than £"+d3.formatPrefix(".0",1e3)(salarydata[bandindex+1].Salary)+" per year ▶️"}})
+}
+
+
+
+    if (width < 540 && width >361){
+      //medium mobile
+      d3.select("#chart2").append("line")
+      .attr("x1",0.95*chartwidth)
+      .attr("y1",-60)
+      .attr("x2",0.95*chartwidth)
+      .attr("y2",0.15*height-50)
+      .style("stroke","#0F8243")
+      .style("stroke-width",3)
+      .style("stroke-dasharray","3 3")
+
+      d3.select("#chart2").append("text")
+      .attr("x", 0.95*chartwidth-10)
+      .attr("y", 0.08*height-50)
+      .attr("fill", "#0F8243")
+      .attr("text-anchor", "end")
+      .text("Median £"+d3.format(",.0f")(median));
+
+    } else if (width<360){
+      //little mobile
+      d3.select("#chart2").append("line")
+      .attr("x1",0.95*chartwidth)
+      .attr("y1",-85)
+      .attr("x2",0.95*chartwidth)
+      .attr("y2",0.15*height-70)
+      .style("stroke","#0F8243")
+      .style("stroke-width",3)
+      .style("stroke-dasharray","3 3")
+
+      d3.select("#chart2").append("text")
+      .attr("x", 0.95*chartwidth-10)
+      .attr("y", 0.08*height-75)
+      .attr("fill", "#0F8243")
+      .attr("text-anchor", "end")
+      .text("Median £"+d3.format(",.0f")(median));
+    }
+
+    else{
+      //full sized
+      //median line & label
+      d3.select("#chart2").append("line")
+      .attr("x1",0.8*chartwidth-15)
+      .attr("y1",-50)
+      .attr("x2",0.8*chartwidth-15)
+      .attr("y2",0.1*height-50)
+      .style("stroke","#0F8243")
+      .style("stroke-width",3)
+      .style("stroke-dasharray","3 3")
+
+      d3.select("#chart2").append("text")
+      .attr("x", 0.8*chartwidth-10)
+      .attr("y", 0.08*height-50)
+      .attr("fill", "#0F8243")
+      .text("Median £"+d3.format(",.0f")(median));
+    }
+
+    pymChild.sendHeight()
+}
+
+
+function livingbutton() {
+  d3.select("#disclaimertext").text("")
+
+  dataLayer.push({
+                      'event': 'buttonClicked',
+                      'selected': 'livingbutton'
+                    })
+
+d3.select("#svg2").selectAll("*").remove()
+d3.select("#svg").selectAll("*").remove()
+
+  d3.select("#highlight1")
+    .style("display", "none");
+
+  d3.select("#highlight2")
+    .style("display", "block");
+
+    d3.select("#highlight3")
+      .style("display", "none");
+
+      d3.select("#highlight4")
+        .style("display", "none");
+
+      if(age=="18 to 21"){
+        if(livingsitu == "Living with parents"){
+          document.getElementById("livingcomment").innerHTML="shared with the majority of "
+        document.getElementById("agecomment2").innerHTML="18 to 21." }
+        else{
+          document.getElementById("livingcomment").innerHTML="different to the majority of "
+        document.getElementById("agecomment2").innerHTML="18 to 21." }
+      }
+
+      else
+      {
+        if(livingsitu == "Renter"){
+        document.getElementById("livingcomment").innerHTML="shared with the majority of "
+          document.getElementById("agecomment2").innerHTML="22 to 29." }
+          else{
+            document.getElementById("livingcomment").innerHTML="different to the majority of "
+          document.getElementById("agecomment2").innerHTML="22 to 29." }
+}
+
+//filter the data to just do one age group
+if (age=="18 to 21"){
+  living_age = "18 to 21"
+} else {
+  living_age = "22 to 29"
+}
+
+  // d3.select("#svg").selectAll("*").remove()
+  // d3.select("#svg2").selectAll("*").remove()
+
+
+
+  width=parseInt(d3.select("#svg").style("width"))
+  margin={top:20,right:20,bottom:70,left:15}
+  chartwidth=width-margin.left-margin.right
+  height=0.3*chartwidth
+
+
+if (width<460){
+  var svg2 = d3.select("#svg2").append("svg").attr("id","svg2")
+  .attr("width",width+margin.right)
+  .attr("height",50)
+  .append("g").attr("id","chart2")
+  .attr("padding-bottom", "20px");
+}else {
+  var svg2 = d3.select("#svg2").append("svg").attr("id","svg2")
+  .attr("width",width+margin.right)
+  .attr("height",height/4)
+  .append("g").attr("id","chart2");
+  // .attr("transform","translate(0,"+margin.top+")");
+}
+  var living_percent=glob_living.filter(function(d){return d.group==living_age;})[0][livingsitu]
+
+if (width<426){
+  if (livingsitu=="Homeowner"){
+    d3.select("#chart2")
+      .append("svg:image")
+      .attr("xlink:href", "svg/own.svg")
+      .attr("width", 50)
+      .attr("height", 40)
+      .attr("class", "own_svg");
+    d3.select("#chart2")
+      .append("text")
+      .attr("fill", "#003C57")
+      .attr("font-size", "24px")
+      .attr("alignment-baseline", "middle")
+      .attr("y", height/8 +15)
+      .attr("x", width/10 +20)
+      .text(living_percent + "% are homeowners.");
+
+  } else if (livingsitu=="Renter"){
+    d3.select("#chart2")
+      .append("svg:image")
+      .attr("xlink:href", "svg/rent.svg")
+      .attr("width", 50)
+      .attr("height", 40)
+      .attr("class", "own_svg");
+    d3.select("#chart2")
+      .append("text")
+      .attr("fill", "#3B7A9E")
+      .attr("font-size", "24px")
+      .attr("alignment-baseline", "middle")
+      .attr("y", height/8+15)
+      .attr("x", width/10 +18)
+      .text(living_percent + "% rent their homes.")
+  } else if (livingsitu=="Living with parents"){
+    d3.select("#chart2")
+      .append("svg:image")
+      .attr("xlink:href", "svg/parents.svg")
+      .attr("width", 50)
+      .attr("height", 40)
+      .attr("class", "own_svg");
+     d3.select("#chart2")
+      .append("text")
+      .attr("fill", "#008080")
+      .attr("font-size", "24px")
+      .attr("alignment-baseline", "middle")
+      .attr("y", height/8 +15)
+      .attr("x", width/10 +18)
+      .text(living_percent + "% live with parents.")
+  }
+}else {
+if (livingsitu=="Homeowner"){
+  d3.select("#chart2")
+    .append("svg:image")
+    .attr("xlink:href", "svg/own.svg")
+    .attr("width", 60)
+    .attr("height", 55)
+    .attr("class", "own_svg");
+  d3.select("#chart2")
+    .append("text")
+    .attr("fill", "#003C57")
+    .attr("font-size", "30px")
+    .attr("alignment-baseline", "middle")
+    .attr("y", height/8+5)
+    .attr("x", width/11)
+    .text(living_percent + "% are homeowners.");
+
+} else if (livingsitu=="Renter"){
+  d3.select("#chart2")
+    .append("svg:image")
+    .attr("xlink:href", "svg/rent.svg")
+    .attr("width", 60)
+    .attr("height", 55)
+    .attr("class", "own_svg");
+  d3.select("#chart2")
+    .append("text")
+    .attr("fill", "#3B7A9E")
+    .attr("font-size", "30px")
+    .attr("alignment-baseline", "middle")
+    .attr("y", height/8+5)
+    .attr("x", width/11)
+    .text(living_percent + "% rent their homes.")
+} else if (livingsitu=="Living with parents"){
+  d3.select("#chart2")
+    .append("svg:image")
+    .attr("xlink:href", "svg/parents.svg")
+    .attr("width", 60)
+    .attr("height", 55)
+    .attr("class", "own_svg");
+   d3.select("#chart2")
+    .append("text")
+    .attr("fill", "#008080")
+    .attr("font-size", "30px")
+    .attr("alignment-baseline", "middle")
+    .attr("y", height/8+5)
+    .attr("x", width/11)
+    .text(living_percent + "% live with parents.")
+}
+}
+
+//svg chart
+
+var legendLabels=["Homeowner","Renter","Living with parents"]
+var x_axis_grid = function() { return xAxis; }
+var legend = d3.select('#svg').append('ul')
+        .attr('class', 'key')
+        .selectAll('g')
+        .data(legendLabels)
+        .enter().append('li')
+        .attr("class",function(d,i){return "key-" + i})
+legend.append('b')
+legend.append('label')
+  .html(function(d,i) { return legendLabels[i]; });
+
+  var svg = d3.select("#svg").append("svg").attr("id","chart")
+  .attr("width",chartwidth+margin.right+margin.left)
+  .attr("height",height+margin.top+margin.bottom-30)
+  .append("g").attr("id","chart2")
+  .attr("transform","translate("+margin.left+","+margin.top+")");
+
+
+  x=d3.scaleLinear()
+    .range([0,chartwidth])
+    .domain([0,100])
+
+  y=d3.scaleBand()
+    .rangeRound([0, height])
+    .padding(0.1);
+
+
+
+
+
+
+    glob_living2=glob_living.filter(function(d){return d.group==living_age;});
+
+    var varnames = d3.keys(glob_living2[0]).filter(function(key) { return key !== "group";});
+    varnames = varnames.slice(0, 3);
+
+        glob_living2.forEach(function(d) {
+					d.cat = d.group;
+					var x0 = 0;
+					d.vars = varnames.map(function(name){ return {
+								name: name,
+								x0: x0,
+								x1: x0 += +d[name],
+								x2: d[name]
+							};
+					 });
+					d.total = d.vars[d.vars.length - 1].y1;
+				});
+
+
+        y.domain(d3.extent(glob_living2, function(d) { return d.cat; }));
+        var yAxis = d3.axisLeft(y)
+            .tickFormat(function(d,i) { return d; })
+      	    .tickPadding(5);
+      	d3.selectAll(".tick").selectAll("line").attr("transform", "translate(30,0)");
+        var xAxis = d3.axisBottom(x).ticks(5).tickFormat(function (d){ return d3.format(".0%")(d/100)});
+
+
+
+
+
+          y.domain(glob_living2.map(function(d) {
+              return d.cat;
+            }));
+
+            svg.append('g')
+              .attr('class', 'y axis')
+              .attr('transform', 'translate(0,' + (height*0.8) + ')')
+
+              .call(xAxis);
+            // svg.append('g')
+            //     .attr('class', 'x axis')
+            //     .call(yAxis)
+            // .append("text")
+            //  .attr("y", height+23)
+            //  .attr("x",chartwidth)
+            //  .attr("dy", ".71em")
+            //  .style("text-anchor", "end")
+            //  .text("%");
+            svg.append('g')
+                .attr('class', 'x grid')
+                .call(x_axis_grid()
+                    .tickSize(height/1.2)
+                    .tickFormat(""));
+
+var group = svg.selectAll(".year")
+  .data(glob_living2)
+.enter().append("g")
+  .attr("class", "g bars")
+  .attr("transform", function(d) { return "translate(0," + y(d.cat) + ")"; });
+
+  group.selectAll("rect")
+  .data(function(d) { return d.vars; })
+  .enter().append("rect")
+.attr("class",function(d,i){return "bar-" + i})
+  .attr("height", y.bandwidth()-30)
+.attr("x", function(d) {
+  if (d.x1 >=0){
+    return x(d.x0);
+  } else {
+    return x(d.x2)+ (x(d.x0) - x(d.x1));
+  }
+  })
+.attr("width", function(d) {
+  if (d.x1 >=0){
+    return Math.abs(x(d.x0) - x(d.x1));
+  } else {
+    return Math.abs(x(d.x0) - x(d.x1));
+  }
+});
+
+pymChild.sendHeight()
+}//end of function living
+
+
+
+function savingsbutton() {
+  d3.select("#disclaimertext").text("Note: Savings refer to money in a savings account or ISA in July 2014 to June 2016")
+  dataLayer.push({
+                      'event': 'buttonClicked',
+                      'selected': 'savingsbutton'
+                    })
+
+d3.select("#svg2").selectAll("*").remove()
+d3.select("#svg").selectAll("*").remove()
+
+  d3.select("#highlight1")
+    .style("display", "none");
+
+  d3.select("#highlight2")
+    .style("display", "none");
+
+    d3.select("#highlight3")
+      .style("display", "block");
+
+      d3.select("#highlight4")
+        .style("display", "none");
+
+  if(age=="18 to 21"){
+    median=1200,
+    savingsdata=glob_savings_eighteen
+  }
+  else {
+    median=1677.5,
+    savingsdata=glob_savings_twentytwo
+  }
+
+
+  if(savings>median){document.getElementById("savingscomment").innerHTML="above average compared to"}
+  else if(savings<median){document.getElementById("savingscomment").innerHTML="below average compared to"}
+  else {document.getElementById("savingscomment").innerHTML="the same as the average for"}
+
+  if(age=="18 to 21"){document.getElementById("agecomment3").innerHTML="18 to 21."}
+  else {document.getElementById("agecomment3").innerHTML="22 to 29."}
+
+
+
+  //find index of savings
+  savingsarray=[]
+  savingsdata.forEach(function(d){savingsarray.push(+d.Salary)})
+  savingsarray.push(9999999999999)
+
+  bandlimit=savingsarray.find(function(e){return e>savings})
+  bandindex=savingsarray.indexOf(bandlimit)-1
+  //make an svg
+  width=parseInt(d3.select("#svg").style("width"))
+  margin={top:50,right:25,bottom:100,left:15}
+
+
+  if(width<540 && width >361){
+    margin={top:85,right:10,bottom:80,left:18}
+  } else if(width <= 360){
+    margin={top:85,right:10,bottom:80,left:15}
+
+  }else{
+
+  //margins 18 to 21
+  if(age=="18 to 21"&&bandindex==0){margin.top=90}
+  if(age=="18 to 21"&&bandindex==1){margin.top=0}
+  if(age=="18 to 21"&&bandindex==2){margin.top=0}
+
+//margins 22 to 29
+  if(age=="22 to 29"&&bandindex==0){margin.top=80}
+  if(age=="22 to 29"&&bandindex==1){margin.top=60}
+}
+  height=0.3*chartwidth
+  chartwidth=width-margin.left-margin.right
+
+
+
+if (width<600){
+  var svg2 = d3.select("#svg2").append("svg").attr("id","svg2")
+  .attr("width",width+margin.right)
+  .attr("height",50)
+  .style("border-bottom", "dashed 2px")
+  .style("border-color", "#e5e6e7")
+  .append("g").attr("id","chart");
+}else{
+  var svg2 = d3.select("#svg2").append("svg").attr("id","svg2")
+  .attr("width",width)
+  .attr("height",height/4)
+  .style("border-bottom", "dashed 2px")
+  .style("border-color", "#e5e6e7")
+  .append("g").attr("id","chart");
+}
+
+if (width <360){
+  d3.select("#chart")
+    .append("svg:image")
+    .attr("xlink:href", "svg/pig.svg")
+    .attr("width", 50)
+    .attr("height", 40)
+    .attr("padding-left", "1px")
+    .attr("class", "pig_svg");
+  d3.select("#chart")
+    .append("text")
+    .attr("fill", "#003C57")
+    .attr("font-size", "16px")
+    .attr("alignment-baseline", "middle")
+    .attr("y", height/8 +1)
+    .attr("x", width/11 +23)
+    .text("Did you know 59% of 18 to 29 year");
+    d3.select("#chart")
+      .append("text")
+      .attr("fill", "#003C57")
+      .attr("font-size", "16px")
+      .attr("alignment-baseline", "middle")
+      .attr("y", height/8 +20)
+      .attr("x", width/11 +23)
+      .text("olds don’t have a savings account?");
+} else if (width>360 && width<560){
+  d3.select("#chart")
+    .append("svg:image")
+    .attr("xlink:href", "svg/pig.svg")
+    .attr("width", 60)
+    .attr("height", 50)
+    .attr("class", "pig_svg");
+  d3.select("#chart")
+    .append("text")
+    .attr("fill", "#003C57")
+    .attr("font-size", "18px")
+    .attr("alignment-baseline", "middle")
+    .attr("y", height/8 -2)
+    .attr("x", width/11 +23)
+    .text("Did you know 59% of 18 to 29 year");
+    d3.select("#chart")
+      .append("text")
+      .attr("fill", "#003C57")
+      .attr("font-size", "18px")
+      .attr("alignment-baseline", "middle")
+      .attr("y", height/8 +23)
+      .attr("x", width/11 +23)
+      .text("olds don’t have a savings account?");
+    }else{
+
+  d3.select("#chart")
+    .append("svg:image")
+    .attr("xlink:href", "svg/pig.svg")
+    .attr("width", 60)
+    .attr("height", 50)
+    .attr("class", "pig_svg");
+  d3.select("#chart")
+    .append("text")
+    .attr("fill", "#003C57")
+    .attr("font-size", "16px")
+    .attr("alignment-baseline", "middle")
+    .attr("y", height/8+3)
+    .attr("x", width/11+10)
+    .text("Did you know 59% of 18 to 29 year olds have no savings?");
+}
+
+
+
+    var svg = d3.select("#svg").append("svg").attr("id","chart")
+    .attr("width",width+margin.right)
+    .attr("height",height+margin.top+margin.bottom-30)
+    .append("g").attr("id","chart2")
+    .attr("transform","translate("+margin.left+","+margin.top+")");
+
+
+  if(age=="18 to 21"){domainend=7000}
+  else {domainend=7000}
+
+  if(age=="18 to 21"){ydomainend=43}
+  else {ydomainend=40}
+
+  var x=d3.scaleLinear()
+    .range([0,chartwidth])
+    .domain([0,domainend])
+
+  var y=d3.scaleLinear()
+    .range([height,0])
+    .domain([0,ydomainend])
+
+  // d3.select("#chart2").selectAll("*").remove()
+
+  //make the rects
+  d3.select("#chart2").append("g").selectAll("rect")
+    .data(savingsdata)
+    .enter()
+    .append("rect")
+    .attr("fill","#e2eff9")
+    .attr("width",chartwidth/7)
+    .attr("x",function(d){return x(d.Salary)})
+    .attr("y",function(d){return y(d.Percentage)})
+    .attr("height",function(d){return y(0)-y(d.Percentage)})
+    .attr("id",function(d,i){return "rect"+i})
+
+
+    //make selected rect a certain colour
+    d3.select("#rect"+bandindex)
+    .style("fill","#206095")
+
+    //add white lines
+    d3.select("#chart2").selectAll("line").data(savingsdata).enter().append("line")
+    .attr("x1",function(d){return x(d.Salary)})
+    .attr("y1",function(d){return y(d.Percentage)})
+    .attr("x2",function(d){return x(d.Salary)})
+    .attr("y2",y(0))
+    .style("stroke","white")
+    .style("stroke-width",1)
+
+
+    //label x axis
+    d3.select("#chart2").selectAll("text").data(savingsdata).enter().append("text")
+    .attr("x",function(d){return x(d.Salary)})
+    .attr("y",height+20)
+    .style("fill", "#206095")
+    .attr("text-anchor","middle")
+    .text(function(d,i){if(width<540){ if(i%2 != true){ return "£"+d3.formatPrefix(".0",1e3)(d.Salary)}}else{return "£"+d3.formatPrefix(".0",1e3)(d.Salary)}})
+
+    //make a pointer
+    d3.select("#chart2").append("path").attr("id","pointer")
+    .attr("d","M46.063,0h-73.531c-6.627,0-12,5.373-12,12v34.01 c0,6.627,5.373,12,12,12l25.453,0.25L9.298,69.573L20.61,58.26l25.453-0.25c6.627,0,12-5.373,12-12V12 C58.063,5.373,52.69,0,46.063,0z")
+    .attr("fill","#206095")
+    .attr("transform","translate("+(1/14*chartwidth+1/7*bandindex*chartwidth-10)+","+(y(savingsdata[bandindex].Percentage)-75)+")")
+
+    d3.select("#chart2").append("text")
+    .attr("id","tspans")
+    .append("tspan")
+    .attr("y",y(savingsdata[bandindex].Percentage)-55)
+    .attr("x",1/14*chartwidth+1/7*bandindex*chartwidth)
+    .attr("dy","0")
+    .attr("text-anchor","middle")
+    .style("fill","white")
+    .text("You")
+
+    d3.select("#tspans").append("tspan")
+    .attr("y",y(savingsdata[bandindex].Percentage)-55)
+    .attr("x",1/14*chartwidth+1/7*bandindex*chartwidth)
+    .attr("dy","1.2em")
+    .attr("text-anchor","middle")
+    .attr("font-weight","bold")
+    .style("fill","white")
+    .text("£"+d3.format(",")(savings))
+
+    //make a median line
+    d3.select("#chart2").append("line")
+    .attr("x1",x(median))
+    .attr("y1",function(){if(age=="18 to 21"){return y(savingsdata[1].Percentage)-30}
+          else{return y(savingsdata[2].Percentage)-30}})
+    .attr("x2",x(median))
+    .attr("y2",y(0))
+    .style("stroke","#0F8243")
+    .style("stroke-width",3)
+    .style("stroke-dasharray","3 3")
+
+
+    //annotations
+    percentageabove=0
+    for(i=bandindex+1;i<savingsdata.length;i++)
+        {percentageabove=percentageabove+(+savingsdata[i].Percentage)}
+    percentagebelow=100-percentageabove-savingsdata[bandindex].Percentage
+
+        if(width<540){
+          if (Math.round(percentageabove)<=50){
+
+            d3.select("#chart2").append("text")
+            .attr("x",chartwidth)
+            .attr("text-anchor","end")
+            .attr("y",height+45)
+            .style("fill", "#206095")
+            .style("font-size", "14px")
+            .text(function(d){if(bandindex<savingsdata.length-1){return d3.format(".0f")(percentageabove)+"% of people have savings of more than £"+d3.formatPrefix(".0",1e3)(savingsdata[bandindex+1].Salary)+" ▶️"}})
+          }else if(Math.round(percentageabove)>51){
+
+          d3.select("#chart2").append("text")
+          .attr("x",x(0))
+          .attr("y",height+45)
+          .style("font-size", "14px")
+          .style("fill", "#206095")
+          .text(function(d){if(bandindex!=0){return "◀️ "+d3.format(".0f")(percentagebelow)+"% of people have savings of less than £"+d3.formatPrefix(".0",1e3)(savingsdata[bandindex].Salary)}})
+        }
+      }else{
+          d3.select("#chart2").append("text")
+          .attr("x",x(0))
+          .attr("y",height+45)
+          .style("font-size", "14px")
+          .style("fill", "#206095")
+          .text(function(d){if(bandindex!=0){return "◀️ "+d3.format(".0f")(percentagebelow)+"% of people have savings of less than £"+d3.formatPrefix(".0",1e3)(savingsdata[bandindex].Salary)}})
+
+          d3.select("#chart2").append("text")
+          .attr("x",chartwidth)
+          .attr("text-anchor","end")
+          .attr("y",height+45)
+          .style("fill", "#206095")
+          .style("font-size", "14px")
+          .text(function(d){if(bandindex<savingsdata.length-1){return d3.format(".0f")(percentageabove)+"% of people have savings of more than £"+d3.formatPrefix(".0",1e3)(savingsdata[bandindex+1].Salary)+" ▶️"}})
+    }
+
+    if (width < 540 && width >361){
+      //medium mobile
+      d3.select("#chart2").append("line")
+      .attr("x1",0.95*chartwidth)
+      .attr("y1",-60)
+      .attr("x2",0.95*chartwidth)
+      .attr("y2",0.15*height-50)
+      .style("stroke","#0F8243")
+      .style("stroke-width",3)
+      .style("stroke-dasharray","3 3")
+
+      d3.select("#chart2").append("text")
+      .attr("x", 0.95*chartwidth-10)
+      .attr("y", 0.08*height-50)
+      .attr("fill", "#0F8243")
+      .attr("text-anchor", "end")
+      .text("Median £"+d3.format(",.0f")(median));
+
+    } else if (width<360){
+      //little mobile
+      d3.select("#chart2").append("line")
+      .attr("x1",0.95*chartwidth)
+      .attr("y1",-85)
+      .attr("x2",0.95*chartwidth)
+      .attr("y2",0.15*height-70)
+      .style("stroke","#0F8243")
+      .style("stroke-width",3)
+      .style("stroke-dasharray","3 3")
+
+      d3.select("#chart2").append("text")
+      .attr("x", 0.95*chartwidth-10)
+      .attr("y", 0.08*height-75)
+      .attr("fill", "#0F8243")
+      .attr("text-anchor", "end")
+      .text("Median £"+d3.format(",.0f")(median));
+    }
+
+    else{
+      //full sized
+      //median line & label
+      d3.select("#chart2").append("line")
+      .attr("x1",0.8*chartwidth-15)
+      .attr("y1",-50)
+      .attr("x2",0.8*chartwidth-15)
+      .attr("y2",0.1*height-50)
+      .style("stroke","#0F8243")
+      .style("stroke-width",3)
+      .style("stroke-dasharray","3 3")
+
+      d3.select("#chart2").append("text")
+      .attr("x", 0.8*chartwidth-10)
+      .attr("y", 0.08*height-50)
+      .attr("fill", "#0F8243")
+      .text("Median £"+d3.format(",.0f")(median));
+    }
+    pymChild.sendHeight()
+} // End function savings
+
+
+//debt function
+function debtbutton() {
+  d3.select("#disclaimertext").text("Note: Debt refers to financial debt (not mortgages), excluding student loans from the Student Loan company, in July 2014 to June 2016")
+  dataLayer.push({
+                      'event': 'buttonClicked',
+                      'selected': 'debtbutton'
+                    })
+
+  d3.select("#svg2").selectAll("*").remove()
+  d3.select("#svg").selectAll("*").remove()
+
+
+    d3.select("#highlight1")
+      .style("display", "none");
+
+    d3.select("#highlight2")
+      .style("display", "none");
+
+      d3.select("#highlight3")
+        .style("display", "none");
+
+        d3.select("#highlight4")
+          .style("display", "block");
+
+
+    if(age=="18 to 21"){
+      median=2400,
+      debtdata= glob_debt_eighteen
+    }
+    else {
+      median=1900,
+      debtdata= glob_debt_twentytwo
+    }
+
+    if(debt>median){document.getElementById("debtcomment").innerHTML="above average compared to"}
+    else if(debt<median){document.getElementById("debtcomment").innerHTML="below average compared to"}
+    else {document.getElementById("debtcomment").innerHTML="the same as the average for"}
+
+    if(age=="18 to 21"){document.getElementById("agecomment4").innerHTML="18 to 21."}
+    else {document.getElementById("agecomment4").innerHTML="22 to 29."}
+
+
+    //find index of salary
+    debtarray=[]
+    debtdata.forEach(function(d){debtarray.push(+d.Salary)})
+    debtarray.push(9999999999999)
+
+    bandlimit=debtarray.find(function(e){return e>debt})
+    bandindex=debtarray.indexOf(bandlimit)-1
+
+
+      if(width<540 && width >361){
+        margin={top:85,right:10,bottom:80,left:18}
+      } else if(width <= 360){
+        margin={top:85,right:15,bottom:80,left:18}
+
+      }else{
+
+      //margins 18 to 21
+      if(age=="18 to 21"&&bandindex==0){margin.top=90}
+      if(age=="18 to 21"&&bandindex==1){margin.top=0}
+      if(age=="18 to 21"&&bandindex==2){margin.top=0}
+
+    //margins 22 to 29
+      if(age=="22 to 29"&&bandindex==0){margin.top=80}
+      if(age=="22 to 29"&&bandindex==1){margin.top=60}
+    }
+      height=0.3*chartwidth
+      chartwidth=width-margin.left-margin.right
+
+
+      if (width<600){
+        var svg2 = d3.select("#svg2").append("svg").attr("id","svg2")
+        .attr("width",width+margin.right)
+        .attr("height",50)
+        .style("border-bottom", "dashed 2px")
+        .style("border-color", "#e5e6e7")
+        .append("g").attr("id","chart");
+      }else{
+        var svg2 = d3.select("#svg2").append("svg").attr("id","svg2")
+        .attr("width",width)
+        .attr("height",height/4)
+        .style("border-bottom", "dashed 2px")
+        .style("border-color", "#e5e6e7")
+        .append("g").attr("id","chart");
+      }
+
+      if (width <360){
+        d3.select("#chart")
+          .append("svg:image")
+          .attr("xlink:href", "svg/pig.svg")
+          .attr("width", 50)
+          .attr("height", 40)
+          .attr("padding-left", "1px")
+          .attr("class", "pig_svg");
+        d3.select("#chart")
+          .append("text")
+          .attr("fill", "#003C57")
+          .attr("font-size", "14px")
+          .attr("alignment-baseline", "middle")
+          .attr("y", height/8 )
+          .attr("x", width/11 +21)
+          .text("Did you know 6% of 18 to 29 year olds ");
+          d3.select("#chart")
+            .append("text")
+            .attr("fill", "#003C57")
+            .attr("font-size", "14px")
+            .attr("alignment-baseline", "middle")
+            .attr("y", height/8 +20)
+            .attr("x", width/11 +23)
+            .text("owe more than £10,000 in financial debt?");
+      } else if (width>360 && width<560){
+        d3.select("#chart")
+          .append("svg:image")
+          .attr("xlink:href", "svg/pig.svg")
+          .attr("width", 60)
+          .attr("height", 50)
+          .attr("class", "pig_svg");
+        d3.select("#chart")
+          .append("text")
+          .attr("fill", "#003C57")
+          .attr("font-size", "16px")
+          .attr("alignment-baseline", "middle")
+          .attr("y", height/8 -2)
+          .attr("x", width/11 +23)
+          .text("Did you know 6% of 18 to 29 year olds");
+          d3.select("#chart")
+            .append("text")
+            .attr("fill", "#003C57")
+            .attr("font-size", "16px")
+            .attr("alignment-baseline", "middle")
+            .attr("y", height/8 +23)
+            .attr("x", width/11 +23)
+            .text("owe more than £10,000 in financial debt?");
+          }else{
+
+        d3.select("#chart")
+          .append("svg:image")
+          .attr("xlink:href", "svg/pig.svg")
+          .attr("width", 60)
+          .attr("height", 50)
+          .attr("class", "pig_svg");
+        d3.select("#chart")
+          .append("text")
+          .attr("fill", "#003C57")
+          .attr("font-size", "16px")
+          .attr("alignment-baseline", "middle")
+          .attr("y", height/8+3)
+          .attr("x", width/11+7)
+          .text("Did you know that 6% of 18 to 29 year olds owe more than £10,000 in financial debt?");
+      }
+
+
+
+    d3.select("#svg").append("svg").attr("id","chart")
+    .attr("width",width+margin.right)
+    .attr("height",height+margin.top+margin.bottom)
+    .append("g").attr("id","chart2")
+    .attr("transform","translate("+margin.left+","+margin.top+")");
+
+    if(age=="18 to 21"){domainend=7000}
+    else {domainend=7000}
+
+    if(age=="18 to 21"){ydomainend=40}
+    else {ydomainend=40}
+
+
+      var x=d3.scaleLinear()
+        .range([0, chartwidth])
+        .domain([0,domainend])
+
+
+    var y=d3.scaleLinear()
+      .range([height,0])
+      .domain([0,ydomainend])
+
+    d3.select("#chart2").selectAll("*").remove()
+
+var chartwidtharray = [chartwidth/7, chartwidth/7, chartwidth*4/7, chartwidth/7];
+
+    //make the rects
+    d3.select("#chart2").append("g").selectAll("rect")
+      .data(debtdata)
+      .enter()
+      .append("rect")
+      .attr("fill","#e2eff9")
+      .attr("width", function(d,i){ return chartwidtharray[i]})
+      .attr("x",function(d){return x(d.Salary)})
+      .attr("y",function(d){return y(d.Percentage)})
+      .attr("height",function(d){return y(0)-y(d.Percentage)})
+      .attr("id",function(d,i){return "rect"+i})
+
+
+      //make selected rect a certain colour
+      d3.select("#rect"+bandindex)
+      .style("fill","#206095")
+
+      //add white lines
+      d3.select("#chart2").selectAll("line").data(debtdata).enter().append("line")
+      .attr("x1",function(d){return x(d.Salary)})
+      .attr("y1",function(d){return y(d.Percentage)})
+      .attr("x2",function(d){return x(d.Salary)})
+      .attr("y2",y(0))
+      .style("stroke","white")
+      .style("stroke-width",1)
+
+ var debtticks = [0,1000,2000,3000,4000,5000,6000]
+      //label x axis
+      d3.select("#chart2").selectAll("text").data(debtticks).enter().append("text")
+      .attr("x",function(d){return x(d)})
+      .attr("y",height+20)
+      .attr("text-anchor","middle")
+      .style("fill", "#206095")
+      .text(function(d){return "£"+d3.formatPrefix(".0",1e3)(d)})
+
+var pointerarray = [chartwidth/14, chartwidth*3/14, chartwidth*8/14, chartwidth*13/14];
+
+      //make a pointer
+      d3.select("#chart2").append("path").attr("id","pointer")
+      .attr("d","M46.063,0h-73.531c-6.627,0-12,5.373-12,12v34.01 c0,6.627,5.373,12,12,12l25.453,0.25L9.298,69.573L20.61,58.26l25.453-0.25c6.627,0,12-5.373,12-12V12 C58.063,5.373,52.69,0,46.063,0z")
+      .attr("fill","#206095")
+      .attr("transform", function(d){ return "translate("+ (pointerarray[bandindex] - 10) + ","+(y(debtdata[bandindex].Percentage)-75)+")"})
+
+      d3.select("#chart2").append("text")
+      .attr("id","tspans")
+      .append("tspan")
+      .attr("y",y(debtdata[bandindex].Percentage)-55)
+      .attr("x",function(d){ return + (pointerarray[bandindex])})
+      .attr("dy","0")
+      .attr("text-anchor","middle")
+      .style("fill","white")
+      .text("You")
+
+      d3.select("#tspans").append("tspan")
+      .attr("y",y(debtdata[bandindex].Percentage)-55)
+      .attr("x",function(d){ return + (pointerarray[bandindex])})
+      .attr("dy","1.2em")
+      .attr("text-anchor","middle")
+      .attr("font-weight","bold")
+      .style("fill","white")
+      .text("£"+d3.format(",")(debt))
+
+      //make a median line
+      d3.select("#chart2").append("line")
+      .attr("x1",x(median))
+      .attr("y1",function(){if(age=="18 to 21"){return y(debtdata[1].Percentage)-50}
+            else{return y(debtdata[2].Percentage)}})
+      .attr("x2",x(median))
+      .attr("y2",y(0))
+      .style("stroke","#0F8243")
+      .style("stroke-width",3)
+      .style("stroke-dasharray","3 3")
+
+      //annotations
+      percentageabove=0
+      for(i=bandindex+1;i<debtdata.length;i++)
+          {percentageabove=percentageabove+(+debtdata[i].Percentage)}
+      percentagebelow=100-percentageabove-debtdata[bandindex].Percentage
+
+
+      if(width<760){
+        if (Math.round(percentageabove)>50){
+          d3.select("#chart2").append("text")
+          .attr("x",chartwidth)
+          .attr("text-anchor","end")
+          .attr("y",height+45)
+          .style("fill", "#206095")
+          .style("font-size", "14px")
+          .text(function(d){if(bandindex<debtdata.length-1){return d3.format(".0f")(percentageabove)+"% of people have debts of more than £"+d3.formatPrefix(".0",1e3)(debtdata[bandindex+1].Salary)+" ▶️"}})
+        }else if(Math.round(percentageabove)<50){
+        d3.select("#chart2").append("text")
+        .attr("x",x(0))
+        .attr("y",height+45)
+        .style("font-size", "14px")
+        .style("fill", "#206095")
+        .text(function(d){if(bandindex!=0){return "◀️ "+d3.format(".0f")(percentagebelow)+"% of people have savings of less than £"+d3.formatPrefix(".0",1e3)(debtdata[bandindex].Salary)}})
+      }
+    }else{
+        d3.select("#chart2").append("text")
+        .attr("x",x(0))
+        .attr("y",height+45)
+        .style("font-size", "15px")
+        .style("fill", "#206095")
+        .text(function(d){if(bandindex!=0){return "◀️ "+d3.format(".0f")(percentagebelow)+"% of people have savings of less than £"+d3.formatPrefix(".0",1e3)(debtdata[bandindex].Salary)}})
+
+        d3.select("#chart2").append("text")
+        .attr("x",chartwidth)
+        .attr("text-anchor","end")
+        .attr("y",height+45)
+        .style("fill", "#206095")
+        .style("font-size", "15px")
+        .text(function(d){if(bandindex<debtdata.length-1){return d3.format(".0f")(percentageabove)+"% of people have savings of more than £"+d3.formatPrefix(".0",1e3)(debtdata[bandindex+1].Salary)+" ▶️"}})
+    }
+
+    if (width < 540 && width >361){
+      //medium mobile
+      d3.select("#chart2").append("line")
+      .attr("x1",0.95*chartwidth)
+      .attr("y1",-60)
+      .attr("x2",0.95*chartwidth)
+      .attr("y2",0.15*height-50)
+      .style("stroke","#0F8243")
+      .style("stroke-width",3)
+      .style("stroke-dasharray","3 3")
+
+      d3.select("#chart2").append("text")
+      .attr("x", 0.95*chartwidth-10)
+      .attr("y", 0.08*height-50)
+      .attr("fill", "#0F8243")
+      .attr("text-anchor", "end")
+      .text("Median £"+d3.format(",.0f")(median));
+
+    } else if (width<360){
+      //little mobile
+      d3.select("#chart2").append("line")
+      .attr("x1",0.95*chartwidth)
+      .attr("y1",-85)
+      .attr("x2",0.95*chartwidth)
+      .attr("y2",0.15*height-70)
+      .style("stroke","#0F8243")
+      .style("stroke-width",3)
+      .style("stroke-dasharray","3 3")
+
+      d3.select("#chart2").append("text")
+      .attr("x", 0.95*chartwidth-10)
+      .attr("y", 0.08*height-75)
+      .attr("fill", "#0F8243")
+      .attr("text-anchor", "end")
+      .text("Median £"+d3.format(",.0f")(median));
+    }
+
+    else{
+      //full sized
+      //median line & label
+      d3.select("#chart2").append("line")
+      .attr("x1",0.8*chartwidth-15)
+      .attr("y1",-50)
+      .attr("x2",0.8*chartwidth-15)
+      .attr("y2",0.1*height-50)
+      .style("stroke","#0F8243")
+      .style("stroke-width",3)
+      .style("stroke-dasharray","3 3")
+
+      d3.select("#chart2").append("text")
+      .attr("x", 0.8*chartwidth-10)
+      .attr("y", 0.08*height-50)
+      .attr("fill", "#0F8243")
+      .text("Median £"+d3.format(",.0f")(median));
+    }
+    pymChild.sendHeight()
+  }
+//End of debt function
+
+function startover(){
+  dataLayer.push({
+                      'event': 'buttonClicked',
+                      'selected': 'startover'
+                    })
+
+  d3.select("#page1").style("display","block")
+  d3.select("#page2").style("display","none")
+
+  d3.select("#svg").selectAll("*").remove()
+  d3.select("#svg2").selectAll("*").remove()
+  pymChild.sendHeight()
+}
+
+function ready(error,eighteen,twentytwo, livingdata, savings_eighteen, savings_twentytwo, debt_eighteen, debt_twentytwo){
+  glob_eighteen=eighteen
+  glob_twentytwo=twentytwo
+  glob_living=livingdata
+  glob_savings_eighteen=savings_eighteen
+  glob_savings_twentytwo=savings_twentytwo
+  // glob_savings_twentynine=savings_twentynine
+  glob_debt_eighteen = debt_eighteen
+  glob_debt_twentytwo = debt_twentytwo
+}
+
+
+
+    //check whether browser can cope with svg
+    if (Modernizr.svg) {
+		  pymChild = new pym.Child({ renderCallback: initialise });
+    } else {
+       //use pym to create iframe containing fallback image (which is set as default)
+       pymChild = new pym.Child();
+      if (pymChild) {
+            pymChild.sendHeight();
+        }
+    }
+
+    //polyfill the Array.find function for IE
+    // https://tc39.github.io/ecma262/#sec-array.prototype.find
+    if (!Array.prototype.find) {
+      Object.defineProperty(Array.prototype, 'find', {
+        value: function(predicate) {
+         // 1. Let O be ? ToObject(this value).
+          if (this == null) {
+            throw new TypeError('"this" is null or not defined');
+          }
+
+          var o = Object(this);
+
+          // 2. Let len be ? ToLength(? Get(O, "length")).
+          var len = o.length >>> 0;
+
+          // 3. If IsCallable(predicate) is false, throw a TypeError exception.
+          if (typeof predicate !== 'function') {
+            throw new TypeError('predicate must be a function');
+          }
+
+          // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
+          var thisArg = arguments[1];
+
+          // 5. Let k be 0.
+          var k = 0;
+
+          // 6. Repeat, while k < len
+          while (k < len) {
+            // a. Let Pk be ! ToString(k).
+            // b. Let kValue be ? Get(O, Pk).
+            // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
+            // d. If testResult is true, return kValue.
+            var kValue = o[k];
+            if (predicate.call(thisArg, kValue, k, o)) {
+              return kValue;
+            }
+            // e. Increase k by 1.
+            k++;
+          }
+
+          // 7. Return undefined.
+          return undefined;
+        },
+        configurable: true,
+        writable: true
+      });
+    }
+
+	  </script>
+
+  </body>
+</html>

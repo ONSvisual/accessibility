@@ -1,0 +1,14 @@
+{"ons":{
+"maptitle": "Ethnic group, number of NA and zeroes estimates, by local authority, 2016",
+"varcolour": "PuBu",
+"varunit": "number of NA and zeroes estimates",
+"displaydecimals": 2,
+"legenddecimals": 2,
+"breaks": "jenks",
+"dropticks": true,
+"numberBreaks": 5,
+"varname1":"pooled",
+"varname2":"single",
+"mapLeftLabel":"Pooled year APS-based estimates",
+"mapRightLabel":"Single year APS-based estimates"
+}}

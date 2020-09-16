@@ -1,0 +1,12 @@
+{"ons":{
+"maptitle": "dvc504 - Internal migration map",
+"varcolour": "GnBu",
+"varunit": "to/from ",
+"displaydecimals": 0,
+"legenddecimals": 0,
+"breaks": "jenks",
+"dropticks": true,
+"numberBreaks": 5,
+"varname1":"yr1",
+"varname2":"yr2"
+}}

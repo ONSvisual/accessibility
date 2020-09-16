@@ -1,0 +1,5 @@
+type,Violence,Homicide,Knife or sharp instruments,Theft,Burglary,Vehicle offences,Robbery,Fraud,Computer misuse
+Number of incidents,1242000,670,45627,3402000,366718,436868,83930,3710000,915000
+Annual % change,-8,2,7,-9,-7,1,12,2,-6
+arrow,no,up,up,down,down,up,up,no,no
+source,Crime Survey for England and Wales,Police Recorded Crime,Police Recorded Crime,Crime Survey for England and Wales,Police Recorded Crime,Police Recorded Crime,Police Recorded Crime,Crime Survey for England and Wales,Crime Survey for England and Wales

@@ -1,0 +1,349 @@
+﻿occupation,code,earningsa,earningsm,earningsf,earningsannm,earningsannf,jobsm,jobsf,hierarchy
+Chief executives & senior officials,111,44.29,46.57,40.33,100016,77351,65,25,1
+Production managers & directors,112,23.42,23.95,21.28,50000,40154,529,115,1
+Functional managers & directors,113,31.68,34.64,27.37,70660,52063,462,293,1
+Financial institution managers & directors,115,25.15,29.23,19.63,53909,38387,37,24,1
+Managers & directors in transport & logistics,116,15.58,15.78,14.32,34125,29914,150,37,1
+Senior officers in protective services,117,25.58,26.17,22.41,52842,45337,13,,1
+Health & social services managers & directors,118,24.78,27.55,23.46,51116,43770,21,35,1
+Managers & directors in retail & wholesale,119,13.61,14.81,12.12,32216,24659,176,125,1
+Managers & proprietors in hospitality & leisure services,122,12.7,13.42,11.98,30653,25364,62,48,1
+Managers & proprietors in health & care services,124,16.77,16.5,16.86,33983,33078,11,51,1
+Managers & proprietors in other services,125,16.62,18.01,15.29,37030,28929,121,77,1
+Natural & social science professionals,211,19.7,19.99,19.44,38597,36773,70,50,2
+Engineering professionals,212,20.69,20.75,20.19,43049,38925,358,43,2
+Information technology & telecommunications professionals,213,22.55,22.76,21.43,44963,40442,575,112,2
+Conservation & environment professionals,214,18.23,18.7,16.91,35808,31397,28,12,2
+Research & development managers ,215,25.72,25.88,24.13,49921,44089,36,19,2
+Health professionals,221,23.38,25.6,21.86,57475,42715,182,180,2
+Therapy professionals,222,17.04,16.63,17.24,31009,31911,22,58,2
+Nursing & midwifery professionals,223,18.16,18.76,18,35598,32964,110,505,2
+Teaching & educational professionals,231,22.72,23.92,22.01,41715,36480,431,673,2
+Legal professionals,241,25.99,30.09,24.05,60072,46196,58,57,2
+"Business, research & administrative professionals",242,22.28,23.42,20.45,45491,38492,432,233,2
+"Architects, town planners & surveyors",243,20.15,20.51,18.67,40966,36194,137,34,2
+Welfare professionals,244,18.03,16.62,18.37,31393,34106,50,88,2
+Librarians & related professionals,245,14.55,15.23,14.06,27469,26178,,10,2
+Quality & regulatory professionals,246,20.77,20.81,20.41,41244,38113,87,46,2
+Media professionals,247,18.46,20.03,16.85,39790,32969,52,38,2
+"Science, engineering & production technicians",311,13.76,14.39,11.96,30283,23142,281,87,3
+Draughtspersons & related architectural technicians,312,14.82,15.09,14.5,30584,27755,37,11,3
+Information technology technicians,313,15.56,15.76,14.95,31986,28900,184,60,3
+Health associate professionals,321,15.47,18.92,13.62,36619,25449,29,39,3
+Welfare & housing associate professionals,323,13.43,13.52,13.4,25958,25001,53,137,3
+Protective service occupations,331,18.44,18.76,17.06,39750,35711,212,84,3
+"Artistic, literary & media occupations",341,15.81,16.29,15.43,33965,28195,33,23,3
+Design occupations,342,13.95,14.09,13.77,29318,27899,47,32,3
+Sports & fitness occupations,344,11.98,12.08,11.02,24682,21529,25,8,3
+Legal associate professionals,352,15.31,15.95,14.55,31020,28261,19,38,3
+"Business, finance & related associate professionals",353,17.85,19.15,16.44,38121,31040,275,233,3
+"Sales, marketing & related associate professionals",354,18.89,20.17,16.88,43020,33351,610,410,3
+Conservation & environmental associate professionals,355,11.71,11.44,13.67,22446,24313,,,3
+Public services & other associate professionals,356,15.7,15.9,15.5,32551,29804,180,197,3
+Administrative occupations Government & related organisations,411,12.74,13.25,12.62,27587,25020,60,85,4
+Administrative occupations Finance,412,12.45,12.88,12.29,25402,23664,128,246,4
+Administrative occupations Records,413,11.5,11.73,11.25,24585,21481,123,147,4
+Other administrative occupations,415,11.4,11.97,11.18,24229,21120,191,436,4
+Administrative occupations Office managers & supervisors,416,15.57,16.33,15.28,33479,29680,66,125,4
+Secretarial & related occupations,421,11.3,10.79,11.37,21794,21446,30,270,4
+Agricultural & related trades,511,10.22,10.2,10.74,20561,20703,84,6,5
+"Metal forming, welding & related trades",521,12.46,12.49,10.07,28227,19988,66,,5
+"Metal machining, fitting & instrument making trades",522,14.08,14.1,11.87,32318,25808,368,12,5
+Electrical & electronic trades,524,15.33,15.34,14.79,33680,26989,287,11,5
+"Skilled metal, electrical & electronic trades supervisors",525,16.08,16.03,16.23,35196,,38,,5
+Construction & building trades,531,13.1,13.1,11.75,27512,22727,208,,5
+Building finishing trades,532,11.85,11.87,9.16,25869,18267,36,,5
+Construction & building trades supervisors,533,16.17,16.25,14.98,38255,25162,36,,5
+Textiles & garments trades,541,11,11.19,9.41,24468,18027,15,,5
+Printing trades,542,11.53,11.94,10.08,24904,20877,26,,5
+Food preparation & hospitality trades,543,10,10.16,9.63,22719,19563,216,89,5
+Other skilled trades,544,11.32,11.57,10.34,25503,19615,25,,5
+Childcare & related personal services,612,9.72,10.26,9.67,18436,16952,33,274,6
+Animal care & control services,613,10.07,10.87,9.48,23694,19163,8,19,6
+Caring personal services,614,10.01,10.36,9.9,21837,19654,185,524,6
+Leisure & travel services,621,11.72,12.75,10.56,27180,,47,35,6
+Hairdressers & related services,622,8.95,9.44,8.79,18814,16264,5,32,6
+Housekeeping & related services,623,10.52,10.66,9.63,21241,,46,19,6
+Cleaning & housekeeping managers & supervisors,624,10.04,10.79,9.85,22457,19110,10,19,6
+Sales assistants & retail cashiers,711,9.22,9.5,9.05,19963,17224,214,211,7
+Sales related occupations,712,10.54,10.44,10.81,22231,21897,27,20,7
+Sales supervisors,713,10.43,11.32,10.09,24179,20829,31,30,7
+Customer service occupations,721,10.8,10.92,10.73,21979,20853,129,159,7
+Customer service managers & supervisors,722,14.64,15.37,13.88,32933,27264,39,40,7
+Process operatives,811,10,10.52,8.97,23615,18837,147,46,8
+Plant & machine operatives,812,11.15,11.52,9.35,25781,18940,72,8,8
+Assemblers & routine operatives,813,10.73,11.4,9.38,25640,19486,168,63,8
+Construction operatives,814,12.18,12.31,9.4,28133,19030,119,7,8
+Road transport drivers,821,11.26,11.28,10.62,26878,22370,521,20,8
+Mobile machine drivers & operatives,822,11.5,11.51,10.08,28238,20678,75,,8
+Other drivers & transport operatives,823,20.36,20.27,26.08,49625,54425,50,,8
+Elementary agricultural occupations,911,9.28,9.39,8.52,22308,,33,8,9
+Elementary construction occupations,912,10.37,10.39,8.47,22962,20171,64,,9
+Elementary process plant occupations,913,9.54,10.05,8.87,22321,18670,133,57,9
+Elementary administration occupations,921,12.45,12.59,12.3,27208,24744,94,23,9
+Elementary cleaning occupations,923,8.99,9.28,8.74,19293,16490,89,86,9
+Elementary security occupations,924,10.25,10.18,10.93,24113,24376,81,17,9
+Elementary sales occupations,925,9.01,9.02,8.98,18197,18297,7,4,9
+Elementary storage occupations,926,9.9,10,9.14,21997,18979,371,76,9
+Other elementary services occupations,927,8.62,8.65,8.61,17467,16244,123,148,9
+Production managers & directors in manufacturing,1121,23.97,24.63,21.55,50531,40210,425,107,1
+Production managers & directors in construction,1122,21.57,21.74,19.93,48182,,95,7,1
+Financial managers & directors,1131,33.53,36.84,28.36,77599,52056,182,104,1
+Marketing & sales directors,1132,38.53,39.3,35.33,85105,72109,133,50,1
+Purchasing managers & directors,1133,24.66,25.06,24.09,50902,44898,43,23,1
+Human resource managers & directors,1135,24.96,25.35,24.74,53032,45984,39,82,1
+Information technology & telecommunications directors,1136,36.41,36.4,36.25,70292,,27,6,1
+Functional managers & directors n.e.c.,1139,28.89,30.97,26.46,63465,48346,31,25,1
+Managers & directors in transport & distribution,1161,18.11,18.34,17.77,40179,36417,57,10,1
+Managers & directors in storage & warehousing,1162,14.1,14.42,13.22,30772,27921,92,27,1
+Senior police officers,1172,27.65,27.65,27.65,58656,59634,7,,1
+"Senior officers in fire, ambulance, prison & related services",1173,19.98,20.19,19.22,44352,37219,,,1
+Health services & public health managers & directors,1181,26.71,28.22,24.92,52006,48243,17,23,1
+Hotel & accommodation managers & proprietors,1221,13.81,13.84,12.83,31674,27201,8,9,1
+Restaurant & catering establishment managers & proprietors,1223,11.55,12.35,10.92,28470,23415,26,21,1
+Publicans & managers of licensed premises,1224,12.01,11.99,12.01,,25965,6,,1
+Leisure & sports managers,1225,14.95,15.22,14.36,32956,28759,21,12,1
+Health care practice managers,1241,16.66,16.5,16.86,,32280,,12,1
+"Residential, day & domiciliarycare managers & proprietors",1242,16.78,16.45,16.8,34082,33083,9,39,1
+"Property, housing & estate managers",1251,17.62,19.16,15.81,39092,29852,61,38,1
+Hairdressing & beauty salon managers & proprietors,1253,11.56,10.11,11.61,19968,25913,,,1
+Shopkeepers & proprietors – wholesale & retail,1254,13.74,13.71,13.53,28207,27065,6,,1
+Managers & proprietors in other services n.e.c.,1259,15.9,16.82,15.04,34731,27685,41,30,1
+Chemical scientists,2111,16.8,16.92,16.01,31953,,9,,2
+Biological scientists & biochemists,2112,19.71,19.45,19.72,38648,37739,23,23,2
+Social & humanities scientists,2114,17.22,17.09,16.79,,34186,,,2
+Natural & social science professionals n.e.c.,2119,19.95,20.48,19.15,39601,35511,27,18,2
+Civil engineers,2121,20.46,20.45,20.41,40908,42983,41,6,2
+Mechanical engineers,2122,20.26,20.17,21.28,,43186,29,,2
+Electrical engineers,2123,24.06,24.28,20.46,50727,,20,,2
+Design & development engineers,2126,20.96,20.89,22.08,42569,40590,81,7,2
+Production & process engineers,2127,20.51,20.48,21.15,40813,38253,43,,2
+Engineering professionals n.e.c.,2129,20.48,20.73,19.02,43628,,139,22,2
+IT specialist managers,2133,24.68,24.67,24.71,48220,45828,130,35,2
+IT project & programme managers,2134,26.57,26.09,28.23,47087,51775,15,6,2
+"IT business analysts, architects & systems designers",2135,24.5,24.92,22.88,49088,41365,99,18,2
+Programmers & software development professionals,2136,22.01,22.35,20.84,43805,37136,212,26,2
+Web design & development professionals,2137,16.33,16.35,15.7,32238,30353,37,10,2
+Information technology & telecommunications professionals n.e.c.,2139,20.49,21.03,19.68,43946,,82,19,2
+Conservation professionals,2141,17.58,18.3,15.56,35787,28459,,,2
+Environment professionals,2142,18.48,18.81,17.5,,33811,22,8,2
+Research & development managers,2150,25.72,25.88,24.13,49921,44089,36,19,2
+Medical practitioners,2211,28.63,31.89,25.6,83656,56632,126,92,2
+Psychologists,2212,22.78,23.28,20.09,44028,33735,,14,2
+Pharmacists,2213,20.67,22,20.21,44497,41608,15,22,2
+Ophthalmic opticians,2214,23.17,23.16,21.42,47207,43017,,,2
+Veterinarians,2216,18.26,18.43,17.19,37285,38378,8,10,2
+Medical radiographers,2217,19.39,19.35,19.39,39018,37836,10,15,2
+Podiatrists,2218,21.36,22.14,19.04,37356,33793,,,2
+Health professionals n.e.c.,2219,18.71,19.51,17.44,37023,33026,12,21,2
+Physiotherapists,2221,17.04,16.64,17.48,31487,32682,14,22,2
+Occupational therapists,2222,17.18,16.74,17.18,30243,30647,,19,2
+Therapy professionals n.e.c.,2229,15.95,15.64,16.69,26902,32339,,8,2
+Nurses,2231,18.02,18.75,17.87,35532,32797,109,483,2
+Higher education teaching professionals,2311,27.47,28.44,25.86,52274,47779,83,52,2
+Further education teaching professionals,2312,20.23,20.01,20.41,37169,36529,52,45,2
+Secondary education teaching professionals,2314,23.26,24.06,23.12,41168,37522,152,200,2
+Primary & nursery education teaching professionals,2315,21.61,22.43,21.58,37739,35261,83,262,2
+Special needs education teaching professionals,2316,20.68,21.38,20.12,36442,35238,7,23,2
+Senior professionals of educational establishments,2317,30.65,33.47,28.9,60357,50881,32,48,2
+Education advisers & school inspectors,2318,20.58,20.65,19.24,,35840,,8,2
+Teaching & other educational professionals n.e.c.,2319,14.92,17.06,13.84,30778,25003,18,36,2
+Solicitors,2413,22.56,25.2,20.81,,40524,35,34,2
+Legal professionals n.e.c.,2419,39.57,43.77,35.24,85506,61498,21,18,2
+Chartered & certified accountants,2421,20.11,20.26,19.85,40417,37800,47,30,2
+Management consultants & business analysts,2423,21.87,22.44,20.66,43306,38177,118,60,2
+Business & financial project management professionals,2424,24.9,26.68,22.39,53620,41734,169,83,2
+"Actuaries, economists & statisticians",2425,22.61,22.99,22.14,48346,43773,22,6,2
+Business & related research professionals,2426,18.74,19,18.02,35586,33833,51,35,2
+"Business, research & administrative professionals n.e.c.",2429,24.25,25.27,21.78,45559,41296,25,20,2
+Architects,2431,21.49,22.35,19.17,43053,38220,28,11,2
+Town planning officers,2432,16.21,19.56,13.71,,27432,,,2
+Quantity surveyors,2433,22.15,22.37,20.68,45133,,31,,2
+Chartered surveyors,2434,19,19,18.88,37148,34192,55,11,2
+Construction project managers & related professionals,2436,18.63,18.04,18.66,39857,31983,17,,2
+Social workers,2442,19.1,19.43,18.83,35628,34597,22,67,2
+Probation officers,2443,18.14,17.79,18.14,34068,33915,,5,2
+Clergy,2444,12.64,12.64,12.61,26673,24301,21,7,2
+Welfare professionals n.e.c.,2449,17.45,17.86,16.82,32245,29954,,10,2
+Librarians,2451,14.63,17.54,12.93,,25518,,6,2
+Archivists & curators,2452,14.23,11.5,14.75,,28898,,,2
+Quality control & planning engineers,2461,18.73,18.9,16.05,37467,30268,33,9,2
+Quality assurance & regulatory professionals,2462,22.69,23.36,21.61,45593,39019,49,33,2
+Environmental health professionals,2463,19.18,17.46,19.76,35208,36700,,,2
+"Journalists, newspaper & periodical editors",2471,17.98,19.01,16.85,36029,31044,23,14,2
+Public relations professionals,2472,15.99,16.62,14.88,34976,31112,15,14,2
+Advertising accounts managers & creative directors,2473,22.26,24.54,19.68,49153,35939,14,10,2
+Laboratory technicians,3111,10.99,11.38,10.81,22485,19990,26,34,3
+Engineering technicians,3113,16.18,16.42,14.5,34428,27453,67,10,3
+Quality assurance technicians,3115,13.61,13.69,13.03,28014,25537,22,9,3
+"Planning, process & production technicians",3116,14.7,15.04,13.74,32799,27405,29,11,3
+"Science, engineering & production technicians n.e.c.",3119,13.28,13.66,11.9,29310,22750,125,22,3
+Architectural & town planning technicians,3121,14.48,14.53,14.4,29892,28825,10,6,3
+Draughtspersons,3122,15.09,15.15,14.63,30677,27217,26,,3
+IT operations technicians,3131,16.26,16.29,16.06,32261,29949,82,30,3
+IT user support technicians,3132,15.29,15.5,13.73,31397,27784,103,31,3
+Paramedics,3213,19.96,20.78,18.4,40683,36503,15,11,3
+Dispensing opticians,3216,12.52,13.16,12,24563,21753,,,3
+Pharmaceutical technicians,3217,11.7,11.64,11.62,21984,,,13,3
+Medical & dental technicians,3218,14.3,15.34,14.03,29959,25087,9,8,3
+Health associate professionals n.e.c.,3219,11.97,12.49,11.4,24893,,,,3
+Youth & community workers,3231,13.63,13.58,13.63,25890,25463,18,34,3
+Child & early years officers,3233,13.17,14.06,12.95,25627,23954,,21,3
+Housing officers,3234,14.96,15.63,14.86,29614,27256,10,24,3
+Counsellors,3235,13.49,11.62,14.3,21559,25809,,,3
+Welfare & housing associate professionals n.e.c.,3239,12.66,12.66,12.66,24548,24059,20,53,3
+Police officers (sergeant & below),3312,19.19,19.39,18.77,42232,39004,132,56,3
+Fire service officers (watch manager & below),3313,15.55,15.58,15.51,36536,35465,40,6,3
+Prison service officers (below principal officer),3314,14.85,14.85,13.5,31021,26987,19,8,3
+Police community support officers,3315,13.89,14.17,13.3,26807,25101,6,,3
+Protective service associate professionals n.e.c.,3319,16.65,16.92,16.04,35989,32161,15,9,3
+"Authors, writers & translators",3412,15.45,17.73,14.74,33965,27434,,7,3
+"Arts officers, producers & directors",3416,18.15,18.15,18.18,,36210,10,7,3
+"Photographers, audio-visual & broadcasting equipment operators",3417,13.18,13.33,12.93,26677,21150,12,,3
+Graphic designers,3421,13.45,13.64,13.15,27985,26000,31,16,3
+"Product, clothing & related designers",3422,14.9,15.02,14.81,32696,28449,16,16,3
+"Sports coaches, instructors & officials",3442,12.23,12,13.11,24496,24894,14,,3
+Fitness instructors,3443,9.59,9.37,9.64,21105,17868,,,3
+"Estimators, valuers & assessors",3531,15.36,15.87,14.46,33345,27612,28,14,3
+Insurance underwriters,3533,19.15,19.16,18.13,37075,31246,12,10,3
+Finance & investment analysts & advisers,3534,19.15,19.84,18.46,39222,33522,78,51,3
+Taxation experts,3535,26.36,26.99,25.91,50340,45114,9,6,3
+Importers & exporters,3536,15.86,16.17,12.87,32479,,,,3
+Financial & accounting technicians,3537,23.42,22.99,23.68,45835,44317,14,11,3
+Financial accounts managers,3538,19.3,22.72,17.24,45870,32499,46,55,3
+Business & related associate professionals n.e.c.,3539,15.18,16.21,14.12,32070,26759,81,83,3
+Buyers & procurement officers,3541,15.54,15.77,15.39,32054,30000,27,28,3
+Business sales executives,3542,15.87,16.7,14.48,36673,29004,160,67,3
+Marketing associate professionals,3543,14.6,14.91,14.31,29799,27784,53,80,3
+Estate agents & auctioneers,3544,11.71,12.69,10.82,,22731,9,11,3
+Sales accounts & business development managers,3545,22.8,24.29,21.03,50672,40900,354,205,3
+Conference & exhibition managers & organisers,3546,12.94,12.93,12.9,26960,26044,7,20,3
+Public services associate professionals,3561,16.78,17.1,16.46,33823,32846,42,36,3
+Human resources & industrial relations officers,3562,14.49,14.37,14.54,30929,28573,46,89,3
+Vocational & industrial trainers & instructors,3563,15.13,15.56,14.86,29738,27679,50,54,3
+Careers advisers & vocational guidance specialists,3564,14.6,13.43,15.63,,30126,,6,3
+Inspectors of standards & regulations,3565,15.76,15.62,15.76,32543,28831,15,,3
+Health & safety officers,3567,17.5,17.88,16.67,37473,29574,23,7,3
+National government administrative occupations,4112,12.59,12.62,12.51,27458,25360,43,49,4
+Local government administrative occupations,4113,13.47,14.33,12.75,28179,23641,15,32,4
+Credit controllers,4121,12.26,12.73,12.09,24384,23724,7,14,4
+"Book-keepers, payroll managers & wages clerks",4122,13.1,14.2,12.77,28088,24892,63,134,4
+Bank & post office clerks,4123,11.53,11.58,11.52,23320,22537,24,29,4
+Finance officers,4124,13.66,15.34,13.27,29055,24865,4,11,4
+Financial administrative occupations n.e.c.,4129,11.66,11.92,11.56,23307,21857,30,58,4
+Records clerks & assistants,4131,11.56,12.03,11.41,25363,21212,28,69,4
+Pensions & insurance clerks & assistants,4132,11.64,12.14,11.18,23801,22060,14,17,4
+Stock control clerks & assistants,4133,11.19,11.4,10.68,23747,21985,39,25,4
+Transport & distribution clerks & assistants,4134,11.93,12.17,11.5,26706,22927,36,17,4
+Library clerks & assistants,4135,10.92,10.77,10.99,18981,19927,,6,4
+Human resources administrative occupations,4138,10.98,9.92,11.36,19919,21602,4,13,4
+Sales administrators,4151,10.95,11.06,10.94,23606,21039,16,45,4
+Other administrative occupations n.e.c.,4159,11.44,12.11,11.22,24318,21121,176,392,4
+Office managers,4161,16.36,17.45,15.78,36518,30724,51,108,4
+Office supervisors,4162,13.08,13.63,12.88,27987,25225,15,16,4
+Medical secretaries,4211,11.95,10.98,12.02,19856,21126,,22,4
+Legal secretaries,4212,11.54,11.26,11.54,,21727,,18,4
+School secretaries,4213,10.54,11.59,10.49,22892,18846,,12,4
+Personal assistants & other secretaries,4215,14.49,13.88,14.5,30361,27497,7,106,4
+Receptionists,4216,9.66,10.02,9.62,20045,18197,16,101,4
+Typists & related keyboard occupations,4217,10.35,11.09,10.16,21510,19823,5,8,4
+Farmers,5111,11.43,11.4,10.65,26239,,,,5
+Horticultural trades,5112,8.74,9.37,8.46,,20675,,,5
+Gardeners & landscape gardeners,5113,10.38,10.33,11.42,20518,21773,30,,5
+Groundsmen & greenkeepers,5114,9.93,9.93,9.81,19952,,38,,5
+Welding trades,5215,12.16,12.17,9.95,27529,,47,,5
+Metal working production & maintenance fitters,5223,14.52,14.54,13.66,33413,26470,296,10,5
+"Vehicle technicians, mechanics & electricians",5231,12.5,12.52,11.43,28363,,128,,5
+Electricians & electrical fitters,5241,15.15,15.19,11.93,33358,,133,,5
+Electrical & electronic trades n.e.c.,5249,15.34,15.34,15.11,34579,30358,116,7,5
+Plumbers & heating & ventilating engineers,5314,14.73,14.77,12.62,31512,24432,55,,5
+Carpenters & joiners,5315,13,13.1,6.96,27249,,76,,5
+Construction & building trades n.e.c.,5319,12.5,12.29,13.52,27798,22613,27,,5
+Painters & decorators,5323,11.7,11.83,9.16,25017,18267,19,,5
+Upholsterers,5412,11.42,12.19,10.24,25600,17096,6,,5
+Footwear & leather working trades,5413,10.11,10.49,8.9,21119,16816,,,5
+Print finishing & binding workers,5423,10.73,10.83,9.81,23384,20192,10,,5
+Butchers,5431,10.1,10.1,9.21,22292,19489,26,,5
+Bakers & flour confectioners,5432,9.86,9.95,8.74,20276,17319,12,,5
+Fishmongers & poultry dressers,5433,9.23,9.22,9.06,18892,18299,,,5
+Chefs,5434,10.07,10.2,9.81,23411,21024,150,42,5
+Cooks,5435,9.05,9.8,8.99,19404,16292,,20,5
+Catering & bar managers,5436,10.51,10.55,10.4,23898,20439,22,20,5
+"Glass & ceramics makers, decorators & finishers",5441,10.77,10.82,9.63,21843,17778,,,5
+Other skilled trades n.e.c.,5449,13.01,13.04,12.05,27246,,12,,5
+Nursery nurses & assistants,6121,8.81,8.98,8.8,19246,16962,5,98,6
+Teaching assistants,6125,10.21,10.74,10.18,18651,16961,18,112,6
+Educational support assistants,6126,9.96,9.83,9.98,17017,16097,9,49,6
+Animal care services occupations n.e.c.,6139,9.39,10.21,9,23914,18470,5,10,6
+Nursing auxiliaries & assistants,6141,10.86,11.17,10.79,22203,20815,59,169,6
+Ambulance staff (excluding paramedics),6142,12.08,12.09,12.07,24302,25132,14,7,6
+Dental nurses,6143,9.63,9.47,9.63,18911,18193,,23,6
+Houseparents & residential wardens,6144,12.31,12.5,11.9,24723,22524,,7,6
+Care workers & home carers,6145,9.44,9.73,9.33,20496,18727,88,270,6
+Senior care workers,6146,9.77,9.91,9.74,22293,19958,13,45,6
+"Undertakers, mortuary & crematorium assistants",6148,11.73,11.83,11.63,25192,23732,6,,6
+Sports & leisure assistants,6211,9.93,9.97,9.66,19335,18849,15,8,6
+Travel agents,6212,10.8,11.67,10.15,23693,,6,11,6
+Air travel assistants,6214,10.81,11.73,10.45,24997,,6,9,6
+Rail travel assistants,6215,17.96,18.05,16.08,37642,34923,16,5,6
+Leisure & travel service occupations n.e.c.,6219,11.41,11.41,11.34,23225,23427,,,6
+Hairdressers & barbers,6221,8.64,9.35,8.52,,16275,,18,6
+Beauticians & related occupations,6222,9.48,9.46,9.46,18833,,,14,6
+Housekeepers & related occupations,6231,9.17,9.17,9.15,,18647,4,14,6
+Caretakers,6232,10.84,10.76,11.32,21607,,42,5,6
+Sales & retail assistants,7111,9.24,9.46,9.04,19715,17151,183,171,
+Retail cashiers & check-out operators,7112,8.87,8.85,8.9,17828,16695,8,11,
+Telephone salespersons,7113,10.31,10.32,10.29,21296,21391,6,7,
+Pharmacy & other dispensing assistants,7114,9.03,9.21,9,18028,17224,4,21,
+Vehicle & parts salespersons & advisers,7115,10.34,10.47,9.97,23993,,13,,
+"Debt, rent & other cash collectors",7122,9.97,10.14,9.76,20013,20147,8,4,
+Merchandisers & window dressers,7125,11.4,9.66,12.19,22055,23937,5,7,
+Sales related occupations n.e.c.,7129,10.65,10.85,10.3,24941,21811,11,8,
+Call & contact centre occupations,7211,9.48,9.14,9.77,18242,19299,16,15,
+Telephonists,7213,9.95,12.29,9.17,21808,16713,,,
+Communication operators,7214,14.31,14.88,14.06,28760,26888,6,5,
+Customer service occupations n.e.c.,7219,10.88,10.97,10.77,22371,20914,105,135,
+"Food, drink & tobacco process operatives",8111,9.48,9.83,8.85,21839,18784,87,38,
+Chemical & related process operatives,8114,14.2,14.47,10.28,31463,19106,17,,
+Plastics process operatives,8116,10.34,10.63,8.7,22522,,11,,
+Process operatives n.e.c.,8119,10.57,10.83,9.25,26579,17848,6,,
+Paper & wood machine operatives,8121,10.23,10.37,8.35,23247,17207,14,,
+Metal working machine operatives,8125,10.62,10.88,8.81,24530,,16,,
+Printing machine assistants,8127,10.31,11,9.14,24447,19296,12,,
+Assemblers (electrical & electronic products),8131,10.48,10.97,8.84,25360,19030,9,,
+Assemblers (vehicles & metal goods),8132,14.14,14.63,10.18,31405,20369,28,,
+Routine inspectors & testers,8133,12.27,13.33,10.4,28503,20870,37,15,
+"Weighers, graders & sorters",8134,9.78,10.3,8.45,24247,16566,,,
+Sewing machinists,8137,9,9.26,9,21535,17317,,11,
+Assemblers & routine operatives n.e.c.,8139,10.13,10.79,9.21,23925,19489,70,28,
+Construction operatives n.e.c.,8149,11.5,11.66,9.35,26100,17586,78,6,
+Large goods vehicle drivers,8211,11.91,11.91,11.6,30620,27098,197,,
+Van drivers,8212,10.01,10.06,8.78,23134,18874,216,9,
+Bus & coach drivers,8213,12.07,12.13,11.57,26811,24640,101,8,
+Fork-lift truck drivers,8222,10.51,10.5,10.76,24159,0,28,,
+Mobile machine drivers & operatives n.e.c.,8229,12.38,12.55,10,30000,,38,,
+Train & tram drivers,8231,30.13,30.13,30.15,56617,55219,25,,
+Other drivers & transport operatives n.e.c.,8239,13.18,13.85,11.44,31828,0,4,,
+Farm workers,9111,9.39,9.38,9.36,23005,,22,4,
+Fishing & other elementary agriculture occupations n.e.c.,9119,8.75,9.11,8.23,20490,15956,10,,
+Industrial cleaning process occupations,9132,8.99,9.14,8.57,20385,18825,10,4,
+"Packers, bottlers, canners & fillers",9134,9.2,9.68,8.87,21139,18733,44,33,
+Elementary process plant occupations n.e.c.,9139,10.02,10.37,9.09,23010,18423,80,20,
+"Postal workers, mail sorters, messengers & couriers",9211,12.82,12.83,12.55,27719,26132,87,16,
+Elementary administration occupations n.e.c.,9219,9.05,9.64,8.78,18647,17241,7,7,
+Cleaners & domestics,9233,8.92,9.13,8.8,18705,16491,54,77,
+"Launderers, dry cleaners & pressers",9234,8.3,8.46,8.24,16166,16009,,7,
+Refuse & salvage occupations,9235,10,10.01,8.94,20513,16996,16,,
+Vehicle valeters & cleaners,9236,8.72,8.63,8.93,18713,0,9,,
+Security guards & related occupations,9241,10.21,10.04,11.42,24875,27197,69,13,
+Parking & civil enforcement occupations,9242,10.44,10.32,10.65,20941,20735,7,,
+School midday & crossing patrol occupations,9244,9.8,10.27,9.68,,17058,,,
+Elementary security occupations n.e.c.,9249,10.56,10.68,9.75,21966,19406,4,,
+Shelf fillers,9251,9,9.01,8.96,18409,18283,7,3,
+Elementary sales occupations n.e.c.,9259,9.1,9.1,9.04,17932,18246,,,
+Hospital porters,9271,10.35,10.72,9.97,20497,21580,,,
+Kitchen & catering assistants,9272,8.68,8.63,8.71,17365,16241,74,95,
+Waiters & waitresses,9273,8.47,8.5,8.45,,16476,20,26,
+Bar staff,9274,8.5,8.58,8.5,16876,15511,19,20,
+Leisure & theme park attendants,9275,8.5,8.43,8.63,,15989,,,
+Other elementary services occupations n.e.c.,9279,8.58,8.81,8.5,18347,17021,4,,

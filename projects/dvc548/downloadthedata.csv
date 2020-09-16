@@ -1,0 +1,43 @@
+﻿group,category,variable,percent,Source
+18 to 21,living situation,Homeowner,6.8,Annual Population Survey
+18 to 21,living situation,Renter,17.7,Annual Population Survey
+18 to 21,living situation,Living with parents,75.5,Annual Population Survey
+22 to 29,living situation,Homeowner,26.5,Annual Population Survey
+22 to 29,living situation,Renter,41.6,Annual Population Survey
+22 to 29,living situation,Living with parents,31.9,Annual Population Survey
+18 to 21,debt,0-1000,36.2,Wealth and Assets Survey
+18 to 21,debt,1000-2000,12.2,Wealth and Assets Survey
+18 to 21,debt,2000-6000,11.8,Wealth and Assets Survey
+18 to 21,debt,6000+,39.9,Wealth and Assets Survey
+22 to 29,debt,0-1000,36.5,Wealth and Assets Survey
+22 to 29,debt,1000-2000,14.7,Wealth and Assets Survey
+22 to 29,debt,2000-6000,20.7,Wealth and Assets Survey
+22 to 29,debt,6000+,28,Wealth and Assets Survey
+18 to 21,salary,0-5000,26.4,Annual Survey of Hours and Earnings
+18 to 21,salary,5000-10000,23.9,Annual Survey of Hours and Earnings
+18 to 21,salary,10000-15000,22.4,Annual Survey of Hours and Earnings
+18 to 21,salary,15000-20000,17.9,Annual Survey of Hours and Earnings
+18 to 21,salary,20000-25000,6.4,Annual Survey of Hours and Earnings
+18 to 21,salary,25000-30000,1.7,Annual Survey of Hours and Earnings
+18 to 21,salary,30000+,1.4,Annual Survey of Hours and Earnings
+22 to 29,salary,0-10000,13.6,Annual Survey of Hours and Earnings
+22 to 29,salary,10000-20000,34.1,Annual Survey of Hours and Earnings
+22 to 29,salary,20000-30000,31.5,Annual Survey of Hours and Earnings
+22 to 29,salary,30000-40000,13.7,Annual Survey of Hours and Earnings
+22 to 29,salary,40000-50000,4.1,Annual Survey of Hours and Earnings
+22 to 29,salary,50000-60000,1.5,Annual Survey of Hours and Earnings
+22 to 29,salary,60000+,1.6,Annual Survey of Hours and Earnings
+18 to 21,savings,0-1000,41.32,Wealth and Assets Survey
+18 to 21,savings,1000-2000,15.39,Wealth and Assets Survey
+18 to 21,savings,2000-3000,9.65,Wealth and Assets Survey
+18 to 21,savings,3000-4000,5.85,Wealth and Assets Survey
+18 to 21,savings,4000-5000,5.6,Wealth and Assets Survey
+18 to 21,savings,5000-6000,5.96,Wealth and Assets Survey
+18 to 21,savings,6000+,16.23,Wealth and Assets Survey
+22 to 29,savings,0-1000,39.89,Wealth and Assets Survey
+22 to 29,savings,1000-2000,11.51,Wealth and Assets Survey
+22 to 29,savings,2000-3000,9.91,Wealth and Assets Survey
+22 to 29,savings,3000-4000,6.26,Wealth and Assets Survey
+22 to 29,savings,4000-5000,3.99,Wealth and Assets Survey
+22 to 29,savings,5000-6000,4.4,Wealth and Assets Survey
+22 to 29,savings,6000+,24.04,Wealth and Assets Survey

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Page title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css" media="screen">
+    <link rel="stylesheet" href="css/style-chosen.css">
+   
+    
+    <style>
+		
+		body {
+			font-family:open_sanslight, Arial, Helvetica, sans-serif;
+			color:#666;
+			max-width:800px;
+		}
+		
+		@font-face {
+			font-family: 'open_sanslight';		
+			src: url('assets/OpenSans-Light-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		@font-face {
+			font-family: 'open_sansitalic';		
+			src: url('assets/OpenSans-Italic-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		@font-face {
+			font-family: 'open_sansregular';		
+			src: url('assets/OpenSans-Regular-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		@font-face {
+			font-family: 'open_sanssemibold';		
+			src: url('assets/OpenSans-Semibold-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		.foot {
+			font-size:12px;
+		}
+		
+		.geogg {
+			
+			stroke:#ccc;
+			stroke-width:0.5px;
+			
+		
+		}
+		
+		#map {
+			/*width:500px;*/
+			margin:0px auto;	
+		}
+		
+		#key path {
+		  display: none;
+		  
+		}
+		
+		#key line {
+		  stroke: #000;
+		  shape-rendering: crispEdges;
+		}
+		
+		#key g {
+			font-size:11px;
+			fill:#666;
+		}
+		
+		#key rect {
+			stroke:#666;
+			stroke-width:0.5px;
+			z-index:+1;
+		}
+		
+		#areaname {
+			text-align:left;
+			height:55px;
+			margin-left: 13px;
+		}
+		
+		@media (min-width: 768px) {
+		#areanm
+		{	
+			font-size:20px;
+			color:#666;
+			min-width:1%;
+			font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+			text-align:left;
+			
+		}
+
+		#areainfo
+		{	
+			
+			font-size:22px;
+			color:#666;
+			font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+		}
+		
+		#chosensel 
+		{
+			margin-top: 5px;
+			/*margin-left: 13px;*/
+		}
+		
+		}
+		
+		@media (max-width: 767px) {
+			
+		#chosensel 
+		{
+			/*margin-left:8px;*/
+		}
+		
+		#areaname 
+		{
+			margin-left: 13px;
+			margin-bottom: 0px;
+			height: 45px
+		}
+		
+		#areanm
+		{	
+			
+			font-size:16px;
+			color:#666;
+			font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+
+		}
+	
+		#areainfo
+		{	
+			
+			font-size:16px;
+			color:#666;
+			font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+
+		}
+
+		#areainfo span
+		{	
+			
+			font-size:12px;
+		}
+		
+
+		}
+
+		
+		#chosensel {
+			height:35px;
+			float:none;	
+			margin-top: 5px;
+		}
+
+		@media (min-width: 768px) {
+		#chosensel 
+		{
+			height:35px;
+			float:none;	
+		}
+		
+		#areaname 
+		{
+			float:none;
+		}
+		
+		#key 
+		{
+			width:140px;
+			height:300px;
+		}
+		
+
+		}
+		
+		@media (max-width: 767px) {
+	
+		#key 
+		{
+			width:100%;
+			height:60px;
+		}
+		}
+		
+		
+		/* Zoom CSS */
+
+		.zoom-control-zoom a, .zoom-control-layers-toggle {
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		display: block;
+		}
+		.zoom-control-zoom a {
+		width: 22px;
+		height: 22px;
+		text-align: center;
+		text-decoration: none;
+		color: #5381ca;
+		}
+		
+		.zoom-control-zoom-in {
+		cursor:pointer;
+		font: bold 18px/24px Arial, Helvetica, sans-serif;
+		}
+		
+		.zoom-control-zoom-in:hover {
+			color: #fff;
+			background-color: #5381ca;	
+		}
+		.zoom-bar-part-top {
+		}
+		.zoom-bar-part {
+		background-color: rgba(255, 255, 255, 0.8);
+		border-bottom: 1px solid #aaa;
+		}
+		
+		.zoom-control-zoom-out {
+		cursor:pointer;
+		font: bold 23px/20px Tahoma, Verdana, sans-serif;
+		}
+		
+		.zoom-control-zoom-out:hover {
+			color: #fff;
+			background-color: #5381ca;	
+		}
+		.zoom-bar-part-bottom {
+		border-bottom: none;
+		}
+		
+		.zoom-container {
+		margin-left: 13px;
+		margin-top: 0px;
+		position: absolute;
+		left: 0px;
+		top: 15px;
+		}
+		
+		.zoom-bar {
+		
+		border: 1px solid #59a4da;
+		}
+		.zoom-popup-pane, .zoom-control {
+		cursor: auto;
+		}
+		.zoom-control {
+		float: left;
+		clear: both;
+		}
+		.zoom-control {
+		
+		z-index: 7;
+		pointer-events: auto;
+		}
+		
+		.average {
+			font-family:open_sanssemibold, Arial, Helvetica, sans-serif;	
+		}
+	
+	</style>
+
+
+  </head>
+  <body id="childt">
+
+      
+   <div class="container-fluid">
+          
+          
+         <!-- <div class="col-sm-3" id="selectarea">
+          		<div id="chosensel"></div>-->
+         
+            
+   </div>
+  
+    <div class="row" id="areadrop">
+    	  <div class="col-sm-12 col-xs-12" id="chosensel"></div>
+          <div class="col-sm-9 col-xs-12" id="areaname">
+                <div id="areanm"></div>
+                <div id="areainfo"></div>
+          </div>
+      
+	</div>
+
+
+   
+   <div class="row">
+          <div id="mapPane" class="col-sm-10 col-xs-12">
+          	<div id="map">
+            	<img src = "images/alt.png" alt="[Chart]">
+            </div>
+          </div>
+          <div class="col-sm-2 col-xs-12">
+          	<div id="key"></div>
+          </div>
+	</div><!-- end row --> 
+    
+    
+     </div> <!--end container -->
+     <footer> <p id="source">Source: <br/><a href="https://www.ons.gov.uk/releases/housepricepersquaremeterandhousepriceperroomenglandandwales2004to2016" target="_blank">Office for National Statistics, House price per square metre and house price per room, England and Wales</a></p></footer>
+
+<!-- Constant libraries / frameworks -->
+    <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/chosen.jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+ 	<script src="js/modernizr.custom.56904.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+    <script src="js/queue.js" charset="utf-8"></script>
+    <script src="js/ss.js"></script>
+    <script src="js/topojson.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" charset="utf-8"></script>
+    <script src="js/colorbrewer.js" charset="utf-8"></script>
+    <script src="js/script.js" charset="utf-8"></script>
+
+
+  </body>
+</html>

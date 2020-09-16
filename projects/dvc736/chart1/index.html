@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,900|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title>Crime 2019</title>
+
+    <meta name="description" content="Stack">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="../lib/globalStyle.css" />
+    <link rel="stylesheet" href="../lib/all.css" />
+
+    <style type="text/css">
+
+		body {
+			/*max-width:800px;*/
+			margin: 0px auto;
+      margin-bottom: 70px;
+      color: #206095;
+		}
+
+		#graphic{
+      	/* text-align:center; */
+			/*padding: 10px;*/
+		}
+
+    table {
+    /* border-collapse: collapse; */
+    /* border: none; */
+
+      }
+
+      table.center{
+          margin-left:auto;
+          margin-right:auto;
+      }
+
+    tbody thead {
+        	font-family: 'Open Sans Bold';
+          color: #206095;
+      }
+
+		/* th {
+				font-weight: 900;}
+
+        tbody {
+    				font-weight: 900;} */
+
+		th, td {
+        border-bottom: 2px solid #ddd;
+        font-size: 16px;
+        font-weight: 900;
+			}
+
+      tr {
+    				height:50px;
+            vertical-align: middle;
+    		      text-align: right;
+    			}
+          td{
+            padding-right: 18px;
+          }
+        .dash0 {
+               text-align: left;
+               width: 150px;
+            }
+            td.dash0 p {text-decoration: underline dashed;
+            }
+
+            #hdash0{
+                  text-align: left;
+            }
+              td.dash3{
+                padding-left: 10px;
+              }
+              /* td.dash1 td.dash2
+            {
+                  padding-right: 50px;
+            } */
+
+              .uparrow{
+                color: green;
+              }
+              .downarrow{
+                color: #3B7A9E;
+              }
+              #sortarrow{
+                color: #ff9933;
+                cursor: pointer;
+              }
+
+              /* tippy styling */
+
+            .tippy-tooltip.ons-theme[x-placement^='top'] .tippy-arrow {
+              border-top-color: #206095;
+            }
+            .tippy-tooltip.ons-theme[x-placement^='bottom'] .tippy-arrow {
+              border-bottom-color: #206095;
+            }
+            .tippy-tooltip.ons-theme[x-placement^='left'] .tippy-arrow {
+              border-left-color: #206095;
+            }
+            .tippy-tooltip.ons-theme[x-placement^='right'] .tippy-arrow {
+              border-right-color: #206095;
+            }
+            .tippy-tooltip.ons-theme .tippy-roundarrow {
+              fill: #206095;
+            }
+            .tippy-tooltip.ons-theme {
+                  background-color: #206095;
+                  color: white;
+                }
+
+                .tippy-tooltip.ons-theme[data-animatefill] {
+                  background-color: transparent;
+                }
+
+                .tippy-tooltip.ons-theme .tippy-backdrop {
+                  background-color: #206095;
+                }
+   </style>
+
+    <script src="../lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.min.js" type='text/javascript'></script>
+	<!-- <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" type='text/javascript'></script> -->
+  <script src="../lib/d3.v5.min.js" type="text/javascript"></script>
+	<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js" type='text/javascript'></script>
+  <script src="../lib/bluebird.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
+  <script src="../lib/popper.min.js" type="text/javascript"></script>
+  <script src="../lib/tippy.min.js" type="text/javascript"></script>
+
+  <script>
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37894017-1']);
+		  _gaq.push(['_trackPageview']);
+
+
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+	</script>
+
+
+</head>
+<body>
+
+      	<div id="graphic">
+
+            <div id = "legendTab"></div>
+
+      	</div>
+
+   <script>
+
+		//var pymChild = null;
+    var graphic = d3.select('#graphic');
+ 		var dvc = {};
+  //start tooltips
+     tippy.setDefaults({
+       animation:'fade',
+       arrow:true,
+       allowHTML:true,
+       //a11y:true,
+       maxWidth:375,
+       theme:'ons',
+     });
+	//	d3.selectAll(".form-group").classed("active" ,true);
+
+function drawTable(){
+
+			 //Responsive code
+		   var threshold_md = 700;
+		   	dvc.threshold_sm = dvc.optional.mobileBreakpoint;
+
+		  	//set variables for chart dimensions dependent on width of #graphic
+		    if (parseInt(graphic.style("width")) < dvc.threshold_sm) {    // console.log("Small");
+												var margin = {
+																top: 	dvc.optional.margin_sm[0],
+																right: 	dvc.optional.margin_sm[1],
+																bottom: dvc.optional.margin_sm[2],
+																left: 	dvc.optional.margin_sm[3]
+															};
+												var size = 0;	// used for margin_centre and x_ticks
+												var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+												var height = Math.ceil((chart_width * dvc.optional.aspectRatio_sm[1]) / dvc.optional.aspectRatio_sm[0]) - margin.top - margin.bottom;
+		    									}
+
+			else if (parseInt(graphic.style("width")) < threshold_md){ //console.log("medium");
+		        								var margin = {
+																top: 	dvc.optional.margin_md[0],
+																right: 	dvc.optional.margin_md[1],
+																bottom: dvc.optional.margin_md[2],
+																left: 	dvc.optional.margin_md[3]
+															};
+												var size = 1;
+												var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+		            							var height = Math.ceil((chart_width * dvc.optional.aspectRatio_md[1]) / dvc.optional.aspectRatio_md[0]) - margin.top - margin.bottom;
+												}
+
+		  	 else {   //console.log("Large");
+		        								var margin = {
+																top: 	dvc.optional.margin_lg[0],
+																right: 	dvc.optional.margin_lg[1],
+																bottom: dvc.optional.margin_lg[2],
+																left: 	dvc.optional.margin_lg[3]
+															};
+												var size = 2;
+												var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+		            							var height = Math.ceil((chart_width * dvc.optional.aspectRatio_lg[1]) / dvc.optional.aspectRatio_lg[0]) - margin.top - margin.bottom;
+												}
+
+			if (parseInt(graphic.style("width")) > 700)
+												{ maxWidth = 700; chart_width = maxWidth - margin.left - margin.right }
+			else
+												{ maxWidth = chart_width + margin.left + margin.right	} // old chartwidth remains
+
+
+ d3.select('#legendTab').selectAll("*").remove();
+
+
+
+  //  create Table using d3
+		 var table = d3.select('#legendTab').append('table').attr("class","center");
+		 var headers = table.append('thead').append('tr');
+		 headData = ["Crime", "No. of incidents", "Annual % change", "Timeline"];
+
+		  if(parseInt(graphic.style("width")) < dvc.threshold_sm) headData.pop();
+        var tdata = headers.selectAll('td')
+ 		 					.data(headData).enter()
+              .append('td')
+ 		 					.text(function (d){
+ 			                    return d;
+ 		                    });
+
+
+		var rows = table.append('tbody').selectAll('tr')
+		               .data([0,1,2,3,4,5,6,7,8]).enter()
+		               .append('tr')
+                   .attr('id', function(d,i){
+                            return 'row'+i;
+                          });
+
+
+      rows.selectAll('td')
+		    .data(function(){
+          if(parseInt(graphic.style("width")) < dvc.threshold_sm){
+               return [0,1,2];  }
+             else{ return [0,1,2,3]}
+           })
+        .enter()
+			  .append('td')
+			  .attr("class", function(d,i) { return "dash"+i; });
+
+
+		var td = d3.select("tbody").selectAll("tr").selectAll("td");
+		var th = d3.select("thead").selectAll("tr").selectAll("td");
+
+			th.attr("id", function(d,i) { return "hdash"+i; });  // add 0-7 to each row
+          d3.select('#hdash2').append('span').attr('id', 'sortarrow').html(' &#9650');
+
+          d3.select('#sortarrow').on('click', sortTable );
+
+		// add categories
+		//var shortNames = ["Cancer","Circulatory","Digestive","Endocrine & nutritional","External","Genitourinary","Infection","Mental & behavioural","Musculoskeletal","Nervous","Respiratory","Other"];
+
+var incidents = [],
+    change = [],
+    crimetype = [],
+    symbols = [],
+    source = [];
+var fmt = d3.format(",.0f"),
+    fmd = d3.format(",.0f");
+
+//     crimedata.forEach(function(dat){
+//       console.log(dat);
+//       var crime = dat.map(function(d,i){
+//                   return{
+//                         }
+//                 })
+//     })
+// console.log(crime);
+
+    for (var column in crimedata[0]) {
+              if (column == "type") continue;
+                  incidents.push(crimedata[0][column]);
+                  change.push(crimedata[1][column]);
+                  symbols.push(crimedata[2][column]);
+                  source.push(crimedata[3][column]);
+                  crimetype.push(column);
+      }
+//  console.log(incidents, change, symbols, crimetype, source);
+
+          d3.selectAll(".dash0")//.append('html')
+                              //  .attr('class', 'bold')
+                                .html(function(d,i){
+ return "<p data-tippy-content='" + 'Source: '+ source[i] + "'>" + crimetype[i] + "</p>";
+                                                });
+                                                // Add tippy to roll over F
+      //<p class='bold'>Life expectancy in 2042 <span data-tippy-content="Period life
+      //expectancy at birth" class="fas fa-info-circle test" id="icon1"></span><br/></p>
+      tippy('p');
+
+          d3.selectAll(".dash1").append('p')
+                                .text(function(d,i){
+                                                  return fmt(incidents[i]);
+                                                });
+          d3.selectAll(".dash2").append('html').append('p').html(function(d,i){
+                      if(symbols[i] === "up") { return fmd(change[i]) + "% " + "<span class='uparrow'>&#9650; </span>"; }
+                    else if(symbols[i] === "down") { return fmd(change[i]/*.substring(1,2)*/) + "% " + "<span class='downarrow'>&#9660; </span>";  }
+                    else { return "No change"; }
+                  });
+
+      for(var x=0; x < 9; x++){
+          d3.select('#row'+x).select('.dash3')
+                  .append('img')
+                  .attr('src', '../sparks/sparkline'+(x+1)+'.svg')
+                  .attr('width', 150)
+                  .attr('height', 50)
+                }
+// turn off text tool across the table??
+
+
+				//use pym to calculate chart dimensions
+				setTimeout(function(){
+					pymChild = new pym.Child();
+					pymChild.sendHeight();
+					
+				},750)
+					
+
+
+} // ends drawTable
+
+
+function sortTable() {// console.log('sort')
+    d3.select('#hdash2').select('#sortarrow').style('color', '#ffd9b2');
+    var mytable, myrows, switching, i, myx, myy, shouldSwitch;
+    //table = d3.select('.center');
+    switching = true;
+
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+            // Start by saying: no switching is done:
+            switching = false;
+            myrows = 8;
+            /* Loop through all table rows (except the
+            first, which contains table headers): */
+            for (i = 0; i < myrows; i++) {
+              // Start by saying there should be no switching:
+              shouldSwitch = false;
+              /* Get the two elements you want to compare,
+              one from current row and one from the next: */
+              myx = d3.select('#row'+i).select('.dash2').select('html p');
+              myy = d3.select('#row'+(i+1)).select('.dash2').select('html p');
+
+              // Check if the two rows should switch place:
+            //  console.log(i, myx.text(), myy.text());
+              if (myx.text() == "No change") { xVal = 0;
+              } else {
+                      xVal = parseInt(myx.text().replace(/\D+/g, '') );
+                  //    console.log(myx.text().substring(0,1));
+                      if(myx.text().substring(0,1) == '-') xVal = xVal*-1;
+                    }
+              if (myy.text() == "No change") { yVal = 0;
+              } else {
+                      yVal = parseInt(myy.text().replace(/\D+/g, '') );
+                    //  console.log(myy.text().substring(0,1));
+                      if(myy.text().substring(0,1) == '-') yVal = yVal*-1;
+                    }
+            //  console.log(i, xVal, yVal);
+
+              if (yVal > xVal) { //console.log('break')
+                // watch for x=y
+                // If so, mark as a switch and break the loop:
+                shouldSwitch = true;
+                break;
+                }
+            }
+            if (shouldSwitch) {// console.log(i, " switch");
+              /* If a switch has been marked, make the switch
+              and mark that a switch has been done: */
+               tostay = document.getElementById('row'+i);//d3.select('#row'+i);
+               tomove = document.getElementById('row'+(i+1));//d3.select('#row'+(i+1));
+               document.getElementById('row'+i).parentNode.insertBefore(tomove, tostay);
+
+                  tostay.id = "row"+(i+1);
+                   tomove.id = "row"+i;
+
+               switching = true;
+            }
+    }
+} // ends f
+
+
+				//create link to source
+				// d3.select(".footer").append("p")
+				// 	.text("Source: ")
+				//     .attr("id", "foot")
+				// 	.append("a")
+				// 	.attr("href", dvc.essential.sourceURL)
+				// 	.attr("target", "_blank")
+				// 	.html(dvc.essential.sourceText);
+
+
+
+	//check whether browser can cope with svg
+	if (Modernizr.svg) {
+                      //   Promise.all(
+                      //     [
+                      //       d3.json("config.json"),
+                      //       d3.csv("../data/data.csv"),
+                      //     ]
+                      // ).then(function(all_dataset) {
+                      //   console.log(all_dataset);
+                      //   dvc = all_dataset[0];
+                      //   crimedata = all_dataset[1];
+                      //   console.log(crimedata);
+                      //               drawTable();
+                      // }) // ends then
+
+
+                        d3.json('config.json').then(function(config)
+                        {
+                          dvc = config;
+
+                              d3.csv('../data/data.csv').then(function(data)
+                              {
+                                crimedata = data;
+
+                                  pymChild = new pym.Child({ renderCallback: drawTable});
+                              });
+                        });
+						}else {
+							 //use pym to create iframe containing fallback image (which is set as default 700-900px ?!?)
+							 pymChild = new pym.Child();
+							if (pymChild) {
+								pymChild.sendHeight();
+							}
+	}
+
+    </script>
+</body>
+</html>

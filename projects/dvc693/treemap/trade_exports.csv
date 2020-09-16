@@ -1,0 +1,109 @@
+id,name,eu_row_split,trade_val1,trade_val2,trade_val3,trade_val4,trade_val5,rank1,rank2,rank3,rank4,rank5
+c0,Total,0.50,51894,35645,26487,24064,20891,United States inc Puerto Rico,Germany,Netherlands,France,Ireland
+c1,Food & live animals,0.71,3704,1596,1203,998,639,Ireland,France,Netherlands,Germany,Spain
+c1_1,Live animals,0.61,193,65,47,23,21,Ireland,France,Hong Kong,Japan,United States inc Puerto Rico
+c1_2,Meat & meat preparations,0.80,526,295,197,158,96,Ireland,France,Netherlands,Germany,Hong Kong
+c1_3,Dairy products & eggs,0.77,618,230,155,133,105,Ireland,Netherlands,France,Belgium,Germany
+c1_4,Fish & shellfish,0.70,491,201,199,172,149,France,United States inc Puerto Rico,Spain,Ireland,China
+c1_5,Cereals,0.70,695,149,137,104,92,Ireland,France,Netherlands,United States inc Puerto Rico,Germany
+c1_6,Animal feeding stuffs,0.69,276,109,95,90,50,Ireland,Germany,Netherlands,France,Australia
+c1_7,Vegetables & fruit,0.77,405,136,109,66,62,Ireland,Netherlands,France,Germany,Spain
+c1_8,Sugar,0.65,123,37,33,26,25,Ireland,Netherlands,Germany,Spain,Italy
+c1_9,"Coffee, tea, cocoa etc",0.64,343,121,108,104,67,Ireland,Netherlands,Germany,France,Poland
+c1_10,Miscellaneous foods,0.64,350,248,156,116,102,Ireland,Germany,Netherlands,France,China
+c2,Beverages & tobacco,0.37,1684,624,419,382,347,United States inc Puerto Rico,France,Ireland,Singapore,Spain
+c2_1,Beverages,0.37,1684,622,417,379,346,United States inc Puerto Rico,France,Ireland,Singapore,Spain
+c2_2,Tobacco,0.20,18,14,11,7,6,Turkey,South Korea,Russia,Ukraine,Poland
+c3,Crude materials,0.34,959,713,669,481,439,China,Turkey,India,Germany,United States inc Puerto Rico
+c3_1,Wood & cork,0.83,96,9,7,5,4,Ireland,India,France,Sweden,Germany
+c3_2,Pulp & waste paper,0.17,276,97,36,35,35,China,India,Indonesia,Germany,Netherlands
+c3_3,Textile fibres,0.35,84,69,61,54,45,Ghana,China,Pakistan,Poland,Ukraine
+c3_4,Metal ores & scrap,0.26,666,538,499,370,321,Turkey,China,India,United States inc Puerto Rico,Pakistan
+c3_5,"Hides, skins & furskins",0.60,59,42,9,5,4,Italy,China,Ireland,Turkey,Netherlands
+c3_6,Oil-seeds & oleaginous fruits,0.96,27,10,9,9,8,Germany,Ireland,France,Czech Republic,Sweden
+c3_7,Crude rubber,0.49,58,32,16,15,14,Belgium,India,United States inc Puerto Rico,Singapore,China
+c3_8,Crude minerals & fertilisers,0.62,69,61,29,24,22,Ireland,Germany,Netherlands,France,Italy
+c3_9,Other crude animal & vegetable materials,0.74,66,57,35,23,21,Ireland,Netherlands,Germany,France,United States inc Puerto Rico
+c4,Animal & vegetable oils & fats,0.85,182,82,65,53,29,Netherlands,Ireland,Belgium,Germany,France
+c4_1,Animal oils & fats,0.84,64,14,14,8,7,Netherlands,Ireland,Belgium,France,China
+c4_2,Vegetable oils & fats,0.85,91,62,39,35,17,Netherlands,Ireland,Belgium,Germany,France
+c4_3,Processed oils & fats,0.87,27,12,12,10,6,Netherlands,Germany,Belgium,Norway,Ireland
+c5,Fuels,0.61,11998,5197,3801,2733,2603,Netherlands,China,United States inc Puerto Rico,Belgium,South Korea
+c5_1,Crude oil,0.59,8807,4913,2572,2305,1042,Netherlands,China,South Korea,Germany,United States inc Puerto Rico
+c5_2,Refined oil,0.56,2704,2536,1541,1437,813,United States inc Puerto Rico,Netherlands,Belgium,Ireland,Nigeria
+c5_3,"Coal, coke & briquettes",0.73,49,18,10,9,9,Ireland,Finland,Spain,Norway,Ukraine
+c5_4,Gas,0.86,1148,643,548,260,252,Belgium,Netherlands,Ireland,France,Morocco
+c5_5,Electricity,1.00,92,24,11,,,Ireland,France,Netherlands,,
+c6,Chemicals,0.53,10309,6560,4130,3558,3144,United States inc Puerto Rico,Germany,Netherlands,France,Belgium
+c6_1,Organic chemicals,0.52,2624,1177,1108,795,415,United States inc Puerto Rico,Netherlands,Belgium,Germany,France
+c6_2,Inorganic chemicals,0.67,240,236,217,200,97,United States inc Puerto Rico,Spain,France,Germany,Sweden
+c6_3,"Dyeing, tanning & colouring materials",0.61,259,165,156,148,145,Germany,Netherlands,France,Italy,Belgium
+c6_4,Medicinal & pharmaceutical products,0.46,5637,3055,1675,1266,1132,United States inc Puerto Rico,Germany,Netherlands,France,China
+c6_5,Toilet & cleansing preparations,0.61,726,478,446,443,412,Ireland,Germany,United States inc Puerto Rico,Belgium,France
+c6_6,Plastics in primary forms,0.67,588,411,384,255,246,Germany,Belgium,France,Netherlands,United States inc Puerto Rico
+c6_7,Plastics in non-primary forms,0.64,389,311,274,261,160,Germany,United States inc Puerto Rico,France,Ireland,Netherlands
+c6_8,Processed fertilisers,0.66,51,23,14,13,11,Ireland,Netherlands,Poland,Brazil,China
+c6_9,Other chemicals,0.54,789,666,426,339,331,Germany,United States inc Puerto Rico,France,Ireland,Netherlands
+c7,Material manufactures,0.56,4179,3027,2605,2150,1970,Germany,United States inc Puerto Rico,Ireland,France,Belgium
+c7_1,Leather manufactures,0.53,54,29,25,17,14,United States inc Puerto Rico,Italy,Germany,Hong Kong,Poland
+c7_2,Rubber manufactures,0.62,238,195,170,167,131,Germany,United States inc Puerto Rico,France,Belgium,Ireland
+c7_3,Wood & cork manufactures,0.81,142,33,23,20,17,Ireland,France,Netherlands,Belgium,Germany
+c7_4,Paper & paperboard,0.68,565,260,222,193,117,Ireland,Germany,France,United States inc Puerto Rico,Netherlands
+c7_5,Textile fabrics,0.68,339,263,235,227,182,Germany,Netherlands,United States inc Puerto Rico,Ireland,France
+c7_6,Mineral manufactures,0.64,1096,509,357,317,243,Belgium,United States inc Puerto Rico,Germany,Ireland,France
+c7_7,Iron & steel,0.67,513,394,387,376,370,Germany,France,Sweden,Ireland,United States inc Puerto Rico
+c7_8,Non-ferrous metals,0.38,1758,1339,972,803,731,Germany,Hong Kong,India,FYR Macedonia,United States inc Puerto Rico
+c7_9,Miscellaneous metal manufactures,0.55,724,673,608,544,357,United States inc Puerto Rico,Germany,Ireland,France,Netherlands
+c8,Machinery & transport equipment,0.43,23352,15250,10442,6673,5204,United States inc Puerto Rico,Germany,France,China,Netherlands
+c8_1,Mechanical power generators (consumer),0.00,,,,,,,,,,
+c8_2,Specialised machinery (consumer),0.88,114,36,15,15,3,Germany,Sweden,United States inc Puerto Rico,Ireland,Netherlands
+c8_3,General industrial machinery (consumer),0.60,13,6,5,4,3,Ireland,France,United Arab Emirates,Germany,Poland
+c8_4,Mechanical power generators (intermediate),0.22,4205,2223,1967,1775,1638,United States inc Puerto Rico,United Arab Emirates,Singapore,Germany,Hong Kong
+c8_5,Specialised machinery (intermediate),0.39,363,159,109,87,80,United States inc Puerto Rico,Germany,France,Ireland,Norway
+c8_6,Metal working machinery (intermediate),0.36,90,32,26,19,16,United States inc Puerto Rico,Germany,China,France,Spain
+c8_7,General industrial machinery (intermediate),0.39,1099,591,365,331,280,United States inc Puerto Rico,Germany,France,China,Netherlands
+c8_8,Mechanical power generators (capital),0.23,683,241,171,134,122,United States inc Puerto Rico,China,Japan,Germany,Belarus
+c8_9,Specialised machinery (capital),0.47,1218,526,467,456,275,United States inc Puerto Rico,Germany,Ireland,France,Poland
+c8_10,Metal working machinery (capital),0.53,92,85,51,50,45,United States inc Puerto Rico,Belgium,Germany,China,Ireland
+c8_11,General industrial machinery (capital),0.53,1113,1001,627,430,387,United States inc Puerto Rico,Germany,France,Netherlands,Ireland
+c8_12,Office machinery (consumer),1.00,3,3,2,1,1,Italy,Ireland,Spain,France,Germany
+c8_13,Telecoms & sound equipment (consumer),0.87,135,11,9,8,7,Ireland,Germany,Netherlands,United States inc Puerto Rico,France
+c8_14,Miscellaneous electrical goods (consumer),0.81,251,109,89,51,34,Ireland,Germany,France,Netherlands,Spain
+c8_15,Electric motors (intermediate),0.33,41,24,14,13,12,United States inc Puerto Rico,United Arab Emirates,China,Romania,Germany
+c8_16,Office machinery (intermediate),0.76,436,91,88,82,78,Netherlands,France,United States inc Puerto Rico,Germany,Ireland
+c8_17,Telecoms & sound equipment (intermediate),0.48,148,71,68,32,32,United States inc Puerto Rico,France,Germany,Netherlands,China
+c8_18,Miscellaneous electrical goods (intermediate),0.46,1353,973,559,553,380,United States inc Puerto Rico,Germany,China,France,Ireland
+c8_19,Electric motors (capital),0.33,152,88,78,76,75,United States inc Puerto Rico,Germany,China,France,United Arab Emirates
+c8_20,Office machinery (capital),0.64,637,572,469,353,308,Ireland,Germany,United States inc Puerto Rico,Netherlands,France
+c8_21,Telecoms & sound equipment (capital),0.59,634,582,570,549,440,Germany,United States inc Puerto Rico,Ireland,Netherlands,France
+c8_22,Miscellaneous electrical goods (capital),0.46,684,562,222,218,207,Germany,United States inc Puerto Rico,France,Thailand,Netherlands
+c8_23,Cars,0.39,7662,3210,2300,2170,1592,United States inc Puerto Rico,China,Belgium,Germany,Italy
+c8_24,Road vehicles other than cars (consumer),0.69,77,50,44,41,30,France,Germany,Ireland,Netherlands,Italy
+c8_25,Road vehicles other than cars (intermediate),0.69,1133,633,418,393,351,Germany,France,United States inc Puerto Rico,China,Spain
+c8_26,Road vehicles other than cars (capital),0.44,393,319,146,120,110,United States inc Puerto Rico,Ireland,Belgium,Australia,Netherlands
+c8_27,Railway equipment (intermediate),0.44,39,29,29,22,11,China,Germany,Japan,Italy,Sweden
+c8_28,Railway equipment (capital),0.14,2,1,1,1,1,China,United States inc Puerto Rico,Turkey,Qatar,Germany
+c8_29,Aircraft,0.57,4094,3695,2305,681,488,Germany,France,United States inc Puerto Rico,Canada,Oman
+c8_30,Ships,0.40,230,135,96,91,91,United States inc Puerto Rico,Malta,Gibraltar,India,Spain
+c9,Miscellaneous manufactures,0.49,8361,5157,3690,3651,2344,United States inc Puerto Rico,Germany,France,Ireland,Switzerland
+c9_1,Clothing,0.79,1527,1021,666,447,317,Germany,Ireland,France,Italy,United States inc Puerto Rico
+c9_2,Footwear,0.87,376,255,223,132,96,Germany,Ireland,France,Italy,Netherlands
+c9_3,Scientific instruments (consumer),0.86,1,1,1,1,1,Germany,Indonesia,Ireland,Sweden,Czech Republic
+c9_4,Photographic & optical goods & clocks (consumer),0.38,313,218,144,125,92,United States inc Puerto Rico,Switzerland,Hong Kong,France,Germany
+c9_5,Scientific instruments (intermediate),0.30,300,141,91,87,78,United States inc Puerto Rico,Germany,Japan,Hong Kong,France
+c9_6,Photographic & optical goods & clocks (intermediate),0.49,102,98,75,46,40,United States inc Puerto Rico,Japan,Germany,France,Netherlands
+c9_7,Scientific instruments (capital),0.40,1908,898,603,555,375,United States inc Puerto Rico,Germany,China,France,Netherlands
+c9_8,Photographic & optical goods & clocks (capital),0.74,7,1,1,1,1,Ireland,Germany,Poland,United States inc Puerto Rico,France
+c9_9,Works of art,0.04,3170,801,778,108,95,United States inc Puerto Rico,Hong Kong,Switzerland,France,United Arab Emirates
+c9_10,Jewellery,0.23,865,583,513,440,232,Switzerland,Hong Kong,France,Qatar,United States inc Puerto Rico
+c9_11,"Plumbing, heating & lighting fixtures (consumer)",0.76,9,5,4,2,2,Ireland,Germany,France,United States inc Puerto Rico,Netherlands
+c9_12,Furniture (consumer),0.60,221,100,64,54,32,Ireland,United States inc Puerto Rico,France,Germany,Netherlands
+c9_13,"Travel goods, handbags etc",0.68,107,83,80,70,58,Germany,Italy,France,Ireland,Hong Kong
+c9_14,Other manufactures (consumer),0.60,1100,984,967,683,527,United States inc Puerto Rico,Germany,Ireland,France,Netherlands
+c9_15,"Plumbing, heating & lighting fixtures (intermediate)",0.61,112,79,77,49,47,Ireland,Netherlands,France,United States inc Puerto Rico,Germany
+c9_16,Furniture (intermediate),0.30,421,117,101,84,45,United States inc Puerto Rico,France,China,Germany,Qatar
+c9_17,Other manufactures (intermediate),0.72,511,328,244,243,147,Germany,Ireland,Netherlands,France,United States inc Puerto Rico
+c9_18,"Plumbing, heating & lighting fixtures (capital)",0.73,72,55,27,15,12,Germany,Ireland,France,United States inc Puerto Rico,Turkey
+c9_19,Furniture (capital),0.73,75,66,42,32,29,Ireland,Germany,France,United States inc Puerto Rico,Netherlands
+c9_20,Other manufactures (capital),0.50,62,39,32,26,25,United States inc Puerto Rico,France,Germany,Netherlands,Australia
+c10,Unspecified goods,0.14,1087,411,279,215,212,Switzerland,China,United States inc Puerto Rico,Turkey,France

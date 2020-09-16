@@ -1,0 +1,84 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+
+            "dateFormat":"%Y",
+
+            "legendLabels" : ["New houses", "New flats"],
+            "legendStyle": "line",
+            "colour_palette": [ "#274796", "#7BCAE2", "green", "#E73F40" ],
+
+            "sourceText":["CHANGE"],
+            "sourceURL":[""],
+            "draggable": false,
+           "annotationsChart" : [
+              {
+                "xVal": "",
+                "yVal": "",
+                "path": "",
+                "text": "",
+                "textOffset": []
+              },
+
+              {
+                "xVal": "",
+                "yVal": "",
+                "path": "",
+                "text": "",
+                "textOffset": []
+              },
+
+              {
+                "xVal": "",
+                "yVal": "",
+                "path": "",
+                "text": "",
+                "textOffset": []
+              }
+            ],
+
+            "wordwrap":[],
+            "annoAlign": "",
+            "annotationBullet" : [],
+
+            "circles" : false,
+            "annotationCXCY":[
+                [""],
+                [""]
+            ],
+
+            "yAxisLabel":"Area m²",
+            "yAxisScale":"auto_zero_max",
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65]
+    },
+
+    "optional" : {
+            "margin_sm": [50, 10, 55, 30],
+            "margin_md": [50, 15, 55, 30],
+            "margin_lg": [50, 15, 55, 30],
+
+            "aspectRatio_sm" : [16,13],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,10],
+
+            "mobileBreakpoint" : 610,
+
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%Y"],
+
+            "x_num_ticks_sm_md_lg" : [6,12,12],
+            "y_num_ticks_sm_md_lg" : [5,11,11],
+
+            "lineMarkers" : false,
+
+            "vertical_line" : false,
+            "annotateLineX1_Y1_X2_Y2" : [],
+
+            "annotateRect" : false,
+            "annotateRectX_Y" : [],
+            "lineColor_opcty" : [],
+
+            "centre_line" : false,
+            "centre_line_value" : 25
+    }
+}

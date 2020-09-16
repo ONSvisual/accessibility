@@ -1,0 +1,50 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+
+            "dateFormat":"",
+
+            "legendLabels" : ["Q1 1996","Q1 2019"],
+            "legendStyle": "circle",
+            "colour_palette": [ "#dadada" , "#0075A3"],
+
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+
+            "annotationChart": [
+                "",
+				"Equal numbers  of jobs for men  and women"
+            ],
+            "annotationBullet": [],
+            "annotationXY":[
+                ["25","Activities of households as  employers"],
+				["51","Manufacturing"]
+            ],
+            "annotationAlign":[
+                "middle",
+				"start"
+            ],
+			"minmaxonly":"true",
+			"arrows":"none",
+
+            "xAxisLabel":"",
+            "yAxisLabel":"%",
+            "xAxisScale":[0,100]
+
+    },
+    "optional" : {
+            "margin_sm": [45, 20, 5, 230],
+            "margin_md": [25, 20, 5, 230],
+            "margin_lg": [25, 20, 5, 230],
+
+            "aspectRatio_sm" : [1,10],
+            "aspectRatio_md" : [9,10],
+            "aspectRatio_lg" : [9,10],
+
+            "mobileBreakpoint" : 590,
+
+            "x_num_ticks_sm_md_lg" : [6,8,8],
+            "centre_line" : true,
+            "centre_line_value" : 50
+    }
+}

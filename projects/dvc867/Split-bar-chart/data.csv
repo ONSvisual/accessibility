@@ -1,0 +1,37 @@
+xcategory,ycategory,amount
+Bus,Health (Q),15.998
+Bus,Retail (47),16.877
+Bus,Professional (M),5.859
+Bus,Finance (K),3.854
+Bus,Public admin (O),6.908
+Bus,Education (P),9.013
+Bus,Information and communication (J),3.684
+Bus,Food and drink (56),8.840
+Bus,Admin (N),6.565
+Bus,Construction (F),2.764
+Bus,Manufacturing (C),4.624
+Bus,Transport (H),3.620
+Bus,Arts (R),2.895
+Bus,"Other services (S,T,U)",2.950
+Bus,"Wholesale (45,46)",2.079
+Bus,Accommodation (55),2.042
+Bus,Real estate (L),0.713
+Bus,"Agriculture, electricity, water, mining (A,B,D,E)",0.715
+Rail,Health (Q),7.465
+Rail,Retail (47),4.954
+Rail,Professional (M),15.967
+Rail,Finance (K),13.416
+Rail,Public admin (O),9.446
+Rail,Education (P),7.271
+Rail,Information and communication (J),10.518
+Rail,Food and drink (56),3.430
+Rail,Admin (N),5.414
+Rail,Construction (F),5.563
+Rail,Manufacturing (C),2.663
+Rail,Transport (H),3.035
+Rail,Arts (R),3.373
+Rail,"Other services (S,T,U)",3.250
+Rail,"Wholesale (45,46)",1.338
+Rail,Accommodation (55),0.885
+Rail,Real estate (L),1.115
+Rail,"Agriculture, electricity, water, mining (A,B,D,E)",0.895

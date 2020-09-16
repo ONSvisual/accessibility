@@ -1,0 +1,67 @@
+{
+    "essential" : {
+      "colour_palette": "rgb(0,117,163)",
+
+            "graphic_data_url": "data2.csv",
+
+            "dateFormat":"%b-%y",
+
+            "legendLabels" : ["Knife or sharp instrument offences", "Including Greater Manchester Police"],
+
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":[""],
+
+            "annotationChart": [
+              {
+                "xVal": "2003-06-23T00:00:00.000Z",
+                "yVal": 1600,
+                "path": "",
+                "data": "",
+                "textOffset": [0,0]
+              },
+
+              {
+                "xVal": "1995-06-23T00:00:00.000Z",
+                "yVal": 20000,
+                "path": "",
+                "data": "",
+                "textOffset": [0,0]
+              }
+            ],
+            "annotationBullet": [],
+            "annotationXY":[["Dec-2018", 20000], ["Dec-2015", 25000]],
+            "annotationAlign":["end","end"],
+
+            "circles" : true,
+            "annotationCXCY":[
+                ["2018-12","44443"],
+                ["1988",""]
+            ],
+
+            "yAxisLabel":"",
+			      "xAxisLabel":"",
+            "yAxisScale":[0,50000],
+            "yAxisBreak": true,
+            "yAxisBreak_sm_md_lg": [298,298,298]
+    },
+    "optional" : {
+            "margin_sm": [15, 20, 0, 60],
+            "margin_md": [15, 20, 0, 60],
+            "margin_lg": [15, 20, 0, 60],
+
+            "aspectRatio_sm" : [16,5],
+            "aspectRatio_md" : [16,5],
+            "aspectRatio_lg" : [16,5],
+
+            "mobileBreakpoint" : 610,
+
+            "xAxisTextFormat_sm_md_lg" : ["%b-%y", "%b-%y", "%b-%y"],
+
+            "x_num_ticks_sm_md_lg" : [7,7,7],
+            "y_num_ticks_sm_md_lg" : [6,6,6],
+            "centre_line" : false,
+            "lineMarkers": true,
+
+            "centre_line_value" : 0
+    }
+}

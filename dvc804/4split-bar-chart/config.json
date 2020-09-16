@@ -1,0 +1,16 @@
+{
+    "essential" : {
+          "graphic_data_url": "data.csv",
+          "colour_palette":[ "#0075A3" , "#266D4A", "#234D70", "#601552" ],
+      		"sourceText":["Office for National Statistics - Annual Survey of Hours & Earnings"],
+          "xAxisLabel":"%",
+          "barHeight_sm_md_lg" : [30,30,30]
+
+    },
+    "optional" : {
+          "margin_sm": [8, 0, 20, 49],
+          "margin_md": [8, 0, 20, 49],
+          "mobileBreakpoint" : 610
+
+    }
+}

@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title></title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="lib/globalStyle.css" />
+    <style type="text/css">
+
+		body {max-width:800px;}
+
+    .grid line {
+      stroke: #CCC !important;
+      stroke-width: 1px !important;
+
+    }
+
+	    .bar_pos { fill: #F5942F; }
+        .bar_neg { fill: #fff; }
+
+
+		.background0 { background: #F5942F; }
+        .background1 { background: #fff; }
+
+		.lineFirst {stroke:rgb(0,117,163);}
+		.lineSecond {stroke:#E2BC22;}
+
+
+        .line-2 { stroke: rgb(38,109,74);   }
+		.line-3 { stroke:rgb(225,187,33); opacity:1; }
+
+		.border0 { border-top: 2px solid rgb(0,117,163); }
+        .border1 { border-top: 0px solid rgb(38,109,74); opacity:0; }
+
+		.legline2 {border-top: 2px solid rgb(0,117,163);}
+		.legline1 {border-top: 2px solid #E2BC22;}
+
+        .border2 { border-top: 0px solid rgb(38,109,74);  }
+		.border3 { border-top: 2px solid rgb(225,187,33); }
+
+    .legline2.border1 {
+      margin-top: 5px !important;
+      margin-right: 14px !important;
+      margin-left: 5px;
+      opacity: 100;
+      height: 7px !important;
+      width: 7px !important;
+  background-color:  #E66500;
+  border-radius: 50%;
+   border-top: 0px solid rgb(225,187,33);
+}
+
+		.annoline {
+			stroke:#666;
+			stroke-dasharray:5;
+		}
+
+		#left {
+			float:left;
+		}
+
+		#right {
+			float:right;
+		}
+
+		.col-xs-12 {
+		  width: 100%;
+		}
+		.col-xs-11 {
+		  width: 91.66666667%;
+		}
+		.col-xs-10 {
+		  width: 83.33333333%;
+		}
+		.col-xs-9 {
+		  width: 75%;
+		}
+		.col-xs-8 {
+		  width: 66.66666667%;
+		}
+		.col-xs-7 {
+		  width: 58.33333333%;
+		}
+		.col-xs-6 {
+		  width: 50%;
+		}
+		.col-xs-5 {
+		  width: 41.66666667%;
+		}
+		.col-xs-4 {
+		  width: 33.33333333%;
+		}
+		.col-xs-3 {
+		  width: 25%;
+		}
+		.col-xs-2 {
+		  width: 16.66666667%;
+		}
+		.col-xs-1 {
+		  width: 8.33333333%;
+		}
+
+		@media (min-width: 650px) {
+		  .col-sm-12 {
+			width: 100%;
+		  }
+		  .col-sm-11 {
+			width: 91.66666667%;
+		  }
+		  .col-sm-10 {
+			width: 83.33333333%;
+		  }
+		  .col-sm-9 {
+			width: 75%;
+		  }
+		  .col-sm-8 {
+			width: 66.66666667%;
+		  }
+		  .col-sm-7 {
+			width: 58.33333333%;
+		  }
+		  .col-sm-6 {
+			width: 50%;
+		  }
+		  .col-sm-5 {
+			width: 41.66666667%;
+		  }
+		  .col-sm-4 {
+			width: 33.33333333%;
+		  }
+		  .col-sm-3 {
+			width: 25%;
+		  }
+		  .col-sm-2 {
+			width: 16.66666667%;
+		  }
+		  .col-sm-1 {
+			width: 8.33333333%;
+		  }
+		}
+    </style>
+</head>
+<body>
+
+	<div id="graphic">
+
+        <div class="col-sm-12 col-xs-12" id="left"><img src="fallback2.png" alt="[Chart]" /></div>
+        <div class="col-sm-12 col-xs-12" id="right"><img src="fallback1.png" alt="[Chart]" /></div>
+    </div>
+
+    <div id="keypoints">
+        <p></p>
+    </div>
+
+   <div class="footer">
+   </div>
+
+   <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+   <script src="https://cdn.ons.gov.uk/vendor/d3/4.13.0/d3.min.js" type="text/javascript"></script>
+    <script src="lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script>
+
+		var graphic = $('#graphic');
+		var left = $('#left');
+		var right = $('#right');
+		var keypoints = $('#keypoints');
+		var footer = $(".footer");
+		var pymChild = null;
+
+		function drawGraphic(width) {
+
+
+		   var threshold_md = 788;
+		   var threshold_sm = dvc.optional.mobileBreakpoint;
+
+		  	//set variables for chart dimensions dependent on width of #graphic
+		    if (right.width() < threshold_sm) {
+		            var margin = {top: dvc.optional.margin_sm[0], right: dvc.optional.margin_sm[1], bottom: dvc.optional.margin_sm[2], left: dvc.optional.margin_sm[3]};
+					var chart_width = right.width() - margin.left - margin.right;
+		            var height = Math.ceil((chart_width * dvc.optional.aspectRatio_sm[1]) / dvc.optional.aspectRatio_sm[0]) - margin.top - margin.bottom;
+		    } else if (right.width() < threshold_md){
+		        	var margin = {top: dvc.optional.margin_md[0], right: dvc.optional.margin_md[1], bottom: dvc.optional.margin_md[2], left: dvc.optional.margin_md[3]};
+					var chart_width = right.width() - margin.left - margin.right;
+		            var height = Math.ceil((chart_width * dvc.optional.aspectRatio_md[1]) / dvc.optional.aspectRatio_md[0]) - margin.top - margin.bottom;
+		  	} else {
+		        	var margin = {top: dvc.optional.margin_lg[0], right: dvc.optional.margin_lg[1], bottom: dvc.optional.margin_lg[2], left: dvc.optional.margin_lg[3]}
+					var chart_width = right.width() - margin.left - margin.right;
+		            var height = Math.ceil((chart_width * dvc.optional.aspectRatio_lg[1]) / dvc.optional.aspectRatio_lg[0]) - margin.top - margin.bottom;
+			}
+
+		    // clear out existing graphics
+		    right.empty();
+			keypoints.empty();
+			footer.empty();
+
+
+		    var x = d3.scaleTime()
+		        .range([0, chart_width]);
+
+		    var y = d3.scaleLinear()
+		        .range([height, 0]);
+
+        var domainArr = [
+          new Date('2003-03'),
+          new Date('2005-03'),
+          new Date('2007-03'),
+          new Date('2009-03'),
+          new Date('2011-03'),
+          new Date('2013-03'),
+          new Date('2015-03'),
+          new Date('2018-12')
+        ];
+
+        // graphic_data.forEach(function(d) {
+        //   console.log(d)
+        //   domainArr.push(d.date)
+        // });
+
+		    x.domain(d3.extent(graphic_data, function(d) { return d.date; }));
+
+		    var xAxis = d3.axisBottom(x)
+		        .tickFormat(function(d,i) {
+		            //specify date format for x axis depending on #graphic width
+		            if (right.width() <= threshold_sm) {
+		                var fmt = d3.timeFormat(dvc.optional.xAxisTextFormat_sm_md_lg[0]);
+		                return fmt(d);
+		            } else if (right.width() <= threshold_md){
+		                var fmt = d3.timeFormat(dvc.optional.xAxisTextFormat_sm_md_lg[1]);
+		                return fmt(d);
+		            } else {
+		                var fmt = d3.timeFormat(dvc.optional.xAxisTextFormat_sm_md_lg[2]);
+		                return fmt(d);
+		            }
+		        })
+				.tickPadding(5)
+
+
+	        //specify number of ticks on x axis and whether 1st and last data point labels are included
+	    //     if(right.width()<threshold_sm){
+	    //         xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[0]).concat( x.domain() ));
+	    //     } else if (graphic.width() <= threshold_md){
+			// 	xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[1])/*.concat( x.domain() )*/);
+			// } else {
+	    //         xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[2])/*.concat( x.domain() )*/);
+	    //     }
+
+          xAxis.tickValues(domainArr);
+
+
+		    var yAxis = d3.axisLeft(y)
+
+			//specify number or ticks on y axis
+			if (graphic.width() <= threshold_sm) {
+				yAxis.ticks(dvc.optional.y_num_ticks_sm_md_lg[0])
+			 } else if (graphic.width() <= threshold_md){
+				yAxis.ticks(dvc.optional.y_num_ticks_sm_md_lg[1])
+			 } else {
+				yAxis.ticks(dvc.optional.y_num_ticks_sm_md_lg[2])
+			 }
+
+		    //gridlines
+		    var y_axis_grid = function() { return yAxis; }
+
+		    var line = d3.line()
+            .defined(function(d) { return d.amt!= null; })
+		        .x(function(d) { return x(d.date); })
+		        .y(function(d) { return y(d.amt); });
+
+		    // parse data into columns
+		    var lines = {};
+		    for (var column in graphic_data[0]) {
+		        if (column == 'date') continue;
+		        lines[column] = graphic_data.map(function(d) {
+		            return {
+		                'date': d.date,
+		                'amt': d[column]
+		            };
+		        });
+		    }
+
+		  	//y domain calculations	: zero to intelligent max choice, or intelligent min and max choice,  or interval chosen manually
+	   		if (dvc.essential.yAxisScale == "auto_zero_max"){
+			   var yDomain = [
+								0,
+								d3.max(d3.entries(lines), function(c) {
+									return d3.max(c.value, function(v) {
+										var n = v.amt;
+										return Math.ceil(n);
+									});
+								})
+							 ];
+			} else if (dvc.essential.yAxisScale == "auto_min_max"){
+				var yDomain = [
+								d3.min(d3.entries(lines), function(c) {
+									return d3.min(c.value, function(v) {
+										var n = v.amt;
+										return Math.floor(n);
+									});
+								}),
+
+								d3.max(d3.entries(lines), function(c) {
+									return d3.max(c.value, function(v) {
+										var n = v.amt;
+										return Math.ceil(n);
+									});
+								})
+					 		];
+			} else {
+			   var yDomain = dvc.essential.yAxisScale;
+		    }
+
+		    y.domain(yDomain);
+
+			//create legend
+			if(dvc.essential.legendLabels.length > 1){
+			var legend = d3.select('#graphic').select("#right").append('ul')
+			                .attr('class', 'key')
+			            .selectAll('g')
+			                .data(dvc.essential.legendLabels)
+			            .enter().append('li')
+
+				    legend.append('b')
+						 .attr("class",function(d,i){return "legline1 border" + i})
+
+					legend.append('label')
+				         .html(function(d,i) { return dvc.essential.legendLabels[i]; });
+			}
+
+
+
+		    //create svg for chart
+		    var svg = d3.select('#graphic').select("#right").append('svg')
+				        .attr("width", chart_width + margin.left + margin.right)
+				        .attr("height", height + margin.top + margin.bottom +30)
+				        .append("g")
+				        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+					svg.append("rect")
+						.attr("class","svgRect")
+						.attr("width", chart_width)
+						.attr("height", height)
+
+				    svg.append('g')
+				        .attr('class', 'y axis')
+				        .call(yAxis);
+
+				    svg.append('g')
+				        .attr('class', 'y grid')
+				        .call(y_axis_grid()
+				            .tickSize(-chart_width, 0, 0)
+				            .tickFormat('')
+				        );
+			//y axis label
+			d3.select('#graphic').select("#right").append("p")
+		                .attr('class', 'unit')
+		  		        .text(function(d,i) { return dvc.essential.yAxisLabel;})
+						.style("text-align","right")
+						.style("color","grey")
+						.style("width","100%");
+
+
+					//create x axis, if y axis doesn't start at 0 drop x axis accordingly
+					svg.append('g')
+				        .attr('class', 'x axis')
+				        .attr('transform', function(d){
+				        			if(yDomain[0] != 0){
+										return 'translate(0,' + (height + 30) + ')'
+									} else {
+										return 'translate(0,' + height  + ')'
+									}
+							})
+				        .call(xAxis);
+
+          // svg.selectAll('.tick')
+          //   .attr('class', function(d,i) {return 'tick tick'+i})
+          //
+          // svg.select('.tick19')
+          //   .style('display', 'none');
+
+
+
+				//create icon to symbolise break in y axis if required
+				if(yDomain[0] > 0 && dvc.essential.yAxisBreak == true){
+					var paths = svg.append("defs")
+								.append("g")
+								.attr("id","icon")
+								.append("g");
+
+							paths.append("polyline")
+								 .attr("points", "2.881,9.54 7.94,5.061 12.341,9.54 17.77,5.061")
+								 .attr("stroke", "#666")
+								 .attr("fill", "none")
+							paths.append("polyline")
+								.attr("points", "2.881,14.54 7.94,10.061 12.341,14.54 17.77,10.061")
+								.attr("stroke", "#666")
+								.attr("fill", "none");
+
+						//specify position of icon
+						svg.append("g").attr("id","iconpath")
+								.attr("transform","translate(-10,3)")
+								.append("use")
+								.attr("xlink:href","#icon")
+								.attr("x", x(x.domain()[0]))
+								.attr("y", function(){
+									if (graphic.width() < threshold_sm) {
+										return y(dvc.essential.yAxisBreak_sm_md_lg[0])
+									} else if (graphic.width() < threshold_md){
+										return y(dvc.essential.yAxisBreak_sm_md_lg[1])
+									} else {
+										return y(dvc.essential.yAxisBreak_sm_md_lg[2])
+									}
+								});
+				}
+
+				//create centre line if required
+				if (dvc.optional.centre_line == true){
+					svg.append("line")
+						.attr("id","centreline")
+						.attr('y1', 0)
+						.attr('y2', height)
+						.attr('x1',y(dvc.optional.centre_line_value))
+						.attr('x2',y(dvc.optional.centre_line_value));
+				} else if(yDomain[0] <0){
+					svg.append("line")
+						.attr("id","centreline")
+						.attr('y1',y(0))
+						.attr('y2',y(0))
+						.attr('x1',0)
+						.attr('x2',chart_width);
+				}
+
+				//Create annotation line
+
+//				svg.append("line")
+//					.attr("class","annoline")
+//					.attr("x1", x(d3.timeFormat(dvc.essential.dateFormat)(dvc.essential.annotationCXCY[0][0])))
+//					.attr("x2", x(d3.timeFormat(dvc.essential.dateFormat)(dvc.essential.annotationCXCY[1][0])))
+//					.attr('y1', y(dvc.essential.annotationCXCY[0][1]))
+//					.attr('y2', y(dvc.essential.annotationCXCY[1][1]));
+
+				//create lines
+			    svg.append('g').selectAll('path')
+			        .data(d3.entries(lines))
+			        .enter()
+			        .append('path')
+			            .attr('class', function(d, i) {
+			                return 'line lineSecond line-' + i;
+			            })
+			            .attr('d', function(d) {
+			                return line(d.value);
+			            });
+                  // add markers
+  				if (dvc.optional.lineMarkers == true){
+  					var j=0;
+  					for (var column in graphic_data[0]) {
+  								if (column == 'date') continue;
+  													 svg.append("g")
+  														.selectAll("circles")
+  														.data(graphic_data) // raw data
+  														.enter()
+  														.append('circle')
+  														.style('fill', '#fff')
+  														.style('stroke', '#E2BC22')
+  														.style('stroke-width', 2)
+                              .style('display', function(d) {
+                                if(d[column] === null) {
+                                  return 'none'
+                                }
+                              })
+  														.attr("cx", function(d){
+                                if(d[column] !== null) {
+                                  return x(d.date);
+                                }
+  																				})
+  														.attr("cy", function(d){
+                                if(d[column] !== null) {
+                                  return y(d[column]);
+                                }
+  																				})
+  														.attr("r", 3)
+  													j++;
+  													}
+  												} // ends if
+
+			writeAnnotation();
+
+			function writeAnnotation(){
+
+						dvc.essential.annotationChart.forEach(function(d,i) {
+
+							// draw annotation text based on content of var annotationArray ...
+							svg.append("text")
+								.text(dvc.essential.annotationChart[i])
+								.attr("class","annotext" + i)
+								.attr("text-anchor", dvc.essential.annotationAlign[i])
+								.attr('y',y(dvc.essential.annotationXY[i][1]))
+                .attr('x',x((new Date(dvc.essential.annotationXY[i][0]))));
+
+							d3.select("#right").selectAll(".annotext" + (i))
+								.each(insertLinebreaks)
+								.each(createBackRect);
+
+
+							function insertLinebreaks() {
+
+								var str = this;
+
+								var el1 = dvc.essential.annotationChart[i];
+								var el = el1.data;
+
+								var words = el.split('  ');
+
+								d3.select(this/*str*/).text('');
+
+								for (var j = 0; j < words.length; j++) {
+									var tspan = d3.select(this).append('tspan').text(words[j]);
+									if (j > 0)
+										tspan.attr('x', x(d3.timeFormat(dvc.essential.dateFormat)(dvc.essential.annotationXY[i][0]))).attr('dy', '22');
+								}
+							};
+
+							function createBackRect() {
+
+							var BBox = this.getBBox()
+
+									svg.insert("rect", ".annotext" + (i))
+										.attr("width", BBox.width)
+										.attr("height", BBox.height)
+										.attr("x", BBox.x)
+										.attr("y", BBox.y)
+										.attr("fill", "white")
+										.attr("opacity", 0.4);
+
+							}; // end function createBackRect()
+
+
+							// draw circles, if var 'dvc.essential.circles' is set to true
+							if ( dvc.essential.circles == true ) {
+
+								svg.append("circle")
+									.attr("class", "annocirc" + (i))
+									.attr('cy',y(dvc.essential.annotationCXCY[i][1]))
+									.attr('cx',x(d3.timeFormat(dvc.essential.dateFormat)(dvc.essential.annotationCXCY[i][0])))
+									.attr("r", "3");
+
+							} // end if ...
+
+						});	// end foreach
+
+
+
+				return;
+
+			}// end function writeAnnotation()
+
+			//create link to source
+			d3.select(".footer").append("p")
+				.text("Source: ")
+				.append("a")
+				.attr("href", dvc.essential.sourceURL)
+				.attr("target", "_blank")
+				.html(dvc.essential.sourceText);
+
+			drawGraphic2(width);
+			//use pym to calculate chart dimensions
+		    if (pymChild) {
+		        pymChild.sendHeight();
+		    }
+		}
+
+
+    function drawGraphic2(width) {
+
+
+		   var threshold_md = 788;
+		   var threshold_sm = dvc2.optional.mobileBreakpoint;
+
+		  	//set variables for chart dimensions dependent on width of #graphic
+		    if (right.width() < threshold_sm) {
+		            var margin = {top: dvc2.optional.margin_sm[0], right: dvc2.optional.margin_sm[1], bottom: dvc2.optional.margin_sm[2], left: dvc2.optional.margin_sm[3]};
+					var chart_width = right.width() - margin.left - margin.right;
+		            var height = Math.ceil((chart_width * dvc2.optional.aspectRatio_sm[1]) / dvc2.optional.aspectRatio_sm[0]) - margin.top - margin.bottom;
+		    } else if (right.width() < threshold_md){
+		        	var margin = {top: dvc2.optional.margin_md[0], right: dvc2.optional.margin_md[1], bottom: dvc2.optional.margin_md[2], left: dvc2.optional.margin_md[3]};
+					var chart_width = right.width() - margin.left - margin.right;
+		            var height = Math.ceil((chart_width * dvc2.optional.aspectRatio_md[1]) / dvc2.optional.aspectRatio_md[0]) - margin.top - margin.bottom;
+		  	} else {
+		        	var margin = {top: dvc2.optional.margin_lg[0], right: dvc2.optional.margin_lg[1], bottom: dvc2.optional.margin_lg[2], left: dvc2.optional.margin_lg[3]}
+					var chart_width = right.width() - margin.left - margin.right;
+		            var height = Math.ceil((chart_width * dvc2.optional.aspectRatio_lg[1]) / dvc2.optional.aspectRatio_lg[0]) - margin.top - margin.bottom;
+			}
+
+		    // clear out existing graphics
+		  left.empty();
+			keypoints.empty();
+			footer.empty();
+
+
+		    var x = d3.scaleTime()
+		        .range([0, chart_width]);
+
+		    var y = d3.scaleLinear()
+		        .range([height, 0]);
+
+
+        var domainArr2 = [];
+
+        graphic_data2.forEach(function(d) {
+          domainArr2.push(d.date)
+        });
+
+        x.domain(d3.extent(graphic_data2, function(d) { return d.date; }));
+
+		    var xAxis = d3.axisBottom(x)
+            // .tickValues([new Date(2012-03), new Date(2013-03)])
+		        .tickFormat(function(d,i) {
+		            //specify date format for x axis depending on #graphic width
+		            if (right.width() <= threshold_sm) {
+		                var fmt = d3.timeFormat(dvc2.optional.xAxisTextFormat_sm_md_lg[0]);
+		                return fmt(d);
+		            } else if (right.width() <= threshold_md){
+		                var fmt = d3.timeFormat(dvc2.optional.xAxisTextFormat_sm_md_lg[1]);
+		                return fmt(d);
+		            } else {
+		                var fmt = d3.timeFormat(dvc2.optional.xAxisTextFormat_sm_md_lg[2]);
+		                return fmt(d);
+		            }
+		        })
+				.tickPadding(5)
+
+	        //specify number of ticks on x axis and whether 1st and last data point labels are included
+	        if(right.width()<threshold_sm){
+	            xAxis.tickValues(x.ticks(dvc2.optional.x_num_ticks_sm_md_lg[0]).concat( x.domain() ));
+	        } else if (graphic.width() <= threshold_md){
+				xAxis.tickValues(x.ticks(dvc2.optional.x_num_ticks_sm_md_lg[1])/*.concat( x.domain() )*/);
+			} else {
+	            xAxis.tickValues(x.ticks(dvc2.optional.x_num_ticks_sm_md_lg[2])/*.concat( x.domain() )*/);
+	        }
+
+      xAxis.tickValues(domainArr2);
+
+		    var yAxis = d3.axisLeft(y)
+
+			//specify number or ticks on y axis
+			if (graphic.width() <= threshold_sm) {
+				yAxis.ticks(dvc2.optional.y_num_ticks_sm_md_lg[0])
+			 } else if (graphic.width() <= threshold_md){
+				yAxis.ticks(dvc2.optional.y_num_ticks_sm_md_lg[1])
+			 } else {
+				yAxis.ticks(dvc2.optional.y_num_ticks_sm_md_lg[2])
+			 }
+
+		    //gridlines
+		    var y_axis_grid = function() { return yAxis; }
+
+		    // parse data into columns
+		    var lines = {};
+		    for (var column in graphic_data2[0]) {
+		        if (column == 'date') continue;
+		        lines[column] = graphic_data2.map(function(d) {
+		            return {
+		                'date': d.date,
+		                'amt': d[column]
+		            };
+		        });
+		    }
+
+        var line = d3.line()
+            .defined(function(d) { return d.amt!= ""; })
+            .x(function(d) { return x(d.date); })
+            .y(function(d) { return y(d.amt); });
+
+
+		  	//y domain calculations	: zero to intelligent max choice, or intelligent min and max choice,  or interval chosen manually
+	   		if (dvc2.essential.yAxisScale == "auto_zero_max"){
+			   var yDomain = [
+								0,
+								d3.max(d3.entries(lines), function(c) {
+									return d3.max(c.value, function(v) {
+										var n = v.amt;
+										return Math.ceil(n);
+									});
+								})
+							 ];
+			} else if (dvc2.essential.yAxisScale == "auto_min_max"){
+				var yDomain = [
+								d3.min(d3.entries(lines), function(c) {
+									return d3.min(c.value, function(v) {
+										var n = v.amt;
+										return Math.floor(n);
+									});
+								}),
+
+								d3.max(d3.entries(lines), function(c) {
+									return d3.max(c.value, function(v) {
+										var n = v.amt;
+										return Math.ceil(n);
+									});
+								})
+					 		];
+			} else {
+			   var yDomain = dvc2.essential.yAxisScale;
+		    }
+
+		    y.domain(yDomain);
+
+			//create legend
+			if(dvc2.essential.legendLabels.length > 1){
+			var legend = d3.select('#graphic').select("#left").append('ul')
+			                .attr('class', 'key')
+			            .selectAll('g')
+			                .data(dvc2.essential.legendLabels)
+			            .enter().append('li')
+
+				    legend.append('b')
+						 .attr("class",function(d,i){return "legline2 border" + i})
+
+					legend.append('label')
+				         .html(function(d,i) { if (i === 1) { return dvc2.essential.legendLabels[i] + ""} else { return dvc2.essential.legendLabels[i];} });
+			}
+
+
+		    //create svg for chart
+		    var svg2 = d3.select('#graphic').select("#left").append('svg')
+				        .attr("width", chart_width + margin.left + margin.right)
+				        .attr("height", height + margin.top + margin.bottom +30)
+				        .append("g")
+				        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+					svg2.append("rect")
+						.attr("class","svgRect")
+						.attr("width", chart_width)
+						.attr("height", height)
+
+				    svg2.append('g')
+				        .attr('class', 'y axis')
+				        .call(yAxis);
+
+				    svg2.append('g')
+				        .attr('class', 'y grid')
+				        .call(y_axis_grid()
+				            .tickSize(-chart_width, 0, 0)
+				            .tickFormat('')
+				        );
+
+			//y axis label
+			d3.select('#graphic').select("#left").append("p")
+		                .attr('class', 'unit')
+		  		        .text(function(d,i) { return dvc2.essential.yAxisLabel;})
+						.style("text-align","right")
+						.style("color","grey")
+						.style("width","100%");
+
+					//create x axis, if y axis doesn't start at 0 drop x axis accordingly
+					svg2.append('g')
+				        .attr('class', 'x axis')
+				        .attr('transform', function(d){
+				        			if(yDomain[0] != 0){
+										return 'translate(0,' + (height + 30) + ')'
+									} else {
+										return 'translate(0,' + height  + ')'
+									}
+							})
+				        .call(xAxis);
+
+          // svg2.selectAll('.tick')
+          //   .attr('class', function(d,i) {return 'tick tick'+i})
+          //
+          // svg2.select('.tick18')
+          //   .style('display', 'none');
+
+
+
+				//create icon to symbolise break in y axis if required
+				if(yDomain[0] > 0 && dvc2.essential.yAxisBreak == true){
+					var paths = svg2.append("defs")
+								.append("g")
+								.attr("id","icon")
+								.append("g");
+
+							paths.append("polyline")
+								 .attr("points", "2.881,9.54 7.94,5.061 12.341,9.54 17.77,5.061")
+								 .attr("stroke", "#666")
+								 .attr("fill", "none")
+							paths.append("polyline")
+								.attr("points", "2.881,14.54 7.94,10.061 12.341,14.54 17.77,10.061")
+								.attr("stroke", "#666")
+								.attr("fill", "none");
+
+						//specify position of icon
+						svg2.append("g").attr("id","iconpath")
+								.attr("transform","translate(-10,3)")
+								.append("use")
+								.attr("xlink:href","#icon")
+								.attr("x", x(x.domain()[0]))
+								.attr("y", function(){
+									if (graphic.width() < threshold_sm) {
+										return y(dvc2.essential.yAxisBreak_sm_md_lg[0])
+									} else if (graphic.width() < threshold_md){
+										return y(dvc2.essential.yAxisBreak_sm_md_lg[1])
+									} else {
+										return y(dvc2.essential.yAxisBreak_sm_md_lg[2])
+									}
+								});
+				}
+
+				//create centre line if required
+				if (dvc2.optional.centre_line == true){
+					svg2.append("line")
+						.attr("id","centreline")
+						.attr('y1',y(dvc2.optional.centre_line_value))
+						.attr('y2',y(dvc2.optional.centre_line_value))
+						.attr('x1',0)
+						.attr('x2',chart_width);
+				} else if(yDomain[0] <0){
+					svg2.append("line")
+						.attr("id","centreline")
+						.attr('y1',y(0))
+						.attr('y2',y(0))
+						.attr('x1',0)
+						.attr('x2',chart_width);
+				}
+
+				//create lines
+			    svg2.append('g').selectAll('path')
+			        .data(d3.entries(lines))
+			        .enter()
+			        .append('path')
+			            .attr('class', function(d, i) {
+			                return 'line lineFirst line-' + i;
+			            })
+			            .attr('d', function(d) {
+			                return line(d.value);
+			            });
+
+                  // add markers
+          if (dvc2.optional.lineMarkers == true){
+            var j=0;
+            for (var column in graphic_data2[0]) {
+                  if (column == 'date') continue;
+                             svg2.append("g")
+                              .selectAll("circles")
+                              .data(graphic_data2) // raw data
+                              .enter()
+                              .append('circle')
+                              .style('fill', '#fff')
+                              .style('stroke','#0075A3')
+                              .style('stroke-width', 2)
+                              .style('display', function(d) {
+                                if(d[column] === "") {
+                                  return 'none'
+                                }
+                              })
+
+                              .attr("cx", function(d){
+                                            return x(d.date);
+                                          })
+                              .attr("cy", function(d){
+                                            return y(d[column]);
+                                          })
+                              .attr("r", 3)
+                            j++;
+                            }
+                          } // ends if
+
+
+
+			writeAnnotation2();
+
+			function writeAnnotation2(){
+
+						dvc2.essential.annotationChart.forEach(function(d,i) {
+							// draw annotation text based on content of var annotationArray ...
+							svg2.append("text")
+								.text(dvc2.essential.annotationChart[i])
+								.attr("class","annotext" + i)
+								.attr("text-anchor", dvc2.essential.annotationAlign[i])
+								.attr('y',y(dvc2.essential.annotationXY[i][1]))
+								.attr('x',x((new Date(dvc2.essential.annotationXY[i][0]))));
+
+							d3.select("#left").selectAll(".annotext" + (i))
+								.each(insertLinebreaks)
+								.each(createBackRect);
+
+
+							function insertLinebreaks() {
+
+								var str = this;
+
+								var el1 = dvc2.essential.annotationChart[i];
+								var el = el1.data;
+
+								var words = el.split('  ');
+
+								d3.select(this/*str*/).text('');
+
+								for (var j = 0; j < words.length; j++) {
+									var tspan = d3.select(this).append('tspan').text(words[j]);
+									if (j > 0)
+										tspan.attr('x', x(d3.timeFormat(dvc2.essential.dateFormat)(dvc2.essential.annotationXY[i][0]))).attr('dy', '22');
+								}
+							};
+
+							function createBackRect() {
+
+							var BBox = this.getBBox()
+
+									svg2.insert("rect", ".annotext" + (i))
+										.attr("width", BBox.width)
+										.attr("height", BBox.height)
+										.attr("x", BBox.x)
+										.attr("y", BBox.y)
+										.attr("fill", "white")
+										.attr("opacity", 0.4);
+
+							}; // end function createBackRect()
+
+
+							// draw circles, if var 'dvc.essential.circles' is set to true
+							if ( dvc2.essential.circles == true ) {
+
+								svg2.append("circle")
+									.attr("class", "annocirc" + (i))
+									.attr('cy',y(dvc2.essential.annotationCXCY[i][1]))
+									.attr('cx',x(new Date(dvc2.essential.annotationCXCY[i][0])))
+									.attr("r", "3");
+
+							} // end if ...
+
+						});	// end foreach
+
+
+
+				return;
+
+			}// end function writeAnnotation()
+
+			//create link to source
+			d3.select(".footer").append("p")
+				.text("Source: Police recorded crime, Home Office")
+				// .append("a")
+				// .attr("href", dvc2.essential.sourceURL)
+				// .attr("target", "_blank")
+				// .html(dvc2.essential.sourceText);
+
+			//use pym to calculate chart dimensions
+		    if (pymChild) {
+		        pymChild.sendHeight();
+		    }
+		}
+
+		//check whether browser can cope with svg
+		if (Modernizr.svg) {
+
+   		loadData();
+
+
+      function loadData() {
+        //load config
+       d3.json("config.json", function(error, config) {
+       dvc=config
+
+         //load chart data
+         d3.csv(dvc.essential.graphic_data_url, function(error, data) {
+           graphic_data = data;
+           graphic_data.forEach(function(d) {
+             d.date = d3.timeParse(dvc.essential.dateFormat)(d.date);
+
+             if (d.female === 'null') {
+               d.female = null;
+             }
+             if (d.male === 'null') {
+               d.male = null;
+             }
+
+           });
+
+           //use pym to create iframed chart dependent on specified variables
+
+		        d3.json("config2.json", function(error, config) {
+			   dvc2=config
+
+				 //load chart data
+				 d3.csv(dvc2.essential.graphic_data_url, function(error, data) {
+				   graphic_data2 = data;
+				   graphic_data2.forEach(function(d) {
+					 d.date = d3.timeParse(dvc2.essential.dateFormat)(d.date);
+					 if (d.female === 'null') {
+					   d.female = null;
+					 }
+					 if (d.male === 'null') {
+					   d.male = null;
+					 }
+
+					 });
+					 pymChild = new pym.Child({ renderCallback: drawGraphic});
+					 //use pym to create iframed chart dependent on specified variables
+				   });
+			   })
+
+         });
+       })
+
+      }
+
+
+
+		} else {
+			 //use pym to create iframe containing fallback image (which is set as default)
+			 pymChild = new pym.Child();
+			if (pymChild) {
+		        pymChild.sendHeight();
+		    }
+		}
+    </script>
+</body>
+</html>

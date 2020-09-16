@@ -1,0 +1,224 @@
+id,parentId,name,size,realsize,percent,level
+World,NULL,World,112031.1169,112031.1169,null,0
+Non_EU,World,Non-EU,20858.58585,20858.58585,null,1
+EU,World,EU,10394.39112,10394.39112,null,1
+British,World,British,76501.96242,76501.96242,null,1
+Unknown,World,Unknown,4276.17753,4276.17753,null,1
+Asia,Non_EU,Asia,14589.7979,14589.7979,null,2
+Rest_of_the_World,Non_EU,Rest of the World,5928,5928,null,2
+Other_Europe,Non_EU,Other Europe,340.74891,340.74891,null,2
+EU15,EU,EU15,7532.63013,7532.63013,null,2
+EU2,EU,EU2,942.5736,942.5736,null,2
+OTHER_EU,EU,OTHER EU,483.30504,483.30504,null,2
+EU8,EU,EU8,1435.88235,1435.88235,null,2
+Middle_East_and_Central_Asia,Asia,Middle East and Central Asia,899.45674,899.45674,null,3
+South_Asia,Asia,South Asia,11024.09861,11024.09861,null,3
+South_East_Asia,Asia,South East Asia,2335.18552,2335.18552,null,3
+East_Asia,Asia,East Asia,331.05703,331.05703,null,3
+North_Africa,Rest_of_the_World,North Africa,1689.21318,1689.21318,null,3
+North_America,Rest_of_the_World,North America,526.339,526.339,null,3
+Sub_Saharan_Africa,Rest_of_the_World,Sub-Saharan Africa,2831.32033,2831.32033,null,3
+Central_and_South_America,Rest_of_the_World,Central and South America,420.68235,420.68235,null,3
+Oceania,Rest_of_the_World,Oceania,460.48418,460.48418,null,3
+Albanian,Other_Europe,Albanian,13.7,13.7,null,3
+Armenian,Other_Europe,Armenian,2,2,null,3
+Azerbaijani,Other_Europe,Azerbaijani,6,6,null,3
+Belarusian,Other_Europe,Belarusian,9.8,9.8,null,3
+Bosnian,Other_Europe,Bosnian,4,4,null,3
+Georgian,Other_Europe,Georgian,5,5,null,3
+Icelandic,Other_Europe,Icelandic,10.75,10.75,null,3
+Macedonian,Other_Europe,Macedonian,6.5,6.5,null,3
+Moldovan,Other_Europe,Moldovan,2,2,null,3
+Montenegrin,Other_Europe,Montenegrin,1,1,null,3
+Norwegian,Other_Europe,Norwegian,40.99432,40.99432,null,3
+Russian,Other_Europe,Russian,64.7725,64.7725,null,3
+Serbian,Other_Europe,Serbian,19.85284,19.85284,null,3
+Swiss,Other_Europe,Swiss,69.01675,69.01675,null,3
+Turkish,Other_Europe,Turkish,52.85,52.85,null,3
+Ukrainian,Other_Europe,Ukrainian,32.5125,32.5125,null,3
+Austrian,EU15,Austrian,65.79144,65.79144,null,3
+Belgian,EU15,Belgian,104.95273,104.95273,null,3
+Danish,EU15,Danish,61.17747,61.17747,null,3
+Dutch,EU15,Dutch,376.14862,376.14862,null,3
+Faroese,EU15,Faroese,1,1,null,3
+Finnish,EU15,Finnish,32.725,32.725,null,3
+French,EU15,French,254.11484,254.11484,null,3
+French_Guianese,EU15,French Guianese,0,0,null,3
+French_Polynesian,EU15,French Polynesian,0,0,null,3
+German,EU15,German,827.48916,827.48916,null,3
+Greek,EU15,Greek,1669.5774,1669.5774,null,3
+Guadeloupian,EU15,Guadeloupian,0,0,null,3
+Irish,EU15,Irish,2106.9512,2106.9512,null,3
+Italian,EU15,Italian,988.39804,988.39804,null,3
+Luxembourg,EU15,Luxembourg,1,1,null,3
+Mahoran,EU15,Mahoran,1,1,null,3
+Martiniquais,EU15,Martiniquais,1,1,null,3
+Portuguese,EU15,Portuguese,294.31407,294.31407,null,3
+Reunionese,EU15,Reunionese,0,0,null,3
+Spanish,EU15,Spanish,611.15986,611.15986,null,3
+Swedish,EU15,Swedish,135.8303,135.8303,null,3
+Bulgarian,EU2,Bulgarian,197.325,197.325,null,3
+Romanian,EU2,Romanian,745.2486,745.2486,null,3
+Croatian,OTHER_EU,Croatian,63.4758,63.4758,null,3
+Cypriot,OTHER_EU,Cypriot,221.41784,221.41784,null,3
+Maltese,OTHER_EU,Maltese,198.4114,198.4114,null,3
+Czech,EU8,Czech,144.46618,144.46618,null,3
+Estonian,EU8,Estonian,24.39375,24.39375,null,3
+Hungarian,EU8,Hungarian,339.12235,339.12235,null,3
+Latvian,EU8,Latvian,55.55,55.55,null,3
+Lithuanian,EU8,Lithuanian,127.713,127.713,null,3
+Polish,EU8,Polish,599.68207,599.68207,null,3
+Slovak,EU8,Slovak,102.67875,102.67875,null,3
+Slovenian,EU8,Slovenian,42.27625,42.27625,null,3
+Afghan,Middle_East_and_Central_Asia,Afghan,24.45,24.45,null,4
+Bahraini,Middle_East_and_Central_Asia,Bahraini,28,28,null,4
+Emirati,Middle_East_and_Central_Asia,Emirati,4,4,null,4
+Iranian,Middle_East_and_Central_Asia,Iranian,110.88136,110.88136,null,4
+Iraqi,Middle_East_and_Central_Asia,Iraqi,279.88125,279.88125,null,4
+Israeli,Middle_East_and_Central_Asia,Israeli,24.95,24.95,null,4
+Jordanian,Middle_East_and_Central_Asia,Jordanian,151.4,151.4,null,4
+Kazakhstani,Middle_East_and_Central_Asia,Kazakhstani,4,4,null,4
+Kuwaiti,Middle_East_and_Central_Asia,Kuwaiti,15,15,null,4
+Kyrgyzstani,Middle_East_and_Central_Asia,Kyrgyzstani,0,0,null,4
+Lebanese,Middle_East_and_Central_Asia,Lebanese,41.4,41.4,null,4
+Omani,Middle_East_and_Central_Asia,Omani,14,14,null,4
+Palestinian,Middle_East_and_Central_Asia,Palestinian,22.7,22.7,null,4
+Qatari,Middle_East_and_Central_Asia,Qatari,1,1,null,4
+Saudi_Arabian,Middle_East_and_Central_Asia,Saudi Arabian,24.9375,24.9375,null,4
+Syrian,Middle_East_and_Central_Asia,Syrian,128.25163,128.25163,null,4
+Tajikistani,Middle_East_and_Central_Asia,Tajikistani,0,0,null,4
+Turkmen,Middle_East_and_Central_Asia,Turkmen,0,0,null,4
+Uzbekistani,Middle_East_and_Central_Asia,Uzbekistani,9.605,9.605,null,4
+Yemeni,Middle_East_and_Central_Asia,Yemeni,15,15,null,4
+Bangladeshi,South_Asia,Bangladeshi,323.52805,323.52805,null,4
+Bhutanese,South_Asia,Bhutanese,1,1,null,4
+Indian,South_Asia,Indian,6918.58583,6918.58583,null,4
+Maldivian,South_Asia,Maldivian,20.6375,20.6375,null,4
+Nepalese,South_Asia,Nepalese,161.95625,161.95625,null,4
+Pakistani,South_Asia,Pakistani,2804.97574,2804.97574,null,4
+Sri_Lankan,South_Asia,Sri Lankan,793.41524,793.41524,null,4
+Bruneian,South_East_Asia,Bruneian,43.875,43.875,null,4
+Burmese,South_East_Asia,Burmese,323.72614,323.72614,null,4
+Cambodian,South_East_Asia,Cambodian,1,1,null,4
+Filipino,South_East_Asia,Filipino,45.7,45.7,null,4
+Indonesian,South_East_Asia,Indonesian,24,24,null,4
+Laotian,South_East_Asia,Laotian,0,0,null,4
+Malaysian,South_East_Asia,Malaysian,1604.47183,1604.47183,null,4
+Philippine,South_East_Asia,Philippine,0,0,null,4
+Singaporean,South_East_Asia,Singaporean,255.71255,255.71255,null,4
+Thai,South_East_Asia,Thai,27,27,null,4
+Timorese,South_East_Asia,Timorese,0,0,null,4
+Vietnamese,South_East_Asia,Vietnamese,9.7,9.7,null,4
+Chinese,East_Asia,Chinese,167.37883,167.37883,null,4
+Hong_Kong_(British/Chinese),East_Asia,Hong Kong (British/Chinese),34,34,null,4
+Japanese,East_Asia,Japanese,62.32045,62.32045,null,4
+Korean,East_Asia,Korean,21.35775,21.35775,null,4
+Mongolian,East_Asia,Mongolian,1,1,null,4
+North_Korean,East_Asia,North Korean,0,0,null,4
+South_Korean,East_Asia,South Korean,31,31,null,4
+Taiwanese,East_Asia,Taiwanese,14,14,null,4
+Algerian,North_Africa,Algerian,9.66875,9.66875,null,4
+Egyptian,North_Africa,Egyptian,1510.41568,1510.41568,null,4
+Libyan,North_Africa,Libyan,135.875,135.875,null,4
+Mauritanian,North_Africa,Mauritanian,21.675,21.675,null,4
+Moroccan,North_Africa,Moroccan,3,3,null,4
+Sahrawian,North_Africa,Sahrawian,1,1,null,4
+Tunisian,North_Africa,Tunisian,7.57875,7.57875,null,4
+American,North_America,American,165.1965,165.1965,null,4
+American_Samoan,North_America,American Samoan,0,0,null,4
+Canadian,North_America,Canadian,361.1425,361.1425,null,4
+Guam,North_America,Guam,0,0,null,4
+Puerto_Rican,North_America,Puerto Rican,0,0,null,4
+Angolan,Sub_Saharan_Africa,Angolan,0,0,null,4
+Basotho,Sub_Saharan_Africa,Basotho,0,0,null,4
+Beninese,Sub_Saharan_Africa,Beninese,1,1,null,4
+Burkinabe,Sub_Saharan_Africa,Burkinabe,0,0,null,4
+Burundi,Sub_Saharan_Africa,Burundi,2,2,null,4
+Cameroonian,Sub_Saharan_Africa,Cameroonian,14.9,14.9,null,4
+Cape_Verdean,Sub_Saharan_Africa,Cape Verdean,0,0,null,4
+Central_African,Sub_Saharan_Africa,Central African,6,6,null,4
+Chadian,Sub_Saharan_Africa,Chadian,1,1,null,4
+Comoran,Sub_Saharan_Africa,Comoran,0,0,null,4
+Congolese,Sub_Saharan_Africa,Congolese,2,2,null,4
+Djiboutian,Sub_Saharan_Africa,Djiboutian,0,0,null,4
+Equatorial_Guinean,Sub_Saharan_Africa,Equatorial Guinean,0,0,null,4
+Eritrean,Sub_Saharan_Africa,Eritrean,2,2,null,4
+Ethiopian,Sub_Saharan_Africa,Ethiopian,4,4,null,4
+Gabonese,Sub_Saharan_Africa,Gabonese,0,0,null,4
+Gambian,Sub_Saharan_Africa,Gambian,7.8,7.8,null,4
+Ghanaian,Sub_Saharan_Africa,Ghanaian,99.6125,99.6125,null,4
+Guinean,Sub_Saharan_Africa,Guinean,0,0,null,4
+Ivorian,Sub_Saharan_Africa,Ivorian,0,0,null,4
+Kenyan,Sub_Saharan_Africa,Kenyan,86.4,86.4,null,4
+Liberian,Sub_Saharan_Africa,Liberian,1,1,null,4
+Malagasy,Sub_Saharan_Africa,Malagasy,1,1,null,4
+Malawian,Sub_Saharan_Africa,Malawian,20.4,20.4,null,4
+Malian,Sub_Saharan_Africa,Malian,1,1,null,4
+Mauritian,Sub_Saharan_Africa,Mauritian,116.80512,116.80512,null,4
+Motswana,Sub_Saharan_Africa,Motswana,11.572,11.572,null,4
+Mozambican,Sub_Saharan_Africa,Mozambican,0,0,null,4
+Namibian,Sub_Saharan_Africa,Namibian,2,2,null,4
+Nigerian,Sub_Saharan_Africa,Nigerian,1390.69541,1390.69541,null,4
+Nigerien,Sub_Saharan_Africa,Nigerien,72.05,72.05,null,4
+Rwandan,Sub_Saharan_Africa,Rwandan,3,3,null,4
+Senegalese,Sub_Saharan_Africa,Senegalese,1,1,null,4
+Seychellois,Sub_Saharan_Africa,Seychellois,1,1,null,4
+Sierra_Leonean,Sub_Saharan_Africa,Sierra Leonean,8,8,null,4
+Somali,Sub_Saharan_Africa,Somali,4,4,null,4
+South_African,Sub_Saharan_Africa,South African,283.6062,283.6062,null,4
+Sudanese,Sub_Saharan_Africa,Sudanese,539.795,539.795,null,4
+Swazi,Sub_Saharan_Africa,Swazi,1,1,null,4
+Tanzanian,Sub_Saharan_Africa,Tanzanian,17.425,17.425,null,4
+Togolese,Sub_Saharan_Africa,Togolese,0,0,null,4
+Tongan,Sub_Saharan_Africa,Tongan,1,1,null,4
+Ugandan,Sub_Saharan_Africa,Ugandan,24.5591,24.5591,null,4
+Zambian,Sub_Saharan_Africa,Zambian,22.3,22.3,null,4
+Zimbabwean,Sub_Saharan_Africa,Zimbabwean,81.4,81.4,null,4
+Antiguan,Central_and_South_America,Antiguan,3,3,null,4
+Argentine,Central_and_South_America,Argentine,9.5,9.5,null,4
+Aruban,Central_and_South_America,Aruban,0,0,null,4
+Bahamian,Central_and_South_America,Bahamian,5,5,null,4
+Barbadian,Central_and_South_America,Barbadian,33.639,33.639,null,4
+Barbudan,Central_and_South_America,Barbudan,0,0,null,4
+Belizean,Central_and_South_America,Belizean,1,1,null,4
+Bolivian,Central_and_South_America,Bolivian,1,1,null,4
+Brazilian,Central_and_South_America,Brazilian,38.0625,38.0625,null,4
+Chilean,Central_and_South_America,Chilean,9.8,9.8,null,4
+Colombian,Central_and_South_America,Colombian,22.5121,22.5121,null,4
+Costa_Rican,Central_and_South_America,Costa Rican,2,2,null,4
+Cuban,Central_and_South_America,Cuban,1,1,null,4
+Dominican,Central_and_South_America,Dominican,3,3,null,4
+Dutch_Antillean,Central_and_South_America,Dutch Antillean,1,1,null,4
+Ecuadorian,Central_and_South_America,Ecuadorian,2,2,null,4
+Grenadian,Central_and_South_America,Grenadian,4,4,null,4
+Guatemalan,Central_and_South_America,Guatemalan,2.6,2.6,null,4
+Guyanese,Central_and_South_America,Guyanese,8.6,8.6,null,4
+Haitian,Central_and_South_America,Haitian,0,0,null,4
+Honduran,Central_and_South_America,Honduran,2,2,null,4
+Jamaican,Central_and_South_America,Jamaican,47.05,47.05,null,4
+Kittitian,Central_and_South_America,Kittitian,1,1,null,4
+Mexican,Central_and_South_America,Mexican,23.3375,23.3375,null,4
+Nicaraguan,Central_and_South_America,Nicaraguan,0.4,0.4,null,4
+Panamanian,Central_and_South_America,Panamanian,0,0,null,4
+Paraguayan,Central_and_South_America,Paraguayan,2,2,null,4
+Peruvian,Central_and_South_America,Peruvian,9.1625,9.1625,null,4
+Saint_Lucian,Central_and_South_America,Saint Lucian,7,7,null,4
+Saint_Vincentian,Central_and_South_America,Saint Vincentian,4,4,null,4
+Salvadoran,Central_and_South_America,Salvadoran,2,2,null,4
+Surinamese,Central_and_South_America,Surinamese,0,0,null,4
+Tobagonian,Central_and_South_America,Tobagonian,3.925,3.925,null,4
+Trinidadian,Central_and_South_America,Trinidadian,153.0875,153.0875,null,4
+Uruguayan,Central_and_South_America,Uruguayan,1,1,null,4
+Venezuelan,Central_and_South_America,Venezuelan,17.00625,17.00625,null,4
+Australian,Oceania,Australian,347.52151,347.52151,null,4
+Fijian,Oceania,Fijian,2,2,null,4
+Kosrae,Oceania,Kosrae,1,1,null,4
+New_Zealander,Oceania,New Zealander,108.20567,108.20567,null,4
+Ni_Vanuatu,Oceania,Ni-Vanuatu,0,0,null,4
+Norfolk_Islander,Oceania,Norfolk Islander,0,0,null,4
+Palauan,Oceania,Palauan,0,0,null,4
+Papua_New_Guinean,Oceania,Papua New Guinean,0,0,null,4
+Pohnpeian,Oceania,Pohnpeian,0,0,null,4
+Samoan,Oceania,Samoan,1,1,null,4
+Trukese,Oceania,Trukese,0,0,null,4
+Tuvaluan,Oceania,Tuvaluan,0.757,0.757,null,4

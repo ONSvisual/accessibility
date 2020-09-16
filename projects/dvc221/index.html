@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>How long will your pension pot need to last?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/styles.css" media="screen">
+  <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css">
+
+  <style type="text/css">
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      y vertical-align: baseline;
+    }
+
+    body {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    #picto {
+      margin-bottom: 20px;
+      border-bottom: 1px solid;
+      border-color: #d8dadb;
+
+    }
+
+    .large {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      display: inline-block;
+      cursor: pointer;
+      height: 40px;
+      padding: 0 32px 0 32px;
+      border: 0 none;
+      text-align: center;
+      -webkit-appearance: none;
+      transition: background-color 0.25s ease-out;
+      text-decoration: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+    /* Disabled button */
+    #submitButton {
+      cursor: not-allowed;
+    }
+
+    .btn-disabled {
+      background-color: #003C57;
+      opacity: 0.7;
+      /*cursor: not-allowed;*/
+      background-color: #206095;
+      color: #fff;
+      pointer-events: none;
+    }
+
+    /* Disabled button */
+
+    .btn-disabled:focus {
+      outline: none;
+    }
+
+
+    .container-fluid {
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+
+
+    .oneinfour {
+      width: 20px;
+      border-radius: 10px;
+      float: left;
+      margin-top: 12px;
+      background-color: #008080;
+      height: 20px;
+    }
+
+    .oneinten {
+      width: 20px;
+      border-radius: 10px;
+      float: left;
+      margin-top: 12px;
+      background-color: #095674;
+      height: 20px;
+    }
+
+    .onehundred {
+      width: 20px;
+      border-radius: 10px;
+      float: left;
+      margin-top: 12px;
+      background-color: #236092;
+      height: 20px;
+    }
+
+
+    .valuet {
+      /*padding:10px 10px 0px 10px;*/
+      padding: 25px 10px 10px 0px;
+      color: #007F7F;
+      width:
+        /*50px*/
+        100%;
+      text-align: left;
+    }
+
+
+    .labels {
+      /*
+			height:125px;*/
+      height: 100px;
+      text-align: left;
+
+    }
+
+
+    /* Bootstrap Grid */
+
+    .col-xs-1p,
+    .col-xs-2p,
+    .col-xs-3p,
+    .col-xs-4p,
+    .col-xs-5p,
+    .col-xs-6p,
+    .col-xs-7p,
+    .col-xs-8p,
+    .col-xs-9p,
+    .col-xs-10p,
+    .col-xs-11p,
+    .col-xs-12p {
+      float: left;
+      padding: 0px;
+    }
+
+    .col-xs-12p {
+      width: 100%;
+    }
+
+
+
+
+    @media (min-width: 768px) {
+      .col-sm-1p,
+      .col-sm-2p,
+      .col-sm-3p,
+      .col-sm-4p,
+      .col-sm-5p,
+      .col-sm-6p,
+      .col-sm-7p,
+      .col-sm-8p,
+      .col-sm-9p,
+      .col-sm-10p,
+      .col-sm-11p,
+      .col-sm-12p {
+        float: left;
+        padding: 0px;
+
+      }
+
+      .col-sm-12p {
+        width: 100%;
+      }
+
+      .col-sm-4p {
+        width: 33.33333333%;
+      }
+
+
+    }
+
+
+
+
+    @media (max-width: 400px) {
+
+      .large {
+        font-family: 'Open Sans', Arial, sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        display: inline-block;
+        cursor: pointer;
+        height: 40px;
+        padding: 0 10px 0 10px;
+        border: 0 none;
+        text-align: center;
+        -webkit-appearance: none;
+        transition: background-color 0.25s ease-out;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+      }
+
+
+      #pictoActualLabel,
+      #pictoNatLabel,
+      #pictoGuessLabel {
+        padding-top: 10px;
+      }
+
+      .doublepica {
+        font-size: 20px;
+        line-height: 24px;
+
+      }
+
+      .trafalger {
+        font-size: 16px;
+        line-height: 0px;
+        margin-left: 38px;
+        margin-top: -9px;
+        color: #728893;
+        float: left;
+      }
+
+      #LE {
+
+        font-size: 40px;
+        font-weight: 700;
+        color: #fff;
+        vertical-align: middle;
+        text-align: left;
+      }
+
+      .static {
+        color: #4f4f4f;
+        font-weight: 700;
+        font-size: 16px;
+      }
+
+      .sub_static {
+        width: calc(100% - 25px);
+        float: right;
+        color: #4f4f4f;
+        font-size: 16px;
+        color: #323132;
+        padding: 0px 10px 5px 10px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+
+      .caveat {
+
+        color: #236092;
+        font-size: 16px;
+      }
+
+      #pictoText {
+        padding-top: 10px;
+        background-color: #fff;
+        padding-bottom: 10px;
+      }
+
+      #pictoActualLabel {
+        font-size: 0.8em;
+      }
+
+      #pictoActualValue {
+        font-size: 25px;
+        font-weight: 700;
+        color: #159191;
+      }
+
+      .spanClass {
+        font-size: 0.6em;
+      }
+
+      #pictoNatLabel {
+        font-size: 0.8em;
+      }
+
+      #pictoNatValue {
+
+        font-size: 25px;
+        font-weight: 700;
+        color: #095674;
+      }
+
+      #OneInFourLabel {
+
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
+
+      #OneInTenLabel {
+
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
+
+      #idYourSPA {
+        display: none;
+      }
+    }
+
+
+    @media (min-width: 401px) {
+      #pictoActualLabel,
+      #pictoNatLabel,
+      #pictoGuessLabel {
+        padding-top: 10px;
+      }
+
+      .doublepica {
+        font-size: 14px;
+        line-height: 24px;
+      }
+
+      .trafalger {
+        font-size: 14px;
+        line-height: 0px;
+        margin-left: 38px;
+        margin-top: -9px;
+        color: #728893;
+        float: left;
+      }
+
+
+      #LE {
+
+        font-size: 40px;
+        font-weight: 700;
+        color: #fff;
+        vertical-align: middle;
+        text-align: left;
+      }
+
+      .static {
+        color: #4f4f4f;
+        font-weight: 700;
+        font-size: 20px;
+        ;
+      }
+
+      .sub_static {
+        width: calc(100% - 25px);
+        float: right;
+        color: #4f4f4f;
+        font-size: 16px;
+        color: #323132;
+        padding: 0px 10px 5px 10px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+
+      .caveat {
+
+        color: #236092;
+        font-size: 20px;
+      }
+
+      #pictoText {
+        padding-top: 10px;
+        background-color: #fff;
+        padding-bottom: 10px;
+      }
+
+      #pictoGuessLabel {
+
+        font-size: 0.8em;
+      }
+
+      #pictoActualLabel {
+        font-size: 0.8em;
+      }
+
+      #pictoActualValue {
+        font-size: 40px;
+        font-weight: 700;
+        color: #159191;
+      }
+
+      .spanClass {
+        font-size: 0.6em;
+      }
+
+      #pictoNatLabel {
+
+        font-size: 0.8em;
+      }
+
+      #pictoNatValue {
+
+        font-size: 40px;
+        font-weight: 700;
+        color: #095674;
+      }
+
+      #pictoStatic {
+
+        font-size: 40px;
+        font-weight: 700;
+        color: #236092;
+      }
+
+      #OneInFourLabel {
+
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
+
+      #OneInTenLabel {
+
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
+
+      #idYourSPA {
+        display: none;
+      }
+
+    }
+
+    @media (min-width: 700px) {
+      #pictoActualLabel,
+      #pictoNatLabel,
+      #pictoGuessLabel {
+        padding-top: 10px;
+      }
+
+      .doublepica {
+        font-size: 20px;
+        line-height: 24px;
+      }
+
+      .trafalger {
+        font-size: 18px;
+        line-height: 0px;
+        margin-left: 38px;
+        margin-top: -9px;
+        color: #728893;
+        float: left;
+      }
+
+      #LE {
+        font-size: 40px;
+        font-weight: 700;
+        color: #fff;
+        vertical-align: middle;
+        text-align: left;
+      }
+
+      .static {
+        color: #4f4f4f;
+        font-weight: 700;
+        font-size: 20px;
+        ;
+      }
+
+      .sub_static {
+        width: calc(100% - 25px);
+        float: right;
+        color: #4f4f4f;
+        font-size: 16px;
+        color: #323132;
+        padding: 0px 10px 5px 10px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+
+      .caveat {
+
+        color: #236092;
+        font-size: 20px;
+      }
+
+      #pictoText {
+        padding-top: 10px;
+        background-color: #fff;
+        padding-bottom: 10px;
+      }
+
+      #pictoGuessLabel {
+        font-size: 0.8em;
+      }
+
+      #pictoActualLabel {
+        font-size: 0.8em;
+      }
+
+      #pictoActualValue {
+        font-size: 40px;
+        font-weight: 700;
+        color: #159191;
+      }
+
+      .spanClass {
+        font-size: 0.6em;
+      }
+
+      #pictoNatLabel {
+        font-size: 0.8em;
+      }
+
+      #pictoNatValue {
+        font-size: 40px;
+        font-weight: 700;
+        color: #095674;
+      }
+
+      #pictoStatic {
+        font-size: 40px;
+        font-weight: 700;
+        color: #236092;
+      }
+
+      #OneInFourLabel {
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
+
+      #OneInTenLabel {
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
+
+      #idYourSPA {
+        display: none;
+      }
+
+    }
+
+
+    @media screen and (min-width: 768px) {
+      #pictoActualLabel,
+      #pictoNatLabel,
+      #pictoGuessLabel {
+        padding-top: 0px;
+      }
+
+      .doublepica {
+        font-size: 14px;
+        line-height: 24px;
+      }
+
+      .trafalger {
+        font-size: 14px;
+        line-height: 0px;
+        margin-left: 38px;
+        margin-top: -9px;
+        color: #728893;
+        float: left;
+      }
+
+      #LE {
+
+        font-size: 40px;
+        font-weight: 700;
+        color: #fff;
+        vertical-align: middle;
+        text-align: left;
+      }
+
+
+
+      .static {
+        color: #4f4f4f;
+        font-weight: 700;
+        font-size: 20px;
+        ;
+      }
+
+      .sub_static {
+        width: calc(100% - 25px);
+        float: right;
+        color: #4f4f4f;
+        font-size: 16px;
+        color: #323132;
+        padding: 0px 10px 5px 10px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+
+      .caveat {
+
+        color: #236092;
+        font-size: 20px;
+      }
+
+      #pictoText {
+        padding-top: 10px;
+        background-color: #fff;
+        padding-bottom: 10px;
+      }
+
+      #pictoGuessLabel {
+
+        font-size: 0.8em;
+      }
+
+
+      #pictoActualLabel {
+
+        font-size: 0.8em;
+      }
+
+      #pictoActualValue {
+
+        font-size: 40px;
+        font-weight: 700;
+        color: #159191;
+      }
+
+
+      .spanClass {
+        font-size: 0.6em;
+      }
+
+      #pictoNatLabel {
+        font-size: 0.8em;
+      }
+
+      #pictoNatValue {
+
+        font-size: 40px;
+        font-weight: 700;
+        color: #095674;
+      }
+
+      #pictoStatic {
+
+        font-size: 40px;
+        font-weight: 700;
+        color: #236092;
+      }
+
+      #OneInFourLabel {
+
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
+
+      #OneInTenLabel {
+
+        font-size: 16px;
+        color: #323132;
+        display: inline;
+      }
+
+      #idYourSPA {
+        display: inline;
+      }
+    }
+
+
+
+    /* base styles */
+    html {
+      -webkit-text-size-adjust: none;
+      /* prevent font scaling in landscape */
+    }
+
+
+
+    body {
+      margin: 0;
+      padding: 0%;
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    }
+
+    .axis path {
+      fill: none;
+    }
+
+    .axis line {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 0.1%
+    }
+
+    .tick text {
+
+      font-size: 30px;
+      fill: #323132;
+      x: -6;
+    }
+
+    .labels {
+      text-anchor: middle;
+      font-size: 18px;
+    }
+
+
+    body {
+      font-size: 8px;
+      color: #323132;
+    }
+
+
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: none;
+      shape-rendering: crispEdges;
+    }
+
+
+
+    .x.axis path {
+      display: inline;
+      fill: none;
+      stroke: black;
+      stroke-width: 0.0em;
+    }
+
+
+
+    #probabilityLine {
+      fill: none;
+      stroke-width: 4px;
+    }
+
+
+    .axis text {
+      font-weight: normal;
+      font-size: 1.1em;
+      fill: #333;
+      text-align: right;
+    }
+
+
+
+    .vertLines,
+    .horiLines {
+      stroke-width: 3px;
+    }
+
+    #LELine,
+    #LegendLELine {
+      stroke:
+        /*#F39200*/
+        #236092;
+      fill:
+        /*#F39200*/
+        #236092;
+      stroke-width: 3px;
+    }
+
+    .tick text {
+
+      font-size: 16px;
+      fill: #323132;
+    }
+
+
+
+    #xAxisTitle,
+    #yAxisTitle {
+
+      font-size: 16px;
+    }
+
+    /* y-axis horizontal gridlines */
+    .axis.y .tick line {
+      stroke-width: 1px;
+      stroke: #CCC;
+      stroke-opacity: 0.33;
+    }
+
+
+    .axis.x .tick line {
+      stroke-width: 1px;
+      stroke: #323132;
+      stroke-opacity: 1.0;
+    }
+
+
+
+    .graphText,
+    .legendText {
+
+      font-size: 16px;
+      fill:
+        /*#323132*/
+        #0581c9;
+    }
+
+
+
+    .graphSubText {
+
+      font-size: 16px;
+      fill: #236092;
+    }
+
+    .graphSubText1 {
+
+      font-size: 16px;
+      fill: #121212;
+    }
+
+    #centreline {
+      stroke: #323132;
+      stroke-width: 1px;
+    }
+
+    .area {
+      stroke-width: 0;
+    }
+
+
+    #currentAge {
+      width: 50px;
+    }
+
+
+    .left {
+      text-align: center;
+      width: 100%;
+      font-size: 18px;
+      color: #728893;
+    }
+
+    #twitter {
+      width: 30px;
+      height: 30px;
+    }
+
+    #introLine1 {
+      padding: 5px 10px 0px 0px;
+      color: #fff;
+      text-align: left;
+    }
+
+    #introLine4 {
+      padding-top: 25px;
+      padding-left: 15px;
+      background-color: #fff;
+      font-weight: 700;
+    }
+
+    #LEDiv {
+      background-color: #206095;
+      color: #fff;
+      line-height: 38px;
+      padding: 5px;
+      padding-left: 15px;
+      padding-bottom: 20px;
+      margin-top: 25px;
+
+    }
+
+    #LEDiv3 {
+      background-color: white;
+      line-height: 38px;
+    }
+
+    .borderbox {
+      /* border: 2px solid #1B5F97; */
+      padding-left: 0px;
+      padding-right: 0px;
+      display: flex;
+      align-items: center;
+      width: 140px;
+      float: none;
+    }
+
+    .cell {
+      padding:0 4px;
+      margin: 0 4px;
+      height: 37px;
+      border: 2px solid #1B5F97;
+    }
+
+    div.cell:focus-within{
+      box-shadow: 0 0 0 3px orange;
+    }
+
+    .borderbox button {
+      width: 42px;
+      height: 37px;
+      background-color: #1B5F97;
+      color: #fff;
+      border: 2px solid #1B5F97;
+      box-sizing: border-box;
+      font-size: 23px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .typenumber {
+      width: 61.5%;
+      height: 29.5px;
+      border: solid transparent;
+      box-sizing: border-box;
+      text-align: center;
+      color: #1B5F97;
+      z-index: -1;
+      font-size: 16px;
+      margin-left: 2px;
+    }
+
+    /* .typenumber:focus{
+      box-shadow: 0 0 0 3px orange;
+
+    } */
+
+
+    button#plus.plus {
+      padding-left: 5px;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /*Button styling*/
+    .btn {
+      position: relative;
+      color: #fff;
+      text-rendering: optimizeLegibility;
+      transition: background-color .2s ease-in, color .2s ease-in;
+      font-family: "Open Sans", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      display: inline-block;
+      width: auto;
+      cursor: pointer;
+      text-align: center;
+      -webkit-appearance: none;
+      transition: background-color 0.25s ease-out;
+      text-decoration: none;
+      line-height: 24px;
+      display: inline-block;
+      padding: 4px 12px;
+      margin-bottom: 0;
+      line-height: 1.42857143;
+      white-space: nowrap;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-image: none;
+      border: 1px solid transparent;
+      border-radius: 0px;
+    }
+
+    .btn-primary{
+      background-color: #206095;
+    }
+    .btn-primary:hover{
+      background-color: #164469;
+    }
+
+    .btn--select {
+      color: #206095;
+      border: 2px solid #206095;
+      margin-right: 4px;
+      /* margin-right: 15px; */
+      transition: all ease .2s;
+      /* border-radius: 30px !important; */
+    }
+
+    .selected {
+      background-color: #206095;
+      color: white !important;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      -webkit-appearance: none;
+      appearance: none;
+      display: none;
+    }
+
+    select::-ms-expand {
+      display: none;
+    }
+
+    input,
+    select {
+      font-family: "Open Sans", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .btn:active,
+    .btn.active {
+      -webkit-box-shadow: none;
+      box-shadow: 0 0 0pt 3pt orange;
+    }
+
+    .btn--select:hover {
+      box-shadow: 0 0 0pt 3pt orange;
+    }
+
+    .btn--select:active,
+    .btn--select.active {
+      color: white;
+      background-color: #206095;
+    }
+
+    .btn:focus,
+    .btn.focus,.btn:hover {
+      outline: none;
+      box-shadow: 0px 0px 0 3px #f93;
+      color: #206095;
+      outline-offset: 0px;
+    }
+
+    button:focus {
+      outline: 3px solid #f93;
+      box-shadow: 0 0 0 3px orange;
+    }
+
+    .bold {
+      font-weight: 700;
+      color: #206595;
+      font-size: 20px;
+    }
+
+
+
+    legend {
+      font-size: 20px;
+      font-weight: bold;
+      color: #206595;
+      margin-bottom: 10px;
+    }
+
+    /*Social stuff*/
+
+    /* social media buttons */
+
+    .social-btns {
+      padding-top: 15px;
+      width: 175px;
+      margin: 0 auto;
+      float: none !important;
+    }
+
+    .social-btn {
+      width: 50px;
+      display: block;
+      background: none;
+      border: 0;
+      /* margin-top:55px; */
+      margin: 0 auto;
+      float: left;
+    }
+
+    #twitter {
+      background: url('images/Twitter.svg') no-repeat;
+      height: 30px;
+      margin-right: 5px;
+    }
+
+    #twitter:hover, #twitter:focus {
+      background: url('images/Twitter_Hover.svg') no-repeat;
+      box-shadow: 0 0 0px 3px orange;
+    }
+
+    #facebook {
+      background: url('images/Facebook.svg') no-repeat;
+      height: 30px;
+      margin-right: 5px;
+    }
+
+    #facebook:hover,#facebook:focus {
+      background: url('images/Facebook_Hover.svg') no-repeat;
+      box-shadow: 0 0 0px 3px orange;
+    }
+
+    #link {
+      background: url('images/Link.svg') no-repeat;
+      height: 30px;
+      margin-right: 5px;
+    }
+
+    #link:hover,#link:focus {
+      background: url('images/Link_Hover.svg') no-repeat;
+      box-shadow: 0 0 0px 3px orange;
+    }
+
+    .visuallyhidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
+
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MBCBVQS');
+    </script>
+  <!-- End Google Tag Manager -->
+
+
+
+</head>
+
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="container-fluid">
+
+    <!-- <div class="row hide" id="embedrow">
+
+      <div class="col-sm-offset-6 col-sm-6 col-xs-12">
+
+        <div id="embedbox">
+
+          <img id="close" src="images/cross.svg" />
+          <label class="control-label" for="inputType"></label>
+          <input type="text" class="form-control" id="inputType" value="longevity.html">
+
+        </div>
+
+      </div>
+
+    </div> -->
+
+
+
+
+    <div class="col-sm-3 col-xs-12">
+      <form id="longevityCalculator">
+        <div class="col-sm-4 col-xs-12" id="AgeDiv">
+          <fieldset>
+            <legend>Age</legend>
+            <div class="borderbox" id="byear">
+              <div><button aria-label='Decease age by one year' type="button" id="minus" class="minus">-</button></div>
+              <div class="cell" style="text-align: center;"><input aria-live='polite' type="number" id="currentAge" tabindex="0" value=0 onblur="onblurYourAge()" class="typenumber"><label class='visuallyhidden' for='currentAge'>Age</label></div>
+              <div><button aria-label='Increase age by one year' type="button" id="plus" class="plus">+</button></div>
+            </div>
+          </fieldset>
+        </div>
+    </div>
+
+    <div class="col-sm-4 col-xs-12">
+      <div class="col-sm-12 col-xs-12" id="btnGrpDiv">
+        <div id="myear" class="form-group">
+          <fieldset>
+            <legend>Sex</legend>
+            <div id="genderbuttons" style="padding-bottom:4px;">
+              <div class="genderbuttons btn btn--select bold" tabindex="0">
+                <input id="option1" type="radio" name="gender" value="7" autocomplete="off" tabindex="0" aria-labelledby="maleLabel"><label id="maleLabel" for="option1">Male</label>
+              </div>
+              <div class="genderbuttons btn btn--select bold" tabindex="0">
+                <input id="option2" type="radio" name="gender" value="8" aria-labelledby="femaleLabel" autocomplete="off" tabindex="0"><label id="femaleLabel" for="option2">Female</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-xs-12" id="CalculateDiv">
+        <br>
+      </div>
+    </div>
+    <div class="col-sm-12 col-xs-12">
+      <div id="submitButton">
+        <button aria-label="Calculate your life expectancy" id="compareBtn" class="btn-disabled large">Calculate your life expectancy</button>
+      </div>
+    </div>
+    </form>
+    </br>
+
+    <div class="col-sm-12p col-xs-12p" id="quizContent" style="display: none;">
+
+
+      <div id="LEDiv" class="col-sm-12 col-xs-12">
+        <p style="display: none;" id="introLine1" class="static">Your average life expectancy is</p>
+        <p style="display: none;" id="LE"></p>
+        <p class="visuallyhidden" aria-live='polite'><span id="acc_LE"></span><span id="acc_25pc"></span><span id="acc_10pc"></span><span id="acc_100"></span></p>
+      </div>
+
+
+      <div id="LEDiv3" class="col-sm-4p col-xs-12p">
+
+      </div>
+
+
+
+
+
+
+
+      <div class="col-sm-12p col-xs-12p">
+        <p style="display: none;" id="introLine4" class="caveat">However there's a chance you might live longer...</p>
+      </div>
+
+
+
+      <div class="col-sm-12p col-xs-12p" id="pictoText" style="display: none;">
+
+        <div id="actualDiv" class="labels col-sm-4 col-xs-6 hide">
+
+          <div class="labelt doublepica" id="pictoActualLabel"><b class="oneinfour"></b>
+            <p id="pictoActualValue" class="sub_static"></p>
+          </div>
+          <div class="valuet trafalger">1 in 4 chance</div>
+        </div>
+
+
+
+
+
+        <div id="natDiv" class="labels col-sm-4 col-xs-6 hide">
+
+          <div class="labelt doublepica" id="pictoNatLabel"><b class="oneinten"></b>
+            <p id="pictoNatValue" class="sub_static"></p>
+          </div>
+          <div class="valuet trafalger">1 in 10 chance</div>
+        </div>
+
+        <div id="guessDiv" class="labels col-sm-4 col-xs-6 hidden-xs hide">
+
+          <div class="labelt doublepica" id="pictoGuessLabel"><b class="onehundred"></b><label class="sub_static" id="pictoStatic">100 <span class="spanClass">years</span></label></div>
+          <!--		<div class="valuet trafalger" id="pictoGuessValue"></div>-->
+          <div class="valuet trafalger" id="pictoGuessValue"></div>
+        </div>
+
+
+
+      </div>
+
+
+      <div class="col-sm-12p col-xs-12p" id="picto" style="display: none;"> </div>
+
+      </br> </br>
+
+
+      <div class="left">Share your life expectancy</div>
+      <div class="col-sm-12 col-xs-12 offset-sm-7 social-btns" style="clear:both;">
+        <button aria-label='Share this calculator on facebook' onclick="faceb()" class="social-btn">
+          <div id="facebook"></div>
+          </a>
+        </button>
+        <button aria-label='Share this calculator on twitter' onclick="tweet()" class="social-btn">
+          <div id="twitter"></div>
+          </a>
+        </button>
+        <button id="copyButton" aria-label='Copy the link for this calculator to your clipboard' onclick="copyLink()" class="social-btn">
+          <div id="link"></div>
+        </button>
+      </div>
+
+      <div class="col-sm-12p col-xs-12p" id="pictoError" style="display: none;">
+        <div aria-role='status' class="errorLabel" id="errorLabel">
+          Unfortunately life expectancy statstics are not available for your age at this current time.
+          </br></br>
+          Statistics are only available for males aged 65 and under, and females aged 60 or under.
+          </br>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end container-fluid -->
+
+
+
+
+  </div>
+
+  <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/modernizr.custom.56904.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+  <script src="js/d3-jetpack.js" charset="utf-8"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" type="text/javascript"></script>
+  <script src="js/script.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/tippy-bundle.min.js"></script>
+
+  <script>
+    windowwidth = $(window).width()
+
+    function tweet() {
+      var myString = "http://twitter.com/intent/tweet?text=" + escape("I have a 1 in 4 chance of reaching " + dvc.var1 + " " + document.referrer);
+      window.open(myString);
+    }
+
+    function faceb() {
+      var face = 'http://www.facebook.com/share.php?u=' + document.referrer;
+      window.open(face);
+    }
+
+    function copyLink() {
+      var dummy = document.createElement('input'),
+        // text = window.location.href;
+        text = "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/articles/lifeexpectancycalculator/2019-06-07"
+
+      document.body.appendChild(dummy);
+      dummy.value = text;
+      dummy.select();
+      document.execCommand('copy');
+      document.body.removeChild(dummy);
+    }
+
+    copy = tippy('#copyButton', {
+      placement: "top-start",
+      content: "Link copied to clipboard",
+      trigger: 'click',
+      duration: 1000,
+    })
+
+    d3.select("#copyButton").on('keypress',function(evt){
+      if(d3.event.keyCode==13 || d3.event.keyCode==32){
+        d3.event.preventDefault();
+        copyLink();
+        copy[0].show();
+        setTimeout(function(){copy[0].hide();},2000)
+      }
+    })
+
+  </script>
+</body>
+
+</html>

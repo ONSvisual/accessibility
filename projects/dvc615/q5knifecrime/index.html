@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title>Knife crime - dvc530</title>
+
+    <link href="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-slider.css" rel="stylesheet">
+    <link rel="stylesheet" href="../lib/globalStyle.css">
+
+    <style>
+
+    body {
+      font-family: 'Open Sans', Arial, sans-serif;
+      max-width: 600px;
+    }
+	#quest {
+		margin-left: -15px;
+	}
+
+	#sliderDiv{
+		padding-top:50px;
+		 max-width: 700px;
+	}
+
+    .tooltip-inner {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      padding: 6px 10px;
+      background-color: #D0D2D3;
+      color: #414042;
+      border-radius: 6px;
+    }
+
+    .tooltip {
+      margin-top: -53px !important;
+    }
+
+    #tooltip {
+      font-size: 16px;
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-weight: 400;
+      color: #fff !important;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .tooltip-arrow {
+    border-top-color: #D0D2D3 !important;
+    }
+
+    .tick-marks {
+      width: 100%;
+      height: auto;
+      float:left;
+    }
+
+    .zero {
+      width: 50%;
+      float:left;
+      color: #414042;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+    }
+
+    .one-hundred {
+      width: 50%;
+      height: auto;
+      float:left;
+      color: #414042;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+    }
+
+    .tick-one {
+      text-align: left;
+      margin-top: 18px;
+    }
+
+    .tick-two {
+      text-align: right;
+      margin-top: 18px;
+    }
+
+    p {
+      color: #414042;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+	  user-select: none;
+    }
+
+	.btn {
+	  background-color: #007f7f;
+	  opacity:1;
+	  color: #fff;
+	  font-weight: 700;
+	  font-size: 16px;
+	  display: inline-block;
+	  width: auto;
+	  cursor: pointer;
+	  padding: 8px 16px 10px 16px;
+	  border: 0 none;
+	  text-align: center;
+	  margin-top: 10px;
+	  -webkit-appearance: none;
+	  transition: background-color 0.25s ease-out;
+	  text-decoration: none;
+	  line-height: 24px;
+	  -webkit-font-smoothing: antialiased;
+	}
+
+   .btn:hover,.btn:focus {
+	  background-color:#0b5d30;
+	  color:#fff;
+	}
+
+	#areanm {
+			font-size: 18px;
+			font-weight: 600;
+			color:#666;
+			margin-top:5px;
+			margin-bottom:10px;
+			height:40px;
+	}
+
+	#areanm tspan{
+	display:block;
+	}
+
+	.anno{
+		font-size:15px;
+		margin-top:20px;
+	}
+
+	.answerText{
+		background: #159191;
+		color: #fff;
+		padding:20px;
+	}
+
+	.answerText p{
+		color:#fff;
+		font-weight:500;
+	}
+
+	h2 {
+		font-weight:700;
+		font-size:22px;
+		color:#206095;
+	}
+
+	#answer{
+		font-weight:700;
+		font-size:30px;
+		color:	#fff;
+	}
+
+	#reveal p {
+		padding-bottom:5px;
+	}
+
+
+.col-ons-sm-6, .col-ons-xs-12, .note. note2 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.col-ons-xs-12, .note, .note2 {
+  float: left;
+}
+.col-ons-xs-12 {
+  width: 100%;
+}
+
+
+@media (min-width: 620px) {
+  .col-ons-sm-6, .note, .note2{
+    float: left;
+  }
+  .col-ons-sm-6 {
+    width: 50%;
+  }
+  .note, .note2{
+
+	width: 100%;
+	}
+}
+
+.note{
+	font-size:12px;
+	border-top:1px solid #666;
+	margin-top:5px;
+	padding-top:10px;
+}
+
+.note2{
+	font-size:12px;
+	margin-top:5px;
+	padding-top:10px;
+}
+
+.footnote{
+	padding:0px;
+	margin-top:10px;
+
+}
+    </style>
+
+
+  </head>
+  <body>
+<!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <div class="container-fluid">
+    	<div id="quest"><h2>What proportion of knife crime happened in London?</h2></div>
+
+        <div id="sliderDiv" class="row">
+            <!-- Slider -->
+            <input id="slider" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50"/>
+
+            <!-- Tick marks -->
+            <div class="tick">
+            <div class="zero"><p class="tick-one">0%</p></div>
+            <div class="one-hundred"><p class="tick-two">100%</p></div>
+            </div>
+
+
+
+             <!-- Text output-->
+
+            <div class="col-sm-12 col-xs-12 text-center">
+                <button type="button" id="showMe" class="btn" >Show me the answer</button>
+            </div>
+         </div>
+         <div id="reveal" class="row ">
+            <div class="answerText hide col-ons-sm-12"></div>
+            <div class="mapText col-ons-sm-6"></div>
+            <div class="graphic col-ons-sm-6"></div>
+            <div class="footnote col-sm-12"></div>
+         </div>
+    </div>
+
+    <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-slider.js"></script>
+    <script src="../lib/modernizr.svg.min.js" type="text/javascript"></script>
+        <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" type='text/javascript'></script>
+       <!--<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.v1-3-2.min.js"type="text/javascript"></script>-->
+       <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.v1-3-2.min.js" type='text/javascript'></script>
+<!--	    <script src="https://cdn.ons.gov.uk/vendor/jquery-ui/1.12.1/jquery-ui.min.js"></script>-->
+    	<script src="../lib/chosen.jquery.js" type="text/javascript"></script>
+        <script src="../lib/select2.min.js"></script>
+        <script src="../lib/queue.js" charset="utf-8"></script>
+        <script src="../lib/topojson.js"></script>
+		<script src="../lib/ss.js"></script>
+
+
+    <script>
+
+	  	var pymChild = new pym.Child;
+			var height;
+            var dvc = {}; // global object variable to contain all variables prefixed with 'dvc.'
+			var headers = [];
+			var mapScale;
+
+			dvc.data;
+
+			var numFormat = d3.format(".1f");
+
+// Bootstrap slider style
+      sliderX = $("#slider").slider({
+      tooltip: 'always'
+      })//.on('slide', changeModel);
+
+
+	  d3.select('#showMe').on('click', showMe);
+
+	  function showMe(){
+		 dataLayer.push({
+                    'event': 'collectedData',
+                    'selected': sliderX.val()
+          })
+
+		 //d3.select("#sliderDiv").attr("display", "none")
+		 drawGraphic();
+
+		 d3.select("#reveal").classed("hide", false)
+		 d3.select(".answerText").classed("hide", false)
+		 d3.select("#sliderDiv").classed("hide", true)
+		 d3.select("#quest").classed("hide", true)
+
+
+            	d3.select(".answerText").append("p").append("tspan").attr("id","answer").text("33%")
+                d3.select(".answerText").select("p").append("tspan").text(" of crime involving a knife or sharp instrument happened in London in the year ending December 2018. Comparably, London accounts for 16% of all crime in England and Wales.")
+
+		d3.select(".mapText").append("p")
+		 		.attr("class", "anno anno1")
+				.text("Knife crime offences are disproportionally concentrated in London (33% in the year ending December 2018). Comparably, London accounts for 16% of all crime in England and Wales. The knife crime rate in the Metropolitan Police force area was 166 offences per 100,000 people in the latest year.")
+
+		d3.select(".mapText").append("p")
+		 		.attr("class", "anno")
+				.text("However, urban areas in general see higher rates of knife crime.")
+
+		d3.select(".mapText").append("p")
+		 		.attr("class", "anno")
+				.text("The highest rates after London were seen in Greater Manchester, West Yorkshire, and West Midlands (129 ,118 and 111 offences per 100,000 population respectively).")
+
+		d3.select(".mapText").append("p")
+		 		.attr("class", "anno")
+				.text("Knife crime rates were lowest in Surrey with 5 offences per 100,000 people.")
+
+		d3.select(".footnote").append("p")
+		 		.attr("class", "note")
+				.text("Note: The knife crime rate is calculated using the resident population")
+
+				d3.select(".footnote").append("p")
+		 		.attr("class", "note2")
+				.text("One police force (Surrey) include unbroken bottle and glass offences in their returns, which are outside the scope of this special collection. As such, data for these forces are not directly comparable with data for other forces.")
+
+        d3.select(".footnote").append("p")
+		 		.attr("class", "note2")
+				.text("Data for Sussex Police will be revised in a future publication due to a number of recorded offences that involved a knife or sharp instrument not being identified as such. There is therefore currently an undercount of knife or sharp instrument offences for Sussex Police.")
+
+
+			//	alert("end of reveal")
+				if (pymChild) {
+					pymChild.sendHeight();
+				}
+
+	  }
+
+//	  function changeModel() {
+//			sliderVal = $('#slider').data('slider').getValue();
+//	  }
+
+		function drawGraphic(){
+
+		//console.log("drawGraphic")
+
+		var threshold_md = 750;
+		var threshold_sm = 600;
+
+		 if($(".container-fluid").width()<600){
+			var mapScale = 2500;
+		} else {
+			var mapScale = 2700;
+		}
+
+		margin = {	top:+dvc.essential.margins[0], right:+dvc.essential.margins[1], bottom:+dvc.essential.margins[2], left: +dvc.essential.margins[3]};
+		 		chart_width = parseInt(d3.select('.graphic').style("width")) - margin.left - margin.right;
+
+//				if ($(".container-fluid").width()< threshold_sm) {
+//					height = (Math.ceil((chart_width * dvc.essential.aspectRatio[0][1]) / dvc.essential.aspectRatio[0][0]) - margin.top - margin.bottom);
+//				} else if ($(".container-fluid").width()< threshold_md){
+//					height = (Math.ceil((chart_width * dvc.essential.aspectRatio[1][1]) / dvc.essential.aspectRatio[1][0]) - margin.top - margin.bottom);
+//				} else {
+					height = (Math.ceil((chart_width * dvc.essential.aspectRatio[1]) / dvc.essential.aspectRatio[0]) - margin.top - margin.bottom);
+//				}
+
+				d3.selectAll(".graphic").append("div").attr("id", "areanm")
+
+
+				d3.selectAll("#areanm").append("tspan").style("font-weight", "800").text("England and Wales: ")
+				d3.selectAll("#areanm").append("tspan").style("font-weight", "500").attr("dy", "1.5em").text("76 offences per 100,000 population");
+
+				d3.selectAll(".graphic").append("svg").attr("id", "svg")
+
+				zoom = d3.behavior.zoom()
+					.scaleExtent([0.1, 12])
+					//.on("zoom", zoomed);
+
+				projection = d3.geo.albers()
+					.center([0.4, 54.0])
+					.rotate([3.2, 1])
+					.parallels([50, 60])
+					.scale(mapScale)
+					.translate([chart_width / 2, height / 2]);
+
+
+				// Set up a scaling variable effectively tells D3 how to interpret your lat - long coordinates into pixel positions.
+				path = d3.geo.path().projection(projection);
+
+				// clear out existing graphics
+//				graphic.empty();
+				rateById = {};
+
+				dvc.data.forEach(function(d,i) { rateById[d.AREACD] = [d[headers]]; });
+
+				var values =  dvc.data.map(function(d) { return +d[headers]; }).filter(function(d){  return !isNaN(d)}).sort(d3.ascending);
+				//console.log(values)
+
+				if(dvc.essential.breaksAll =="jenks"){
+					breaks = ss.jenks(values, dvc.essential.breakDivisions);
+					var fmt = d3.format(".1f")
+					breaks[breaks.length-1] =  +fmt((breaks[breaks.length-1])+0.1)
+				} else {
+					breaks = dvc.essential.breaksAll;
+				}
+
+
+				color = d3.scale.threshold()
+						.domain(breaks)
+						.range(dvc.essential.colour);
+
+				d3.select("#svg").selectAll("*").remove();
+
+				g = d3.select("#svg")
+						.attr("width", chart_width + margin.left + margin.right)
+						.attr("height", height + margin.top + margin.bottom)
+						.append("g").attr("id", "group");
+
+
+/*				d3.select("#svg")
+						.append("g")
+						.append("rect")
+						.attr("class", "white_rect")
+						.attr("width", "30px")
+						.attr("height", height)
+						.attr("x", -1)
+						.attr("y", -1)
+						.attr("fill", "white")
+
+				d3.select("#svg")
+						.append("g")
+						.append("rect")
+						.attr("class", "white_rect")
+						.attr("width", chart_width+10)
+						.attr("height", "35px")
+						.attr("x", 0)
+						.attr("y", -1)
+						.attr("fill", "white")*/
+
+				//zoomed();
+
+
+
+				g.attr("class", "pcon")
+					.selectAll("path")
+					.data(topojson.feature(dvc.pcon, dvc.pcon.objects.PoliceForceAreas).features)
+					.enter()
+					.append("path")
+					.attr("id",function(d,i){
+									return "reg" + d.properties.AREACD})
+					.attr("class",function(d,i){
+									return "reg" + d.properties.AREACD})
+					.attr("data-nm",function(d){
+									return d.properties.AREANM})
+					.attr("data_val", function(d) {
+									return rateById[d.properties.AREACD]})
+					.attr("d" , path)
+					.style("stroke",function(d) {
+						if(rateById[d.properties.AREACD] ==".."||rateById[d.properties.AREACD] ==undefined){
+							return "#fff"
+						} else {
+							return "#fff";
+						}
+					})
+					.style("stroke-width", 0.2)
+					.style("fill", function(d) {
+						if(rateById[d.properties.AREACD] ==".."||rateById[d.properties.AREACD] ==undefined){
+							return "white"
+						} else {
+							return color(rateById[d.properties.AREACD]);
+						}
+					})
+					.on("mouseout",unhighlight)
+					.on("mouseover",function(d){
+						//console.log($(this).parent().attr("id"));
+						highlight(d.properties.AREACD);
+						plot($(this).parent().attr("id"), d.properties.AREACD);
+					});
+
+//				d3.select("#svg").append("text")/*
+//							.data(headers)*/
+//							.attr("x" , 0)
+//							.attr("y" , 12 )
+//							.style("display" , "inline")
+//							.attr("class", "svgTitle")
+//							.style("pointer-events" , "none")
+//							.text("offences per 100,000 population")
+
+//				d3.selectAll(".svgTitle")
+//							.selectAll("tspan")
+//							.attr("x" , 0)
+//
+//						d3.select("#svg").append("text")/*
+//							.data(headers)*/
+//							.attr("x" , 0)
+//							.attr("y" , 27 )
+//							.style("display" , "inline")
+//							.attr("class", "LA_value")
+//							.attr("id", "LA_value_")
+//							.style("pointer-events" , "none")
+
+
+				center = [chart_width/ 2, chart_width/ 2];
+
+			d3.selectAll("#svg").call(zoom)
+				.call(zoom.event);
+
+				d3.selectAll(".name").classed("hide", true);
+
+
+
+	//			d3.select("#svg")
+//						.append("g")
+//						.attr("id", "key_")
+//						.attr("class", "key")
+//						.attr("transform", "translate(17,45)scale(0.7)");
+//
+//
+//				y = d3.scale.linear()
+//					.domain([breaks[0], breaks[dvc.essential.breakDivisions]]) /*range for data*/
+//					.range([height + margin.top + margin.bottom, 0]); /*range for pixels*/
+//
+//
+//				var yAxis = d3.svg.axis()
+//					.scale(y)
+//					.orient("left")
+//					.tickSize(0)
+//					.tickFormat(function(d,i){
+//
+//						if (i==0 || i==5 || i==7 || i==8 || i==9){
+//							return numFormat(d) }
+//
+//						}
+//						)
+//					.tickValues(color.domain());
+//
+//				d3.select("#key_").selectAll("rect")
+//					.data(color.range().map(function(d, i) {
+//					  return {
+//						y0: i ? y(color.domain()[i-1]) : y.range()[0],
+//						y1: i < color.domain().length ? y(color.domain()[i]) : y.range()[1],
+//						z: d
+//					  };
+//					}))
+//					.enter().append("rect")
+//					.attr("width", 5)
+//					.attr("y", function(d,i) { return d.y1; })
+//					.attr("height", function(d) { return d.y0 - d.y1; })
+//					.style("fill", function(d) {  return d.z; });
+
+			//	d3.select("#key_").call(yAxis).append("text").text("offences per 100,000 population").attr("dy","-0.5em");
+
+
+				//checkUrl()
+				//showMaps();
+
+				d3.select("#reveal").classed("hide", true)
+
+				//use pym to calculate chart dimensions
+				//alert("end of draw graphic")
+				if (pymChild) {
+					pymChild.sendHeight();
+				}
+		}
+
+		function plot  (parent, area){
+
+			linevalues =  dvc.data.map(function(d) { return d; }).filter(function(d){ return d.AREACD== area});
+
+			vals = d3.keys(linevalues[0]).filter(function(key) {
+							if ( dvc.essential.fieldsToIgnore.indexOf(key) == -1 ) { return key; }
+						});
+
+			for (i = 0; i < headers.length; i++) {
+
+
+				var values =  dvc.data.map(function(d) { return +d[headers[i]]; }).filter(function(d){ return !isNaN(d)}).sort(d3.ascending);
+			}
+		}
+
+	 	function highlight(area) {
+			var reg=document.getElementById("reg" + area);
+
+
+
+			var name =d3.select(".reg" + area).attr("data-nm")
+			var val =d3.selectAll(".reg" + area).attr("data_val")
+
+			 d3.selectAll('.pcon')
+					.append("path")
+					.attr("d", d3.select(reg).attr("d"))
+					.attr("id","selected")
+					.attr("class", "arcSelection")
+					.attr("pointer-events", "none")
+					.style("fill", "none")
+					.style("stroke", "#666")
+					.style("stroke-width", 1/dvc.scale);
+
+			details = d3.select("#details")
+
+			d3.selectAll("#areanm").selectAll("*").remove();
+			d3.selectAll("#areanm").append("tspan").style("font-weight", "800").text(name+": ")
+			d3.selectAll("#areanm").append("tspan").style("font-weight", "500").attr("dy", "1.5em").text(val+" offences per 100,000 population");
+
+//			vals_array =[]
+//
+//			d3.selectAll(".reg" + area).each(function(d,i){
+//				vals_array.push(d3.select(this).attr("data_val"))
+//
+//			})
+
+//			count_array =[];
+//			d3.selectAll(".svgTitle").each(function(d,i){
+//
+//				name = d;
+//
+//
+//				count_data.filter(function(d,j){
+//					if(d.AREACD==area){
+//
+//						if( d[name] != ""){
+//							 count_array.push(d[name]);
+//						} else {
+//							count_array.push("Fewer than 3")
+//						}
+//						total=d.Total
+//							d3.selectAll(".LA_value").text(function(d,j){
+//								if(vals_array[j]=="..") {
+//									return count_array[j] +" of "+ total +" babies"
+//								 } else {
+//									return count_array[j] +" of "+ total +" babies ("+ vals_array[j] +"%)"
+//								 }
+//							})
+//					}
+//				})
+//			})
+
+//		d3.selectAll(".LA_value").text(val)
+
+
+
+		}
+
+		/* Remove the current selected polygon */
+		function unhighlight() {
+			d3.selectAll('#selected').remove();
+			d3.selectAll("#areanm").selectAll("*").remove();
+			d3.selectAll("#areanm").append("tspan").style("font-weight", "800").text("England and Wales: ")
+			d3.selectAll("#areanm").append("tspan").style("font-weight", "500").attr("dy", "1.5em").text("76 offences per 100,000 population");
+			d3.selectAll(".LA_value").text("");
+		}
+
+//		function zoomed() {
+//
+//			  dvc.scale = zoom.scale();
+//
+//			  d3.selectAll(".pcon").style("stroke-width",(0.5/zoom.scale()))
+//				.attr("transform", "translate(" + zoom.translate() + ")scale(" + zoom.scale() + ")");
+//
+//
+//		}
+//
+//
+//	 	function zoom_by(factor){
+//
+//				var scale = zoom.scale(),
+//					extent = zoom.scaleExtent(),
+//					translate = zoom.translate(),
+//					x = translate[0], y = translate[1],
+//					target_scale = scale * factor;
+//
+//				// If we're already at an extent, done
+//				if (target_scale === extent[0] || target_scale === extent[1]) { return false; }
+//				// If the factor is too much, scale it down to reach the extent exactly
+//				var clamped_target_scale = Math.max(extent[0], Math.min(extent[1], target_scale));
+//				if (clamped_target_scale != target_scale){
+//					target_scale = clamped_target_scale;
+//					factor = target_scale / scale;
+//				}
+//
+//				// Center each vector, stretch, then put back
+//				x = (x - center[0]) * factor + center[0];
+//				y = (y - center[1]) * factor + center[1];
+//
+//				dvc.scale = zoom.scale();
+//				dvc.translate = zoom.translate();
+//
+//
+//				// Enact the zoom immediately
+//				zoom.scale(target_scale)
+//					.translate([x,y]);
+//
+//				zoomed();
+//
+//
+//			}
+//
+//		function zoomcontrols(){
+//				//if(listnames.length > 0){
+//					zoomcontrols = d3.select("#new").append('div').attr("class","zoom-container zoom-control-zoom zoom-bar zoom-control");
+//				//} else {
+//				//	zoomcontrols = d3.select("#new").append('div').attr("class","hide zoom-container zoom-control-zoom zoom-bar zoom-control");
+//				//}
+//				zoomcontrols.append("a").attr("id","zoom_in").attr("class","zoom-control-zoom-in zoom-bar-part zoom-bar-part-top").attr("title","Zoom in").text("+")
+//				zoomcontrols.append("a").attr("id","zoom_out").attr("class","zoom-control-zoom-out zoom-bar-part zoom-bar-part-bottom").attr("title","Zoom out").text("-")
+//
+//			var intervalID;
+//
+//			d3.selectAll('.zoom-bar-part').on('mousedown', function(){
+//
+//				d3.event.preventDefault();
+//				var factor = (this.id === 'zoom_in') ? 1.1 : 1/1.1;
+//				intervalID = setInterval(zoom_by, 40, factor);
+//
+//			}).on('mouseup', function(){
+//				d3.event.preventDefault();
+//				clearInterval(intervalID);
+//				intervalID = undefined;
+//			})
+//
+//			}
+
+    //  console.log("before modernizr")
+
+
+	//then, onload, check to see if the web browser can handle 'inline svg'
+			if (Modernizr)	{
+
+				//$("#wrapper").fadeIn(1000);
+
+				// open and load configuration file.
+				d3.json("configall.json", function(error, json)
+				{
+					// strore read in json data from config file as as global dvc. variable ...
+					dvc = json;
+
+					d3.csv(dvc.essential.graphic_data_url, function(error, data) {
+
+						graphic_data = data;
+						dvc.data = graphic_data;
+
+						headers = d3.keys(graphic_data[0]).filter(function(key) {
+							if ( dvc.essential.fieldsToIgnore.indexOf(key) == -1 ) { return key; }// end else ...
+							else { } // end else ...
+						});
+
+						queue()
+							.defer(d3.json, "geogPFA2017EW.json")
+							.defer(d3.csv, "knife_data.csv")
+							.await(ready);
+
+
+
+					})
+				})
+
+			} // end if ... error
+			else
+			{ //console.log("modernizr false")
+				$("#ieMsg").fadeIn(1000);
+
+				//use pym to create iframe containing fallback image (which is set as default)
+				//alert("fallback")
+				pymChild = new pym.Child();
+				if (pymChild) { pymChild.sendHeight(); }
+
+			}// end else ...
+
+
+			function ready(error, pcon, data) {
+
+				dvc.pcon = pcon;
+				dvc.data = data;
+
+//alert("ready")
+				pymChild = new pym.Child();
+
+//				var IE = (!! window.ActiveXObject && +(/msie\s(\d+)/i.exec(navigator.userAgent)[1])) || NaN;
+//				if (IE != 9) {
+//					zoomcontrols();
+//				}
+
+			}
+
+    </script>
+
+
+
+
+
+
+  </body>
+</html>

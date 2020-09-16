@@ -1,0 +1,67 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+
+            "legendStyle": "rect",
+
+            "legendLabels":[ "variable1" ,	"variable2" ,	"variable3" ],
+
+			"sourceText":["Source information"],
+            "sourceURL":["http://www.ons.gov.uk/ons"],
+
+            "annotationChart": [
+                "Total  homicide:  732",
+                "Murder:  607  (82.9%)",
+                "Manslaughter:  106  (14.5%)"
+            ],
+            "annotationBullet": [
+                "text donut chart annotation1",
+                "text donut chart annotation2"
+            ],
+
+            "annotationXY":[
+                [0,-11],
+                [75,60],
+                [-65, -100]
+            ],
+
+            "annotationXYmobile":[
+                [0,-11],
+                [80,60],
+                [-65, -100]
+            ],
+
+            "annotationXYmd":[
+                [0,-11],
+                [65,55],
+                [-65, -100]
+            ],
+
+            "annotationAlign":[
+                "middle",
+                "middle",
+                "middle"
+            ],
+
+            "colour_palette":[
+                "#234D70",
+                "#266D4A",
+                "#E2BC22",
+                "#0075A3",
+                "rgb(224, 224, 224)",
+                "rgb(240, 240, 240)"
+            ]
+
+    },
+    "optional" : {
+            "margin_sm": [0, 0, 0, 0],
+            "margin_md": [0, 0, 0, 0],
+            "margin_lg": [0, 0, 0, 0],
+
+            "aspectRatio_sm" : [16,16],
+            "aspectRatio_md" : [16,16],
+            "aspectRatio_lg" : [16,12],
+
+            "mobileBreakpoint" : 499
+    }
+}

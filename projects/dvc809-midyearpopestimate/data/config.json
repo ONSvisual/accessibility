@@ -1,0 +1,12 @@
+{"ons":{
+"maptitle": "Mid Year Population Estimates",
+"varcolour": "YlGnBu",
+"varlabels": ["Median Age","Population Density","Age 0-15","Age 65+", "Age 85+", "Working Age 16-64", "Old Age Dependency Ratio", "Dependency Ratio"],
+"varload": 2,
+"varunit": ["years","population density","per cent" ,"per cent","per cent","per cent","dependency ratio","dependency ratio"],
+"displaydecimals": 1,
+"legenddecimals": 1,
+"breaks": "jenks",
+"dropticks": true,
+"numberBreaks": 5
+}}

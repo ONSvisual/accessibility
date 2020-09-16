@@ -1,0 +1,452 @@
+﻿id,parentId,name,size,realsize,percent
+c0,NULL,Total expenditure,554.2,554.2,null
+c1,c0,Food and non-alcoholic drinks,58,58,10.5
+c1_1,c1,Food ,53.3,53.3,null
+c1_1_1,c1_1,"Bread, rice and cereals",5.1,5.1,null
+c1_1_1_1,c1_1_1,Rice,0.4,0.4,null
+c1_1_1_2,c1_1_1,Bread,2.4,2.4,null
+c1_1_1_3,c1_1_1,Other breads and cereals,2.3,2.3,null
+c1_1_2,c1_1,Pasta products,0.4,0.4,null
+c1_1_3,c1_1,"Buns, cakes, biscuits etc",3.7,3.7,null
+c1_1_3_1,c1_1_3,"Buns, crispbread and biscuits",2.2,2.2,null
+c1_1_3_2,c1_1_3,Cakes and puddings,1.5,1.5,null
+c1_1_4,c1_1,Pastry (savoury),0.8,0.8,null
+c1_1_5,c1_1,"Beef (fresh, chilled or frozen)",1.9,1.9,null
+c1_1_6,c1_1,"Pork (fresh, chilled or frozen)",0.6,0.6,null
+c1_1_7,c1_1,"Lamb (fresh, chilled or frozen)",0.6,0.6,null
+c1_1_8,c1_1,"Poultry (fresh, chilled or frozen)",2.3,2.3,null
+c1_1_9,c1_1,Bacon and ham,0.9,0.9,null
+c1_1_10,c1_1,Other meats and meat preparations,6.1,6.1,null
+c1_1_10_1,c1_1_10,Sausages,0.8,0.8,null
+c1_1_10_2,c1_1_10,"Offal, pate etc",0.1,0.1,null
+c1_1_10_3,c1_1_10,Other preserved or processed meat and meat preparations,5.2,5.2,null
+c1_1_10_4,c1_1_10,"Other fresh, chilled or frozen edible meat",0,0,null
+c1_1_11,c1_1,Fish and fish products,2.7,2.7,null
+c1_1_11_1,c1_1_11,"Fish (fresh, chilled or frozen)",0.9,0.9,null
+c1_1_11_2,c1_1_11,"Seafood, dried, smoked or salted fish",0.7,0.7,null
+c1_1_11_3,c1_1_11,Other preserved or processed fish and seafood,1.2,1.2,null
+c1_1_12,c1_1,Milk,2.1,2.1,null
+c1_1_12_1,c1_1_12,Whole milk,0.4,0.4,null
+c1_1_12_2,c1_1_12,Low fat milk,1.5,1.5,null
+c1_1_12_3,c1_1_12,Preserved milk,0.2,0.2,null
+c1_1_13,c1_1,Cheese and curd,2,2,null
+c1_1_14,c1_1,Eggs,0.7,0.7,null
+c1_1_15,c1_1,Other milk products,2.2,2.2,null
+c1_1_15_1,c1_1_15,Other milk products,1,1,null
+c1_1_15_2,c1_1_15,Yoghurt,1.2,1.2,null
+c1_1_16,c1_1,Butter,0.4,0.4,null
+c1_1_17,c1_1,"Margarine, other vegetable fats and peanut butter",0.5,0.5,null
+c1_1_18,c1_1,Cooking oils and fats,0.3,0.3,null
+c1_1_18_1,c1_1_18,Olive oil,0.1,0.1,null
+c1_1_18_2,c1_1_18,Edible oils and other edible animal fats,0.2,0.2,null
+c1_1_19,c1_1,Fresh fruit,3.8,3.8,null
+c1_1_19_1,c1_1_19,Citrus fruits (fresh),0.6,0.6,null
+c1_1_19_2,c1_1_19,Bananas (fresh),0.5,0.5,null
+c1_1_19_3,c1_1_19,Apples (fresh),0.6,0.6,null
+c1_1_19_4,c1_1_19,Pears (fresh),0.1,0.1,null
+c1_1_19_5,c1_1_19,Stone fruits (fresh),0.6,0.6,null
+c1_1_19_6,c1_1_19,Berries (fresh),1.5,1.5,null
+c1_1_20,c1_1,"Other fresh, chilled or frozen fruits",0.5,0.5,null
+c1_1_21,c1_1,Dried fruit and nuts,0.8,0.8,null
+c1_1_22,c1_1,Preserved fruit and fruit based products,0.1,0.1,null
+c1_1_23,c1_1,Fresh vegetables,4.1,4.1,null
+c1_1_23_1,c1_1_23,Leaf and stem vegetables (fresh or chilled),1,1,null
+c1_1_23_2,c1_1_23,Cabbages (fresh or chilled),0.4,0.4,null
+c1_1_23_3,c1_1_23,"Vegetables grown for their fruit (fresh, chilled or frozen)",1.4,1.4,null
+c1_1_23_4,c1_1_23,"Root crops, non-starchy bulbs and mushrooms (fresh, chilled or frozen)",1.4,1.4,null
+c1_1_24,c1_1,Dried vegetables,0.1,0.1,null
+c1_1_25,c1_1,Other preserved or processed vegetables,1.5,1.5,null
+c1_1_26,c1_1,Potatoes,0.8,0.8,null
+c1_1_27,c1_1,Other tubers and products of tuber vegetables,1.6,1.6,null
+c1_1_28,c1_1,Sugar and sugar products,0.4,0.4,null
+c1_1_28_1,c1_1_28,Sugar,0.2,0.2,null
+c1_1_28_2,c1_1_28,Other sugar products,0.2,0.2,null
+c1_1_29,c1_1,"Jams, marmalades",0.3,0.3,null
+c1_1_30,c1_1,Chocolate,1.9,1.9,null
+c1_1_31,c1_1,Confectionery products,0.8,0.8,null
+c1_1_32,c1_1,Edible ices and ice cream,0.6,0.6,null
+c1_1_33,c1_1,Other food products,2.5,2.5,null
+c1_1_33_1,c1_1_33,"Sauces, condiments",1.2,1.2,null
+c1_1_33_2,c1_1_33,"Baker's yeast, dessert preparations, soups",1,1,null
+c1_1_33_3,c1_1_33,"Salt, spices, culinary herbs and other food products",0.3,0.3,null
+c1_2,c1,Non-alcoholic drinks,4.7,4.7,null
+c1_2_1,c1_2,Coffee,0.9,0.9,null
+c1_2_2,c1_2,Tea,0.5,0.5,null
+c1_2_3,c1_2,Cocoa and powdered chocolate,0.1,0.1,null
+c1_2_4,c1_2,Fruit and vegetable juices,1,1,null
+c1_2_5,c1_2,Mineral or spring waters,0.4,0.4,null
+c1_2_6,c1_2,Soft drinks (inc. fizzy and ready to drink fruit drinks),1.8,1.8,null
+c2,c0,"Alcoholic drink, tobacco and narcotics",11.9,11.9,2.1
+c2_1,c2,Alcoholic drinks,8.2,8.2,null
+c2_1_1,c2_1,Spirits and liqueurs (brought home),1.8,1.8,null
+c2_1_2,c2_1,"Wines, fortified wines (brought home)",4.1,4.1,null
+c2_1_2_1,c2_1_2,Wine from grape or other fruit (brought home),3.5,3.5,null
+c2_1_2_2,c2_1_2,Fortified wine (brought home),0.1,0.1,null
+c2_1_2_3,c2_1_2,Champagne and sparkling wines (brought home),0.5,0.5,null
+c2_1_3,c2_1,"Beer, lager, ciders and perry (brought home)",2.2,2.2,null
+c2_1_3_1,c2_1_3,Beer and lager (brought home),1.8,1.8,null
+c2_1_3_2,c2_1_3,Ciders and perry (brought home),0.4,0.4,null
+c2_1_4,c2_1,Alcopops (brought home),0,0,null
+c2_2,c2,Tobacco and narcotics,3.8,3.8,null
+c2_2_1,c2_2,Cigarettes,2.9,2.9,null
+c2_2_2,c2_2,"Cigars, other tobacco products and narcotics",0.9,0.9,null
+c2_2_2_1,c2_2_2,Cigars,0.1,0.1,null
+c2_2_2_2,c2_2_2,Other tobacco,0.8,0.8,null
+c2_2_2_3,c2_2_2,Narcotics,0,0,null
+c3,c0,Clothing and footwear,25.1,25.1,4.5
+c3_1,c3,Clothing,19.9,19.9,null
+c3_1_1,c3_1,Men's outer garments,5.3,5.3,null
+c3_1_2,c3_1,Men's under garments,0.5,0.5,null
+c3_1_3,c3_1,Women's outer garments,8.7,8.7,null
+c3_1_4,c3_1,Women's under garments,1.3,1.3,null
+c3_1_5,c3_1,Boys' outer garments (5-15),0.9,0.9,null
+c3_1_6,c3_1,Girls' outer garments (5-15),1,1,null
+c3_1_7,c3_1,Infants' outer garments (under 5),0.7,0.7,null
+c3_1_8,c3_1,Children's under garments (under 16),0.4,0.4,null
+c3_1_9,c3_1,Accessories,0.7,0.7,null
+c3_1_9_1,c3_1_9,Men's accessories,0.3,0.3,null
+c3_1_9_2,c3_1_9,Women's accessories,0.3,0.3,null
+c3_1_9_3,c3_1_9,Children's accessories,0.1,0.1,null
+c3_1_9_4,c3_1_9,Protective head gear (crash helmets),0,0,null
+c3_1_10,c3_1,"Haberdashery, clothing materials and clothing hire",0.2,0.2,null
+c3_1_11,c3_1,"Dry cleaners, laundry and dyeing",0.3,0.3,null
+c3_1_11_1,c3_1_11,Dry cleaners and dyeing,0.2,0.2,null
+c3_1_11_2,c3_1_11,"Laundry, launderettes",0,0,null
+c3_2,c3,Footwear,5.2,5.2,null
+c3_2_1,c3_2,Footwear for men,1.9,1.9,null
+c3_2_2,c3_2,Footwear for women,2.4,2.4,null
+c3_2_3,c3_2,Footwear for children (5 to 15 years) and infants (under 5),0.8,0.8,null
+c3_2_4,c3_2,Repair and hire of footwear,0,0,null
+c4,c0,"Housing(net)2, fuel and power",72.6,72.6,13.1
+c4_1,c4,Actual rentals for housing,47.2,47.2,null
+c4_1_3,c4_1,Net rent (the amount spent on rent after removing housing benefit and related allowances),32.8,32.8,null
+c4_1_4,c4_1,Second dwelling - rent,0,0,null
+c4_2,c4,Maintenance and repair of dwelling,8.6,8.6,null
+c4_2_1,c4_2,Central heating repairs,1.4,1.4,null
+c4_2_2,c4_2,House maintenance etc,5.1,5.1,null
+c4_2_3,c4_2,"Paint, wallpaper, timber",1.2,1.2,null
+c4_2_4,c4_2,"Equipment hire, small materials",0.8,0.8,null
+c4_3,c4,Water supply and miscellaneous services relating to the dwelling,8.9,8.9,null
+c4_3_1,c4_3,Water charges,7.4,7.4,null
+c4_3_2,c4_3,Other regular housing payments including service charge for rent,1.5,1.5,null
+c4_3_3,c4_3,"Refuse collection, including skip hire",0.1,0.1,null
+c4_4,c4,"Electricity, gas and other fuels",22.2,22.2,null
+c4_4_1,c4_4,Electricity,11.1,11.1,null
+c4_4_2,c4_4,Gas,10.1,10.1,null
+c4_4_3,c4_4,Other fuels,1.1,1.1,null
+c4_4_3_1,c4_4_3,Coal and coke,0.1,0.1,null
+c4_4_3_2,c4_4_3,Oil for central heating,0.8,0.8,null
+c4_4_3_3,c4_4_3,"Paraffin, wood, peat, hot water etc",0.1,0.1,null
+c5,c0,Household goods and services ,39.3,39.3,7.1
+c5_1,c5,"Furniture and furnishings, carpets and other floor coverings",21.9,21.9,null
+c5_1_1,c5_1,Furniture and furnishings,18.3,18.3,null
+c5_1_1_1,c5_1_1,Furniture,16.8,16.8,null
+c5_1_1_2,c5_1_1,"Fancy, decorative goods",1.1,1.1,null
+c5_1_1_3,c5_1_1,Garden furniture,0.4,0.4,null
+c5_1_2,c5_1,Floor coverings,3.6,3.6,null
+c5_1_2_1,c5_1_2,Soft floor coverings,3.3,3.3,null
+c5_1_2_2,c5_1_2,Hard floor coverings,0.3,0.3,null
+c5_2,c5,Household textiles,2,2,null
+c5_2_1,c5_2,"Bedroom textiles, including duvets and pillows",0.9,0.9,null
+c5_2_2,c5_2,"Other household textiles, including cushions, towels, curtains",1.1,1.1,null
+c5_3,c5,Household appliances,3.4,3.4,null
+c5_3_1,c5_3,Gas cookers,0,0,null
+c5_3_2,c5_3,"Electric cookers, combined gas/electric cookers",0.2,0.2,null
+c5_3_3,c5_3,Clothes washing machines and drying machines,0.6,0.6,null
+c5_3_4,c5_3,"Refrigerators, freezers and fridge-freezers",0.6,0.6,null
+c5_3_5,c5_3,"Other major electrical appliances, dishwashers, micro-waves vacuum cleaners, heaters etc",1.3,1.3,null
+c5_3_6,c5_3,"Fire extinguisher, water softener, safes etc",0,0,null
+c5_3_7,c5_3,"Small electric household appliances, excluding hairdryers",0.4,0.4,null
+c5_3_8,c5_3,Repairs to gas and electrical appliances and spare parts,0.2,0.2,null
+c5_3_9,c5_3,Rental/hire of major household appliances,0,0,null
+c5_4,c5,"Glassware, tableware and household utensils",1.9,1.9,null
+c5_4_1,c5_4,"Glassware, china, pottery, cutlery and silverware",0.5,0.5,null
+c5_4_2,c5_4,Kitchen and domestic utensils,0.8,0.8,null
+c5_4_3,c5_4,"Repair of glassware, tableware and household utensils",0,0,null
+c5_4_4,c5_4,Storage and other durable household articles,0.6,0.6,null
+c5_5,c5,Tools and equipment for house and garden,3.3,3.3,null
+c5_5_1,c5_5,Electrical tools,0.5,0.5,null
+c5_5_2,c5_5,"Garden tools, equipment and accessories eg lawn mowers etc",0.8,0.8,null
+c5_5_3,c5_5,Small tools,0.6,0.6,null
+c5_5_4,c5_5,"Door, electrical and other fittings",0.7,0.7,null
+c5_5_5,c5_5,Electrical consumables,0.7,0.7,null
+c5_6,c5,Goods and services for routine household maintenance,6.8,6.8,null
+c5_6_1,c5_6,Cleaning materials,2.4,2.4,null
+c5_6_1_1,c5_6_1,"Detergents, washing-up liquid, washing powder",1,1,null
+c5_6_1_2,c5_6_1,"Disinfectants, polishes, other cleaning materials etc",1.4,1.4,null
+c5_6_2,c5_6,Household goods and hardware,1.6,1.6,null
+c5_6_2_1,c5_6_2,Kitchen disposables,0.9,0.9,null
+c5_6_2_2,c5_6_2,"Household hardware and appliances, matches",0.3,0.3,null
+c5_6_2_3,c5_6_2,"Kitchen gloves, cloths etc",0.2,0.2,null
+c5_6_2_4,c5_6_2,"Pins, needles, tape measures, nails, nuts and bolts etc",0.2,0.2,null
+c5_6_3,c5_6,"Domestic services, carpet cleaning, hire/repair of furniture/furnishings",2.8,2.8,null
+c5_6_3_1,c5_6_3,"Domestic services, including cleaners, gardeners, au pairs",2.1,2.1,null
+c5_6_3_2,c5_6_3,"Carpet cleaning, ironing service, window cleaner",0.7,0.7,null
+c5_6_3_3,c5_6_3,Hire/repair of household furniture and furnishings,0,0,null
+c6,c0,Health,7.3,7.3,1.3
+c6_1,c6,"Medical products, appliances and equipment",3.7,3.7,null
+c6_1_1,c6_1,"Medicines, prescriptions and healthcare products",2.3,2.3,null
+c6_1_1_1,c6_1_1,NHS prescription charges and payments,0.2,0.2,null
+c6_1_1_2,c6_1_1,Medicines and medical goods (not NHS),1.6,1.6,null
+c6_1_1_3,c6_1_1,"Other medical products (eg plasters, condoms, hot water bottle etc)",0.2,0.2,null
+c6_1_1_4,c6_1_1,"Non-optical appliances and equipment (eg wheelchairs, batteries for hearing aids, shoe build-up)",0.2,0.2,null
+c6_1_2,c6_1,"Spectacles, lenses, accessories and repairs",1.5,1.5,null
+c6_1_2_1,c6_1_2,"Purchase of spectacles, lenses, prescription sunglasses",1.5,1.5,null
+c6_1_2_2,c6_1_2,Accessories/repairs to spectacles/lenses,0,0,null
+c6_2,c6,Hospital services,3.6,3.6,null
+c6_2_1,c6_2,Out patient services,3.4,3.4,null
+c6_2_1_1,c6_2_1,"NHS medical, optical, dental and medical auxiliary services",1.2,1.2,null
+c6_2_1_2,c6_2_1,"Private medical, optical, dental and medical auxiliary services",2.2,2.2,null
+c6_2_1_3,c6_2_1,Other services,0,0,null
+c6_2_2,c6_2,In-patient hospital services,0,0,null
+c7,c0,Transport,79.7,79.7,14.4
+c7_1,c7,Purchase of vehicles,29.2,29.2,null
+c7_1_1,c7_1,Purchase of new cars and vans,10.5,10.5,null
+c7_1_1_1,c7_1_1,Outright purchases,5.5,5.5,null
+c7_1_1_2,c7_1_1,Loan/Hire Purchase of new car/van,5,5,null
+c7_1_2,c7_1,Purchase of second hand cars or vans,18,18,null
+c7_1_2_1,c7_1_2,Outright purchases,11.5,11.5,null
+c7_1_2_2,c7_1_2,Loan/Hire Purchase of second hand car/van,6.5,6.5,null
+c7_1_3,c7_1,Purchase of motorcycles,0.7,0.7,null
+c7_1_3_1,c7_1_3,Outright purchases of new or second hand motorcycles,0.4,0.4,null
+c7_1_3_2,c7_1_3,Loan/Hire Purchase of new or second hand motorcycles,0,0,null
+c7_1_3_3,c7_1_3,Purchase of bicycles and other vehicles,0.2,0.2,null
+c7_2,c7,Operation of personal transport,32.3,32.3,null
+c7_2_1,c7_2,Spares and accessories,2.6,2.6,null
+c7_2_1_1,c7_2_1,Car/van accessories and fittings,0.2,0.2,null
+c7_2_1_2,c7_2_1,Car/van spare parts,2,2,null
+c7_2_1_3,c7_2_1,Motorcycle accessories and spare parts,0.1,0.1,null
+c7_2_1_4,c7_2_1,"Bicycle accessories, repairs and other costs",0.3,0.3,null
+c7_2_2,c7_2,"Petrol, diesel and other motor oils",20.7,20.7,null
+c7_2_2_1,c7_2_2,Petrol,12.6,12.6,null
+c7_2_2_2,c7_2_2,Diesel oil,8,8,null
+c7_2_2_3,c7_2_2,Other motor oils,0.1,0.1,null
+c7_2_3,c7_2,Repairs and servicing,6.1,6.1,null
+c7_2_3_1,c7_2_3,"Car or van repairs, servicing and other work",6.1,6.1,null
+c7_2_3_2,c7_2_3,Motorcycle repairs and servicing,0,0,null
+c7_2_4,c7_2,Other motoring costs,2.8,2.8,null
+c7_2_4_1,c7_2_4,Motoring organisation subscription (eg AA and RAC),0.4,0.4,null
+c7_2_4_2,c7_2_4,"Garage rent, other costs (excluding fines), car washing etc",1,1,null
+c7_2_4_3,c7_2_4,"Parking fees, tolls, and permits (excluding motoring fines)",1,1,null
+c7_2_4_4,c7_2_4,Driving lessons,0.3,0.3,null
+c7_2_4_5,c7_2_4,"Anti-freeze, battery water, cleaning materials",0.1,0.1,null
+c7_3,c7,Transport services,18.2,18.2,null
+c7_3_1,c7_3,Rail and tube fares,3.8,3.8,null
+c7_3_1_1,c7_3_1,Season tickets,1.4,1.4,null
+c7_3_1_2,c7_3_1,Other than season tickets,2.4,2.4,null
+c7_3_2,c7_3,Bus and coach fares,1.4,1.4,null
+c7_3_2_1,c7_3_2,Season tickets,0.6,0.6,null
+c7_3_2_2,c7_3_2,Other than season tickets,0.7,0.7,null
+c7_3_3,c7_3,Combined fares,0.7,0.7,null
+c7_3_3_1,c7_3_3,Combined fares other than season tickets,0.2,0.2,null
+c7_3_3_2,c7_3_3,Combined fares season tickets,0.5,0.5,null
+c7_3_4,c7_3,Other travel and transport,12.3,12.3,null
+c7_3_4_1,c7_3_4,Air fares (within UK),0.2,0.2,null
+c7_3_4_2,c7_3_4,Air fares (international),6.6,6.6,null
+c7_3_4_3,c7_3_4,School travel,0,0,null
+c7_3_4_4,c7_3_4,Taxis and hired cars with drivers,1.4,1.4,null
+c7_3_4_5,c7_3_4,Other personal travel and transport services,0.2,0.2,null
+c7_3_4_6,c7_3_4,"Hire of self-drive cars, vans, bicycles",0.2,0.2,null
+c7_3_4_7,c7_3_4,Car leasing,3.5,3.5,null
+c7_3_4_8,c7_3_4,"Water travel, ferries and season tickets",0.1,0.1,null
+c8,c0,Communication,17.2,17.2,3.1
+c8_1,c8,Postal services,0.7,0.7,null
+c8_2,c8,Telephone and telefax equipment,0.8,0.8,null
+c8_2_1,c8_2,Telephone purchase,0.1,0.1,null
+c8_2_2,c8_2,Mobile phone purchase,0.8,0.8,null
+c8_2_3,c8_2,"Answering machine, fax machine, modem purchase",0,0,null
+c8_3,c8,Telephone and telefax services,12.2,12.2,null
+c8_3_1,c8_3,Telephone account,4.2,4.2,null
+c8_3_2,c8_3,Telephone coin and other payments,0,0,null
+c8_3_3,c8_3,Mobile phone account,7.5,7.5,null
+c8_3_4,c8_3,Mobile phone - other payments,0.4,0.4,null
+c8_4,c8,Internet subscription fees,3.5,3.5,null
+c9,c0,Recreation and culture,73.5,73.5,13.3
+c9_1,c9,"Audio-visual, photographic and information processing equipment",4.8,4.8,null
+c9_1_1,c9_1,"Audio equipment and accessories, CD players",1.2,1.2,null
+c9_1_1_1,c9_1_1,"Audio equipment, CD players including in car",0.5,0.5,null
+c9_1_1_2,c9_1_1,"Audio accessories eg tapes, headphones etc",0.7,0.7,null
+c9_1_2,c9_1,"TV, video and computers",3.2,3.2,null
+c9_1_2_1,c9_1_2,Purchase of TV and digital decoder,0.7,0.7,null
+c9_1_2_2,c9_1_2,Satellite dish purchase and installation,0,0,null
+c9_1_2_3,c9_1_2,Cable TV connection,0,0,null
+c9_1_2_4,c9_1_2,Video recorder,0,0,null
+c9_1_2_5,c9_1_2,DVD player/recorder,0,0,null
+c9_1_2_6,c9_1_2,"Blank, pre-recorded video cassettes, DVDs",0.4,0.4,null
+c9_1_2_7,c9_1_2,"Personal computers, printers and calculators",1.7,1.7,null
+c9_1_2_8,c9_1_2,"Spare parts for TV, video, audio",0.1,0.1,null
+c9_1_2_9,c9_1_2,"Repair of audio-visual, photographic and information processing",0.1,0.1,null
+c9_1_3,c9_1,"Photographic, cine and optical equipment",0.4,0.4,null
+c9_1_3_1,c9_1_3,Photographic and cine equipment,0.3,0.3,null
+c9_1_3_2,c9_1_3,Camera films,0,0,null
+c9_1_3_3,c9_1_3,"Optical instruments, binoculars, telescopes, microscopes",0,0,null
+c9_2,c9,Other major durables for recreation and culture,1.8,1.8,null
+c9_2_1,c9_2,"Purchase of boats, trailers and horses",0,0,null
+c9_2_2,c9_2,"Purchase of caravans, mobile homes (including decoration)",0.5,0.5,null
+c9_2_3,c9_2,"Accessories for boats, horses, caravans and motor caravans",0,0,null
+c9_2_4,c9_2,Musical instruments (purchase and hire),0.3,0.3,null
+c9_2_5,c9_2,Major durables for indoor recreation ,0,0,null
+c9_2_6,c9_2,Maintenance and repair of other major durables,0.4,0.4,null
+c9_2_7,c9_2,Purchase of motor caravan (new and second-hand) - outright purchase,0,0,null
+c9_2_8,c9_2,Purchase of motor caravan (new and second-hand) - loan/HP,0,0,null
+c9_3,c9,"Other recreational items and equipment, gardens and pets",13.7,13.7,null
+c9_3_1,c9_3,"Games, toys and hobbies",2.7,2.7,null
+c9_3_2,c9_3,Computer software and games,1,1,null
+c9_3_2_1,c9_3_2,Computer software and game cartridges,0.7,0.7,null
+c9_3_2_2,c9_3_2,Computer games consoles,0.3,0.3,null
+c9_3_3,c9_3,"Equipment for sport, camping and open-air recreation",1.5,1.5,null
+c9_3_4,c9_3,"Horticultural goods, garden equipment and plants etc",3.1,3.1,null
+c9_3_4_1,c9_3_4,BBQ and swings,0.1,0.1,null
+c9_3_4_2,c9_3_4,"Plants, flowers, seeds, fertilisers, insecticides",2.8,2.8,null
+c9_3_4_3,c9_3_4,Garden decorative,0.2,0.2,null
+c9_3_4_4,c9_3_4,"Artificial flowers, pot pourri",0,0,null
+c9_3_5,c9_3,Pets and pet food,5.4,5.4,null
+c9_3_5_1,c9_3_5,Pet food,2.4,2.4,null
+c9_3_5_2,c9_3_5,Pet purchase and accessories,1.1,1.1,null
+c9_3_5_3,c9_3_5,Veterinary and other services for pets identified separately,2,2,null
+c9_4,c9,Recreational and cultural services,21.1,21.1,null
+c9_4_1,c9_4,"Sports admissions, subscriptions, leisure class fees and equipment hire",7.1,7.1,null
+c9_4_1_1,c9_4_1,Spectator sports0 admission charges,0.7,0.7,null
+c9_4_1_2,c9_4_1,Participant sports (excluding subscriptions),1.2,1.2,null
+c9_4_1_3,c9_4_1,Subscriptions to sports and social clubs,2.3,2.3,null
+c9_4_1_4,c9_4_1,Leisure class fees,2.7,2.7,null
+c9_4_1_5,c9_4_1,Hire of equipment for sport and open air recreation,0.1,0.1,null
+c9_4_2,c9_4,"Cinema, theatre and museums etc",2.8,2.8,null
+c9_4_2_1,c9_4_2,Cinemas,0.8,0.8,null
+c9_4_2_2,c9_4_2,"Live entertainment0 theatre, concerts, shows",1.5,1.5,null
+c9_4_2_3,c9_4_2,"Museums, zoological gardens, theme parks, houses and gardens",0.5,0.5,null
+c9_4_3,c9_4,"TV, video, satellite rental, cable subscriptions and TV licences",7.1,7.1,null
+c9_4_3_1,c9_4_3,TV licences,2.2,2.2,null
+c9_4_3_2,c9_4_3,Satellite subscriptions,3.5,3.5,null
+c9_4_3_3,c9_4_3,Rent for TV/Satellite/VCR,0,0,null
+c9_4_3_4,c9_4_3,Cable subscriptions,1.1,1.1,null
+c9_4_3_5,c9_4_3,TV slot meter payments,0,0,null
+c9_4_3_6,c9_4_3,"Video, cassette and CD hire",0.1,0.1,null
+c9_4_4,c9_4,Miscellaneous entertainments,1.4,1.4,null
+c9_4_4_1,c9_4_4,"Admissions to clubs, dances, discos, bingo",0.7,0.7,null
+c9_4_4_2,c9_4_4,Social events and gatherings,0.2,0.2,null
+c9_4_4_3,c9_4_4,Subscriptions for leisure activities and other subscriptions,0.6,0.6,null
+c9_4_5,c9_4,"Development of film, deposit for film development, passport photos, holiday and school photos",0.2,0.2,null
+c9_4_6,c9_4,Gambling payments,2.5,2.5,null
+c9_4_6_1,c9_4_6,Football pools stakes,0,0,null
+c9_4_6_2,c9_4_6,Bingo stakes excluding admission,0.2,0.2,null
+c9_4_6_3,c9_4_6,Lottery ,1.5,1.5,null
+c9_4_6_4,c9_4_6,"Bookmaker, tote, other betting stakes",0.8,0.8,null
+c9_5,c9,"Newspapers, books and stationery",5.4,5.4,null
+c9_5_1,c9_5,Books,1.1,1.1,null
+c9_5_2,c9_5,"Stationery, diaries, address books, art materials",0.8,0.8,null
+c9_5_3,c9_5,"Cards, calendars, posters and other printed matter",1.3,1.3,null
+c9_5_4,c9_5,Newspapers,1.5,1.5,null
+c9_5_5,c9_5,Magazines and periodicals,0.7,0.7,null
+c9_6,c9,Package holidays,26.8,26.8,null
+c9_6_1,c9_6,Package holidays - UK,1.3,1.3,null
+c9_6_2,c9_6,Package holidays - abroad,25.5,25.5,null
+c10,c0,Education,5.7,5.7,1
+c10_1,c10,Education fees,5.4,5.4,null
+c10_1_1,c10_1,Nursery and primary education,0.9,0.9,null
+c10_1_2,c10_1,Secondary education,1.1,1.1,null
+c10_1_3,c10_1,Sixth form college/college education,0.5,0.5,null
+c10_1_4,c10_1,University education,2.3,2.3,null
+c10_1_5,c10_1,Other education,0.5,0.5,null
+c10_2,c10,"Payments for school trips, other ad-hoc expenditure",0.3,0.3,null
+c10_2_1,c10_2,Nursery and primary education,0.1,0.1,null
+c10_2_2,c10_2,Secondary education,0.2,0.2,null
+c10_2_3,c10_2,Sixth form college/college education,0,0,null
+c10_2_4,c10_2,University education,0,0,null
+c10_2_5,c10_2,Other education,0,0,null
+c11,c0,Restaurants and hotels,50.1,50.1,9
+c11_1,c11,Catering services,39.1,39.1,null
+c11_1_1,c11_1,Restaurant and café meals,19,19,null
+c11_1_2,c11_1,Alcoholic drinks (away from home),7.9,7.9,null
+c11_1_3,c11_1,Take away meals eaten at home,5.1,5.1,null
+c11_1_4,c11_1,Other take-away and snack food,5,5,null
+c11_1_4_1,c11_1_4,Hot and cold food,3.8,3.8,null
+c11_1_4_2,c11_1_4,Confectionery,0.3,0.3,null
+c11_1_4_3,c11_1_4,Ice cream,0.1,0.1,null
+c11_1_4_4,c11_1_4,Soft drinks,0.8,0.8,null
+c11_1_5,c11_1,Contract catering (food),0.5,0.5,null
+c11_1_6,c11_1,Canteens,1.7,1.7,null
+c11_1_6_1,c11_1_6,School meals,0.7,0.7,null
+c11_1_6_2,c11_1_6,Meals bought and eaten at the workplace,1,1,null
+c11_2,c11,Accommodation services,10.9,10.9,null
+c11_2_1,c11_2,Holiday in the UK,5.4,5.4,null
+c11_2_2,c11_2,Holiday abroad,5.2,5.2,null
+c11_2_3,c11_2,Room hire,0.4,0.4,null
+c12,c0,Miscellaneous goods and services,41.8,41.8,7.5
+c12_1,c12,Personal care,12.6,12.6,null
+c12_1_1,c12_1,"Hairdressing, beauty treatment",4.2,4.2,null
+c12_1_2,c12_1,Toilet paper,0.8,0.8,null
+c12_1_3,c12_1,Toiletries and soap,2.5,2.5,null
+c12_1_3_1,c12_1_3,"Toiletries (disposable including tampons, lipsyl, toothpaste etc)",1.5,1.5,null
+c12_1_3_2,c12_1_3,"Bar of soap, liquid soap, shower gel etc",0.5,0.5,null
+c12_1_3_3,c12_1_3,"Toilet requisites (durable including razors, hairbrushes, toothbrushes etc)",0.6,0.6,null
+c12_1_4,c12_1,Baby toiletries and accessories (disposable),0.6,0.6,null
+c12_1_5,c12_1,"Hair products, cosmetics and electrical appliances for personal care",4.6,4.6,null
+c12_1_5_1,c12_1_5,Hair products,0.9,0.9,null
+c12_1_5_2,c12_1_5,Cosmetics and related accessories,3.3,3.3,null
+c12_1_5_3,c12_1_5,"Electrical appliances for personal care, including hairdryers, shavers etc",0.4,0.4,null
+c12_2,c12,Personal effects ,3.6,3.6,null
+c12_2_1,c12_2,"Jewellery, clocks and watches and other personal effects",2.1,2.1,null
+c12_2_2,c12_2,Leather and travel goods (excluding baby items),1,1,null
+c12_2_3,c12_2,Sunglasses (non-prescription),0.1,0.1,null
+c12_2_4,c12_2,Baby equipment (excluding prams and pushchairs),0.2,0.2,null
+c12_2_5,c12_2,"Prams, pram accessories and pushchairs",0.2,0.2,null
+c12_2_6,c12_2,Repairs to personal goods,0.1,0.1,null
+c12_3,c12,Social protection,3.9,3.9,null
+c12_3_1,c12_3,Residential homes,0,0,null
+c12_3_2,c12_3,Home help,0.3,0.3,null
+c12_3_3,c12_3,"Nursery, crèche, playschools",1,1,null
+c12_3_4,c12_3,Child care payments,2.4,2.4,null
+c12_4,c12,Insurance,16.9,16.9,null
+c12_4_1,c12_4,Household insurances,4.8,4.8,null
+c12_4_1_1,c12_4_1,Structure insurance,2.4,2.4,null
+c12_4_1_2,c12_4_1,Contents insurance,2.3,2.3,null
+c12_4_1_3,c12_4_1,Insurance for household appliances,0.1,0.1,null
+c12_4_2,c12_4,Medical insurance premiums,2.1,2.1,null
+c12_4_3,c12_4,Vehicle insurance including boat insurance,9.9,9.9,null
+c12_4_3_1,c12_4_3,Vehicle insurance,9.9,9.9,null
+c12_4_3_2,c12_4_3,Boat insurance (not home),0,0,null
+c12_4_4,c12_4,"Non-package holiday, other travel insurance",0.2,0.2,null
+c12_5,c12,Other services,4.8,4.8,null
+c12_5_1,c12_5,Moving house,2.2,2.2,null
+c12_5_1_1,c12_5_1,Moving and storage of furniture,0.3,0.3,null
+c12_5_1_2,c12_5_1,Property transaction - purchase and sale,1,1,null
+c12_5_1_3,c12_5_1,Property transaction - sale only,0.3,0.3,null
+c12_5_1_4,c12_5_1,Property transaction - purchase only,0.4,0.4,null
+c12_5_1_5,c12_5_1,Property transaction - other payments,0.2,0.2,null
+c12_5_2,c12_5,"Bank, building society, post office, credit card charges",0.6,0.6,null
+c12_5_2_1,c12_5_2,Bank and building society charges,0.5,0.5,null
+c12_5_2_2,c12_5_2,Bank and Post Office counter charges,0,0,null
+c12_5_2_3,c12_5_2,Annual standing charge for credit cards,0.1,0.1,null
+c12_5_2_4,c12_5_2,Commission travellers' cheques and currency,0,0,null
+c12_5_3,c12_5,Other services and professional fees,2,2,null
+c12_5_3_1,c12_5_3,Other professional fees including court fines,0.4,0.4,null
+c12_5_3_2,c12_5_3,Legal fees,0.5,0.5,null
+c12_5_3_3,c12_5_3,Funeral expenses,0.4,0.4,null
+c12_5_3_4,c12_5_3,TU and professional organisations,0.5,0.5,null
+c12_5_3_5,c12_5_3,Other payments for services eg photocopying,0.1,0.1,null
+c13,c0,Other expenditure items,72,72,13
+c13_1,c13,"Housing0 mortgage interest payments, council tax etc",45.8,45.8,null
+c13_1_1,c13_1,Mortgage interest payments,20.9,20.9,null
+c13_1_2,c13_1,Mortgage protection premiums,1.1,1.1,null
+c13_1_3,c13_1,"Council tax, domestic rates",22.4,22.4,null
+c13_1_4,c13_1,"Council tax, mortgage (second dwelling)",1.4,1.4,null
+c13_2,c13,"Licences, fines and transfers",3.7,3.7,null
+c13_2_1,c13_2,"Stamp duty, licences and fines (excluding motoring fines)",0.2,0.2,null
+c13_2_2,c13_2,Motoring fines,0,0,null
+c13_2_3,c13_2,Motor vehicle road taxation payments less refunds,3.4,3.4,null
+c13_3,c13,Holiday spending,10.6,10.6,null
+c13_3_1,c13_3,Money spent abroad,10.6,10.6,null
+c13_3_2,c13_3,Duty free goods bought in UK,0,0,null
+c13_4,c13,Money transfers and credit,11.9,11.9,null
+c13_4_1,c13_4,"Money, cash gifts given to children",0.1,0.1,null
+c13_4_1_1,c13_4_1,Money given to children for specific purposes,0.1,0.1,null
+c13_4_1_2,c13_4_1,Cash gifts to children (no specific purpose),0,0,null
+c13_4_2,c13_4,Cash gifts and donations,10.5,10.5,null
+c13_4_2_1,c13_4_2,Money/presents given to those outside the household,4.2,4.2,null
+c13_4_2_2,c13_4_2,Charitable donations and subscriptions,3,3,null
+c13_4_2_3,c13_4_2,Money sent abroad,1.5,1.5,null
+c13_4_2_4,c13_4_2,Maintenance allowance expenditure,1.8,1.8,null
+c13_4_3,c13_4,Club instalment payments (child) and interest on credit cards,1.3,1.3,null
+c13_4_3_1,c13_4_3,Club instalment payment,0,0,null
+c13_4_3_2,c13_4_3,Interest on credit cards,1.3,1.3,null

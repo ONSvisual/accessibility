@@ -1,0 +1,82 @@
+{
+  "essential": {
+    "graphic_data_url": "data.csv",
+
+    "sort_data": false,
+
+    "colour_palette": [
+      "#053d58",
+      "#3a7899",
+      "#c4c4c4",
+      "#abc149"
+  ],
+    "dateFormat": "",
+
+    "legendLabels": [
+      "Non-discretionary & no payment holiday available",
+      "Non-discretionary & payment holiday available",
+      "Discretionary",
+      "Prevented under lockdown"
+],
+
+    "sourceText": ["Office for National Statistics - Family Spending"],
+    "sourceURL": ["http://www.ons.gov.uk/ons/rel/census/2011-census-analysis/overcrowding-and-under-occupation-in-england-and-wales/index.html"],
+
+    "annotationChart": [""],
+    "annotationBullet": [""],
+    "annotationXY": [
+      [20, "Rent paid (unfurnished)"]
+
+    ],
+    "annotationAlign": [
+      "middle"
+    ],
+
+    "circles": false,
+    "annotationCXCY": [
+      ["10", "Social  rented"]
+
+    ],
+
+    "xAxisLabel": "%",
+    "xAxisScale": "auto_zero_max",
+    "xAxisBreak": true,
+    "xAxisBreak_sm_md_lg": [65, 65, 65]
+  },
+  "optional": {
+    "margin": {
+      "sm": {
+        "top": 10,
+        "right": 10,
+        "bottom": 35,
+        "left":80
+      },
+      "md": {
+        "top": 10,
+        "right": 5,
+        "bottom": 35,
+        "left": 80
+      },
+      "lg": {
+        "top": 10,
+        "right": 5,
+        "bottom": 35,
+        "left": 80
+      }
+    },
+    "aspectRatio": {
+      "sm": [16, 20],
+      "md": [16, 7],
+      "lg": [16, 8]
+    },
+    "mobileBreakpoint": 414,
+    "mediumBreakpoint":600,
+
+    "x_num_ticks": {
+      "sm": 6,
+      "md": 8,
+      "lg": 10
+    }
+
+  }
+}

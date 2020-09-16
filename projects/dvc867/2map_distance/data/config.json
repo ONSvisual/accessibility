@@ -1,0 +1,42 @@
+    {"ons":{
+    "maptitle": "Industries and distance to work",
+    "varcolour": "Blues",
+    "varunit": "% less than 10km",
+    "mapVarName": "mapvar",
+    "displaydecimals": 1,
+    "legenddecimals": 0,
+    "breaks": "jenks",
+    "dropticks": false,
+    "numberBreaks": 4,
+    "essential" : {
+            "graphic_data_url": "data.csv",
+            "colour_palette": {
+              "0": "#6ab3b5",
+              "1": "#337e81"
+            },
+            "legendLookup": {
+              "lessthantwokm": "0",
+              "twototenkm": "1"
+            },
+            "legendLabels": {
+              "0": "Less than 2km",
+              "1": "2 to 10km"
+            },
+            "sourceText":["ONS 2011 Census"],
+            "xAxisLabel":"% of local workforce",
+            "xAxisScale": [0,18],
+            "heightperstrip":35,
+            "dotradius":3,
+            "barMargin": {"top": 5, "right": 10, "bottom": 35, "left": 140},
+            "defaultBarVar": "default",
+            "stackVar": "Distance",
+            "lineVar": "GB",
+            "lineColour": "#053D58",
+            "lineLegendLabel": "Less than 10km - England & Wales average"
+    },
+    "optional" : {
+            "mobileBreakpoint" : 610,
+            "x_num_ticks_sm_md" : [3,4]
+    }
+    }
+}

@@ -1,0 +1,24 @@
+{"ons":{
+"maptitle": "Personal well-being by local authority",
+"varcolour":["#eff3ff","#bdd7e7","#6baed6","#3182bd","#08519c"],
+"varlabels": ["Life satisfaction","Worthwhile","Happiness","Anxiety"],
+"timeload": "last",
+"timepoints": ["2011/12","2012/13","2013/14","2014/15","2015/16","2016/17","2017/18","2018/19"],
+"varunit": ["out of ten","out of ten","out of ten","out of ten"],
+"displaydecimals": 1,
+"legenddecimals": 1,
+"breaks":"jenks",
+"breaks0": [7,7.5,8,8.5,8.6,9],
+"breaks1": [7,7.5,8,8.5,8.6,9],
+"breaks2": [7,7.5,8,8.5,8.6,9],
+"breaks3": [7,7.5,8,8.5,8.6,9],
+"dropticks": false,
+"numberBreaks": 5,
+"sourcetext": "Annual Population Survey, ONS",
+"sourceURL" : "http://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/bulletins/measuringnationalwellbeing/2015to2016",
+"chartLabels": ["1", "2", "3", "4"],
+"timelineLabelsMB":["", "12/13", "", "14/15", "", "16/17", "","18/19"],
+"timelineLabelsDT":["","2012/13","","2014/15","","2016/17","","2018/19"],
+"average": [[""],[""],[""]]
+
+}}

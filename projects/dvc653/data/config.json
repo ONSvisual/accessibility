@@ -1,0 +1,57 @@
+{
+    "ons": {
+        "maptitle": "Multi Map about knife crime",
+        "varcolour": [
+            [
+                "#c7eae5",
+                "#80cdc1",
+                "#35978f",
+                "#01665e",
+                "#003c30"
+            ],
+            [
+                "#8c510a",
+                "#d8b365",
+                "#f6e8c3",
+                "#c7eae5",
+                "#5ab4ac",
+                "#01665e"
+            ]
+        ],
+        "varlabels": [
+            "Knife crime rates",
+            "Change on last year"
+        ],
+        "varload": 0,
+        "varunit": [
+            "rate per 100,000 population",
+            "% change over the last year"
+        ],
+        "displaydecimals": 0,
+        "legenddecimals": 0,
+        "breaks": [
+            [
+                24,
+                53,
+                82,
+                111,
+                139,
+                168
+            ],
+            [
+                -34,
+                -23,
+                -11,
+                0,
+                12,
+                24,
+                35
+            ]
+        ],
+        "dropticks": false,
+        "numberBreaks": [
+            5,
+            6
+        ]
+    }
+}

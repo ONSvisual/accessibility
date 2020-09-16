@@ -1,0 +1,46 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+
+            "dateFormat":"%Y",
+
+            "legendLabels" : ["Women","Men"],
+
+            "sourceText":["Annual Survey of Hours and Earnings, ONS"],
+            "sourceURL":["http://www.ons.gov.uk/ons/rel/ashe/annual-survey-of-hours-and-earnings/index.html"],
+
+            "annotationChart": [],
+            "annotationBullet": [],
+            "annotationXY":[
+                ["20","London"],
+                ["60","North East"]
+            ],
+            "annotationAlign":[
+                "middle",
+                "middle"
+            ],
+            "occgroup":["Managers, directors & senior officials","Professional","Associate professional & technical","Admin & secretarial","Skilled trades","Caring, leisure & other services","Sales & customer service","Process, plant & machine operatives","Elementary"],
+
+            "xAxisLabel":"Hourly earnings (£'s gross)",
+            "xAxisScale": [[0,50],[0,50],[0,50]],
+            "xAxisScaleDivisor": 100,
+            "yAxisScaleDivisor": 100
+    },
+    "optional" : {
+            "margin_sm": [25, 20, 8, 200],
+            "margin_md": [25, 40, 8, 200],
+            "margin_lg": [15, 70, 8, 330],
+
+            "aspectRatio_sm" : [4,400],
+            "aspectRatio_md" : [4,100],
+            "aspectRatio_lg" : [4,110],
+
+            "lineheight" : [30,35,50],
+
+            "mobileBreakpoint" : 767,
+
+            "x_num_ticks_sm_md_lg" : [5,5,5],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}

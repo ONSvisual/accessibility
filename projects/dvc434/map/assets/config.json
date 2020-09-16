@@ -1,0 +1,11 @@
+{"ons":{
+"varlabel": ["Price Area","Price Area"],
+"varcolour": ["rgb(170,218,240)", "rgb(49,174,230)", "rgb(0,122,171)", "rgb(1,61,87)", "rgb(3,30,41)"],
+"varcolour_old": "BuPu[5]",
+"varname": ["price_area"],
+"varload": "price_area",
+"varunit":["£"],
+"varprefix":["",""],
+"average":[2395],
+"averagelabel":"E&W average"
+}}

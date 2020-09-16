@@ -1,0 +1,46 @@
+AREACD,AREANM,"rate per 100,000 population",% change over the last year
+E23000001,Metropolitan Police,166,1
+E23000002,Cumbria,31,-1
+E23000003,Lancashire,70,10
+E23000004,Merseyside,87,35
+E23000005,Greater Manchester,129,null
+E23000006,Cheshire,36,12
+E23000007,Northumbria,61,4
+E23000008,Durham,32,-18
+E23000009,North Yorkshire,34,21
+E23000010,West Yorkshire,118,20
+E23000011,South Yorkshire,71,-3
+E23000012,Humberside,65,8
+E23000013,Cleveland,73,-10
+E23000014,West Midlands,111,17
+E23000015,Staffordshire,63,6
+E23000016,West Mercia,39,11
+E23000017,Warwickshire,46,8
+E23000018,Derbyshire,55,22
+E23000019,Nottinghamshire,78,9
+E23000020,Lincolnshire,34,15
+E23000021,Leicestershire,76,18
+E23000022,Northamptonshire,66,4
+E23000023,Cambridgeshire,45,-26
+E23000024,Norfolk,32,-1
+E23000025,Suffolk,27,8
+E23000026,Bedfordshire,68,-6
+E23000027,Hertfordshire,41,-13
+E23000028,Essex,37,-34
+E23000029,Thames Valley,62,19
+E23000030,Hampshire,42,-5
+E23000031,Surrey,5,18
+E23000032,Kent,50,20
+E23000033,Sussex,18,-3
+E23000034,City of London,null,null
+E23000035,Devon and Cornwall,25,14
+E23000036,Avon and Somerset,35,8
+E23000037,Gloucestershire,49,13
+E23000038,Wiltshire,39,1
+E23000039,Dorset,31,-1
+W15000001,North Wales,43,21
+W15000002,Gwent,23,20
+W15000003,South Wales,55,23
+W15000004,Dyfed-Powys,38,28
+,,,
+Source: Office for National Statistics,,,

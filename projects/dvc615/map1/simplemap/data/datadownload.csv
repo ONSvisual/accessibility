@@ -1,0 +1,46 @@
+AREACD,AREANM,"Rate per 100,000 population"
+E23000013,Cleveland,73
+E23000008,Durham,32
+E23000007,Northumbria,61
+E23000006,Cheshire,36
+E23000002,Cumbria,31
+E23000005,Greater Manchester6,129
+E23000003,Lancashire,70
+E23000004,Merseyside,87
+E23000012,Humberside,65
+E23000009,North Yorkshire,34
+E23000011,South Yorkshire,71
+E23000010,West Yorkshire,118
+E23000018,Derbyshire,55
+E23000021,Leicestershire,76
+E23000020,Lincolnshire,34
+E23000022,Northamptonshire,66
+E23000019,Nottinghamshire,78
+E23000015,Staffordshire,63
+E23000017,Warwickshire,46
+E23000016,West Mercia,39
+E23000014,West Midlands,111
+E23000026,Bedfordshire,68
+E23000023,Cambridgeshire,45
+E23000028,Essex,37
+E23000027,Hertfordshire,41
+E23000024,Norfolk,32
+E23000025,Suffolk,27
+E23000034,City of London,
+E23000001,Metropolitan Police,166
+E23000030,Hampshire,42
+E23000032,Kent,50
+E23000031,Surrey,5
+E23000033,Sussex,18
+E23000029,Thames Valley,62
+E23000036,Avon and Somerset,35
+E23000035,Devon and Cornwall,25
+E23000039,Dorset,31
+E23000037,Gloucestershire,49
+E23000038,Wiltshire,39
+W15000004,Dyfed-Powys,38
+W15000002,Gwent,23
+W15000001,North Wales,43
+W15000003,South Wales,55
+,,
+Source: Office for National Statistics,,

@@ -1,0 +1,21 @@
+{
+    "essential" : {
+          "graphic_data_url": "data.csv",
+          "colour_palette":[ "#3a7899" ],
+      		"sourceText":["ONS Annual Population Survey"],
+          "sourceURL":[""],
+
+          "xAxisLabel":"%",
+          "xAxisScale":[-20,50],
+          "barHeight_sm_md_lg" : [30,30,30],
+
+          "whiteLabelRatio": 0.7
+
+    },
+    "optional" : {
+          "margin_sm": [8, 0, 10, 127],
+          "margin_md": [8, 0, 10, 130],
+          "mobileBreakpoint" : 610
+
+    }
+}
