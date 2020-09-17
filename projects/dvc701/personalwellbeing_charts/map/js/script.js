@@ -571,7 +571,7 @@ if (Modernizr.webgl) {
             .transition()
             .duration(300)
             .attr("cx", x(dvc.timepoints[a]))
-            .attr("cy", y(dvc.average[navvalue][a]))          
+            .attr("cy", y(dvc.average[navvalue][a]))
         }
       }
     }
@@ -760,7 +760,8 @@ if (Modernizr.webgl) {
             } else {
               return y(midpoint)
             }
-          });
+          })
+          .attr("text-anchor", "middle");
 
         d3.select("#currVal2")
           .text(function() {
@@ -780,7 +781,8 @@ if (Modernizr.webgl) {
             } else {
               return y(midpoint)
             }
-          });
+          })
+          .attr("text-anchor", "middle");
 
         d3.select("#currPoint")
           .text(function() {
