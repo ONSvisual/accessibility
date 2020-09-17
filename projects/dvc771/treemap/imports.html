@@ -437,6 +437,17 @@
         text-align: right;
         padding-right: 5px !important;
       }
+
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
     </style>
   </head>
 
@@ -450,13 +461,13 @@
 
     <div class="container-fluid">
       <div id="main-wrapper">
-
         <div id="mainContent" style="display:none">
+          <p id="chartDescription" class="visuallyhidden"></p>
 
-          <div id="blurb" class="row">
+          <p id="blurb" class="row">
             <text id="txt2"></text>
             <text id="txt3"></text>
-          </div>
+          </p>
           <div class="row">
             <!--					<button type="button" id="upBtn" class="nav btn btn-ons ">
                         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Up a level
@@ -1429,8 +1440,12 @@
           layout(root);
           display(root);
 
-          d3.select("#blurb").select("#txt2").html("Goods imports 2019: ")
-          d3.select("#blurb").select("#txt3").html("£" + formatNumber(dataset.size) + " million");
+          var heading = "Goods imports 2019: ";
+          var value = "£" + formatNumber(dataset.size) + " million";
+          var label = `A chart displaying goods imported in 2019 (${value}) broken down by type of goods and country of origin.`;
+          $('#chartDescription').html(label);
+          d3.select("#blurb").select("#txt2").html(heading);
+          d3.select("#blurb").select("#txt3").html(value);
           d3.json("config.json", function (error, config) {
             dvc = config
             d3.csv("trade_imports.csv", function (data) {
@@ -1441,8 +1456,6 @@
             }) // end trade csv
           }) //end json config
         }); //end treemap csv load
-
-
       }
 
       function initialize(root) {
