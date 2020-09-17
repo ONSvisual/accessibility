@@ -194,10 +194,17 @@ if(Modernizr.webgl) {
 		// 	.text(function(d,i){return dvc.varlabels[i]})
 		// 	.on('click',function(d,i){onchange(i)})
 
+		var container = d3.select('#selectnav')
 
-		selectgroup = d3.select('#selectnav')
+		container.append('label')
+			.attr('for', 'selectlistMobile')
+			.attr('class', 'visuallyhidden')
+			.text('Choose from selection');
+		
+		selectgroup = container
 						.append('select')
 						.attr('class','dropdown')
+						.attr('id', 'selectlistMobile')
 						.on('change', onselect)
 						.selectAll("option")
 						.data(dvc.varlabels)
@@ -756,17 +763,12 @@ if(Modernizr.webgl) {
 			var menuarea = d3.zip(areanames,areacodes).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
 
 			// Build option menu for occupations
-			var container = d3.select("#selectNav").append("div").attr("id", "sel")
-
-			var optns = container.append("select")
+			var optns = d3.select("#selectNav").append("div").attr("id", "sel")
+				.append("select")
 				.attr("id", "areaselect")
 				.attr("style", "width:calc(100% - 6px)")
 				.attr("class", "chosen-select");
 
-			container.append('label')
-				.attr('for', 'areaselect')
-				.attr('class', 'visuallyhidden')
-				.text('Select an area');
 
 			optns.append("option")
 				// .attr("value","first")
@@ -779,10 +781,10 @@ if(Modernizr.webgl) {
 
 			myId=null;
 
-			 $('#areaselect').chosen({placeholder_text_single:"Select an area",allow_single_deselect:true})
+			$('#areaselect').chosen({placeholder_text_single:"Select an area",allow_single_deselect:true})
 
-			 d3.select('input.chosen-search-input').attr('id','chosensearchinput')
-	     d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
+			d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+			d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
 
 			$('#areaselect').on('change',function(){
 
