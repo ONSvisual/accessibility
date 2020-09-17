@@ -913,7 +913,7 @@ if (Modernizr.webgl) {
           .attr("r", "4px")
           .attr("cy", y(linedata[a][1]))
           .attr("cx", x(dvc.timepoints[a]))
-          .attr("fill", "#777")
+          .attr("fill", "#666")
           .attr("stroke", "black")
           .style("opacity", 0)
 
