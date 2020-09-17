@@ -195,17 +195,25 @@ if(Modernizr.webgl) {
 		// 	.on('click',function(d,i){onchange(i)})
 
 
-		selectgroup = d3.select('#selectnav')
-						.append('select')
-						.attr('class','dropdown')
-						.on('change', onselect)
-						.selectAll("option")
-						.data(dvc.varlabels[a])
-						.enter()
-						.append('option')
-						.attr("value", function(d,i){return i})
-						.property("selected", function(d, i) {return i===dvc.varload;})
-						.text(function(d,i){return dvc.varlabels[i]});
+			var container = d3.select('#selectnav')
+
+			container.append('label')
+				.attr('for', 'selectlistMobile')
+				.attr('class', 'visuallyhidden')
+				.text('Choose from selection');
+
+			selectgroup = container
+				.append('select')
+				.attr('class', 'dropdown')
+				.attr('id', 'selectlistMobile')
+				.on('change', onselect)
+				.selectAll("option")
+				.data(dvc.varlabels)
+				.enter()
+				.append('option')
+				.attr("value", function (d, i) { return i })
+				.property("selected", function (d, i) { return i === dvc.varload; })
+				.text(function (d, i) { return dvc.varlabels[i] });
 
 
 		}
