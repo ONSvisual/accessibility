@@ -1043,6 +1043,7 @@ input{
 
 
     function addCloseButtonDesc() {
+      d3.selectAll(".search-choice-close").selectAll("span").remove();
       d3.selectAll(".search-choice-close").append("span").attr("class","visuallyhidden").text(function(d,i) {return "remove " + listnames[i]})
     }
 
