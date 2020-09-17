@@ -904,7 +904,7 @@ if (Modernizr.webgl) {
           .attr("id", "line1")
           .style("opacity", 1)
           .attr("d", line1(linedata))
-          .attr("stroke", "#666")
+          .attr("stroke", "black")
           .attr("stroke-width", "2px")
           .attr("fill", "none");
 
@@ -913,7 +913,7 @@ if (Modernizr.webgl) {
           .attr("r", "4px")
           .attr("cy", y(linedata[a][1]))
           .attr("cx", x(dvc.timepoints[a]))
-          .attr("fill", "#999")
+          .attr("fill", "#777")
           .attr("stroke", "black")
           .style("opacity", 0)
 
@@ -1100,9 +1100,8 @@ if (Modernizr.webgl) {
 
           g2.append("path")
             .attr("id", "line2")
-            .style("opacity", 0.3)
             .attr("d", line2(linedata2))
-            .attr("stroke", "#666")
+            .attr("stroke", "#888")
             .attr("stroke-width", "2px")
             .attr("fill", "none");
 
@@ -1110,7 +1109,13 @@ if (Modernizr.webgl) {
           g2.append("circle")
             .attr("id", "currPoint2")
             .attr('r',"4px")
-            .attr("cy", y(10)) // set start position
+            .attr("cy", function() {
+              if (dvc.average[navvalue] != null) {
+                return y(dvc.average[navvalue][a]) // set start position
+              } else {
+                return y(0) // placeholder because no data for this variable
+              }
+            })
             .attr("cx", x(dvc.timepoints[a]))
             .attr("fill", "#cacaca")
             .attr("stroke", "black")
@@ -1124,8 +1129,7 @@ if (Modernizr.webgl) {
                 return y(linedata2[linedata2.length - 1][1])
               })
               .attr("font-size", "12px")
-              .style("opacity", 0.3)
-              .attr("fill", "#666")
+              .attr("fill", "#757575")
               .attr("text-anchor", "middle")
               .text(dvc.averageText);
 
