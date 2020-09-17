@@ -1345,7 +1345,7 @@
           .on("mouseout", mouseout)
           .on("blur", mouseout)
           .on("keyup", function(d) {
-            if (d3.event.keyCode == 13) {
+            if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
               $(d3.event.target).parent().d3Click();
             }
           })
