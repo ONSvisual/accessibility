@@ -64,20 +64,20 @@
 }
 
 .tabs nav li.tab-current a {
-	background-color: #E5E5E5;
-	color: #000;
+	background-color: #1c5e97;
+	color: #fff;
 	height: 46px !important;
 	width: 100%;
 }
 
-.tabs nav li a:hover {
-/*	background-color: #E5E5E5;*/
-	color: #000;
-	width: 100%;
+.tabs nav li:focus {
+	outline: orange 2px solid;
 }
 
-.tabs nav a:focus {
-	outline: none;
+.focus {
+	background-color: #1c5e97;
+	color: #fff;
+	width: 100%;
 }
 
 /* Icons */
