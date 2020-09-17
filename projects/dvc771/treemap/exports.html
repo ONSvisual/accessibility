@@ -663,7 +663,8 @@
 
 
         $('#areaselect').chosen({allow_single_deselect: true})
-
+        $('.chosen-search').find('input').attr('id', 'filterSearch');
+        $('.chosen-search').prepend("<label for='filterSearch' class='visuallyhidden'>Filters for the chart below, the results of the filters are not currently accessible by screen readers</label>");
         //$('#areaselect').on('input',function(){console.log("click")})
 
         $('#areaselect').on('change', function () {
