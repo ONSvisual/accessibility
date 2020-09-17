@@ -1,5 +1,5 @@
  <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -13,7 +13,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 <title>Gun crime England and Wales, year ending March 2019</title>
@@ -27,7 +27,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		}
 		body{
 		  font-family: “Open Sans”,Helvetica,Arial,sans-serif;
-		  font-family: open sans;
 		  margin: 0px;
 		  font-size: 16px;
 		  font-weight: 400;
@@ -120,9 +119,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				  line-height: 24px;
 				  -webkit-font-smoothing: antialiased;
 				}
-			   .btn:hover,.btn:focus {
-				  /* background-color:#0b5d30 ;*/
-				}
+
+        .btn:hover, .btn:focus {
+        			outline: 3px solid orange;
+        }
+
+        .visuallyhidden {
+           position: absolute;
+           width: 1px;
+           height: 1px;
+           margin: -1px;
+           padding: 0;
+           overflow: hidden;
+           clip: rect(0, 0, 0, 0);
+           border: 0;
+        }
+
 		#textResponse{
 			max-width: 600px;
 			/* margin: auto; */
@@ -138,14 +150,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-<div id="graphic"> <img id="fallback" src="fallback.png" alt="[Chart]" />
-</div>
+  <div class="visuallyhidden">
+      <h5>This interface allows people to draw a line as a guess of how this variable has changed over time. Press the button to reveal a description of the trend.</h5>
+  </div>
+  
+  <div id="graphic" aria-hidden="true"> <img id="fallback" src="fallback.png" alt="[Chart]" />
+  </div>
 
  <div id="buttonRow" style="text-align:center; max-width:600px;">
  			<button type="button" id="showMe" class="btn" >Show me the answer</button>
    </div>
 
-	<div id="textResponse" style="text-align:left;"><p></p></div>
+	<div id="textResponse" aria-live="assertive" style="text-align:left;">
+    <p></p>
+  </div>
 
  <script src="../js/d3v4.js"></script>
  <script src="../lib/modernizr.js"></script>
