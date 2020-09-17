@@ -1,7 +1,7 @@
 
 //test if browser supports webGL
 
-if(Modernizr.webgl) {
+if (Modernizr.webgl) {
 
 	//setup pymjs
 	var pymChild = new pym.Child();
@@ -14,14 +14,13 @@ if(Modernizr.webgl) {
 		.await(ready);
 
 
-	function ready (error, data, config, geog){
+	function ready(error, data, config, geog) {
 
 		//Set up global variables
 		dvc = config.ons;
 		oldAREACD = "";
 		selected = false;
 		firsthover = true;
-		buttonVal = dvc.varload;
 
 		//Get column names
 		variables = [];
@@ -35,7 +34,7 @@ if(Modernizr.webgl) {
 
 
 		//BuildNavigation
-		if(dvc.varlabels.length > 1)	{
+		if (dvc.varlabels.length > 1) {
 			buildNav();
 		}
 		//set title of page
@@ -51,13 +50,13 @@ if(Modernizr.webgl) {
 
 		//set up basemap
 		map = new mapboxgl.Map({
-		  container: 'map', // container id
-		  style: 'data/style.json', //stylesheet location //includes key for API
-		  center: [-2.5, 54], // starting position
-		  minZoom: 3.5,//
-		  zoom: 4.5, // starting zoom
-		  maxZoom: 13, //
-		  attributionControl: false //
+			container: 'map', // container id
+			style: 'data/style.json', //stylesheet location //includes key for API
+			center: [-2.5, 54], // starting position
+			minZoom: 3.5,//
+			zoom: 4.5, // starting zoom
+			maxZoom: 13, //
+			attributionControl: false //
 		});
 		//add fullscreen option
 		//map.addControl(new mapboxgl.FullscreenControl());
@@ -84,7 +83,7 @@ if(Modernizr.webgl) {
 		}));
 
 		//get location on click
-		d3.select(".mapboxgl-ctrl-geolocate").on("click",geolocate);
+		d3.select(".mapboxgl-ctrl-geolocate").on("click", geolocate);
 
 		//addFullscreen();
 
@@ -96,7 +95,7 @@ if(Modernizr.webgl) {
 		createKey(config);
 
 		//convert topojson to geojson
-		for(key in geog.objects){
+		for (key in geog.objects) {
 			var areas = topojson.feature(geog, geog.objects[key])
 		}
 
@@ -104,17 +103,16 @@ if(Modernizr.webgl) {
 		bounds = turf.extent(areas);
 
 		//set map to total extent
-		setTimeout(function(){
-			map.fitBounds([[bounds[0],bounds[1]], [bounds[2], bounds[3]]])
-		},1000);
+		setTimeout(function () {
+			map.fitBounds([[bounds[0], bounds[1]], [bounds[2], bounds[3]]])
+		}, 1000);
 
 
 
 		//and add properties to the geojson based on the csv file we've read in
-		areas.features.map(function(d,i) {
-		  if(!isNaN(rateById[d.properties.AREACD]))
-		  	{d.properties.fill = color(rateById[d.properties.AREACD])}
-		  else {d.properties.fill = '#ccc'};
+		areas.features.map(function (d, i) {
+			if (!isNaN(rateById[d.properties.AREACD])) { d.properties.fill = color(rateById[d.properties.AREACD]) }
+			else { d.properties.fill = '#ccc' };
 		});
 
 		map.on('load', defineLayers);
@@ -147,7 +145,7 @@ if(Modernizr.webgl) {
 				.data(dvc.varlabels)
 				.enter()
 				.append('div')
-				.attr('class', 'grid-cell');
+				.attr('class', 'grid-cell top-tab');
 
 			cell.append('input')
 				.attr('type', 'radio')
@@ -196,9 +194,17 @@ if(Modernizr.webgl) {
 			// 	.on('click',function(d,i){onchange(i)})
 
 
-			selectgroup = d3.select('#selectnav')
+			var container = d3.select('#selectnav')
+
+			container.append('label')
+				.attr('for', 'selectlistMobile')
+				.attr('class', 'visuallyhidden')
+				.text('Choose from selection');
+
+			selectgroup = container
 				.append('select')
 				.attr('class', 'dropdown')
+				.attr('id', 'selectlistMobile')
 				.on('change', onselect)
 				.selectAll("option")
 				.data(dvc.varlabels)
@@ -256,19 +262,19 @@ if(Modernizr.webgl) {
 		function setupScales() {
 			//set up d3 color scales
 			//Load colours
-			if(typeof dvc.varcolour === 'string') {
-				color=chroma.scale(dvc.varcolour).colors(dvc.numberBreaks)
-				colour=[]
-				color.forEach(function(d){colour.push(chroma(d).darken(0.4).saturate(0.6).hex())})
-				// colour = colorbrewer[dvc.varcolour[buttonVal]][dvc.numberBreaks];
+			if (typeof dvc.varcolour === 'string') {
+				color = chroma.scale(dvc.varcolour).colors(dvc.numberBreaks)
+				colour = []
+				color.forEach(function (d) { colour.push(chroma(d).darken(0.4).saturate(0.6).hex()) })
+				// colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
 			} else {
 				colour = dvc.varcolour;
 			}
 
 			//set up d3 color scales
 			color = d3.scaleThreshold()
-					.domain(breaks.slice(1))
-					.range(colour);
+				.domain(breaks.slice(1))
+				.range(colour);
 
 		}
 
@@ -276,21 +282,21 @@ if(Modernizr.webgl) {
 
 			map.addSource('area', { 'type': 'geojson', 'data': areas });
 
-			  map.addLayer({
-				  'id': 'area',
-				  'type': 'fill',
-				  'source': 'area',
-				  'touchAction':'none',
-				  'layout': {},
-				  'paint': {
-					  'fill-color': {
-							type: 'identity',
-							property: 'fill'
-					   },
-					  'fill-opacity': 0.7,
-					  'fill-outline-color': '#fff'
-				  }
-			  }, 'place_city');
+			map.addLayer({
+				'id': 'area',
+				'type': 'fill',
+				'source': 'area',
+				'touchAction': 'none',
+				'layout': {},
+				'paint': {
+					'fill-color': {
+						type: 'identity',
+						property: 'fill'
+					},
+					'fill-opacity': 0.7,
+					'fill-outline-color': '#fff'
+				}
+			}, 'place_city');
 
 			//Get current year for copyright
 			today = new Date();
@@ -309,54 +315,54 @@ if(Modernizr.webgl) {
 				"filter": ["==", "AREACD", ""]
 			}, 'place_city');
 
-			  map.addLayer({
-				  'id': 'area_labels',
-				  'type': 'symbol',
-				  'source': 'area',
-				  'minzoom': 10,
-				  'layout': {
-					  "text-field": '{AREANM}',
-					  "text-font": ["Open Sans","Arial Unicode MS Regular"],
-					  "text-size": 14
-				  },
-				  'paint': {
-					  "text-color": "#666",
-					  "text-halo-color": "#fff",
-					  "text-halo-width": 1,
-					  "text-halo-blur": 1
-				  }
-			  });
+			map.addLayer({
+				'id': 'area_labels',
+				'type': 'symbol',
+				'source': 'area',
+				'minzoom': 10,
+				'layout': {
+					"text-field": '{AREANM}',
+					"text-font": ["Open Sans", "Arial Unicode MS Regular"],
+					"text-size": 14
+				},
+				'paint': {
+					"text-color": "#666",
+					"text-halo-color": "#fff",
+					"text-halo-width": 1,
+					"text-halo-blur": 1
+				}
+			});
 
 
 			//test whether ie or not
 			function detectIE() {
-				  var ua = window.navigator.userAgent;
+				var ua = window.navigator.userAgent;
 
-				  var msie = ua.indexOf('MSIE ');
-				  if (msie > 0) {
+				var msie = ua.indexOf('MSIE ');
+				if (msie > 0) {
 					// IE 10 or older => return version number
 					return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
-				  }
+				}
 
-				  var trident = ua.indexOf('Trident/');
-				  if (trident > 0) {
+				var trident = ua.indexOf('Trident/');
+				if (trident > 0) {
 					// IE 11 => return version number
 					var rv = ua.indexOf('rv:');
 					return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
-				  }
+				}
 
-				  var edge = ua.indexOf('Edge/');
-				  if (edge > 0) {
+				var edge = ua.indexOf('Edge/');
+				if (edge > 0) {
 					// Edge (IE 12+) => return version number
 					return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
-				  }
+				}
 
-				  // other browser
-				  return false;
+				// other browser
+				return false;
 			}
 
 
-			if(detectIE()){
+			if (detectIE()) {
 				onMove = onMove.debounce(200);
 				onLeave = onLeave.debounce(200);
 			};
@@ -379,10 +385,9 @@ if(Modernizr.webgl) {
 		function updateLayers() {
 
 			//update properties to the geojson based on the csv file we've read in
-			areas.features.map(function(d,i) {
-			   if(!isNaN(rateById[d.properties.AREACD]))
-			    {d.properties.fill = color(rateById[d.properties.AREACD])}
-			   else {d.properties.fill = '#ccc'};
+			areas.features.map(function (d, i) {
+				if (!isNaN(rateById[d.properties.AREACD])) { d.properties.fill = color(rateById[d.properties.AREACD]) }
+				else { d.properties.fill = '#ccc' };
 
 			});
 
@@ -391,9 +396,9 @@ if(Modernizr.webgl) {
 
 			//set up style object
 			styleObject = {
-									type: 'identity',
-									property: 'fill'
-						}
+				type: 'identity',
+				property: 'fill'
+			}
 			//repaint area layer map usign the styles above
 			map.setPaintProperty('area', 'fill-color', styleObject);
 
@@ -408,113 +413,114 @@ if(Modernizr.webgl) {
 			setupScales();
 			createKey(config);
 
-			if(selected) {
+			if (selected) {
 				setAxisVal($("#areaselect").val());
 			}
 			updateLayers();
 
 			dataLayer.push({
-          'event': 'navSelect',
-          'selected': i
-      })
+				'event': 'navSelect',
+				'selected': i
+			})
 		}
 
 		function onselect() {
 			a = $(".dropdown").val();
 			onchange(a);
-
 		}
 
 
 		function onMove(e) {
 			// console.log(e)
 
-				map.getCanvasContainer().style.cursor = 'pointer';
+			map.getCanvasContainer().style.cursor = 'pointer';
 
-				newAREACD = e.features[0].properties.AREACD;
-
-
-
-				if(firsthover) {
-            dataLayer.push({
-                'event': 'mapHoverSelect',
-                'selected': newAREACD
-            })
-
-            firsthover = false;
-        }
+			newAREACD = e.features[0].properties.AREACD;
 
 
-				if(newAREACD != oldAREACD) {
-					oldAREACD = e.features[0].properties.AREACD;
-					map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
 
-					selectArea(e.features[0].properties.AREACD);
-					setAxisVal(e.features[0].properties.AREACD);
+			if (firsthover) {
+				dataLayer.push({
+					'event': 'mapHoverSelect',
+					'selected': newAREACD
+				})
 
-				}
+				firsthover = false;
+			}
+
+
+			if (newAREACD != oldAREACD) {
+				oldAREACD = e.features[0].properties.AREACD;
+				map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
+
+				selectArea(e.features[0].properties.AREACD);
+				setAxisVal(e.features[0].properties.AREACD);
+
+			}
 		};
 
 
 		function onLeave() {
-				map.getCanvasContainer().style.cursor = null;
-				map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
-				oldAREACD = "";
-				$("#areaselect").val(null).trigger('chosen:updated');
-				hideaxisVal();
+			map.getCanvasContainer().style.cursor = null;
+			map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
+			oldAREACD = "";
+			$("#areaselect").val(null).trigger('chosen:updated');
+			hideaxisVal();
 		};
 
 		function onClick(e) {
-				disableMouseEvents();
-				newAREACD = e.features[0].properties.AREACD;
+			disableMouseEvents();
+			newAREACD = e.features[0].properties.AREACD;
 
-				if(newAREACD != oldAREACD) {
-					oldAREACD = e.features[0].properties.AREACD;
-					map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
+			if (newAREACD != oldAREACD) {
+				oldAREACD = e.features[0].properties.AREACD;
+				map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
 
-					selectArea(e.features[0].properties.AREACD);
-					setAxisVal(e.features[0].properties.AREACD);
-				}
+				selectArea(e.features[0].properties.AREACD);
+				setAxisVal(e.features[0].properties.AREACD);
+			}
 
-				dataLayer.push({
-            'event':'mapClickSelect',
-            'selected': newAREACD
-        })
+			dataLayer.push({
+				'event': 'mapClickSelect',
+				'selected': newAREACD
+			})
 		};
 
 		function disableMouseEvents() {
-				map.off("mousemove", "area", onMove);
-				map.off("mouseleave", "area", onLeave);
+			map.off("mousemove", "area", onMove);
+			map.off("mouseleave", "area", onLeave);
 
-				selected = true;
+			selected = true;
 		}
 
 		function enableMouseEvents() {
-				map.on("mousemove", "area", onMove);
-				map.on("click", "area", onClick);
-				map.on("mouseleave", "area", onLeave);
+			map.on("mousemove", "area", onMove);
+			map.on("click", "area", onClick);
+			map.on("mouseleave", "area", onLeave);
 
-				selected = false;
+			selected = false;
 		}
 
 		function selectArea(code) {
 			$("#areaselect").val(code).trigger('chosen:updated');
 			d3.select('abbr').on('keypress', function (evt) {
 				if (d3.event.keyCode == 13 || d3.event.keyCode == 32) {
-					console.log('clear')
-					$("#areaselect").val("").trigger('chosen:updated');
+					d3.event.preventDefault();
+					onLeave();
+					resetZoom();
 				}
 			})
 		}
 
+
 		function zoomToArea(code) {
 
-			specificpolygon = areas.features.filter(function(d) {return d.properties.AREACD == code})
+			specificpolygon = areas.features.filter(function (d) { return d.properties.AREACD == code })
 
 			specific = turf.extent(specificpolygon[0].geometry);
 
-			map.fitBounds([[specific[0],specific[1]], [specific[2], specific[3]]], {
-  				padding: {top: 150, bottom:150, left: 100, right: 100}
+			map.fitBounds([[specific[0], specific[1]], [specific[2], specific[3]]], {
+				padding: { top: 150, bottom: 150, left: 100, right: 100 }
 			});
 
 		}
@@ -536,32 +542,33 @@ if(Modernizr.webgl) {
 					}
 				});
 
+
 			d3.select("#currLine")
-				.style("opacity", function(){if(!isNaN(rateById[code])) {return 1} else{return 0}})
+				.style("opacity", function () { if (!isNaN(rateById[code])) { return 1 } else { return 0 } })
 				.transition()
 				.duration(400)
-				.attr("x1", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{return x(midpoint)}})
-				.attr("x2", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{return x(midpoint)}});
+				.attr("x1", function () { if (!isNaN(rateById[code])) { return x(rateById[code]) } else { return x(midpoint) } })
+				.attr("x2", function () { if (!isNaN(rateById[code])) { return x(rateById[code]) } else { return x(midpoint) } });
 
 
 			d3.select("#currVal")
-				.text(function(){if(!isNaN(rateById[code]))  {return displayformat(rateById[code])} else {return "Data unavailable"}})
-				.style("opacity",1)
+				.text(function () { if (!isNaN(rateById[code])) { return displayformat(rateById[code]) } else { return "Data unavailable" } })
+				.style("opacity", 1)
 				.transition()
 				.duration(400)
-				.attr("x", function(){if(!isNaN(rateById[code])) {return x(rateById[code])} else{return x(midpoint)}});
+				.attr("x", function () { if (!isNaN(rateById[code])) { return x(rateById[code]) } else { return x(midpoint) } });
 
 		}
 
 		function hideaxisVal() {
 			d3.select("#currLine")
-				.style("opacity",0)
+				.style("opacity", 0)
 
 			d3.select("#currVal").text("")
-				.style("opacity",0)
+				.style("opacity", 0)
 		}
 
-		function createKey(config){
+		function createKey(config) {
 
 			d3.select("#keydiv").selectAll("*").remove();
 
@@ -671,84 +678,81 @@ if(Modernizr.webgl) {
 			//label the units
 			d3.select("#keydiv").append("p").attr("id", "keyunit").attr('aria-hidden', true).style("margin-top", "-10px").style("margin-left", "10px").style('font-size', '14px').text(dvc.varunit[a]);
 
-	} // Ends create key
+		} // Ends create key
 
-	pymChild.sendHeight();
+		pymChild.sendHeight();
 
-	function addFullscreen() {
+		function addFullscreen() {
 
-		currentBody = d3.select("#map").style("height");
-		d3.select(".mapboxgl-ctrl-fullscreen").on("click", setbodyheight)
+			currentBody = d3.select("#map").style("height");
+			d3.select(".mapboxgl-ctrl-fullscreen").on("click", setbodyheight)
 
-	}
+		}
 
-	function setbodyheight() {
-		d3.select("#map").style("height","100%");
+		function setbodyheight() {
+			d3.select("#map").style("height", "100%");
 
-		document.addEventListener('webkitfullscreenchange', exitHandler, false);
-		document.addEventListener('mozfullscreenchange', exitHandler, false);
-		document.addEventListener('fullscreenchange', exitHandler, false);
-		document.addEventListener('MSFullscreenChange', exitHandler, false);
+			document.addEventListener('webkitfullscreenchange', exitHandler, false);
+			document.addEventListener('mozfullscreenchange', exitHandler, false);
+			document.addEventListener('fullscreenchange', exitHandler, false);
+			document.addEventListener('MSFullscreenChange', exitHandler, false);
 
-	}
+		}
 
 
-	function exitHandler() {
+		function exitHandler() {
 
-			if (document.webkitIsFullScreen === false)
-			{
+			if (document.webkitIsFullScreen === false) {
 				shrinkbody();
 			}
-			else if (document.mozFullScreen === false)
-			{
+			else if (document.mozFullScreen === false) {
 				shrinkbody();
 			}
-			else if (document.msFullscreenElement === false)
-			{
+			else if (document.msFullscreenElement === false) {
 				shrinkbody();
 			}
 		}
 
-	function shrinkbody() {
-		d3.select("#map").style("height",currentBody);
-		pymChild.sendHeight();
-	}
+		function shrinkbody() {
+			d3.select("#map").style("height", currentBody);
+			pymChild.sendHeight();
+		}
 
-	function geolocate() {
-		dataLayer.push({
-								'event': 'geoLocate',
-								'selected': 'geolocate'
-		})
+		function geolocate() {
+			dataLayer.push({
+				'event': 'geoLocate',
+				'selected': 'geolocate'
+			})
 
-		var options = {
-		  enableHighAccuracy: true,
-		  timeout: 5000,
-		  maximumAge: 0
+			var options = {
+				enableHighAccuracy: true,
+				timeout: 5000,
+				maximumAge: 0
+			};
+
+			navigator.geolocation.getCurrentPosition(success, error, options);
+		}
+
+		function success(pos) {
+			crd = pos.coords;
+
+			//go on to filter
+			//Translate lng lat coords to point on screen
+			point = map.project([crd.longitude, crd.latitude]);
+
+			//then check what features are underneath
+			var features = map.queryRenderedFeatures(point);
+
+			//then select area
+			disableMouseEvents();
+
+			map.setFilter("state-fills-hover", ["==", "AREACD", features[0].properties.AREACD]);
+
+			selectArea(features[0].properties.AREACD);
+			setAxisVal(features[0].properties.AREACD);
+
+
 		};
-
-		navigator.geolocation.getCurrentPosition(success, error, options);
-	}
-
-	function success(pos) {
-	  crd = pos.coords;
-
-	  //go on to filter
-	  //Translate lng lat coords to point on screen
-	  point = map.project([crd.longitude,crd.latitude]);
-
-	  //then check what features are underneath
-	  var features = map.queryRenderedFeatures(point);
-
-	  //then select area
-	  disableMouseEvents();
-
-	  map.setFilter("state-fills-hover", ["==", "AREACD", features[0].properties.AREACD]);
-
-	  selectArea(features[0].properties.AREACD);
-	  setAxisVal(features[0].properties.AREACD);
-
-
-	};
 
 		function selectlist(datacsv) {
 
@@ -757,7 +761,8 @@ if(Modernizr.webgl) {
 			var menuarea = d3.zip(areanames, areacodes).sort(function (a, b) { return d3.ascending(a[0], b[0]); });
 
 			// Build option menu for occupations
-			var optns = d3.select("#selectNav").append("div").attr("id", "sel").append("select")
+			var optns = d3.select("#selectNav").append("div").attr("id", "sel")
+				.append("select")
 				.attr("id", "areaselect")
 				.attr("style", "width:calc(100% - 6px)")
 				.attr("class", "chosen-select");
@@ -809,8 +814,7 @@ if(Modernizr.webgl) {
 				}
 			});
 		};//end selectlist
-
-	}
+	}//end ready
 
 } else {
 
