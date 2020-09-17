@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
-<!-- End Google Tag Manager -->
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
+    <!-- End Google Tag Manager -->
 
     <title>Trade commodities 2018 - Imports treemap</title>
 
@@ -19,1363 +17,1263 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="css/styles.css" media="screen">
     <link rel="stylesheet" href="css/chosen.css"/>
-
-<style>
-body{
-	max-width:945px;
-	color:#4A494B;
-}
-
-	.chart-title{
-		font-weight: 600;
-		font-size: 16px;
-	}
-
-#svgEle{
-	width:100%;
-}
-
-text {
-  pointer-events: none;
-}
-
-.grandparent text {
-  /*font-weight: bold;*/
-  fill: #606060;
-  font-size:1.8em;
-}
-
-rect {
-  /*fill: none;*/
-  stroke: #fff;
-  stroke-opacity:0.1;
-}
-
-.grandparent{
-/*	pointer-events:none;*/
-}
-
-
-rect.parent,
-.grandparent rect {
-  stroke-width: 2px;
-  stroke: #fff;
-  fill: none;
-  stroke-opacity:1;
-}
-
-.grandparent line {
-  stroke: #606060;
-  stroke-width: 1px;
-}
-
-.btn{
-	font-size:15px
-}
-
-.children rect.parent,
-.grandparent rect {
-  cursor: pointer;
-}
-
-.children rect.parent {
-  fill: #bbb;
-  fill-opacity: .2;
-}
-
-.children:hover rect.child {
-  fill: #bbb;
-}
-
-.child:hover {
-  fill: #bbb;
-}
-
-*[code*=c1_], *[code*=c2_], *[code*=c3_], *[code*=c4_], *[code*=c5_], *[code*=c6_], *[code*=c7_], *[code*=c8_], *[code*=c9_], #c10 {
-	/*fill:#0f8243;*/
-	fill:#766faf;
-}
-
-.hoveredOver {
-	fill:#bbb!important;
-}
-
-.depth text{
-	fill:white;
-}
-
-#blurb{
-	height:80px;
-	pointer-events:none;
-	line-height: 1.2em;
-	font-size:30px;
-}
-
-#txt2{
-	font-weight:700;
-}
-
-#txt3{
-	font-weight:500;
-}
-
-
-
-@media only screen and (max-width: 768px) {
-	#blurb{
-		height:70px;
-		line-height: 1.3em;
-		font-size:24px;
-	}
-
-	#selectNav {
-		width: 100%;
-	}
-
-	body{
-		padding-bottom:30px!important;
-	}
-
-	#source{
-		padding-top:105px!important;
-	}
-}
-
-@media only screen and (max-width: 650px) {
-	#blurb{
-		height:70px;
-		line-height: 1.5em;
-		font-size:20px;
-	}
-
-	#selectNav {
-		width: 100%;
-	}
-
-	body{
-		padding-bottom:30px!important;
-	}
-
-	#source{
-		padding-top:70px!important;;
-	}
-}
-
-@media only screen and (max-width: 500px) {
-	body{
-		padding-bottom:20px!important;
-	}
-
-	#source{
-		padding-top:20px!important;;
-	}
-}
-
-.horizLine{
-	border-bottom:1px solid #B9B9B9;
-	padding-bottom:5px;
-	margin:0px 0px 5px -5px;
-}
-
-
-
-
-
-.btn-ons {
-  color: #4a494b;
-  background-color: #ededed;
-}
-.btn-ons:hover,
-.btn-ons:focus,
-.btn-ons.focus,
-.btn-ons:active,
-.btn-ons.active,
-.open > .dropdown-toggle.btn-ons {
-  color: #6f6f6f;
-  background-color: #E7E7E7;
-  border-color: #D3D3D3;
-}
-
-hr {
-  margin-top: 0px;
-  margin-bottom: 3px;
-  border: 0;
-  border-top: 1px solid #dddddd;
-}
-
-#intro{
-	display:none;
-}
-
-#social{
-	top:5px;
-}
-
-.social {
-			padding-top:5px;
-			padding-left:5px;
-			float:right;
-			opacity:0.5;
-			cursor:pointer;
-		}
-
-		.social:hover {
-			opacity:1;
-
-		}
-
-
-		.social {
-
-		}
-
-		#embedrow {
-			padding-bottom:5px;
-			margin:5px;
-			border-bottom:1px solid #d3d3d3;
-			border-top:1px solid #d3d3d3;
-		}
-
-
-		#close {
-			padding-bottom:3px;
-		}
-
-		#allDivs{
-			margin:auto;
-		}
-
-#ieMsg{
-	width: 940px;
-    margin: 0 auto;
-}
-#suptext {
-	padding:20px 20px 20px 20px;
-	width:900px;
-	background-color:#F2EEF5;
-}
-
-#suptext p{
-	margin:0px 20px 10px 20px;
-	font-family: Helvetica, Arial, sans-serif;
-    font-size:14px;
-	color:#8064A0;
-
-}
-
-#suptext a{
-	font-family: Helvetica, Arial, sans-serif;
-    font-size:14px;
-	color:#8064A0;
-
-}
-
-#suptext h1{
-	margin:0px;
-	font-family: Helvetica, Arial, sans-serif;
-    font-size:24px;
-	color:#8064A0;
-}
-
-#thumbNail{
-	top:0px;
-	left:0px;
-}
-
-.img-responsive,
-.thumbnail > img,
-.thumbnail a > img,
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-  width: 100% !important;
-
-
-}
-
-#source{
-	font-size: 14px;
-    font-weight: 700;
-    margin-left: -15px;
-	margin-top:10px!important;;
-}
-
-.item{
-	width:80px;
-	height:80px;
-}
-
-
-#selectNav {
-	margin-top:10px;
-	left:0px;
-	width:80%;
-	height:45px;
-	background-color:rgba(255,255,255,0.8);
-	z-index:1;
-}
-
-.select2-container--default .select2-selection--single{
-	border-color: #d3d3d3!important;
-}
-
-
-	.y text, .x text{
-		font-size: 12px;
-		fill:"#666";
-	}
-
-	.x line{
-		stroke:#ccc;
-		stroke-width: 1px;
-		shape-rendering: crispEdges;
-	}
-
-	.x path{
-		stroke:none;
-		fill:none;
-	}
-	.y path{
-		fill:none;
-		stroke-width:2px;
-			stroke:#666;
-	}
-
-	.bars rect{
-		stroke:none;
-	}
-
-  /* stacked bar style */
-
-  .axis-stacked path {stroke:none !important;}
-
-  .y-stacked text, .x-stacked text{
-    font-size: 12px;
-    fill:"#666";
-  }
-
-  .x-stacked line{
-    stroke:#ccc;
-    stroke-width: 1px;
-    shape-rendering: crispEdges;
-  }
-
-  .x-stacked path{
-    stroke:none;
-    fill:none;
-  }
-  .y-stacked path{
-    fill:none;
-    stroke-width:2px;
-      stroke:#666;
-  }
-
-  #chart-wrapper {
-    height: 400px;
-  }
-
-  /* .bar-0 { fill: #E73f40; }
+    <link href="https://onsvisual.github.io/pattern-library/dist/fontawesome/css/all.css" rel="stylesheet">
+
+    <style>
+      body{
+        max-width:945px;
+        color:#4A494B;
+      }
+      .chart-title{
+        font-weight: 600;
+        font-size: 16px;
+      }
+      #svgEle{
+        width:100%;
+      }
+      text {
+        pointer-events: none;
+      }
+      .grandparent text {
+        /*font-weight: bold;*/
+        fill: #606060;
+        font-size:1.8em;
+      }
+      rect {
+        /*fill: none;*/
+        stroke: #fff;
+        stroke-opacity:0.1;
+      }
+      .grandparent{
+      /*  pointer-events:none;*/
+      }
+      rect.parent,
+      .grandparent rect {
+        stroke-width: 2px;
+        stroke: #fff;
+        fill: none;
+        stroke-opacity:1;
+      }
+      .grandparent line {
+        stroke: #606060;
+        stroke-width: 1px;
+      }
+      .children rect.parent,
+      .grandparent rect {
+        cursor: pointer;
+      }
+      .children rect.parent {
+        fill: #bbb;
+        fill-opacity: .2;
+      }
+      .children:hover rect.child, .children .parent:focus ~ rect.child {
+        fill: #bbb;
+      }
+      .child:hover, .child:focus {
+        fill: #bbb;
+      }
+      *[code*=c1_], *[code*=c2_], *[code*=c3_], *[code*=c4_], *[code*=c5_], *[code*=c6_], *[code*=c7_], *[code*=c8_], *[code*=c9_], #c10 {
+        /*fill:#0f8243;*/
+        fill:#766faf;
+      }
+      .hoveredOver {
+        fill:#bbb!important;
+      }
+      .depth text{
+        fill:white;
+      }
+      #blurb{
+        height:80px;
+        pointer-events:none;
+        line-height: 1.2em;
+        font-size:30px;
+      }
+      #txt2{
+        font-weight:700;
+      }
+      #txt3{
+        font-weight:500;
+      }
+      @media only screen and (max-width: 768px) {
+        #blurb{
+          height:70px;
+          line-height: 1.3em;
+          font-size:24px;
+        }
+        #selectNav {
+          width: 100%;
+        }
+        body{
+          padding-bottom:30px!important;
+        }
+        #source{
+          padding-top:105px!important;
+        }
+      }
+      @media only screen and (max-width: 650px) {
+        #blurb{
+          height:70px;
+          line-height: 1.5em;
+          font-size:20px;
+        }
+        #selectNav {
+          width: 100%;
+        }
+        body{
+          padding-bottom:30px!important;
+        }
+        #source{
+          padding-top:70px!important;;
+        }
+      }
+      @media only screen and (max-width: 500px) {
+        body{
+          padding-bottom:20px!important;
+        }
+        #source{
+          padding-top:20px!important;;
+        }
+      }
+      .horizLine{
+        border-bottom:1px solid #B9B9B9;
+        padding-bottom:5px;
+        margin:0px 0px 5px -5px;
+      }
+      .btn {
+        position: relative;
+        padding: 10px 15px;
+        margin: 0 0 20px;
+        line-height: normal;
+        color: #fff;
+        font-size: 1.3em !important;
+        border-radius: 0px;
+        display: inline-block;
+        text-rendering: optimizeLegibility;
+        transition: background-color .2s ease-in, color .2s ease-in;
+
+        font-family: "Open Sans",Helvetica,Arial,sans-serif;
+        font-weight: 400;
+        width: auto;
+        cursor: pointer;
+        border: 0 none;
+        text-align: center;
+        text-decoration: none;
+
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+        user-select: none;
+        background-image: none;
+      }
+      .btn:hover {
+        color: #ffffff;
+      }
+      .btn:focus {
+        outline: none;
+        box-shadow: 0px 0px 0 3px #FFA23A;
+        color: white;
+        outline-offset: 0px;
+      }
+      .btn:hover, .btn:focus {
+        text-decoration: none;
+      }
+      .btn--primary {
+        background-color: #206095 !important;
+      }
+      .btn--primary:hover {
+        background-color: #174c78 !important;
+      }
+
+      .btn--up::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f3bf";
+        margin-right: 10px;
+      }
+
+      .btn--top::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f139";
+        margin-right: 10px;
+      }
+      hr {
+        margin-top: 0px;
+        margin-bottom: 3px;
+        border: 0;
+        border-top: 1px solid #dddddd;
+      }
+      #intro{
+        display:none;
+      }
+      #social{
+        top:5px;
+      }
+      .social {
+        padding-top:5px;
+        padding-left:5px;
+        float:right;
+        opacity:0.5;
+        cursor:pointer;
+      }
+      .social:hover {
+        opacity:1;
+
+      }
+      .social {
+
+      }
+      #embedrow {
+        padding-bottom:5px;
+        margin:5px;
+        border-bottom:1px solid #d3d3d3;
+        border-top:1px solid #d3d3d3;
+      }
+      #close {
+        padding-bottom:3px;
+      }
+      #allDivs{
+        margin:auto;
+      }
+      #ieMsg{
+        width: 940px;
+        margin: 0 auto;
+      }
+      #suptext {
+        padding:20px 20px 20px 20px;
+        width:900px;
+        background-color:#F2EEF5;
+      }
+      #suptext p{
+        margin:0px 20px 10px 20px;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size:14px;
+        color:#8064A0;
+      }
+      #suptext a{
+        font-family: Helvetica, Arial, sans-serif;
+        font-size:14px;
+        color:#8064A0;
+      }
+      #suptext h1{
+        margin:0px;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size:24px;
+        color:#8064A0;
+      }
+      #thumbNail{
+        top:0px;
+        left:0px;
+      }
+      .img-responsive,
+      .thumbnail > img,
+      .thumbnail a > img,
+      .carousel-inner > .item > img,
+      .carousel-inner > .item > a > img {
+        width: 100% !important;
+      }
+      #source{
+        font-size: 14px;
+        font-weight: 700;
+        margin-left: -15px;
+        margin-top:10px!important;;
+      }
+      .item{
+        width:80px;
+        height:80px;
+      }
+      #selectNav {
+        margin-top:10px;
+        left:0px;
+        width:80%;
+        height:45px;
+        background-color:rgba(255,255,255,0.8);
+        z-index:1;
+      }
+      .select2-container--default .select2-selection--single{
+        border-color: #d3d3d3!important;
+      }
+      .y text, .x text{
+        font-size: 12px;
+        fill:"#666";
+      }
+      .x line{
+        stroke:#ccc;
+        stroke-width: 1px;
+        shape-rendering: crispEdges;
+      }
+      .x path{
+        stroke:none;
+        fill:none;
+      }
+      .y path{
+        fill:none;
+        stroke-width:2px;
+        stroke:#666;
+      }
+      .bars rect{
+        stroke:none;
+      }
+      /* stacked bar style */
+      .axis-stacked path {stroke:none !important;}
+      .y-stacked text, .x-stacked text{
+        font-size: 12px;
+        fill:"#666";
+      }
+      .x-stacked line{
+        stroke:#ccc;
+        stroke-width: 1px;
+        shape-rendering: crispEdges;
+      }
+      .x-stacked path{
+        stroke:none;
+        fill:none;
+      }
+      .y-stacked path{
+        fill:none;
+        stroke-width:2px;
+        stroke:#666;
+      }
+      #chart-wrapper {
+        height: 400px;
+      }
+      /* .bar-0 { fill: #E73f40; }
       .bar-1 { fill: #7bcae2; }
       .bar-2 { fill: #f3942f; }
-  .bar-3 { fill: #274796; }
-  .bar-4 { fill: #979796; } */
-
+      .bar-3 { fill: #274796; }
+      .bar-4 { fill: #979796; } */
       .key-0 b {margin-top:0px !important; width: 15px !important; background-color: #E73f40; }
       .key-1 b {margin-top:0px !important; width: 15px !important; background-color: #7bcae2; }
       .key-2 b {margin-top:0px !important; width: 15px !important; background-color: #f3942f; }
-  .key-3 b {margin-top:0px !important; width: 15px !important; background-color: #274796; }
-  .key-4 b {margin-top:0px !important; width: 15px !important; background-color: #979796; }
+      .key-3 b {margin-top:0px !important; width: 15px !important; background-color: #274796; }
+      .key-4 b {margin-top:0px !important; width: 15px !important; background-color: #979796; }
+      /* #chart-wrapper {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      } */
+      #stacked {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+      #bar_chart {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+      #selectNav input[type="text"]:focus {
+        outline: 3px solid #FFA23A !important;
+        outline-offset: 0px !important;
+      }
+      input.chosen-search-input {
+        text-align: left !important;
+        height: 40px;
+        text-align: right;
+        padding-right: 5px !important;
+      }
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        border: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+    </style>
+  </head>
 
-  /* #chart-wrapper {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  } */
-
-  #stacked {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
-
-  #bar_chart {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
-
-
-#selectNav input[type="text"]:focus {
-outline: 3px solid #FFA23A !important;
-outline-offset: 0px !important; }
-
-input.chosen-search-input {
-text-align: left !important;
-height: 40px;
-text-align: right;
-padding-right: 5px !important; }
-</style>
-
-
-
-</head>
   <body id="childt">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <div class="container-fluid">
+      <div id="main-wrapper">
+        <div id="mainContent" style="display:none">
+          <p id="chartDescription" class="visuallyhidden"></p>
 
+          <p id="blurb" class="row">
+            <text id="txt2"></text>
+            <text id="txt3"></text>
+          </p>
+          
+          <div class="row">
+            <!--  <button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up" style="visibility:hidden">
+              Up a level
+            </button> -->
+            <button type="button" id="topBtn" class="btn btn-group__btn btn--primary btn--green btn--top" style="visibility:hidden">
+              Back to top
+            </button>
+            
+            <div id="selectNav">
 
+            </div>
+          </div>
 
-<div class="container-fluid">
-           <div id="main-wrapper">
-
-          <div id="mainContent" style="display:none">
-
-				<div id="blurb" class="row">
-					<text id ="txt2"></text>
-					<text id ="txt3"></text>
-				</div>
-				<div class="row">
-<!--					<button type="button" id="upBtn" class="nav btn btn-ons ">
-					  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Up a level
-					</button>-->
-					<button type="button" id="topBtn" class="nav btn btn-ons ">
-					  <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top
-					</button>
-					<div id="selectNav">
-
-					</div>
-			  </div>
-
-        <div class="row" >
-              <div id="chart" class="col-sm-6">
-              	<span class="chart-title">Commodities</span>
+          <div class="row" >
+            <div id="chart" class="col-sm-6">
+              <span class="chart-title">Commodities</span>
+            </div>
+        
+            <div id="chart-wrapper" class="col-sm-6">
+              <div id="stacked" class="col-sm-12">
+                <span class="chart-title">EU / Rest of World split</span>
               </div>
-              <div id="chart-wrapper" class="col-sm-6">
-                <div id="stacked" class="col-sm-12">
-                  <span class="chart-title">EU / Rest of World split</span>
-                </div>
-                <div id="bar_chart" class="col-sm-12">
-                	<span class="chart-title">UK's top trading partners</span>
-                </div>
+        
+              <div id="bar_chart" class="col-sm-12">
+                <span class="chart-title">UK's top trading partners</span>
               </div>
+            </div>
+          </div>
 
-
+          <div id="source">
+            Source: UK Trade Statistics, Office for National Statistics
+          </div>
         </div>
 
-           <div id="source">
-			Source: UK Trade Statistics, Office for National Statistics
-		   </div>
-
-
+        <div id="ieMsg" style="display:none">
+          <div id="suptext">
+            <h1>Browser requirements</h1>
+            <p>
+              <b>For a safer, faster, better experience online you should upgrade your browser. You would have been able to play with this lovely interactive graphic below. <a href="https://www.gov.uk/support/browsers" target="_blank">Find out more about browsers</a></b>
+            </p>
+          </div>
+          
+          <img id="thumbNail" src="imports.png" alt="A chart displaying goods imported broken down by type of goods and country of origin.">
         </div>
-         <div id="ieMsg" style="display:none">
-                    <div id="suptext">
-                      <h1>Browser requirements</h1>
-                      <p><b>For a safer, faster, better experience online you should upgrade your browser. You would have been able to play with this lovely interactive graphic below. <a href="https://www.gov.uk/support/browsers" target="_blank">Find out more about browsers</a></b>
-                      </p>
-                    </div>
-                      <img id="thumbNail" src="imports.png">
-                </div>
-       </div>
-</div><!--end of .container-fluid-->
-
-<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/modernizr.custom.56904.js"></script>
-<script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
-<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.js" charset="utf-8"></script>
-<script src="js/base.js" charset="utf-8"></script>
-<script src="js/DataStructures.Tree.js" charset="utf-8"></script>
-<script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
-<script src="js/chosen.jquery.js" type="text/javascript"></script>
-
-
-
-
-<script>
-
-	if (Modernizr.inlinesvg= true ){
-
-			$("#main-wrapper").fadeIn(1000);
-			$("#mainContent").fadeIn(1000);
-
-		}else{
-				$("#ieMsg").fadeIn(1000);
-		}
-
-
-
-
-	pymChild = new pym.Child();
-
-
-
-
-	var	transitioning;
-	var widthCalc;
-	var heightCalc;
-	var params;
-  var selectedArray = []
-	getSizes();
-
-
-	$(window).resize(function () {
-		  if(window.innerWidth != bwidth) {
-			getSizes();
-		  }
-	});
-
-
-	function getSizes() {
-
-		bodywidth = d3.select("body").style("width");
-		bwidth = bodywidth.replace('px', '');
-		divwidth = d3.select("#chart").style("width");
-		width = divwidth.replace('px', '') - 30;
-		if(bwidth >= 767) {
-
-			fullheight = 400;
-			ratiovar = 0.5;
-
-		} else {
-
-			var url = (window.location != window.parent.location) ;
-			if(url == false){
-					ratiovar = 0.2;
-					windowheight = window.innerHeight;
-
-					if(windowheight<=500) {
-
-						 fullheight = window.innerHeight-100;
-					} else if (windowheight >500 && windowheight <=800) {
-						fullheight = window.innerHeight - 350;
-					} else if (windowheight >800 && windowheight <=2000) {
-						fullheight = window.innerHeight - 450;
-					}
-			} else {
-				ratiovar = 0.2;
-					windowheight = 350;
-					fullheight =400;
-			}
-		}
-
-		d3.select("#svgEle").remove();
-		makeChart(width, fullheight);
-
-	}
-
-
-	function create_dropdown(){
-
-		d3.select("#selectNav").selectAll("*").remove();
-		// Build option menu for occupations
-			var optns = d3.select("#selectNav").append("div").attr("id","sel").append("select")
-				.attr("id","areaselect")
-				.attr("style","width:98%")
-				.attr("class","chosen-select")
-        .attr('data-placeholder',"Total");
-
-			optns.append("option")
-				// .attr("value","first")
-				// .text("");
-
-			optns.selectAll("p").data(trade).enter().append("option")
-				.filter(function(d){ return d.trade_val1 != 0;})
-				.attr("value", function(d){ return d.id})
-				//.attr("id",function(d){return d.id})
-				.html(function(d){ return d.name});
-
-
-      $('#areaselect').chosen({allow_single_deselect:true})
-
-			 //$('#areaselect').on('input',function(){console.log("click")})
-
-			$('#areaselect').on('change',function(){
-				if(typeof params != 'undefined' ||  params =="c0" || params =="") {
-					//console.log("here")
-					backToTop();
-					hierarchy = [];
-
-					$('#areaselect').val().split("_").forEach(function(d,i){
-
-						if(i!=0){
-							hierarchy.push(hierarchy[i-1].concat("_"+d))
-						} else {
-							hierarchy.push(d)
-						}
-					})
-					//console.log(hierarchy);
-					storyArray = hierarchy;
-					params = hierarchy;
-					selectedView = storyArray.join().replace(/,/g , "/")
-					//console.log(selectedView);
-//					if(storyArray[0] == 'undefined'){
-//						alert("close");
-//						backToTop();
-//					} else {
-						setTimeout(function(){
-							//alert("Hello");
-							$(storyArray).each(function(i){
-							setTimeout(function(){
-								storyId = "#"+storyArray[i];
-//								console.log(storyId)
-
-								simulateClick(d3.select(storyId)[0][0]);
-								d3.select(storyId).classed("hoveredOver", true)
-								d3.select("#chart").style("pointer-events", "none")
-								update_barchart(storyArray[i]);
-								updateStacked(storyArray[i]);
-							}, 760*i);
-						});
-						}, 760*hierarchy.length);
-	//					}
-				} else {
-					//console.log(" or here")
-					//backToTop();
-					hierarchy = [];
-
-					$('#areaselect').val().split("_").forEach(function(d,i){
-						if(i!=0){
-							hierarchy.push(hierarchy[i-1].concat("_"+d))
-						} else {
-							hierarchy.push(d)
-						}
-					})
-					storyArray = hierarchy;
-					params = hierarchy;
-					selectedView = storyArray.join().replace(/,/g , "/")
-
-					$(storyArray).each(function(i){
-						setTimeout(function(){
-							storyId = "#"+storyArray[i];
-							console.log(storyId)
-							simulateClick(d3.select(storyId)[0][0]);
-							d3.select(storyId).classed("hoveredOver", true)
-							d3.select("#chart").style("pointer-events", "none")
-							update_barchart(storyArray[i]);
-     						updateStacked(storyArray[i]);
-						}, 760*i);
-					});
-
-				}
-				setTimeout(function(){
-					$('#areaselect').val(null).trigger('change.select2');
-					d3.select(storyId).classed("hoveredOver", false)
-					d3.select("#chart").style("pointer-events", "auto")
-					update_barchart("c0");
-     				updateStacked("c0");
-				}, 6000);
-			})
-
-	}
-
-  // bar chart
-
-	var graphic = d3.select('#bar_chart');
-
-  var xBar;
-  var yBar;
-
-  var selected_country;
-
-  var yBarAxis;
-  var xBarAxis;
-  var xBarDomain;
-
-
-
-	function draw_barchart(){
-			create_dropdown();
-
-
-		   var threshold_md = 788;
-		   var threshold_sm = dvc.optional.mobileBreakpoint;
-
-		  	//set variables for chart dimensions dependent on width of #graphic
-		    if (parseInt(graphic.style("width")) < threshold_sm) {
-		            var margin = {top: dvc.optional.margin_sm[0], right: dvc.optional.margin_sm[1], bottom: dvc.optional.margin_sm[2], left: dvc.optional.margin_sm[3]};
-					var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
-		            var height = dvc.essential.barHeight_sm_md_lg[0] * 5 - margin.top - margin.bottom;
-		    } else if (parseInt(graphic.style("width")) < threshold_md){
-		        	var margin = {top: dvc.optional.margin_md[0], right: dvc.optional.margin_md[1], bottom: dvc.optional.margin_md[2], left: dvc.optional.margin_md[3]};
-					var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
-		            var height = dvc.essential.barHeight_sm_md_lg[0] * 5 - margin.top - margin.bottom;
-		  	} else {
-		        	var margin = {top: dvc.optional.margin_lg[0], right: dvc.optional.margin_lg[1], bottom: dvc.optional.margin_lg[2], left: dvc.optional.margin_lg[3]}
-					var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
-		            var height = dvc.essential.barHeight_sm_md_lg[0] * 5 - margin.top - margin.bottom;
-			}
-
-			// clear out existing graphics
-		    graphic.selectAll("*").remove();
-
-			xBar = d3.scale.linear()
-		        .range([ 0, chart_width]);
-
-			yBar = d3.scale.ordinal()
-				.rangeRoundBands([0, height], .3)
-
-
-			selected_country = trade.filter(function(d) { if(d.id == "c0"){ /*console.log(d);*/ return d;} });
-
-			 // parse data into columns
-		    top5_countries =[];
-
-			top5_countries.push(selected_country[0].rank1)
-			top5_countries.push(selected_country[0].rank2)
-			top5_countries.push(selected_country[0].rank3)
-			top5_countries.push(selected_country[0].rank4)
-			top5_countries.push(selected_country[0].rank5)
-
-			top5_trade_vals =[];
-
-			top5_trade_vals.push(parseInt(selected_country[0].trade_val1))
-			top5_trade_vals.push(parseInt(selected_country[0].trade_val2))
-			top5_trade_vals.push(parseInt(selected_country[0].trade_val3))
-			top5_trade_vals.push(parseInt(selected_country[0].trade_val4))
-			top5_trade_vals.push(parseInt(selected_country[0].trade_val5))
-
-		    yBar.domain(top5_countries);
-
-			yBarAxis = d3.svg.axis()
-		        .scale(yBar)
-		        .orient("left")
-
-		  xBarAxis = d3.svg.axis()
-		        .scale(xBar)
-		        .orient('bottom')
-				.tickSize(-height, 0, 0)
-				.ticks(5);
-
-			xBarDomain = [0, d3.max(top5_trade_vals)*1.3];
-			xBar.domain(xBarDomain)
-
-      var title_bar = d3.select('#bar_chart').append('span')
-        .attr('class', 'chart-title')
-        .text(dvc.essential.chartTitle)
-
-
-			var svg = d3.select('#bar_chart').append('svg')
-						//.attr("id","chart")
-        				.style("background-color","#fff")
-				        .attr("width", chart_width + margin.left + margin.right)
-				        .attr("height", height + margin.top + margin.bottom /*+30*/)
-				        .append("g")
-				        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-					svg.append("rect")
-						.attr("class","svgRect")
-						.attr("width", chart_width)
-						.attr("height", height)
-						.attr("fill","transparent")
-
-				    svg.append('g')
-				        .attr('class', 'x axis')
-				        .attr("transform", "translate(0, "+height+")")
-				        .call(xBarAxis).append("text")
-						 .attr("y", 28)
-						 .attr("x",chart_width)
-						// .attr("dy", ".71em")
-						 .style("text-anchor", "middle")
-						 .text("£ million");
-
-					svg.append('g').attr("class","bars").selectAll('rect')
-						.data(top5_trade_vals)
-						.enter()
-						.append('rect')
-						.attr("fill", "#766faf")
-						.attr("opacity", "0.8")
-						.attr("width", function(d,i) { return 0 + Math.abs(xBar(d) - xBar(0)); })
-						.attr("x", function(d,i) { return xBar(Math.min(0, d)); })
-						.attr("y", function(d,i) { return yBar(top5_countries[i]); })
-						.attr("height", yBar.rangeBand())
-
-
-
-		//create y axis, if x axis doesn't start at 0 drop x axis accordingly
-			svg.append('g')
-				.attr('class', 'y axis')
-				.call(yBarAxis);
-
-	 if (pymChild) {
-         pymChild.sendHeight();
-     }
-
-
-	} //end draw_barchart
-
-	function update_barchart(selection){
-		selected_country = trade.filter(function(d) { if(d.id == selection){ return d;} });
-
-			 // parse data into columns
-		    top5_countries =[];
-
-			top5_countries.push(selected_country[0].rank1)
-			top5_countries.push(selected_country[0].rank2)
-			top5_countries.push(selected_country[0].rank3)
-			top5_countries.push(selected_country[0].rank4)
-			top5_countries.push(selected_country[0].rank5)
-
-			top5_trade_vals =[];
-
-			top5_trade_vals.push(parseInt(selected_country[0].trade_val1))
-			top5_trade_vals.push(parseInt(selected_country[0].trade_val2))
-			top5_trade_vals.push(parseInt(selected_country[0].trade_val3))
-			top5_trade_vals.push(parseInt(selected_country[0].trade_val4))
-			top5_trade_vals.push(parseInt(selected_country[0].trade_val5))
-
-			yBar.domain(top5_countries);
-
-			// yBarAxis = d3.svg.axis()
-		  //       .scale(yBar)
-		  //       .orient("left")
-      //
-		  // xBarAxis = d3.svg.axis()
-		  //       .scale(xBar)
-		  //       .orient('bottom')
-			// 	.tickSize(-height, 0, 0);
-
-			xBarDomain = [0, d3.max(top5_trade_vals)*1.3];
-
-			xBar.domain(xBarDomain);
-
-
-
-			d3.select(".y").transition().delay(500).call(yBarAxis);
-
-			d3.select(".x").transition().duration(500).call(xBarAxis);
-
-		d3.select("#bar_chart").selectAll(".bars")
-			.selectAll("rect")
-			.data(top5_trade_vals)
-			.transition()
-			.duration(500)
-			.attr("width", function(d,i) {
-				 return 0 + Math.abs(xBar(d) - xBar(0));
-			})
-
-		d3.select("#bar_chart")
-			.selectAll(".y")
-			.selectAll("text")
-			.each(function(d,i){
-				if( d == "Data suppressed1" || d == "Data suppressed2" || d == "Data suppressed3" || d == "Data suppressed4" || d == "Data suppressed5" ){
-					d3.select(this).text("Data suppressed")
-				}
-			})
-
-	} //end update_barchart
-
-  // stacked bar EU - nonEU
-  var graphicStacked = d3.select('#stacked');
-	var keypointsStacked = d3.select('#keypoints');
-	var footerStacked = d3.select(".footer");
-
-  var y_stacked;
-  var x_stacked;
-
-  var yAxis_stacked;
-  var xAxis_stacked;
-
-  var xDomain_stacked;
-  var svg_stacked;
-
-  var zStacked = ["#234d70", "#688898"];
-
-  function drawStacked() {
-  	var threshold_md_Stacked = 788;
-  	var threshold_sm_Stacked = dvc.optionalStacked.mobileBreakpoint;
-
-
-   	if (parseInt(graphicStacked.style("width")) < threshold_sm_Stacked) {
-   			var marginStacked = {top: dvc.optionalStacked.margin_sm[0], right: dvc.optionalStacked.margin_sm[1], bottom: dvc.optionalStacked.margin_sm[2], left: dvc.optionalStacked.margin_sm[3]};
-   			var chart_width_stacked = parseInt(graphicStacked.style("width")) - marginStacked.left - marginStacked.right;
-   			var height_stacked = Math.ceil((chart_width_stacked * dvc.optionalStacked.aspectRatio_sm[1]) / dvc.optionalStacked.aspectRatio_sm[0]) - marginStacked.top - marginStacked.bottom;
-   	} else if (parseInt(graphicStacked.style("width")) < threshold_md_Stacked){
-   			var marginStacked = {top: dvc.optionalStacked.margin_md[0], right: dvc.optionalStacked.margin_md[1], bottom: dvc.optionalStacked.margin_md[2], left: dvc.optionalStacked.margin_md[3]};
-   			var chart_width_stacked = parseInt(graphicStacked.style("width")) - marginStacked.left - marginStacked.right;
-   			var height_stacked = Math.ceil((chart_width_stacked * dvc.optionalStacked.aspectRatio_md[1]) / dvc.optionalStacked.aspectRatio_md[0]) - marginStacked.top - marginStacked.bottom;
-   	} else {
-   			var marginStacked = {top: dvc.optionalStacked.margin_lg[0], right: dvc.optionalStacked.margin_lg[1], bottom: dvc.optionalStacked.margin_lg[2], left: dvc.optionalStacked.margin_lg[3]}
-   			var chart_width_stacked = parseInt(graphicStacked.style("width")) - marginStacked.left - marginStacked.right;
-   			var height_stacked = Math.ceil((chart_width_stacked * dvc.optionalStacked.aspectRatio_lg[1]) / dvc.optionalStacked.aspectRatio_lg[0]) - marginStacked.top - marginStacked.bottom;
-   	}
-
-   	// clear out existing graphics
-   	graphicStacked.selectAll("*").remove();
-   	keypointsStacked.selectAll("*").remove();
-   	footerStacked.selectAll("*").remove();
-
-
-   	y_stacked = d3.scale.ordinal()
-   		.rangeRoundBands([0, height_stacked], .1);
-
-   	x_stacked = d3.scale.linear()
-   		.rangeRound([0,chart_width_stacked]);
-
-    var formatAsPercentage = d3.formatPrefix('%',0);
-
-    yAxis_stacked = d3.svg.axis()
-      .scale(y_stacked)
-      .orient("left")
-      .tickFormat(function(d,i) { //console.log(d)
-        return d
+      </div>
+    </div><!--end of .container-fluid-->
+
+    <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/modernizr.custom.56904.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.js" charset="utf-8"></script>
+    <script src="js/base.js" charset="utf-8"></script>
+    <script src="js/DataStructures.Tree.js" charset="utf-8"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+    <script src="js/chosen.jquery.js" type="text/javascript"></script>
+
+    <script>
+      if (Modernizr.inlinesvg= true ){
+        $("#main-wrapper").fadeIn(1000);
+        $("#mainContent").fadeIn(1000);
+      } else {
+        $("#ieMsg").fadeIn(1000);
+      }
+
+      jQuery.fn.d3Click = function () {
+        this.each(function (i, e) {
+          var evt = new MouseEvent("click");
+          e.dispatchEvent(evt);
+        });
+      };
+
+      pymChild = new pym.Child();
+
+      var transitioning;
+      var widthCalc;
+      var heightCalc;
+      var params;
+      var selectedArray = []
+      getSizes();
+
+      $(window).resize(function () {
+        if(window.innerWidth != bwidth) {
+          getSizes();
+        }
+      });
+
+      function getSizes() {
+        bodywidth = d3.select("body").style("width");
+        bwidth = bodywidth.replace('px', '');
+        divwidth = d3.select("#chart").style("width");
+        width = divwidth.replace('px', '') - 30;
+        
+        if(bwidth >= 767) {
+          fullheight = 400;
+          ratiovar = 0.5;
+        } else {
+          var url = (window.location != window.parent.location) ;
+          if(url == false){
+            ratiovar = 0.2;
+            windowheight = window.innerHeight;
+
+            if(windowheight<=500) {
+               fullheight = window.innerHeight-100;
+            } else if (windowheight >500 && windowheight <=800) {
+              fullheight = window.innerHeight - 350;
+            } else if (windowheight >800 && windowheight <=2000) {
+              fullheight = window.innerHeight - 450;
+            }
+          } else {
+            ratiovar = 0.2;
+            windowheight = 350;
+            fullheight =400;
+          }
+        }
+
+        d3.select("#svgEle").remove();
+        makeChart(width, fullheight);
+      }
+
+
+      function create_dropdown() {
+        d3.select("#selectNav").selectAll("*").remove();
+        // Build option menu for occupations
+        var optns = d3.select("#selectNav").append("div").attr("id","sel").append("select")
+          .attr("id","areaselect")
+          .attr("style","width:98%")
+          .attr("class","chosen-select")
+          .attr('data-placeholder',"Total");
+
+        optns.append("option")
+          // .attr("value","first")
+          // .text("");
+
+        optns.selectAll("p").data(trade).enter().append("option")
+          .filter(function(d){ return d.trade_val1 != 0;})
+          .attr("value", function(d){ return d.id})
+          //.attr("id",function(d){return d.id})
+          .html(function(d){ return d.name});
+
+        $('#areaselect').chosen({allow_single_deselect:true})
+
+        $('.chosen-search').find('input').attr('id', 'filterSearch');
+        $('.chosen-search').prepend("<label for='filterSearch' class='visuallyhidden'>Filters for the chart below, the results of the filters are not currently accessible by screen readers</label>");
+
+        //$('#areaselect').on('input',function(){console.log("click")})
+
+        $('#areaselect').on('change',function(){
+          if (typeof params != 'undefined' ||  params =="c0" || params =="") {
+            backToTop();
+            hierarchy = [];
+
+            $('#areaselect').val().split("_").forEach(function(d,i){
+              if(i!=0){
+                hierarchy.push(hierarchy[i-1].concat("_"+d))
+              } else {
+                hierarchy.push(d)
+              }
+            })
+            //console.log(hierarchy);
+            storyArray = hierarchy;
+            params = hierarchy;
+            selectedView = storyArray.join().replace(/,/g , "/")
+            //console.log(selectedView);
+            // if(storyArray[0] == 'undefined'){
+            //  alert("close");
+            //  backToTop();
+            // } else {
+            setTimeout(function(){
+              //alert("Hello");
+              $(storyArray).each(function(i){
+                setTimeout(function(){
+                  storyId = "#"+storyArray[i];
+                  simulateClick(d3.select(storyId)[0][0]);
+                  d3.select(storyId).classed("hoveredOver", true)
+                  d3.select("#chart").style("pointer-events", "none")
+                  update_barchart(storyArray[i]);
+                  updateStacked(storyArray[i]);
+                }, 760*i);
+              });
+            }, 760*hierarchy.length);
+             // }
+          } else {
+            //console.log(" or here")
+            //backToTop();
+            hierarchy = [];
+
+            $('#areaselect').val().split("_").forEach(function(d,i) {
+              if (i!=0) {
+                hierarchy.push(hierarchy[i-1].concat("_"+d))
+              } else {
+                hierarchy.push(d)
+              }
+            })
+            storyArray = hierarchy;
+            params = hierarchy;
+            selectedView = storyArray.join().replace(/,/g , "/")
+
+            $(storyArray).each(function(i){
+              setTimeout(function(){
+                storyId = "#"+storyArray[i];
+                simulateClick(d3.select(storyId)[0][0]);
+                d3.select(storyId).classed("hoveredOver", true)
+                d3.select("#chart").style("pointer-events", "none")
+                update_barchart(storyArray[i]);
+                updateStacked(storyArray[i]);
+              }, 760*i);
+            });
+          }
+          setTimeout(function(){
+            $('#areaselect').val(null).trigger('change.select2');
+            d3.select(storyId).classed("hoveredOver", false)
+            d3.select("#chart").style("pointer-events", "auto")
+            update_barchart("c0");
+            updateStacked("c0");
+          }, 6000);
         })
-      .tickPadding(5);
+      }
+
+      // bar chart
+
+      var graphic = d3.select('#bar_chart');
+
+      var xBar;
+      var yBar;
+
+      var selected_country;
+
+      var yBarAxis;
+      var xBarAxis;
+      var xBarDomain;
 
 
-     	// d3.selectAll(".tick-stacked").selectAll("line").attr("transform", "translate(30,0)");
 
-     xAxis_stacked = d3.svg.axis()
-         .scale(x_stacked)
-         .orient('bottom')
+      function draw_barchart(){
+        create_dropdown();
 
-     	if (parseInt(graphicStacked.style("width")) <= threshold_sm_Stacked) {
-     			xAxis_stacked.ticks(dvc.optionalStacked.x_num_ticks_sm_md_lg[0])
+        var threshold_md = 788;
+        var threshold_sm = dvc.optional.mobileBreakpoint;
+
+        //set variables for chart dimensions dependent on width of #graphic
+        if (parseInt(graphic.style("width")) < threshold_sm) {
+          var margin = {top: dvc.optional.margin_sm[0], right: dvc.optional.margin_sm[1], bottom: dvc.optional.margin_sm[2], left: dvc.optional.margin_sm[3]};
+          var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+          var height = dvc.essential.barHeight_sm_md_lg[0] * 5 - margin.top - margin.bottom;
+        } else if (parseInt(graphic.style("width")) < threshold_md){
+          var margin = {top: dvc.optional.margin_md[0], right: dvc.optional.margin_md[1], bottom: dvc.optional.margin_md[2], left: dvc.optional.margin_md[3]};
+          var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+          var height = dvc.essential.barHeight_sm_md_lg[0] * 5 - margin.top - margin.bottom;
+        } else {
+          var margin = {top: dvc.optional.margin_lg[0], right: dvc.optional.margin_lg[1], bottom: dvc.optional.margin_lg[2], left: dvc.optional.margin_lg[3]}
+          var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+          var height = dvc.essential.barHeight_sm_md_lg[0] * 5 - margin.top - margin.bottom;
+        }
+
+        // clear out existing graphics
+        graphic.selectAll("*").remove();
+
+        xBar = d3.scale.linear()
+              .range([ 0, chart_width]);
+
+        yBar = d3.scale.ordinal()
+          .rangeRoundBands([0, height], .3)
+
+        selected_country = trade.filter(function(d) { if(d.id == "c0"){ /*console.log(d);*/ return d;} });
+
+       // parse data into columns
+        top5_countries =[];
+
+        top5_countries.push(selected_country[0].rank1)
+        top5_countries.push(selected_country[0].rank2)
+        top5_countries.push(selected_country[0].rank3)
+        top5_countries.push(selected_country[0].rank4)
+        top5_countries.push(selected_country[0].rank5)
+
+        top5_trade_vals =[];
+
+        top5_trade_vals.push(parseInt(selected_country[0].trade_val1))
+        top5_trade_vals.push(parseInt(selected_country[0].trade_val2))
+        top5_trade_vals.push(parseInt(selected_country[0].trade_val3))
+        top5_trade_vals.push(parseInt(selected_country[0].trade_val4))
+        top5_trade_vals.push(parseInt(selected_country[0].trade_val5))
+
+        yBar.domain(top5_countries);
+
+        yBarAxis = d3.svg.axis()
+                          .scale(yBar)
+                          .orient("left")
+
+        xBarAxis = d3.svg.axis()
+                          .scale(xBar)
+                          .orient('bottom')
+                          .tickSize(-height, 0, 0)
+                          .ticks(5);
+
+        xBarDomain = [0, d3.max(top5_trade_vals)*1.3];
+        xBar.domain(xBarDomain)
+
+        var title_bar = d3.select('#bar_chart')
+                          .append('span')
+                          .attr('class', 'chart-title')
+                          .text(dvc.essential.chartTitle)
+
+        var svg = d3.select('#bar_chart')
+                    .append('svg')
+                    //.attr("id","chart")
+                    .style("background-color","#fff")
+                    .attr("width", chart_width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom /*+30*/)
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        svg.append("rect")
+            .attr("class","svgRect")
+            .attr("width", chart_width)
+            .attr("height", height)
+            .attr("fill","transparent")
+
+        svg.append('g')
+            .attr('class', 'x axis')
+            .attr("transform", "translate(0, "+height+")")
+            .call(xBarAxis).append("text")
+            .attr("y", 28)
+            .attr("x",chart_width)
+            // .attr("dy", ".71em")
+            .style("text-anchor", "middle")
+            .text("£ million");
+
+        svg.append('g').attr("class","bars").selectAll('rect')
+            .data(top5_trade_vals)
+            .enter()
+            .append('rect')
+            .attr("fill", "#766faf")
+            .attr("opacity", "0.8")
+            .attr("width", function(d,i) { return 0 + Math.abs(xBar(d) - xBar(0)); })
+            .attr("x", function(d,i) { return xBar(Math.min(0, d)); })
+            .attr("y", function(d,i) { return yBar(top5_countries[i]); })
+            .attr("height", yBar.rangeBand())
+
+        //create y axis, if x axis doesn't start at 0 drop x axis accordingly
+        svg.append('g')
+          .attr('class', 'y axis')
+          .call(yBarAxis);
+
+        if (pymChild) {
+          pymChild.sendHeight();
+        }
+      } //end draw_barchart
+
+      function update_barchart(selection){
+        selected_country = trade.filter(function(d) { if(d.id == selection){ return d;} });
+
+        // parse data into columns
+        top5_countries =[];
+
+        top5_countries.push(selected_country[0].rank1)
+        top5_countries.push(selected_country[0].rank2)
+        top5_countries.push(selected_country[0].rank3)
+        top5_countries.push(selected_country[0].rank4)
+        top5_countries.push(selected_country[0].rank5)
+
+        top5_trade_vals =[];
+
+        top5_trade_vals.push(parseInt(selected_country[0].trade_val1))
+        top5_trade_vals.push(parseInt(selected_country[0].trade_val2))
+        top5_trade_vals.push(parseInt(selected_country[0].trade_val3))
+        top5_trade_vals.push(parseInt(selected_country[0].trade_val4))
+        top5_trade_vals.push(parseInt(selected_country[0].trade_val5))
+
+        yBar.domain(top5_countries);
+
+        // yBarAxis = d3.svg.axis()
+        //       .scale(yBar)
+        //       .orient("left")
+        //
+        // xBarAxis = d3.svg.axis()
+        //       .scale(xBar)
+        //       .orient('bottom')
+        //  .tickSize(-height, 0, 0);
+
+        xBarDomain = [0, d3.max(top5_trade_vals)*1.3];
+
+        xBar.domain(xBarDomain);
+
+        d3.select(".y").transition().delay(500).call(yBarAxis);
+
+        d3.select(".x").transition().duration(500).call(xBarAxis);
+
+        d3.select("#bar_chart").selectAll(".bars")
+          .selectAll("rect")
+          .data(top5_trade_vals)
+          .transition()
+          .duration(500)
+          .attr("width", function(d,i) {
+             return 0 + Math.abs(xBar(d) - xBar(0));
+          })
+
+        d3.select("#bar_chart")
+          .selectAll(".y")
+          .selectAll("text")
+          .each(function(d,i){
+            if( d == "Data suppressed1" || d == "Data suppressed2" || d == "Data suppressed3" || d == "Data suppressed4" || d == "Data suppressed5" ){
+              d3.select(this).text("Data suppressed")
+            }
+          })
+      } //end update_barchart
+
+      // stacked bar EU - nonEU
+      var graphicStacked = d3.select('#stacked');
+      var keypointsStacked = d3.select('#keypoints');
+      var footerStacked = d3.select(".footer");
+
+      var y_stacked;
+      var x_stacked;
+
+      var yAxis_stacked;
+      var xAxis_stacked;
+
+      var xDomain_stacked;
+      var svg_stacked;
+
+      var zStacked = ["#234d70", "#688898"];
+
+      function drawStacked() {
+        var threshold_md_Stacked = 788;
+        var threshold_sm_Stacked = dvc.optionalStacked.mobileBreakpoint;
+
+        if (parseInt(graphicStacked.style("width")) < threshold_sm_Stacked) {
+          var marginStacked = {top: dvc.optionalStacked.margin_sm[0], right: dvc.optionalStacked.margin_sm[1], bottom: dvc.optionalStacked.margin_sm[2], left: dvc.optionalStacked.margin_sm[3]};
+          var chart_width_stacked = parseInt(graphicStacked.style("width")) - marginStacked.left - marginStacked.right;
+          var height_stacked = Math.ceil((chart_width_stacked * dvc.optionalStacked.aspectRatio_sm[1]) / dvc.optionalStacked.aspectRatio_sm[0]) - marginStacked.top - marginStacked.bottom;
+        } else if (parseInt(graphicStacked.style("width")) < threshold_md_Stacked){
+          var marginStacked = {top: dvc.optionalStacked.margin_md[0], right: dvc.optionalStacked.margin_md[1], bottom: dvc.optionalStacked.margin_md[2], left: dvc.optionalStacked.margin_md[3]};
+          var chart_width_stacked = parseInt(graphicStacked.style("width")) - marginStacked.left - marginStacked.right;
+          var height_stacked = Math.ceil((chart_width_stacked * dvc.optionalStacked.aspectRatio_md[1]) / dvc.optionalStacked.aspectRatio_md[0]) - marginStacked.top - marginStacked.bottom;
+        } else {
+          var marginStacked = {top: dvc.optionalStacked.margin_lg[0], right: dvc.optionalStacked.margin_lg[1], bottom: dvc.optionalStacked.margin_lg[2], left: dvc.optionalStacked.margin_lg[3]}
+          var chart_width_stacked = parseInt(graphicStacked.style("width")) - marginStacked.left - marginStacked.right;
+          var height_stacked = Math.ceil((chart_width_stacked * dvc.optionalStacked.aspectRatio_lg[1]) / dvc.optionalStacked.aspectRatio_lg[0]) - marginStacked.top - marginStacked.bottom;
+        }
+
+        // clear out existing graphics
+        graphicStacked.selectAll("*").remove();
+        keypointsStacked.selectAll("*").remove();
+        footerStacked.selectAll("*").remove();
+
+        y_stacked = d3.scale.ordinal()
+                            .rangeRoundBands([0, height_stacked], .1);
+
+        x_stacked = d3.scale.linear()
+                            .rangeRound([0,chart_width_stacked]);
+
+        var formatAsPercentage = d3.formatPrefix('%',0);
+
+        yAxis_stacked = d3.svg.axis()
+                              .scale(y_stacked)
+                              .orient("left")
+                              .tickFormat(function(d,i) { //console.log(d)
+                                return d
+                                })
+                              .tickPadding(5);
+
+        // d3.selectAll(".tick-stacked").selectAll("line").attr("transform", "translate(30,0)");
+
+        xAxis_stacked = d3.svg.axis()
+                               .scale(x_stacked)
+                               .orient('bottom')
+
+        if (parseInt(graphicStacked.style("width")) <= threshold_sm_Stacked) {
+          xAxis_stacked.ticks(dvc.optionalStacked.x_num_ticks_sm_md_lg[0])
         } else if (parseInt(graphicStacked.style("width")) <= threshold_md_Stacked){
-     			xAxis_stacked.ticks(dvc.optionalStacked.x_num_ticks_sm_md_lg[1])
-     		 } else {
-     			xAxis_stacked.ticks(dvc.optionalStacked.x_num_ticks_sm_md_lg[2])
-     		 }
-
-
-      var x_axis_grid = function() { return xAxis_stacked; }
-
-     	// var legend_stacked = d3.select('#stacked').append('ul')
-     	// 				.attr('class', 'key')
-     	// 				.selectAll('g')
-     	// 				.data(dvc.essentialStacked.legendLabels)
-     	// 				.enter().append('li')
-     	// 				.attr("class",function(d,i){return "key-" + i})
-      //
-     	// legend_stacked.append('b')
-     	// legend_stacked.append('label')
-     	// 	.html(function(d,i) { return dvc.essentialStacked.legendLabels[i]; });
-
-        var title_stacked = d3.select('#stacked').append('span')
-          .attr('class', 'chart-title')
-          .text(dvc.essentialStacked.chartTitle);
-
-         svg_stacked = d3.select('#stacked').append('svg')
-             .attr("width", chart_width_stacked + marginStacked.left + marginStacked.right)
-             .attr("height", height_stacked + marginStacked.top + marginStacked.bottom)
-             .append("g")
-             .attr("transform", "translate(" + marginStacked.left + "," + marginStacked.top + ")");
-
-     	// y.domain(graphic_data.map(function(d) {
-     	// 	return d.cat;
-     	// }));
-
-     	//y domain calculations	: zero to intelligent max choice, or intelligent min and max choice,  or interval chosen manually
-     	// if (dvc.essentialStacked.xAxisScale == "auto_zero_max"){
-     	//    var xDomain_stacked = dvc.essentialStacked.xAxisScale;
-     	// } else if (dvc.essentialStacked.xAxisScale == "auto_min_max"){
-     	// 	console.log("not appropriate for a stack bar chart");
-     	// } else {
-     	   xDomain_stacked = [0,100];
-     	// }
-
-     	x_stacked.domain(xDomain_stacked);
-
-
-     svg_stacked.append('g')
-         .attr('class', 'x-stacked axis-stacked')
-         .attr('transform', 'translate(0,' + (height_stacked*1.00) + ')')
-         .call(xAxis_stacked);
-
-     svg_stacked.append('g')
-         .attr('class', 'y-stacked axis-stacked')
-         .call(yAxis_stacked)
-       	 .append("text")
-       		 .attr("y", height_stacked+23)
-       		 .attr("x",chart_width_stacked)
-       		 .attr("dy", ".71em")
-       		 .style("text-anchor", "end")
-       		 .text(dvc.essentialStacked.xAxisLabel);
-
-           //console.log(dvc.essentialStacked.xAxisLabel)
-
-     svg_stacked.append('g')
-         .attr('class', 'x-stacked grid-stacked')
-         .call(x_axis_grid()
-             .tickSize(height_stacked, 0)
-             .tickFormat('')
-         );
-
-    svg_stacked.append('text')
-        .attr('class', 'EU')
-        .attr('x',x_stacked(0))
-        .attr('y', -5)
-        .attr('text-anchor', 'start')
-        .text("EU");
-
-    svg_stacked.append('text')
-        .attr('class', 'non-EU')
-        .attr('x',x_stacked(100))
-        .attr('y', -5)
-        .attr('text-anchor', 'end')
-        .text("non-EU");
-
-    writeAnnotation();
-
- 		function writeAnnotation(){
-
-
- 			if (parseInt(graphicStacked.style("width")) < threshold_sm_Stacked) {
-
- 					dvc.essentialStacked.annotationBullet.forEach(function(d,i) {
-
- 						d3.select("#keypoints").append("svg")
- 							.attr("width","20px")
- 							.attr("height","20px")
- 							.attr("class","circles")
- 							.append("circle")
- 							.attr("class", "annocirc" + (i))
- 							.attr("r", "2")
- 							.attr('cy',"12px")
- 							.attr("cx", "10px");
-
- 						d3.select("#keypoints").append("p").text(dvc.essentialStacked.annotationBullet[i]);
-
- 					})// end foreach
-
- 			}
- 			else {
-
- 					dvc.essentialStacked.annotationChart.forEach(function(d,i) {
-
- 						// draw annotation text based on content of var annotationArray ...
- 						svg_stacked.append("text")
- 							.text(dvc.essentialStacked.annotationChart[i])
- 							.attr("class","annotext" + i)
- 							.attr("text-anchor", dvc.essentialStacked.annotationAlign[i])
- 							.attr('x',x_stacked(dvc.essentialStacked.annotationXY[i][0]))
- 							.attr('y', y_stacked(dvc.essentialStacked.annotationXY[i][1]));
-
- 						d3.selectAll(".annotext" + (i))
- 							.each(insertLinebreaks)
- 							.each(createBackRect);
-
-
- 						function insertLinebreaks() {
-
- 							var str = this;
-
- 							var el1 = dvc.essentialStacked.annotationChart[i];
-
- 							var words = el1.split('  ');
-
- 							d3.select(this/*str*/).text('');
-
- 							for (var j = 0; j < words.length; j++) {
- 								var tspan = d3.select(this).append('tspan').text(words[j]);
- 								if (j > 0)
- 									tspan.attr('x', x(dvc.essentialStacked.annotationXY[i][1]))
- 										.attr('dy', '22');
- 									}
- 						};
-
- 						function createBackRect() {
-
- 						var BBox = this.getBBox()
-
- 								svg_stacked.insert("rect", ".annotext" + (i))
- 									.attr("width", BBox.width +6)
- 									.attr("height", BBox.height_stacked+6)
- 									.attr("x", BBox.x -3)
- 									.attr("y", BBox.y -3)
- 									.attr("fill", "white")
- 									.attr("opacity", 0.4);
-
- 						}; // end function createBackRect()
-
-
- 						// draw circles, if var 'dvc.essentialStacked.circles' is set to true
- 						if ( dvc.essentialStacked.circles == true ) {
-
- 							svg.append("circle")
- 								.attr("class", "annocirc" + (i))
- 								.attr('cx',x(dvc.essentialStacked.annotationCXCY[i][0]))
- 								.attr('cy', y(dvc.essentialStacked.annotationCXCY[i][1]))
- 								.attr("r", "3");
-
- 						} // end if ...
-
- 					});	// end foreach
-
- 			} // end else ...
-
-
- 			// If you have labels rather than years then you can split the lines using a double space (in the CSV file).
-
-
- 			function insertLinebreaksLabels() {
- 							var str = this.textContent;
-
- 							var words = str.split('  ');
-
- 							d3.select(this/*str*/).text('');
-
- 							for (var j = 0; j < words.length; j++) {
- 								var tspan = d3.select(this).append('tspan').text(words[j]);
- 								if (j > 0)
- 									tspan
- 									.attr('x', -10)
- 									.attr('dy', '1em');
- 									}
- 			};
-
- 			d3.selectAll(".x text").each(insertLinebreaksLabels)
-
-
-
- 		}// end function writeAnnotation()
-
-
-
- 		//create link to source
- 		d3.select(".footer").append("p")
- 			.text("Source: ")
- 			.append("a")
- 			.attr("href", dvc.essentialStacked.sourceURL)
- 			.attr("target", "_blank")
- 			.text(dvc.essentialStacked.sourceText);
-
-
-     if (chart_width_stacked > dvc.optionalStacked.mobileBreakpoint) {
- 	} else {
-
- 	}
-
-     if (pymChild) {
-         pymChild.sendHeight();
-     }
-
-      var eu = trade.map(function(d) {
-        d.eu = +d.eu_row_split*100;
-        d.nonEu = (1 - +d.eu_row_split)*100;
-      })
-
-      var graphic_data = trade.filter(function(d) {
-        return d.id == "c0";
-      })
-
-      var causes = ["eu", "nonEu"]
-
-      var x0 = 0;
-
-      var layers = causes.map(function(c){
-        return graphic_data.map(function (d) {
-          return {
+          xAxis_stacked.ticks(dvc.optionalStacked.x_num_ticks_sm_md_lg[1])
+        } else {
+          xAxis_stacked.ticks(dvc.optionalStacked.x_num_ticks_sm_md_lg[2])
+        }
+
+        var x_axis_grid = function() { return xAxis_stacked; }
+
+        // var legend_stacked = d3.select('#stacked').append('ul')
+        //        .attr('class', 'key')
+        //        .selectAll('g')
+        //        .data(dvc.essentialStacked.legendLabels)
+        //        .enter().append('li')
+        //        .attr("class",function(d,i){return "key-" + i})
+        //
+        // legend_stacked.append('b')
+        // legend_stacked.append('label')
+        //  .html(function(d,i) { return dvc.essentialStacked.legendLabels[i]; });
+
+        var title_stacked = d3.select('#stacked')
+                              .append('span')
+                              .attr('class', 'chart-title')
+                              .text(dvc.essentialStacked.chartTitle);
+
+        svg_stacked = d3.select('#stacked')
+                        .append('svg')
+                        .attr("width", chart_width_stacked + marginStacked.left + marginStacked.right)
+                        .attr("height", height_stacked + marginStacked.top + marginStacked.bottom)
+                        .append("g")
+                        .attr("transform", "translate(" + marginStacked.left + "," + marginStacked.top + ")");
+
+        // y.domain(graphic_data.map(function(d) {
+        //  return d.cat;
+        // }));
+
+        //y domain calculations : zero to intelligent max choice, or intelligent min and max choice,  or interval chosen manually
+        // if (dvc.essentialStacked.xAxisScale == "auto_zero_max"){
+        //    var xDomain_stacked = dvc.essentialStacked.xAxisScale;
+        // } else if (dvc.essentialStacked.xAxisScale == "auto_min_max"){
+        //  console.log("not appropriate for a stack bar chart");
+        // } else {
+        xDomain_stacked = [0,100];
+        // }
+
+        x_stacked.domain(xDomain_stacked);
+
+
+        svg_stacked.append('g')
+                   .attr('class', 'x-stacked axis-stacked')
+                   .attr('transform', 'translate(0,' + (height_stacked*1.00) + ')')
+                   .call(xAxis_stacked);
+
+        svg_stacked.append('g')
+                   .attr('class', 'y-stacked axis-stacked')
+                   .call(yAxis_stacked)
+                   .append("text")
+                   .attr("y", height_stacked+23)
+                   .attr("x",chart_width_stacked)
+                   .attr("dy", ".71em")
+                   .style("text-anchor", "end")
+                   .text(dvc.essentialStacked.xAxisLabel);
+
+        //console.log(dvc.essentialStacked.xAxisLabel)
+
+        svg_stacked.append('g')
+                    .attr('class', 'x-stacked grid-stacked')
+                    .call(x_axis_grid()
+                      .tickSize(height_stacked, 0)
+                      .tickFormat('')
+                    );
+
+        svg_stacked.append('text')
+                    .attr('class', 'EU')
+                    .attr('x',x_stacked(0))
+                    .attr('y', -5)
+                    .attr('text-anchor', 'start')
+                    .text("EU");
+
+        svg_stacked.append('text')
+                    .attr('class', 'non-EU')
+                    .attr('x',x_stacked(100))
+                    .attr('y', -5)
+                    .attr('text-anchor', 'end')
+                    .text("non-EU");
+
+        writeAnnotation();
+
+        function writeAnnotation(){
+          if (parseInt(graphicStacked.style("width")) < threshold_sm_Stacked) {
+            dvc.essentialStacked.annotationBullet.forEach(function(d,i) {
+              d3.select("#keypoints")
+                .append("svg")
+                .attr("width","20px")
+                .attr("height","20px")
+                .attr("class","circles")
+                .append("circle")
+                .attr("class", "annocirc" + (i))
+                .attr("r", "2")
+                .attr('cy',"12px")
+                .attr("cx", "10px");
+
+              d3.select("#keypoints").append("p").text(dvc.essentialStacked.annotationBullet[i]);
+            })// end foreach
+          } else {
+            dvc.essentialStacked.annotationChart.forEach(function(d,i) {
+              // draw annotation text based on content of var annotationArray ...
+              svg_stacked.append("text")
+                          .text(dvc.essentialStacked.annotationChart[i])
+                          .attr("class","annotext" + i)
+                          .attr("text-anchor", dvc.essentialStacked.annotationAlign[i])
+                          .attr('x',x_stacked(dvc.essentialStacked.annotationXY[i][0]))
+                          .attr('y', y_stacked(dvc.essentialStacked.annotationXY[i][1]));
+
+              d3.selectAll(".annotext" + (i))
+                .each(insertLinebreaks)
+                .each(createBackRect);
+
+
+              function insertLinebreaks() {
+                var str = this;
+
+                var el1 = dvc.essentialStacked.annotationChart[i];
+
+                var words = el1.split('  ');
+
+                d3.select(this/*str*/).text('');
+
+                for (var j = 0; j < words.length; j++) {
+                  var tspan = d3.select(this).append('tspan').text(words[j]);
+                  if (j > 0)
+                    tspan.attr('x', x(dvc.essentialStacked.annotationXY[i][1]))
+                          .attr('dy', '22');
+                }
+              };
+
+              function createBackRect() {
+                var BBox = this.getBBox()
+
+                svg_stacked.insert("rect", ".annotext" + (i))
+                            .attr("width", BBox.width +6)
+                            .attr("height", BBox.height_stacked+6)
+                            .attr("x", BBox.x -3)
+                            .attr("y", BBox.y -3)
+                            .attr("fill", "white")
+                            .attr("opacity", 0.4);
+              }; // end function createBackRect()
+
+              // draw circles, if var 'dvc.essentialStacked.circles' is set to true
+              if ( dvc.essentialStacked.circles == true ) {
+                svg.append("circle")
+                    .attr("class", "annocirc" + (i))
+                    .attr('cx',x(dvc.essentialStacked.annotationCXCY[i][0]))
+                    .attr('cy', y(dvc.essentialStacked.annotationCXCY[i][1]))
+                    .attr("r", "3");
+              } // end if ...
+            }); // end foreach
+          } // end else ...
+
+          // If you have labels rather than years then you can split the lines using a double space (in the CSV file).
+          function insertLinebreaksLabels() {
+            var str = this.textContent;
+
+            var words = str.split('  ');
+
+            d3.select(this/*str*/).text('');
+
+            for (var j = 0; j < words.length; j++) {
+              var tspan = d3.select(this).append('tspan').text(words[j]);
+              if (j > 0)
+                tspan.attr('x', -10).attr('dy', '1em');
+            }
+          };
+
+          d3.selectAll(".x text").each(insertLinebreaksLabels)
+        }// end function writeAnnotation()
+
+        //create link to source
+        d3.select(".footer").append("p")
+          .text("Source: ")
+          .append("a")
+          .attr("href", dvc.essentialStacked.sourceURL)
+          .attr("target", "_blank")
+          .text(dvc.essentialStacked.sourceText);
+
+        if (chart_width_stacked > dvc.optionalStacked.mobileBreakpoint) {
+        } else {
+        }
+
+        if (pymChild) {
+          pymChild.sendHeight();
+        }
+
+        var eu = trade.map(function(d) {
+          d.eu = +d.eu_row_split*100;
+          d.nonEu = (1 - +d.eu_row_split)*100;
+        })
+
+        var graphic_data = trade.filter(function(d) {
+          return d.id == "c0";
+        })
+
+        var causes = ["eu", "nonEu"]
+
+        var x0 = 0;
+
+        var layers = causes.map(function(c){
+          return graphic_data.map(function (d) {
+            return {
               name: d.id,
               x0: x0,
               x1: x0 += +d[c],
               x2: d[c]
             };
-        })
-       });
-
-      y_stacked.domain(d3.extent(layers, function(d) { return d.name; }));
-
-      y_stacked.domain(layers.map(function(d) {
-        return d.name;
-      }));
-
-      x_stacked.domain(xDomain_stacked);
-
-      var group = svg_stacked.selectAll(".year")
-          .data(layers)
-       .enter().append("g")
-          .attr("class", "year g bars")
-          .style("fill", function(d, i) { return zStacked[i]; });
-
-          // .attr("transform", function(d) { console.log(d);return "translate(0," + y_stacked(d.name) + ")"; });
-
-     var layer = group.selectAll("rect")
-        .data(function(d) { return d; })
-
-        layer.enter().append("rect")
-         .attr("class",function(d,i){ return "bar"; })
-            .attr("height", y_stacked.rangeBand())
-         .attr("x", function(d) {
-           if (d.x1 >=0){
-             return x_stacked(d.x0);
-           } else {
-             return x_stacked(d.x2)+ (x_stacked(d.x0) - x_stacked(d.x1));
-           }
-         })
-     .attr("width", function(d) {
-       if (d.x1 >=0){
-         return Math.abs(x_stacked(d.x0) - x_stacked(d.x1));
-       } else {
-         return Math.abs(x_stacked(d.x0) - x_stacked(d.x1));
-
-       }
-     })
-     .style("opacity", 0.85);
-
-  }
-
-  function updateStacked(value) {
-     graphic_data = trade.filter(function(d) {
-      return d.id == value;
-    })
-
-    causes = ["eu", "nonEu"]
-
-    x0 = 0;
-
-    layers = causes.map(function(c){
-      return graphic_data.map(function (d) {
-        return {
-            name: d.id,
-            x0: x0,
-            x1: x0 += +d[c],
-            x2: d[c]
-          };
-      })
-     });
-
-
-    // graphic_data.sort(function(a, b) {
-    //   console.log(a)
-    //   // console.log(b)
-    //   // return b[graphic_data2.columns[1]] / b.total - a[data.columns[1]] / a.total;
-    // });
-    y_stacked.domain(d3.extent(layers, function(d) { return d.name; }));
-
-    y_stacked.domain(graphic_data.map(function(d) {
-      return d.name;
-    }));
-
-    x_stacked.domain(xDomain_stacked);
-
-    group = svg_stacked.selectAll(".year")
-        .data(layers)
-
-   layer = group.selectAll("rect")
-     .data(function(d) { return d; })
-
-
-      layer
-        .transition()
-        .duration(500)
-         .attr("class", "bar")
-            .attr("height", y_stacked.rangeBand())
-         .attr("x", function(d) {
-       if (d.x1 >=0){
-         return x_stacked(d.x0);
-       } else {
-         return x_stacked(d.x2)+ (x_stacked(d.x0) - x_stacked(d.x1));
-       }
-       })
-     .attr("width", function(d) {
-       if (d.x1 >=0){
-         return Math.abs(x_stacked(d.x0) - x_stacked(d.x1));
-       } else {
-         return Math.abs(x_stacked(d.x0) - x_stacked(d.x1));
-
-       }
-     })
-     .style("opacity", 0.85);
-
-   layer.exit().remove();
- } //end stack bar chart
-
-
-	function makeChart(width, fullheight) {
-
-	 margin = {top: 10, right: 0, bottom: 0, left: 0}
-        formatNumber = d3.format(",.0f"),
-
-
-		atTop=true,
-		level = 0,
-		levelArray = Array(level);
-
-    height = fullheight - margin.top - margin.bottom;
-
-     x = d3.scale.linear()
-        .domain([0, width])
-        .range([0, width]);
-
-     y = d3.scale.linear()
-        .domain([0, height])
-        .range([0, height]);
-
-    treemap = d3.layout.treemap()
-        .children(function(d, depth) { return depth ? null : d._children; })
-        .sort(function(a, b) { return a.size - b.size; })
-        .ratio(height / width * ratiovar * (1 + Math.sqrt(5)))
-		.value(function(d) { return d.size; })
-        .round(false);
-
-     svg = d3.select("#chart")
-		.append("svg")
-		.attr("id", "svgEle")
-		.attr("width", width + "px")
-		.attr("height", (20+height) + "px")
-		//.attr("viewBox", "0 0 "+width+" "+ (height))
-		.attr("preserveAspectRatio", "xMidYMid meet")
-        .style("margin-left", -margin.left + "px")
-        .style("margin.right", -margin.right + "px")
-      .append("g")
-	  	.attr("id", "tree")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-       // .style("shape-rendering", "crispEdges");
-
-     grandparent = svg.append("g")
-        .attr("class", "grandparent")
-	 	.append("rect")
-	 	.attr("id", "gparent")
-		.attr("y", -margin.top)
-		.attr("width", width)
-		.attr("height", margin.top);
-
-
-    d3.csv("imports.csv", function(data){
-
-		data.forEach(function(d) {
-			d.size = Number(d.size);
-			//d.var2 = Number(d.var2);
+          })
         });
 
+        y_stacked.domain(d3.extent(layers, function(d) { return d.name; }));
 
-var tree = DataStructures.Tree.createFromFlatTable(data),
-           root = tree.toSimpleObject(function(objectToDecorate, originalNode) {
-                objectToDecorate.size = originalNode.size;
-                if (objectToDecorate.children && objectToDecorate.children.length == 0) {
-                    delete objectToDecorate.children;
+        y_stacked.domain(layers.map(function(d) {
+          return d.name;
+        }));
+
+        x_stacked.domain(xDomain_stacked);
+
+        var group = svg_stacked.selectAll(".year")
+                                .data(layers)
+                                .enter().append("g")
+                                .attr("class", "year g bars")
+                                .style("fill", function(d, i) { return zStacked[i]; });
+                                // .attr("transform", function(d) { console.log(d);return "translate(0," + y_stacked(d.name) + ")"; });
+
+        var layer = group.selectAll("rect")
+                          .data(function(d) { return d; })
+
+        layer.enter().append("rect")
+              .attr("class",function(d,i){ return "bar"; })
+              .attr("height", y_stacked.rangeBand())
+              .attr("x", function(d) {
+                if (d.x1 >=0){
+                  return x_stacked(d.x0);
+                } else {
+                  return x_stacked(d.x2)+ (x_stacked(d.x0) - x_stacked(d.x1));
                 }
-                return objectToDecorate;
+              })
+              .attr("width", function(d) {
+                if (d.x1 >=0){
+                  return Math.abs(x_stacked(d.x0) - x_stacked(d.x1));
+                } else {
+                  return Math.abs(x_stacked(d.x0) - x_stacked(d.x1));
+                }
+              })
+              .style("opacity", 0.85);
+      }
+
+      function updateStacked(value) {
+        graphic_data = trade.filter(function(d) {
+          return d.id == value;
+        })
+
+        causes = ["eu", "nonEu"]
+
+        x0 = 0;
+
+        layers = causes.map(function(c){
+          return graphic_data.map(function (d) {
+            return {
+              name: d.id,
+              x0: x0,
+              x1: x0 += +d[c],
+              x2: d[c]
+            };
+          })
+        });
+
+        // graphic_data.sort(function(a, b) {
+        //   console.log(a)
+        //   // console.log(b)
+        //   // return b[graphic_data2.columns[1]] / b.total - a[data.columns[1]] / a.total;
+        // });
+        y_stacked.domain(d3.extent(layers, function(d) { return d.name; }));
+
+        y_stacked.domain(graphic_data.map(function(d) {
+          return d.name;
+        }));
+
+        x_stacked.domain(xDomain_stacked);
+
+        group = svg_stacked.selectAll(".year")
+            .data(layers)
+
+        layer = group.selectAll("rect")
+                      .data(function(d) { return d; })
+
+        layer.transition()
+              .duration(500)
+              .attr("class", "bar")
+              .attr("height", y_stacked.rangeBand())
+              .attr("x", function(d) {
+                if (d.x1 >=0){
+                  return x_stacked(d.x0);
+                } else {
+                  return x_stacked(d.x2)+ (x_stacked(d.x0) - x_stacked(d.x1));
+                }
+              })
+              .attr("width", function(d) {
+                if (d.x1 >=0){
+                  return Math.abs(x_stacked(d.x0) - x_stacked(d.x1));
+                } else {
+                  return Math.abs(x_stacked(d.x0) - x_stacked(d.x1));
+                }
+              })
+              .style("opacity", 0.85);
+
+        layer.exit().remove();
+      } //end stack bar chart
+
+      function makeChart(width, fullheight) {
+        margin = {top: 10, right: 0, bottom: 0, left: 0}
+          formatNumber = d3.format(",.0f"),
+          atTop=true,
+          level = 0,
+          levelArray = Array(level);
+
+        height = fullheight - margin.top - margin.bottom;
+
+        x = d3.scale.linear()
+          .domain([0, width])
+          .range([0, width]);
+
+        y = d3.scale.linear()
+          .domain([0, height])
+          .range([0, height]);
+
+        treemap = d3.layout.treemap()
+                            .children(function(d, depth) { return depth ? null : d._children; })
+                            .sort(function(a, b) { return a.size - b.size; })
+                            .ratio(height / width * ratiovar * (1 + Math.sqrt(5)))
+                            .value(function(d) { return d.size; })
+                            .round(false);
+
+        svg = d3.select("#chart")
+                .append("svg")
+                .attr("id", "svgEle")
+                .attr("width", width + "px")
+                .attr("height", (20+height) + "px")
+                //.attr("viewBox", "0 0 "+width+" "+ (height))
+                .attr("preserveAspectRatio", "xMidYMid meet")
+                .style("margin-left", -margin.left + "px")
+                .style("margin.right", -margin.right + "px")
+                .append("g")
+                .attr("id", "tree")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                // .style("shape-rendering", "crispEdges");
+
+        grandparent = svg.append("g")
+                          .attr("class", "grandparent")
+                          .append("rect")
+                          .attr("id", "gparent")
+                          .attr("y", -margin.top)
+                          .attr("width", width)
+                          .attr("height", margin.top);
+
+        d3.csv("imports.csv", function(data){
+          data.forEach(function(d) {
+            d.size = Number(d.size);
+            //d.var2 = Number(d.var2);
+          });
+
+          var tree = DataStructures.Tree.createFromFlatTable(data),
+            root = tree.toSimpleObject(function(objectToDecorate, originalNode) {
+              objectToDecorate.size = originalNode.size;
+              if (objectToDecorate.children && objectToDecorate.children.length == 0) {
+                delete objectToDecorate.children;
+              }
+              return objectToDecorate;
             });
-//console.log(JSON.stringify(root));
 
-		dataset = root;
-		 initialize(root);
-		 accumulate(root);
-		 layout(root);
-		 display(root);
+          dataset = root;
+          initialize(root);
+          accumulate(root);
+          layout(root);
+          display(root);
 
-	d3.select("#blurb").select("#txt2").html("Goods imports 2018: ")
-	d3.select("#blurb").select("#txt3").html("£"+formatNumber(dataset.size)+" million");
-		d3.json("config.json", function(error, config) {
-				dvc=config
-			d3.csv("trade_imports.csv", function(data){
-				trade = data
-				//console.log(trade)
-				draw_barchart();
-        drawStacked();
-			}) // end trade csv
-		}) //end json config
-	}); //end treemap csv load
+          var heading = "Goods imports 2018: ";
+          var value = "£"+formatNumber(dataset.size)+" million";
+          var label = `A chart displaying goods imported (${value}) broken down by type of goods and country of origin.`;
+          $('#chartDescription').html(label);
+          d3.select("#blurb").select("#txt2").html(heading);
+          d3.select("#blurb").select("#txt3").html(value);
 
-
-
-	}
-
+          d3.json("config.json", function(error, config) {
+            dvc=config
+            d3.csv("trade_imports.csv", function(data){
+              trade = data
+              //console.log(trade)
+              draw_barchart();
+              drawStacked();
+            }) // end trade csv
+          }) //end json config
+        }); //end treemap csv load
+      }
 
       function initialize(root) {
         root.x = root.y = 0;
         root.dx = width;
-	    root.dy = height;
+        root.dy = height;
         root.depth = 0;
       }
 
@@ -1384,11 +1282,10 @@ var tree = DataStructures.Tree.createFromFlatTable(data),
       // We also take a snapshot of the original children (_children) to avoid
       // the children being overwritten when when layout is computed.
       function accumulate(d) {
-		   //console.log('accumulate')
+        //console.log('accumulate')
         return (d._children = d.children)
             ? d.size = d.children.reduce(function(p, v) { return p + accumulate(v); }, 0)
             : d.size;
-
       }
 
       // Compute the treemap layout recursively such that each group of siblings
@@ -1399,10 +1296,8 @@ var tree = DataStructures.Tree.createFromFlatTable(data),
       // of sibling was laid out in 1×1, we must rescale to fit using absolute
       // coordinates. This lets us use a viewport to zoom.
       function layout(d) {
-
         if (d._children) {
-
-         treemap.nodes({_children: d._children});
+          treemap.nodes({_children: d._children});
           d._children.forEach(function(c) {
             c.x = d.x + c.x * d.dx;
             c.y = d.y + c.y * d.dy;
@@ -1416,83 +1311,94 @@ var tree = DataStructures.Tree.createFromFlatTable(data),
       }
 
       function display(d) {
+        grandparent.datum(d.parent)
+                    .on("click", transition)
+                    // .select("text")
+                    // .text(desc(d))
 
-        grandparent
-            .datum(d.parent)
-            .on("click", transition)
-//            .select("text")
-//            .text(desc(d))
-
-		d3.select("#titleText")
-            .datum(d.parent)
-           // .text(desc(d))
+        d3.select("#titleText")
+          .datum(d.parent)
+          // .text(desc(d))
 
         var g1 = svg.insert("g", ".grandparent")
-            .datum(d)
-            .attr("class", "depth")
-			.on("mouseout", leave_tree);
+                    .datum(d)
+                    .attr("class", "depth")
+                    .on("mouseout", leave_tree);
 
         var g = g1.selectAll("g")
-            .data(d._children)
-          .enter().append("g");
+                  .data(d._children)
+                  .enter().append("g");
 
         g.filter(function(d) { return d._children; })
-            .classed("children", true)
-            .on("click", transition);
-
-        g.selectAll(".child")
-            .data(function(d) { return d._children || [d]; })
-          .enter().append("rect")
-            .attr("class", "child")
-			.attr("code",function(d) { return d.id} )
-			.attr("desc",function(d) { return d.name} )
-			.attr("id",function(d) { return d.id} )
-			.attr("vals",function(d) { return d.size} )
-			.attr("realvals",function(d) { return d.size} )
-			.on("mouseover", mouseover)
-			.on("mouseout", mouseout)
-            .call(rect);
+          .classed("children", true)
+          .on("click", transition);
 
         g.append("rect")
-            .attr("class", "parent")
-			.attr("desc",function(d) { return d.name} )
-			.attr("id",function(d) { return d.id} )
-			.attr("vals",function(d) { return d.size} )
-			.attr("realvals",function(d) { return d.size} )
-			.on("mouseover", mouseover)
-			.on("mouseout", mouseout)
-            .call(rect);
+          .attr("class", "parent")
+          .attr("desc",function(d) { return d.name} )
+          .attr("id",function(d) { return d.id} )
+          .attr("vals",function(d) { return d.size} )
+          .attr("realvals",function(d) { return d.size} )
+          .attr('aria-label', function(d) { return d.name+" £"+formatNumber(d.size)+"m"; })
+          .on("mouseover", mouseover)
+          .on("focus", mouseover)
+          .on("mouseout", mouseout)
+          .on("blur", mouseout)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode == 13) {
+              $(d3.event.target).parent().d3Click();
+            }
+          })
+          .call(rect);
 
-       g.append("text")
-			.attr("class", "parentLabels")
-            .attr("dy", "1em")
-            .text(function(d) { return d.name+" £"+formatNumber(d.size)+"m"; })
-			.call(resize)
-            .call(text);
+        g.selectAll(".child")
+          .data(function(d) { return d._children || [d]; })
+          .enter().append("rect")
+          .attr("class", "child")
+          .attr("code",function(d) { return d.id} )
+          .attr("desc",function(d) { return d.name} )
+          .attr("id",function(d) { return d.id} )
+          .attr("vals",function(d) { return d.size} )
+          .attr("realvals",function(d) { return d.size} )
+          .on("mouseover", mouseover)
+          .on("mouseout", mouseout)
+          .call(rect);
 
-
+        g.append("text")
+          .attr("class", "parentLabels")
+          .attr("dy", "1em")
+          .text(function(d) { return d.name+" £"+formatNumber(d.size)+"m"; })
+          .call(resize)
+          .call(text);
 
         function transition(d) {
-			if(d3.select(this).attr("id") != "gparent"){
-				selectedArray.push(d3.select(this).select('.parent').attr("id"))
-				selectedView = selectedArray.join().replace(/,/g , "/")
+          if(d3.select(this).attr("id") != "gparent"){
+            selectedArray.push(d3.select(this).select('.parent').attr("id"))
+            selectedView = selectedArray.join().replace(/,/g , "/")
 
-				window.location.hash = encodeURI(selectedView);
-			} else {
-						selectedArray.splice(-1,1)
-						selectedView = selectedArray.join().replace(/,/g , "/")
+            window.location.hash = encodeURI(selectedView);
+          } else {
+            selectedArray.splice(-1,1)
+            selectedView = selectedArray.join().replace(/,/g , "/")
 
-						window.location.hash = encodeURI(selectedView)
-			}
+            window.location.hash = encodeURI(selectedView)
+          }
 
-
+          if(selectedArray.length == 0){
+            d3.select("#topBtn").style("visibility", "hidden");
+            d3.select("#upBtn").style("visibility", "hidden");
+                  
+          } else {
+            d3.select("#topBtn").style("visibility", "visible");
+            d3.select("#upBtn").style("visibility", "visible");
+          }
 
           if (transitioning || !d) return;
           transitioning = true;
 
           var g2 = display(d),
-              t1 = g1.transition().duration(400),
-              t2 = g2.transition().duration(400);
+            t1 = g1.transition().duration(400),
+            t2 = g2.transition().duration(400);
 
           // Update the domain only after entering new elements.
           x.domain([d.x, d.x + d.dx]);
@@ -1507,18 +1413,16 @@ var tree = DataStructures.Tree.createFromFlatTable(data),
           // Fade-in entering text.
           g2.selectAll("text").style("fill-opacity", 0);
 
-
           // Transition to the new view.
           t1.selectAll("rect").call(rect);
-		  t1.selectAll("text").call(text).style("fill-opacity", 1);
-         // t1.selectAll(".childLabels").call(text).style("fill-opacity",1);
+          t1.selectAll("text").call(text).style("fill-opacity", 1);
+          // t1.selectAll(".childLabels").call(text).style("fill-opacity",1);
           t1.selectAll(".parentLabels").call(text).style("fill-opacity",1);
 
           t2.selectAll("rect").call(rect);
-		  t2.selectAll("text").call(resize).call(text).style("fill-opacity", 1);
-		//  t2.selectAll(".childLabels").call(text).call(resize2).style("fill-opacity", 1);
-		  t2.selectAll(".parentLabels").call(resize).call(text).style("fill-opacity", 1);
-
+          t2.selectAll("text").call(resize).call(text).style("fill-opacity", 1);
+          //  t2.selectAll(".childLabels").call(text).call(resize2).style("fill-opacity", 1);
+          t2.selectAll(".parentLabels").call(resize).call(text).style("fill-opacity", 1);
 
           // Remove the old node when the transition is finished.
           t1.remove().each("end", function() {
@@ -1526,230 +1430,188 @@ var tree = DataStructures.Tree.createFromFlatTable(data),
             transitioning = false;
           });
 
-			myClass = $(this).attr("class");
+          myClass = $(this).attr("class");
 
-			if(myClass=="children"){
-				level = level+1;
-				levelArray = Array(level);
-			} else {
-				level = level-1;
-				levelArray = Array(level);
-			}
-
-		}
+          if(myClass=="children"){
+            level = level+1;
+            levelArray = Array(level);
+          } else {
+            level = level-1;
+            levelArray = Array(level);
+          }
+        }
 
         return g;
-		g.each( function(d,i) {
-			d3.selectAll(".children").selectAll("text")
-				.data(d._children).enter().append("text")
-				.attr("class", "childLabels")
-				.attr("dy", "0.5em")
-				.text(function(d){ return d.name;});
-			})
+        
+        g.each( function(d,i) {
+          d3.selectAll(".children").selectAll("text")
+            .data(d._children).enter().append("text")
+            .attr("class", "childLabels")
+            .attr("dy", "0.5em")
+            .text(function(d){ return d.name;});
+        })
       }
 
-	  function resize(text, width){
+      function resize(text, width){
+        text.each(function(d,i) {
+          var text = d3.select(this).style("font-size", function(d) {
+            return Math.sqrt((d.widthCalc*d.heightCalc))/ Math.log(this.getComputedTextLength())*0.45 + "px";
+          })
+        });
+      };
 
-			text.each(function(d,i) {
-				var text = d3.select(this).style("font-size", function(d) {
-						return Math.sqrt((d.widthCalc*d.heightCalc))/ Math.log(this.getComputedTextLength())*0.45 + "px";
-				})
-			});
-	  };
+      function text(text, width) {
+        text.each(function(d,i) {
+          var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            y = text.attr("y"),
+            dy = parseFloat(text.attr("dy")),
+            tspan = text.text(null).append("tspan")/*.attr("x", 0).attr("y", y)*/.attr("dy",  "1em");
 
-	  function text(text, width) {
-		  	text.each(function(d,i) {
-				var text = d3.select(this),
-					words = text.text().split(/\s+/).reverse(),
-					word,
-					line = [],
-					y = text.attr("y"),
-					dy = parseFloat(text.attr("dy")),
-					tspan = text.text(null).append("tspan")/*.attr("x", 0).attr("y", y)*/.attr("dy",  "1em");
+          while (word = words.pop()) {
+            line.push(word+" ");
+            tspan.text(line.join(" "));
 
+            if (tspan.node().getComputedTextLength() >  d.widthCalc-10) {
+              line.pop();
+              tspan.text(line.join(" "));
+              line = [word+" "];
 
+              tspan = text.append("tspan").attr("x", function(d) { return x(d.x) + 6; }).attr("dy",  dy + "em").text(word+" ");
+            }
+          }
+        });
 
-				while (word = words.pop()) {
-				  line.push(word+" ");
-				  tspan.text(line.join(" "));
+        d3.selectAll(".parentLabels").attr("y", function(d) { return y(d.y) + 6; })
+          .attr("x", function(d) { return x(d.x) + 6; });
+      }
 
-				 if (tspan.node().getComputedTextLength() >  d.widthCalc-10) {
-					line.pop();
-					tspan.text(line.join(" "));
-					line = [word+" "];
-
-					tspan = text.append("tspan").attr("x", function(d) { return x(d.x) + 6; }).attr("dy",  dy + "em").text(word+" ");
-
-				  }
-				 }
-			  });
-
-       d3.selectAll(".parentLabels").attr("y", function(d) { return y(d.y) + 6; })
-      					   			.attr("x", function(d) { return x(d.x) + 6; });
-	  }
-
-
-	  function rect(rect) {
-		rect.attr("x", function(d) { return x(d.x); })
+      function rect(rect) {
+        rect.attr("x", function(d) { return x(d.x); })
             .attr("y", function(d) { return y(d.y); })
-      		.attr("width", function(d) {
-				   widthCalc = x(d.x + d.dx) - x(d.x);
+            .attr("width", function(d) {
+              widthCalc = x(d.x + d.dx) - x(d.x);
 
-				  d["widthCalc"] = widthCalc;
-				  return widthCalc;
-        	})
+              d["widthCalc"] = widthCalc;
+              return widthCalc;
+            })
             .attr("height", function(d) {
-				 heightCalc =y(d.y + d.dy) - y(d.y);
-				 d["heightCalc"] = heightCalc;
-				  return heightCalc;
-     		})
-	  }
+              heightCalc =y(d.y + d.dy) - y(d.y);
+              d["heightCalc"] = heightCalc;
+              return heightCalc;
+            })
+      }
 
-//      function desc(d) {
-//		return d.parent
-//            ? desc(d.parent) + " > " + d.desc
-//            : d.desc;
-//      }
+      // function desc(d) {
+      //   return d.parent
+      //          ? desc(d.parent) + " > " + d.desc
+      //          : d.desc;
+      // }
 
+      function mouseover (d){
+        var selectClass = $(this).attr('desc');
+        var selectValue = $(this).attr('realvals');
+        //  console.log($(this).attr('name'))
+        d3.select("#blurb").select("#txt2").html(selectClass+":")
+        d3.select("#blurb").select("#txt3").html(" £"+formatNumber(selectValue)+" million")
 
-	function mouseover (d){
+        $('#areaselect').val($(this).attr("id")); // Select the option with a value of '1'
+        $('#areaselect').trigger('chosen:updated'); // Notify any JS components that the value changed
+        update_barchart($(this).attr("id"));
+        updateStacked($(this).attr("id"));
+      };
 
-			var	selectClass = $(this).attr('desc');
-			var	selectValue = $(this).attr('realvals');
-	//	console.log($(this).attr('name'))
-		d3.select("#blurb").select("#txt2").html(selectClass+":")
-		d3.select("#blurb").select("#txt3").html(" £"+formatNumber(selectValue)+" million")
+      function mouseout (){
+        d3.select("#blurb").select("#txt2").html("Goods imports 2018: ");
+        d3.select("#blurb").select("#txt3").html("£"+ formatNumber(dataset.size)+" million");
+        $('#areaselect').val("Total"); // Select the option with a value of '1'
+        $('#areaselect').trigger('chosen:updated'); // Notify any JS components that the
+      };
 
-			$('#areaselect').val($(this).attr("id")); // Select the option with a value of '1'
-			$('#areaselect').trigger('chosen:updated'); // Notify any JS components that the value changed
-			update_barchart($(this).attr("id"));
-      updateStacked($(this).attr("id"));
+      function leave_tree(){
+        update_barchart("c0");
+            updateStacked("c0");
+      }
 
+      function simulateClick(elem /* Must be the element */) {
+        var evt = document.createEvent("MouseEvents");
+        evt.initMouseEvent(
+          "click", /* type */
+          true, /* canBubble */
+          true, /* cancelable */
+          window, /* view */
+          0, /* detail */
+          0, /* screenX */
+          0, /* screenY */
+          0, /* clientX */
+          0, /* clientY */
+          false, /* ctrlKey */
+          false, /* altKey */
+          false, /* shiftKey */
+          false, /* metaKey */
+          0, /* button */
+          null); /* relatedTarget */
+        elem.dispatchEvent(evt);
+      }
 
-	};
+      d3.select("#upBtn").on('click', function() {
+        simulateClick(grandparent[0][0]);
+      });
 
-	function mouseout (){
-		//console.log(dataset)
-		d3.select("#blurb").select("#txt2").html("Goods imports 2018: ");
-		d3.select("#blurb").select("#txt3").html("£"+ formatNumber(dataset.size)+" million");
-    $('#areaselect').val("Total"); // Select the option with a value of '1'
-    $('#areaselect').trigger('chosen:updated'); // Notify any JS components that the
+      d3.select("#topBtn").on('click', function() {
+        backToTop();
+      });
 
-	};
+      setTimeout( function(){
+        if (pymChild) {
+          pymChild.sendHeight();
 
-	function leave_tree(){
-		update_barchart("c0");
-        updateStacked("c0");
-	}
+          var url = decodeURI(window.location.hash);
 
-	function simulateClick(elem /* Must be the element */) {
-		var evt = document.createEvent("MouseEvents");
-		evt.initMouseEvent(
-			"click", /* type */
-			true, /* canBubble */
-			true, /* cancelable */
-			window, /* view */
-			0, /* detail */
-			0, /* screenX */
-			0, /* screenY */
-			0, /* clientX */
-			0, /* clientY */
-			false, /* ctrlKey */
-			false, /* altKey */
-			false, /* shiftKey */
-			false, /* metaKey */
-			0, /* button */
-			null); /* relatedTarget */
-		elem.dispatchEvent(evt);
-	}
+          if (url == "") {
+            selectedView = "c0"
+          } else {
+            params = url.split("/");
+            params[0] = params[0].replace("#", "")
+            storyArray = params;
+            selectedView = storyArray.join().replace(/,/g , "/")
+            $(storyArray).each(function(i){
+              setTimeout(function(){
+                storyId = "#"+storyArray[i];
+                simulateClick(d3.select(storyId)[0][0]);
+                //$("#areaselect").val(storyId).trigger('change.select2');
+                $('#areaselect').val(storyArray[i]); // Select the option with a value of '1'
+                $('#areaselect').trigger('change'); // Notify any JS components that the value changed
+              }, 760*i);
+            });
+          }
+        }
+      }, 700)
 
-	d3.select("#upBtn").on('click', function() {
-	    	simulateClick(grandparent[0][0]);
+      function backToTop (){
+        $(levelArray).each(function(i){
+          setTimeout(function(){
+            simulateClick(grandparent[0][0]);
+          },760*i);
+        });
+      };
 
-	});
-
-	d3.select("#topBtn").on('click', function() {
-	    	backToTop();
-	});
-
-
-
-	setTimeout( function(){
-	 	if (pymChild) {
-       		pymChild.sendHeight();
-
-
-
-			var url = decodeURI(window.location.hash);
-
-
-
-			if (url == ""){
-				selectedView = "c0"
-			} else {
-				params = url.split("/");
-				params[0] = params[0].replace("#", "")
-				storyArray = params;
-				selectedView = storyArray.join().replace(/,/g , "/")
-				//console.log(selectedView)
-				$(storyArray).each(function(i){
-
-					setTimeout(function(){
-						storyId = "#"+storyArray[i];
-						simulateClick(d3.select(storyId)[0][0]);
-						//$("#areaselect").val(storyId).trigger('change.select2');
-						$('#areaselect').val(storyArray[i]); // Select the option with a value of '1'
-						$('#areaselect').trigger('change'); // Notify any JS components that the value changed
-					}, 760*i);
-				});
-
-			}
-
-		}
-	}, 700)
-
-
-
-
-
-
-
-
-function backToTop (){
-
-			$(levelArray).each(function(i){
-				setTimeout(function(){
-					simulateClick(grandparent[0][0]);
-				},760*i);
-			});
-};
-
-
-
-	function updateHash() {
-
-	}
-
-
-
+      function updateHash() {
+      }
     </script>
 
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-37894017-1']);
+      _gaq.push(['_trackPageview']);
 
-<script>
-
-
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-37894017-1']);
-		  _gaq.push(['_trackPageview']);
-
-
-		  (function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-
-</script>
-
-</body>
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
 </html>
