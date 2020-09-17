@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -9,11 +9,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
 <!-- End Google Tag Manager -->
 
- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 <title>Births E&W</title>
@@ -28,7 +28,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		}
 
 		body{
-		  font-family: “Open Sans”,Helvetica,Arial,sans-serif;
+		  font-family: "Open Sans",Helvetica,Arial,sans-serif;
 		  font-family: open sans;
 		  margin: 0px;
 		  font-size: 16px;
@@ -93,7 +93,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		}
 
 	.btn {
-				  font-family: “Open Sans”,Helvetica,Arial,sans-serif;
+				  font-family: "Open Sans",Helvetica,Arial,sans-serif;
 				  background-color: #007f7f;
 				  opacity:1;
 				  color: #fff;
@@ -113,14 +113,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				  -webkit-font-smoothing: antialiased;
 				}
 
-			   .btn:hover,.btn:focus {
-				  /* background-color:#0b5d30 ;*/
-				}
+        .btn:hover, .btn:focus {
+            /* background-color: #0b5d30; */
+            outline: 3px solid orange;
+        }
 
 		#textResponse{
 			max-width: 600px;
-			margin: auto;
 		}
+
+    .visuallyhidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
 
 	</style>
 
@@ -133,7 +144,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-<div id="graphic"> <img id="fallback" src="fallback.png" alt="[Chart]" />
+  <div class="visuallyhidden">
+      <h5>This interface allows people to draw a line as a guess of how this variable has changed over time. Press the button to reveal a description of the trend.</h5>
+  </div>
+<div id="graphic" aria-hidden="true"> <img id="fallback" src="fallback.png" alt="[Chart]" />
 </div>
 
  <div id="buttonRow" style="text-align:center;">
