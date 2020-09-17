@@ -1,0 +1,77 @@
+{
+    "essential" : {
+		
+			"GraphType" : "clusterBar" , 
+			
+            "graphic_data_url": "data.csv",
+        
+            "colour_palette": ["#adadad", "#0075A3" ],
+        
+            "dateFormat":"%Y-%y",
+        
+            "legendLabels" :[ "All deaths" , "Covid-19 deaths" ],
+			"legendStyle": "rect",
+			"sourceText":["Office for National Statistics – Deaths involving COVID-19"],
+            "sourceURL":["http://www.ons.gov.uk/ons"],
+        
+            "annotationChart": [
+				"< Least deprived",
+				"Most deprived >",
+				"As with all deaths, Covid-19's  effects are worse the more  deprived an area is...",
+				"...however, in the most deprived areas, Covid-19  has had a proportionally higher impact."
+            ],
+            "annotationBullet": [
+              
+            ],
+            "annotationXY":[
+                ["10",0],
+				["1",0],
+				["10",104],
+				["1",154]
+            ],
+            "annotationAlign":[
+                "start",
+				"end",
+				"start",
+				"end"
+            ],
+        
+
+        
+            "yAxisLabel":"Death rate as a % difference from the least deprived decile",
+            "yAxisScale":[0,150],   
+            "yAxisBreak_sm_md_lg": [65,65,65]
+
+    },
+    "optional" : {
+		
+            "margin_sm": [50, 5, 55, 25],
+            "margin_md": [50, 5, 55, 25],
+            "margin_lg": [50, 5, 55, 25],
+        
+            "aspectRatio_sm" : [3,2.5],
+            "aspectRatio_md" : [3,2.5],
+            "aspectRatio_lg" : [3,1.8],
+        
+            "mobileBreakpoint" : 500, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%Y-%y", "%Y-%y", "%Y-%y"], 
+                
+            "x_num_ticks_sm_md_lg" : [7,17,17],    
+            "y_num_ticks_sm_md_lg" : [4,4,4],
+            "vertical_line" : false,
+            "annotateLineX1_Y1_X2_Y2":[ 
+                [["2010-11",50],["2010-11",0]],  
+                [["2013-14",50],["2013-14",0]] 
+            ],
+            "annotateRect" : false,
+            "annotateRectX_Y" : [ 
+
+            ],
+            "lineColor_opcty" : [["#888", 0.2], ["red", 0.2]],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+
