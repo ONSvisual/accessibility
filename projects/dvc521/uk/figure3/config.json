@@ -1,0 +1,56 @@
+{
+    "essential" : {
+            "fallback_screenreader_description": "This graphic allows users to see the how mortality rates have changed over the past 40 years. The underlying data is available in the accompanying data download.",
+            "graphic_data_array":["males.csv","females.csv"],
+            "dateFormat":"%Y",
+
+            "legendLabels" : [],
+            "buttonLabels" : ["Males","Females"],
+            "varload" : 0,
+
+            "sourceText":["Office for National Statistics - Changing trends in mortality"],
+            "sourceURL":[""],
+
+            "annotationChart": [
+
+            ],
+            "annotationBullet": [
+
+            ],
+            "annotationXY":[
+
+            ],
+            "annotationAlign":[
+
+            ],
+
+            "circles" : true,
+            "annotationCXCY":[
+
+            ],
+
+            "yAxisLabel":"Age-standardised mortality rates",
+			      "yAxisLabela":"",
+            "yAxisScale":[800, 2600],
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [52, 52, 52]
+    },
+    "optional" : {
+            "margin_sm": [10, 15, 28, 45],
+            "margin_md": [10, 15, 28, 45],
+            "margin_lg": [10, 15, 28, 45],
+
+            "aspectRatio_sm" : [16,13],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,8],
+
+            "mobileBreakpoint" : 610,
+
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%Y"],
+
+            "x_num_ticks_sm_md_lg" : [7,10,10],
+            "y_num_ticks_sm_md_lg" : [6,8,10],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
