@@ -493,6 +493,16 @@
 		margin-bottom: 10px;
 	}
 
+    .chosen-container {
+        width: 60% !important;
+    }
+
+    @media (max-width: 550px) {
+        .chosen-container {
+            width: 100% !important;
+        }
+    }
+
 	.input {
 		float:left;
 		height: 35px;
@@ -510,6 +520,22 @@
 	.input:focus {
 		box-shadow: 0 0 0px 3pt orange;
 	}
+
+    .postcode {
+        width: 170px;
+    }
+
+    @media (max-width: 550px) {
+        .postcode {
+            width: 80%;
+        }
+    }
+
+    @media (max-width: 340px) {
+        .postcode {
+            width: 70%;
+        }
+    }
 
 	.btn {
 		float: left;
@@ -607,7 +633,7 @@
 
 	    <div class="mb-3"><!--postcode input here-->
 	    	<form id="pcForm">
-	    		<input id="pcText" class="input" style="width: 170px" type="text" placeholder="insert your postcode">
+	    		<input id="pcText" class="input postcode" type="text" placeholder="insert your postcode">
 	    		<button type="submit" id="pcGo" class="btn">Go</button>
 	    	</form>
 	    </div>
@@ -874,7 +900,7 @@ function getCodes1(myValue2)    {
 			};
 
 
-			$('#occselect').chosen({width: "60%", allow_single_deselect: true, placeholder_text_single:"or choose your area"}).on('change',function(evt,params){
+			$('#occselect').chosen({allow_single_deselect: true, placeholder_text_single:"or choose your area"}).on('change',function(evt,params){
 
 								if(typeof params != 'undefined') {
 
