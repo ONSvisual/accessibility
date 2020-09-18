@@ -561,11 +561,13 @@ if (Modernizr.inlinesvg) {
       d3.select('abbr').on('keypress', function(evt) {
         if (d3.event.keyCode == 13 || d3.event.keyCode == 32) {
           d3.event.preventDefault();
+          filterdata("W1")
           unhighlightcountry(countrycode)
           enableHoverEvents();
         }
       }).on('mouseup',function(){
         unhighlightcountry(countrycode)
+        filterdata("W1")
         enableHoverEvents();
       })
 
