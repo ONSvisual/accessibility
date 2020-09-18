@@ -370,9 +370,7 @@ if (Modernizr.inlinesvg) {
       //Remove ticks on exports chart when data is less than 1
       for (var i = 0; i < zippeddataE.length; i++) {
         if (+zippeddataE[i][0] < 1 || +zippeddataE[i][0] == NaN || +zippeddataE[i][0] == "..") {
-          console.log(i)
           d3.select("#exportsChart").select("g.y.axis").select("g.tick" + [i]).select("text").text(function(d, i) {
-            console.log(d, i);
             return "No data available"
           })
         };
@@ -992,12 +990,27 @@ if (Modernizr.inlinesvg) {
 
 
     function enableZoom() {
-      d3.select('.zoom-control-zoom-in').on('click', function() {
-        m.zoomIn()
-      });
-      d3.select('.zoom-control-zoom-out').on('click', function() {
-        m.zoomOut()
-      });
+      d3.select('.zoom-control-zoom-in')
+        .on('click', function() {
+          m.zoomIn()
+        })
+        .on('keypress', function() {
+          if (d3.event.keyCode == 13 || d3.event.keyCode == 32) {
+            d3.event.preventDefault()
+            m.zoomIn()
+          }
+        })
+
+      d3.select('.zoom-control-zoom-out')
+        .on('click', function() {
+          m.zoomOut()
+        })
+        .on('keypress', function() {
+          if (d3.event.keyCode == 13 || d3.event.keyCode == 32) {
+            d3.event.preventDefault()
+            m.zoomOut()
+          }
+        });
 
     }; //enableHoverEvents
 
