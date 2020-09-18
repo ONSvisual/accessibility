@@ -234,13 +234,12 @@
 
       table.append('caption').attr('class','visuallyhidden').text(dvc.essential.caption)
       var headers = table.append('thead').append('tr');
-      headData = ["Crime", "No. of incidents", "Annual % change", "Timeline"];
+      headData = ["Crime", "Incidents", "Annual % change", "Timeline"];
 
       if (parseInt(graphic.style("width")) < dvc.threshold_sm) headData.pop();
       var tdata = headers.selectAll('td')
         .data(headData).enter()
         .append('th')
-        .attr('aria-label',function(d){if(d==headData[1]){return "Number of incidents"}})
         .text(function(d) {
           return d;
         });
