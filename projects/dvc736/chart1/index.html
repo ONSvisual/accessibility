@@ -77,6 +77,11 @@
     #sortarrow {
       color: #ff9933;
       cursor: pointer;
+      padding-right: 3px;
+    }
+
+    #sortarrow:focus, #sortarrow:hover {
+      box-shadow: 0 0 0 3px #206095;
     }
 
     /* tippy styling */
@@ -227,7 +232,7 @@
       //  create Table using d3
       var table = d3.select('#legendTab').append('table').attr("class", "center");
 
-      table.append('caption').attr('class','visuallyhidden').text("A summary table of the main crime types, the number of incidents and change over time.")
+      table.append('caption').attr('class','visuallyhidden').text(dvc.essential.caption)
       var headers = table.append('thead').append('tr');
       headData = ["Crime", "No. of incidents", "Annual % change", "Timeline"];
 
@@ -235,6 +240,7 @@
       var tdata = headers.selectAll('td')
         .data(headData).enter()
         .append('th')
+        .attr('aria-label',function(d){if(d==headData[1]){return "Number of incidents"}})
         .text(function(d) {
           return d;
         });
@@ -269,12 +275,14 @@
       th.attr("id", function(d, i) {
         return "hdash" + i;
       }); // add 0-7 to each row
-      d3.select('#hdash2').append('span').attr('id', 'sortarrow').html(' &#9650');
+      d3.select('#hdash2').append('span').attr('tabindex',0).attr('id', 'sortarrow').attr('aria-label','sort table by descending annual change %').attr('aria-role','button').html(' &#9650');
 
-      d3.select('#sortarrow').on('click', sortTable);
-
-      // add categories
-      //var shortNames = ["Cancer","Circulatory","Digestive","Endocrine & nutritional","External","Genitourinary","Infection","Mental & behavioural","Musculoskeletal","Nervous","Respiratory","Other"];
+      d3.select('#sortarrow').on('click', sortTable).on('keypress',function(){
+        if(d3.event.keyCode==13||d3.event.keyCode==32){
+          d3.event.preventDefault();
+          sortTable()
+        }
+      });
 
       var incidents = [],
         change = [],
@@ -284,14 +292,7 @@
       var fmt = d3.format(",.0f"),
         fmd = d3.format(",.0f");
 
-      //     crimedata.forEach(function(dat){
-      //       console.log(dat);
-      //       var crime = dat.map(function(d,i){
-      //                   return{
-      //                         }
-      //                 })
-      //     })
-      // console.log(crime);
+
 
       for (var column in crimedata[0]) {
         if (column == "type") continue;
@@ -301,16 +302,12 @@
         source.push(crimedata[3][column]);
         crimetype.push(column);
       }
-      //  console.log(incidents, change, symbols, crimetype, source);
 
       d3.selectAll(".dash0") //.append('html')
-        //  .attr('class', 'bold')
         .html(function(d, i) {
           return "<p data-tippy-content='" + 'Source: ' + source[i] + "'>" + crimetype[i] + "</p>";
         });
       // Add tippy to roll over F
-      //<p class='bold'>Life expectancy in 2042 <span data-tippy-content="Period life
-      //expectancy at birth" class="fas fa-info-circle test" id="icon1"></span><br/></p>
       tippy('p');
 
       d3.selectAll(".dash1").append('p')
@@ -327,9 +324,12 @@
         }
       });
 
+
+
       for (var x = 0; x < 9; x++) {
         d3.select('#row' + x).select('.dash3')
           .append('img')
+          .attr("alt",function(){return dvc.essential.alttext[x]})
           .attr('src', '../sparks/sparkline' + (x + 1) + '.svg')
           .attr('width', 150)
           .attr('height', 50)
@@ -341,7 +341,6 @@
       setTimeout(function() {
         pymChild = new pym.Child();
         pymChild.sendHeight();
-
       }, 750)
 
 
@@ -350,7 +349,8 @@
 
 
     function sortTable() { // console.log('sort')
-      d3.select('#hdash2').select('#sortarrow').style('color', '#ffd9b2');
+      d3.select('#hdash2').select('#sortarrow').style('color', '#ffd9b2').attr('aria-disabled','true');
+
       var mytable, myrows, switching, i, myx, myy, shouldSwitch;
       //table = d3.select('.center');
       switching = true;
@@ -425,19 +425,6 @@
 
     //check whether browser can cope with svg
     if (Modernizr.svg) {
-      //   Promise.all(
-      //     [
-      //       d3.json("config.json"),
-      //       d3.csv("../data/data.csv"),
-      //     ]
-      // ).then(function(all_dataset) {
-      //   console.log(all_dataset);
-      //   dvc = all_dataset[0];
-      //   crimedata = all_dataset[1];
-      //   console.log(crimedata);
-      //               drawTable();
-      // }) // ends then
-
 
       d3.json('config.json').then(function(config) {
         dvc = config;
