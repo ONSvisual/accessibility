@@ -1,0 +1,39 @@
+{
+    "ons": {
+        "maptitle": "dvc627 - Non-UK born population",
+        "varcolour": [
+            "GnBu",
+            "GnBu",
+            "GnBu",
+            "GnBu"
+        ],
+        "varlabels": [
+            "Non-UK born, 2018",
+            "Change in non-UK born, 2008 to 2018",
+            "Non-British nationals, 2018",
+            "Change in non-British national, 2008 to 2018"
+        ],
+        "varload": 0,
+        "varunit": [
+            "% of resident population",
+            "percentage point change",
+            "% of resident population",
+            "percentage point change"
+        ],
+        "displaydecimals": 0,
+        "legenddecimals": 0,
+        "breaks": [
+            "jenks",
+            "jenks",
+            "jenks",
+            "jenks"
+        ],
+        "dropticks": false,
+        "numberBreaks": [
+            5,
+            5,
+            5,
+            5
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{"ons":{
+"maptitle": "Time series map Covid deaths",
+"varcolour": "YlGnBu",
+"varlabels": ["All deaths","COVID-19 deaths"],
+"timeload": "last",
+"timepoints": ["March","April","May"],
+"varunit": ["Deaths per 100,000 people","Deaths per 100,000 people"],
+"displaydecimals": 1,
+"legenddecimals": 0,
+"breaks": "equal",
+"dropticks": false,
+"numberBreaks": 5,
+"sourcetext": "Office for National Statistics – Deaths involving COVID-19",
+"chartLabels": ["March","April","May"],
+"timelineLabelsDT":["March","April","May"],
+"average": [["2","3","1","1","1","3","2","2","2","1","3"],["2", "3","1","1","1","3","2","2","2","1","3"],["2", "3","1","1","1","3","2","2","2","1","3"],["1", "2","3","4","5","6","7","8","9","10","11"]],
+"averageText":""
+}}

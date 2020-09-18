@@ -404,6 +404,12 @@ if (Modernizr.webgl) {
 
     function selectArea(code) {
       $("#areaselect").val(code).trigger("chosen:updated");
+      d3.select('abbr').on('keypress',function(evt){
+				if(d3.event.keyCode==13 || d3.event.keyCode==32){
+          d3.event.preventDefault();
+					$("#areaselect").val("").trigger('chosen:updated');
+				}
+			})
     }
 
     function zoomToArea(code) {
@@ -503,6 +509,8 @@ if (Modernizr.webgl) {
       } //end of create text loop
 
 
+      d3.select("div#info").select('p').text("In "+areaById[code]+", the "+dvc.textChartTitle + " is " + dataById[code][columnNames[0]] + " "+ dvc.labelNames[0]);
+
     }
 
     function hideaxisVal() {
@@ -564,6 +572,7 @@ if (Modernizr.webgl) {
 
         var svgkey = d3.select("#keydiv")
           .append("svg")
+          .attr('aria-hidden','true')
           .attr("id", "key" + i)
           .attr("width", keywidth)
           .attr("height", function () {
@@ -577,7 +586,7 @@ if (Modernizr.webgl) {
           if(columnNames[i] === dvc.columnMap) {
             return 10;
           } else {return 10;}})
-        .attr("font-size","10px")
+        .attr("font-size","14px")
         .text(dvc.labelNames[i])
         // var color = d3.scaleThreshold()
         // 	 .domain(breaks)
@@ -588,7 +597,7 @@ if (Modernizr.webgl) {
         for(k=0;k<dvc.numberLegends;k++){
                 x[columnNames[k]] = d3.scaleLinear()
                   .domain([breaks[columnNames[k]][0], breaks[columnNames[k]][dvc.numberBreaks]]) /*range for data*/
-                  .range([0, keywidth - 30]);
+                  .range([0, keywidth - 35]);
         }
 
 
@@ -663,6 +672,7 @@ if (Modernizr.webgl) {
 
         g2.append("text")
           .attr("id", "currVal" + i)
+          .attr("class","currVal")
           .attr("x", x[columnNames[i]](10))
           .attr("y", function () {
             if(columnNames[i] === dvc.columnMap) {
@@ -733,9 +743,9 @@ if (Modernizr.webgl) {
           .append("div")
             .attr("id", "text" + i)
             // .attr("width", keywidth)
-            .style("height", "25px")
+            .style("height", "35px")
             .style('border-top', '1px solid grey')
-            .style("font-size", "10px")
+            .style("font-size", "14px")
           .append("p")
             .text(dvc.labelNames[i]+": ")
             .style('line-height', '5px')
@@ -790,8 +800,6 @@ if (Modernizr.webgl) {
         timeout: 5000,
         maximumAge: 0
       };
-
-
 
       navigator.geolocation.getCurrentPosition(success, error, options);
     }
@@ -851,7 +859,8 @@ if (Modernizr.webgl) {
 
       $('#areaselect').chosen({
         width: "98%",
-        allow_single_deselect: true
+        allow_single_deselect: true,
+        placeholder_text_single: "Select an area"
       }).on('change', function(evt, params) {
 
         if (typeof params != 'undefined') {
@@ -873,6 +882,10 @@ if (Modernizr.webgl) {
         }
 
       });
+
+      d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+      d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
+
 
     };
 
