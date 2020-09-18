@@ -623,6 +623,17 @@
 
 	/* Accessibility */
 
+    .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
     </style>
 </head>
 <body>
@@ -633,6 +644,7 @@
 
 	    <div class="mb-3"><!--postcode input here-->
 	    	<form id="pcForm">
+                <label for="pcText" class="visuallyhidden">Postcode</label>
 	    		<input id="pcText" class="input postcode" type="text" placeholder="insert your postcode">
 	    		<button type="submit" id="pcGo" class="btn">Go</button>
 	    	</form>
@@ -652,25 +664,31 @@
     <div id="roomSize" class="row" style="min-height:80px; clear:both;">
     	<div class="col-xs-12 col-sm-5 mb-4">
             <form id="pcForm">
+                <label for="custom2" class="visuallyhidden">How big is your extension in square meters?</label>
                <input class="input mt-3" style="width: 140px; font-size:18px;" id="custom2" value="25" type="number" placeholder="Insert size" min="1" max="100" />
             </form>
         	<div style="height:35px; float:left; padding-top:6px; padding-left:5px; margin-right:20px; margin-top:12px; width:30px; background-color:#206095; color:white;">m<sup>2</sup></div>
         </div>
 
         <div class="col-xs-12 col-sm-7 mb-4">
-            <form class="flex flex-col" style="margin-left:20px; margin-bottom:30px;">
-            	<div class="mb-2">
-	              	<input type="radio" class="input--radio radioOption closeCustom smExtension" name="extType" value="female" />
-	              	<label class="label" for="radio1">Small (15 m<sup>2</sup>)</label>
-            	</div>
-            	<div class="mb-2">
-	              	<input type="radio" class="input--radio radioOption closeCustom mdExtension" name="extType" checked="true" value="female" />
-	              	<label class="label" for="radio1">Medium (25 m<sup>2</sup>)</label>
-            	</div>
-            	<div>
-	              	<input type="radio" class="input--radio radioOption closeCustom lgExtension" name="extType" value="female" />
-	              	<label class="label" for="radio1">Large (35 m<sup>2</sup>)</label>
-            	</div>
+            <form style="margin-left:20px; margin-bottom:30px;">
+                <fieldset>
+                    <legend class="visuallyhidden">Common extension sizes</legend>
+                    <div class="flex flex-col">
+                    	<div class="mb-2">
+        	              	<input type="radio" id="radio1" class="input--radio radioOption closeCustom smExtension" name="extType" />
+        	              	<label class="label" for="radio1">Small (15 m<sup>2</sup>)</label>
+                    	</div>
+                    	<div class="mb-2">
+        	              	<input type="radio" id="radio2" class="input--radio radioOption closeCustom mdExtension" name="extType" checked="true" />
+        	              	<label class="label" for="radio2">Medium (25 m<sup>2</sup>)</label>
+                    	</div>
+                    	<div>
+        	              	<input type="radio" id="radio3" class="input--radio radioOption closeCustom lgExtension" name="extType" />
+        	              	<label class="label" for="radio3">Large (35 m<sup>2</sup>)</label>
+                    	</div>
+                    </div>
+                </fieldset>
             </form>
         </div>
 
