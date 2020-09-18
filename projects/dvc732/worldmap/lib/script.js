@@ -95,6 +95,7 @@ if (Modernizr.inlinesvg) {
       .on("mousedown", function(d) {
         clearmap();
         highlightcountry(d.properties.fips)
+        filterdata(d.properties.fips)
         disableHoverEvents()
       })
 
