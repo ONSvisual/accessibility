@@ -274,7 +274,7 @@
       th.attr("id", function(d, i) {
         return "hdash" + i;
       }); // add 0-7 to each row
-      d3.select('#hdash2').append('span').attr('tabindex',0).attr('id', 'sortarrow').attr('aria-label','sort table by descending annual change %').attr('aria-role','button').html(' &#9650');
+      d3.select('#hdash2').append('span').attr('tabindex',0).attr('id', 'sortarrow').attr('aria-label','sort table by descending annual change %').attr('role','button').html(' &#9650');
 
       d3.select('#sortarrow').on('click', sortTable).on('keypress',function(){
         if(d3.event.keyCode==13||d3.event.keyCode==32){
@@ -313,7 +313,7 @@
         .text(function(d, i) {
           return fmt(incidents[i]);
         });
-      d3.selectAll(".dash2").append('html').append('p').html(function(d, i) {
+      d3.selectAll(".dash2").append('p').html(function(d, i) {
         if (symbols[i] === "up") {
           return fmd(change[i]) + "% " + "<span class='uparrow'>&#9650; </span>";
         } else if (symbols[i] === "down") {
@@ -367,8 +367,8 @@
           shouldSwitch = false;
           /* Get the two elements you want to compare,
           one from current row and one from the next: */
-          myx = d3.select('#row' + i).select('.dash2').select('html p');
-          myy = d3.select('#row' + (i + 1)).select('.dash2').select('html p');
+          myx = d3.select('#row' + i).select('.dash2').select('p');
+          myy = d3.select('#row' + (i + 1)).select('.dash2').select('p');
 
           // Check if the two rows should switch place:
           //  console.log(i, myx.text(), myy.text());
