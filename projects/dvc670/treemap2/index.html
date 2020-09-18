@@ -254,6 +254,17 @@
           text-align: left;
         }
       }
+
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
     </style>
   </head>
 
@@ -267,10 +278,12 @@
 
     <div id="main-wrapper">
       <div id="mainContent">
-        <div id="blurb">
+        <p id="chartDescription" class="visuallyhidden"></p>
+
+        <p id="blurb">
           <text id="txt2"></text>
           <text id="txt3"></text>
-        </div>
+        </p>
 
         <div class="btnDiv ">
           <button type="button" id="topBtn" class="nav btn btn-ons" style="visibility:hidden">
@@ -394,7 +407,6 @@
           .attr("width", width)
           .attr("height", margin.top);
 
-
         d3.csv(dvc.essential.graphic_data_url, function (data) {
 
           data.forEach(function (d) {
@@ -413,13 +425,15 @@
               return objectToDecorate;
             });
 
-
           dataset = root;
           initialize(root);
           accumulate(root);
           layout(root);
           display(root);
 
+          var value = dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix;
+          var label = `A chart displaying NHS Hospital and Community Health Services doctors workforce in Trusts and CCGs March 2019 (${value}) broken down by nationality.`;
+          $('#chartDescription').html(label);
           d3.select("#blurb").select("#txt2").html(dvc.essential.totalLabel)
           d3.select("#blurb").select("#txt3").html(function () {
             if (treedata[0].percent == "null") {
@@ -429,9 +443,7 @@
             }
           });
 
-
         }); //end treemap csv load
-
 
         //create link to source
         d3.select("#footer").append("p")

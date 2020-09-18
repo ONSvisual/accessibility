@@ -479,7 +479,7 @@
           display(root);
 
           var value = dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix;
-          var label = `A chart displaying NHS staff numbers (${value}) broken down by nationality.`;
+          var label = `NHS Hospital and Community Health Services heath care staff working in Trusts and CCGs March 2019 (${value}) broken down by nationality.`;
           $('#chartDescription').html(label);
           d3.select("#blurb").select("#txt2").html(dvc.essential.totalLabel)
           d3.select("#blurb").select("#txt3").html(function () {
