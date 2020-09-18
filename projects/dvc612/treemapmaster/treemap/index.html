@@ -88,12 +88,16 @@
         fill-opacity: .2;
       }
 
-      .children:hover rect.child {
+      .children:hover rect.child, .parent:focus ~ rect.child {
         fill: #bbb;
       }
 
-      .child:hover {
+      .child:hover, .child:focus {
         fill: #bbb;
+      }
+
+      .children:hover text, .parent:focus ~ text, .child:hover ~ text {
+        fill: #323123;
       }
 
       *[code*=c1_] {
@@ -444,6 +448,13 @@
     <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
 
     <script>
+      jQuery.fn.d3Click = function () {
+        this.each(function (i, e) {
+          var evt = new MouseEvent("click");
+          e.dispatchEvent(evt);
+        });
+      };
+
       var graphic = d3.select('#graphic');
       var footer = d3.select('#footer');
       pymChild = null;
@@ -657,15 +668,8 @@
           .classed("children", true)
           .on("click", transition);
 
-        g.selectAll(".child")
-          .data(function (d) {
-            return d._children || [d];
-          })
-          .enter().append("rect")
-          .attr("class", "child")
-          .attr("code", function (d) {
-            return d.id
-          })
+        g.append("rect")
+          .attr("class", "parent")
           .attr("desc", function (d) {
             return d.name
           })
@@ -681,12 +685,33 @@
           .attr("percent", function (d) {
             return d.percent
           })
+          .attr('aria-label', function(d) {
+            if (d.percent == "null") {
+              return d.name + ": " + dvc.essential.prefix + formatNumber(d.realsize) + dvc.essential.suffix
+            } else {
+              return d.name + ": " + dvc.essential.prefix + formatNumber(d.realsize) + dvc.essential.suffix + " (" + d.percent + "%)"
+            }
+          })
           .on("mouseover", mouseover)
           .on("mouseout", mouseout)
+          .on("focus", mouseover())
+          .on("blur", mouseout)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+              $(d3.event.target).parent().d3Click();
+            }
+          })
           .call(rect);
 
-        g.append("rect")
-          .attr("class", "parent")
+        g.selectAll(".child")
+          .data(function (d) {
+            return d._children || [d];
+          })
+          .enter().append("rect")
+          .attr("class", "child")
+          .attr("code", function (d) {
+            return d.id
+          })
           .attr("desc", function (d) {
             return d.name
           })
