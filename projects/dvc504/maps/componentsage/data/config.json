@@ -1,6 +1,6 @@
 {
     "essential" : {
-            "graphic_data_url": "data.csv",
+            "graphic_data_url": "data/data.csv",
 			
 			"fieldsToIgnore" : [ "AREACD" , "AREANM" ], 
 			
