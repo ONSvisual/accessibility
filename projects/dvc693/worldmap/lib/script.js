@@ -562,11 +562,13 @@ if (Modernizr.inlinesvg) {
         if (d3.event.keyCode == 13 || d3.event.keyCode == 32) {
           d3.event.preventDefault();
           unhighlightcountry(countrycode)
+          filterdata("W1");
           enableHoverEvents();
         }
       }).on('mouseup',function(){
         unhighlightcountry(countrycode)
         enableHoverEvents();
+        filterdata("W1");
       })
 
       //Draw barcode highlight rects on top of all bars
