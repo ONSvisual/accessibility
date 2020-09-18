@@ -254,6 +254,17 @@
           text-align: left;
         }
       }
+
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
     </style>
   </head>
 
@@ -264,26 +275,32 @@
               height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <div id="main-wrapper">
+      <div id="mainContent">
+        <p id="chartDescription" class="visuallyhidden"></p>
 
-    <div id="blurb">
-      <text id="txt2"></text>
-      <text id="txt3"></text>
+        <p id="blurb">
+          <text id="txt2"></text>
+          <text id="txt3"></text>
+        </p>
+
+        <div class="btnDiv ">
+          <button type="button" id="topBtn" class="nav btn btn-ons" style="visibility:hidden">
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top
+          </button>
+          <button type="button" id="upBtn" class="nav btn btn-ons" style="visibility:hidden">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Up a level
+          </button>
+
+        </div>
+
+        <div id="graphic">
+          <img src="fallback.png" alt="[Chart]"/>
+        </div>
+        <div id="footer"></div>
+      </div>
     </div>
 
-    <div class="btnDiv ">
-      <button type="button" id="topBtn" class="nav btn btn-ons" style="visibility:hidden">
-        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top
-      </button>
-      <button type="button" id="upBtn" class="nav btn btn-ons" style="visibility:hidden">
-        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Up a level
-      </button>
-
-    </div>
-
-    <div id="graphic">
-      <img src="fallback.png" alt="[Chart]"/>
-    </div>
-    <div id="footer"></div>
 
     <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
     <script src="../lib/modernizr.svg.min.js"></script>
@@ -390,7 +407,6 @@
           .attr("width", width)
           .attr("height", margin.top);
 
-
         d3.csv(dvc.essential.graphic_data_url, function (data) {
 
           data.forEach(function (d) {
@@ -409,13 +425,15 @@
               return objectToDecorate;
             });
 
-
           dataset = root;
           initialize(root);
           accumulate(root);
           layout(root);
           display(root);
 
+          var value = dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix;
+          var label = `A chart displaying NHS staff numbers (${value}) broken down by nationality.`;
+          $('#chartDescription').html(label);
           d3.select("#blurb").select("#txt2").html(dvc.essential.totalLabel)
           d3.select("#blurb").select("#txt3").html(function () {
             if (treedata[0].percent == "null") {
@@ -424,10 +442,7 @@
               return dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix + " (" + treedata[0].percent + "%)"
             }
           });
-
-
         }); //end treemap csv load
-
 
         //create link to source
         d3.select("#footer").append("p")
@@ -907,7 +922,7 @@
           }//ends if text outside box
         })//end text.each
       }//end doesTheTitleNeedEllipses
-      
+
       function rect(rect) {
         rect.attr("x", function (d) {
           return x(d.x);
