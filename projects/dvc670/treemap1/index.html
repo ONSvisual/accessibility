@@ -593,7 +593,7 @@
           })
           .on("mouseover", mouseover)
           .on("mouseout", mouseout)
-          .on("mouseout", mouseout)
+          .on("focus", mouseover)
           .on("blur", mouseout)
           .on("keyup", function(d) {
             if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
