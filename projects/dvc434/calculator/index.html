@@ -10,11 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-    <link rel="stylesheet" href="../lib/globalStyle.css"/> 
     <link rel="stylesheet" href="js/style-chosen.css"/> 
+    <link rel="stylesheet" href="../lib/globalStyle.css"/>
     <link rel="stylesheet" type="text/css" href="css/odometer-theme-default.css">
     <style type="text/css">
-    
+
 	body {
 		display:block;
 		overflow:auto;
@@ -26,21 +26,21 @@
 		font-size:16px;
 	}
 	.picaarticle {
-	   font-size:14px;			
+	   font-size:14px;
 	}
-        
+
     #pcGo:hover {
         cursor:pointer;
         cursor:hand;
     }
-	
+
     .inputOption{
 		height:25px;
 		margin-top:20px;
 		padding-left:10px;
 		background-color:white!important;
-	}	
-		
+	}
+
 	input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 		-webkit-box-shadow: 0 0 0px 1000px white inset;
 	}
@@ -50,7 +50,7 @@
 		cursor:hand;
 		background-color:#274796!important;
 	}
-	
+
 	/*Bootstrap grid */
 	.row {
 	/*  margin-left: -15px;*/
@@ -280,7 +280,7 @@
 		right: 50%;
 	  }
 	  .col-sm-pull-5 {
-	
+
 		right: 41.66666667%;
 	  }
 	  .col-sm-pull-4 {
@@ -377,7 +377,7 @@
 		margin-left: 0%;
 	  }
 	}
-	
+
 	@media (min-width: 550px) {
 		.graphicslabel{
 			color:grey;
@@ -389,9 +389,10 @@
 			padding-right:10px;
 			padding-top:15px;
 		}
-		
+
 	}
-		@media (max-width: 550px) {
+
+	@media (max-width: 550px) {
 		.graphicslabel{
 			color:grey;
 			font-size:12px;
@@ -402,12 +403,8 @@
 			padding-right:0px;
 			padding-top:15px;
 		}
-		
-		.graphics{
-
-		}
 	}
-	
+
 	.hoverbar{
 		cursor:pointer;
 		cursor:hand;
@@ -424,21 +421,21 @@
 		fill:#003C57;
 		transform:translate(-1,0);
 	}
-	
+
 	.container {
-		overflow:hidden;	
+		overflow:hidden;
 	}
 	.calcTitle{
 		font-size:24px;
 		font-weight:bold;
 		color:#003C57;
-		margin-bottom:10px;	
+		margin-bottom:10px;
 	}
 	.questions{
 		font-size:18px;
 		font-weight:bold;
 		color:#003C57;
-		margin-bottom:10px;		
+		margin-bottom:10px;
 	}
 	#occupation{
 		margin-bottom:10px;
@@ -452,11 +449,11 @@
 		font-weight:bold;
 		padding-left:5px;
 		padding-top: 5px;
-		padding-bottom:5px;	
+		padding-bottom:5px;
 		box-sizing: border-box;
     	-moz-box-sizing: border-box;
     	-webkit-box-sizing: border-box;
-    	border-right: 5px solid white;	
+    	border-right: 5px solid white;
 	}
 	.resultNumber{
 		font-size:28px;
@@ -479,30 +476,30 @@
 		margin-bottom:10px;
 	}
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #666;
-  font-weight:bold;
-  font-size:15px;
-  font-family:"Open Sans";
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: #666;
-  font-weight:bold;
-  font-size:15px;
-  font-family:"Open Sans";
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: #666;
-  font-weight:bold;
-  font-size:15px;
-  font-family:"Open Sans";
-}
-:-moz-placeholder { /* Firefox 18- */
-  color: #666;
-  font-weight:bold;
-  font-size:15px;
-  font-family:"Open Sans";
-}
+	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  color: #666;
+	  font-weight:bold;
+	  font-size:15px;
+	  font-family:"Open Sans";
+	}
+	::-moz-placeholder { /* Firefox 19+ */
+	  color: #666;
+	  font-weight:bold;
+	  font-size:15px;
+	  font-family:"Open Sans";
+	}
+	:-ms-input-placeholder { /* IE 10+ */
+	  color: #666;
+	  font-weight:bold;
+	  font-size:15px;
+	  font-family:"Open Sans";
+	}
+	:-moz-placeholder { /* Firefox 18- */
+	  color: #666;
+	  font-weight:bold;
+	  font-size:15px;
+	  font-family:"Open Sans";
+	}
 
 
 
@@ -605,7 +602,7 @@
 	//╰━━┻╯╰┫╭━┻━━┻━┻━━╯
 	//╱╱╱╱╱╱┃┃
 	//╱╱╱╱╱╱╰╯
-	
+
 		var graphic = d3.select('#graphic');
 		var graphic2 = d3.select('#graphic2');
 		var graphic3 = d3.select('#graphic3');
@@ -628,13 +625,13 @@
 		var dontsweep = false;
 		var selectarea2 = null;
 		var solidSelected = "Fareham";
-		
+
 		var updateTheChart = "yep";
-		
+
 		//old axis scales for config min-max
 		//"xAxisScale":[[9.5,26.8],[44.8,69.8],[36.5,62.8],[379.4,1223.2],[54,71.1],[52.4,71.1]],
-		
-		
+
+
 			//╭━━╮╱╱╱╱╱╱╱╱╭╮
 	//╰┫┣╯╱╱╱╱╱╱╱╭╯╰╮
 	//╱┃┃╭━╮╭━━┳╮┣╮╭╋━━╮
@@ -643,36 +640,36 @@
 	//╰━━┻╯╰┫╭━┻━━┻━┻━━╯
 	//╱╱╱╱╱╱┃┃
 	//╱╱╱╱╱╱╰╯
-	
+
 	$("#pcError").hide();
 	$("#successMessage").hide();
 	$("#pcGo").click(function( event ) {
 		//console.log("helloyou");
 			//	event.preventDefault();
 			//	event.stopPropagation();
-				myValue = $("#pcText").val(); 
+				myValue = $("#pcText").val();
 				myValue = myValue.toUpperCase();
 					//manual method for area lookup
-					myValue2 = myValue.replace(/\s+/g, ''); 
-					getCodes1(myValue2);	
-					console.log(myValue2);		
+					myValue2 = myValue.replace(/\s+/g, '');
+					getCodes1(myValue2);
+					console.log(myValue2);
 	});
 	$("#pcText").keypress(function( event ) {
 		if (event.which == 13) {
 				event.preventDefault();
 				event.stopPropagation();
-				myValue = $("#pcText").val(); 
+				myValue = $("#pcText").val();
 				myValue = myValue.toUpperCase();
 					//manual method for area lookup
-					myValue2 = myValue.replace(/\s+/g, ''); 
+					myValue2 = myValue.replace(/\s+/g, '');
 					getCodes1(myValue2);
-					console.log(myValue2);	  
+					console.log(myValue2);
 		}
 	});
-	
+
 function getCodes1(myValue2)    {
     var myURIstring=encodeURI("https://api.postcodes.io/postcodes/"+myValue2);
-    $.support.cors = true; 
+    $.support.cors = true;
     $.ajax({
         type: "GET",
         crossDomain: true,
@@ -683,10 +680,10 @@ function getCodes1(myValue2)    {
             },
         success: function(data1){
             if(data1.status == 200 ){
-				
-				             
+
+
                 $("#pcError").hide();
-        		
+
 				laCode =data1.result.admin_district;
 				laCode =laCode.replace(/\s+/g, '');
 				laCode =laCode.replace('-','');
@@ -694,72 +691,72 @@ function getCodes1(myValue2)    {
 				laCode =laCode.replace(';', '');
 				laCode =laCode.replace("'", '');
 				pcodeUpdate = laCode;
-				
+
 				$("#occselect").val(pcodeUpdate);
 				$("#occselect").trigger("chosen:updated");
-				
-				
+
+
 				console.log(laCode);
-				
+
 				filtereddata = graphic_data.filter(function(d) {return d.name2 == laCode;});
-									
+
 									updateTheChart = "yep";
 									calculate();
-			
+
                 //LAname = data1.result.admin_district;
-							
+
 				//fire the function returning statistics
 				//drawStats();
-				
+
 				//gotoArea(data1.result.latitude,data1.result.longitude);
-				
-				
+
+
             } else {
       $("#successMessage").hide();
                $("#pcError").text("Sorry, that's not a valid postcode. Try an English or Welsh postcode eg PO15 5RR.").show();
             }
-        } 
+        }
     });
 }
 
-	
-	
-	
-	
-	
-	
-	
-		
-		
+
+
+
+
+
+
+
+
+
 		window.odometerOptions = {
 			  format: '(,ddd)',
 			  duration: 500, // Change how long the javascript expects the CSS animation to take
 		};
-			
-		
+
+
 		function occopt () {
-	
-		//Create a chosen drop down to show the list of occupations 
+
+		//Create a chosen drop down to show the list of occupations
 
 		dvc.allOcc = [];
-			
+
 		//Create an array for each occupation title
 		graphic_data.forEach(function(d,i){
-				dvc.allOcc.push(graphic_data[i].name);								
+				dvc.allOcc.push(graphic_data[i].name);
 		});
-		
+
 		dvc.allCode = [];
-	
+
 		//Create an array for each occupation code
-		graphic_data.forEach(function(d,i){	
-				dvc.allCode.push(graphic_data[i].name2);							
+		graphic_data.forEach(function(d,i){
+				dvc.allCode.push(graphic_data[i].name2);
 		});
 
 		// Join occupation and codes together in an array
 		var codeoccyzip = d3.zip(dvc.allOcc, dvc.allCode);
-		
-		
-		//sort occupation list alphabetically	
+
+
+		//sort occupation list alphabetically
 		dvc.codeoccyzip = codeoccyzip.sort(function(b, a){ return d3.descending(a[0], b[0])});
 
 
@@ -770,63 +767,63 @@ function getCodes1(myValue2)    {
 				.attr("style","margin-left:10px;")
 				.style("margin-left","20px")
 				.attr("class","chosen-select");
-			
+
 			//append message
-			
+
 			optns.append("option")
 				.attr("value","first")
 				.text("");
-			
+
 			optns.selectAll("p").data(dvc.codeoccyzip).enter().append("option")
-				.attr("value", function(d){ return d[1]}) 
+				.attr("value", function(d){ return d[1]})
 				.text(function(d){ return d[0]});
 
 
 			// Little function to bring objects to the front
-			d3.selection.prototype.moveToFront = function() { 
-			  return this.each(function() { 
+			d3.selection.prototype.moveToFront = function() {
+			  return this.each(function() {
 				this.parentNode.appendChild(this)
-			  }); 
-			}; 
-			
-			
+			  });
+			};
+
+
 			$('#occselect').chosen({width: "60%", allow_single_deselect: true, placeholder_text_single:"or choose your area"}).on('change',function(evt,params){
-				
+
 								if(typeof params != 'undefined') {
-									
+
 									AreaLoad = params.selected;
-									
+
 									solidSelected = params.selected;
-		
+
 									AreaLoad2 = AreaLoad.replace(/\s/g,'');
 									AreaLoad3 = AreaLoad2.replace(',','');
 									AreaLoad4 = AreaLoad3.replace('-','');
 									AreaLoad4 = AreaLoad4.replace('-','');
-									
+
 									filtereddata = graphic_data.filter(function(d) {return d.name2 == AreaLoad;});
-									
+
 									updateTheChart = "yep";
 									calculate();
-									
+
 								}
 								else {
-									
-										
+
+
 								}
-								
+
 			});
-			
+
 
 	} //End of make occupation
-	
-	//   ____      _      _        ____      ____    ___    ____    _____ 
+
+	//   ____      _      _        ____      ____    ___    ____    _____
 	//  / ___|    / \    | |      / ___|    / ___|  / _ \  |  _ \  | ____|
-	// | |       / _ \   | |     | |       | |     | | | | | | | | |  _|  
-	// | |___   / ___ \  | |___  | |___    | |___  | |_| | | |_| | | |___ 
-	//  \____| /_/   \_\ |_____|  \____|    \____|  \___/  |____/  |_____|	
-	//	
-	
-	
+	// | |       / _ \   | |     | |       | |     | | | | | | | | |  _|
+	// | |___   / ___ \  | |___  | |___    | |___  | |_| | | |_| | | |___
+	//  \____| /_/   \_\ |_____|  \____|    \____|  \___/  |____/  |_____|
+	//
+
+
 	var TimesBy = 25;
 	var price = null;
 	var avPrice = 2363;
@@ -834,8 +831,8 @@ function getCodes1(myValue2)    {
 	var TopLA = 17988;
 	var BotLA = 775;
 	var fromPrice = 0;
-	
-	
+
+
 	//these functions deal with the user's inputs
 	d3.select(".smExtension").on("click",function(){
 		TimesBy = 15;
@@ -855,10 +852,10 @@ function getCodes1(myValue2)    {
 			updateTheChart = "nope";
 		calculate();
 	})
-	
-	
+
+
 	d3.select("#custom2").on("change",function(){
-		TimesByCustom = $("#custom2").val(); 
+		TimesByCustom = $("#custom2").val();
 		TimesBy = TimesByCustom;
 			updateTheChart = "nope";
 		calculate();
@@ -866,7 +863,7 @@ function getCodes1(myValue2)    {
 			$('.mdExtension').attr('checked', false);
 			$('.lgExtension').attr('checked', false);
 	}).on("keyup", function(){
-		TimesByCustom = $("#custom2").val(); 
+		TimesByCustom = $("#custom2").val();
 		TimesBy = TimesByCustom;
 			updateTheChart = "nope";
 		calculate();
@@ -874,28 +871,28 @@ function getCodes1(myValue2)    {
 			$('.mdExtension').attr('checked', false);
 			$('.lgExtension').attr('checked', false);
 	});
-	
+
 	//array of numbers bit
 	d3.select("#yourAreaValue").html(numberFormat(34272));
 	d3.select("#EWAreaValue").html(numberFormat(28356));
 //	d3.select("#TopAreaValue").html(numberFormat(215856));
-//	d3.select("#BotAreaValue").html(numberFormat(9300));	
+//	d3.select("#BotAreaValue").html(numberFormat(9300));
 	//chart bit
 	d3.select("#yourAreaM2Value").html(numberFormat(2856));
-	
-	
-	
-	
 
-	
-	
-	function calculate(){		
+
+
+
+
+
+
+	function calculate(){
 		price = filtereddata[0].Area;
 		LAname = filtereddata[0].name;
-		
+
 		d3.select("#yourAreaName").html(LAname);
 		d3.select("#m2AreaName").html(LAname + " ");
-		
+
 		Yr_Value = TimesBy*price;
 			d3.select("#yourAreaValue").html(numberFormat(Yr_Value));
 		Av_Value = TimesBy*2363;
@@ -906,22 +903,22 @@ function getCodes1(myValue2)    {
 //			d3.select("#BotAreaValue").html(numberFormat(Lo_Value));
 
 			d3.select("#yourAreaM2Value").html(numberFormat(price));
-		
+
 		if (updateTheChart == "yep"){drawGraphic();}
-		
-		
+
+
 	};
-	
-	
-	
-	
+
+
+
+
 graphic = $(".resultsChart");
 function drawGraphic() {
-	
+
 	graphic.empty();
-	
-			
-			
+
+
+
 			barheight = 40;
 			margin = {}
 			margin.left = 0;
@@ -929,70 +926,70 @@ function drawGraphic() {
 			margin.top = 0;
 			margin.bottom = 105;
 			graphic_width = graphic.width() - margin.left - margin.right;
-						
+
 			var height = barheight + margin.top + margin.bottom;
-		
+
 			var data = [price];
-			
+
 			var x = d3.scale.linear()
 				.domain([0,17988])
 				.range([0,graphic_width - 2]);
-				
+
 			var chart = d3.select(".resultsChart")
 				.attr("width", graphic_width)
 				.attr("height", height)
 				.attr("margin-right","10px;");
 
-			
+
 			var bar = chart.append("svg")
 				.attr("width", graphic_width)
 				.attr("height", height)
 				.attr("id","chartAreaStuff");
-			      
+
 			//Reset the text value to 0 so it animates up
 			d3.select("#incomeOfNumber").text("");
-			                         
+
 			//grey backing
 			bar.append("rect")
 				.attr("width", function(d) { return x(17988); })
 				.attr("height", barheight)
 				.attr("transform","translate(0,30)")
 				.attr("fill","#f4f4f4");
-				
+
 			//data bar
 			bar.append("rect")
 				.attr("width",fromPrice)
 				.attr("height", barheight)
 				.attr("transform","translate(0,30)")
-				.attr("fill","#003C57")
+				.attr("fill","#206095")
 				.transition().duration(1000).attr("width", function(d) { return x(price); });
-				
+
 				fromPrice = price;
-			
+
 			//average bar
 			bar.append("rect")
 				.attr("width","3")
 				.attr("height", barheight + 25)
 				.attr("transform","translate(" + x(2363) + ",5)")
 				.attr("fill","#B8860B");
-				
+
 			//Lowest
 			bar.append("rect")
 				.attr("width","3")
 				.attr("height", barheight + 50)
 				.attr("transform","translate(" + x(775) + ",30)")
 				.attr("fill","#B8860B");
-			
+
 			//Highest
 			bar.append("rect")
 				.attr("width","3")
 				.attr("height", barheight + 75)
 				.attr("transform","translate(" + x(17988) + ",30)")
 				.attr("fill","#B8860B");
-		
-			
-					
-							
+
+
+
+
 			//average text
 			var text = d3.select("#chartAreaStuff")
                         .append("text")
@@ -1026,9 +1023,9 @@ function drawGraphic() {
 							.attr("font-weight","bold")
 							.attr("fill","#B8860B")
 							.attr("id","EWAverageText");
-							
-						
-							
+
+
+
 			//axis text
 			var text = d3.select("#chartAreaStuff")
                         .append("text")
@@ -1038,7 +1035,7 @@ function drawGraphic() {
 							.attr("text-anchor","start")
 							.attr("font-size","14px")
 							.attr("fill","grey");
-							
+
 			var text = d3.select("#chartAreaStuff")
                         .append("text")
 							.text("£5k")
@@ -1063,7 +1060,7 @@ function drawGraphic() {
 							.attr("text-anchor","middle")
 							.attr("font-size","14px")
 							.attr("fill","grey");
-							
+
 			//var text = d3.select("#chartAreaStuff")
 //                        .append("text")
 //							.text("£17,988")
@@ -1072,7 +1069,7 @@ function drawGraphic() {
 //							.attr("text-anchor","end")
 //							.attr("font-size","14px")
 //							.attr("fill","grey");
-							
+
 			//axis tick marks
 			bar.append("rect")
 				.attr("width","1")
@@ -1099,51 +1096,51 @@ function drawGraphic() {
 //				.attr("height", 10)
 //				.attr("transform","translate(" + x(17900) + ",70)")
 //				.attr("fill","#dadada");
-				
-			setTimeout(function() {fromPrice = x(price)},1500);
-							
-			
 
-			//use pym to calculate dimensions	
+			setTimeout(function() {fromPrice = x(price)},1500);
+
+
+
+			//use pym to calculate dimensions
 		   if (pymChild) {
 		       pymChild.sendHeight();
 		   }
 }
 
-		
+
 										if (Modernizr.svg) {
-										   //load config 
+										   //load config
 											d3.json("config.json", function(error, config) {
 											dvc=config
-								
+
 												//load chart data
 												d3.csv( dvc.essential.graphic_data_url, function(error, data) {
 													graphic_data = data;
-													
+
 													filtereddata = data.filter(function(d) {return d.name == AreaLoad;});
 													filtereddataEngland = graphic_data.filter(function(d) {return d.name == "England";});
-																												
-													
-													
-												
+
+
+
+
 													// graphic_data.forEach(function(d) {
-													// 	d.name = d3.time.format(dvc.essential.dateFormat).parse(d.name); 
-														
+													// 	d.name = d3.time.format(dvc.essential.dateFormat).parse(d.name);
+
 													// });
-								
+
 													names = d3.keys(/*data*/graphic_data[0]).filter(function(key) { return key !== "state"; });
-											  
+
 													/*data*/graphic_data.forEach(function(d) {
-													  d.ages = names.map(function(name) { return {name: name, value: +d[name]}; });	
-													}); 
-														
+													  d.ages = names.map(function(name) { return {name: name, value: +d[name]}; });
+													});
+
 														//use pym to create iframed chart dependent on specified variables
 														pymChild = new pym.Child({ renderCallback: calculate
 														});
 														occopt();
 													});
 											})
-								
+
 										} else {
 											 //use pym to create iframe containing fallback image (which is set as default)
 											 pymChild = new pym.Child();
@@ -1151,23 +1148,23 @@ function drawGraphic() {
 												pymChild.sendHeight();
 											}
 										}
-										
-										
+
+
 			var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-37894017-1']);
 		  _gaq.push(['_trackPageview']);
 
-		
+
 		  (function() {
 
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
-										
-										
-					
-		
+
+
+
+
 
     </script>
 </body>
