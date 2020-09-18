@@ -351,6 +351,13 @@
     <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
 
     <script>
+      jQuery.fn.d3Click = function () {
+        this.each(function (i, e) {
+          var evt = new MouseEvent("click");
+          e.dispatchEvent(evt);
+        });
+      };
+      
       var graphic = d3.select('#graphic');
       var footer = d3.select('#footer');
       pymChild = null;
