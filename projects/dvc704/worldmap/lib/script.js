@@ -81,7 +81,7 @@ if (Modernizr.inlinesvg) {
       .enter().append("path")
       .attr("class", "countries")
       .attr("id", function(d) {
-        return "shape" + d.properties.fips
+        return "shape" + d.properties.fips;
       })
       .attr("d", path)
       .on("mouseover", function(d) {
@@ -94,9 +94,10 @@ if (Modernizr.inlinesvg) {
       })
       .on("mousedown", function(d) {
         clearmap();
-        highlightcountry(d.properties.fips)
-        disableHoverEvents()
-      })
+        highlightcountry(d.properties.fips);
+        filterdata(d.properties.fips);
+        disableHoverEvents();
+      });
 
     var m = svgPanZoom("#svgMap", {
       panEnabled: true,
@@ -443,10 +444,12 @@ if (Modernizr.inlinesvg) {
         if (d3.event.keyCode == 13 || d3.event.keyCode == 32) {
           d3.event.preventDefault();
           unhighlightcountry(countrycode)
+          filterdata("W1")
           enableHoverEvents();
         }
       }).on('mouseup', function() {
         unhighlightcountry(countrycode)
+        filterdata("W1")
         enableHoverEvents();
       })
 
