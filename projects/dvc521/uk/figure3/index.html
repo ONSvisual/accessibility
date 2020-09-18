@@ -969,7 +969,7 @@ input{
 
 			//var areacodes =  datacsv.map(function(d) { return d.AREACD; });
 			//var areanames =  datacsv.map(function(d) { return d.AREANM; });
-      var menunames = d3.zip(babynames,indexno).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
+      menunames = d3.zip(babynames,indexno).sort(function(a, b){ return d3.ascending(a[0], b[0]); });
 
 
 			// Build option menu for occupations
@@ -1061,7 +1061,8 @@ input{
 
     function addCloseButtonDesc() {
       d3.selectAll(".search-choice-close").selectAll("span").remove();
-      d3.selectAll(".search-choice-close").append("span").attr("class","visuallyhidden").text(function(d,i) {return "remove " + listnames[i]})
+
+      d3.selectAll(".search-choice-close").append("span").attr("class","visuallyhidden").text(function(d,i) {return "remove " + babynames[listnames[i].substr(5)]})
     }
 
 
