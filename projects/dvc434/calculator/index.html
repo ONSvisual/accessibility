@@ -526,12 +526,74 @@
     .btn:focus {
         box-shadow: 0 0 0px 3pt orange;
     }
+
+	.input--radio {
+		float: left;
+    	width: 30px;
+    	height: 30px;
+    	appearance: none;
+    	border: 2px solid #206095;
+    	padding: 0.5rem;
+    	font-size: 1rem;
+    	box-shadow: inset 0 0 0 5px white;
+    	cursor: pointer;
+    	top: 0.75rem;
+    	left: 0.6rem;
+    }
+
+    .input--radio:focus,
+    .input--radio:checked {
+    	border-color: #206095;
+    	outline: none;
+    }
+
+    .input--radio {
+    	border-radius: 100px;
+    	box-shadow: inset 0 0 0 5px white;
+    }
+    .input--radio:checked {
+		background: #1b5f97;
+		box-shadow: inset 0 0 0 5px white;
+	}
+    .input--radio:focus {
+        border-color: #206095;
+        box-shadow: inset 0 0 0 5px white;
+        outline: none;
+	}
+    .input--radio:focus:checked {
+        border: 6px solid white;
+    }
+
+    input[type=radio]:focus {
+        outline: none;
+        position: inherit;
+        box-shadow: 0px 0px 0px 4px orange;
+    }
+
+    input[type=checkbox], input[type=radio] {
+        -webkit-appearance: none;
+    }
+
+    .label {
+		font-size:17px;
+		margin-left: 10px;
+		float:left;
+		color: #1b5f97;
+	}
+
 	/* Utility */
+
+	.flex { display: flex; }
+	.flex-col { flex-direction: column; }
 
 	.pl-1 { padding-left: 0.25rem; }
 	.pl-2 { padding-left: 0.5rem; }
 
-	.mb-3 { margin-bottom: 0.75rem; }
+	.mb-2 { margin-bottom: 0.5rem; }
+    .mb-3 { margin-bottom: 0.75rem; }
+    .mb-4 { margin-bottom: 1rem; }
+
+	.mt-3 { margin-top: 0.75rem; }
 
 	/* Accessibility */
 
@@ -562,20 +624,30 @@
 	<div style="font-size:20px; font-weight:bold; margin-bottom:5px; margin-top:0px; clear:both; color:#206095;">How big is your extension?</div>
 
     <div id="roomSize" class="row" style="min-height:80px; clear:both;">
-    	<div class="col-xs-12 col-sm-5">
+    	<div class="col-xs-12 col-sm-5 mb-4">
             <form id="pcForm">
                <input class="input mt-3" style="width: 140px; font-size:18px;" id="custom2" value="25" type="number" placeholder="Insert size" min="1" max="100" />
             </form>
         	<div style="height:35px; float:left; padding-top:6px; padding-left:5px; margin-right:20px; margin-top:12px; width:30px; background-color:#206095; color:white;">m<sup>2</sup></div>
         </div>
 
-        <div class="col-xs-12 col-sm-7" style="margin-bottom:20px;">
-            <form style="margin-left:20px; margin-bottom:30px;">
-              <input type="radio" class="radioOption closeCustom smExtension" name="extType" value="female"> Small (15 m<sup>2</sup>)<br>
-              <input type="radio" class="radioOption closeCustom mdExtension" name="extType" checked="true" value="female"> Medium (25 m<sup>2</sup>)<br>
-              <input type="radio" class="radioOption closeCustom lgExtension" name="extType" value="female"> Large (35 m<sup>2</sup>)<br>
+        <div class="col-xs-12 col-sm-7 mb-4">
+            <form class="flex flex-col" style="margin-left:20px; margin-bottom:30px;">
+            	<div class="mb-2">
+	              	<input type="radio" class="input--radio radioOption closeCustom smExtension" name="extType" value="female" />
+	              	<label class="label" for="radio1">Small (15 m<sup>2</sup>)</label>
+            	</div>
+            	<div class="mb-2">
+	              	<input type="radio" class="input--radio radioOption closeCustom mdExtension" name="extType" checked="true" value="female" />
+	              	<label class="label" for="radio1">Medium (25 m<sup>2</sup>)</label>
+            	</div>
+            	<div>
+	              	<input type="radio" class="input--radio radioOption closeCustom lgExtension" name="extType" value="female" />
+	              	<label class="label" for="radio1">Large (35 m<sup>2</sup>)</label>
+            	</div>
             </form>
         </div>
+
     </div>
 
     <div style="font-size:20px; font-weight:bold; margin-bottom:5px; margin-top:0px; color:#206095;">Your extension could be worth...</div>
