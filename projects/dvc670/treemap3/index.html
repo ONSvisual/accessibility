@@ -17,7 +17,7 @@
     })(window, document, 'script', 'dataLayer', 'GTM-MBCBVQS');</script>
     <!-- End Google Tag Manager -->
 
-    <title>NHS workforce treemap - dvc670</title>
+    <title>GP workforce treemap - dvc670</title>
 
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -254,6 +254,17 @@
           text-align: left;
         }
       }
+
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
     </style>
   </head>
 
@@ -267,10 +278,12 @@
 
     <div id="main-wrapper">
       <div id="mainContent">
-        <div id="blurb">
+        <p id="chartDescription" class="visuallyhidden"></p>
+
+        <p id="blurb">
           <text id="txt2"></text>
           <text id="txt3"></text>
-        </div>
+        </p>
 
         <div class="btnDiv ">
           <button type="button" id="topBtn" class="nav btn btn-ons" style="visibility:hidden">
@@ -394,7 +407,6 @@
           .attr("width", width)
           .attr("height", margin.top);
 
-
         d3.csv(dvc.essential.graphic_data_url, function (data) {
 
           data.forEach(function (d) {
@@ -420,6 +432,9 @@
           layout(root);
           display(root);
 
+          var value = dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix;
+          var label = `A chart displaying percentage of GPs March 2019 broken down by region of primary medical qualification.`;
+          $('#chartDescription').html(label);
           d3.select("#blurb").select("#txt2").html(dvc.essential.totalLabel)
           d3.select("#blurb").select("#txt3").html(function () {
             if (treedata[0].percent == "null") {
@@ -431,7 +446,6 @@
 
 
         }); //end treemap csv load
-
 
         //create link to source
         d3.select("#footer").append("p")
