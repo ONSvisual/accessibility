@@ -1,7 +1,7 @@
 {
     "essential" : {
             "percent" : true,
-
+            "caption":"A summary table of the main crime types, the number of incidents and change over time.",
             "dateFormat":"%Y",
             "legendXY":[2000, 27],
             "legendLabels" : [],
@@ -13,7 +13,17 @@
             "xAxisLabel":"",
             "xAxisScale":10000,
             "multiplier": 1000,
-
+            "alttext":[
+                    "Violence has decreased from 2,063,000 in 1981 to 1,242,000 in 2019.",
+                    "Homicide has decreased from 1,047 in 2003 to 670 in 2019.",
+                    "Knife or sharp instrument crime has increased from 30,620 in 2011 to 45,627 in 2019.",
+                    "Theft has decreased from 6,292,000 in 1981 to 3,402,000 in 2019.",
+                    "Burglary has decreased from 890,099 in 2003 to 366,718 in 2019.",
+                    "Vehicle offences has decreased from 1,074,659 in 2003 to 436,868 in 2019.",
+                    "Robbery has decreased from 110,271 in 2003 to 83,930 in 2019.",
+                    "Fraud has increased from 3,395,000 in 2017 to 3,710,000 in 2019.",
+                    "Computer misuse has decreased from 1,764,000 in 2017 to 915,000 in 2019."
+                  ],
             "margin_centre": [2,2,2]
     },
     "optional" : {
