@@ -94,9 +94,10 @@ if (Modernizr.inlinesvg) {
       })
       .on("mousedown", function(d) {
         clearmap();
-        highlightcountry(d.properties.fips)
-        disableHoverEvents()
-      })
+        highlightcountry(d.properties.fips);
+        filterdata(d.properties.fips);
+        disableHoverEvents();
+      });
 
     var m = svgPanZoom("#svgMap", {
       panEnabled: true,
