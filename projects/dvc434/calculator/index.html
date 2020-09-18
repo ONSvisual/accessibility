@@ -25,21 +25,11 @@
 		min-height:564px;
 		font-size:16px;
 	}
-	.picaarticle {
-	   font-size:14px;
-	}
 
     #pcGo:hover {
         cursor:pointer;
         cursor:hand;
     }
-
-    .inputOption{
-		height:25px;
-		margin-top:20px;
-		padding-left:10px;
-		background-color:white!important;
-	}
 
 	input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 		-webkit-box-shadow: 0 0 0px 1000px white inset;
@@ -505,7 +495,6 @@
 
 	.input {
 		float:left;
-		width: 170px;
 		height: 35px;
 		margin-top:0px;
 		padding-left: 5px;
@@ -518,8 +507,7 @@
 		-webkit-appearance: none;
 	}
 
-	.input:focus,
-	.btn:focus {
+	.input:focus {
 		box-shadow: 0 0 0px 3pt orange;
 	}
 
@@ -535,6 +523,9 @@
 		outline: 0;
 	}
 
+    .btn:focus {
+        box-shadow: 0 0 0px 3pt orange;
+    }
 	/* Utility */
 
 	.pl-1 { padding-left: 0.25rem; }
@@ -554,7 +545,7 @@
 
 	    <div class="mb-3"><!--postcode input here-->
 	    	<form id="pcForm">
-	    		<input id="pcText" class="input picaarticle inputOption" type="text" placeholder="insert your postcode">
+	    		<input id="pcText" class="input" style="width: 170px" type="text" placeholder="insert your postcode">
 	    		<button type="submit" id="pcGo" class="btn">Go</button>
 	    	</form>
 	    </div>
@@ -573,9 +564,9 @@
     <div id="roomSize" class="row" style="min-height:80px; clear:both;">
     	<div class="col-xs-12 col-sm-5">
             <form id="pcForm">
-               <input style="width:147px; float:left; height:30px; font-size:18px; padding-left:5px; margin-top:15px; color:#666;" id="custom2" value="25" type="number" placeholder="Insert size" min="1" max="100" />
+               <input class="input mt-3" style="width: 140px; font-size:18px;" id="custom2" value="25" type="number" placeholder="Insert size" min="1" max="100" />
             </form>
-        	<div style="height:33px; float:left; padding-top:3px; padding-left:5px; margin-right:20px; margin-top:15px; width:30px; background-color:#206095; color:white;">m<sup>2</sup></div>
+        	<div style="height:35px; float:left; padding-top:6px; padding-left:5px; margin-right:20px; margin-top:12px; width:30px; background-color:#206095; color:white;">m<sup>2</sup></div>
         </div>
 
         <div class="col-xs-12 col-sm-7" style="margin-bottom:20px;">
