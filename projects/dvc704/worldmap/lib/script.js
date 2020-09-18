@@ -81,7 +81,7 @@ if (Modernizr.inlinesvg) {
       .enter().append("path")
       .attr("class", "countries")
       .attr("id", function(d) {
-        return "shape" + d.properties.fips;
+        if(d.properties.fips!=null){return "shape" + d.properties.fips;}
       })
       .attr("d", path)
       .on("mouseover", function(d) {
