@@ -10,14 +10,13 @@ if (Modernizr.webgl) {
 
   //Load data and config file
   d3.queue()
-    .defer(d3.csv, "data/data.csv")
-	.defer(d3.csv, "data/data0.csv")
+    .defer(d3.csv, "data/data0.csv")
     .defer(d3.json, "data/config.json")
-    .defer(d3.json, "data/geogEngCUA2.json")
+    .defer(d3.json, "data/geog.json")
     .await(ready);
 
 
-  function ready(error, rank, data, config, geog) {
+  function ready(error, data, config, geog) {
 
     //Set up global variables
     dvc = config.ons;
@@ -26,8 +25,8 @@ if (Modernizr.webgl) {
     firsthover = true;
     chartDrawn = false;
     thisdata = data;
-	rankdata = rank;
     overallwidth = d3.select("body").node().getBoundingClientRect().width;
+    navvalue = 0;
 
     if (overallwidth < 600) {
       mobile = true;
@@ -45,7 +44,7 @@ if (Modernizr.webgl) {
       variables.push(column);
     }
 
-    tab = 0;
+    b = 0;
 
     if (dvc.timeload == "last") {
       a = variables.length - 1;
@@ -112,20 +111,19 @@ if (Modernizr.webgl) {
 
     setRates(thisdata);
 
-    defineBreaks(thisdata, dvc.breaksMap[tab]);
+    defineBreaks(thisdata);
 
-    setupScales(dvc.varcolourMap[tab], dvc.numberBreaksMap);
-	
-	createMapKey();
-	
+    setupScales(thisdata);
+
+    setTimeLabel(a);
 
     //now ranges are set we can call draw the key
-    	
-			//convert topojson to geojson
-					for (key in geog.objects) {
-					  var areas = topojson.feature(geog, geog.objects[key])
-					}
-    
+    createKey(config);
+
+    //convert topojson to geojson
+    for (key in geog.objects) {
+      var areas = topojson.feature(geog, geog.objects[key])
+    }
 
     //Work out extend of loaded geography file so we can set map to fit total extent
     bounds = turf.extent(areas);
@@ -141,17 +139,11 @@ if (Modernizr.webgl) {
 
 
     //and add properties to the geojson based on the csv file we've read in
-			//console.log("root = domain, range: "+ mapcolor.domain(),mapcolor.range() );
-    areas.features.map(function(d) {  
-										//console.log("rateById:"+(rateById[d.properties.AREACD]) );
-										//console.log("col:"+color(rateById[d.properties.AREACD]) );
+    areas.features.map(function(d, i) {
 
-     if(isNaN(rateById[d.properties.AREACD]))
-                        {        d.properties.fill = "#eee";
-                        }else{
-                          d.properties.fill = mapcolor(rateById[d.properties.AREACD])
-                        }
-   });
+      d.properties.fill = color(rateById[d.properties.AREACD])
+    });
+
 
     map.on('load', defineLayers);
 
@@ -159,147 +151,143 @@ if (Modernizr.webgl) {
     setSource();
 
     //setInterval(function(){animate()}, 3000);
-	
-	
-	createChartKey(config);
-		
-    updateTimeLabel(a);
-	
-	
+
     function buildNav() {
 
-      formgroup = d3.select('#nav')
-        .append('form')
-        .attr('class', 'form-group-fullwidth')
-        .attr('role', 'radiogroup')
-        .selectAll('div')
-        .data(dvc.varlabels)
-        .enter()
-        .append('div')
-        .attr("class", 'form-group-fullwidth')
-        .attr("role", "radio")
-        .attr("tabindex", "1");
+      fieldset=d3.select('#nav').append('fieldset');
 
-      formgroup.append('input')
-        .attr("id", function(d, i) {
-          return "button" + i
-        })
-        .attr('class', 'radio-primary-fullwidth')
-        .attr("type", "radio")
-        .attr("name", "button")
-        .attr("value", function(d, i) {
-          return i
-        })
-        .attr("aria-checked", function(d, i) {
-          if (i == tab) {
-            return true
-          }
-        })
-        .property("checked", function(d, i) {
-          return i === tab;
-        })
+      fieldset
+      .append('legend')
+      .attr('class','visuallyhidden')
+      .html('Choose a variable');
 
-      formgroup.append('label')
-        .attr('class', 'label-primary-fullwidth')
-        .attr("for", function(d, i) {
-          return "button" + i
-        })
-        .text(function(d, i) {
-          return dvc.varlabels[i]
-        })
-        .on('click', function(d, i) {tab = i;
-          onchange(tab)
-        })
+      fieldset
+      .append("div")
+      .attr('class','visuallyhidden')
+      .attr('aria-live','polite')
+      .append('span')
+      .attr('id','selected');
 
-      selectgroup = d3.select('#selectnav')
-        .append('select')
+      grid=fieldset.append('div')
+      .attr('class','grid grid--full large-grid--fit');
+
+      cell=grid.selectAll('div')
+      .data(dvc.varlabels)
+      .enter()
+      .append('div')
+      .attr('class','grid-cell');
+
+      cell.append('input')
+      .attr('type','radio')
+      .attr('class','visuallyhidden')
+      .attr('id',function(d,i){return 'button'+i;})
+      .attr('value',function(d,i){return i;})
+      .attr('name','button');
+
+      cell.append('label')
+      .attr('for',function(d,i){return 'button'+i;})
+      .html(function(d){return d;});
+
+      d3.selectAll('input[type="radio"]').on('change', function(d) {
+        onchange(document.querySelector('input[name="button"]:checked').value);
+        d3.select('#selected').text(dvc.varlabels[document.querySelector('input[name="button"]:checked').value] + " is selected");
+      });
+
+      d3.select('#button0').property('checked',true);
+      d3.select('#selected').text(dvc.varlabels[document.querySelector('input[name="button"]:checked').value] + " is selected");
+
+
+      //mobile nav
+      selectgroup = d3.select('#selectnav');
+
+      selectgroup.append('label')
+        .attr('for','mobileDropdown')
+        .attr('class','visuallyhidden')
+        .html('Choose a variable');
+
+
+      selectgroup.append('select')
         .attr('class', 'dropdown')
+        .attr('id','mobileDropdown')
         .on('change', onselect)
         .selectAll("option")
         .data(dvc.varlabels)
         .enter()
         .append('option')
         .attr("value", function(d, i) {
-          return i
+          return i;
         })
         .property("selected", function(d, i) {
-          return i === tab;
+          return i === b;
         })
-        .text(function(d, i) { 
-          return dvc.varlabels[i]
+        .text(function(d, i) {
+          return dvc.varlabels[i];
         });
+    }
 
-    } // ends buid nav
-	
-	
-
-function setRates(ourdata) { 
+    function setRates(thisdata) {
 
       rateById = {};
       areaById = {};
-	  rateByIdChart = {};
-      areaByIdChart = {};
 
-      	ourdata.forEach(function(d) {
+      thisdata.forEach(function(d) {
         rateById[d.AREACD] = +eval("d." + variables[a]);
         areaById[d.AREACD] = d.AREANM
       });
 
-		rankdata.forEach(function(d) {
-        rateByIdChart[d.AREACD] = +eval(d[variables[a]]);
-        areaByIdChart[d.AREACD] = d.AREANM
-      });
+    }
+
+    function setTimeLabel() {
+      d3.select("#timePeriod").select('p').text(dvc.timepoints[a]);
+    }
+
+    function checkIfFirstorLast() {
+      if (a = 0) {
+
+      }
+
 
     }
 
-//    function setTimeLabel() {
-//      d3.select("#timePeriod").text(dvc.timepoints[a]);
-//    }
-//
-// function updateTimeLabel() {
-//
-//      d3.select("#timePeriod").text(dvc.timepoints[a]+" - "+eval(+(dvc.timepoints[a]+2)) )
-//
-//    }
 
- function defineBreaks(data, turinBreaks) { 
+
+    function defineBreaks(data) {
       //Flatten data values and work out breaks
-	  var values = [];
-	  
-      var values = data.map(function(d) {
-        return +eval(d[variables[a]]);
+      var values = thisdata.map(function(d) {
+        return +eval("d." + variables[a]);
       }).filter(function(d) {
         return !isNaN(d)
       }).sort(d3.ascending);
+
       //If jenks or equal then flatten data so we can work out what the breaks need to be
 
       // Work out how many timepoints we have in our dataset; number of rows - area name & code // Look at linechart templates to see how?
       // parse data into columns
-      if (turinBreaks == "jenks" || turinBreaks == "equal") { console.log("jenks/equal used");
-        
+      if (config.ons.breaks == "jenks" || config.ons.breaks == "equal") {
+        var values = [];
         allvalues = [];
 
-        for (var column in rank[0]) { // data
-          if (column /*!= 'AREANM' && column */!= 'AREACD') {
+        for (var column in data[0]) {
+          if (column != 'AREANM' && column != 'AREACD') {
             values[column] = data.map(function(d) {
-              return +eval(d[column]);
+              return +eval("d." + column);
             }).filter(function(d) {
               return !isNaN(d)
             }).sort(d3.ascending);
             allvalues = allvalues.concat(values[column]);
           }
-		  allvalues.sort(d3.ascending);
+
         }
-		
+
+        allvalues.sort(d3.ascending);
+
       }
- 		
-	//console.log("allvalues: "+allvalues);
-		
-      if (turinBreaks == "jenks") {
+
+      if (config.ons.breaks == "jenks") {
         breaks = [];
 
         ss.ckmeans(allvalues, (dvc.numberBreaks)).map(function(cluster, i) {
-          if (i < dvc.numberBreaks - 1) { // 3-1
+          if (i < dvc.numberBreaks - 1) {
             breaks.push(cluster[0]);
           } else {
             breaks.push(cluster[0])
@@ -307,10 +295,10 @@ function setRates(ourdata) {
             breaks.push(cluster[cluster.length - 1]);
           }
         });
-      } else if (turinBreaks == "equal") {
+      } else if (config.ons.breaks == "equal") {
         breaks = ss.equalIntervalBreaks(allvalues, dvc.numberBreaks);
       } else {
-        breaks = turinBreaks;
+        breaks = config.ons.breaks;
       };
 
 
@@ -321,162 +309,33 @@ function setRates(ourdata) {
 
       //work out halfway point (for no data position)
       midpoint = breaks[0] + ((breaks[dvc.numberBreaks] - breaks[0]) / 2)
-		console.log(breaks);
-	//return breaks;
-    }
-	
-	
 
-    function setupScales(colrects, brake) {
+    }
+
+    function setupScales() {
       //set up d3 color scales
       //Load colours
-	  colour=[];
-	  
-      if (typeof colrects === 'string') {
+      if (typeof dvc.varcolour === 'string') {
         // colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
-        firstcolor = chroma.scale(colrects).colors(brake)
-		
-		firstcolor.forEach(function(d){ colour.push(chroma(d).darken(0.4).saturate(0.6).hex())})
+        color = chroma.scale(dvc.varcolour).colors(dvc.numberBreaks)
+        colour = []
+        color.forEach(function(d) {
+          colour.push(chroma(d).darken(0.4).saturate(0.6).hex())
+        })
+
 
       } else {
-        colour = colrects;
+        colour = dvc.varcolour;
       }
-console.log(colour);
+
+      //set up d3 color scales
+      color = d3.scaleThreshold()
+        .domain(breaks.slice(1))
+        .range(colour);
+
     }
 
-
-function createMapKey(){ // driven by the initial set up
-//				<div id="mapInfo"></div>
-//                  <div id='timePeriod'></div>
-//                    <div id='mapKeyContainer'></div>
-
-				d3.select("#mapInfo").selectAll("*").remove();
-				d3.select("#timePeriod").selectAll("*").remove();
-				d3.select("#mapKeyContainer").selectAll("*").remove();
-		console.log( colour);
-	   //set up d3 color scales function
-       mapcolor = d3.scaleThreshold()
-					.domain(breaks)
-					.range(colour);
-					console.log("setupscales = domain, range: "+ mapcolor.domain(),mapcolor.range() );
-
-		
-			keywidthMap = d3.select("#map").node().getBoundingClientRect().width;
-			console.log("createMapKey keywidth: "+keywidthMap);
-			
-			d3.select("#mapInfo").append("p").text(dvc.mapunit[tab]);
-			
-			 var svgkey = d3.select("#mapKeyContainer")
-							.append("svg")
-							.attr("id", "mapkey")
-							//.attr("width", keywidth*0.6)
-							//.attr("height",180);
-							
-
-			// Set up scales for legend
-			x = d3.scaleLinear()
-				.domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
-				.range([0,keywidthMap*0.5]); /*range for pixels*/
-
-			var xAxis = d3.axisBottom(x)
-				.tickSize(15)
-				.tickValues(mapcolor.domain())
-				.tickFormat(legendformat);
-
-			var g2 = svgkey.append("g").attr("id","horiz");
-				
-			keyhor = d3.select("#horiz").attr("transform", "translate(30,22)");
-
-//test = mapcolor.range().map(function(d,i) {
-//
-//								  return {
-//									x0: i ? x(mapcolor.domain()[i-1]) : x.range()[0],
-//									x1: i < mapcolor.domain().length ? x(mapcolor.domain()[i]) : x.range()[1],
-//									z: d
-//								  };
-//});
-//console.log("createMapKey = domain, range: "+ mapcolor.domain(),mapcolor.range() );
-//console.log(test);
-
-
-
-			g2.selectAll("rect")
-				.data(mapcolor.range().map(function(d, i) {
-				  return {
-					x0: i ? x(mapcolor.domain()[i-1]) : x.range()[0],
-					x1: i < mapcolor.domain().length ? x(mapcolor.domain()[i]) : x.range()[1],
-					z: d
-								  };
-				}))
-			  .enter().append("rect")
-				.attr("class", "blocks")
-				.attr("height", 8)
-				.attr("x", function(d) { 
-					 return d.x0; })
-				.attr("width", function(d) {return d.x1 - d.x0; })
-				.style("opacity",0.8)
-				.style("fill", function(d) { return d.z; });
-
-			g2.append("line")
-				.attr("id", "currLine")
-				.attr("x1", x(9))
-				.attr("x2", x(9))
-				.attr("y1", 7)
-				.attr("y2", -7)
-				.attr("stroke-width","2px")
-				.attr("stroke","#000")
-				.attr("opacity",0);
-
-			g2.append("text")
-				.attr("id", "currVal")
-				.attr("x", x(9))
-				.attr("y", -12)
-				.attr("fill","#000")
-				.text("");
-
-
-
-			keyhor.selectAll("rect")
-				.data(mapcolor.range().map(function(d, i) {
-				  return {
-					x0: i ? x(mapcolor.domain()[i-1]) : x.range()[0],
-					x1: i < mapcolor.domain().length ? x(mapcolor.domain()[i]) : x.range()[1],
-					z: d
-				  };
-				}))
-				.attr("x", function(d) { return d.x0; })
-				.attr("width", function(d) { return d.x1 - d.x0; })
-				.style("fill", function(d) { return d.z; });
-
-			keyhor.call(xAxis)
-				//.append("text")
-				//.attr("id", "caption")
-				//.attr("x", -63)
-				//.attr("y", -20)
-				//.text("");
-
-			keyhor.append("rect")
-				.attr("id","keybar")
-				.attr("width",8)
-				.attr("height",0)
-				.attr("transform","translate(15,0)")
-				.style("fill", "#ccc")
-				.attr("x",x(0));
-
-
-			if(dvc.dropticks) {
-				d3.select("#horiz").selectAll("text").attr("transform",function(d,i){
-						// if there are more that 4 breaks, so > 5 ticks, then drop every other.
-						if(i % 2){return "translate(0,10)"} }
-				);
-			}
-			
-			
-	} // Ends create map key
-
-
-
-function defineLayers() {
+    function defineLayers() {
 
       map.addSource('area', {
         'type': 'geojson',
@@ -536,8 +395,6 @@ function defineLayers() {
       });
 
 
-		//map.append("div").attr("id", "timePeriod");
-
       //test whether ie or not
       function detectIE() {
         var ua = window.navigator.userAgent;
@@ -580,16 +437,20 @@ function defineLayers() {
       //Add click event
       map.on("click", "area", onClick);
 
-  }  // ends ƒ defineLayers
-	
-	
+      // start playing map by default. no controls on mobile so don't play.
+      if (mobile == false) {
+        onPlay();
+      }
 
-    function updateLayers() {   console.log("updateLayers");
+    }
+
+
+    function updateLayers() {
 
       //update properties to the geojson based on the csv file we've read in
       areas.features.map(function(d, i) {
 
-        d.properties.fill = mapcolor(rateById[d.properties.AREACD])
+        d.properties.fill = color(rateById[d.properties.AREACD])
       });
 
       //Reattach geojson data to area layer
@@ -606,10 +467,10 @@ function defineLayers() {
     }
 
 
-    function onchange(i) {  console.log("onchange");
+    function onchange(i) {
 
       chartDrawn = false;
-
+      navvalue = i;
       //load new csv file
 
       filepth = "data/data" + i + ".csv"
@@ -617,15 +478,12 @@ function defineLayers() {
       d3.csv(filepth, function(data) {
         thisdata = data;
         setRates(thisdata);
-        defineBreaks(thisdata, dvc.breaksMap[tab]);
-		setupScales(dvc.varcolourMap[tab], dvc.numberBreaksMap);
-        //setupScales(thisdata);
-		createMapKey(thisdata);
-        createChartKey(config);
-		
+        defineBreaks(thisdata);
+        setupScales(thisdata);
+        createKey(config);
 
         if (selected) {
-          setMapAxisVal($("#areaselect").val());
+          setAxisVal($("#areaselect").val());
           if (mobile == false) {
             updateChart($("#areaselect").val());
           }
@@ -643,36 +501,7 @@ function defineLayers() {
     }
 
     function setButtons() {
-      d3.select("#play").on("click", function() {
-        dataLayer.push({
-          'event': 'playButton',
-          'selected': 'play'
-        })
-
-        animating = setInterval(function() {
-          animate()
-        }, 2000);
-        d3.selectAll(".btn--neutral").classed("btn--neutral-disabled", true)
-
-        d3.select("#playImage").attr("src", "images/pause.svg");
-
-        d3.select("#play").attr("id", "pause");
-
-        d3.select("#pause").on("click", function() {
-          dataLayer.push({
-            'event': 'playButton',
-            'selected': 'pause'
-          })
-
-          d3.select("#pause").attr("id", "play")
-          d3.select("#playImage").attr("src", "images/play.svg");
-          setButtons();
-          clearInterval(animating);
-          d3.selectAll(".btn--neutral").classed("btn--neutral-disabled", false)
-        });
-
-
-      })
+      d3.select("#play").on("click", onPlay)
 
       d3.select("#forward").on("click", animate);
 
@@ -680,80 +509,83 @@ function defineLayers() {
 
     }
 
+    function onPlay() {
+      // if playing, pause
+      if(d3.select("#play").classed('playing')===true){
+        d3.select("#play").classed('playing',false);
+        d3.select("#play").attr('aria-checked',"false");
+
+        d3.select("#playImage").attr("src", "images/play.svg");
+        setButtons();
+        clearInterval(animating);
+        d3.selectAll(".btn--neutral").classed("btn--neutral-disabled", false);
+
+      // if paused, play
+      }else{
+        d3.select("#play").attr('aria-checked',"true");
+        d3.select("#play").classed('playing',true);
+
+        animate()
+        animating = setInterval(function() {
+          animate();
+        }, 2000);
+        d3.selectAll(".btn--neutral").classed("btn--neutral-disabled", true);
+        d3.select("#playImage").attr("src", "images/pause.svg");
+
+      }
+    }
+
     function animate() {
 
       if (a < variables.length - 1) {
         a = a + 1;
-//        setRates(thisdata);
-//        updateLayers();
-//        updateTimeLabel();
-//
-//        if (selected) {
-//          setMapAxisVal($("#areaselect").val());
-//          if (mobile == false) {
-//            updateChart($("#areaselect").val());
-//          }
-//        }
       } else {
-       		 a = 0;}
-		
-        setRates(thisdata);
-        updateLayers();
-        updateTimeLabel();
-
-        if (selected) {
-          setMapAxisVal($("#areaselect").val());
-          if (mobile == false) {
-            updateChart($("#areaselect").val());
-          }
-        }
-//      }
-
+        a = 0;
+      }
+      updateFrame();
     }
 
     function rev_animate() {
 
       if (a > 0) {
         a = a - 1;
-        setRates(thisdata);
-        updateLayers();
-        updateTimeLabel();
-
-        if (selected) {
-          setMapAxisVal($("#areaselect").val());
-          if (mobile == false) {
-            updateChart($("#areaselect").val());
-          }
-        }
       } else {
         a = variables.length - 1;
-        setRates(data);  // Why the change in data??
-        updateLayers();
-        updateTimeLabel();
-
-        if (selected) {
-          setMapAxisVal($("#areaselect").val());
-          if (mobile == false) {
-            updateChart($("#areaselect").val());
-          }
-        }
       }
-
+      updateFrame();
     }
 
+    function updateFrame() {
+      setRates(thisdata);
+      updateLayers();
+      updateTimeLabel();
+
+      if (selected) {
+        setAxisVal($("#areaselect").val());
+        if (mobile == false) {
+          updateChart($("#areaselect").val());
+        }
+      }
+      if (mobile == false) {
+        if (dvc.average[navvalue] != null) {
+          d3.select("#currPoint2")
+            .transition()
+            .duration(300)
+            .attr("cx", x(dvc.timepoints[a]))
+            .attr("cy", y(dvc.average[navvalue][a]))
+        }
+      }
+    }
 
     function updateTimeLabel() {
 
-      d3.select("#timePeriod")
-	  	//.attr("transform","translate(0,-15)")
-	    .text(dvc.timepoints[a] + " - " + (+dvc.timepoints[a]+2) )
+      d3.select("#timePeriod").select('p').text(dvc.timepoints[a])
 
     }
-	
 
     function onselect() {
-      tab = $(".dropdown").val();
-      onchange(tab);
+      b = $(".dropdown").val();
+      onchange(b);
 
     }
 
@@ -775,11 +607,9 @@ function defineLayers() {
       if (newAREACD != oldAREACD) {
         oldAREACD = e.features[0].properties.AREACD;
         map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
-		
-		$("#areaselect").val(e.features[0].properties.AREACD).trigger('change.select2');
-		
-      //selectArea(e.features[0].properties.AREACD);
-        setMapAxisVal(e.features[0].properties.AREACD);
+
+        selectArea(e.features[0].properties.AREACD);
+        setAxisVal(e.features[0].properties.AREACD);
         if (mobile == false) {
           updateChart(e.features[0].properties.AREACD);
         }
@@ -791,7 +621,7 @@ function defineLayers() {
       map.getCanvasContainer().style.cursor = null;
       map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
       oldAREACD = "";
-      $("#areaselect").val(null).trigger('change.select2');
+      $("#areaselect").val(null).trigger('chosen:updated');
       hideaxisVal();
     };
 
@@ -804,7 +634,7 @@ function defineLayers() {
         map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
 
         selectArea(e.features[0].properties.AREACD);
-        setMapAxisVal(e.features[0].properties.AREACD);
+        setAxisVal(e.features[0].properties.AREACD);
         if (mobile == false) {
           updateChart(e.features[0].properties.AREACD);
         }
@@ -813,9 +643,8 @@ function defineLayers() {
       dataLayer.push({
         'event': 'mapClickSelect',
         'selected': newAREACD
-      })
-
-    };
+      });
+    }
 
     function disableMouseEvents() {
       map.off("mousemove", "area", onMove);
@@ -833,15 +662,15 @@ function defineLayers() {
     }
 
     function selectArea(code) {
-      $("#areaselect").val(code).trigger('change.select2');
+      $("#areaselect").val(code).trigger('chosen:updated');
+      d3.select('abbr').on('keypress',function(evt){
+				if(d3.event.keyCode==13 || d3.event.keyCode==32){
+					$("#areaselect").val("").trigger('chosen:updated');
+				}
+			})
     }
 
-    $('#areaselect').on('select2:unselect', function() {
-      dataLayer.push({
-        'event': 'deselectCross',
-        'selected': 'deselect'
-      })
-    });
+
 
     function zoomToArea(code) {
 
@@ -875,9 +704,114 @@ function defineLayers() {
     }
 
 
- function setMapAxisVal(code) { 
-   
-	// Draws map key line
+    function setAxisVal(code) {
+      d3.select('#accessibilityInfo').select('p.visuallyhidden')
+      .text(function(){
+        if (!isNaN(rateById[code])) {
+          return areaById[code]+": "+ displayformat(rateById[code]) +" "+ dvc.varunit[b];
+        } else {
+          return "Data unavailable";
+        }
+      });
+
+
+      if (mobile == false) {
+        d3.select("#currLine")
+          .style("opacity", function() {
+            if (!isNaN(rateById[code])) {
+              return 1
+            } else {
+              return 0
+            }
+          })
+          .transition()
+          .duration(300)
+          .attr("y1", function() {
+            if (!isNaN(rateById[code])) {
+              return y(rateById[code])
+            } else {
+              return y(midpoint)
+            }
+          })
+          .attr("y2", function() {
+            if (!isNaN(rateById[code])) {
+              return y(rateById[code])
+            } else {
+              return y(midpoint)
+            }
+          })
+          .attr("x2", x(dvc.timepoints[a]))
+          .attr("x1", x(0));
+
+        d3.select("#currVal")
+          .text(function() {
+            if (!isNaN(rateById[code])) {
+              return displayformat(rateById[code])
+            } else {
+              return "Data unavailable"
+            }
+          })
+          .style("opacity", 1)
+          .transition()
+          .duration(300)
+          .attr("x", x(dvc.timepoints[a]))
+          .attr("y", function() {
+            if (!isNaN(rateById[code])) {
+              return y(rateById[code]) - 20
+            } else {
+              return y(midpoint)
+            }
+          })
+          .attr("text-anchor", "middle");
+
+        d3.select("#currVal2")
+          .text(function() {
+            if (!isNaN(rateById[code])) {
+              return displayformat(rateById[code])
+            } else {
+              return "Data unavailable"
+            }
+          })
+          .style("opacity", 1)
+          .transition()
+          .duration(300)
+          .attr("x", x(dvc.timepoints[a]))
+          .attr("y", function() {
+            if (!isNaN(rateById[code])) {
+              return y(rateById[code]) - 20
+            } else {
+              return y(midpoint)
+            }
+          })
+          .attr("text-anchor", "middle");
+
+        d3.select("#currPoint")
+          .text(function() {
+            if (!isNaN(rateById[code])) {
+              return displayformat(rateById[code])
+            } else {
+              return "Data unavailable"
+            }
+          })
+          .style("opacity", function() {
+            if (!isNaN(rateById[code])) {
+              return 1
+            } else {
+              return 0
+            }
+          })
+          .transition()
+          .duration(300)
+          .attr("cx", x(dvc.timepoints[a]))
+          .attr("cy", function() {
+            if (!isNaN(rateById[code])) {
+              return y(rateById[code])
+            } else {
+              return 0
+            }
+          });
+
+      } else {
 
         d3.select("#currLine")
           .style("opacity", function() {
@@ -889,22 +823,22 @@ function defineLayers() {
           })
           .transition()
           .duration(400)
-          .attr("x1", function() {  //console.log((rateById[code]));
+          .attr("x1", function() {
             if (!isNaN(rateById[code])) {
-              return x(rateById[code])
+              return xkey(rateById[code])
             } else {
-              return x(midpoint)
+              return xkey(midpoint)
             }
           })
           .attr("x2", function() {
             if (!isNaN(rateById[code])) {
-              return x(rateById[code])
+              return xkey(rateById[code])
             } else {
-              return x(midpoint)
+              return xkey(midpoint)
             }
           });
 
-		
+
         d3.select("#currVal")
           .text(function() {
             if (!isNaN(rateById[code])) {
@@ -917,255 +851,421 @@ function defineLayers() {
           .transition()
           .duration(400)
           .attr("x", function() {
-            if (!isNaN(rateById[code])) { //console.log("data  " + x(rateById[code]) );
-              return x(rateById[code]);
-            } else { //console.log("mid "+x(rateById(midpoint)) );
-              return midpoint;
+            if (!isNaN(rateById[code])) {
+              return xkey(rateById[code])
+            } else {
+              return xkey(midpoint)
             }
-          });
-		  
-
-     // }
+          })
+      }
 
     }
 
-	
-	
-function createChartKey(config) {
 
-     d3.select("#keydiv").selectAll("*").remove();
-	  									// create new setup for this additional info.
-	  									defineBreaks(rankdata, dvc.breaksChart);
-										setupScales(dvc.varcolour, dvc.numberBreaks);
-																					
-												  //set up d3 color scales function for chart
-//												  colorChart = d3.scaleThreshold()
-//													.domain(breaks/*.slice(1)*/)
-//													.range(colour);
-													//console.log("chart:"+ colorMap, colourMap);
-													
-   //   if (mobile == false) { 
+    function updateChart(code, selectlist) {
 
-        d3.select("#keydiv").append("p").attr("id", "keyunit").style("margin-top", "20px").style("margin-bottom", "0px").style("margin-left", "10px").text(dvc.varunit);
-console.log(tab);
+      if (chartDrawn == false) {
+
+        chartDrawn = true;
+
+
+        selectedarea = thisdata.filter(function(d) {
+          return d.AREACD == code
+        });
+
+        selectedarea.forEach(function(d) {
+          valuesx = variables.map(function(name) {
+            return +d[name]
+          });
+        });
+
+        values = valuesx.slice(0);
+
+
+
+        linedata = d3.zip(dvc.timepoints, values);
+
+        line1 = d3.line()
+          .defined(function(linedata) {
+            return !isNaN(linedata[1]);
+          })
+          .x(function(d, i) {
+            return x(linedata[i][0]);
+          })
+          .y(function(d, i) {
+            return y(linedata[i][1]);
+          });
+
+
+        var gline1 = svgkey.append("g")
+          .attr("transform", "translate(45,10)")
+          .attr("id", "chartgroup")
+
+        gline1.append("path")
+          .attr("id", "line1")
+          .style("opacity", 1)
+          .attr("d", line1(linedata))
+          .attr("stroke", "black")
+          .attr("stroke-width", "2px")
+          .attr("fill", "none");
+
+        gline1.append("circle")
+          .attr("id", "currPoint")
+          .attr("r", "4px")
+          .attr("cy", y(linedata[a][1]))
+          .attr("cx", x(dvc.timepoints[a]))
+          .attr("fill", "#666")
+          .attr("stroke", "black")
+          .style("opacity", 0)
+
+      } else {
+
+        selectedarea = thisdata.filter(function(d) {
+          return d.AREACD == code
+        });
+
+        selectedarea.forEach(function(d) {
+          valuesx = variables.map(function(name) {
+            return +d[name]
+          });
+        });
+
+        values = valuesx.slice(0);
+
+        linedata = d3.zip(dvc.timepoints, values);
+
+        d3.select("#line1")
+          .style("opacity", 1)
+          .transition()
+          .duration(300)
+          .attr("d", line1(linedata))
+
+
+      }
+
+    }
+
+    function hideaxisVal() {
+      d3.select("#line1")
+        .style("opacity", 0);
+
+      d3.select("#currPoint")
+        .style("opacity", 0);
+
+      d3.select("#currLine")
+        .style("opacity", 0);
+
+      d3.select("#currVal").text("")
+        .style("opacity", 0);
+
+      d3.select("#currVal2")
+        .style("opacity", 0);
+    }
+
+    function createKey(config, i) {
+
+      d3.select("#keydiv").selectAll("*").remove();
+
+      var color = d3.scaleThreshold()
+        .domain(breaks)
+        .range(colour);
+
+      if (mobile == false) {
+
+        d3.select("#keydiv").append("p").attr("id", "keyunit").attr('aria-hidden',true).style("margin-top", "25px").style("margin-left", "10px").style("font-size","14px").text(dvc.varunit[b]);
+
         keyheight = 150;
 
         keywidth = d3.select("#keydiv").node().getBoundingClientRect().width;
 
-				svgkey = d3.select("#keydiv")
-					.append("svg")
-					.attr("id", "key")
-					.attr("width", keywidth)
-					.attr("height",keyheight + 60);
+        svgkey = d3.select("#keydiv")
+          .append("svg")
+          .attr('aria-hidden',true)
+          .attr("id", "key")
+          .attr("width", keywidth)
+          .attr("height", keyheight + 30);
 
-				// Set up scales for legend
-				
-				yChart = d3.scaleLinear()
-					.domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
-					.range([0, keyheight]); /*range for pixels*/
+        // Set up scales for legend
+        y = d3.scaleLinear()
+          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+          .range([keyheight, 0]); /*range for pixels*/
 
-				// Set up scales for chart
-				xChart = d3.scalePoint()
-					.domain(dvc.timepoints) /*range for data*/
-					.range([0,keywidth-60])
-					.align(0.5); /*range for pixels*/
-
-
-				var yAxis = d3.axisLeft(yChart)
-					.tickSize(5)
-					.tickValues(breaks) //colorChart.domain())
-					.tickFormat(legendformat);
+        // Set up scales for chart
+        x = d3.scalePoint()
+          .domain(dvc.timepoints) /*range for data*/
+          .range([0, keywidth - 60])
+          .align(0.5); /*range for pixels*/
 
 
-//Add
-				var xAxisTime = d3.axisBottom(xChart)
-					.tickSize(5)
-					.tickValues([dvc.timepoints[0], dvc.timepoints[7], dvc.timepoints[14]])
-					.tickFormat(legendformat);
+        var yAxis = d3.axisLeft(y)
+          .tickSize(15)
+          .tickValues(color.domain())
+          .tickFormat(legendformat);
 
-			// class and css
-				var g = svgkey.append("g").attr("id","vert")
-					.attr("transform", "translate(45,30)")
-					.attr("font-weight","600")
-					.style("font-family","'open sans'")
-					.style("font-size","12px");
 
-        		g.call(yAxis)//.append("text");
-		
-// class and css as above
+        //Add
+        var xAxisTime = d3.axisBottom(x)
+          .tickSize(5)
+          .tickValues(dvc.timelineLabelsDT)
+
+        // create g2 before g so that its contents sit behind
+        var g2 = svgkey.append("g")
+          .attr("transform", "translate(45,10)")
+          .attr("id", "chartgroup")
+
+        var g = svgkey.append("g").attr("id", "vert")
+          .attr("transform", "translate(45,10)")
+          .attr("font-weight", "600")
+          .style("font-family", "'open sans'")
+          .style("font-size", "12px");
+
+        d3.selectAll("path").attr("display", "none")
+
+        g.selectAll("rect")
+          .data(color.range().map(function(d, i) {
+            return {
+              y0: i ? y(color.domain()[i]) : y.range()[0],
+              y1: i < color.domain().length ? y(color.domain()[i + 1]) : y.range()[1],
+              z: d
+            };
+          }))
+          .enter().append("rect")
+          .attr("width", 8)
+          .attr("x", -8)
+          .attr("y", function(d) {
+            return d.y1;
+          })
+          .attr("height", function(d) {
+            return d.y0 - d.y1;
+          })
+          .style("fill", function(d) {
+            return d.z;
+          });
+
+        g.call(yAxis).append("text");
+
         svgkey.append("g").attr("id", "timeaxis")
-          .attr("transform", "translate(45," + (40 + keyheight) + ")")
+          .attr("transform", "translate(45," + (10 + keyheight) + ")")
           .attr("font-weight", "600")
           .style("font-family", "'open sans'")
           .style("font-size", "12px")
           .call(xAxisTime)
 
 
-//         g.append("line")
-//           .attr("id", "currLine")
-//           .attr("y1", yChart(10))
-//           .attr("y2", yChart(10))
-//           .attr("x1", -10)
-//           .attr("x2", 0)
-//           .attr("stroke-width", "2px")
-//           .attr("stroke", "#000");
-           //.attr("opacity", 0);
+        //
+        // g.append("line")
+        //   .attr("id", "currLine")
+        //   .attr("y1", y(10))
+        //   .attr("y2", y(10))
+        //   .attr("x1", -10)
+        //   .attr("x2", 0)
+        //   .attr("stroke-width", "2px")
+        //   .attr("stroke", "#000")
+        //   .attr("opacity", 0);
 
-				g.append("text")
-					.attr("id", "currValChart")
-					.attr("y", /*yChart(*/midpoint/*)*/)
-					.attr("fill","#000")
-					.attr("paint-order","stroke")
-					.attr("stroke","#ffffff")
-					.attr("stroke-width","4px")
-					.attr("stroke-linecap","butt")
-					.attr("stroke-linejoin","miter")
-					.text("");
-					
-				g.append("circle")
-					.attr("id", "currPointChart")
-					.attr("r","4px")
-					.attr("cy", /*yChart(*/midpoint/*)*/)
-					.attr("cx", xChart(dvc.timepoints[a]))
-					.attr("fill","#666")
-					.attr("opacity",0);
+        g.append("text")
+          .attr("id", "currVal")
+          .attr("y", y(11))
+          .attr("fill", "#000")
+          .attr("paint-order", "stroke")
+          .attr("stroke", "#fff")
+          .attr("stroke-width", "5px")
+          .attr("stroke-linecap", "butt")
+          .attr("stroke-linejoin", "miter")
+          .text("");
+
+
+        g.append("text")
+          .attr("id", "currVal2")
+          .attr("y", y(11))
+          .attr("fill", "#000")
+          .text("");
+
+        varNum = navvalue;
+
+        // check there are average values
+        if (dvc.average[varNum] != null) {
+          linedata2 = d3.zip(dvc.timepoints, dvc.average[varNum]);
+
+          line2 = d3.line()
+            .defined(function(d) {
+              return !isNaN(d[0]);
+            })
+            .x(function(d) {
+              return x(d[0]);
+            })
+            .y(function(d) {
+              return y(d[1]);
+            });
+
+
+            g2.append("path")
+              .attr("id", "line2")
+              .attr("d", line2(linedata2))
+              .attr("stroke", "#aaa")
+              .attr("stroke-width", "2px")
+              .attr("fill", "none");
+
+            // add time dot for line2
+            g2.append("circle")
+              .attr("id", "currPoint2")
+              .attr('r',"4px")
+              .attr("cy", function() {
+                if (dvc.average[navvalue] != null) {
+                  return y(dvc.average[navvalue][a]) // set start position
+                } else {
+                  return y(0) // placeholder because no data for this variable
+                }
+              })
+              .attr("cx", x(dvc.timepoints[a]))
+              .attr("fill", "#b0b0b0")
+              .attr("stroke", "black")
+
+              svgkey.append("text")
+                .attr("id", "averagelabel")
+                .attr("x", function(d) {
+                  return x(linedata2[linedata2.length - 1][0])
+                })
+                .attr("y", function(d) {
+                  return y(linedata2[linedata2.length - 1][1])
+                })
+                .attr("font-size", "12px")
+                .attr("fill", "#757575")
+                .attr("text-anchor", "middle")
+                .text(dvc.averageText);
+
+            }
+
+
+      } else {
+        // Horizontal legend
+        keyheight = 65;
+
+        keywidth = d3.select("#keydiv").node().getBoundingClientRect().width;
+
+        svgkey = d3.select("#keydiv")
+          .append("svg")
+          .attr("aria-hidden",true)
+          .attr("id", "key")
+          .attr("width", keywidth)
+          .attr("height", keyheight);
+
+
+        xkey = d3.scaleLinear()
+          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+          .range([0, keywidth - 30]); /*range for pixels*/
+
+        y = d3.scaleLinear()
+          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+          .range([0, keywidth - 30]); /*range for pixels*/
+
+        var xAxis = d3.axisBottom(xkey)
+          .tickSize(15)
+          .tickValues(color.domain())
+          .tickFormat(legendformat);
+
+        var g2 = svgkey.append("g").attr("id", "horiz")
+          .attr("transform", "translate(15,30)");
+
+        keyhor = d3.select("#horiz");
+
+        g2.selectAll("rect")
+          .data(color.range().map(function(d, i) {
+
+            return {
+              x0: i ? xkey(color.domain()[i + 1]) : xkey.range()[0],
+              x1: i < color.domain().length ? xkey(color.domain()[i + 1]) : xkey.range()[1],
+              z: d
+            };
+          }))
+          .enter().append("rect")
+          .attr("class", "blocks")
+          .attr("height", 8)
+          .attr("x", function(d) {
+            return d.x0;
+          })
+          .attr("width", function(d) {
+            return d.x1 - d.x0;
+          })
+          .style("opacity", 0.8)
+          .style("fill", function(d) {
+            return d.z;
+          });
+
+
+        g2.append("line")
+          .attr("id", "currLine")
+          .attr("x1", xkey(10))
+          .attr("x2", xkey(10))
+          .attr("y1", -10)
+          .attr("y2", 8)
+          .attr("stroke-width", "2px")
+          .attr("stroke", "#000")
+          .attr("opacity", 0);
+
+        g2.append("text")
+          .attr("id", "currVal")
+          .attr("x", xkey(10))
+          .attr("y", -15)
+          .attr("fill", "#000")
+          .text("");
+
+
+
+        keyhor.selectAll("rect")
+          .data(color.range().map(function(d, i) {
+            return {
+              x0: i ? xkey(color.domain()[i]) : xkey.range()[0],
+              x1: i < color.domain().length ? xkey(color.domain()[i + 1]) : xkey.range()[1],
+              z: d
+            };
+          }))
+          .attr("x", function(d) {
+            return d.x0;
+          })
+          .attr("width", function(d) {
+            return d.x1 - d.x0;
+          })
+          .style("fill", function(d) {
+            return d.z;
+          });
+
+        keyhor.call(xAxis).append("text")
+          .attr("id", "caption")
+          .attr("x", -63)
+          .attr("y", -20)
+          .text("");
+
+        keyhor.append("rect")
+          .attr("id", "keybar")
+          .attr("width", 8)
+          .attr("height", 0)
+          .attr("transform", "translate(15,0)")
+          .style("fill", "#ccc")
+          .attr("x", xkey(0));
+
+        d3.select("#keydiv")
+          .append("p")
+          .attr('aria-hidden',true)
+          .attr("id", "keyunit")
+          .style("margin-top", "-10px")
+          .style("margin-left", "10px")
+          .text(dvc.varunit[b]);
+
+
+        if (dvc.dropticks) {
+          d3.select("#timeaxis").selectAll("text").attr("transform", function(d, i) {
+            // if there are more that 4 breaks, so > 5 ticks, then drop every other.
+            if (i % 2) {
+              return "translate(0,10)"
+            }
+          });
+        }
+      }
+
 
 
     } // Ends create key
-
-function updateChart(code) { 
-
-   		// get all the data for that area
-        selectedarea = rankdata.filter(function(d) {
-          return d.AREACD == code
-        });
-		//console.log(code, selectedarea);
-
-        selectedarea.forEach(function(d) {
-          valuesx = variables.map(function(name) { 
-		              return +d[name]
-          });
-        });
-
-		
-		values = valuesx.slice(0);
-        linedata = d3.zip(dvc.timepoints, values);
-		//console.log("first line  "+linedata);
-		
-		var line1 = d3.line()
-				  .defined(function(linedata) {  //  (linedata)
-					return !isNaN(linedata[1]);
-				  })
-				  .x(function(d, i) {
-					return xChart(linedata[i][0]);
-				  })
-				  .y(function(d, i) {
-					return yChart(linedata[i][1]);
-				  });
-
-
-   if (chartDrawn == false) { // draw first line if not present
-
-        chartDrawn = true;
-
-        svgkey.append("g")
-          .attr("transform", "translate(45,30)")
-          .attr("id", "chartgroup")
-          .append("path")
-          .attr("id", "line1")
-          .style("opacity", 1)
-          .attr("d", line1(values)) // just values
-          .attr("stroke", "#666")
-          .attr("stroke-width", "2px")
-          .attr("fill", "none");
-	  
-		  
-   }
-		 
-        d3.select("#line1")
-          .style("opacity", 1)
-          .transition()
-          .duration(300)
-          .attr("d", line1(linedata));
-		  
-		  
-		
-		d3.select("#currPointChart")
-		 	.style("opacity", function() {
-							if (!isNaN(rateByIdChart[code])) { 
-							  return 1
-							} else {
-							  return 0
-							}
-						  })
-          .transition()
-          .duration(300)
-          .attr("cx", xChart(dvc.timepoints[a]))
-          .attr("cy", function() {    //console.log(rateById[code], yChart(rateById[code]));
-            if (!isNaN(rateByIdChart[code])) {
-              return yChart(rateByIdChart[code])
-            } else {
-              return 0
-            }
-          });
-		  
-		  var chartformat = d3.format(".0f");
-			d3.select("#currValChart")
-				.style("opacity", function() {
-							if (!isNaN(rateByIdChart[code])) { 
-							  return 1
-							} else {
-							  return 0
-							}
-						  })
-				.text(function() {
-							if (!isNaN(rateByIdChart[code])) {
-							  return chartformat(rateByIdChart[code]) 
-							} else {
-							  return "Data unavailable"
-							}
-						  })
-					.transition()
-         			 .duration(300)
-				  .attr("x", xChart(dvc.timepoints[a]))
-				  .attr("y", yChart(rateByIdChart[code]) - 8);
-				 		
-					
-//					g.append("text")
-//					.attr("id", "currVal")
-//					.attr("y", yChart(midpoint))
-//					.attr("fill","#000")
-//					.attr("paint-order","stroke")
-//					.attr("stroke","#fff")
-//					.attr("stroke-width","5px")
-//					.attr("stroke-linecap","butt")
-//					.attr("stroke-linejoin","miter")
-//					.text("");
-
-			 
-	 // }
-
- }  // ends updateChart
-	
-
-function hideaxisVal() {
-      d3.select("#line1")
-        .style("opacity", 0);
-
-      d3.select("#currPointChart")
-        .style("opacity", 0);
-
-      d3.select("#currLine")
-        .style("opacity", 0);
-
-      d3.select("#currValChart").text("")
-        .style("opacity", 0);
-		
-	  d3.select("#currVal").text("")
-        .style("opacity", 0);
-    }
-
-
 
     function addFullscreen() {
 
@@ -1216,8 +1316,7 @@ function hideaxisVal() {
       navigator.geolocation.getCurrentPosition(success, error, options);
     }
 
-
-function success(pos) {
+    function success(pos) {
       crd = pos.coords;
 
       //go on to filter
@@ -1233,35 +1332,21 @@ function success(pos) {
       map.setFilter("state-fills-hover", ["==", "AREACD", features[0].properties.AREACD]);
 
       selectArea(features[0].properties.AREACD);
-      setMapAxisVal(features[0].properties.AREACD);
+      setAxisVal(features[0].properties.AREACD);
       if (mobile == false) {
         updateChart(e.features[0].properties.AREACD);
       }
 
 
     };
-	
-	
-function setSource() {
 
+    function setSource() {
+      d3.select("#source")
+        .append("h5")
+        .text("Source: "+dvc.sourcetext)
+    }
 
-					d3.select("#source")
-						.append("h6")
-						.attr("class", "source")
-						.attr("text-anchor", "start")
-						.style("font-size", "14px")
-						.style("fill", "#666")
-						.style("font-weight", 700)
-						.text("Source: ")
-						.append("a")
-						.style("fill", "#4774cc")
-						.attr("href", dvc.sourceURL)
-						.attr("target", "_blank")
-						.text(dvc.sourcetext);
-	}
-
-
-function selectlist(datacsv) {
+    function selectlist(datacsv) {
 
       var areacodes = datacsv.map(function(d) {
         return d.AREACD;
@@ -1272,6 +1357,11 @@ function selectlist(datacsv) {
       var menuarea = d3.zip(areanames, areacodes).sort(function(a, b) {
         return d3.ascending(a[0], b[0]);
       });
+
+      //hide area dropdown to screen reader if on mobile
+      if(mobile==true){
+        d3.select("selectNav").attr('aria-hidden',true)
+      }
 
       // Build option menu for occupations
       var optns = d3.select("#selectNav").append("div").attr("id", "sel").append("select")
@@ -1293,11 +1383,13 @@ function selectlist(datacsv) {
 
       myId = null;
 
-      $('#areaselect').select2({
-        placeholder: "Select an area",
-        allowClear: true,
-        dropdownParent: $('#sel')
+      $('#areaselect').chosen({
+        placeholder_text_single: "Select an area",
+        allow_single_deselect: true
       })
+
+      d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+      d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
 
       $('#areaselect').on('change', function() {
 
@@ -1310,7 +1402,7 @@ function selectlist(datacsv) {
           map.setFilter("state-fills-hover", ["==", "AREACD", areacode]);
 
           selectArea(areacode);
-          setMapAxisVal(areacode);
+          setAxisVal(areacode);
           if (mobile == false) {
             updateChart(areacode);
           }
@@ -1320,7 +1412,13 @@ function selectlist(datacsv) {
             'event': 'mapDropSelect',
             'selected': areacode
           })
-        } else { console.log("no $('#areaselect').val()");
+        } else {
+
+          dataLayer.push({
+            'event': 'deselectCross',
+            'selected': 'deselect'
+          })
+
           enableMouseEvents();
           hideaxisVal();
           onLeave();
