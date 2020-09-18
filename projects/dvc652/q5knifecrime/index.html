@@ -12,7 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Open+Sans:wght@300;400;600&display=swap" rel=“stylesheet”>
     <title>Knife crime, England and Wales, year ending March 2019</title>
 
     <link href="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -123,6 +123,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    .btn:hover,.btn:focus {
 	  background-color:#0b5d30;
 	  color:#fff;
+    outline: 3px solid orange;
 	}
 
 	#areanm {
@@ -248,7 +249,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <button type="button" id="showMe" class="btn" >Show me the answer</button>
             </div>
          </div>
-         <div id="reveal" class="row ">
+         <div id="reveal" aria-live="assertive" class="row ">
             <div class="answerText hide col-ons-sm-12"></div>
             <div class="mapText col-ons-sm-6"></div>
             <div class="graphic col-ons-sm-6"></div>
