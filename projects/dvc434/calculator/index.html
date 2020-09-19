@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Extension value calculator</title>
 
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <link rel="stylesheet" href="../lib/globalStyle.css"/>
@@ -643,7 +643,7 @@
 	<div class="header">
 
 	    <div class="mb-3"><!--postcode input here-->
-	    	<form id="pcForm">
+	    	<form id="postcodeForm">
                 <label for="pcText" class="visuallyhidden">Postcode</label>
 	    		<input id="pcText" class="input postcode" type="text" placeholder="insert your postcode">
 	    		<button type="submit" id="pcGo" class="btn">Go</button>
@@ -663,7 +663,7 @@
 
     <div id="roomSize" class="row" style="min-height:80px; clear:both;">
     	<div class="col-xs-12 col-sm-5 mb-4">
-            <form id="pcForm">
+            <form id="extensionForm">
                 <label for="custom2" class="visuallyhidden">How big is your extension in square meters?</label>
                <input class="input mt-3" style="width: 140px; font-size:18px;" id="custom2" value="25" type="number" placeholder="Insert size" min="1" max="100" />
             </form>
@@ -702,7 +702,7 @@
             <div id="yourAreaValue" class="odometer resultNumber" style="width:100%;">£34,272</div>
         </div>
         <div class="col-xs-12 col-sm-6">
-        	<div class="statHeader" style="width:100%; background-color:#B8860B">England and Wales</div>
+        	<div class="statHeader" style="width:100%; background-color:#986F09">England and Wales</div>
             <div id="EWAreaValue" class="odometer resultNumberEW" style="width:100%;">£28,356</div>
         </div>
     </div>
