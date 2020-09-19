@@ -358,7 +358,7 @@
 
       .y text, .x text {
         font-size: 12px;
-        fill: "#666";
+        fill: #666;
       }
 
       .x line {
@@ -390,7 +390,7 @@
 
       .y-stacked text, .x-stacked text {
         font-size: 12px;
-        fill: "#666";
+        fill: #666;
       }
 
       .x-stacked line {
@@ -499,12 +499,12 @@
 
     <div class="container-fluid">
       <div id="main-wrapper">
-        <p id="mainContent" style="display:none">
+        <div id="mainContent" style="display:none">
           <p id="chartDescription" class="visuallyhidden"></p>
 
           <p id="blurb" class="row">
-            <text id="txt2"></text>
-            <text id="txt3"></text>
+            <span id="txt2"></span>
+            <span id="txt3"></span>
           </p>
           <div class="row">
             <!--	<button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up" style="visibility:hidden">
@@ -531,15 +531,11 @@
                 <span class="chart-title">UK's top trading partners</span>
               </div>
             </div>
-
-
           </div>
 
           <div id="source">
             Source: UK Trade Statistics, Office for National Statistics
           </div>
-
-
         </div>
         <div id="ieMsg" style="display:none">
           <div id="suptext">
