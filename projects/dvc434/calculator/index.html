@@ -774,7 +774,10 @@
 
 	$("#pcError").hide();
 	$("#successMessage").hide();
-	$("#pcGo").click(function( event ) {
+    $("#postcodeForm").submit(function(){
+        return false
+    })
+	$("#pcGo").on("click",function( event ) {
 		//console.log("helloyou");
 			//	event.preventDefault();
 			//	event.stopPropagation();
@@ -998,9 +1001,6 @@ function getCodes1(myValue2)    {
 		TimesBy = TimesByCustom;
 			updateTheChart = "nope";
 		calculate();
-			$('.smExtension').attr('checked', false);
-			$('.mdExtension').attr('checked', false);
-			$('.lgExtension').attr('checked', false);
 	});
 
 	//array of numbers bit
