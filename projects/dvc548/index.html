@@ -366,8 +366,139 @@ select {
   font-family: 'Open Sans',Arial,sans-serif;
 }
 
+/* Redesign September 2020 */
+
+legend {
+  padding: 0
+}
+
+fieldset {
+  border: 0;
+  padding: 0.01em 0 0 0;
+  margin: 0;
+  min-width: 0
+}
+
+label {
+  max-width: 100%;
+  margin-bottom: 5px;
+  padding: .2em .6em .3em;
+  font-weight: bold;
+  vertical-align: baseline;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px
+}
+
+input,select {
+  font-family: "Open Sans",Helvetica,Arial,sans-serif;
+  font-size: 14px
+}
+
+.field__item {
+  margin-bottom: 10px;
+}
+
+.input {
+  padding: 1rem;
+  height: 45px;
+  color: inherit;
+  border: 2px solid #1b5f97;
+  border-radius: 0px;
+  font-size: 1.1em;
+  transition: border-color 200ms ease-in;
+}
+
+@media screen and (max-width: 480px) {
+  .input {
+    width: 100%;
+  }
+}
+
+.input:focus {
+  outline: 3px solid #FFA23A;
+}
+
+.input--radio {
+  width: 30px;
+  height: 30px;
+  appearance: none;
+  border: 2px solid #206095;
+  padding: 0.5rem;
+  font-size: 1rem;
+  box-shadow: inset 0 0 0 5px white;
+  cursor: pointer;
+  top: 0.75rem;
+  left: 0.6rem;
+  transition: background-color 200ms ease-in, color 200ms ease-in;
+}
+
+.input--radio:focus, .input--radio:checked {
+  border-color: #206095;
+  outline: none;
+}
+
+.input--radio {
+  border-radius: 100px;
+  box-shadow: inset 0 0 0 5px white;
+}
+
+.input--radio:checked {
+  background: #1b5f97;
+  box-shadow: inset 0 0 0 5px white;
+}
+
+.input--radio:focus {
+  border-color: #206095;
+  box-shadow: inset 0 0 0 5px white;
+  outline: none;
+}
+
+.input--radio:focus:checked {
+  border: 6px solid white;
+}
+
+input[type=radio]:focus {
+  outline: none;
+  position: inherit;
+  box-shadow: 0px 0px 0px 4px #FE781C;
+}
+
+input[type=checkbox], input[type=radio] {
+  -webkit-appearance: none;
+}
+
+
+.label {
+  color: #206095 !important;
+  font-weight: 400 !important;
+  font-size: 1.1em;
+  padding: 8px 10px 0px;
+  position: relative;
+  bottom: 8px;
+  cursor: pointer;
+}
+
+.label--inline {
+  display: inline;
+}
+
+/* Accessibility */
+
+.visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 </style>
-  </head>
+</head>
 <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
@@ -382,21 +513,20 @@ select {
         <!-- user input page -->
         <div id="page1">
 
-           <div class="col-xs-12 col-sm-12">
-              <h3>How old are you?</h3>
-            <div class="col-xs-12 col-sm-6">
-            <form class="btn-form col-xs-12 col-sm-6" role="radiogroup" width="100%">
-              <div class="form-group" role="radio" tabindex="0">
-                <input id="button-1" class="radio-primary" type="radio" name="button" value="18 to 21" aria-checked="true" checked>
-                <label class="label-primary" for="button-1" >18 to 21</label>
-              </div>
-              <div class="form-group" role="radio" tabindex="0">
-                <input id="button-2" class="radio-primary" type="radio" name="button" value="22 to 29" aria-checked="false">
-                <label class="label-primary" for="button-2" >22 to 29</label>
-              </div>
+            <h3>How old are you?</h3>
+            <form class="btn-form col-xs-12 col-sm-6" width="100%">
+              <fieldset>
+                <legend class="visuallyhidden">How old are you?</legend>
+                <div class="field__item">
+                  <input id="button-1" class="input input--radio" type="radio" name="button" value="18 to 21" aria-checked="true" checked>
+                  <label class="label label--inline" for="button-1" >18 to 21</label>
+                </div>
+                <div class="field__item">
+                  <input id="button-2" class="input input--radio" type="radio" name="button" value="22 to 29" aria-checked="false">
+                  <label class="label label--inline" for="button-2" >22 to 29</label>
+                </div>
+              </fieldset>
             </form>
-            </div>
-            </div>
 
 
           <h3>What do you earn before tax?</h3>
