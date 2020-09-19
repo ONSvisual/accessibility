@@ -87,12 +87,18 @@
         fill-opacity: .2;
       }
 
-      .children:hover rect.child, .children .parent:focus ~ rect.child {
+      .children:hover rect.child, .parent:focus ~ rect.child {
         fill: #bbb;
       }
 
       .child:hover, .child:focus {
         fill: #bbb;
+      }
+      .children:hover rect.child {
+        cursor: pointer;
+      }
+      .children:hover text, .child:hover ~ text, .parent:focus ~ text, .children:focus-within text {
+        fill: #323123;
       }
 
       *[code*=c1_], *[code*=c2_], *[code*=c3_], *[code*=c4_], *[code*=c5_], *[code*=c6_], *[code*=c7_], *[code*=c8_], *[code*=c9_], #c10 {

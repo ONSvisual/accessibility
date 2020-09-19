@@ -59,11 +59,19 @@
         fill-opacity: .2;
       }
 
+      .children:hover rect.child {
+        cursor: pointer;
+      }
+
       .children:hover rect.child, .children:focus rect.child {
         fill: #bbb;
       }
       .child:hover, .child:focus {
         fill: #bbb;
+      }
+
+      .children:hover text, .child:hover ~ text, .children:focus-within text {
+        fill: #323123;
       }
 
       *[code*=c1_] {
