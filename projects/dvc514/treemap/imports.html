@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="css/styles.css" media="screen">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
     <link href="https://onsvisual.github.io/pattern-library/dist/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/chosen.css"/>
 
     <style>
       body {
@@ -642,7 +643,7 @@
     <script src="js/base.js" charset="utf-8"></script>
     <script src="js/DataStructures.Tree.js" charset="utf-8"></script>
     <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="js/chosen.jquery.js" type="text/javascript"></script>
 
     <script>
       if (Modernizr.inlinesvg = true) {
@@ -721,7 +722,8 @@
         var optns = d3.select("#selectNav").append("div").attr("id", "sel").append("select")
           .attr("id", "areaselect")
           .attr("style", "width:98%")
-          .attr("class", "chosen-select");
+          .attr("class", "chosen-select")
+          .attr('data-placeholder',"Total");
 
         optns.append("option")
         // .attr("value","first")
@@ -740,8 +742,9 @@
           });
 
 
-        $('#areaselect').select2({placeholder: "Total",/*allowClear:true,*/dropdownParent: $('#sel')});
-        $('.select2-selection__rendered').attr('aria-label', 'Filters for the chart below, the results of the filters are not currently accessible by screen readers')
+        $('#areaselect').chosen({allow_single_deselect:true});
+        $('.chosen-search').find('input').attr('id', 'filterSearch');
+        $('.chosen-search').prepend("<label for='filterSearch' class='visuallyhidden'>Filters for the chart below, the results of the filters are not currently accessible by screen readers</label>");
 
         //$('#areaselect').on('input',function(){console.log("click")})
 
@@ -1884,7 +1887,8 @@
 
         //$('#areaselect').val($(this).attr("id")); // Select the option with a value of '1'
         //$('#areaselect').trigger('change'); // Notify any JS components that the value changed
-        d3.select(".select2-selection__placeholder").text($(this).attr("desc"))
+        $('#areaselect').val($(this).attr("id")); // Select the option with a value of '1'
+        $('#areaselect').trigger('chosen:updated'); // Notify any JS components that the value changed
         update_barchart($(this).attr("id"));
         updateStacked($(this).attr("id"));
 
@@ -1895,8 +1899,8 @@
         //console.log(dataset)
         d3.select("#blurb").select("#txt2").html("Goods imports 2017: ");
         d3.select("#blurb").select("#txt3").html("£" + formatNumber(dataset.size) + " million");
-        d3.select(".select2-selection__placeholder").text("Total")
-
+        $('#areaselect').val("Total"); // Select the option with a value of '1'
+        $('#areaselect').trigger('chosen:updated'); // Notify any JS components that the
       };
 
       function leave_tree() {
