@@ -89,11 +89,11 @@
         cursor: pointer;
       }
 
-      .children:hover rect.child, .parent:focus ~ rect.child {
+      .children:hover rect.child, .children:focus-within rect.child {
         fill: #bbb;
       }
 
-      .children:hover text, .child:hover ~ text, .parent:focus ~ text {
+      .children:hover text, .child:hover ~ text, .children:focus-within text {
         fill: #000;
       }
 

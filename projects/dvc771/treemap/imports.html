@@ -89,11 +89,11 @@
         cursor: pointer;
       }
 
-      .children:hover rect.child, .parent:focus ~ rect.child {
+      .children:hover rect.child, .children:focus-within rect.child {
         fill: #bbb;
       }
 
-      .children:hover text, .child:hover ~ text, .parent:focus ~ text {
+      .children:hover text, .child:hover ~ text, .children:focus-within text {
         fill: #000;
       }
 
@@ -1593,6 +1593,31 @@
           .classed("children", true)
           .on("click", transition);
 
+        g.selectAll(".child")
+          .data(function (d) {
+            return d._children || [d];
+          })
+          .enter().append("rect")
+          .attr("class", "child")
+          .attr("code", function (d) {
+            return d.id
+          })
+          .attr("desc", function (d) {
+            return d.name
+          })
+          .attr("id", function (d) {
+            return d.id
+          })
+          .attr("vals", function (d) {
+            return d.size
+          })
+          .attr("realvals", function (d) {
+            return d.size
+          })
+          .on("mouseover", mouseover)
+          .on("mouseout", mouseout)
+          .call(rect);
+
         g.append("rect")
           .attr("class", "parent")
           .attr("desc", function (d) {
@@ -1617,31 +1642,6 @@
               $(d3.event.target).parent().d3Click();
             }
           })
-          .call(rect);
-
-        g.selectAll(".child")
-          .data(function (d) {
-            return d._children || [d];
-          })
-          .enter().append("rect")
-          .attr("class", "child")
-          .attr("code", function (d) {
-            return d.id
-          })
-          .attr("desc", function (d) {
-            return d.name
-          })
-          .attr("id", function (d) {
-            return d.id
-          })
-          .attr("vals", function (d) {
-            return d.size
-          })
-          .attr("realvals", function (d) {
-            return d.size
-          })
-          .on("mouseover", mouseover)
-          .on("mouseout", mouseout)
           .call(rect);
 
         g.append("text")
