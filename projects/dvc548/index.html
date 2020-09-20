@@ -635,47 +635,39 @@ select {
 
           <h3>What do you earn before tax?</h3>
           <form>
-              <label for="earnings-input" class="visuallyhidden">Earnings in pounds</label>
-              <span class="input--pound">£</span>
-              <input id="earnings-input" class="input mb-2" type="number" min="0" value="0" />
+            <label for="earnings-input" class="visuallyhidden">Earnings in pounds</label>
+            <span class="input--pound">£</span>
+            <input id="earnings-input" class="input mb-2" type="number" min="0" value="0" />
           </form>
           <div>
             <label for="period" class="visuallyhidden">Select earnings period</label>
             <div id="dropdown2" class="select"></div>
           </div>
 
-        <div class="col-xs-12 col-sm-12">
+
           <h3>What is your living situation?</h3>
+          <div>
+            <label for="period3" class="visuallyhidden">Select living situation</label>
             <div id="dropdown3" class="select"></div>
-        </div>
+          </div>
 
-        <div class="col-xs-12 col-sm-12">
           <h3>What savings do you have?</h3>
-          <div class="input-value col-xs-12 col-sm-3">
-            <form class="input">
-              <div class="pound">
-                £
-              </div>
-              <div class="input-window">
-                <input style="text-align: right;" id="savings-input" type="number" min="0" value="0" tabindex="0">
-              </div>
-            </form>
-          </div>
-        </div>
+          <form>
+            <label for="savings-input" class="visuallyhidden">Savings in pounds</label>
+            <span class="input--pound">£</span>
+            <input id="savings-input" class="input mb-2" type="number" min="0" value="0" />
+          </form>
 
-        <div class="col-xs-12 col-sm-12">
           <h3>How much debt do you have? <small>(Not including Student Loans Company debt)</small></h3>
-          <div class="input-value col-xs-12 col-sm-3">
-            <form class="input">
-              <div class="pound">
-                £
-              </div>
-              <div class="input-window">
-                <input style="text-align: right;" id="debt-input" type="number" min="0" value="0" tabindex="0">
-              </div>
-            </form>
-          </div>
-        </div>
+          <form>
+            <label for="debt-input" class="visuallyhidden">Debt in pounds</label>
+            <span class="input--pound">£</span>
+            <input id="debt-input" class="input mb-2" type="number" min="0" value="0" />
+          </form>
+
+
+
+
 
 
       <button class="btn-primary large custom" onclick="submit()">Submit</button>
