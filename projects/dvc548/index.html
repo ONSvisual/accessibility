@@ -350,8 +350,8 @@ input[type="number"]{
 
 select {
 	width: 100%;
-    border: 2px solid #A6A8AB;
-    height: 40px;
+  border: 2px solid #A6A8AB;
+  height: 40px;
 	font-size: 16px;
   font-family: 'Open Sans',Arial,sans-serif;
 }
@@ -386,11 +386,17 @@ input,select {
   font-size: 14px
 }
 
+button {
+  overflow: visible;
+  text-transform: none;
+}
+
 .field__item {
   margin-bottom: 10px;
 }
 
 .input {
+  width: 180px;
   padding: 1rem;
   height: 45px;
   color: inherit;
@@ -494,15 +500,19 @@ input[type=checkbox], input[type=radio] {
   min-width: 13em;
   padding: 0 1rem;
   background: white url("/assets/img/icons--chevron-down.png") no-repeat center right -1px;
-  background-size: 42px; }
-  .input--select::after {
-    background: #000;
-    padding: 20px;
-    position: absolute;
-    top: 0; }
+  background-size: 42px;
+}
+
+.input--select::after {
+  background: #000;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+}
 
 select {
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+}
 
 /**/
 .select {
@@ -510,7 +520,13 @@ select {
   height: 45px;
   background: white;
   border: none;
-  min-width: 13em;
+  width: 180px;
+}
+
+@media screen and (max-width: 480px) {
+  .select {
+    width: 100%;
+  }
 }
 
 .select:after {
@@ -578,6 +594,57 @@ select {
   }
 }
 
+.btn {
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  background-image: none;
+  font-family:"Open Sans",Helvetica,Arial,sans-serif;
+  font-weight:400;
+  width:auto;
+  cursor:pointer;
+  border:0 none;
+  text-align:center;
+  -webkit-appearance:none;
+  text-decoration:none;
+  position: relative;
+  padding: 10px 15px;
+  margin: 0 0 20px;
+  line-height: normal;
+  color: #fff;
+  font-size: 1.3em !important;
+  border-radius: 0px;
+  display: inline-block;
+  text-rendering: optimizeLegibility;
+  min-width: 120px;
+}
+
+.btn:hover {
+  color: #ffffff;
+}
+
+.btn:active {
+  top: 3px;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0px 0px 0 3px #FFA23A;
+  color: white;
+  outline-offset: 0px;
+}
+
+.btn:active:focus {
+  outline: 0;
+}
+
+.btn--primary {
+  background-color: #206095 !important;
+}
+.btn--primary:hover {
+  background-color: #174c78 !important;
+}
+
 /* Utility */
 
 .flex {
@@ -585,6 +652,19 @@ select {
 }
 
 .mb-2 { margin-bottom: 0.5rem; }
+.mb-10 { margin-bottom: 2.5rem; }
+
+@media screen and (min-width: 480px) {
+  .side-by-side .field__item:last-child .select {
+    left: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .side-by-side {
+    flex-direction: column;
+  }
+}
 
 /* Accessibility */
 
@@ -614,9 +694,9 @@ select {
 
         <!-- user input page -->
         <div id="page1">
+          <form>
 
-          <h3>How old are you?</h3>
-          <form class="flex" width="100%">
+            <h3>How old are you?</h3>
             <fieldset>
               <legend class="visuallyhidden">How old are you?</legend>
               <div class="field__item">
@@ -628,48 +708,45 @@ select {
                 <label class="label label--inline" for="button-2" >22 to 29</label>
               </div>
             </fieldset>
+
+
+            <h3>What do you earn before tax?</h3>
+            <fieldset class="flex side-by-side">
+              <legend class="visuallyhidden">What do you earn before tax?</legend>
+              <div class="field__item">
+                <label for="earnings-input" class="visuallyhidden">Earnings in pounds</label>
+                <span class="input--pound">£</span>
+                <input id="earnings-input" class="input mb-2" type="number" min="0" value="0" />
+              </div>
+              <div class="field__item">
+                <label for="period" class="visuallyhidden">Select earnings period</label>
+                <div id="dropdown2" class="select"></div>
+              </div>
+            </fieldset>
+
+
+            <h3>What is your living situation?</h3>
+            <div>
+              <label for="period3" class="visuallyhidden">Select living situation</label>
+              <div id="dropdown3" class="select"></div>
+            </div>
+
+            <h3>What savings do you have?</h3>
+            <div>
+              <label for="savings-input" class="visuallyhidden">Savings in pounds</label>
+              <span class="input--pound">£</span>
+              <input id="savings-input" class="input mb-2" type="number" min="0" value="0" />
+            </div>
+
+            <h3>How much debt do you have? <small>(Not including Student Loans Company debt)</small></h3>
+            <div>
+              <label for="debt-input" class="visuallyhidden">Debt in pounds</label>
+              <span class="input--pound">£</span>
+              <input id="debt-input" class="input mb-10" type="number" min="0" value="0" />
+            </div>
+
           </form>
-
-
-          <h3>What do you earn before tax?</h3>
-          <form>
-            <label for="earnings-input" class="visuallyhidden">Earnings in pounds</label>
-            <span class="input--pound">£</span>
-            <input id="earnings-input" class="input mb-2" type="number" min="0" value="0" />
-          </form>
-          <div>
-            <label for="period" class="visuallyhidden">Select earnings period</label>
-            <div id="dropdown2" class="select"></div>
-          </div>
-
-
-          <h3>What is your living situation?</h3>
-          <div>
-            <label for="period3" class="visuallyhidden">Select living situation</label>
-            <div id="dropdown3" class="select"></div>
-          </div>
-
-          <h3>What savings do you have?</h3>
-          <form>
-            <label for="savings-input" class="visuallyhidden">Savings in pounds</label>
-            <span class="input--pound">£</span>
-            <input id="savings-input" class="input mb-2" type="number" min="0" value="0" />
-          </form>
-
-          <h3>How much debt do you have? <small>(Not including Student Loans Company debt)</small></h3>
-          <form>
-            <label for="debt-input" class="visuallyhidden">Debt in pounds</label>
-            <span class="input--pound">£</span>
-            <input id="debt-input" class="input mb-2" type="number" min="0" value="0" />
-          </form>
-
-
-
-
-
-
-      <button class="btn-primary large custom" onclick="submit()">Submit</button>
-        <br><br>
+          <button class="btn btn-primary" onclick="submit()">Submit</button>
 
       </div>
 <!-- end of user input page -->
