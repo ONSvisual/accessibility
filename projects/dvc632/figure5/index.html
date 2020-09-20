@@ -12,7 +12,7 @@
         <title>MSQR May 2019 - chart 5</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../lib/globalStyle.css" />
 
         <style>
@@ -88,6 +88,11 @@
     transition: background-color 0.25s ease-out;
     line-height: 24px;
 }
+
+.btn:hover, .btn:focus {
+      outline: 3px solid orange;
+}
+
 a {
     text-decoration: underline;
     color: #206095;
@@ -113,6 +118,17 @@ li {
     padding: 6px 0 10px 16px;
 }
 
+.visuallyhidden {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   padding: 0;
+   overflow: hidden;
+   clip: rect(0, 0, 0, 0);
+   border: 0;
+ }
+
         </style>
     </head>
     <body>
@@ -120,8 +136,10 @@ li {
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
-    <div id="graphic">
+<div class="visuallyhidden">
+  <h5>Chart hidden from screen readers. Chart title summarises content.</h5>
+</div>
+    <div id="graphic" aria-hidden="true">
     </div>
     <div id="footer">
       <h6>Source: Office for National Statistics – Long-Term International Migration</h6>
@@ -136,9 +154,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li>Student enrolment data are for 12 months of more and are ONS analysis of Higher Education Statistics Agency (HESA) first year student records. The data are for courses starting in the academic year from August to July, by length of study and domicile. HESA data are from Higher Education institutions in England and Wales only. We present these data compared to the equivalent year ending September.</li> -->
       </ol>
       <h6>Download this chart</h6>
-      <a class="btn btn--primary"  href="image.png" download>Image</a>
-      <a class="btn btn--primary"  href="data.xlsx" target="_blank">.xls</a>
-      <a class="btn btn--primary"  href="data.csv" target="_blank">.csv</a>
+      <a class="btn btn--primary" role="button" aria-label="Download the image of the chart." href="image.png" download>Image</a>
+      <a class="btn btn--primary" role="button" aria-label="Download an excel file of the data behind the chart." href="data.xlsx" target="_blank">.xls</a>
+      <a class="btn btn--primary" role="button" aria-label="Download a csv file of the data behind the chart." href="data.csv" target="_blank">.csv</a>
     </div>
         <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
         <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
