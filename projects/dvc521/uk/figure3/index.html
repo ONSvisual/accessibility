@@ -758,9 +758,6 @@ input{
 						.style("fill","none")
 						.attr("stroke","#eee")
 						.style("stroke-width","1px")
-            .attr('id', function(d, i) {
-  						   return stripspaces(d.key);
-  		      })
             .attr('d', function(d) {
                 return line(d.value);
             })
