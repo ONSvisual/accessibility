@@ -95,21 +95,21 @@
         <div id="page2" style="display:none">
 <!-- tabs -->
         <form class="btn-form-fullwidth" role="radiogroup">
-        <div class="form-group-fullwidth" role="radio" tabindex="0">
+        <div class="form-group-fullwidth" role="radio">
           <input id="button-13" class="radio-tab-fullwidth" type="radio" name="button2" value="1" aria-checked="true">
-          <label class="label-tab-fullwidth" for="button-13">Salary</label>
+          <label class="label-tab-fullwidth" for="button-13" tabindex="0">Salary</label>
         </div>
-        <div class="form-group-fullwidth" role="radio" tabindex="0">
+        <div class="form-group-fullwidth" role="radio">
           <input id="button-14" class="radio-tab-fullwidth" type="radio" name="button2" value="2" aria-checked="false">
-          <label class="label-tab-fullwidth2" for="button-14">Living situation</label>
+          <label class="label-tab-fullwidth" for="button-14" tabindex="0">Living situation</label>
         </div>
-        <div class="form-group-fullwidth" role="radio" tabindex="0">
+        <div class="form-group-fullwidth" role="radio">
           <input id="button-15" class="radio-tab-fullwidth" type="radio" name="button2" value="3" aria-checked="false">
-          <label class="label-tab-fullwidth" for="button-15">Savings</label>
+          <label class="label-tab-fullwidth" for="button-15" tabindex="0">Savings</label>
         </div>
-        <div class="form-group-fullwidth" role="radio" tabindex="0">
+        <div class="form-group-fullwidth" role="radio">
           <input id="button-16" class="radio-tab-fullwidth" type="radio" name="button2" value="4" aria-checked="false">
-          <label class="label-tab-fullwidth" for="button-16">Debt</label>
+          <label class="label-tab-fullwidth" for="button-16" tabindex="0">Debt</label>
         </div>
       </form>
 
@@ -206,11 +206,26 @@
 
 
 
+
+// Tab mouse clicks
 document.getElementById("button-14").onclick=livingbutton;
 document.getElementById("button-15").onclick=savingsbutton;
 document.getElementById("button-16").onclick=debtbutton;
 document.getElementById("button-13").onclick=salarybutton;
 
+// Tab key press
+var tabLabels = document.getElementsByClassName("label-tab-fullwidth")
+
+for (var i = 0; i < tabLabels.length; i++) {
+  tabLabels[i].addEventListener("keypress", function(event) {
+    event.preventDefault();
+    // If the enter key is pressed
+    if (event.keyCode === 13) {
+        // Click on tab (label)
+        document.getElementById(event.target.htmlFor).click();
+    }
+})
+}
  	} //end initialise
 
 function submit(){
