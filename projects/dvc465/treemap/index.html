@@ -59,8 +59,12 @@
         fill-opacity: .2;
       }
 
-      .children:hover rect.child {
+      .children:hover rect.child, .children:focus-within rect.child {
         fill: #bbb;
+      }
+
+      .children:hover text, .children:focus-within text {
+        fill: #000000;
       }
 
       *[code*=c1_] {
@@ -404,6 +408,13 @@
 
       pymChild = new pym.Child();
 
+      jQuery.fn.d3Click = function () {
+        this.each(function (i, e) {
+          var evt = new MouseEvent("click");
+          e.dispatchEvent(evt);
+        });
+      };
+
       var transitioning;
       var widthCalc;
       var heightCalc;
@@ -640,8 +651,16 @@
           .attr("percent", function (d) {
             return d.vals[2]
           })
+          .attr('aria-label', function(d) { return d.desc + " £" + formatNumber(d.vals[1]); })
           .on("mouseover", mouseover)
+          .on("focus", mouseover)
           .on("mouseout", mouseout)
+          .on("blur", mouseout)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+              $(d3.event.target).parent().d3Click();
+            }
+          })
           .call(rect);
 
         g.append("text")
