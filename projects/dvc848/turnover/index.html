@@ -9,12 +9,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
   <!-- End Google Tag Manager -->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <title>R&D Sankey diagram</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,500,700' rel='stylesheet' type='text/css'>
+  <title>BICS sankey diagram, turnover, dvc848</title>
 
   <meta name="description" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
   <link rel="stylesheet" href="css/globalStyle.css" />
@@ -68,8 +68,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .node text {
       pointer-events: none;
       font-size: 12px;
-      font-weight: 200;
-      fill: #7d7d7d;
+      font-weight: 500;
+      fill: black;
     }
 
     .table>tbody>tr>td {
@@ -149,6 +149,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       line-height: 1.42857143;
       vertical-align: middle;
     }
+
+    .visuallyhidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    .focussed{
+      opacity: 0.9;
+      stroke:orange;
+      stroke-width:5;
+    }
+
+    rect:focus{
+    outline-style:none;
+    }
+
+    path:focus{
+    outline-style:none;
+    }
+
   </style>
 
 </head>
@@ -165,14 +191,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <div class="container-fluid">
     <div class="row">
+      <h5 class="visuallyhidden">Sankey diagram showing the business impact of coronavirus on turnover between wave 2 and wave 5 of survey</h5>
       <div class="col-md-12 order-2 order-md-1">
-        <div class="row headings">
+        <div class="row headings visuallyhidden">
           <div class="col-5">Wave 2</div>
           <div class="col-5 offset-2 text-right">Wave 5</div>
         </div>
         <div class="row">
-          <div class="col-12  text-center" id="info"></div>
-          <div class="col-12" id="graphic"></div>
+          <div class="col-12  text-center" id="info" aria-hidden="true"></div>
+          <div class="col-12  text-center visuallyhidden" id="infoHidden"  aria-live="assertive"></div>
+          <div class="col-12" id="graphic" aria-hidden="true"></div>
         </div>
 
       </div>
@@ -342,11 +370,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         "Higher Education liability",
       ])
         .range([
-          "#5999D1",
-          "#BE3E24",
-          "#352a63",
-          "#1E5C92",
-          "#CD842F",
+          "#206095","#118C7B","#003C57","#A8BD3A",
+          "#27A0CC",
           "#3A1E82",
           "#1E5C92",
           "#3A1E82",
@@ -400,6 +425,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .data(linksX)
         .enter()
         .append("path")
+        .attr("tabindex","1")
         .attr("class", function(d) {
           return "link" + " " + d.liaIns + " " + d.color + " " + d.first.replace(/ &/gi,"").replace(/ /gi,"") + "L" + " " + d.third.replace(/ &/gi,"").replace(/ /gi,"") + "A";
         })
@@ -423,8 +449,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             target = d.target.name.replace(/ liability| asset|/gi, "");
             if(d.value <10){
               d3.select("#info").html(source + " &#8594; " + target + ": <span class='bold'> less than 10 </span>")
+              d3.select("#infoHidden").html("The number of businesses where "+source.replace("Expect", "expecting") + " in wave 2 and " + target.replace("Expect", "expecting") + " in wave 5 was less than 10.")
              } else {
                d3.select("#info").html(source + " &#8594; " + target + ": <span class='bold'> " + fmt(d.value) + "  </span>")
+               d3.select("#infoHidden").html("The number of businesses where "+source.replace("Expect", "expecting") + " in wave 2 and " + target.replace("Expect", "expecting") + " in wave 5 was "+ fmt(d.value))
              }
 
             d3.select(this).style("stroke-opacity", 0.5)
@@ -432,7 +460,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         })
         .on('mouseout', function() {
           $("#info").empty();
+          $("#infoHidden").empty();
           d3.selectAll("path").style("stroke-opacity", 0.1)
+        })
+        .on("focus",function(d){
+          if (d.value != 0.0006) {
+          source = d.source.name.replace(/ liability| asset|/gi, "");
+          target = d.target.name.replace(/ liability| asset|/gi, "");
+          if(d.value <10){
+            d3.select("#info").html(source + " &#8594; " + target + ": <span class='bold'> less than 10 </span>")
+            d3.select("#infoHidden").html("The number of businesses where "+source.replace("Expect", "expecting") + " in wave 2 and " + target.replace("Expect", "expecting") + " in wave 5 was less than 10")
+           } else {
+             d3.select("#info").html(source + " &#8594; " + target + ": <span class='bold'> " + fmt(d.value) + "  </span>")
+             d3.select("#infoHidden").html("The number of businesses where "+source.replace("Expect", "expecting") + " in wave 2 and " + target.replace("Expect", "expecting") + " in wave 5 was " +fmt(d.value))
+           }
+
+          d3.select(this).style("stroke-opacity", 0.7).style("stroke", "orange")
+        }})
+        .on("blur", function(d) {
+          $("#info").empty();
+          $("#infoHidden").empty();
+          d3.selectAll("path").style("stroke-opacity", 0.1)
+              .style("stroke", function(d) {
+                    return colors(d.color);
+                  })
         })
 
       // add in the nodes
@@ -447,6 +498,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       // add the rectangles for the nodes
       node.append("rect")
+        .attr("tabindex","1")
         .attr("height", function(d) {
           return d.dy;
         })
@@ -459,18 +511,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           node = d.name.replace(/ liability| asset|/gi, "");
           if (d.name.substr(d.name.lastIndexOf(" ass") + 1) == "asset") {
             text = ""
+            wave = "5"
             label = node.replace("&", "") + "A"
 
           } else if (d.name.substr(d.name.lastIndexOf(" lia") + 1) == "liability") {
             text = ""
+
+            wave = "2"
             label = node.replace("&", "") + "L"
           } else {
-            text = "";
+            text = ""
+
+            wave = "";
           }
           if(d.value <10){
             d3.select("#info").html(node + " " + text + ": <span class='bold'> less than 10  </span>");
+            d3.select("#infoHidden").html("The number of businesses where "+ node.replace("Expect", "expecting")  + " in wave " + wave + " was less than 10");
           } else {
             d3.select("#info").html(node + " " + text + ": <span class='bold'> " + fmt(d.value) + "  </span>");
+            d3.select("#infoHidden").html("The number of businesses where "+node.replace("Expect", "expecting") + " in wave " + wave + " was " + fmt(d.value));
           }
         d3.select(this).classed("highlight", true);
           var name = d.name.replace(/ liability| asset|/gi, "");
@@ -478,8 +537,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         })
         .on('mouseout', function(d) {
           $("#info").empty();
+          $("#info").empty();
           d3.select(this).classed("highlight", false)
           d3.selectAll("path").style("stroke-opacity", 0.1)
+        })
+        .on("focus",function(d){
+          node = d.name.replace(/ liability| asset|/gi, "");
+          if (d.name.substr(d.name.lastIndexOf(" ass") + 1) == "asset") {
+            text = ""
+            wave = "5"
+            label = node.replace("&", "") + "A"
+
+          } else if (d.name.substr(d.name.lastIndexOf(" lia") + 1) == "liability") {
+            text = ""
+            wave = "2"
+            label = node.replace("&", "") + "L"
+          } else {
+            text = "";
+          }
+          if(d.value <10){
+            d3.select("#info").html(node + " " + text + ": <span class='bold'> less than 10  </span>");
+            d3.select("#infoHidden").html("The number of businesses where "+node.replace("Expect", "expecting") + " in wave " + wave + " was less than 10");
+          } else {
+            d3.select("#info").html(node + " " + text + ": <span class='bold'> " + fmt(d.value) + "  </span>");
+            d3.select("#infoHidden").html("The number of businesses where "+node.replace("Expect", "expecting") + " in wave " + wave + " was " + fmt(d.value));
+          }
+        d3.select(this).classed("highlight", true);
+          var name = d.name.replace(/ liability| asset|/gi, "");
+          d3.select(this).classed("focussed", true)
+        })
+        .on("blur", function(d) {
+          $("#info").empty();
+          $("#infoHidden").empty();
+          d3.select(this).classed("highlight", false)
+
+          d3.select(this).classed("focussed", false)
         })
 
       // add in the title for the nodes
