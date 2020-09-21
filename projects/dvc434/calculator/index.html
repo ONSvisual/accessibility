@@ -925,6 +925,14 @@ function getCodes1(myValue2)    {
 
 								if(typeof params != 'undefined') {
 
+                  d3.select('abbr').on('keypress',function(evt){
+            				if(d3.event.keyCode==13 || d3.event.keyCode==32){
+                      d3.event.preventDefault();
+            					$("#occselect").val("").trigger("chosen:updated");
+            				}
+            			})
+
+
 									AreaLoad = params.selected;
 
 									solidSelected = params.selected;
