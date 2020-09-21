@@ -1515,6 +1515,8 @@ function startover(){
   d3.select("#page1").style("display","block")
   d3.select("#page2").style("display","none")
 
+  document.getElementById("button-1").focus();
+
   d3.select("#svg").selectAll("*").remove()
   d3.select("#svg2").selectAll("*").remove()
   pymChild.sendHeight()
