@@ -59,11 +59,19 @@
         fill-opacity: .2;
       }
 
+      .children:hover rect.child {
+        cursor: pointer;
+      }
+
       .children:hover rect.child, .children:focus rect.child {
         fill: #bbb;
       }
       .child:hover, .child:focus {
         fill: #bbb;
+      }
+
+      .children:hover text, .child:hover ~ text, .children:focus-within text {
+        fill: #323123;
       }
 
       *[code*=c1_] {
@@ -326,6 +334,16 @@
         height: 80px;
       }
 
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
     </style>
   </head>
 
@@ -333,10 +351,13 @@
     <div class="container-fluid">
       <div id="main-wrapper">
         <div id="mainContent" style="display:none">
+          <p id="chartDescription" class="visuallyhidden"></p>
+
           <div id="blurb" class="row">
-            <text id="txt2"></text>
-            <text id="txt3"></text>
+            <span id="txt2"></span>
+            <span id="txt3"></span>
           </div>
+
           <div class="row">
             <button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up" style="visibility:hidden">
               Up a level
@@ -345,7 +366,6 @@
               Back to top
             </button>
           </div>
-
 
           <div class="row">
             <div id="chart"></div>
@@ -368,7 +388,7 @@
                   href="https://www.gov.uk/support/browsers" target="_blank">Find out more about browsers</a></b>
             </p>
           </div>
-          <img id="thumbNail" src="exports.png">
+          <img id="thumbNail" src="exports.png" alt="Chart displaying value of exports to the EU, European Free Trade Association and Rest of the world, broken down by country.">
         </div>
       </div>
     </div><!--end of .container-fluid-->
@@ -509,7 +529,7 @@
           var heading = "Total exports: ";
           var value = "£" + formatNumber(dataset.vals[1] / 1000) + " billion";
           var label = `Chart displaying value of exports (${value}) to the EU, European Free Trade Association and Rest of the world, broken down by country.`;
-          $('#main-wrapper').attr('aria-label', label);
+          $('#chartDescription').html(label);
           d3.select("#blurb").select("#txt2").html(heading);
           d3.select("#blurb").select("#txt3").html(value);
         });
