@@ -113,26 +113,28 @@
         </div>
       </form>
 
+      <p class="visuallyhidden" id="announce" role="alert"></p>
+
   <!-- salary results page -->
       <div class="highlightbox highlight1" id="highlight1">
-        <strong><p>Your salary is <span id="salarycomment"></span> people aged <span id="agecomment"></span></p></strong>
+        <p><strong id="salarySummary"></strong></p>
       </div>
 
       <div class="highlightbox highlight1" id="highlight2" style="display:none">
-        <strong><p>Your living situation is <span id="livingcomment"></span> people aged <span id="agecomment2"></span></p></strong>
+        <p><strong id="livingSummary"></strong></p>
       </div>
 
       <div class="highlightbox highlight1" id="highlight3" style="display:none">
-        <strong><p>Your savings are <span id="savingscomment"></span> people aged <span id="agecomment3"></span></p></strong>
+        <p><strong id="savingsSummary"></strong></p>
       </div>
 
       <div class="highlightbox highlight1 " id="highlight4" style="display:none">
-        <strong><p>Your debt is <span id="debtcomment"></span> people aged <span id="agecomment4"></span></p></strong>
+        <p><strong id="debtSummary"></strong></p>
       </div>
       <div id="svg2"></div>
       <div id="svg"></div>
 
-      <button class="btn-primary large" onclick="startover()">Start over</button>
+      <button class="btn btn-primary" onclick="startover()">Start over</button>
         <br><br>
       <p id="disclaimertext"></p>
       </div>
@@ -288,14 +290,20 @@ d3.select("#svg").selectAll("*").remove()
     salarydata=glob_twentytwo
   }
 
+  var salarycomment, salarySummary
 
-  if(yearlyearnings>median){document.getElementById("salarycomment").innerHTML="above average compared to"}
-  else if(yearlyearnings<median){document.getElementById("salarycomment").innerHTML="below average compared to"}
-  else {document.getElementById("salarycomment").innerHTML="the same as the average for"}
+  if(yearlyearnings > median) {
+    salarycomment="above average compared to"
+  } else if(yearlyearnings<median) {
+    salarycomment="below average compared to"
+  } else {
+    salarycomment="the same as the average for"
+  }
 
-  if(age=="18 to 21"){document.getElementById("agecomment").innerHTML="18 to 21."}
-  else {document.getElementById("agecomment").innerHTML="22 to 29."}
+  salarySummary = `Your salary is ${salarycomment} people aged ${age}.`
 
+  document.getElementById("salarySummary").textContent = salarySummary
+  document.getElementById("announce").textContent = salarySummary
 
   //find index of salary
   salaryarray=[]
@@ -542,32 +550,28 @@ function livingbutton() {
   d3.select("#highlight3").style("display", "none");
   d3.select("#highlight4").style("display", "none");
 
-  if(age=="18 to 21"){
-    if(livingsitu == "Living with parents"){
-      document.getElementById("livingcomment").innerHTML="shared with the majority of "
-    document.getElementById("agecomment2").innerHTML="18 to 21." }
-    else{
-      document.getElementById("livingcomment").innerHTML="different to the majority of "
-    document.getElementById("agecomment2").innerHTML="18 to 21." }
+
+
+  var livingcomment, livingSummary
+
+  if(age=="18 to 21" && livingsitu == "Living with parents" || age=="22 to 29" && livingsitu == "Renter") {
+    livingcomment="shared with the majority of"
+  } else {
+    livingcomment="different to the majority of"
   }
 
-  else
-  {
-    if(livingsitu == "Renter"){
-    document.getElementById("livingcomment").innerHTML="shared with the majority of "
-      document.getElementById("agecomment2").innerHTML="22 to 29." }
-      else{
-        document.getElementById("livingcomment").innerHTML="different to the majority of "
-      document.getElementById("agecomment2").innerHTML="22 to 29." }
-}
+  livingSummary = `Your living situation is ${livingcomment} people aged ${age}.`
 
-//filter the data to just do one age group
-if (age=="18 to 21"){
-  living_age = "18 to 21"
-} else {
-  living_age = "22 to 29"
-}
+  document.getElementById("livingSummary").textContent = livingSummary
+  document.getElementById("announce").textContent = livingSummary
 
+
+  //filter the data to just do one age group
+  if (age=="18 to 21"){
+    living_age = "18 to 21"
+  } else {
+    living_age = "22 to 29"
+  }
 
   width=parseInt(d3.select("#svg").style("width"))
   margin={top:20,right:20,bottom:70,left:15}
@@ -818,13 +822,20 @@ function savingsbutton() {
   }
 
 
-  if(savings>median){document.getElementById("savingscomment").innerHTML="above average compared to"}
-  else if(savings<median){document.getElementById("savingscomment").innerHTML="below average compared to"}
-  else {document.getElementById("savingscomment").innerHTML="the same as the average for"}
+  var savingscomment, savingsSummary
 
-  if(age=="18 to 21"){document.getElementById("agecomment3").innerHTML="18 to 21."}
-  else {document.getElementById("agecomment3").innerHTML="22 to 29."}
+  if(savings > median) {
+    savingscomment="above average compared to"
+  } else if(savings<median) {
+    savingscomment="below average compared to"
+  } else {
+    savingscomment="the same as the average for"
+  }
 
+  savingsSummary = `Your savings are ${savingscomment} people aged ${age}.`
+
+  document.getElementById("savingsSummary").textContent = savingsSummary
+  document.getElementById("announce").textContent = savingsSummary
 
 
   //find index of savings
@@ -1164,12 +1175,20 @@ function debtbutton() {
       debtdata= glob_debt_twentytwo
     }
 
-    if(debt>median){document.getElementById("debtcomment").innerHTML="above average compared to"}
-    else if(debt<median){document.getElementById("debtcomment").innerHTML="below average compared to"}
-    else {document.getElementById("debtcomment").innerHTML="the same as the average for"}
+    var debtcomment, debtSummary
 
-    if(age=="18 to 21"){document.getElementById("agecomment4").innerHTML="18 to 21."}
-    else {document.getElementById("agecomment4").innerHTML="22 to 29."}
+    if(debt > median) {
+      debtcomment="above average compared to"
+    } else if(debt<median) {
+      debtcomment="below average compared to"
+    } else {
+      debtcomment="the same as the average for"
+    }
+
+    debtSummary = `Your debt is ${debtcomment} people aged ${age}.`
+
+    document.getElementById("debtSummary").textContent = debtSummary
+    document.getElementById("announce").textContent = debtSummary
 
 
     //find index of salary
