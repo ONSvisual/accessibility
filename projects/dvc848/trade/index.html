@@ -186,7 +186,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <div id="altern">
     <p>Unfortunately your browser cannot display this graphic. You might need to upgrade to a modern browser - Find out more information here <a href="https://www.gov.uk/help/browsers">https://www.gov.uk/help/browsers</a></p>
-    <img src="alt.png"></img>
+    <img src="alt.png" alt="Screenshot of sankey diagram illustrating how coronavirus has affected business trading">
   </div>
 
   <div class="container-fluid">
@@ -200,7 +200,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="row">
           <div class="col-12  text-center" id="info" aria-hidden="true"></div>
           <div class="col-12  text-center visuallyhidden" id="infoHidden"  aria-live="assertive"></div>
-          <div class="col-12" id="graphic" aria-hidden="true"></div>
+          <div class="col-12" id="graphic" ></div>
         </div>
 
       </div>
@@ -425,7 +425,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .data(linksX)
         .enter()
         .append("path")
-        .attr("tabindex","1")
+        .attr("tabindex","0")
         .attr("class", function(d) {
           return "link" + " " + d.liaIns + " " + d.color + " " + d.first.replace(/ &/gi,"").replace(/ /gi,"") + "L" + " " + d.third.replace(/ &/gi,"").replace(/ /gi,"") + "A";
         })
@@ -498,7 +498,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       // add the rectangles for the nodes
       node.append("rect")
-        .attr("tabindex","1")
+        .attr("tabindex","0")
         .attr("height", function(d) {
           return d.dy;
         })
