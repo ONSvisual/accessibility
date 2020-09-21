@@ -390,24 +390,19 @@
         $("#ieMsg").fadeIn(1000);
       }
 
-
       pymChild = new pym.Child();
-
 
       var transitioning;
       var widthCalc;
       var heightCalc;
 
-
       getSizes();
-
 
       $(window).resize(function () {
         if (window.innerWidth != bwidth) {
           getSizes();
         }
       });
-
 
       function getSizes() {
 
@@ -780,7 +775,6 @@
           });
       }
 
-
       function rect(rect) {
         rect.attr("x", function (d) {
           return x(d.x);
@@ -807,17 +801,17 @@
       //            : d.desc;
       //      }
 
-
       function mouseover(d) {
-
         var selectClass = $(this).attr('desc');
         var selectValue = $(this).attr('realvals');
-        d3.select("#blurb").select("#txt3").html(selectClass + ": £" + formatNumber(selectValue) + " billion");
+        d3.select("#blurb").select("#txt2").html(selectClass + ": ");
+        d3.select("#blurb").select("#txt3").html("£" + formatNumber(selectValue) + " billion");
 
       };
 
       function mouseout() {
-        d3.select("#blurb").select("#txt3").html("Total exports: £" + formatNumber(dataset.vals[1] / 1000) + " billion");
+        d3.select("#blurb").select("#txt2").html("Total exports: ");
+        d3.select("#blurb").select("#txt3").html("£" + formatNumber(dataset.vals[1] / 1000) + " billion");
       };
 
       function simulateClick(elem /* Must be the element */) {
@@ -850,7 +844,6 @@
         backToTop();
       });
 
-
       setTimeout(function () {
         if (pymChild) {
           pymChild.sendHeight();
@@ -881,7 +874,6 @@
         }
       }, 700)
 
-
       function backToTop() {
 
         $(levelArray).each(function (i) {
@@ -891,12 +883,9 @@
         });
       };
 
-
       function updateHash() {
 
       }
-
-
     </script>
 
     <script>

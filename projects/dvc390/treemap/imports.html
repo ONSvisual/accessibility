@@ -778,12 +778,14 @@
         //console.log('mouseover')
         var selectClass = $(this).attr('desc');
         var selectValue = $(this).attr('realvals');
-        d3.select("#blurb").select("#txt3").html(selectClass+": £"+formatNumber(selectValue)+" billion");
+        d3.select("#blurb").select("#txt2").html(selectClass + ": ");
+        d3.select("#blurb").select("#txt3").html("£"+formatNumber(selectValue)+" billion");
       };
 
       function mouseout(){
         //console.log('mouseout')
-        d3.select("#blurb").select("#txt3").html("Total imports: £"+formatNumber(dataset.vals[1]/1000)+" billion");
+        d3.select("#blurb").select("#txt2").html("Total imports: ");
+        d3.select("#blurb").select("#txt3").html("£"+formatNumber(dataset.vals[1]/1000)+" billion");
       };
 
       function simulateClick(elem /* Must be the element */) {
