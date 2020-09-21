@@ -534,38 +534,31 @@ function livingbutton() {
     'selected': 'livingbutton'
   })
 
-d3.select("#svg2").selectAll("*").remove()
-d3.select("#svg").selectAll("*").remove()
+  d3.select("#svg2").selectAll("*").remove()
+  d3.select("#svg").selectAll("*").remove()
 
-  d3.select("#highlight1")
-    .style("display", "none");
+  d3.select("#highlight1").style("display", "none");
+  d3.select("#highlight2").style("display", "block");
+  d3.select("#highlight3").style("display", "none");
+  d3.select("#highlight4").style("display", "none");
 
-  d3.select("#highlight2")
-    .style("display", "block");
+  if(age=="18 to 21"){
+    if(livingsitu == "Living with parents"){
+      document.getElementById("livingcomment").innerHTML="shared with the majority of "
+    document.getElementById("agecomment2").innerHTML="18 to 21." }
+    else{
+      document.getElementById("livingcomment").innerHTML="different to the majority of "
+    document.getElementById("agecomment2").innerHTML="18 to 21." }
+  }
 
-    d3.select("#highlight3")
-      .style("display", "none");
-
-      d3.select("#highlight4")
-        .style("display", "none");
-
-      if(age=="18 to 21"){
-        if(livingsitu == "Living with parents"){
-          document.getElementById("livingcomment").innerHTML="shared with the majority of "
-        document.getElementById("agecomment2").innerHTML="18 to 21." }
-        else{
-          document.getElementById("livingcomment").innerHTML="different to the majority of "
-        document.getElementById("agecomment2").innerHTML="18 to 21." }
-      }
-
-      else
-      {
-        if(livingsitu == "Renter"){
-        document.getElementById("livingcomment").innerHTML="shared with the majority of "
-          document.getElementById("agecomment2").innerHTML="22 to 29." }
-          else{
-            document.getElementById("livingcomment").innerHTML="different to the majority of "
-          document.getElementById("agecomment2").innerHTML="22 to 29." }
+  else
+  {
+    if(livingsitu == "Renter"){
+    document.getElementById("livingcomment").innerHTML="shared with the majority of "
+      document.getElementById("agecomment2").innerHTML="22 to 29." }
+      else{
+        document.getElementById("livingcomment").innerHTML="different to the majority of "
+      document.getElementById("agecomment2").innerHTML="22 to 29." }
 }
 
 //filter the data to just do one age group
@@ -807,20 +800,13 @@ function savingsbutton() {
     'selected': 'savingsbutton'
   })
 
-d3.select("#svg2").selectAll("*").remove()
-d3.select("#svg").selectAll("*").remove()
+  d3.select("#svg2").selectAll("*").remove()
+  d3.select("#svg").selectAll("*").remove()
 
-  d3.select("#highlight1")
-    .style("display", "none");
-
-  d3.select("#highlight2")
-    .style("display", "none");
-
-    d3.select("#highlight3")
-      .style("display", "block");
-
-      d3.select("#highlight4")
-        .style("display", "none");
+  d3.select("#highlight1").style("display", "none");
+  d3.select("#highlight2").style("display", "none");
+  d3.select("#highlight3").style("display", "block");
+  d3.select("#highlight4").style("display", "none");
 
   if(age=="18 to 21"){
     median=1200,
@@ -1164,19 +1150,10 @@ function debtbutton() {
   d3.select("#svg2").selectAll("*").remove()
   d3.select("#svg").selectAll("*").remove()
 
-
-    d3.select("#highlight1")
-      .style("display", "none");
-
-    d3.select("#highlight2")
-      .style("display", "none");
-
-      d3.select("#highlight3")
-        .style("display", "none");
-
-        d3.select("#highlight4")
-          .style("display", "block");
-
+  d3.select("#highlight1").style("display", "none");
+  d3.select("#highlight2").style("display", "none");
+  d3.select("#highlight3").style("display", "none");
+  d3.select("#highlight4").style("display", "block");
 
     if(age=="18 to 21"){
       median=2400,
@@ -1515,6 +1492,7 @@ function startover(){
   d3.select("#page1").style("display","block")
   d3.select("#page2").style("display","none")
 
+  // Putting focus on first element
   document.getElementById("button-1").focus();
 
   d3.select("#svg").selectAll("*").remove()
