@@ -92,7 +92,7 @@
       </div>
 <!-- end of user input page -->
 
-        <div id="page2" style="display:none">
+        <div id="page2" class="pt-1" style="display:none">
 <!-- tabs -->
         <form class="btn-form-fullwidth" role="radiogroup">
         <div class="form-group-fullwidth" role="radio">
@@ -179,32 +179,13 @@
    d3.select("#dropdown2").append("select").attr("id","period")
    d3.select("#dropdown3").append("select").attr("id","period3").attr("style","width:100%")
 
-
    d3.select("#period").selectAll("p").data(timeperiods).enter().append("option")
    .attr("value",function(d){return d})
    .text(function(d){return d});
-   // $('#period').select2({minimumResultsForSearch: -1, allowClear:false})
-   //
-   // $('#period').on('select2:select',function(g){
-   //   dataLayer.push({
-   //       "event": "mapDropSelect",
-   //       "selected": g.params.data.text
-   //   })
-   // })
 
    d3.select("#period3").selectAll("p").data(livingsituation).enter().append("option")
    .attr("value",function(d){return d})
    .text(function(d){return d});
-   // $('#period3').select2({minimumResultsForSearch: -1, allowClear:false})
-   //
-   // $('#period3').on('select2:select',function(g){
-   //   dataLayer.push({
-   //       "event": "mapDropSelect",
-   //       "selected": g.params.data.text
-   //   })
-   // })
-
-
 
 
 // Tab mouse clicks
@@ -224,9 +205,12 @@ for (var i = 0; i < tabLabels.length; i++) {
         // Click on tab (label)
         document.getElementById(event.target.htmlFor).click();
     }
-})
+  })
 }
+
+
  	} //end initialise
+
 
 function submit(){
   d3.select("#page1").style("display","none")
@@ -240,17 +224,19 @@ function submit(){
   age=document.querySelector('input[name="button"]:checked').value
 
   dataLayer.push({
-                      'event': 'buttonClicked',
-                      'selected': age
-                    })
+    'event': 'buttonClicked',
+    'selected': age
+  })
+
   dataLayer.push({
-        "event": "mapDropSelect",
-        "selected": earningsperiod
-    })
+    "event": "mapDropSelect",
+    "selected": earningsperiod
+  })
+
   dataLayer.push({
-        "event": "mapDropSelect",
-        "selected": livingsitu
-    })
+    "event": "mapDropSelect",
+    "selected": livingsitu
+  })
 
   //work out yearly earnings
   if(earningsperiod=="Per month"){yearlyearnings=earnings*12}
@@ -272,9 +258,9 @@ function salarybutton() {
 d3.select("#disclaimertext").text("Note: Salaries refer to employees (not self-employed) in 2017")
 
   dataLayer.push({
-                      'event': 'buttonClicked',
-                      'selected': 'salarybutton'
-                    })
+    'event': 'buttonClicked',
+    'selected': 'salarybutton'
+  })
 
 d3.select("#svg2").selectAll("*").remove()
 d3.select("#svg").selectAll("*").remove()
@@ -544,9 +530,9 @@ function livingbutton() {
   d3.select("#disclaimertext").text("")
 
   dataLayer.push({
-                      'event': 'buttonClicked',
-                      'selected': 'livingbutton'
-                    })
+    'event': 'buttonClicked',
+    'selected': 'livingbutton'
+  })
 
 d3.select("#svg2").selectAll("*").remove()
 d3.select("#svg").selectAll("*").remove()
@@ -588,10 +574,6 @@ if (age=="18 to 21"){
 } else {
   living_age = "22 to 29"
 }
-
-  // d3.select("#svg").selectAll("*").remove()
-  // d3.select("#svg2").selectAll("*").remove()
-
 
 
   width=parseInt(d3.select("#svg").style("width"))
@@ -718,11 +700,11 @@ if (livingsitu=="Homeowner"){
 var legendLabels=["Homeowner","Renter","Living with parents"]
 var x_axis_grid = function() { return xAxis; }
 var legend = d3.select('#svg').append('ul')
-        .attr('class', 'key')
-        .selectAll('g')
-        .data(legendLabels)
-        .enter().append('li')
-        .attr("class",function(d,i){return "key-" + i})
+  .attr('class', 'key')
+  .selectAll('g')
+  .data(legendLabels)
+  .enter().append('li')
+  .attr("class",function(d,i){return "key-" + i})
 legend.append('b')
 legend.append('label')
   .html(function(d,i) { return legendLabels[i]; });
@@ -741,9 +723,6 @@ legend.append('label')
   y=d3.scaleBand()
     .rangeRound([0, height])
     .padding(0.1);
-
-
-
 
 
 
@@ -774,9 +753,6 @@ legend.append('label')
         var xAxis = d3.axisBottom(x).ticks(5).tickFormat(function (d){ return d3.format(".0%")(d/100)});
 
 
-
-
-
           y.domain(glob_living2.map(function(d) {
               return d.cat;
             }));
@@ -786,15 +762,7 @@ legend.append('label')
               .attr('transform', 'translate(0,' + (height*0.8) + ')')
 
               .call(xAxis);
-            // svg.append('g')
-            //     .attr('class', 'x axis')
-            //     .call(yAxis)
-            // .append("text")
-            //  .attr("y", height+23)
-            //  .attr("x",chartwidth)
-            //  .attr("dy", ".71em")
-            //  .style("text-anchor", "end")
-            //  .text("%");
+
             svg.append('g')
                 .attr('class', 'x grid')
                 .call(x_axis_grid()
@@ -835,9 +803,9 @@ pymChild.sendHeight()
 function savingsbutton() {
   d3.select("#disclaimertext").text("Note: Savings refer to money in a savings account or ISA in July 2014 to June 2016")
   dataLayer.push({
-                      'event': 'buttonClicked',
-                      'selected': 'savingsbutton'
-                    })
+    'event': 'buttonClicked',
+    'selected': 'savingsbutton'
+  })
 
 d3.select("#svg2").selectAll("*").remove()
 d3.select("#svg").selectAll("*").remove()
@@ -1189,9 +1157,9 @@ if (width <360){
 function debtbutton() {
   d3.select("#disclaimertext").text("Note: Debt refers to financial debt (not mortgages), excluding student loans from the Student Loan company, in July 2014 to June 2016")
   dataLayer.push({
-                      'event': 'buttonClicked',
-                      'selected': 'debtbutton'
-                    })
+    'event': 'buttonClicked',
+    'selected': 'debtbutton'
+  })
 
   d3.select("#svg2").selectAll("*").remove()
   d3.select("#svg").selectAll("*").remove()
@@ -1540,9 +1508,9 @@ var pointerarray = [chartwidth/14, chartwidth*3/14, chartwidth*8/14, chartwidth*
 
 function startover(){
   dataLayer.push({
-                      'event': 'buttonClicked',
-                      'selected': 'startover'
-                    })
+    'event': 'buttonClicked',
+    'selected': 'startover'
+  })
 
   d3.select("#page1").style("display","block")
   d3.select("#page2").style("display","none")
