@@ -1,0 +1,12 @@
+{"ons":{
+"maptitle": "Old Age Dependency Map",
+"varcolour": "PuBu",
+"varunit": "Old age dependency ratio",
+"displaydecimals": 1,
+"legenddecimals": 0,
+"breaks": "jenks",
+"dropticks": false,
+"numberBreaks": 5,
+"varname1":"y2016",
+"varname2":"y2026"
+}}
