@@ -195,9 +195,15 @@ if(Modernizr.webgl) {
 		// 	.on('click',function(d,i){onchange(i)})
 
 
+		d3.select('#selectnav').append('label')
+		.attr('for','dropdown')
+		.attr('class','visuallyhidden')
+		.text('Select a variable to map from the dropdown list')
+
 		selectgroup = d3.select('#selectnav')
 						.append('select')
 						.attr('class','dropdown')
+						.attr('id','dropdown')
 						.on('change', onselect)
 						.selectAll("option")
 						.data(dvc.varlabels)
