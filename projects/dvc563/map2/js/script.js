@@ -263,7 +263,7 @@ if (Modernizr.webgl) {
 
       // Work out how many timepoints we have in our dataset; number of rows - area name & code // Look at linechart templates to see how?
       // parse data into columns
-      if (config.ons.breaks == "jenks" || config.ons.breaks == "equal") {
+      if (config.ons.breaks[navvalue] == "jenks" || config.ons.breaks[navvalue] == "equal") {
         var values = [];
         allvalues = [];
 
@@ -283,11 +283,11 @@ if (Modernizr.webgl) {
 
       }
 
-      if (config.ons.breaks == "jenks") {
+      if (config.ons.breaks[navvalue] == "jenks") {
         breaks = [];
 
-        ss.ckmeans(allvalues, (dvc.numberBreaks)).map(function(cluster, i) {
-          if (i < dvc.numberBreaks - 1) {
+        ss.ckmeans(allvalues, (dvc.numberbreaks[navvalue])).map(function(cluster, i) {
+          if (i < dvc.numberbreaks[navvalue] - 1) {
             breaks.push(cluster[0]);
           } else {
             breaks.push(cluster[0])
@@ -295,10 +295,10 @@ if (Modernizr.webgl) {
             breaks.push(cluster[cluster.length - 1]);
           }
         });
-      } else if (config.ons.breaks == "equal") {
-        breaks = ss.equalIntervalBreaks(allvalues, dvc.numberBreaks);
+      } else if (config.ons.breaks[navvalue] == "equal") {
+        breaks = ss.equalIntervalBreaks(allvalues, dvc.numberbreaks[navvalue]);
       } else {
-        breaks = config.ons.breaks;
+        breaks = config.ons.breaks[navvalue];
       };
 
 
@@ -308,7 +308,7 @@ if (Modernizr.webgl) {
       });
 
       //work out halfway point (for no data position)
-      midpoint = breaks[0] + ((breaks[dvc.numberBreaks] - breaks[0]) / 2)
+      midpoint = breaks[0] + ((breaks[dvc.numberbreaks] - breaks[0]) / 2)
 
     }
 
@@ -316,8 +316,8 @@ if (Modernizr.webgl) {
       //set up d3 color scales
       //Load colours
       if (typeof dvc.varcolour === 'string') {
-        // colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
-        color = chroma.scale(dvc.varcolour).colors(dvc.numberBreaks)
+        // colour = colorbrewer[dvc.varcolour][dvc.numberbreaks[navvalue]];
+        color = chroma.scale(dvc.varcolour).colors(dvc.numberbreaks[navvalue])
         colour = []
         color.forEach(function(d) {
           colour.push(chroma(d).darken(0.4).saturate(0.6).hex())
@@ -987,7 +987,7 @@ if (Modernizr.webgl) {
 
         // Set up scales for legend
         y = d3.scaleLinear()
-          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+          .domain([breaks[0], breaks[dvc.numberbreaks]]) /*range for data*/
           .range([keyheight, 0]); /*range for pixels*/
 
         // Set up scales for chart
@@ -1152,11 +1152,11 @@ if (Modernizr.webgl) {
 
 
         xkey = d3.scaleLinear()
-          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+          .domain([breaks[0], breaks[dvc.numberbreaks[navvalue]]]) /*range for data*/
           .range([0, keywidth - 30]); /*range for pixels*/
 
         y = d3.scaleLinear()
-          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+          .domain([breaks[0], breaks[dvc.numberbreaks[navvalue]]]) /*range for data*/
           .range([0, keywidth - 30]); /*range for pixels*/
 
         var xAxis = d3.axisBottom(xkey)
