@@ -96,7 +96,7 @@
 <!-- tabs -->
         <form class="btn-form-fullwidth" role="radiogroup">
         <div class="form-group-fullwidth" role="radio">
-          <input id="button-13" class="radio-tab-fullwidth" type="radio" name="button2" value="1" aria-checked="true">
+          <input id="button-13" class="radio-tab-fullwidth" type="radio" name="button2" value="1" aria-checked="false">
           <label class="label-tab-fullwidth" for="button-13" tabindex="0">Salary</label>
         </div>
         <div class="form-group-fullwidth" role="radio">
@@ -247,7 +247,6 @@ function submit(){
 
 
   d3.select("#button-13").property("checked","true")
-
   //compare with median salaries
 salarybutton();
 
@@ -530,6 +529,10 @@ d3.select("#svg").selectAll("*").remove()
       .text("Median £"+d3.format(",.0f")(median));
     }
 
+    // Accessibility: Setting aria-checked on tabs
+    d3.selectAll("input.radio-tab-fullwidth").attr("aria-checked","false")
+    d3.select("#button-13").attr("aria-checked","true")
+
     pymChild.sendHeight()
 }
 
@@ -792,7 +795,11 @@ var group = svg.selectAll(".year")
   }
 });
 
-pymChild.sendHeight()
+  // Accessibility: Setting aria-checked on tabs
+  d3.selectAll("input.radio-tab-fullwidth").attr("aria-checked","false")
+  d3.select("#button-14").attr("aria-checked","true")
+
+  pymChild.sendHeight()
 }//end of function living
 
 
@@ -1146,6 +1153,11 @@ if (width <360){
       .attr("fill", "#0F8243")
       .text("Median £"+d3.format(",.0f")(median));
     }
+
+    // Accessibility: Setting aria-checked on tabs
+    d3.selectAll("input.radio-tab-fullwidth").attr("aria-checked","false")
+    d3.select("#button-15").attr("aria-checked","true")
+
     pymChild.sendHeight()
 } // End function savings
 
@@ -1498,6 +1510,11 @@ var pointerarray = [chartwidth/14, chartwidth*3/14, chartwidth*8/14, chartwidth*
       .attr("fill", "#0F8243")
       .text("Median £"+d3.format(",.0f")(median));
     }
+
+    // Accessibility: Setting aria-checked on tabs
+    d3.selectAll("input.radio-tab-fullwidth").attr("aria-checked","false")
+    d3.select("#button-16").attr("aria-checked","true")
+
     pymChild.sendHeight()
   }
 //End of debt function
