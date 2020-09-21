@@ -1,0 +1,37 @@
+{"ons":{
+"maptitle": "Mid Year Population Estimates",
+"varcolour": [
+  ["#e66101","#fdb863","#d8daeb","#b2abd2","#8073ac","#542788"],
+  "YlGnBu",
+  "YlGnBu",
+  ["#e66101","#fdb863","#d8daeb","#b2abd2","#8073ac","#542788"],
+  "YlGnBu",
+  "YlGnBu",
+  ["#e66101","#fdb863","#d8daeb","#b2abd2","#8073ac","#542788"],
+  "YlGnBu",
+  "YlGnBu",
+  ["#e66101","#fdb863","#d8daeb","#b2abd2","#8073ac","#542788"],
+  ["#e66101","#fdb863","#d8daeb","#b2abd2","#8073ac","#542788"]
+],
+"varlabels": ["Population change 2018 to 2019", "Births", "Deaths", "Natural change", "Internal in", "Internal out", "Internal net", "International in", "International out", "International net", "Other change"],
+"varload": 0,
+"varunit": ["% of the population from mid-2018", "% of the population from mid-2018", "% of the population from mid-2018", "% of the population from mid-2018", "% of the population from mid-2018", "% of the population from mid-2018",
+   "% of the population from mid-2018", "% of the population from mid-2018", "% of the population from mid-2018", "% of the population from mid-2018", "% of the population from mid-2018"],
+"displaydecimals": 1,
+"legenddecimals": 1,
+"breaks":[
+  [-2.8,-0.6,0,0.6,1.2,1.8,11.7],
+  "jenks",
+  "jenks",
+  [-2.8,-0.6,0,0.6,1.2,1.8,11.7],
+  "jenks",
+  "jenks",
+  [-2.8,-0.6,0,0.6,1.2,1.8,11.7],
+  "jenks",
+  "jenks",
+  [-2.8,-0.6,0,0.6,1.2,1.8,11.7],
+  [-2.8,-0.6,0,0.6,1.2,1.8,11.7]
+],
+"dropticks": true,
+"numberBreaks": 6
+}}
