@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -12,10 +12,10 @@
 <title>UK Trade in Services</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="Description" content="An interactive map showings UK trade in services ">
 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-<link href="lib/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="lib/bootstrap-grid.css">
 <link rel="stylesheet" type="text/css" href="lib/chosen.css">
 
@@ -27,7 +27,6 @@
 	body {
 		    max-width:900px;
         font-family: "Open Sans", sans-serif;
-        color:
 	}
 
     #chartsnsparks {
@@ -166,25 +165,32 @@
 		font: bold 18px/24px Arial, Helvetica, sans-serif;
 	}
 
-	.zoom-control-zoom-in:hover {
+	/* .zoom-control-zoom-in:hover {
 			color: #fff;
 			background-color: #323132;
-	}
+	} */
 
 	.zoom-bar-part {
 		background-color: #ededed;
 		border-bottom: 1px solid white;
 	}
 
+  .zoom-bar-part:focus,.zoom-bar-part:hover {
+    box-shadow: 0 0 0 3px orange;
+    background-color: #414042;
+    color: #ededed;
+
+  }
+
 	.zoom-control-zoom-out {
 		cursor:pointer;
 		font: bold 23px/20px Tahoma, Verdana, sans-serif;
 	}
 
-	.zoom-control-zoom-out:hover {
+	/* .zoom-control-zoom-out:hover {
 		color: #fff;
 		background-color: #323132;
-	}
+	} */
 
 	.zoom-bar-part-bottom {
 		border-bottom: none;
@@ -226,6 +232,16 @@
   text-align: right;
   padding-right: 5px !important; }
 
+  .visuallyhidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
 
 </style>
 
@@ -235,12 +251,14 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div id="fallback"><img width="100%" src="./images/alt.png" alt="World trade map"/></div>
+<h5 class="visuallyhidden">This graphic allows users to see imports and exports of services traded with different countries across the world. See the accompanying data for the underlying figures.</h5>
+
+<div id="fallback"><img style="width:100%;" src="./images/alt.png" alt="World trade map"/></div>
 <div id="selectNav" class="col-sm-9 col-xs-12"></div>
 <div class="row">
 	<div class="zoom-container zoom-control-zoom zoom-bar zoom-control hidden-xs">
-    	<a class="zoom-control-zoom-in zoom-bar-part zoom-bar-part-top" title="Zoom in">+</a>
-        <a class="zoom-control-zoom-out zoom-bar-part zoom-bar-part-bottom" title="Zoom out">-</a>
+    <a tabindex=0 class="zoom-control-zoom-in zoom-bar-part zoom-bar-part-top" title="Zoom in" aria-label="zoom in on the map">+</a>
+    <a tabindex=0 class="zoom-control-zoom-out zoom-bar-part zoom-bar-part-bottom" title="Zoom out" aria-label="zoom out on the map">-</a>
     </div>
     <div id="mapDiv" class="col-sm-9 hidden-xs">
 
@@ -263,6 +281,8 @@
     </div>
   </div>
 </div>
+<div class="visuallyhidden" id="accessibility"><p aria-live="assertive"></p></div>
+
 <div class="row" id="source">
 	Source: UK Trade Statistics, Office for National Statistics
 </div>
@@ -271,10 +291,8 @@
     <script src="https://cdn.ons.gov.uk/vendor/d3/4.13.0/d3.min.js"></script>
     <script src="lib/topojson.min.js"></script>
     <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
-    <!-- <script src="lib/d3-queue.min.js"></script> -->
     <script src="lib/jquery-3.0.0.slim.min.js"></script>
-	  <!-- <script src="lib/select2.min.js"></script> -->
-    <script src="lib/chosen.jquery.js" type="text/javascript"></script>
+    <script src="lib/chosen.jquery.js"></script>
     <script src="lib/svg-pan-zoom.min.js"></script>
     <script src="lib/modernizr.custom.56904.js"></script>
   	<script src="lib/script.js"></script>
