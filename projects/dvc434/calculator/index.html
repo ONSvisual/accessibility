@@ -954,6 +954,10 @@ function getCodes1(myValue2)    {
 
 			});
 
+            // Adding label to the search input
+            d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+            d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
+
 
 	} //End of make occupation
 
