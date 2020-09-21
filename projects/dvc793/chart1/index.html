@@ -241,6 +241,7 @@
       var tdata = headers.selectAll('td')
         .data(headData).enter()
         .append('th')
+        .attr('scope','col')
         .text(function(d) {
           return d;
         });
@@ -253,19 +254,22 @@
           return 'row' + i;
         });
 
+      rows.append('th')
+      .attr('scope','row')
+      .attr('class','dash0')
 
       rows.selectAll('td')
         .data(function() {
           if (parseInt(graphic.style("width")) < dvc.threshold_sm) {
-            return [0, 1, 2];
+            return [1, 2];
           } else {
-            return [0, 1, 2, 3]
+            return [1, 2, 3]
           }
         })
         .enter()
         .append('td')
         .attr("class", function(d, i) {
-          return "dash" + i;
+          return "dash" + d;
         });
 
 
