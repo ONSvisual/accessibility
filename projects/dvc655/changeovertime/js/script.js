@@ -755,13 +755,7 @@ if (Modernizr.webgl) {
           .transition()
           .duration(300)
           .attr("x", x(dvc.timepoints[a]))
-          .attr("y", function() {
-            if (!isNaN(rateById[code])) {
-              return y(rateById[code]) - 20
-            } else {
-              return y(midpoint)
-            }
-          })
+          .attr("y", findCurrValy )
           .attr("text-anchor", "middle");
 
         d3.select("#currVal2")
@@ -776,14 +770,23 @@ if (Modernizr.webgl) {
           .transition()
           .duration(300)
           .attr("x", x(dvc.timepoints[a]))
-          .attr("y", function() {
-            if (!isNaN(rateById[code])) {
-              return y(rateById[code]) - 20
-            } else {
-              return y(midpoint)
-            }
-          })
+          .attr("y", findCurrValy )
           .attr("text-anchor", "middle");
+
+        function findCurrValy() {
+          if (!isNaN(rateById[code])) { // if there exists a numerical value
+            // if value is greater than threshold, put it below the line
+            var yThreshold = ( y.domain()[0] + y.domain()[1] ) * 2 / 3
+            if (rateById[code] > yThreshold ) {
+              yAdjustment = 22
+            } else { // otherwise it goes above
+              yAdjustment = -12
+            }
+            return y(rateById[code]) + yAdjustment
+          } else { // if there is no numerical value
+            return y(midpoint)
+          }
+        }
 
         d3.select("#currPoint")
           .text(function() {
