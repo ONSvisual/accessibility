@@ -3,8 +3,6 @@
 }
 
 .btn-form {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   font-family: 'Open Sans',Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,8 +13,6 @@
 }
 
 .form-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   cursor: pointer;
   height: 40px;
@@ -139,8 +135,6 @@ h3{
 }
 
 .btn-form-fullwidth {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   font-family: 'Open Sans',Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -151,8 +145,6 @@ h3{
 }
 
 .form-group-fullwidth {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   cursor: pointer;
   height: 40px;
@@ -377,7 +369,9 @@ button {
 .input--radio {
   width: 30px;
   height: 30px;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: 2px solid #206095;
   padding: 0.5rem;
   font-size: 1rem;
@@ -453,7 +447,9 @@ input[type=checkbox], input[type=radio] {
 }
 
 .input--select {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   width: 100%;
   max-width: 18em;
   min-width: 13em;
@@ -529,6 +525,7 @@ select {
   border: 2px solid #206095;
   -moz-appearance: none;
   -webkit-appearance: none;
+  color:#206095;
 }
 
 .select select:-moz-focusring {
