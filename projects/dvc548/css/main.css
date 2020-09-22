@@ -144,6 +144,12 @@ h3{
   width: 100%;
 }
 
+@media(max-width:540px){
+  .btn-form-fullwidth {
+    font-size: 14px;
+  }
+}
+
 .form-group-fullwidth {
   display: flex;
   cursor: pointer;
@@ -151,6 +157,12 @@ h3{
   box-sizing: border-box;
   text-align: center;
   width: 100%;
+}
+
+@media(max-width:480px){
+  .form-group-fullwidth {
+    height: 44px;
+  }
 }
 
 
@@ -163,7 +175,7 @@ h3{
   text-decoration: underline;
   border-bottom: solid 2px #206095;
   background-clip: content-box;
-  padding:0px 5px;
+  padding:0px 3px;
   padding-bottom: 3px;
   line-height: 37px;
 }
@@ -182,6 +194,17 @@ h3{
   outline: none;
   position: inherit;
   box-shadow: 0px 0px 0px 3px #FE781C;
+}
+
+@media(max-width:480px){
+  .linebreak-fix {
+    line-height: 18px;
+  }
+
+  /* Force a line break here */
+  .linebreak-fix span {
+    display: table;
+  }
 }
 
 .radio-tab-fullwidth {
