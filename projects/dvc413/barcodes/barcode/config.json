@@ -1,0 +1,64 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "colour_palette": ["#0075A3"],
+        
+            "dateFormat":"%Y",
+        
+       
+            "sourceText":["The spatial distribution of industries in Great Britain: 2015"],
+            "sourceURL":["https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/articles/thespatialdistributionofindustriesingreatbritain/2015"],
+			
+			"DivSelector": ["graphic","graphic2","graphic3","graphic4","graphic5","graphic6"],
+			"UnitSelector": [" years"," years","%","%","%",""],
+			"VariableLoad": ["MaleHLE","FemaleHLE","Smokingprevalence","PhysicallyActiveAdults","fiveaday","Alcoholrelatedadmissionsper100000"],
+			"EnglandAverage": [65.9, 65.7,16.9,57.0,52.3,634.7],
+			"xAxisScale":[[31.7,126.8],[32.05,128.2],[8.45,33.8],[28.5,114],[26.15,104.6],[317.35,1269.4]],
+
+
+
+
+        
+            "annotationChart": [
+            
+            ],
+            "annotationBullet": [
+  
+            ],
+            "annotationXY":[
+          
+            ],
+            "annotationAlign":[
+        
+            ],
+        
+            "barHeight_sm_md_lg" : [40,40,40],
+        
+        
+            "xAxisLabel":""
+                     
+    },
+    "optional" : {
+            "margin_sm": [20, 0, 0, 0],
+            "margin_md": [20, 0, 0, 0],
+            "margin_lg": [20, 0, 0, 0],
+
+            "aspectRatio_sm" : [1,1],
+            "aspectRatio_md" : [1,1],
+            "aspectRatio_lg" : [1,1],
+        
+            "mobileBreakpoint" : 550, 
+                           
+            "x_num_ticks_sm_md_lg" : [0,0,0],
+            "vertical_line" : true,
+            "annotateLineX1_Y1_X2_Y2":[ [["2004",225],["2004",0]], [["2007",250],["2007",0]], [["2014",225],["2014",0]] ],
+            "annotateRect" : true,
+            "annotateRectX_Y" : [ [["Jan-94", 200],["Jan-96", 0]], [["Jul-04", 180],["Jul-06", 40]] ],
+            "lineColor_opcty" : [["#888", 0.2], ["#888", 0.4]],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+
