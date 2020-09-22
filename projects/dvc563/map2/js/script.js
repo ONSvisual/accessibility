@@ -113,7 +113,7 @@ if (Modernizr.webgl) {
 
     setRates(thisdata);
 
-    defineBreaks(thisdata, dvc.breaksMap);
+    mapBreaks = defineBreaks(thisdata, dvc.breaksMap);
 
     setupScales(thisdata);
 
@@ -269,6 +269,8 @@ if (Modernizr.webgl) {
         var currentBreaks = configBreaks
       }
 
+      console.log(currentBreaks)
+
       //Flatten data values and work out breaks
       var values = thisdata.map(function(d) {
         return +eval("d." + variables[a]);
@@ -313,7 +315,9 @@ if (Modernizr.webgl) {
           }
         });
       } else if (currentBreaks == "equal") {
+        console.log(breaks)
         breaks = ss.equalIntervalBreaks(allvalues, dvc.numberBreaks);
+        console.log(breaks)
       } else {
         breaks = currentBreaks;
       };
@@ -327,6 +331,7 @@ if (Modernizr.webgl) {
       //work out halfway point (for no data position)
       midpoint = breaks[0] + ((breaks[dvc.numberBreaks] - breaks[0]) / 2)
 
+      return breaks
     }
 
     function setupScales() {
@@ -347,7 +352,7 @@ if (Modernizr.webgl) {
 
       //set up d3 color scales
       color = d3.scaleThreshold()
-        .domain(breaks.slice(1))
+        .domain(mapBreaks.slice(1))
         .range(colour);
 
     }
@@ -493,7 +498,7 @@ if (Modernizr.webgl) {
         d3.csv(filepthRnk, function(datarank) {
           rankdata = datarank;
           setRates(thisdata);
-          defineBreaks(thisdata, dvc.breaksMap);
+          mapBreaks = defineBreaks(thisdata, dvc.breaksMap);
           setupScales(thisdata); // TODO: does this work?
           createMapKey(config);
 
@@ -992,9 +997,8 @@ if (Modernizr.webgl) {
 
       d3.select("#keydiv").selectAll("*").remove();
 
-      defineBreaks(rankdata, dvc.breaksChart)
+      chartBreaks = defineBreaks(rankdata, dvc.breaksChart)
       // setupScales(dvc.varcolour, dvc.numberBreaksChart)
-
 
       if (mobile == false) {
 
@@ -1016,19 +1020,19 @@ if (Modernizr.webgl) {
 
         // Set up scales for legend
         yChart = d3.scaleLinear()
-          .domain([breaks[0], breaks[dvc.numberBreaksChart]]) /*range for data*/
-          .range([keyheight, 0]); /*range for pixels*/
+          .domain([chartBreaks[0], chartBreaks[dvc.numberBreaks]]) /*range for data*/
+          .range([0, keyheight - 10]); /*range for pixels*/
 
         // Set up scales for chart
         xChart = d3.scalePoint()
-          .domain(dvc.timepoints) /*range for data*/
-          .range([0, keywidth - 60])
+          .domain(dvc.timepointsChart) /*range for data*/
+          .range([0, keywidth - 75])
           .align(0.5); /*range for pixels*/
 
 
         var yAxis = d3.axisLeft(yChart)
-          .tickSize(15)
-          .tickValues(color.domain())
+          .tickSize(5)
+          .tickValues(breaks)
           .tickFormat(legendformat);
 
 
@@ -1049,27 +1053,6 @@ if (Modernizr.webgl) {
           .style("font-size", "12px");
 
         d3.selectAll("path").attr("display", "none")
-
-        g.selectAll("rect")
-          .data(color.range().map(function(d, i) {
-            return {
-              y0: i ? yChart(color.domain()[i]) : yChart.range()[0],
-              y1: i < color.domain().length ? yChart(color.domain()[i + 1]) : y.range()[1],
-              z: d
-            };
-          }))
-          .enter().append("rect")
-          .attr("width", 8)
-          .attr("x", -8)
-          .attr("y", function(d) {
-            return d.y1;
-          })
-          .attr("height", function(d) {
-            return d.y0 - d.y1;
-          })
-          .style("fill", function(d) {
-            return d.z;
-          });
 
         g.call(yAxis).append("text");
 
@@ -1181,11 +1164,11 @@ if (Modernizr.webgl) {
 
 
         xkey = d3.scaleLinear()
-          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+          .domain([chartBreaks[0], chartBreaks[dvc.numberBreaks]]) /*range for data*/
           .range([0, keywidth - 30]); /*range for pixels*/
 
         y = d3.scaleLinear()
-          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+          .domain([chartBreaks[0], chartBreaks[dvc.numberBreaks]]) /*range for data*/
           .range([0, keywidth - 30]); /*range for pixels*/
 
         var xAxis = d3.axisBottom(xkey)
