@@ -1,8 +1,7 @@
 {"ons":{
 "maptitle": "HLE ranking",
 
-"varcolour": "YlGnBu",
-"varcolourMap": [["aaa", "#D0DCEC", "#789AC8", "#33537D"], ["#fef0d9","#fdcc8a","#fc8d59","#d7301f"], ["aaa", "#D0DCEC", "#789AC8", "#33537D"], ["#fef0d9","#fdcc8a","#fc8d59","#d7301f"] ],
+"varcolour": [["#D0DCEC", "#789AC8", "#33537D"], ["#fdcc8a","#fc8d59","#d7301f"], ["#D0DCEC", "#789AC8", "#33537D"], ["#fdcc8a","#fc8d59","#d7301f"] ],
 "numberBreaks": 3,
 "breaksMap":[[53,59,65,72], [48,57,66,75.02], [5,9,14,18], [5,9,14,18]],
 "breaksChart":"equal",

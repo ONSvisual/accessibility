@@ -144,7 +144,7 @@ if (Modernizr.webgl) {
     //and add properties to the geojson based on the csv file we've read in
     areas.features.map(function(d, i) {
 
-      d.properties.fill = color(rateById[d.properties.AREACD])
+      d.properties.fill = color(rateByIdMap[d.properties.AREACD])
     });
 
 
@@ -231,13 +231,13 @@ if (Modernizr.webgl) {
     function setRates(thisdata) {
 
       rateByIdMap = {};
-      areaByIdMap = {};
+      // areaByIdMap = {};
       rateById = {};
       areaById = {};
 
       thisdata.forEach(function(d) {
         rateByIdMap[d.AREACD] = +eval("d." + variables[a]);
-        areaByIdMap[d.AREACD] = d.AREANM
+        // areaByIdMap[d.AREACD] = d.AREANM
       });
 
       rankdata.forEach(function(d) {
@@ -335,11 +335,16 @@ if (Modernizr.webgl) {
     }
 
     function setupScales() {
+      if (Array.isArray(dvc.varcolour)) {
+        var varcolours = dvc.varcolour[navvalue];
+      } else {
+        var varcolours = dvc.varcolour;
+      }
       //set up d3 color scales
       //Load colours
-      if (typeof dvc.varcolour === 'string') {
-        // colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
-        color = chroma.scale(dvc.varcolour).colors(dvc.numberBreaks)
+      if (typeof varcolours === 'string') {
+        // colour = colorbrewer[varcolours][dvc.numberBreaks];
+        color = chroma.scale(varcolours).colors(dvc.numberBreaks)
         colour = []
         color.forEach(function(d) {
           colour.push(chroma(d).darken(0.4).saturate(0.6).hex())
@@ -347,7 +352,7 @@ if (Modernizr.webgl) {
 
 
       } else {
-        colour = dvc.varcolour;
+        colour = varcolours;
       }
 
       //set up d3 color scales
@@ -467,7 +472,7 @@ if (Modernizr.webgl) {
       //update properties to the geojson based on the csv file we've read in
       areas.features.map(function(d, i) {
 
-        d.properties.fill = color(rateById[d.properties.AREACD])
+        d.properties.fill = color(rateByIdMap[d.properties.AREACD])
       });
 
       //Reattach geojson data to area layer
@@ -592,7 +597,7 @@ if (Modernizr.webgl) {
           d3.select("#currPoint2")
             .transition()
             .duration(300)
-            .attr("cx", x(dvc.timepoints[a]))
+            .attr("cx", x(dvc.timepointsChart[a]))
             .attr("cy", y(dvc.average[navvalue][a]))
         }
       }
@@ -763,13 +768,13 @@ if (Modernizr.webgl) {
               return yChart(midpoint)
             }
           })
-          .attr("x2", xChart(dvc.timepoints[a]))
+          .attr("x2", xChart(dvc.timepointsChart[a]))
           .attr("x1", xChart(0));
 
         d3.select("#currValChart")
           .text(function() {
             if (!isNaN(rateById[code])) {
-              return displayformat(rateById[code])
+              return rateById[code]
             } else {
               return "Data unavailable"
             }
@@ -777,7 +782,7 @@ if (Modernizr.webgl) {
           .style("opacity", 1)
           .transition()
           .duration(300)
-          .attr("x", xChart(dvc.timepoints[a]))
+          .attr("x", xChart(dvc.timepointsChart[a]))
           .attr("y", findCurrValy )
           .attr("text-anchor", "middle");
 
@@ -828,7 +833,7 @@ if (Modernizr.webgl) {
           })
           .transition()
           .duration(300)
-          .attr("cx", xChart(dvc.timepoints[a]))
+          .attr("cx", xChart(dvc.timepointsChart[a]))
           .attr("cy", function() {
             if (!isNaN(rateById[code])) {
               return yChart(rateById[code])
@@ -909,10 +914,11 @@ if (Modernizr.webgl) {
 
 
 
-        linedata = d3.zip(dvc.timepoints, values);
+        linedata = d3.zip(dvc.timepointsChart, values);
 
         line1 = d3.line()
           .defined(function(linedata) {
+            console.log(linedata)
             return !isNaN(linedata[1]);
           })
           .x(function(d, i) {
@@ -940,14 +946,14 @@ if (Modernizr.webgl) {
           .attr("id", "currPoint")
           .attr("r", "4px")
           .attr("cy", yChart(linedata[a][1]))
-          .attr("cx", xChart(dvc.timepoints[a]))
+          .attr("cx", xChart(dvc.timepointsChart[a]))
           .attr("fill", "#666")
           .attr("stroke", "black")
-          .style("opacity", 0)
+          .style("opacity", 1)
 
       } else {
 
-        selectedarea = thisdata.filter(function(d) {
+        selectedarea = rankdata.filter(function(d) {
           return d.AREACD == code
         });
 
@@ -959,7 +965,7 @@ if (Modernizr.webgl) {
 
         values = valuesx.slice(0);
 
-        linedata = d3.zip(dvc.timepoints, values);
+        linedata = d3.zip(dvc.timepointsChart, values);
 
         d3.select("#line1")
           .style("opacity", 1)
@@ -983,6 +989,9 @@ if (Modernizr.webgl) {
         .style("opacity", 0);
 
       d3.select("#currVal").text("")
+        .style("opacity", 0);
+
+      d3.select("#currValChart").text("")
         .style("opacity", 0);
 
       d3.select("#currVal2")
@@ -1097,7 +1106,7 @@ if (Modernizr.webgl) {
 
         // check there are average values
         if (dvc.average[varNum] != null) {
-          linedata2 = d3.zip(dvc.timepoints, dvc.average[varNum]);
+          linedata2 = d3.zip(dvc.timepointsChart, dvc.average[varNum]);
 
           line2 = d3.line()
             .defined(function(d) {
@@ -1129,7 +1138,7 @@ if (Modernizr.webgl) {
                   return y(0) // placeholder because no data for this variable
                 }
               })
-              .attr("cx", x(dvc.timepoints[a]))
+              .attr("cx", x(dvc.timepointsChart[a]))
               .attr("fill", "#b0b0b0")
               .attr("stroke", "black")
 
