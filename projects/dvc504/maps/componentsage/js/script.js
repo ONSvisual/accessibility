@@ -1143,7 +1143,7 @@ if(Modernizr.webgl) {
 			var svgkey = d3.select("#keydiv")
 				.append("svg")
 				.attr("id", "key")
-				.attr('aria-hidden',true)
+				.attr('aria-hidden','true')
 				.attr("width", keywidth)
 				.attr("height",75);
 
