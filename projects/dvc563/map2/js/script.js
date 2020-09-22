@@ -10,13 +10,14 @@ if (Modernizr.webgl) {
 
   //Load data and config file
   d3.queue()
+    .defer(d3.csv, "data/rank0.csv")
     .defer(d3.csv, "data/data0.csv")
     .defer(d3.json, "data/config.json")
     .defer(d3.json, "data/geog.json")
     .await(ready);
 
 
-  function ready(error, data, config, geog) {
+  function ready(error, rank, data, config, geog) {
 
     //Set up global variables
     dvc = config.ons;
@@ -25,6 +26,7 @@ if (Modernizr.webgl) {
     firsthover = true;
     chartDrawn = false;
     thisdata = data;
+    rankdata = rank;
     overallwidth = d3.select("body").node().getBoundingClientRect().width;
     navvalue = 0;
 
@@ -111,14 +113,15 @@ if (Modernizr.webgl) {
 
     setRates(thisdata);
 
-    defineBreaks(thisdata);
+    defineBreaks(thisdata, dvc.breaksMap);
 
     setupScales(thisdata);
 
     setTimeLabel(a);
 
     //now ranges are set we can call draw the key
-    createKey(config);
+    createMapKey(config);
+    createChartKey(config);
 
     //convert topojson to geojson
     for (key in geog.objects) {
@@ -227,13 +230,20 @@ if (Modernizr.webgl) {
 
     function setRates(thisdata) {
 
+      rateByIdMap = {};
+      areaByIdMap = {};
       rateById = {};
       areaById = {};
 
       thisdata.forEach(function(d) {
-        rateById[d.AREACD] = +eval("d." + variables[a]);
-        areaById[d.AREACD] = d.AREANM
+        rateByIdMap[d.AREACD] = +eval("d." + variables[a]);
+        areaByIdMap[d.AREACD] = d.AREANM
       });
+
+      rankdata.forEach(function(d) {
+        rateById[d.AREACD] = +eval(d[variables[a]]);
+        areaById[d.AREACD] = d.AREANM
+      })
 
     }
 
@@ -251,12 +261,12 @@ if (Modernizr.webgl) {
 
 
 
-    function defineBreaks(data) {
+    function defineBreaks(data, configBreaks) {
       // handle case where config.ons.breaks is an array
-      if ( Array.isArray(config.ons.breaks) ) {
-        var currentBreaks = config.ons.breaks[navvalue]
+      if ( Array.isArray(configBreaks) ) {
+        var currentBreaks = configBreaks[navvalue]
       } else {
-        var currentBreaks = config.ons.breaks
+        var currentBreaks = configBreaks
       }
 
       //Flatten data values and work out breaks
@@ -475,28 +485,32 @@ if (Modernizr.webgl) {
       navvalue = i;
       //load new csv file
 
-      filepth = "data/data" + i + ".csv"
+      filepthDta = "data/data" + i + ".csv"
+      filepthRnk = "data/rank" + i + ".csv"
 
-      d3.csv(filepth, function(data) {
-        thisdata = data;
-        setRates(thisdata);
-        defineBreaks(thisdata);
-        setupScales(thisdata);
-        createKey(config);
+      d3.csv(filepthDta, function(datadata) {
+        thisdata = datadata
+        d3.csv(filepthRnk, function(datarank) {
+          rankdata = datarank;
+          setRates(thisdata);
+          defineBreaks(thisdata, dvc.breaksMap);
+          setupScales(thisdata); // TODO: does this work?
+          createMapKey(config);
 
-        if (selected) {
-          setAxisVal($("#areaselect").val());
-          if (mobile == false) {
-            updateChart($("#areaselect").val());
+          if (selected) {
+            setAxisVal($("#areaselect").val());
+            if (mobile == false) {
+              updateChart($("#areaselect").val());
+            }
           }
-        }
-        updateLayers();
+          updateLayers();
 
-        dataLayer.push({
-          'event': 'navSelect',
-          'selected': i
-        })
-      });
+          dataLayer.push({
+            'event': 'navSelect',
+            'selected': i
+          })
+        });
+      })
 
 
 
@@ -732,22 +746,22 @@ if (Modernizr.webgl) {
           .duration(300)
           .attr("y1", function() {
             if (!isNaN(rateById[code])) {
-              return y(rateById[code])
+              return yChart(rateById[code])
             } else {
-              return y(midpoint)
+              return yChart(midpoint)
             }
           })
           .attr("y2", function() {
             if (!isNaN(rateById[code])) {
-              return y(rateById[code])
+              return yChart(rateById[code])
             } else {
-              return y(midpoint)
+              return yChart(midpoint)
             }
           })
-          .attr("x2", x(dvc.timepoints[a]))
-          .attr("x1", x(0));
+          .attr("x2", xChart(dvc.timepoints[a]))
+          .attr("x1", xChart(0));
 
-        d3.select("#currVal")
+        d3.select("#currValChart")
           .text(function() {
             if (!isNaN(rateById[code])) {
               return displayformat(rateById[code])
@@ -758,37 +772,37 @@ if (Modernizr.webgl) {
           .style("opacity", 1)
           .transition()
           .duration(300)
-          .attr("x", x(dvc.timepoints[a]))
+          .attr("x", xChart(dvc.timepoints[a]))
           .attr("y", findCurrValy )
           .attr("text-anchor", "middle");
 
-        d3.select("#currVal2")
-          .text(function() {
-            if (!isNaN(rateById[code])) {
-              return displayformat(rateById[code])
-            } else {
-              return "Data unavailable"
-            }
-          })
-          .style("opacity", 1)
-          .transition()
-          .duration(300)
-          .attr("x", x(dvc.timepoints[a]))
-          .attr("y", findCurrValy)
-          .attr("text-anchor", "middle");
+        // d3.select("#currVal2")
+        //   .text(function() {
+        //     if (!isNaN(rateById[code])) {
+        //       return displayformat(rateById[code])
+        //     } else {
+        //       return "Data unavailable"
+        //     }
+        //   })
+        //   .style("opacity", 1)
+        //   .transition()
+        //   .duration(300)
+        //   .attr("x", xChart(dvc.timepoints[a]))
+        //   .attr("y", findCurrValy)
+        //   .attr("text-anchor", "middle");
 
         function findCurrValy() {
           if (!isNaN(rateById[code])) { // if there exists a numerical value
             // if value is greater than threshold, put it below the line
-            var yThreshold = ( y.domain()[0] + y.domain()[1] ) * 2 / 3
+            var yThreshold = ( yChart.domain()[0] + yChart.domain()[1] ) * 2 / 3
             if (rateById[code] > yThreshold ) {
               yAdjustment = 22
             } else { // otherwise it goes above
               yAdjustment = -12
             }
-            return y(rateById[code]) + yAdjustment
+            return yChart(rateById[code]) + yAdjustment
           } else { // if there is no numerical value
-            return y(midpoint)
+            return yChart(midpoint)
           }
         }
 
@@ -809,10 +823,10 @@ if (Modernizr.webgl) {
           })
           .transition()
           .duration(300)
-          .attr("cx", x(dvc.timepoints[a]))
+          .attr("cx", xChart(dvc.timepoints[a]))
           .attr("cy", function() {
             if (!isNaN(rateById[code])) {
-              return y(rateById[code])
+              return yChart(rateById[code])
             } else {
               return 0
             }
@@ -876,7 +890,7 @@ if (Modernizr.webgl) {
         chartDrawn = true;
 
 
-        selectedarea = thisdata.filter(function(d) {
+        selectedarea = rankdata.filter(function(d) {
           return d.AREACD == code
         });
 
@@ -897,10 +911,10 @@ if (Modernizr.webgl) {
             return !isNaN(linedata[1]);
           })
           .x(function(d, i) {
-            return x(linedata[i][0]);
+            return xChart(linedata[i][0]);
           })
           .y(function(d, i) {
-            return y(linedata[i][1]);
+            return yChart(linedata[i][1]);
           });
 
 
@@ -920,8 +934,8 @@ if (Modernizr.webgl) {
         gline1.append("circle")
           .attr("id", "currPoint")
           .attr("r", "4px")
-          .attr("cy", y(linedata[a][1]))
-          .attr("cx", x(dvc.timepoints[a]))
+          .attr("cy", yChart(linedata[a][1]))
+          .attr("cx", xChart(dvc.timepoints[a]))
           .attr("fill", "#666")
           .attr("stroke", "black")
           .style("opacity", 0)
@@ -970,13 +984,17 @@ if (Modernizr.webgl) {
         .style("opacity", 0);
     }
 
-    function createKey(config, i) {
+    function createMapKey(config, i) {
+
+    }
+
+    function createChartKey(config, i) {
 
       d3.select("#keydiv").selectAll("*").remove();
 
-      var color = d3.scaleThreshold()
-        .domain(breaks)
-        .range(colour);
+      defineBreaks(rankdata, dvc.breaksChart)
+      // setupScales(dvc.varcolour, dvc.numberBreaksChart)
+
 
       if (mobile == false) {
 
@@ -997,25 +1015,25 @@ if (Modernizr.webgl) {
           .attr("transform", "translate(45,10)");
 
         // Set up scales for legend
-        y = d3.scaleLinear()
-          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+        yChart = d3.scaleLinear()
+          .domain([breaks[0], breaks[dvc.numberBreaksChart]]) /*range for data*/
           .range([keyheight, 0]); /*range for pixels*/
 
         // Set up scales for chart
-        x = d3.scalePoint()
+        xChart = d3.scalePoint()
           .domain(dvc.timepoints) /*range for data*/
           .range([0, keywidth - 60])
           .align(0.5); /*range for pixels*/
 
 
-        var yAxis = d3.axisLeft(y)
+        var yAxis = d3.axisLeft(yChart)
           .tickSize(15)
           .tickValues(color.domain())
           .tickFormat(legendformat);
 
 
         //Add
-        var xAxisTime = d3.axisBottom(x)
+        var xAxisTime = d3.axisBottom(xChart)
           .tickSize(5)
           .tickValues(dvc.timelineLabelsDT)
 
@@ -1035,8 +1053,8 @@ if (Modernizr.webgl) {
         g.selectAll("rect")
           .data(color.range().map(function(d, i) {
             return {
-              y0: i ? y(color.domain()[i]) : y.range()[0],
-              y1: i < color.domain().length ? y(color.domain()[i + 1]) : y.range()[1],
+              y0: i ? yChart(color.domain()[i]) : yChart.range()[0],
+              y1: i < color.domain().length ? yChart(color.domain()[i + 1]) : y.range()[1],
               z: d
             };
           }))
@@ -1075,8 +1093,8 @@ if (Modernizr.webgl) {
         //   .attr("opacity", 0);
 
         g.append("text")
-          .attr("id", "currVal")
-          .attr("y", y(11))
+          .attr("id", "currValChart")
+          .attr("y", yChart(11))
           .attr("fill", "#000")
           .attr("paint-order", "stroke")
           .attr("stroke", "#fff")
@@ -1086,11 +1104,11 @@ if (Modernizr.webgl) {
           .text("");
 
 
-        g.append("text")
-          .attr("id", "currVal2")
-          .attr("y", y(11))
-          .attr("fill", "#000")
-          .text("");
+        // g.append("text")
+        //   .attr("id", "currVal2")
+        //   .attr("y", y(11))
+        //   .attr("fill", "#000")
+        //   .text("");
 
         varNum = navvalue;
 
@@ -1103,10 +1121,10 @@ if (Modernizr.webgl) {
               return !isNaN(d[0]);
             })
             .x(function(d) {
-              return x(d[0]);
+              return xChart(d[0]);
             })
             .y(function(d) {
-              return y(d[1]);
+              return yChart(d[1]);
             });
 
 
