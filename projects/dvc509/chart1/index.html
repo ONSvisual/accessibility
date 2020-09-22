@@ -580,21 +580,31 @@ function drawGraphic()
                             .text('yrs');
 
 
-                    // Add button listener
+    // Add button listener
+    d3.selectAll(".form-group").on("click",function(){
+        d3.selectAll(".form-group").classed("active" ,false);
+        d3.select(this).classed("active" ,true);
 
-                        d3.selectAll(".form-group").on("click",function(){
-                                    d3.selectAll(".form-group").classed("active" ,false);
-                                    d3.select(this).classed("active" ,true);
-                        //});
+        if(d3.select(".form-group").classed("form-group active") ){
+            drawFigs();
+        } else {
+            drawPercent();
+        }
+    });
 
-                        if(d3.select(".form-group").classed("form-group active") ){
+    // Add keypress listener
+    var radioLabels = document.getElementsByClassName("label-primary")
 
-                                drawFigs();
-
-                            } else{
-                                drawPercent();
-                            }
-                        });
+    for (var i = 0; i < radioLabels.length; i++) {
+        radioLabels[i].addEventListener("keypress", function(event) {
+            event.preventDefault();
+            // If the enter key is pressed
+            if (event.keyCode === 13) {
+                // Click on button (label)
+                document.getElementById(event.target.htmlFor).click();
+            }
+        })
+    }
 
 
 
