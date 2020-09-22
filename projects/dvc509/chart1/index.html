@@ -222,10 +222,13 @@
 
 </head>
 <body>
+	<div class="visuallyhidden">
+        <h5>Chart hidden from screen readers. Chart title summarises content, and underlying data available via data download below notes.</h5>
+    </div>
     <div id="header">
-        <div id = "legendTab"></div>
+        <div id = "legendTab" aria-hidden="true"></div>
         <div id = "toprow">
-            <form class="btn-form" >
+            <form class="btn-form">
                 <div class="form-group mr-2">
                     <input id="button-1" class="radio-primary" type="radio" name="button" value="1" aria-checked="true" checked>
                     <label class="label-primary" for="button-1" tabindex="0">Numbers</label>
@@ -238,7 +241,7 @@
         </div>
     </div>
 
-    <div id="graphic">
+    <div id="graphic" aria-hidden="true">
         <img src="fallback.png" alt="[Chart]" />
     </div>
 
