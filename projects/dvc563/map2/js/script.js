@@ -252,6 +252,13 @@ if (Modernizr.webgl) {
 
 
     function defineBreaks(data) {
+      // handle case where config.ons.breaks is an array
+      if ( Array.isArray(config.ons.breaks) ) {
+        var currentBreaks = config.ons.breaks[navvalue]
+      } else {
+        var currentBreaks = config.ons.breaks
+      }
+
       //Flatten data values and work out breaks
       var values = thisdata.map(function(d) {
         return +eval("d." + variables[a]);
@@ -263,7 +270,7 @@ if (Modernizr.webgl) {
 
       // Work out how many timepoints we have in our dataset; number of rows - area name & code // Look at linechart templates to see how?
       // parse data into columns
-      if (config.ons.breaks[navvalue] == "jenks" || config.ons.breaks[navvalue] == "equal") {
+      if (currentBreaks == "jenks" || currentBreaks == "equal") {
         var values = [];
         allvalues = [];
 
@@ -283,11 +290,11 @@ if (Modernizr.webgl) {
 
       }
 
-      if (config.ons.breaks[navvalue] == "jenks") {
+      if (currentBreaks == "jenks") {
         breaks = [];
 
-        ss.ckmeans(allvalues, (dvc.numberbreaks[navvalue])).map(function(cluster, i) {
-          if (i < dvc.numberbreaks[navvalue] - 1) {
+        ss.ckmeans(allvalues, (dvc.numberBreaks)).map(function(cluster, i) {
+          if (i < dvc.numberBreaks - 1) {
             breaks.push(cluster[0]);
           } else {
             breaks.push(cluster[0])
@@ -295,10 +302,10 @@ if (Modernizr.webgl) {
             breaks.push(cluster[cluster.length - 1]);
           }
         });
-      } else if (config.ons.breaks[navvalue] == "equal") {
-        breaks = ss.equalIntervalBreaks(allvalues, dvc.numberbreaks[navvalue]);
+      } else if (currentBreaks == "equal") {
+        breaks = ss.equalIntervalBreaks(allvalues, dvc.numberBreaks);
       } else {
-        breaks = config.ons.breaks[navvalue];
+        breaks = currentBreaks;
       };
 
 
@@ -308,7 +315,7 @@ if (Modernizr.webgl) {
       });
 
       //work out halfway point (for no data position)
-      midpoint = breaks[0] + ((breaks[dvc.numberbreaks] - breaks[0]) / 2)
+      midpoint = breaks[0] + ((breaks[dvc.numberBreaks] - breaks[0]) / 2)
 
     }
 
@@ -316,8 +323,8 @@ if (Modernizr.webgl) {
       //set up d3 color scales
       //Load colours
       if (typeof dvc.varcolour === 'string') {
-        // colour = colorbrewer[dvc.varcolour][dvc.numberbreaks[navvalue]];
-        color = chroma.scale(dvc.varcolour).colors(dvc.numberbreaks[navvalue])
+        // colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
+        color = chroma.scale(dvc.varcolour).colors(dvc.numberBreaks)
         colour = []
         color.forEach(function(d) {
           colour.push(chroma(d).darken(0.4).saturate(0.6).hex())
@@ -436,11 +443,6 @@ if (Modernizr.webgl) {
 
       //Add click event
       map.on("click", "area", onClick);
-
-      // start playing map by default. no controls on mobile so don't play.
-      if (mobile == false) {
-        onPlay();
-      }
 
     }
 
@@ -665,7 +667,9 @@ if (Modernizr.webgl) {
       $("#areaselect").val(code).trigger('chosen:updated');
       d3.select('abbr').on('keypress',function(evt){
 				if(d3.event.keyCode==13 || d3.event.keyCode==32){
-					$("#areaselect").val("").trigger('chosen:updated');
+          d3.event.preventDefault();
+					onLeave();
+          resetZoom();
 				}
 			})
     }
@@ -755,13 +759,7 @@ if (Modernizr.webgl) {
           .transition()
           .duration(300)
           .attr("x", x(dvc.timepoints[a]))
-          .attr("y", function() {
-            if (!isNaN(rateById[code])) {
-              return y(rateById[code]) - 20
-            } else {
-              return y(midpoint)
-            }
-          })
+          .attr("y", findCurrValy )
           .attr("text-anchor", "middle");
 
         d3.select("#currVal2")
@@ -776,14 +774,23 @@ if (Modernizr.webgl) {
           .transition()
           .duration(300)
           .attr("x", x(dvc.timepoints[a]))
-          .attr("y", function() {
-            if (!isNaN(rateById[code])) {
-              return y(rateById[code]) - 20
-            } else {
-              return y(midpoint)
-            }
-          })
+          .attr("y", findCurrValy)
           .attr("text-anchor", "middle");
+
+        function findCurrValy() {
+          if (!isNaN(rateById[code])) { // if there exists a numerical value
+            // if value is greater than threshold, put it below the line
+            var yThreshold = ( y.domain()[0] + y.domain()[1] ) * 2 / 3
+            if (rateById[code] > yThreshold ) {
+              yAdjustment = 22
+            } else { // otherwise it goes above
+              yAdjustment = -12
+            }
+            return y(rateById[code]) + yAdjustment
+          } else { // if there is no numerical value
+            return y(midpoint)
+          }
+        }
 
         d3.select("#currPoint")
           .text(function() {
@@ -897,9 +904,10 @@ if (Modernizr.webgl) {
           });
 
 
-        var gline1 = svgkey.append("g")
-          .attr("transform", "translate(45,10)")
-          .attr("id", "chartgroup")
+        var gline1 = svgkeyGroup.select("#chartgroup")
+        // var gline1 = svgkeyGroup.append("g")
+          // .attr("transform", "translate(45,10)")
+          // .attr("id", "chartgroup")
 
         gline1.append("path")
           .attr("id", "line1")
@@ -983,11 +991,14 @@ if (Modernizr.webgl) {
           .attr('aria-hidden',true)
           .attr("id", "key")
           .attr("width", keywidth)
-          .attr("height", keyheight + 30);
+          .attr("height", keyheight + 30)
+
+        svgkeyGroup = svgkey.append("g")
+          .attr("transform", "translate(45,10)");
 
         // Set up scales for legend
         y = d3.scaleLinear()
-          .domain([breaks[0], breaks[dvc.numberbreaks]]) /*range for data*/
+          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
           .range([keyheight, 0]); /*range for pixels*/
 
         // Set up scales for chart
@@ -1009,12 +1020,12 @@ if (Modernizr.webgl) {
           .tickValues(dvc.timelineLabelsDT)
 
         // create g2 before g so that its contents sit behind
-        var g2 = svgkey.append("g")
-          .attr("transform", "translate(45,10)")
+        var g2 = svgkeyGroup.append("g")
+          // .attr("transform", "translate(45,10)")
           .attr("id", "chartgroup")
 
-        var g = svgkey.append("g").attr("id", "vert")
-          .attr("transform", "translate(45,10)")
+        var g = svgkeyGroup.append("g").attr("id", "vert")
+          // .attr("transform", "translate(45,10)")
           .attr("font-weight", "600")
           .style("font-family", "'open sans'")
           .style("font-size", "12px");
@@ -1044,8 +1055,8 @@ if (Modernizr.webgl) {
 
         g.call(yAxis).append("text");
 
-        svgkey.append("g").attr("id", "timeaxis")
-          .attr("transform", "translate(45," + (10 + keyheight) + ")")
+        svgkeyGroup.append("g").attr("id", "timeaxis")
+          .attr("transform", "translate(0," + keyheight + ")")
           .attr("font-weight", "600")
           .style("font-family", "'open sans'")
           .style("font-size", "12px")
@@ -1121,17 +1132,17 @@ if (Modernizr.webgl) {
               .attr("fill", "#b0b0b0")
               .attr("stroke", "black")
 
-              svgkey.append("text")
+            g2.append("text")
                 .attr("id", "averagelabel")
                 .attr("x", function(d) {
                   return x(linedata2[linedata2.length - 1][0])
                 })
                 .attr("y", function(d) {
-                  return y(linedata2[linedata2.length - 1][1])
+                  return y(linedata2[linedata2.length - 1][1]) - 10 // use this number at end to adjust height of label
                 })
                 .attr("font-size", "12px")
                 .attr("fill", "#757575")
-                .attr("text-anchor", "middle")
+                .attr("text-anchor", "end")
                 .text(dvc.averageText);
 
             }
@@ -1152,11 +1163,11 @@ if (Modernizr.webgl) {
 
 
         xkey = d3.scaleLinear()
-          .domain([breaks[0], breaks[dvc.numberbreaks[navvalue]]]) /*range for data*/
+          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
           .range([0, keywidth - 30]); /*range for pixels*/
 
         y = d3.scaleLinear()
-          .domain([breaks[0], breaks[dvc.numberbreaks[navvalue]]]) /*range for data*/
+          .domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
           .range([0, keywidth - 30]); /*range for pixels*/
 
         var xAxis = d3.axisBottom(xkey)
