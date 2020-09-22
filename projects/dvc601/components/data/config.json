@@ -1,6 +1,6 @@
 {
     "essential" : {
-            "graphic_data_url": "data.csv",
+            "graphic_data_url": "data/data.csv",
 			
 			"fieldsToIgnore" : [ "AREACD" , "AREANM" ], 
 			
@@ -21,6 +21,12 @@
             ],        
             "xAxisLabel":"Year",
             "yAxisLabel":"%",
+            "unitofmeasure": [
+                "%",
+                "%",
+                "%",
+                "%"
+            ],
             "xAxisScale":"auto_zero_max",
             "yAxisScale":"auto_min_max",		
             "xAxisScaleDivisor":1,
@@ -79,7 +85,9 @@
         ["https://www.gov.uk/government/statistics/2012-based-household-projections-in-england-2012-to-2037", "http://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/households/household-projections/household-projections-for-scotland-2012-based"],["http://www.ons.gov.uk/ons/rel/migration1/internal-migration-by-local-authorities-in-england-and-wales/year-ending-june-2014/index.html"], 
         ["http://www.ons.gov.uk/ons/rel/subnational-health4/life-expectancy-at-birth-and-at-age-65-by-local-areas-in-england-and-wales/2012-14/index.html","http://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/life-expectancy/life-expectancy-in-scottish-areas/time-series-data","http://www.nisra.gov.uk/demography/default.asp130.htm"]
 
-]
+],
+"sourceUrl": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/annualmidyearpopulationestimates/mid2017",
+"visualisationTitle": "dvc601 - Electoral statistics - 2015-2018"
 }
 
 
