@@ -201,8 +201,8 @@ var tabLabels = document.getElementsByClassName("label-tab-fullwidth")
 for (var i = 0; i < tabLabels.length; i++) {
   tabLabels[i].addEventListener("keypress", function(event) {
     event.preventDefault();
-    // If the enter key is pressed
-    if (event.keyCode === 13) {
+    // If the enter key or space is pressed
+    if (event.keyCode === 13|| event.keycode === 32) {
         // Click on tab (label)
         document.getElementById(event.target.htmlFor).click();
     }
