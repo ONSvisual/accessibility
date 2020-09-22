@@ -17,357 +17,9 @@
     <link rel="stylesheet" href="lib/globalStyle.css" />
     <link href="css/styles.css" rel="stylesheet">
     <link href="lib/bootstrap-grid.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet">
 
-<style>
-#primary {
-  margin-bottom: 32px;
-}
-
-.btn-form {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  font-family: 'Open Sans',Arial,sans-serif;
-  -webkit-font-smoothing: antialiased;
-  font-weight: 600;
-  font-size: 16px;
-  margin-bottom: 32px;
-  width:100%;
-}
-
-.form-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  cursor: pointer;
-  height: 40px;
-  box-sizing: border-box;
-  text-align: center;
-  width:100%;
-}
-
-.form-group:last-child {
-  border-right: solid 1px #A6A8AB;
-}
-
-/* Primary button group */
-
-.label-primary {
-  padding: 8px 16px;
-  cursor: pointer;
-  color: #333;
-  background: #F9F9F9;
-  width: 100%;
-  min-width: 75px;
-  border-top: solid 1px #A6A8AB;
-  border-left: solid 1px #A6A8AB;
-  border-bottom: solid 1px #A6A8AB;
-}
-
-.label-primary:hover {
-  background: #003C57;
-  color: #fff;
-  border-color: #003C57;
-}
-
-.radio-primary {
-  display: none;
-}
-
-.radio-primary:checked + .label-primary {
-  background: #206095;
-  color: #fff;
-  border-color: #206095;
-  cursor: default;
-}
-
-[role="radio"]:focus {
-  outline: 3px solid #FF9933 !important;
-  outline-offset: -2px;
-  /* background-color:#003C57; */
-  z-index: 1;
-}
-
-form {
-  height:40px;
-}
-h1{
-  font-size:36px;
-}
-/* Primary button */
-
-.btn-primary {
-  background-color: #206095;
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background-color:#003C57;
-}
-
-.btn-primary:focus {
-  outline: 3px solid #FF9933 !important;
-  outline-offset: -1px;
-  /* background-color:#003C57; */
-}
-
-.large {
-  font-family: 'Open Sans',Arial,sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  display: inline-block;
-  cursor: pointer;
-  height: 40px;
-  padding: 0 32px 0 32px;
-  border: 0 none;
-  text-align: center;
-  -webkit-appearance: none;
-  transition: background-color 0.25s ease-out;
-  text-decoration: none;
-  -webkit-font-smoothing: antialiased;
-}
-
-.small {
-  font-family: 'Open Sans',Arial,sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  height: 32px;
-  display: inline-block;
-  padding: 0 8px;
-  cursor: pointer;
-  border: 0 none;
-  text-align: center;
-  -webkit-appearance: none;
-  transition: background-color 0.25s ease-out;
-  text-decoration: none;
-  -webkit-font-smoothing: antialiased;
-}
-
-.custom {
-
-  float:  left;
-  background-color: #0F8243;
-  margin-top:30px;
-}
-
-@media(max-width:540px){
-  .custom{
-    float: left;
-    width:100%;
-  }
-}
-
-h3{
-  padding-top: 20px;
-  margin-bottom: 5px;
-}
-
-.btn-form-fullwidth {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  font-family: 'Open Sans',Arial,sans-serif;
-  -webkit-font-smoothing: antialiased;
-  font-weight: normal;
-  font-size: 16px;
-  margin-bottom: 8px;
-  width: 100%;
-}
-
-.form-group-fullwidth {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  cursor: pointer;
-  height: 40px;
-  box-sizing: border-box;
-  text-align: center;
-  width: 100%;
-}
-
-.label-tab-fullwidth2{
-  padding: 8px 16px;
-  cursor: pointer;
-  color: #206095;
-  background: #eaeaea;
-  width: 100%;
-  text-decoration: underline;
-  border-bottom: solid 2px #206095;
-  background-clip: content-box;
-  padding:0px 3px;
-  padding-bottom: 3px;
-  line-height: 37px;
-}
-
-
-
-.label-tab-fullwidth {
-  padding: 8px 16px;
-  cursor: pointer;
-  color: #206095;
-  background: #eaeaea;
-  width: 100%;
-  text-decoration: underline;
-  border-bottom: solid 2px #206095;
-  background-clip: content-box;
-  padding:0px 5px;
-  padding-bottom: 3px;
-  line-height: 37px;
-}
-
-
-.label-tab-fullwidth:hover {
-  background: #003C57;
-  color: #fff;
-  border-color: #003C57;
-  background-clip: content-box;
-  padding:0px 3px;
-  padding-bottom: 3px;
-}
-
-.radio-tab-fullwidth {
-  display: none;
-}
-
-.radio-tab-fullwidth:checked + .label-tab-fullwidth  {
-  background: #ffffff;
-  color: #206095;
-  font-weight: bold;
-  border-color: #206095;
-  cursor: default;
-  border-top: solid 2px #206095;
-  border-left: solid 2px #206095;
-  border-right: solid 2px #206095;
-  border-bottom: none;
-  text-decoration: none;
-  background-clip: content-box;
-  padding:0px 3px;
-  line-height: 37px;
-}
-.radio-tab-fullwidth:checked + .label-tab-fullwidth2 {
-  background: #ffffff;
-  color: #206095;
-  font-weight: bold;
-  border-color: #206095;
-  cursor: default;
-  border-top: solid 2px #206095;
-  border-left: solid 2px #206095;
-  border-right: solid 2px #206095;
-  border-bottom: none;
-  text-decoration: none;
-  background-clip: content-box;
-  padding:0px 3px;
-  line-height: 37px;
-
-
-}
-@media (max-width: 540px){
-  .label-tab-fullwidth2,   .radio-tab-fullwidth:checked + .label-tab-fullwidth2:checked{
-    line-height: 18px !important;
-  }
-}
-/*  highlight boxes */
-.highlightbox{
-  padding: 1px 10px;
-  margin:10px 0px;
-  width:97%;
-  background-color: #206095;
-}
-
-.highlightbox p{
-  font-size: 20px;
-  color: white;
-  margin:14px 0px;
-  padding-right: 5px;
-  padding-left: 5px;
-}
-/*  stacked bar colours */
-.bar-0 { fill: #003C57; }
-    .bar-1 { fill: #3B7A9E; }
-    .bar-2 { fill: #008080; }
-.bar-3 { fill: #274796; }
-.bar-4 { fill: #979796; }
-    .key-0 b {margin-top:0px !important; width: 15px !important; background-color: #003C57; }
-    .key-1 b {margin-top:0px !important; width: 15px !important; background-color: #3B7A9E; }
-    .key-2 b {margin-top:0px !important; width: 15px !important; background-color: #008080; }
-.key-3 b {margin-top:0px !important; width: 15px !important; background-color: #274796; }
-.key-4 b {margin-top:0px !important; width: 15px !important; background-color: #979796; }
-
-.key b {
-  display:inline-block;
-  height:15px;
-  margin-right: 6px;
-  float:left;
-  border-radius: 10px;
-
-}
-ul.key {
-  padding-left: 0;
-  padding-top:10px;
-  margin:0;
-  border-top:dashed 2px;
-  border-color: #e5e6e7;
-
-}
-.key li{
-  display:inline-block;
-  margin:0 18px 0 0;
-  padding: 0;
-  line-height: 15px;
-}
-
-g.x.axis {
-  fill:none;
-  stroke-width: 0.5px;
-}
-
-.tick line{
-  stroke: #d0d2d3;
-}
-
-.x.grid path{
-  stroke:none;
-}
-g.x.axis path{
-  stroke:none;
-}
-.tick text{
-  fill: #000;
-  font-family: 'Open Sans',Arial,sans-serif;
-  font-size: 16px;
-  fill: #206095
-}
-#savings-input, #debt-input, #earnings-input{
-  border-style: solid;
-  border-color:#A6A8AB;
-
-}
-#earnings-input{
-  padding-right:1px;
-}
-input[type="number"]{
-  font-family: 'Open Sans',Arial,sans-serif;
-}
-
-.select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background-color: #206095;
-    color: white;
-}
-
-#disclaimertext{
-  font-size: 14px
-}
-
-select {
-	width: 100%;
-    border: 2px solid #A6A8AB;
-    height: 40px;
-	font-size: 16px;
-  font-family: 'Open Sans',Arial,sans-serif;
-}
-
-</style>
-  </head>
+</head>
 <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
@@ -376,129 +28,112 @@ select {
 
 
     <!-- <h1>How well are you doing compared with other young people?</h1> -->
-    <div id="results0div" style="display:block">
-      <div class="row">
+
 
         <!-- user input page -->
-        <div id="page1">
+        <div id="page1" class="p-1">
+          <form>
 
-           <div class="col-xs-12 col-sm-12">
-              <h3>How old are you?</h3>
-            <div class="col-xs-12 col-sm-6">
-            <form class="btn-form col-xs-12 col-sm-6" role="radiogroup" width="100%">
-              <div class="form-group" role="radio" tabindex="0">
-                <input id="button-1" class="radio-primary" type="radio" name="button" value="18 to 21" aria-checked="true" checked>
-                <label class="label-primary" for="button-1" >18 to 21</label>
+            <h3>How old are you?</h3>
+            <fieldset>
+              <legend class="visuallyhidden">How old are you?</legend>
+              <div class="field__item">
+                <input id="button-1" class="input input--radio" type="radio" name="button" value="18 to 21" aria-checked="true" checked>
+                <label class="label label--inline" for="button-1" >18 to 21</label>
               </div>
-              <div class="form-group" role="radio" tabindex="0">
-                <input id="button-2" class="radio-primary" type="radio" name="button" value="22 to 29" aria-checked="false">
-                <label class="label-primary" for="button-2" >22 to 29</label>
+              <div class="field__item">
+                <input id="button-2" class="input input--radio" type="radio" name="button" value="22 to 29" aria-checked="false">
+                <label class="label label--inline" for="button-2" >22 to 29</label>
               </div>
-            </form>
+            </fieldset>
+
+
+            <h3>What do you earn before tax?</h3>
+            <fieldset>
+              <legend class="visuallyhidden">What do you earn before tax?</legend>
+              <div class="flex side-by-side">
+                <div class="field__item">
+                  <label for="earnings-input" class="visuallyhidden">Earnings in pounds</label>
+                  <span class="input--pound">£</span>
+                  <input id="earnings-input" class="input mb-2" type="number" min="0" />
+                </div>
+                <div class="field__item">
+                  <label for="period" class="visuallyhidden">Select earnings period</label>
+                  <div id="dropdown2" class="select"></div>
+                </div>
+              </div>
+            </fieldset>
+
+
+            <h3>What is your living situation?</h3>
+            <div>
+              <label for="period3" class="visuallyhidden">Select living situation</label>
+              <div id="dropdown3" class="select"></div>
             </div>
+
+            <h3>What savings do you have?</h3>
+            <div>
+              <label for="savings-input" class="visuallyhidden">Savings in pounds</label>
+              <span class="input--pound">£</span>
+              <input id="savings-input" class="input mb-2" type="number" min="0" />
             </div>
 
+            <h3>How much debt do you have? <small>(Not including Student Loans Company debt)</small></h3>
+            <div>
+              <label for="debt-input" class="visuallyhidden">Debt in pounds</label>
+              <span class="input--pound">£</span>
+              <input id="debt-input" class="input mb-10" type="number" min="0" />
+            </div>
 
-          <h3>What do you earn before tax?</h3>
-        <div class="col-xs-6 col-sm-3">
+          </form>
+          <button class="btn btn-primary" onclick="submit()">Submit</button>
 
-          <div class="input-value col-xs-12 col-sm-12">
-            <form class="input" style="width:99%">
-              <div class="pound">
-                £
-              </div>
-              <div class="input-window">
-                <input style="text-align: right;" id="earnings-input" type="number"  min="0" value="0" tabindex="0">
-              </div>
-            </form>
-          </div>
         </div>
-
-        <div class="col-xs-6 col-sm-6">
-        <div id="dropdown2" class="col-xs-12 col-sm-6"></div>
-        </div>
-
-        <div class="col-xs-12 col-sm-12">
-          <h3>What is your living situation?</h3>
-            <div id="dropdown3" class="col-xs-12 col-sm-3"></div>
-        </div>
-
-        <div class="col-xs-12 col-sm-12">
-          <h3>What savings do you have?</h3>
-          <div class="input-value col-xs-12 col-sm-3">
-            <form class="input">
-              <div class="pound">
-                £
-              </div>
-              <div class="input-window">
-                <input style="text-align: right;" id="savings-input" type="number" min="0" value="0" tabindex="0">
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-12">
-          <h3>How much debt do you have? <small>(Not including Student Loans Company debt)</small></h3>
-          <div class="input-value col-xs-12 col-sm-3">
-            <form class="input">
-              <div class="pound">
-                £
-              </div>
-              <div class="input-window">
-                <input style="text-align: right;" id="debt-input" type="number" min="0" value="0" tabindex="0">
-              </div>
-            </form>
-          </div>
-        </div>
-
-
-      <button class="btn-primary large custom" onclick="submit()">Submit</button>
-        <br><br>
-
-      </div>
 <!-- end of user input page -->
 
-        <div id="page2" style="display:none">
+        <div id="page2" class="p-1" style="display:none">
 <!-- tabs -->
-        <form class="btn-form-fullwidth" role="radiogroup">
-        <div class="form-group-fullwidth" role="radio" tabindex="0">
-          <input id="button-13" class="radio-tab-fullwidth" type="radio" name="button2" value="1" aria-checked="true">
-          <label class="label-tab-fullwidth" for="button-13">Salary</label>
+        <form class="btn-form-fullwidth">
+        <div class="form-group-fullwidth">
+          <input id="button-13" class="radio-tab-fullwidth" type="radio" name="button2" value="1" aria-checked="false">
+          <label class="label-tab-fullwidth" for="button-13" tabindex="0">Salary</label>
         </div>
-        <div class="form-group-fullwidth" role="radio" tabindex="0">
+        <div class="form-group-fullwidth">
           <input id="button-14" class="radio-tab-fullwidth" type="radio" name="button2" value="2" aria-checked="false">
-          <label class="label-tab-fullwidth2" for="button-14">Living situation</label>
+          <label class="label-tab-fullwidth linebreak-fix" for="button-14" tabindex="0">Living <span></span>situation</label>
         </div>
-        <div class="form-group-fullwidth" role="radio" tabindex="0">
+        <div class="form-group-fullwidth">
           <input id="button-15" class="radio-tab-fullwidth" type="radio" name="button2" value="3" aria-checked="false">
-          <label class="label-tab-fullwidth" for="button-15">Savings</label>
+          <label class="label-tab-fullwidth" for="button-15" tabindex="0">Savings</label>
         </div>
-        <div class="form-group-fullwidth" role="radio" tabindex="0">
+        <div class="form-group-fullwidth">
           <input id="button-16" class="radio-tab-fullwidth" type="radio" name="button2" value="4" aria-checked="false">
-          <label class="label-tab-fullwidth" for="button-16">Debt</label>
+          <label class="label-tab-fullwidth" for="button-16" tabindex="0">Debt</label>
         </div>
       </form>
 
+      <p class="visuallyhidden" id="announce" role="alert"></p>
+
   <!-- salary results page -->
       <div class="highlightbox highlight1" id="highlight1">
-        <strong><p>Your salary is <span id="salarycomment"></span> people aged <span id="agecomment"></span></p></strong>
+        <p><strong id="salarySummary"></strong></p>
       </div>
 
       <div class="highlightbox highlight1" id="highlight2" style="display:none">
-        <strong><p>Your living situation is <span id="livingcomment"></span> people aged <span id="agecomment2"></span></p></strong>
+        <p><strong id="livingSummary"></strong></p>
       </div>
 
       <div class="highlightbox highlight1" id="highlight3" style="display:none">
-        <strong><p>Your savings are <span id="savingscomment"></span> people aged <span id="agecomment3"></span></p></strong>
+        <p><strong id="savingsSummary"></strong></p>
       </div>
 
       <div class="highlightbox highlight1 " id="highlight4" style="display:none">
-        <strong><p>Your debt is <span id="debtcomment"></span> people aged <span id="agecomment4"></span></p></strong>
+        <p><strong id="debtSummary"></strong></p>
       </div>
       <div id="svg2"></div>
       <div id="svg"></div>
 
-      <button class="btn-primary large" onclick="startover()">Start over</button>
+      <button class="btn btn-primary" onclick="startover()">Start over</button>
         <br><br>
       <p id="disclaimertext"></p>
       </div>
@@ -542,42 +177,41 @@ select {
    d3.select("#dropdown2").selectAll("*").remove()
    d3.select("#dropdown3").selectAll("*").remove()
 
-   d3.select("#dropdown2").append("select").attr("id","period").attr("style","width:99%;float:right;")
+   d3.select("#dropdown2").append("select").attr("id","period")
    d3.select("#dropdown3").append("select").attr("id","period3").attr("style","width:100%")
-
 
    d3.select("#period").selectAll("p").data(timeperiods).enter().append("option")
    .attr("value",function(d){return d})
    .text(function(d){return d});
-   // $('#period').select2({minimumResultsForSearch: -1, allowClear:false})
-   //
-   // $('#period').on('select2:select',function(g){
-   //   dataLayer.push({
-   //       "event": "mapDropSelect",
-   //       "selected": g.params.data.text
-   //   })
-   // })
 
    d3.select("#period3").selectAll("p").data(livingsituation).enter().append("option")
    .attr("value",function(d){return d})
    .text(function(d){return d});
-   // $('#period3').select2({minimumResultsForSearch: -1, allowClear:false})
-   //
-   // $('#period3').on('select2:select',function(g){
-   //   dataLayer.push({
-   //       "event": "mapDropSelect",
-   //       "selected": g.params.data.text
-   //   })
-   // })
 
 
-
+// Tab mouse clicks
 document.getElementById("button-14").onclick=livingbutton;
 document.getElementById("button-15").onclick=savingsbutton;
 document.getElementById("button-16").onclick=debtbutton;
 document.getElementById("button-13").onclick=salarybutton;
 
+// Tab key press
+var tabLabels = document.getElementsByClassName("label-tab-fullwidth")
+
+for (var i = 0; i < tabLabels.length; i++) {
+  tabLabels[i].addEventListener("keypress", function(event) {
+    event.preventDefault();
+    // If the enter key or space is pressed
+    if (event.keyCode === 13|| event.keyCode === 32) {
+        // Click on tab (label)
+        document.getElementById(event.target.htmlFor).click();
+    }
+  })
+}
+
+
  	} //end initialise
+
 
 function submit(){
   d3.select("#page1").style("display","none")
@@ -591,17 +225,19 @@ function submit(){
   age=document.querySelector('input[name="button"]:checked').value
 
   dataLayer.push({
-                      'event': 'buttonClicked',
-                      'selected': age
-                    })
+    'event': 'buttonClicked',
+    'selected': age
+  })
+
   dataLayer.push({
-        "event": "mapDropSelect",
-        "selected": earningsperiod
-    })
+    "event": "mapDropSelect",
+    "selected": earningsperiod
+  })
+
   dataLayer.push({
-        "event": "mapDropSelect",
-        "selected": livingsitu
-    })
+    "event": "mapDropSelect",
+    "selected": livingsitu
+  })
 
   //work out yearly earnings
   if(earningsperiod=="Per month"){yearlyearnings=earnings*12}
@@ -610,7 +246,6 @@ function submit(){
 
 
   d3.select("#button-13").property("checked","true")
-
   //compare with median salaries
 salarybutton();
 
@@ -623,9 +258,9 @@ function salarybutton() {
 d3.select("#disclaimertext").text("Note: Salaries refer to employees (not self-employed) in 2017")
 
   dataLayer.push({
-                      'event': 'buttonClicked',
-                      'selected': 'salarybutton'
-                    })
+    'event': 'buttonClicked',
+    'selected': 'salarybutton'
+  })
 
 d3.select("#svg2").selectAll("*").remove()
 d3.select("#svg").selectAll("*").remove()
@@ -653,14 +288,20 @@ d3.select("#svg").selectAll("*").remove()
     salarydata=glob_twentytwo
   }
 
+  var salarycomment, salarySummary
 
-  if(yearlyearnings>median){document.getElementById("salarycomment").innerHTML="above average compared to"}
-  else if(yearlyearnings<median){document.getElementById("salarycomment").innerHTML="below average compared to"}
-  else {document.getElementById("salarycomment").innerHTML="the same as the average for"}
+  if(yearlyearnings > median) {
+    salarycomment="above average compared to"
+  } else if(yearlyearnings<median) {
+    salarycomment="below average compared to"
+  } else {
+    salarycomment="the same as the average for"
+  }
 
-  if(age=="18 to 21"){document.getElementById("agecomment").innerHTML="18 to 21."}
-  else {document.getElementById("agecomment").innerHTML="22 to 29."}
+  salarySummary = `Your salary is ${salarycomment} people aged ${age}.`
 
+  document.getElementById("salarySummary").textContent = salarySummary
+  document.getElementById("announce").textContent = salarySummary
 
   //find index of salary
   salaryarray=[]
@@ -887,6 +528,10 @@ d3.select("#svg").selectAll("*").remove()
       .text("Median £"+d3.format(",.0f")(median));
     }
 
+    // Accessibility: Setting aria-checked on tabs
+    d3.selectAll("input.radio-tab-fullwidth").attr("aria-checked","false")
+    d3.select("#button-13").attr("aria-checked","true")
+
     pymChild.sendHeight()
 }
 
@@ -895,55 +540,40 @@ function livingbutton() {
   d3.select("#disclaimertext").text("")
 
   dataLayer.push({
-                      'event': 'buttonClicked',
-                      'selected': 'livingbutton'
-                    })
+    'event': 'buttonClicked',
+    'selected': 'livingbutton'
+  })
 
-d3.select("#svg2").selectAll("*").remove()
-d3.select("#svg").selectAll("*").remove()
+  d3.select("#svg2").selectAll("*").remove()
+  d3.select("#svg").selectAll("*").remove()
 
-  d3.select("#highlight1")
-    .style("display", "none");
-
-  d3.select("#highlight2")
-    .style("display", "block");
-
-    d3.select("#highlight3")
-      .style("display", "none");
-
-      d3.select("#highlight4")
-        .style("display", "none");
-
-      if(age=="18 to 21"){
-        if(livingsitu == "Living with parents"){
-          document.getElementById("livingcomment").innerHTML="shared with the majority of "
-        document.getElementById("agecomment2").innerHTML="18 to 21." }
-        else{
-          document.getElementById("livingcomment").innerHTML="different to the majority of "
-        document.getElementById("agecomment2").innerHTML="18 to 21." }
-      }
-
-      else
-      {
-        if(livingsitu == "Renter"){
-        document.getElementById("livingcomment").innerHTML="shared with the majority of "
-          document.getElementById("agecomment2").innerHTML="22 to 29." }
-          else{
-            document.getElementById("livingcomment").innerHTML="different to the majority of "
-          document.getElementById("agecomment2").innerHTML="22 to 29." }
-}
-
-//filter the data to just do one age group
-if (age=="18 to 21"){
-  living_age = "18 to 21"
-} else {
-  living_age = "22 to 29"
-}
-
-  // d3.select("#svg").selectAll("*").remove()
-  // d3.select("#svg2").selectAll("*").remove()
+  d3.select("#highlight1").style("display", "none");
+  d3.select("#highlight2").style("display", "block");
+  d3.select("#highlight3").style("display", "none");
+  d3.select("#highlight4").style("display", "none");
 
 
+
+  var livingcomment, livingSummary
+
+  if(age=="18 to 21" && livingsitu == "Living with parents" || age=="22 to 29" && livingsitu == "Renter") {
+    livingcomment="shared with the majority of"
+  } else {
+    livingcomment="different to the majority of"
+  }
+
+  livingSummary = `Your living situation is ${livingcomment} people aged ${age}.`
+
+  document.getElementById("livingSummary").textContent = livingSummary
+  document.getElementById("announce").textContent = livingSummary
+
+
+  //filter the data to just do one age group
+  if (age=="18 to 21"){
+    living_age = "18 to 21"
+  } else {
+    living_age = "22 to 29"
+  }
 
   width=parseInt(d3.select("#svg").style("width"))
   margin={top:20,right:20,bottom:70,left:15}
@@ -1069,11 +699,11 @@ if (livingsitu=="Homeowner"){
 var legendLabels=["Homeowner","Renter","Living with parents"]
 var x_axis_grid = function() { return xAxis; }
 var legend = d3.select('#svg').append('ul')
-        .attr('class', 'key')
-        .selectAll('g')
-        .data(legendLabels)
-        .enter().append('li')
-        .attr("class",function(d,i){return "key-" + i})
+  .attr('class', 'key')
+  .selectAll('g')
+  .data(legendLabels)
+  .enter().append('li')
+  .attr("class",function(d,i){return "key-" + i})
 legend.append('b')
 legend.append('label')
   .html(function(d,i) { return legendLabels[i]; });
@@ -1092,9 +722,6 @@ legend.append('label')
   y=d3.scaleBand()
     .rangeRound([0, height])
     .padding(0.1);
-
-
-
 
 
 
@@ -1125,9 +752,6 @@ legend.append('label')
         var xAxis = d3.axisBottom(x).ticks(5).tickFormat(function (d){ return d3.format(".0%")(d/100)});
 
 
-
-
-
           y.domain(glob_living2.map(function(d) {
               return d.cat;
             }));
@@ -1137,15 +761,7 @@ legend.append('label')
               .attr('transform', 'translate(0,' + (height*0.8) + ')')
 
               .call(xAxis);
-            // svg.append('g')
-            //     .attr('class', 'x axis')
-            //     .call(yAxis)
-            // .append("text")
-            //  .attr("y", height+23)
-            //  .attr("x",chartwidth)
-            //  .attr("dy", ".71em")
-            //  .style("text-anchor", "end")
-            //  .text("%");
+
             svg.append('g')
                 .attr('class', 'x grid')
                 .call(x_axis_grid()
@@ -1178,7 +794,11 @@ var group = svg.selectAll(".year")
   }
 });
 
-pymChild.sendHeight()
+  // Accessibility: Setting aria-checked on tabs
+  d3.selectAll("input.radio-tab-fullwidth").attr("aria-checked","false")
+  d3.select("#button-14").attr("aria-checked","true")
+
+  pymChild.sendHeight()
 }//end of function living
 
 
@@ -1186,24 +806,17 @@ pymChild.sendHeight()
 function savingsbutton() {
   d3.select("#disclaimertext").text("Note: Savings refer to money in a savings account or ISA in July 2014 to June 2016")
   dataLayer.push({
-                      'event': 'buttonClicked',
-                      'selected': 'savingsbutton'
-                    })
+    'event': 'buttonClicked',
+    'selected': 'savingsbutton'
+  })
 
-d3.select("#svg2").selectAll("*").remove()
-d3.select("#svg").selectAll("*").remove()
+  d3.select("#svg2").selectAll("*").remove()
+  d3.select("#svg").selectAll("*").remove()
 
-  d3.select("#highlight1")
-    .style("display", "none");
-
-  d3.select("#highlight2")
-    .style("display", "none");
-
-    d3.select("#highlight3")
-      .style("display", "block");
-
-      d3.select("#highlight4")
-        .style("display", "none");
+  d3.select("#highlight1").style("display", "none");
+  d3.select("#highlight2").style("display", "none");
+  d3.select("#highlight3").style("display", "block");
+  d3.select("#highlight4").style("display", "none");
 
   if(age=="18 to 21"){
     median=1200,
@@ -1215,13 +828,20 @@ d3.select("#svg").selectAll("*").remove()
   }
 
 
-  if(savings>median){document.getElementById("savingscomment").innerHTML="above average compared to"}
-  else if(savings<median){document.getElementById("savingscomment").innerHTML="below average compared to"}
-  else {document.getElementById("savingscomment").innerHTML="the same as the average for"}
+  var savingscomment, savingsSummary
 
-  if(age=="18 to 21"){document.getElementById("agecomment3").innerHTML="18 to 21."}
-  else {document.getElementById("agecomment3").innerHTML="22 to 29."}
+  if(savings > median) {
+    savingscomment="above average compared to"
+  } else if(savings<median) {
+    savingscomment="below average compared to"
+  } else {
+    savingscomment="the same as the average for"
+  }
 
+  savingsSummary = `Your savings are ${savingscomment} people aged ${age}.`
+
+  document.getElementById("savingsSummary").textContent = savingsSummary
+  document.getElementById("announce").textContent = savingsSummary
 
 
   //find index of savings
@@ -1532,6 +1152,11 @@ if (width <360){
       .attr("fill", "#0F8243")
       .text("Median £"+d3.format(",.0f")(median));
     }
+
+    // Accessibility: Setting aria-checked on tabs
+    d3.selectAll("input.radio-tab-fullwidth").attr("aria-checked","false")
+    d3.select("#button-15").attr("aria-checked","true")
+
     pymChild.sendHeight()
 } // End function savings
 
@@ -1540,26 +1165,17 @@ if (width <360){
 function debtbutton() {
   d3.select("#disclaimertext").text("Note: Debt refers to financial debt (not mortgages), excluding student loans from the Student Loan company, in July 2014 to June 2016")
   dataLayer.push({
-                      'event': 'buttonClicked',
-                      'selected': 'debtbutton'
-                    })
+    'event': 'buttonClicked',
+    'selected': 'debtbutton'
+  })
 
   d3.select("#svg2").selectAll("*").remove()
   d3.select("#svg").selectAll("*").remove()
 
-
-    d3.select("#highlight1")
-      .style("display", "none");
-
-    d3.select("#highlight2")
-      .style("display", "none");
-
-      d3.select("#highlight3")
-        .style("display", "none");
-
-        d3.select("#highlight4")
-          .style("display", "block");
-
+  d3.select("#highlight1").style("display", "none");
+  d3.select("#highlight2").style("display", "none");
+  d3.select("#highlight3").style("display", "none");
+  d3.select("#highlight4").style("display", "block");
 
     if(age=="18 to 21"){
       median=2400,
@@ -1570,12 +1186,20 @@ function debtbutton() {
       debtdata= glob_debt_twentytwo
     }
 
-    if(debt>median){document.getElementById("debtcomment").innerHTML="above average compared to"}
-    else if(debt<median){document.getElementById("debtcomment").innerHTML="below average compared to"}
-    else {document.getElementById("debtcomment").innerHTML="the same as the average for"}
+    var debtcomment, debtSummary
 
-    if(age=="18 to 21"){document.getElementById("agecomment4").innerHTML="18 to 21."}
-    else {document.getElementById("agecomment4").innerHTML="22 to 29."}
+    if(debt > median) {
+      debtcomment="above average compared to"
+    } else if(debt<median) {
+      debtcomment="below average compared to"
+    } else {
+      debtcomment="the same as the average for"
+    }
+
+    debtSummary = `Your debt is ${debtcomment} people aged ${age}.`
+
+    document.getElementById("debtSummary").textContent = debtSummary
+    document.getElementById("announce").textContent = debtSummary
 
 
     //find index of salary
@@ -1885,18 +1509,26 @@ var pointerarray = [chartwidth/14, chartwidth*3/14, chartwidth*8/14, chartwidth*
       .attr("fill", "#0F8243")
       .text("Median £"+d3.format(",.0f")(median));
     }
+
+    // Accessibility: Setting aria-checked on tabs
+    d3.selectAll("input.radio-tab-fullwidth").attr("aria-checked","false")
+    d3.select("#button-16").attr("aria-checked","true")
+
     pymChild.sendHeight()
   }
 //End of debt function
 
 function startover(){
   dataLayer.push({
-                      'event': 'buttonClicked',
-                      'selected': 'startover'
-                    })
+    'event': 'buttonClicked',
+    'selected': 'startover'
+  })
 
   d3.select("#page1").style("display","block")
   d3.select("#page2").style("display","none")
+
+  // Putting focus on first element
+  document.getElementById("button-1").focus();
 
   d3.select("#svg").selectAll("*").remove()
   d3.select("#svg2").selectAll("*").remove()
