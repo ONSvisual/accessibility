@@ -46,6 +46,11 @@ Any input needs a label. For Chosen dropdown this is not generated.
 
 Option 1. `d3.insert` an label before the option as DAC recommend after the chosen dropdown has been rendered
 
+```javascript
+d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
+```
+
 Option 1b. rewrite the chosen dropdown to include a label field.
 
 Option 2. Use an accessible alternative to chosen dropdown.  
@@ -62,13 +67,13 @@ Use `<button aria-label="copy link to clipboard"> </button>` markup instead.
 
 ## Unlabelled buttons that control an input field
 
-Additional aria tags `aria-live=polite` which reads the input out when the buttons are used.
+Additional aria tags `aria-live=assertive` which reads the input out when the buttons are used. E.g. when using plus or minus buttons next to an input. 
 
 Use labels for inputs
 
 ## Truncated links
 
-Ensure pym is working correctly for height
+Ensure pym.js is working correctly for height
 
 ## Graphs are inaccessible
 
@@ -81,7 +86,7 @@ Similar to Unlabelled buttons that control an input field. I think we're going t
 Use [new radio button element](https://onsvisual.github.io/accessibility/radio-button-group.html).
 
 ## Inaccessible tabs
-Use the [GDS tab pattern](https://design-system.service.gov.uk/components/tabs/).
+Make sure tabs can be focussed (`tabindex=0`), have focus state and allow for keyboard control (keyCode==13 is enter, and keyCode==32 is space).
 
 ## Colour palette
 Use new palette in old charts
@@ -90,10 +95,24 @@ Use new palette in old charts
 Ensure buttons have focus state with sufficient contrast
 
 ## Low contrast text
-Adjust CSS
+Adjust CSS to ensure text has sufficient contrast
 
 ## Reflow
-Use CSS media queries? Remove text at certain zooms, widths?
+Zoom in up to 400% to check page is still usable at high zoom. Use CSS media queries? Remove text at certain zooms, widths?
 
 ## Status Message
 Implement **role=“status”** on the <div> containing the error so that screen reader users are at least made aware that an error has occurred.
+
+### Keyboard control on cross on chosen dropdown
+
+Add keybinding events to cross once it's generated, this is normally once something is selected from the chosen dropdown.
+
+```javascript
+d3.select('abbr').on('keypress',function(evt){
+				if(d3.event.keyCode==13 || d3.event.keyCode==32){
+					d3.event.preventDefault();
+					//clear behaviour
+				}
+			})
+```
+
