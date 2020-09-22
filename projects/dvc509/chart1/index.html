@@ -107,7 +107,6 @@
         table, th, td {
             /*border:1px solid black;*/
             /*width: 100%;*/
-            border-spacing:none;
             text-align: right;
         }
 
@@ -189,6 +188,15 @@
             font-weight: 700;
         }
 
+        /* Accessibility */
+
+        .mr-2 { margin-right: 0.5rem; }
+
+        .label-primary:focus {
+            outline: none;
+            box-shadow: 0 0 0px 3pt orange;
+        }
+
    </style>
 
     <script src="../lib/modernizr.svg.min.js" type="text/javascript"></script>
@@ -218,7 +226,7 @@
         <div id = "legendTab"></div>
         <div id = "toprow">
             <form class="btn-form" >
-                <div class="form-group" >
+                <div class="form-group mr-2">
                     <input id="button-1" class="radio-primary" type="radio" name="button" value="1" aria-checked="true" checked>
                     <label class="label-primary" for="button-1" tabindex="0">Numbers</label>
                 </div>
