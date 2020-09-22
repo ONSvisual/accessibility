@@ -132,6 +132,7 @@ function drawGraphic() {
             var svg = d3.select('#graphic')
                 .append('svg')
                 .attr("class", "graphUnitSVGs")
+                .attr('aria-hidden','true')
                 .attr("id", "svg" + k)
                 .attr("x", function (d, i) { return (i - 1) * graph_unitWidth + graph_unitMargins.left; })
                 .attr("y", (j - 1) * graph_unitHeight + graph_unitMargins.top)
