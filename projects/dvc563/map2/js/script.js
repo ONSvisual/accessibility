@@ -804,8 +804,8 @@ if (Modernizr.webgl) {
         function findCurrValy() {
           if (!isNaN(rateById[code])) { // if there exists a numerical value
             // if value is greater than threshold, put it below the line
-            var yThreshold = ( yChart.domain()[0] + yChart.domain()[1] ) * 2 / 3
-            if (rateById[code] > yThreshold ) {
+            var yThreshold = ( yChart.domain()[0] + yChart.domain()[1] ) * 1 / 4
+            if (rateById[code] < yThreshold ) {
               yAdjustment = 22
             } else { // otherwise it goes above
               yAdjustment = -12
@@ -998,9 +998,108 @@ if (Modernizr.webgl) {
         .style("opacity", 0);
     }
 
-    function createMapKey(config, i) {
+    function createMapKey(){
+    // driven by the initial set up
+    // <div id="mapInfo"></div>
+    // <div id='timePeriod'></div>
+    // <div id='mapKeyContainer'></div>
 
-    }
+    				d3.select("#mapInfo").selectAll("*").remove();
+    				// d3.select("#timePeriod").selectAll("*").remove();
+    				d3.select("#mapKeyContainer").selectAll("*").remove();
+    				//d3.select("#rankLabel").selectAll("*").remove();
+
+    	   //set up d3 color scales function
+           mapcolor = d3.scaleThreshold()
+    					.domain(breaks)
+    					.range(colour);
+    					//console.log("setupscales = domain, range: "+ mapcolor.domain(),mapcolor.range() );
+
+
+    			keywidthMap = d3.select("#map").node().getBoundingClientRect().width;
+    			//console.log("createMapKey keywidth: "+keywidthMap);
+
+    			d3.select("#mapInfo").append("p").text(dvc.mapunit[navvalue]);
+
+    			 var svgkey = d3.select("#mapKeyContainer")
+    							.append("svg")
+    							.attr("id", "mapkey")
+    							//.attr("width", keywidth*0.6)
+    							//.attr("height",10);
+
+
+    			// Set up scales for legend
+    			x = d3.scaleLinear()
+    				.domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
+    				.range([0,keywidthMap*0.5]); /*range for pixels*/
+
+    			var xAxis = d3.axisBottom(x)
+    				.tickSize(15)
+    				.tickValues(mapcolor.domain())
+    				.tickFormat(legendformat);
+
+    			var g2 = svgkey.append("g").attr("id","horiz");
+
+    			keyhor = d3.select("#horiz").attr("transform", "translate(30,28)");
+
+    			g2.selectAll("rect")
+    				.data(mapcolor.range().map(function(d, i) {
+    				  return {
+    					x0: i ? x(mapcolor.domain()[i-1]) : x.range()[0],
+    					x1: i < mapcolor.domain().length ? x(mapcolor.domain()[i]) : x.range()[1],
+    					z: d
+    								  };
+    				}))
+    			  .enter().append("rect")
+    				.attr("class", "blocks")
+    				.attr("height", 12)
+    				.attr("x", function(d) {
+    					 return d.x0; })
+    				.attr("width", function(d) {return d.x1 - d.x0; })
+    				.style("opacity",0.8)
+    				.style("fill", function(d) { return d.z; });
+
+    			g2.append("line")
+    				.attr("id", "currLine")
+    				.attr("x1", x(9))
+    				.attr("x2", x(9))
+    				.attr("y1", 12)
+    				.attr("y2", -7)
+    				.attr("stroke-width","2px")
+    				.attr("stroke","#000")
+    				.attr("opacity",0);
+
+    			g2.append("text")
+    				.attr("id", "currVal")
+    				.attr("x", x(9))
+    				.attr("y", -12)
+    				.attr("fill","#000")
+    				.text("");
+
+    			keyhor.selectAll("rect")
+    				.data(mapcolor.range().map(function(d, i) {
+    				  return {
+    					x0: i ? x(mapcolor.domain()[i-1]) : x.range()[0],
+    					x1: i < mapcolor.domain().length ? x(mapcolor.domain()[i]) : x.range()[1],
+    					z: d
+    				  };
+    				}))
+    				.attr("x", function(d) { return d.x0; })
+    				.attr("width", function(d) { return d.x1 - d.x0; })
+    				.style("fill", function(d) { return d.z; });
+
+    			keyhor.call(xAxis)
+
+    			if(dvc.dropticks) {
+    				d3.select("#horiz").selectAll("text").attr("transform",function(d,i){
+    						// if there are more that 4 breaks, so > 5 ticks, then drop every other.
+    						if(i % 2){return "translate(0,10)"} }
+    				);
+    			}
+
+
+    	} // Ends create map key
+
 
     function createChartKey(config, i) {
 
