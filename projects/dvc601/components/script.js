@@ -299,9 +299,9 @@ function drawGraphic() {
     d3.select("#footer").append("p")
         .text("Source: ")
         .append("a")
-        .attr("href", "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/annualmidyearpopulationestimates/mid2017")
+        .attr("href", dvc.sourceUrl)
         .attr("target", "_blank")
-        .html("Population estimates for UK, England and Wales, Scotland and Northern Ireland: mid-2017, Office for National Statistics");
+        .html("Office of National Statistics " + dvc.visualisationTitle);
 
 
     d3.selectAll(".graphUnitSVGs").call(zoom)
