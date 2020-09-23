@@ -29,13 +29,6 @@ if(Modernizr.webgl) {
 		d3.select("#yearlabel").text(dvc.mapLeftLabel)
 		d3.select("#yearlabel2").text(dvc.mapRightLabel)
 
-
-		//get column name
-		for (var column in data[0]) {
-			if (column == 'AREACD') continue;
-			if (column == 'AREANM') continue;
-		}
-
 		//set title of page
 		//Need to test that this shows up in GA
 		document.title = dvc.maptitle;
@@ -515,7 +508,7 @@ if(Modernizr.webgl) {
 
 
 			d3.select("#currVal")
-				.text(function(){if(!isNaN(dataById[code][dvc.varname1]))  {return "Students: "+displayformat(dataById[code][dvc.varname1])} else {return "Data unavailable"}})
+				.text(function(){if(!isNaN(dataById[code][dvc.varname1]))  {return "Pooled: "+displayformat(dataById[code][dvc.varname1])} else {return "Data unavailable"}})
 				.style("opacity",1)
 				.transition()
 				.duration(400)
@@ -530,11 +523,14 @@ if(Modernizr.webgl) {
 
 
 			d3.select("#currValRight")
-				.text(function(){if(!isNaN(dataById[code][dvc.varname2]))  {return "Workers: "+displayformat(dataById[code][dvc.varname2])} else {return "Data unavailable"}})
+				.text(function(){if(!isNaN(dataById[code][dvc.varname2]))  {return "Single year: "+displayformat(dataById[code][dvc.varname2])} else {return "Data unavailable"}})
 				.style("opacity",1)
 				.transition()
 				.duration(400)
 				.attr("x", function(){if(!isNaN(dataById[code][dvc.varname2])) {return x(dataById[code][dvc.varname2])} else{return x(midpoint)}});
+
+			areaname=data.filter(function(d){return d.AREACD==code})[0].AREANM
+			d3.select("#accessibilityinfo").select('p').text("For "+areaname+" "+dvc.mapLeftLabel+" is "+displayformat(dataById[code][dvc.varname1])+". "+dvc.mapRightLabel+"is "+displayformat(dataById[code][dvc.varname2])+".")
 
 		}
 
@@ -702,7 +698,6 @@ if(Modernizr.webgl) {
 
 	function exitHandler() {
 
-		console.log("shrink");
 			if (document.webkitIsFullScreen === false)
 			{
 				shrinkbody();
