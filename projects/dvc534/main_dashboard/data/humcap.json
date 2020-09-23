@@ -1,0 +1,41 @@
+{"code":"humcap",
+ "filepth":"",
+ "description":{
+        "title":"Human capital - the value of individuals' skills, knowledge and competencies in labour market",
+        "unit":"£ trillion"
+    },
+    "months":[],
+    "days":[],
+    "quarters":[],
+    "years":{
+            "catLabels":[
+                "2004", 
+                "2005", 
+                "2006", 
+                "2007", 
+                "2008", 
+                "2009", 
+                "2010", 
+                "2011", 
+                "2012", 
+                "2013", 
+                "2014", 
+                "2015"
+            ],
+            "dataValues":[
+                18.09, 
+                18.59, 
+                18.94, 
+                19.59, 
+                19.75, 
+                19.72, 
+                19.44, 
+                19.02, 
+                18.85, 
+                18.82, 
+                19.08, 
+                19.9 
+            ]
+    }
+} 
+

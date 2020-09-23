@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Unpaid work calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1, maximum-scale=1">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/globalStyle.css" />
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/odometer-theme-default.css">
+
+<!--<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "20ab11c9-38f0-49d4-84ad-3b6c8bcedd41", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>-->
+
+</head>
+
+<body>
+
+
+<div class="wrapper">
+
+<div id="calculator">
+
+<p class="h2">Find the value of your unpaid work by entering the hours you spend on each task per week: </p>
+
+
+<div class="square" data-toggle="tooltip" data-placement="bottom" title="DIY, cleaning and gardening">
+    
+    <div class="title">
+        <p class="category">Housework</p>
+    </div>
+
+    <div class="icon1 hidden-xs">
+    </div>  
+
+    <div class="button-area">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-minus btn-number minus"  data-type="minus" data-field="quant[2]">
+                <span class="glyphicon glyphicon-minus"></span>
+                </button>
+            </span>
+        <input type="text" id="housework" name="quant[2]" class="form-control input-number" value="0" min="0" max="100">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-plus btn-number plus" data-type="plus" data-field="quant[2]">
+                <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="square" data-toggle="tooltip" data-placement="bottom" title="Actively engaging with children (e.g. playing and feeding)">
+
+    <div class="title">
+        <p class="category">Childcare</p>
+    </div>
+
+    <div class="icon2 hidden-xs">
+    </div> 
+
+    <div class="button-area">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-minus btn-number minus"  data-type="minus" data-field="quant[3]">
+                <span class="glyphicon glyphicon-minus"></span>
+                </button>
+            </span>
+        <input type="text" id="childcare" name="quant[3]" class="form-control input-number" value="0" min="0" max="100">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-plus btn-number plus" data-type="plus" data-field="quant[3]">
+                <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="square" data-toggle="tooltip" data-placement="bottom" title="Preperation and clean-up of meals">
+    
+    <div class="title">
+        <p class="category">Cooking</p>
+    </div>
+    
+    <div class="icon3 hidden-xs">
+    </div>
+
+    <div class="button-area">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-minus btn-number minus"  data-type="minus" data-field="quant[4]">
+                <span class="glyphicon glyphicon-minus"></span>
+                </button>
+            </span>
+        <input type="text" id="cooking" name="quant[4]" class="form-control input-number" value="0" min="0" max="100">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-plus btn-number plus" data-type="plus" data-field="quant[4]">
+                <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </span>
+        </div>
+    </div>  
+</div>
+
+
+<div class="square" data-toggle="tooltip" data-placement="bottom" title="Washing, drying and ironing">
+
+    <div class="title">
+        <p class="category">Laundry</p>
+    </div>
+
+    <div class="icon4 hidden-xs">
+    </div> 
+
+    <div class="button-area"> 
+        <div class="input-group">                   
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-minus btn-number minus"  data-type="minus" data-field="quant[5]">
+                <span class="glyphicon glyphicon-minus"></span>
+                </button>
+            </span>
+        <input type="text" id="laundry" name="quant[5]" class="form-control input-number" value="0" min="0" max="100">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-plus btn-number plus" data-type="plus" data-field="quant[5]">
+                <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </span>
+        </div>
+    </div>  
+</div>
+
+
+<div class="square" data-toggle="tooltip" data-placement="bottom" title="Transportation of self, and others (including commuting)">
+
+    <div class="title">
+        <p class="category">Transport</p>
+    </div>
+
+    <div class="icon5 hidden-xs">
+    </div>
+
+    <div class="button-area">
+        <div class="input-group">               
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-minus btn-number minus"  data-type="minus" data-field="quant[6]">
+                <span class="glyphicon glyphicon-minus"></span>
+                </button>
+            </span>
+        <input type="text" id="transport" name="quant[6]" class="form-control input-number" value="0" min="0" max="100">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-plus btn-number plus" data-type="plus" data-field="quant[6]">
+                <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </span>
+        </div>
+    </div>  
+</div>
+
+
+<div class="square" data-toggle="tooltip" data-placement="bottom" title="Washing, exercising, assisting or escorting">
+
+    <div class="title">
+        <p class="category">Adult care</p>
+    </div>
+
+    <div class="icon6 hidden-xs">
+    </div>  
+
+    <div class="button-area">
+        <div class="input-group">              
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-minus btn-number minus"  data-type="minus" data-field="quant[7]">
+                <span class="glyphicon glyphicon-minus"></span>
+                </button>
+            </span>
+        <input type="text" id="adult-care" name="quant[7]" class="form-control input-number" value="0" min="0" max="100">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-plus btn-number plus" data-type="plus" data-field="quant[7]">
+                <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </span>
+        </div>
+    </div>  
+</div>
+
+
+<div class="square-no-marg" data-toggle="tooltip" data-placement="bottom" title="Volunteering for a charity, club or organisation">
+
+    <div class="title">
+        <p class="category">Volunteering</p>
+    </div>
+
+    <div class="icon7 hidden-xs">
+    </div>  
+
+    <div class="button-area">
+        <div class="input-group" >
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-minus btn-number minus"  data-type="minus" data-field="quant[8]" >
+                <span class="glyphicon glyphicon-minus"></span>
+                </button>
+            </span>
+        <input type="text" id="volunteering" name="quant[8]" class="form-control input-number" value="0" min="0" max="100">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-plus btn-number plus" data-type="plus" data-field="quant[8]">
+                <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div> 
+
+
+<div id="graphic">
+</div>
+
+<div class="total">
+</div>
+
+<div id="monthly-value">
+    <p id="totalWeek" class="total">Total per week:</p>
+    <p id="totalWeekValue" class="odometer">0</p>
+</div>
+
+<div id="annual-value">
+    <p class="total">Total per year:</p>
+    <p id="totalAnnualValue" class="odometer">0</p>
+</div>
+
+
+</div>
+
+<div id="footer">
+<div id="share">
+    <p class="social">Share the value of your unpaid work </p>
+</div>
+</div>
+
+
+<div id="source">
+    <p class="source-text">Source: <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2016provisionalresults">Annual Survey of Hours and Earnings, 2016, Office for National Statistics</a>
+</p>
+
+
+</div>
+
+</div>
+
+
+<!-- Constant libraries / frameworks -->
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.custom.56904.js"></script>
+<script src="js/d3.v3.min.js" charset="utf-8"></script>
+<script src="js/pym.js" charset="utf-8"></script>
+<script src="js/odometer.min.js" charset="utf-8"></script>
+<script src="js/script.js"></script>
+
+
+<script> 
+	
+	var _gaq = _gaq || []; 
+	_gaq.push(['_setAccount', 'UA-37894017-1']); 
+	_gaq.push(['_trackPageview']); 
+	
+	
+	(function() { 
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; 
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; 
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); 
+	})(); 
+	
+</script>
+
+  
+
+         
+
+
+</body>
+</html>

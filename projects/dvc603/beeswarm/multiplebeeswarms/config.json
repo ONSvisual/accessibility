@@ -1,0 +1,27 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+            "colour_palette": [
+			
+				"#0075A3",
+				"#0075A3",
+				"#0075A3",
+				"#0075A3",
+				"#0075A3",
+				"#0075A3",
+				"#0075A3",
+				"#0075A3",
+				"#0075A3",
+				"#0075A3"
+],
+            "sourceText":["Office for National Statistics- House Price Statistics for Small Areas, Annual Survey of Hours and Earnings"],
+            "xAxisLabel":"Number of years’ earnings equals average house prices",
+            "xAxisScale":[0,50],
+            "heightperstrip":50,
+            "dotradius":3
+    },
+    "optional" : {
+            "mobileBreakpoint" : 610,
+            "x_num_ticks_sm_md" : [5,5]
+    }
+}

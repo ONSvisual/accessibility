@@ -1,0 +1,22 @@
+{"code":"relyon",
+ "filepth":"https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/bulletins/measuringnationalwellbeing/2015to2016",
+ "description":{
+        	"title":"Has a spouse or partner, family member or friend to rely on a lot if they have a serious problem",
+        	"unit":"%"
+		},
+		"months":[],
+		"days":[],
+		"quarters":[],
+		"years":[],
+		"other":{
+				"catLabels":[
+					"2010/11", 
+					"2013/14" 					
+				],
+				"dataValues":[
+					86.08,
+					84.04
+				]
+		}
+} 
+

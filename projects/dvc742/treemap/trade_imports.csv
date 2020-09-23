@@ -1,0 +1,43 @@
+id,name,eu_row_split,trade_val1,trade_val2,trade_val3,trade_val4,trade_val5,rank1,rank2,rank3,rank4,rank5
+c0,Total Services,0.492,1,2,3,4,5,A,B,C,D,E
+c1,Manufacturing,0.785,1,2,3,4,5,A,B,C,D,E
+c2,Maintenance and Repair,0.544,1,2,3,4,5,A,B,C,D,E
+c3,Transportation,0.593,1,2,3,4,5,A,B,C,D,E
+c3_1,Sea transportation,0.399,1,2,3,4,5,A,B,C,D,E
+c3_2,Air transportation,0.638,1,2,3,4,5,A,B,C,D,E
+c3_3,Other modes of transportation,0.862,1,2,3,4,5,A,B,C,D,E
+c3_4,Postal and courier services,0.556,1,2,3,4,5,A,B,C,D,E
+c4,Travel,0.616,1,2,3,4,5,A,B,C,D,E
+c4_1,Business travel,0.616,1,2,3,4,5,A,B,C,D,E
+c4_2,Personal travel,0.616,1,2,3,4,5,A,B,C,D,E
+c5,Construction,0.738,1,2,3,4,5,A,B,C,D,E
+c5_1,Construction abroad,0.545,1,2,3,4,5,A,B,C,D,E
+c5_2,Construction in the reporting economy,0.878,1,2,3,4,5,A,B,C,D,E
+c6,Insurance and Pension,0.432,1,2,3,4,5,A,B,C,D,E
+c6_1,Direct insurance,0.469,1,2,3,4,5,A,B,C,D,E
+c6_2,Reinsurance,0,1,2,3,4,5,A,B,C,D,E
+c6_3,Auxiliary insurance services,0.295,1,2,3,4,5,A,B,C,D,E
+c6_4,Pension and standardised guarantee services,1,1,2,3,4,5,A,B,C,D,E
+c7,Financial,0.378,1,2,3,4,5,A,B,C,D,E
+c7_1,Explicitly charged and other financial services,0.365,1,2,3,4,5,A,B,C,D,E
+c7_2,Financial intermediation services indirectly measured (FISIM),0.443,1,2,3,4,5,A,B,C,D,E
+c8,Intellectual property,0.383,1,2,3,4,5,A,B,C,D,E
+c9,"Telecommunications, computer and information services",0.533,1,2,3,4,5,A,B,C,D,E
+c9_1,Telecommunications services,0.579,1,2,3,4,5,A,B,C,D,E
+c9_2,Computer services,0.523,1,2,3,4,5,A,B,C,D,E
+c9_3,Information services,0.418,1,2,3,4,5,A,B,C,D,E
+c10,Other Business Services,0.415,1,2,3,4,5,A,B,C,D,E
+c10_1,Research and development services,0.369,1,2,3,4,5,A,B,C,D,E
+c10_2,Professional and management consulting services,0.528,1,2,3,4,5,A,B,C,D,E
+c10_2_1,"Legal, accounting, management consulting and public relations",0.483,1,2,3,4,5,A,B,C,D,E
+c10_2_2,"Advertising, market research and public opinion polling",0.64,1,2,3,4,5,A,B,C,D,E
+c10_3,"Technical, trade-related and other business services",0.368,1,2,3,4,5,A,B,C,D,E
+c10_3_1,"Architectural, engineering, scientific and other technical services",0.611,1,2,3,4,5,A,B,C,D,E
+c10_3_2,"Waste treatment and de-pollution, agricultural and mining services",0.66,1,2,3,4,5,A,B,C,D,E
+c10_3_3,Operating leasing services,0.524,1,2,3,4,5,A,B,C,D,E
+c10_3_4,Trade-related services,0.493,1,2,3,4,5,A,B,C,D,E
+c10_3_5,Other business services not included elsewhere,0.327,1,2,3,4,5,A,B,C,D,E
+c11,"Personal, Cultural and Recreational",0.104,1,2,3,4,5,A,B,C,D,E
+c11_1,Audiovisual and related services,0.451,1,2,3,4,5,A,B,C,D,E
+c11_2,"Other personal, cultural, and recreational services",0.033,1,2,3,4,5,A,B,C,D,E
+c12,Government,0.376,1,2,3,4,5,A,B,C,D,E

@@ -1,0 +1,25 @@
+{"code":"mintra",
+ "filepth":"",
+ "description":{
+        "title":"Average minimum travel time to reach nearest services",
+        "unit":"minutes"
+    },
+    "months":[],
+    "days":[],
+    "quarters":[],
+    "years":[],
+    "other":{
+		 "catLabels":[
+                "2014",
+				"2015",
+                "2016"
+            ],
+            "dataValues":[
+               17.0,
+			   17.5,
+			   17.7
+            ]
+		}
+} 
+
+

@@ -1,0 +1,2609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Family spending timeseries</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	
+    <link rel="stylesheet" href="css/styles.css" media="screen">
+    <link rel="stylesheet" href="css/jquery.ui.labeledslider.css">
+    
+    <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css">
+    
+    <style type="text/css">
+        /* base styles */
+/*        html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed, 
+		figure, figcaption, footer, header, hgroup, 
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video
+		{
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}*/
+		
+		html { -webkit-text-size-adjust: none; /* prevent font scaling in landscape */ }
+
+        
+		#ONStitle1, #ONStitle2{
+			font-weight:600;
+			font-size:16px;	
+		}
+       
+ /* chart */
+        #graphic {
+            width: 100%;
+        }
+        #graphic:before,
+        #graphic:after {
+            content: " "; /* 1 */
+            display: table; /* 2 */
+        }
+        #graphic:after { clear: both; }
+
+        #graphic img {
+            max-width: 100%;
+            height: auto;
+        }
+		
+		p.source{
+			margin-top:12px;
+			font-size:13px;
+		}
+
+        #graphic svg {
+            font-family: Arial, Helvetica, sans-serif;
+            /*margin-bottom: 1em;*/
+        }
+        #graphic .axis {
+            /* font-size: 12px;*/
+           fill: #666;
+        }
+        #graphic .axis path,
+        #graphic .axis line {
+            fill: none;
+            stroke: #666;
+            shape-rendering: crispEdges;
+        }
+        #graphic .axis.y path { display: none; }
+        #graphic .axis.y .tick line { display: none; }
+        #graphic .grid path { display: none; }
+        #graphic .grid .tick {
+            stroke: #ccc;
+            /*stroke-dasharray: 1px 3px;*/
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+        #graphic .line {
+            fill: none;
+            stroke-width: 3px;
+			stroke-linecap:round;
+			stroke-linejoin:round;
+        }
+
+        #graphic .bars rect { fill: #17807E; }
+        #graphic .label text,
+        #graphic .value text {
+            font-weight: normal;
+            font-size: 12px;
+            fill: #333;
+            text-align: right;
+        }
+        #graphic .value text {
+            fill: #fff;
+            font-size: 11px;
+        }
+
+   #graphic .key {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0 0 1em 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #graphic .key li {
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+
+        #graphic .key  b {
+            display: inline-block;
+            width: 35px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+			background-color:none;
+			margin-top:8px;
+        }
+
+        #graphic .key label {
+            white-space: nowrap;
+            font-size: 12px;
+            color: #333;
+            font-weight: normal;
+        }
+		
+		#graphic .unit {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            fill: #333;
+            text-align: left;
+			
+        }
+
+/*		.fact, .annotext1, .annotext2 {
+		    font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+			fill: #666;
+
+		}*/
+
+        .line-0 { stroke: #5694B8; }
+    
+
+        .key-0 b { background-color: #274796; }
+        .key-1 b { background-color: #F5942F; }
+        .key-2 b { background-color: #E73f40; }
+		.key-2 b { background-color: #7BCAE2; }
+     
+	 	.annocirc1, .annocirc2{
+			stroke:#E66500;
+			stroke-width:2px;
+			fill: #E66500;	
+		}
+	 
+	 
+		#centreline {stroke:#666; stroke-width:3px};
+		
+		#icon{
+			
+		}
+		
+		#iconpath path{
+			stroke:#666;
+			fill:none;
+		}
+		
+		.x .tick text {
+			fill:none;	
+		}
+
+		.labels .tick text {
+			/*font-size:12px;*/
+			fill:#666;	
+		}
+		
+		.domain{
+			fill:none;
+			stroke:none;	
+		}
+		
+		.circles{
+			float:left;	
+		}
+		
+
+
+/*        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }*/
+
+      
+        /* chart */
+        #graphic2 {
+            /*width: 100%;*/
+        }
+        #graphic2:before,
+        #graphic2:after {
+            content: " "; /* 1 */
+            display: table; /* 2 */
+        }
+        #graphic2:after { clear: both; }
+
+        #graphic2 img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #graphic2 svg {
+            font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif
+            /*margin-bottom: 1em;*/
+        }
+        #graphic2 .axis {
+            font-size: 12px;
+            fill: black;
+        }
+        #graphic2 .axis path,
+        #graphic2 .axis line {
+            fill: none;
+            stroke: #666;
+            shape-rendering: crispEdges;
+        }
+        #graphic2 .axis.y path { display: none; }
+        #graphic2 .axis.y .tick line { display: none; }
+        #graphic2 .grid path { display: none; }
+        #graphic2 .grid .tick line{
+            stroke: #CCC;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+		#graphic2 .grid .tick text {
+            
+			fill:black;
+			/*font-size:12px;*/
+			font-weight:500;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+        
+		
+		/* x axis line */
+		#graphic2 .axis.x path {  
+           stroke: #CCC;
+		}
+        
+		
+		/* x axis vertical grid lines */
+		#graphic2 .axis.x .tick line { 
+            stroke: #CCC;
+			display:none;
+		}
+		
+        #graphic2 .line {
+            fill: none;
+            stroke-width: 3px;
+        }
+
+        #graphic2 .bars rect { fill: #17807E; }
+        #graphic2 .label text,
+        #graphic2 .value text {
+            font-weight: normal;
+            font-size: 12px;
+            fill: #333;
+            text-align: right;
+        }
+        #graphic2 .value text {
+            fill: #fff;
+            font-size: 11px;
+        }
+
+       /* #graphic2 .key {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0 0 1em 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #graphic2 .key li {
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 14px;
+        }
+
+        #graphic2 .key  b {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+			background-color:red;
+        }
+
+        #graphic2 .key label {
+            white-space: nowrap;
+            font-size: 12px;
+            color: #333;
+            font-weight: normal;
+        }	*/
+		
+		#graphic2 .unit {
+            font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif
+            font-size: 12px;
+            fill: #333;
+            text-align: left;
+        }			
+
+
+
+/*        .line-0 { stroke: #11605E; }
+        .line-1 { stroke: #8BC0BF; }
+        .line-2 { stroke: red; }
+    */
+
+/*        .key-0 b { background-color: #11605E; }
+        .key-1 b { background-color: #8BC0BF; }
+        .key-2 b { background-color: red; }*/
+     
+/*		#centreline {stroke:#666; stroke-width:3px};*/
+		
+/*		.legendBlocks
+		{
+			width:15%;
+			height:15%;				
+		}*/
+		
+/*	.chartBars{
+		fill:#274796;
+		stroke:#274796;
+		fill-opacity:0.85;
+	}*/
+	
+	.barText{
+		text-anchor:end;
+		fill:black;
+		
+	}
+	
+	
+	
+	.dropdown-menu{
+		margin-left:15px;
+		margin-right:15px;
+	}
+	
+	.sliderInc {
+		height:40px;
+	}
+	
+	.United .chartBars{
+		fill:#F5942F;
+		fill-opacity:0.85;
+		stroke:#F5942F;
+	}
+	
+	#grpBars text{
+		font-weight:500;
+	}
+	
+	#xAxis .tick text {
+		font-weight:500;
+		display:none;
+	}
+	
+	
+	
+	.btn_z{
+		margin-right:2px;
+	}
+	
+	#txtTime{
+		font-size:25px;
+		font-weight:500;
+	}
+	
+	.btn-zoe {
+	  background-color: #cecece;
+	  border-color: #adadad;
+	  color: #333333;
+	}
+	
+	.textToChange tspan{
+		text-anchor:end;
+	}
+	
+	#dataChoices{
+		margin-bottom:5px;
+		margin-top:5px;
+	}
+	p {
+  margin: 0 0 0px;
+}
+
+
+		.barMarker
+		{
+			fill:#5694b8;
+			fill-opacity:0.5;
+		}
+		
+		.barMarkerSel
+		{
+			fill:#F5942F;
+			fill-opacity:0.5;
+		}
+		
+		.intBar
+		{
+			fill-opacity:0;	
+		}
+		
+		.intBarActive
+		{
+			fill-opacity:0.1;	
+		}
+		
+		.chartBarSel
+		{
+			fill:#F5942F;	
+		}
+		
+		.chartBars
+		{
+			fill:#5694b8;
+			opacity:0.9
+		}
+		
+		.textToChange{
+			fill:#666;
+		}
+		
+		.selText
+		{
+			fill:black;	
+			text-anchor:end;
+/*			font-family: open_sansregular;
+			font-size: 13px;*/
+    
+		}
+
+
+    </style>
+
+</head>
+<body>
+<div class="container-fluid">
+<!--    <div class="row">
+        <div class="col-sm-12">
+            <h1>Engaging title - make dynamic</h1>
+        </div>
+    </div>-->
+     
+    <div class="row">
+       <!--This is the sub-title of the overall chart - Boring literal title?-->
+            <div class="col-sm-5 col-sm-push-7" id= "dataChoices"></div>
+            <div class="col-sm-7 col-sm-pull-5">
+            	<p id="ONStitle1"></p>
+            </div>
+            
+    </div>
+    <div id="graphic" class="row"><img src="top.png" alt="Interactive chart" /></div>
+	
+    <div class="row">
+       <!--This is the sub-title of the overall chart - Boring literal title?-->
+            <p id="ONStitle2" class="col-sm-12"></p>
+    </div>
+   
+    
+    <!--You can specify a fallback image for those that can't view the interactive for some reason - Need to work on a process to generate these (Screenshot and save as png?)-->
+    <div id="graphic2" class="row"><img src="bottom.png" alt="Interactive chart" /></div>
+	<div id="keypoints">
+        <p></p>
+    </div>
+    
+    <div class="row" id="controls"></div>
+    
+<!--    <div id="keypoints">
+        <p></p>
+    </div>-->
+
+    
+    <!-- Define some footnotes for underneath the charts - if you don't need all the lines then get rid of it, if you need more add another set of <p>???</p> -->
+   
+
+    <!-- Define the source -->
+    <div class="footer">
+        <p class="source"></p>
+    </div>
+</div><!--end of .container-fluid-->    
+    <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>    
+    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+    <script src="lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" type="text/javascript"></script>
+    <script src="lib/jquery-ui-1.10.4.custom.min.js"></script> 
+    <script src="lib/jquery.ui.labeledslider.js"></script>
+    <script src="lib/bootstrap.min.js" charset="utf-8"></script>
+    
+    <script>
+		
+	
+	//globals
+	var dvc ={};//global namespace
+	dvc.timeIndex=15;
+	dvc.index;
+	dvc.bAnimate=false;
+	dvc.currentData="adjusted";
+	dvc.previousTSLength;
+	dvc.markIndex=null;
+	
+
+//// Define annotation text - put a double space where you want the line to break
+//var annotext1 = " ";
+//var annotext2 = " ";
+//
+////var keypointtext = "";
+//
+//// Define the starting x position for the annotation text
+//var annoY1 = 480;
+//var annoY2 = 500;
+//var annoCY1 = 500;
+//
+//// Define the starting y position for the annotation text
+//var annoX1 = "2011";
+//var annoX2 = "2012";
+//var annoCX1 = "2010";
+// 
+//// Define whether you want left or right aligned annotation text. Options start | middle | end 
+//var annoAlign1 = 'middle';
+//var annoAlign2 = 'middle';
+
+//What is the date format in the csv file? e.g %Y-%m-%d would be format for 1970-01-25 - See here https://github.com/mbostock/d3/wiki/Time-Formatting
+var dateForm = "%Y"
+
+//What are the Y-axis units?
+var yUnit = "£ per week";
+//var yUnit2 = "(2002=100)";
+
+	
+	
+	// to load json data driving the chart	
+	function initialDataLoad(selection){
+			dvc.currentData = selection;
+		
+				
+		d3.select("#dataChoices").selectAll(".btn").attr("class", "btn btn_z btn-default btn-xs")	
+		d3.select("#"+dvc.currentData).attr("class", "btn btn_z btn-zoe btn-xs")
+		
+			
+		 	d3.csv("data/"+ selection+".csv", function(error, data) {
+				graphic_data = data;
+		
+				graphic_data.forEach(function(d) {
+					d.date = d3.time.format(dateForm).parse(d.date);
+				});
+		
+				pymChild = new pym.Child({ renderCallback: drawGraphic});
+				
+			});
+					
+			d3.json('data/' + selection + ".json", function(json)	{
+				dvc.chartData=json;
+				dvc.previousTSLength=16;
+				
+				if(dvc.chartData.timeLabels[dvc.timeIndex]==null){
+					newTSLength = dvc.chartData.timeLabels.length;
+					diff = newTSLength-dvc.previousTSLength;
+					dvc.timeIndex = dvc.timeIndex + diff;
+				} else {
+					dvc.previousTSLength=dvc.chartData.timeLabels.length;
+				}
+
+		//loadNewData(selection)
+
+			pymChild = new pym.Child({renderCallback: drawgraphic2});
+			
+		})
+	} //end initialDataLoad
+	
+	function loadNewData(selection){
+			dvc.currentData = selection;
+		
+				
+		d3.select("#dataChoices").selectAll(".btn").attr("class", "btn btn_z btn-default btn-xs")	
+		d3.select("#"+dvc.currentData).attr("class", "btn btn_z btn-zoe btn-xs")
+		
+		
+		
+		d3.csv("data/"+ selection+".csv", function(error, data) {
+			graphic_data = data;
+	
+			
+			graphic_data.forEach(function(d) {
+				d.date = d3.time.format(dateForm).parse(d.date);
+			});
+	
+			updateChart0()
+		});
+			
+			d3.json('data/' + selection + ".json", function(json)	{
+				dvc.chartData=json;
+				dvc.previousTSLength=16;
+				
+				if(dvc.chartData.timeLabels[dvc.timeIndex]==null){
+					newTSLength = dvc.chartData.timeLabels.length;
+					diff = newTSLength-dvc.previousTSLength;
+					dvc.timeIndex = dvc.timeIndex + diff;
+				} else {
+					dvc.previousTSLength=dvc.chartData.timeLabels.length;
+				}
+
+			updateChart()
+			updateMarkers()
+			
+		})
+	}
+	
+	
+	
+	
+//	//killChart function - remove everything from chart space including controls
+//	function killChart(){
+
+//		d3.select(".selecion")
+////		d3.select("#zoomBtn").remove();
+////		d3.select("#markText").remove();
+//		d3.select("#myAxes").remove();	
+//		d3.select("#grpBars").remove();	
+//		d3.select("#txtTime").remove();		
+//		d3.select("#chartTitleOverall").remove();		
+//		d3.select("#topicHeading").remove();	
+//		/*d3.select("#chartSubtitle").remove();	*/	
+//		d3.select("#chartUnits").remove();		
+//		d3.select("#note").select("p").remove();		
+//		d3.select("#meanLine").remove();		
+//		d3.select(".credit").remove();	
+//		d3.select("#controls").remove();		
+//		
+//		
+		dvc.bMark=false;	
+////		dvc.bZoom=false;		
+//				
+//		initialDataLoad();
+//		
+//		}//end killChart
+	
+	var $graphic = $('#graphic');
+	//var keypoints = $('#keypoints');
+	var graphic_data;
+	
+		var graphic_aspect_width = 13;
+		var graphic_aspect_height = 4;
+	
+	var mobile_threshold = 500;
+	var pymChild = null;
+		
+	
+	var ageNames;
+	var graphic2 = $('#graphic2');
+	var keypoints = $('#keypoints');
+	var graphic2_data;
+	var graphic2_aspect_width = 13;
+	var graphic2_aspect_height = 9;
+	var mobile_threshold1 = 525;
+	var mobile_threshold2 = 300;
+	var pymChild = null;
+	var axis_font_size = "12px";
+	
+	if(graphic2.width()<410){
+		var margin = {top: 5, right: 20, bottom: 25, left: 105};
+	} else if(graphic2.width()<665){
+		var margin = {top: 5, right: 20, bottom: 30, left: 130};
+	} else {
+		var margin = {top: 5, right: 20, bottom: 25, left: 140}
+	}
+	
+	
+	function drawGraphic(width) {
+  
+	if(graphic2.width()<mobile_threshold2){	
+		var margin0 = {top: 5, right: 0, bottom: 40, left: 25};
+	} else if(graphic2.width()<mobile_threshold1){
+		var margin0 = {top: 5, right: 5, bottom: 40, left: 25};
+	} else {
+		var margin0 = {top: 10, right: 20, bottom: 50, left: 30};
+	}
+	
+    var width = $graphic.width() - margin0.left - margin0.right;
+    var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) ;
+    var num_ticks = 6;
+    if (width < mobile_threshold) {
+        num_ticks = 6;
+    }
+	
+	if (width < mobile_threshold2) { 
+				axis_font_size = "9px";
+		 } else if(width < mobile_threshold1){
+				axis_font_size = "11px";
+		}
+
+    // clear out existing graphics
+    $graphic.empty();
+	//keypoints.empty();
+
+    var x = d3.time.scale()
+        .range([0, width]);
+
+	var xOrd = d3.scale.ordinal()
+		.rangePoints([0, width])
+		.domain(["2001/02","2002/03","2003/04","2004/05","2005/06","2006","2007","2008","2009","2010","2011","2012", "2013","2014",	"2014/15","2015/16"]);
+
+	
+    var y = d3.scale.linear()
+        .range([height, 0]);
+
+    var formatAsPercentage = d3.formatPrefix('%',0);
+
+    x.domain(d3.extent(graphic_data, function(d) { return d.date; }));	
+
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom")
+        .tickFormat(function(d,i) {
+            if (width <= mobile_threshold) {
+                var fmt = d3.time.format('%y');
+                return '\u2019' + fmt(d);
+            } else {
+                var fmt = d3.time.format('%Y');
+                return fmt(d);
+            }
+        })
+		.tickPadding(1)
+		.tickValues(x.ticks(13).concat( x.domain() ));
+		
+var xOrdAxis = d3.svg.axis()
+		.scale(xOrd)
+		.orient("bottom")
+		.tickFormat(function(d,i) {
+            	str = d;
+				
+				if (width <= mobile_threshold) {
+                		return i % 2 ? "": '\u2019' + str.substring(2,5) + ""+ str.substring(5,7);					
+				} else {
+						return i % 1 ? "": '\u2019' + str.substring(2,5) + ""+ str.substring(5,7);
+            	}
+        })
+		.tickPadding(5);
+
+
+
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient('left')
+        .ticks(num_ticks);
+
+    var y_axis_grid = function() { return yAxis; }
+
+    var line = d3.svg.line()
+        .x(function(d) { return x(d.date); })
+        .y(function(d) { return y(d.amt); });
+
+    // parse data into columns
+    var lines = {};
+    for (var column in graphic_data[0]) {
+        if (column == 'date') continue;
+        lines[column] = graphic_data.map(function(d) {
+            return {
+                'date': d.date,
+                'amt': d[column]
+            };
+        });
+    }
+	
+//var legend = d3.select('#graphic').append('ul')
+//                .attr('class', 'key')
+//            .selectAll('g')
+//                .data(labels)
+//            .enter().append('li')
+//                //.attr('class', function(d, i) { return 'key-item key-' + i + ' ' + d.key.replace(' ', '-').toLowerCase(); });
+//        legend.append('b')
+//		.style("border-top", function(d,i) { return dashArray[i]; })
+//        legend.append('label')
+//            .html(function(d,i) { return labels[i]; });
+
+	d3.select('#graphic').append("p")
+                .attr('class', 'unit')
+  		        .text(function(d,i) { return yUnit; });
+//	d3.select('#graphic').append("p")
+//                .attr('class', 'unit')
+//  		        .text(function(d,i) { return yUnit2; });
+
+
+    var svg = d3.select('#graphic').append('svg')
+        .attr("width", width + margin0.left + margin0.right)
+        .attr("height", function(){
+			if(width < mobile_threshold2){
+				return height + margin0.top + margin0.bottom 
+			} else if(width < mobile_threshold1){
+				return height + margin0.top + margin0.bottom 
+			} else {
+				return height + margin0.top + margin0.bottom 
+			}
+		})
+        .append("g")
+        .attr("transform", "translate(" + margin0.left + "," + margin0.top + ")");
+
+    y.domain([350,600]);
+
+    
+    svg.append('g')
+        .attr('class', 'y axis')
+        .call(yAxis);
+
+    svg.append('g')
+        .attr('class', 'y grid')
+        .call(y_axis_grid()
+            .tickSize(-width, 0, 0)
+            .tickFormat('')
+        );
+	
+	
+	
+		
+	svg.append('g')
+        .attr('class', 'x axis')
+        .attr('transform', function(){ 
+			if (width < mobile_threshold2){
+				return 'translate(0,' + (height + 12) + ')';
+			} else if (width < mobile_threshold1){
+				return 'translate(0,' + (height + 20) + ')';
+			} else {
+				return 'translate(0,' + (height + 30) + ')'
+			}})
+        .call(xAxis);
+		
+	svg.append("g")
+		.attr("transform", function(){ 
+			if (width < mobile_threshold2){
+				return 'translate(0,' + (height + 12) + ')';
+			} else if (width < mobile_threshold1){
+				return 'translate(0,' + (height + 20) + ')';
+			} else {
+				return 'translate(0,' + (height + 30) + ')'
+			}})
+		.attr("class","labels")
+      .call(xOrdAxis)
+
+d3.select("#graphic").selectAll(".labels").selectAll(".tick").selectAll("text").attr("font-size", axis_font_size)
+d3.select("#graphic").selectAll(".axis").attr("font-size", axis_font_size)
+		
+	var paths = svg.append("defs")
+                .append("g")
+                .attr("id","icon")
+				.append("g");
+				
+		paths.append("polyline")
+			 .attr("points", "2.881,9.54 7.94,5.061 12.341,9.54 17.77,5.061")
+			 .attr("stroke", "#666")
+			 .attr("fill", "none")
+		paths.append("polyline")
+			.attr("points", "2.881,14.54 7.94,10.061 12.341,14.54 17.77,10.061")
+			.attr("stroke", "#666")
+		 	.attr("fill", "none");
+  
+            
+	
+	svg.append("g").attr("id","iconpath")
+		.attr("transform","translate(-10,3)")
+		.append("use")
+		.attr("xlink:href","#icon")
+		.attr("x", x(x.domain()[0]))
+		.attr("y", function(){ 
+			if (width < mobile_threshold2) {
+			  	return  y(90)
+			} else if (width < mobile_threshold1){
+				return y(355)
+			} else {
+				return y(340)
+			}
+		});
+		
+		//.attr("max-height", "50px");
+
+
+			
+			
+
+						
+			
+//	 svg.append("line")
+//		.attr("id","centreline")
+//		.attr('y1',y(100))
+//		.attr('y2',y(100))
+//		.attr('x1',0)
+//		.attr('x2',width);
+
+	
+/*	var insertLinebreaks1 = function () {
+		
+		var el1 = this.firstChild;
+		var el = el1.data;
+
+		var words = el.split('  ');
+		
+		d3.select(this).text('');
+
+	
+		for (var i = 0; i < words.length; i++) {
+			var tspan = d3.select(this).append('tspan').text(words[i]);
+			if (i > 0)
+				tspan.attr('x', x(d3.time.format(dateForm).parse(annoX1))).attr('dy', '15');
+		}
+	};*/
+	
+/*	var insertLinebreaks2 = function () {
+		
+		var el1 = this.firstChild;
+		var el = el1.data;
+
+		var words = el.split('  ');
+		
+		d3.select(this).text('');
+
+	
+		for (var i = 0; i < words.length; i++) {
+			var tspan = d3.select(this).append('tspan').text(words[i]);
+			if (i > 0)
+				tspan.attr('x', x(d3.time.format(dateForm).parse(annoX2))).attr('dy', '15');
+		}
+	};*/
+	
+//	var createBackRect1  = function(){
+//	var BBox = this.getBBox()
+//					
+//			svg.insert("rect", ".annotext1")
+//				.attr("width", BBox.width)
+//				.attr("height", BBox.height)
+//				.attr("x", BBox.x)
+//				.attr("y", BBox.y)
+//				.attr("fill", "white")
+//				.attr("opacity", 0.7);
+//};
+//
+//    if (width > mobile_threshold) {
+//		svg.append("text")
+//			.text(annotext1)
+//			.attr("class","annotext1")
+//			.attr("text-anchor", annoAlign1)
+//			.attr('y',y(annoY1))
+//			.attr('x',x(d3.time.format(dateForm).parse(annoX1)));
+//		
+//		d3.selectAll(".annotext1").each(insertLinebreaks1)
+//			.each(createBackRect1);
+//		
+///*		svg.append("text")
+//			.text(annotext2)
+//			.attr("class","annotext2")
+//			.attr("text-anchor", annoAlign2)
+//			.attr('y',y(annoY2))
+//			.attr('x',x(d3.time.format(dateForm).parse(annoX2)));
+//		
+//		d3.selectAll(".annotext2").each(insertLinebreaks2);*/
+//	} //else {
+//		d3.select("#keypoints").append("svg")
+//			.attr("width","20px")
+//			.attr("height","15px")
+//			.attr("class","circles")
+//			.append("circle")
+//			.attr("class", "annocirc1")
+//			.attr('y',"0px")
+//			.attr('x',"0px")
+//			.attr("r", "3")
+//			.attr('cy',"8px")
+//			.attr("cx", "8px");
+//		
+//		d3.select("#keypoints").append("p").text(annotext1);
+//
+//		
+//		
+//	}
+		
+	    svg.append('g').selectAll('path')
+			.data(d3.entries(lines))
+			.enter()
+			.append('path')
+			.attr('class', function(d, i) {
+				return 'line line-' + i;
+			})
+			.attr('d', function(d) {
+				return line(d.value);
+			});	
+
+		svg.append("circle")
+			.attr("class", "annocirc1")
+			.attr("r", "3")
+			.attr('cy',y(graphic_data[dvc.timeIndex]["data"]))
+			.attr("cx", x(graphic_data[dvc.timeIndex].date));
+		
+		
+			
+		
+    if (pymChild) {
+        pymChild.sendHeight();
+    }
+	
+}
+	
+		
+	function drawgraphic2(width) {
+		var width = graphic2.width() - margin.left - margin.right;
+		var height = Math.ceil((width * graphic2_aspect_height) / graphic2_aspect_width) - margin.top - margin.bottom;
+		var num_ticks = 10;
+		
+		//var color = d3.scale.ordinal().range([ "#274796" , "#F5942F" ]);
+		//var colourArray = [ "#274796" , "#F5942F" ];
+		
+		if (width < mobile_threshold2) { 
+				num_ticks = 4;
+				axis_font_size = "9px";
+				var height = Math.ceil(width *1.3) ;
+		 } else if(width < mobile_threshold1){
+			 	num_ticks = 5;
+				axis_font_size = "11px";
+				var height = Math.ceil(width *1.1) ;
+		}
+	
+		// clear out existing graphic2s
+		graphic2.empty();
+		keypoints.empty();
+		$("#controls").empty();
+		
+		
+//		var legend = d3.select('#graphic2').append('ul')
+//            .attr('class', 'key')
+//            .selectAll('g')
+//            .data(labels)
+//            .enter().append('li')
+//        legend.append('b')
+//		  .attr("class", "legendBlocks")
+//			.style("background-color", function(d,i) { return colourArray[i]; });
+//        legend.append('label')
+//            .text(function(d,i) { return labels[i]; });
+	
+
+		var svg = d3.select('#graphic2').append('svg')
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+			.attr("height", function(){
+			if(width < mobile_threshold2){
+				return height + margin.top + margin.bottom +10
+			} else if(width < mobile_threshold1){
+				return height + margin.top + margin.bottom +20
+			} else {
+				return height + margin.top + margin.bottom +30
+			}
+		})
+			.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");				
+					
+			
+		//LET'S FIND OUT MORE ABOUT THE DATA
+		//find length of series
+		dvc.recordLength=dvc.chartData.dataValues.length;//number of records (bars that will be created)
+		dvc.index=d3.range(dvc.recordLength);//the number of records as a d3.range object
+		dvc.timeLength=dvc.chartData.dataValues[0].length;//the number of elements in the time series
+
+		
+		//find true minValue
+		dvc.minTrueValue = d3.min(dvc.chartData.dataValues, function(array) {
+			return d3.min(array);
+		});
+		
+
+		
+		dvc.maxTrueValue = dvc.chartData.maxValue;	
+		dvc.xAxisDomainValue = Math.min(0,dvc.minTrueValue)
+		
+		dvc.timeMin=d3.min(dvc.chartData.timeLabels);
+		dvc.timeMax=d3.max(dvc.chartData.timeLabels);
+			
+			
+		//create x axis scale
+			dvc.xScale=d3.scale.linear()
+				.domain([dvc.xAxisDomainValue,dvc.maxTrueValue])
+				.range([0,width])
+				.nice();	
+			
+		//create ordinal scale for y axis
+			dvc.yScale = d3.scale.ordinal()
+				//.domain(dvc.chartData.dataValues)
+				.domain(dvc.chartData.catLabels)
+				.rangeRoundBands([0, height], .2);
+				
+		
+		//create main axis
+		var	xAxis=d3.svg.axis()
+				.scale(dvc.xScale)
+				.orient("bottom")
+				.ticks(num_ticks);
+				//.tickFormat(d3.format(".1s"));
+
+		var x_axis_grid = d3.svg.axis()
+				.scale(dvc.xScale)
+				.orient("bottom")
+				.ticks(num_ticks)
+				.tickSize(height);
+		
+				
+//		var yAxis = d3.svg.axis()
+//				.scale(dvc.yScale)
+//				.orient("left");
+				
+		//for some reason, yScale.rangeBand is not reurning the right cellHeight so we manually calc here...	
+		//	dvc.cellHeight=(1-dvc.gapRatio)*height/dvc.chartData.dataValues.length;
+			
+		d3.select("#ONStitle1").html("Average total household expenditure");
+		d3.select("#ONStitle2").html(dvc.chartData.name);
+		
+		$(".source").empty();
+		
+			if(dvc.currentData=="net"){
+				d3.select(".source").append("text")
+						.html("Source: ")
+						.append("a")
+						.attr("href", dvc.chartData.linkURL)
+						.attr("target","_blank")
+						.html(dvc.chartData.source)
+						
+				d3.select(".source").append("text").attr("id", "secondsource")
+						.html(" and ")
+						.append("a")
+						.attr("href", dvc.chartData.linkURL)
+						.attr("target","_blank")
+						.html(dvc.chartData.source)
+				
+				d3.select("#secondsource").append("text").text(", ONS");
+			} else {
+				d3.select(".source").append("text")
+						.html("Source: ")
+						.append("a")
+						.attr("href", "https://www.ons.gov.uk/releases/familyspendingintheuk2016")
+						.attr("target","_blank")
+						.html("Family spending in the UK: financial year ending March 2016")
+						
+				d3.select(".source").select("text").append("text").text(", ONS");
+			}
+		
+		//create line breaks for axis text
+			var insertLinebreaks = function () {
+				
+			var el1 = this.firstChild;
+			var el = el1.data;
+		
+			var words = el.split('  ');
+				
+			d3.select(this).text('');
+		
+				for (var i = 0; i < words.length; i++) {
+					var tspan = d3.select(this).append('tspan').text(words[i]);
+					if (i > 0)
+						tspan.attr('x', 0).attr('dy', '15');
+				}
+			};
+			
+		svg.append("g")
+			  .attr("class", "x axis")
+			  .attr("id", "xAxis")
+			  .attr("transform", "translate(0," + height + ")")
+			  .call(xAxis)
+			  .append("text")
+			  .attr("id", "axisLabels")
+			  .attr("transform", "translate(" + (width - 0) + ", 20)")
+			  .attr("y", 6)
+			  .attr("dy", ".71em")
+			  .style("text-anchor", "end")
+			  .attr("font-size", axis_font_size)
+			  .text(dvc.chartData.units);
+		
+		d3.selectAll("#axisLabels").each(insertLinebreaks);
+		
+		svg.append('g')
+			.attr('class', 'x grid')
+			.attr("transform", "translate(0,5)")
+			.call(x_axis_grid);
+		
+		d3.select("#graphic2").selectAll(".grid").selectAll(".tick").selectAll("text").style("font-size", axis_font_size)
+		
+//		  svg.append("g")
+//			  .attr("class", "y axis")
+//			  .call(yAxis)
+//			  .append("text")
+//			  .attr("transform", "rotate(0)")
+//			  .attr("transform", "translate(-5, -25)")
+//			  .attr("y", 6)
+//			  .attr("dy", ".71em")
+//			  .style("text-anchor", "end")
+//			  .text("not sure we need label here");
+		
+		//create basic graph
+			svg.append("g")
+				.attr("id","grpBars")
+				//.attr("transform", "translate(" + 0 + "," + height + ")");
+		
+		//create mean line
+//			svg.append("g")
+//				.attr("id","meanLine")
+//				.attr("transform", "translate(" + 0 + "," + height + ")");
+		
+	var bar = d3.select("#grpBars").selectAll(".bar")
+				.data(dvc.chartData.dataValues)
+				.enter().append("g")
+				.attr("class", function(d, i) { 
+				//what text do you want on the label?
+				return "bar " +dvc.chartData.catLabels[i]; //we'll have the names from catLabels please
+				})
+				.attr("transform", function(d, i) { return "translate(0," + dvc.yScale(i) + ")"; });
+					
+			bar.append("rect")
+				.attr("class","chartBars")
+				.attr("height", dvc.yScale.rangeBand())
+				.attr("x", function(d) { 
+						//if positive value
+						if(d[dvc.timeIndex]>=0){
+								return dvc.xScale(/*Math.min(*/0/*, d[dvc.timeIndex])*/);
+						//if negative value
+						} else {
+								return dvc.xScale(/*Math.min(0,*/ d[dvc.timeIndex]/*)*/);
+						}
+				})
+				.attr("width", function(d)	{
+						
+								return Math.abs(dvc.xScale(d[dvc.timeIndex]) - dvc.xScale(0));	
+				})
+				.attr("opacity", function(d){if(d[dvc.timeIndex]== -165 && dvc.currentData=="net"){
+											 	return 0;
+											} else{
+												return 1;	
+											}});
+		
+		
+		//create line breaks for axis text
+			var insertLinebreaks2 = function () {
+				
+			var el1 = this.firstChild;
+			var el = el1.data;
+		
+			var words = el.split('  ');
+				
+			d3.select(this).text('');
+		
+		
+				for (var i = 0; i < words.length; i++) {
+					var tspan = d3.select(this).append('tspan').text(words[i]);
+					if (i > 0)
+						d3.select(this).attr("y", dvc.yScale.rangeBand() / 3)
+						tspan.attr('x', -10).attr('dy', '0') ;
+				}
+				
+			// CREATE CUSTOM SUB-SELECTIONS
+			d3.selection.prototype.first = function() {
+			  return d3.select(this[0][0]);
+			};
+			d3.selection.prototype.last = function() {
+			 // var last = this.size() - 1;
+			  return d3.select(this[0][1]);
+			};
+			
+			// SHIFT THE END LABELS
+			var tickLabels = d3.select(this).selectAll('tspan');
+			
+						
+			tickLabels.first()
+			  .attr('dy', function(){
+				if (width < mobile_threshold2) { 
+						return 2;
+				 } else if (width < mobile_threshold1){
+						return 3;
+				} else {
+					return 4
+				}
+			});
+			tickLabels.last()
+			  .attr('dy', function(){
+				if (width < mobile_threshold2) { 
+						return 10;
+				 } else if (width < mobile_threshold1){
+						return 11;
+				} else {
+					return 11
+				}
+			});
+
+			};
+			
+		 //append some text to bar
+			bar.append("text")
+				.attr("x", function(d) {
+						//if positive value
+						if(dvc.minTrueValue>=0){
+								return dvc.xScale(0)-10;
+						//if negative value
+						} else {
+								return dvc.xScale(dvc.minTrueValue)-10;
+						}
+				})
+				.attr("class","barText")
+				.attr("y", dvc.yScale.rangeBand() / 2)
+				.attr("dy", ".35em")
+				.attr("font-size", axis_font_size)
+				.text(function(d, i) { 
+						return dvc.chartData.catLabels[i];
+				})
+				.attr("class","textToChange");
+				
+				d3.selectAll(".textToChange").each(insertLinebreaks2);
+				
+			//append some secondary text to bar when no data
+//			bar.append("text")
+//				.attr("x", function(d) { return dvc.xScale(0)+5;})
+//				.attr("class","noDataText")
+//				.attr("y", dvc.yScale.rangeBand() / 2)
+//				.attr("dy", ".35em")
+//				.attr("font-size", axis_font_size)
+//				.text(function(d, i) { 
+//						if(d[dvc.timeIndex]==null||(d[dvc.timeIndex]== -165 && dvc.currentData=="net")){
+//							return "no data available"; 
+//						} else {
+//							return "";
+//						}
+//				});
+				
+		//add secondary bar for time series comparison...
+			bar.append("rect")
+				.attr("class","barMarker")
+				.attr("x",0)
+				.attr("y",dvc.yScale.rangeBand()/2)
+				.attr("width",function(d)	{
+						
+								return Math.abs(dvc.xScale(d[dvc.timeIndex]) - dvc.xScale(0));	
+				})
+				.attr("height",0)
+				
+				
+		//add interaction bars...
+			bar.append("rect")
+				.attr("class","intBar")
+				.attr("data-nm", function(d,i)	{
+					return dvc.chartData.catLabels[i];
+				})
+				.attr("height",dvc.yScale.rangeBand())
+				.attr("x",0)
+				.attr("width",width)
+				.on("mouseover",function(d)	{
+					d3.select(this).attr("class","intBarActive");
+					//var objName = d3.select(this).attr("data-nm");
+				})
+				.on("mouseout",function(d)	{
+					d3.select(this).attr("class","intBar");
+				})
+				.on("click",function(d)	{
+						var bar=$(this).siblings()[0];
+						var txt=$(this).siblings()[1];
+						var bar2=$(this).siblings()[2];
+						var status=d3.select(bar).attr("class");
+						if (status=="chartBars")
+						{
+							d3.select(bar).attr("class","chartBarSel");
+							d3.select(bar2).attr("class","barMarkerSel");
+							d3.select(txt).attr("class","selText");
+						}	else
+						{
+							d3.select(bar).attr("class","chartBars");
+							d3.select(bar2).attr("class","barMarker");
+							d3.select(txt).attr("class","barText");
+						}	
+					})
+				
+
+//			//add a mean line if values
+//			var meanl=d3.select("#meanLine").selectAll(".mean")
+//				.data(dvc.chartData.meanValues)
+//				.enter()
+//				.append("g")
+//				.attr("class","mean");
+//			
+//			meanl.append("rect")
+//				.attr("class","meanLine")
+//				.attr("width",1)
+//				.attr("height", height+9)
+//				.attr("y",0)
+//				.attr("x", function(d)	{
+//						return dvc.xScale(d[dvc.timeIndex]);	
+//				});
+//				
+//			meanl.append("text")
+//				.text("EU28 average")
+//				.attr("class","meanLine")
+//				.attr("text-anchor", "middle")
+//				.attr("y", -10)
+//				.attr("x", function(d)	{
+//						return dvc.xScale(d[dvc.timeIndex]);
+//				});
+//				
+//		if(dvc.chartData.meanValues[0][dvc.timeIndex] == null){
+//				d3.select(".mean").attr("visibility", "hidden");	
+//			} else {
+//				d3.select(".mean").attr("visibility", "visible");	
+//			}		
+				
+		//add the time display
+			svg.append("g").attr("id", "timeinfo").append("text")
+				.text(dvc.chartData.timeLabels[dvc.timeIndex])
+				.attr("id","txtTime")
+				.attr("transform", "translate(" + (width*0.6)  + ", " + (height*0.9) + ")")
+				.attr("pointer-events","none");
+		
+	d3.select("#timeinfo").append("text").attr("id", "markText").attr("transform", "translate(" + (width*0.6)  + ", " + (height*0.95) + ")")
+				.attr("pointer-events","none").text("") 
+				
+		//having sized and position the x for the bars, we now need to sort them into the default starting year
+			dvc.index.sort(function(b, a) {
+				return dvc.chartData.dataValues[a][dvc.timeIndex] - dvc.chartData.dataValues[b][dvc.timeIndex];
+			})		
+			dvc.yScale.domain(dvc.index);
+			bar.attr("transform", function(d, i) {
+					return "translate(0," + dvc.yScale(i) + ")";
+			});		
+			
+			
+//	annotationCreation();			
+	controlsCreation();
+				
+			if (pymChild) {
+				pymChild.sendHeight();
+			}
+		} //end of draw graphic2
+		
+		
+		//play/pause times series
+		function playPause(){
+				//$('#forwardStepBtn').prop('disabled', false);
+				//$('#backStepBtn').prop('disabled', false);
+				//if animation playing
+				if (dvc.bAnimate==true){
+					
+					// pause the animation
+					dvc.bAnimate=false;
+					
+					//replace button text n icon
+					d3.select("#playPauseBtn").select("span")
+						.attr("class","glyphicon glyphicon-play");
+					
+					d3.select("#playPauseBtn").select("text")
+						.text(" play");
+						
+					$('#backStepBtn').prop('disabled', false);
+					$('#forwardStepBtn').prop('disabled', false);
+					
+					clearInterval(dvc.theInterval);
+					
+				// else if animation paused	
+				} else if(dvc.bAnimate==false){
+					
+					//play animation
+					dvc.bAnimate=true;
+					//replace button text n icon
+					d3.select("#playPauseBtn").select("span")
+						.attr("class","glyphicon glyphicon-pause");
+					
+					d3.select("#playPauseBtn").select("text")
+						.text(" pause");
+					
+					$('#backStepBtn').prop('disabled', true);
+					$('#forwardStepBtn').prop('disabled', true);
+					
+					//check to see when end of time series reached then reset to start and pause
+					dvc.theInterval=setInterval(function() {
+							if (dvc.timeIndex<dvc.timeLength-1)	{
+								dvc.timeIndex++;
+								updateChart();	
+							} else {
+								//clearInterval(dvc.theInterval);
+								dvc.bAnimate=true;
+								dvc.timeIndex=0;
+								updateChart();	
+								//replace button text n icon
+//								d3.select("#playPauseBtn").select("span")
+//									.attr("class","glyphicon glyphicon-play");
+//								
+//								d3.select("#playPauseBtn").select("text")
+//									.text(" play");
+							}
+					},3000);
+				}
+		}
+		
+		function backStepBtn(){
+				//$('#forwardStepBtn').prop('disabled', false);
+				
+				//if (dvc.timeIndex>0)	{
+								dvc.timeIndex--;
+								updateChart();	
+				//			} else {
+//								$('#backStepBtn').prop('disabled', true);
+//							}
+		}
+		
+		function forwardStepBtn(){
+				//$('#backStepBtn').prop('disabled', false);
+				
+				//if (dvc.timeIndex<dvc.timeLength-1)	{
+								dvc.timeIndex++;
+								updateChart();	
+				//			} else {
+				//				$('#forwardStepBtn').prop('disabled', true);
+				//			}
+		}
+		
+//	function annotationCreation(){
+//			//create line breaks for annotation
+//			var insertLinebreaks = function () {
+//				
+//			var el1 = this.firstChild;
+//			var el = el1.data;
+//		
+//			var words = el.split('  ');
+//				
+//			d3.select(this).text('');
+//		
+//				for (var i = 0; i < words.length; i++) {
+//					var tspan = d3.select(this).append('tspan').text(words[i]);
+//					if (i > 0)
+//						tspan.attr('x', dvc.xScale(dvc.chartData.annoX[dvc.timeIndex])).attr('dy', '15');
+//				}
+//			};
+//			
+//		var width = graphic2.width() - margin.left - margin.right;
+//		
+//			if (width > mobile_threshold1) {
+//				
+//				d3.select('#graphic2').select("g").append("text")
+//					.text(dvc.chartData.fact[dvc.timeIndex])
+//					.attr("class","fact")
+//					.attr("text-anchor", dvc.chartData.annoAlign[dvc.timeIndex])
+//					.attr('y',dvc.yScale(dvc.chartData.annoY[dvc.timeIndex])+10)
+//					.attr('x',dvc.xScale(dvc.chartData.annoX[dvc.timeIndex]));
+//				
+//				d3.selectAll(".fact").each(insertLinebreaks);
+//			} else {
+//				d3.select("#keypoints").append("p").text(dvc.chartData.fact[dvc.timeIndex]);
+//			}
+//	}//end of annotationCreation
+	
+	
+	//controls creation 
+	function controlsCreation(){
+			dvc.timeLength=dvc.chartData.dataValues[0].length;
+			//create animation controls if needed
+			if (dvc.timeLength>1){
+			
+
+		var group =	d3.select("#controls").append("div")
+					.attr("class", "visible-xs")
+					.attr("id","btnDiv");
+
+			span1 = group.append("button")
+					.attr("type","button")
+					.attr("class", "btn btn_z btn-default btn-xs")
+					.attr("id", "backStepBtn");
+
+				span1.append("span")
+					.attr("class","glyphicon glyphicon-step-backward");
+				span1.append("text").text(" back a year");
+				
+			group.append("text")	
+					.attr("class", "displayedYear")
+					.text(dvc.chartData.timeLabels[dvc.timeIndex])
+				
+//			span2 = group.append("button")
+//					.attr("type","button")
+//					.attr("class", "btn btn_z btn-default btn-xs")
+//					.attr("id", "playPauseBtn");
+//					
+//			span2.append("span")
+//					.attr("class","glyphicon glyphicon-play");
+//			span2.append("text").text(" play");
+				
+			span3 = group.append("button")
+					.attr("type","button")
+					.attr("class", "btn btn_z btn-default btn-xs")
+					.attr("id", "forwardStepBtn");
+			
+			
+			
+					
+			span3.append("span")
+					.attr("class","glyphicon glyphicon-step-forward");
+			span3.append("text").text(" forward a year");
+			
+			
+			
+			$("#playPauseBtn").click(playPause);
+			$("#backStepBtn").click(backStepBtn);
+			$("#forwardStepBtn").click(forwardStepBtn);
+			
+			mark_span =d3.select("#controls").append("div")
+					.attr("class","col-sm-1 hidden-xs")
+					.append("button")
+					.attr("type","button")
+					.attr("class", "btn btn_z btn-default btn-xs")
+					.attr("id", "mark")
+			
+/*			mark_span.append("span")
+					.attr("class","glyphicon glyphicon-step-backward");*/
+			
+			mark_span.append("text").text(" mark");
+			
+			
+			$("#mark").click(function() { 
+					markBars();
+				});
+			
+			
+			
+			
+						
+			d3.select("#controls").append("div")
+					.attr("class", "sliderInc hidden-xs col-sm-offset-1 col-sm-10")
+					.append("div")
+					.attr("id","slider")
+			  $('#slider').labeledslider({ 
+			  		tickInterval: 1, 
+					min: 0,
+					max: dvc.timeLength-1,
+					value: dvc.timeIndex,
+					step: 1,
+					tickLabels: {
+					  0: '\u2019' + dvc.chartData.timeLabels[0].substring(2,5) + ""+ dvc.chartData.timeLabels[0].substring(5,7),
+					  1: '\u2019' + dvc.chartData.timeLabels[1].substring(2,5) + ""+ dvc.chartData.timeLabels[1].substring(5,7),
+					  2: '\u2019' + dvc.chartData.timeLabels[2].substring(2,5) + ""+ dvc.chartData.timeLabels[2].substring(5,7),
+					  3: '\u2019' + dvc.chartData.timeLabels[3].substring(2,5) + ""+ dvc.chartData.timeLabels[3].substring(5,7),
+					  4: '\u2019' + dvc.chartData.timeLabels[4].substring(2,5) + ""+ dvc.chartData.timeLabels[4].substring(5,7),
+					  5: dvc.chartData.timeLabels[5],
+					  6: dvc.chartData.timeLabels[6],
+					  7: dvc.chartData.timeLabels[7],
+					  8: dvc.chartData.timeLabels[8],
+					  9: dvc.chartData.timeLabels[9],
+					  10: dvc.chartData.timeLabels[10],
+					  11: dvc.chartData.timeLabels[11],
+					  12: dvc.chartData.timeLabels[12],
+					  13: dvc.chartData.timeLabels[13],
+					  14: '\u2019' + dvc.chartData.timeLabels[14].substring(2,5) + ""+ dvc.chartData.timeLabels[14].substring(5,7),
+					  15: '\u2019' + dvc.chartData.timeLabels[15].substring(2,5) + ""+ dvc.chartData.timeLabels[15].substring(5,7),
+					},
+					slide: function(event, ui)
+					{	
+						dvc.timeIndex = ui.value;
+						updateChart();
+					}});
+			}
+		}; //end of creating controls
+		
+				function markBars()
+		{		
+			//need to set some text to explain what the marks mean...
+			if (dvc.bMark)
+			{	dvc.markIndex=null;
+				//reset
+				d3.select("#grpBars").selectAll("rect.barMarker, rect.barMarkerSel ")
+					.transition()
+					.duration(500)
+					.attr("height",	0)
+					
+					
+				d3.select("#grpBars").selectAll(".chartBars,.chartBarSel")
+					.transition()
+					.duration(500)
+					.attr("height", dvc.yScale.rangeBand())
+					
+				d3.select("#mark").select("text").text(" mark")
+				
+				dvc.bMark=false;
+				d3.select("#markText").text("");
+			}	else
+			{	dvc.markIndex=dvc.timeIndex;
+				//set marker
+				d3.select("#grpBars").selectAll("rect.barMarker, rect.barMarkerSel")
+					.attr("width", function(d)	{
+								return Math.abs(dvc.xScale(d[dvc.markIndex]) - dvc.xScale(0));	
+				})
+					.attr("x", function(d) { 
+						//if positive value
+						if(d[dvc.timeIndex]>=0){
+								return dvc.xScale(/*Math.min(*/0/*, d[dvc.timeIndex])*/);
+						//if negative value
+						} else {
+								return dvc.xScale(/*Math.min(0,*/ d[dvc.markIndex]/*)*/);
+						}
+				})
+					.attr("y", dvc.yScale.rangeBand()/2)
+					.transition()
+					.duration(500)
+					.attr("height",function (d,i)	{
+						return dvc.yScale.rangeBand()/2;
+					});
+					
+					
+					
+				d3.select("#grpBars").selectAll(".chartBars,.chartBarSel")
+					.transition()
+					.duration(500)
+					.attr("height",function (d,i)	{
+						return dvc.yScale.rangeBand()/2;
+					})
+					
+					
+					
+					
+				d3.select("#mark").select("text").text(" clear")
+				/*$("#btnMark").button( "option", "label", "clear" );
+				$("#btnMark").button( "option", "icons", {primary:'ui-icon-close'} );*/
+				dvc.bMark=true;
+				d3.select("#markText").text("markers show "+dvc.chartData.timeLabels[dvc.markIndex]);
+			}
+		}
+		
+		function updateChart0(){
+			//var margin0 = {top: 10, right: 10, bottom: 30, left: 55};
+//			var width = $graphic.width() ;
+//			var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) ;	
+			
+			if(graphic2.width()<mobile_threshold2){	
+		var margin0 = {top: 5, right: 0, bottom: 40, left: 25};
+	} else if(graphic2.width()<mobile_threshold1){
+		var margin0 = {top: 5, right: 5, bottom: 40, left: 25};
+	} else {
+		var margin0 = {top: 10, right: 20, bottom: 50, left: 30};
+	}
+	
+    var width = $graphic.width() - margin0.left - margin0.right;
+    var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) ;	
+			
+			var x = d3.time.scale()
+				.range([0, width])
+				.domain(d3.extent(graphic_data, function(d) { return d.date; }));	
+				
+			var y = d3.scale.linear()
+				.range([height, 0])
+				.domain([350,600]);		
+					
+			var line = d3.svg.line()
+				.x(function(d) {console.log(x.domain()); return x(d.date); })
+				.y(function(d) { return y(d.amt); });
+			
+						
+			// parse data into columns
+			var lines = {};
+			for (var column in graphic_data[0]) {
+				if (column == 'date') continue;
+				lines[column] = graphic_data.map(function(d) {
+					return {
+						'date': d.date,
+						'amt': d[column]
+					};
+					
+				});
+			}
+
+		
+			d3.select(".line-0")
+				.data(d3.entries(lines))
+				.transition()
+				.duration(1000)
+				.attr('d', function(d) {
+					return line(d.value);
+				});			
+		}
+		
+		
+		//update chart
+		function updateChart(){
+			
+			d3.select("#ONStitle1").html("Average total household expenditure");
+			d3.select("#ONStitle2").html(dvc.chartData.name);
+	
+	if(graphic2.width()<mobile_threshold2){	
+		var margin0 = {top: 5, right: 0, bottom: 40, left: 25};
+	} else if(graphic2.width()<mobile_threshold1){
+		var margin0 = {top: 5, right: 5, bottom: 40, left: 25};
+	} else {
+		var margin0 = {top: 10, right: 20, bottom: 50, left: 30};
+	}
+	
+    var width = $graphic.width() - margin0.left - margin0.right;
+    var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) ;
+			
+//	var margin0 = {top: 10, right: 10, bottom: 30, left: 55};
+//    var width = $graphic.width() - margin0.left - margin0.right;
+//    var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) ;	
+			
+			var x = d3.time.scale()
+				.range([0, width])
+				.domain(d3.extent(graphic_data, function(d) { return d.date; }));	
+				
+			var y = d3.scale.linear()
+				.range([height, 0])
+				.domain([350,600]);	
+			
+		
+			console.log(graphic_data[dvc.timeIndex]["data"]);
+			console.log(y(527))
+			d3.select(".annocirc1")
+			.transition()
+			.duration(1000)
+			.attr('cy',y(graphic_data[dvc.timeIndex]["data"]))
+			.attr("cx", x(graphic_data[dvc.timeIndex].date))
+			.attr("data", graphic_data[dvc.timeIndex]["data"]);
+						
+			$(".source").empty();
+			
+			if(dvc.currentData=="net"){
+				d3.select(".source").append("text")
+						.html("Source: ")
+						.append("a")
+						.attr("href", dvc.chartData.linkURL)
+						.attr("target","_blank")
+						.html(dvc.chartData.source)
+						
+				d3.select(".source").append("text").attr("id", "secondsource")
+						.html(" and ")
+						.append("a")
+						.attr("href", dvc.chartData.linkURL2)
+						.attr("target","_blank")
+						.html(dvc.chartData.source2)
+				
+				d3.select("#secondsource").append("text").text(", ONS");
+			} else {
+				d3.select(".source").append("text")
+						.html("Source: ")
+						.append("a")
+						.attr("href", dvc.chartData.linkURL)
+						.attr("target","_blank")
+						.html(dvc.chartData.source)
+						
+				d3.select(".source").select("text").append("text").text(", ONS");
+			}
+
+			
+			//select the bar groups
+			var bar = d3.select("#grpBars").selectAll(".bar")
+			var meanl = d3.select("#meanLine").selectAll(".mean")
+			
+			
+			//sort the data
+			dvc.index.sort(function(b, a) {
+				return dvc.chartData.dataValues[a][dvc.timeIndex] - dvc.chartData.dataValues[b][dvc.timeIndex];
+			})		
+			
+			//then apply it to the yscale
+			dvc.yScale.domain(dvc.index);
+			
+			//find true minValue
+			dvc.minTrueValue = d3.min(dvc.chartData.dataValues, function(array) {
+				return d3.min(array);
+			});
+			
+
+			dvc.maxTrueValue = dvc.chartData.maxValue;
+
+				
+			dvc.xAxisDomainValue = Math.min(0,dvc.minTrueValue)
+						
+			dvc.timeMin=d3.min(dvc.chartData.timeLabels);
+			dvc.timeMax=d3.max(dvc.chartData.timeLabels);
+				
+				
+			//create x axis scale
+			dvc.xScale.domain([dvc.xAxisDomainValue,dvc.maxTrueValue])
+				
+			var width = graphic2.width() - margin.left - margin.right;
+			var height = Math.ceil((width * graphic2_aspect_height) / graphic2_aspect_width) - margin.top - margin.bottom;	
+				
+		var num_ticks = 5;
+		
+		if (width < mobile_threshold2) { 
+				num_ticks = 4;
+				axis_font_size = "9px";
+				var height = Math.ceil(width *1.3) ;
+		 } else if(width < mobile_threshold1){
+			 	num_ticks = 5;
+				axis_font_size = "11px";
+				var height = Math.ceil(width *1.1) ;
+		}	
+			//create main axis
+		var	xAxis=d3.svg.axis()
+				.scale(dvc.xScale)
+				.orient("bottom")
+				.ticks(num_ticks);
+				//.tickFormat(d3.format(".1s"));
+
+		var x_axis_grid = d3.svg.axis()
+				.scale(dvc.xScale)
+				.orient("bottom")
+				.ticks(num_ticks)
+				.tickSize(height);
+			
+/*		d3.select("#graphic2").select("#xAxis")
+			  .transition()
+			  .duration(1000)
+			  .call(xAxis)
+			  
+		
+		d3.select("#graphic2").select(".grid")
+			.transition()
+			.duration(1000)
+			.call(x_axis_grid);
+			
+d3.select("#graphic2").selectAll(".grid").selectAll(".tick").selectAll("text").style("font-size", axis_font_size)*/
+			
+//var arr = dvc.chartData.dataValues;
+//		d3.selectAll(arr)
+//			.each(function(d, i) {
+//			var barWidth =  Math.abs(dvc.xScale(arr[i][dvc.timeIndex]) - dvc.xScale(0));
+//			
+
+			
+			//select bars and apply transitions to width and x
+			var g=bar.data(dvc.chartData.dataValues)
+			g.each(function(d, i){
+				var group = d3.select(this);
+				
+				group.select(".chartBars,.chartBarSel").transition()
+							.duration(1000)
+							//.style("fill", "red")
+							.attr("x", function(d) { 
+									
+									//if positive value
+									if(d[dvc.timeIndex]>=0){
+											return dvc.xScale(/*Math.min(*/0/*, d[dvc.timeIndex])*/);
+									//if negative value
+									} else {
+											return dvc.xScale(/*Math.min(0,*/ d[dvc.timeIndex]/*)*/);
+									}
+							})
+							.attr("width", function(d)	{ return Math.abs(dvc.xScale(d[dvc.timeIndex]) - dvc.xScale(0));})
+							.attr("opacity", function(d){if(d[dvc.timeIndex]== -165 && dvc.currentData=="net"){
+											 	return 0;
+											} else{
+												return 1;	
+											}})
+											
+				
+				
+			})
+
+
+//			var  barText = bar.selectAll("text").remove();
+//			
+//			//create line breaks for axis text
+//			var insertLinebreaks2 = function () {
+//				
+//			var el1 = this.firstChild;
+//			var el = el1.data;
+//		
+//			var words = el.split('  ');
+//				
+//			d3.select(this).text('');
+//		
+//		
+//				for (var i = 0; i < words.length; i++) {
+//					var tspan = d3.select(this).append('tspan').text(words[i]);
+//					if (i > 0)
+//						d3.select(this).attr("y", dvc.yScale.rangeBand() / 3)
+//						tspan.attr('x', -10).attr('dy', '0') ;
+//				}
+//				
+//			// CREATE CUSTOM SUB-SELECTIONS
+//			d3.selection.prototype.first = function() {
+//			  return d3.select(this[0][0]);
+//			};
+//			d3.selection.prototype.last = function() {
+//			 // var last = this.size() - 1;
+//			  return d3.select(this[0][1]);
+//			};
+//			
+//			// SHIFT THE END LABELS
+//			var tickLabels = d3.select(this).selectAll('tspan');
+//			
+//						
+//			tickLabels.first()
+//			  .attr('dy', function(){
+//				if (width < mobile_threshold2) { 
+//						return 2;
+//				 } else if (width < mobile_threshold1){
+//						return 3;
+//				} else {
+//					return 4
+//				}
+//			});
+//			tickLabels.last()
+//			  .attr('dy', function(){
+//				if (width < mobile_threshold2) { 
+//						return 10;
+//				 } else if (width < mobile_threshold1){
+//						return 11;
+//				} else {
+//					return 11
+//				}
+//			});
+//
+//			};
+//			
+//		 //append some text to bar
+//			bar.append("text")
+//				.attr("x", function(d) {
+//						//if positive value
+//						if(dvc.minTrueValue>=0){
+//								return dvc.xScale(0)-10;
+//						//if negative value
+//						} else {
+//								return dvc.xScale(dvc.minTrueValue)-10;
+//						}
+//				})
+//				.attr("class","barText")
+//				.attr("y", dvc.yScale.rangeBand() / 2)
+//				.attr("dy", ".35em")
+//				.attr("font-size", axis_font_size)
+//				.text(function(d, i) { 
+//						return dvc.chartData.catLabels[i];
+//				})
+//				.attr("class","textToChange");
+//				
+//				d3.selectAll(".textToChange").each(insertLinebreaks2);
+			
+			
+				var ml=meanl.data(dvc.chartData.meanValues)
+			ml.each(function(d, i){
+				var mlgroup = d3.select(this);
+				mlgroup.select("rect").transition()
+							.duration(1000)
+							.attr("x", function(d) {return dvc.xScale(d[dvc.timeIndex]);	})
+			})
+			
+			var mt=meanl.data(dvc.chartData.meanValues)
+			mt.each(function(d, i){
+				var mlgroup = d3.select(this);
+				mlgroup.select("text").transition()
+							.duration(1000)
+							.attr("x", function(d) {return dvc.xScale(d[dvc.timeIndex]);	})
+			})
+			
+				
+			if(dvc.chartData.meanValues[0][dvc.timeIndex] == null){
+				d3.select(".mean").attr("visibility", "hidden");	
+			} else {
+				d3.select(".mean").attr("visibility", "visible");	
+			}
+			
+//			//create line breaks for axis text
+//			var insertLinebreaks = function () {
+//				
+//			var el1 = this.firstChild;
+//			var el = el1.data;
+//		
+//			var words = el.split('  ');
+//				
+//			d3.select(this).text('');
+//		
+//				for (var i = 0; i < words.length; i++) {
+//					var tspan = d3.select(this).append('tspan').text(words[i]);
+//					if (i > 0)
+//						tspan.attr('x', 0).attr('dy', '15');
+//				}
+//			};
+//			
+//				d3.select("#axisLabels")
+//  				 	 .attr("font-size", axis_font_size)
+//					 .text(dvc.chartData.units);
+//		
+//					d3.selectAll("#axisLabels").each(insertLinebreaks);
+					
+			//update time slider and time label
+			$("#slider").labeledslider( "option", "value", dvc.timeIndex );
+			d3.select("#txtTime")
+			.text(dvc.chartData.timeLabels[dvc.timeIndex]);
+			
+			//update buttons if required
+			if(dvc.bAnimate==true){
+				$('#forwardStepBtn').prop('disabled', true);
+				$('#backStepBtn').prop('disabled', true);
+			} else if (dvc.timeIndex==0){
+				$('#forwardStepBtn').prop('disabled', false);
+				$('#backStepBtn').prop('disabled', true);
+			} else if (dvc.timeIndex==15){
+				$('#forwardStepBtn').prop('disabled', true);
+				$('#backStepBtn').prop('disabled', false);
+			} else {
+				$('#forwardStepBtn').prop('disabled', false);
+				$('#backStepBtn').prop('disabled', false);
+			}
+			
+			
+			//apply transition on the y axis
+			bar.transition()
+				.duration(1000)
+				.delay(function(d, i) {
+					return i * 50;
+				})
+				.attr("transform", function(d, i) {
+					return "translate(0," + dvc.yScale(i) + ")";
+				});
+			//remvove current annotation
+			//d3.select(".fact").remove();	
+			
+			keypoints.empty();
+			
+			$("#controls").empty();
+			
+		//	annotationCreation();
+			controlsCreation();
+		
+		if (pymChild) {
+				pymChild.sendHeight();
+			}
+		
+		} //end of update chart
+		
+		function updateMarkers(){
+			d3.select("#ONStitle1").html("Average total household expenditure");
+			d3.select("#ONStitle2").html(dvc.chartData.name);
+			
+//	var margin0 = {top: 10, right: 10, bottom: 30, left: 55};
+//    var width = $graphic.width() - margin0.left - margin0.right;
+//    var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) ;	
+			
+	if(graphic2.width()<mobile_threshold2){	
+		var margin0 = {top: 5, right: 0, bottom: 40, left: 25};
+	} else if(graphic2.width()<mobile_threshold1){
+		var margin0 = {top: 5, right: 5, bottom: 40, left: 25};
+	} else {
+		var margin0 = {top: 10, right: 20, bottom: 50, left: 30};
+	}
+	
+    var width = $graphic.width() - margin0.left - margin0.right;
+    var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) ;
+			
+			var x = d3.time.scale()
+				.range([0, width])
+				.domain(d3.extent(graphic_data, function(d) { return d.date; }));	
+				
+			var y = d3.scale.linear()
+				.range([height, 0])
+				.domain([350,600]);	
+			
+		
+			
+			d3.select(".annocirc1")
+			.transition()
+			.duration(1000)
+			.attr('cy',y(graphic_data[dvc.timeIndex]["data"]))
+			.attr("cx", x(graphic_data[dvc.timeIndex].date))
+			.attr("data", graphic_data[dvc.timeIndex]["data"]);
+						
+			$(".source").empty();
+			
+			if(dvc.currentData=="net"){
+				d3.select(".source").append("text")
+						.html("Source: ")
+						.append("a")
+						.attr("href", dvc.chartData.linkURL)
+						.attr("target","_blank")
+						.html(dvc.chartData.source)
+						
+				d3.select(".source").append("text").attr("id", "secondsource")
+						.html(" and ")
+						.append("a")
+						.attr("href", dvc.chartData.linkURL2)
+						.attr("target","_blank")
+						.html(dvc.chartData.source2)
+				
+				d3.select("#secondsource").append("text").text(", ONS");
+			} else {
+				d3.select(".source").append("text")
+						.html("Source: ")
+						.append("a")
+						.attr("href", dvc.chartData.linkURL)
+						.attr("target","_blank")
+						.html(dvc.chartData.source)
+						
+				d3.select(".source").select("text").append("text").text(", ONS");
+			}
+
+			
+			//select the bar groups
+			var bar = d3.select("#grpBars").selectAll(".bar")
+			var meanl = d3.select("#meanLine").selectAll(".mean")
+			
+			
+			//sort the data
+			dvc.index.sort(function(b, a) {
+				return dvc.chartData.dataValues[a][dvc.timeIndex] - dvc.chartData.dataValues[b][dvc.timeIndex];
+			})		
+			
+			//then apply it to the yscale
+			dvc.yScale.domain(dvc.index);
+			
+			//find true minValue
+			dvc.minTrueValue = d3.min(dvc.chartData.dataValues, function(array) {
+				return d3.min(array);
+			});
+			
+
+			dvc.maxTrueValue = dvc.chartData.maxValue;
+
+				
+			dvc.xAxisDomainValue = Math.min(0,dvc.minTrueValue)
+						
+			dvc.timeMin=d3.min(dvc.chartData.timeLabels);
+			dvc.timeMax=d3.max(dvc.chartData.timeLabels);
+				
+				
+			//create x axis scale
+			dvc.xScale.domain([dvc.xAxisDomainValue,dvc.maxTrueValue])
+				
+			var width = graphic2.width() - margin.left - margin.right;
+			var height = Math.ceil((width * graphic2_aspect_height) / graphic2_aspect_width) - margin.top - margin.bottom;	
+				
+		var num_ticks = 10;
+		
+		if (width < mobile_threshold2) { 
+				num_ticks = 4;
+				axis_font_size = "9px";
+				var height = Math.ceil(width *1.3) ;
+		 } else if(width < mobile_threshold1){
+			 	num_ticks = 5;
+				axis_font_size = "11px";
+				var height = Math.ceil(width *1.1) ;
+		}	
+			//create main axis
+		var	xAxis=d3.svg.axis()
+				.scale(dvc.xScale)
+				.orient("bottom")
+				.ticks(num_ticks);
+				//.tickFormat(d3.format(".1s"));
+
+		var x_axis_grid = d3.svg.axis()
+				.scale(dvc.xScale)
+				.orient("bottom")
+				.ticks(num_ticks)
+				.tickSize(height);
+			
+/*		d3.select("#graphic2").select("#xAxis")
+			  .transition()
+			  .duration(1000)
+			  .call(xAxis)
+			  
+		
+		d3.select("#graphic2").select(".grid")
+			.transition()
+			.duration(1000)
+			.call(x_axis_grid);
+			
+d3.select("#graphic2").selectAll(".grid").selectAll(".tick").selectAll("text").style("font-size", axis_font_size)*/
+			
+//var arr = dvc.chartData.dataValues;
+//		d3.selectAll(arr)
+//			.each(function(d, i) {
+//			var barWidth =  Math.abs(dvc.xScale(arr[i][dvc.timeIndex]) - dvc.xScale(0));
+//			
+
+			
+			//select bars and apply transitions to width and x
+			var g=bar.data(dvc.chartData.dataValues)
+			g.each(function(d, i){
+				var group = d3.select(this);
+				
+			group.select(".barMarker,.barMarkerSel").transition()
+							.duration(1000)
+							//.style("fill", "green")
+							.attr("x", function(d) { 
+									
+									//if positive value
+									if(d[dvc.timeIndex]>=0){
+											return dvc.xScale(/*Math.min(*/0/*, d[dvc.timeIndex])*/);
+									//if negative value
+									} else {
+											return dvc.xScale(/*Math.min(0,*/ d[dvc.markIndex]/*)*/);
+									}
+							})
+							.attr("width", function(d)	{ return Math.abs(dvc.xScale(d[dvc.markIndex]) - dvc.xScale(0));})
+							.attr("opacity", function(d){if(d[dvc.markIndex]== -165 && dvc.currentData=="net"){
+											 	return 0;
+											} else{
+												return 1;	
+											}})
+		
+		})
+
+
+//			var  barText = bar.selectAll("text").remove();
+//			
+//			//create line breaks for axis text
+//			var insertLinebreaks2 = function () {
+//				
+//			var el1 = this.firstChild;
+//			var el = el1.data;
+//		
+//			var words = el.split('  ');
+//				
+//			d3.select(this).text('');
+//		
+//		
+//				for (var i = 0; i < words.length; i++) {
+//					var tspan = d3.select(this).append('tspan').text(words[i]);
+//					if (i > 0)
+//						d3.select(this).attr("y", dvc.yScale.rangeBand() / 3)
+//						tspan.attr('x', -10).attr('dy', '0') ;
+//				}
+//				
+//			// CREATE CUSTOM SUB-SELECTIONS
+//			d3.selection.prototype.first = function() {
+//			  return d3.select(this[0][0]);
+//			};
+//			d3.selection.prototype.last = function() {
+//			 // var last = this.size() - 1;
+//			  return d3.select(this[0][1]);
+//			};
+//			
+//			// SHIFT THE END LABELS
+//			var tickLabels = d3.select(this).selectAll('tspan');
+//			
+//						
+//			tickLabels.first()
+//			  .attr('dy', function(){
+//				if (width < mobile_threshold2) { 
+//						return 2;
+//				 } else if (width < mobile_threshold1){
+//						return 3;
+//				} else {
+//					return 4
+//				}
+//			});
+//			tickLabels.last()
+//			  .attr('dy', function(){
+//				if (width < mobile_threshold2) { 
+//						return 10;
+//				 } else if (width < mobile_threshold1){
+//						return 11;
+//				} else {
+//					return 11
+//				}
+//			});
+//
+//			};
+//			
+//		 //append some text to bar
+//			bar.append("text")
+//				.attr("x", function(d) {
+//						//if positive value
+//						if(dvc.minTrueValue>=0){
+//								return dvc.xScale(0)-10;
+//						//if negative value
+//						} else {
+//								return dvc.xScale(dvc.minTrueValue)-10;
+//						}
+//				})
+//				.attr("class","barText")
+//				.attr("y", dvc.yScale.rangeBand() / 2)
+//				.attr("dy", ".35em")
+//				.attr("font-size", axis_font_size)
+//				.text(function(d, i) { 
+//						return dvc.chartData.catLabels[i];
+//				})
+//				.attr("class","textToChange");
+//				
+//				d3.selectAll(".textToChange").each(insertLinebreaks2);
+			
+			
+				var ml=meanl.data(dvc.chartData.meanValues)
+			ml.each(function(d, i){
+				var mlgroup = d3.select(this);
+				mlgroup.select("rect").transition()
+							.duration(1000)
+							.attr("x", function(d) {return dvc.xScale(d[dvc.timeIndex]);	})
+			})
+			
+			var mt=meanl.data(dvc.chartData.meanValues)
+			mt.each(function(d, i){
+				var mlgroup = d3.select(this);
+				mlgroup.select("text").transition()
+							.duration(1000)
+							.attr("x", function(d) {return dvc.xScale(d[dvc.timeIndex]);	})
+			})
+			
+				
+			if(dvc.chartData.meanValues[0][dvc.timeIndex] == null){
+				d3.select(".mean").attr("visibility", "hidden");	
+			} else {
+				d3.select(".mean").attr("visibility", "visible");	
+			}
+			
+//			//create line breaks for axis text
+//			var insertLinebreaks = function () {
+//				
+//			var el1 = this.firstChild;
+//			var el = el1.data;
+//		
+//			var words = el.split('  ');
+//				
+//			d3.select(this).text('');
+//		
+//				for (var i = 0; i < words.length; i++) {
+//					var tspan = d3.select(this).append('tspan').text(words[i]);
+//					if (i > 0)
+//						tspan.attr('x', 0).attr('dy', '15');
+//				}
+//			};
+//			
+//				d3.select("#axisLabels")
+//  				 	 .attr("font-size", axis_font_size)
+//					 .text(dvc.chartData.units);
+//		
+//					d3.selectAll("#axisLabels").each(insertLinebreaks);
+					
+			//update time slider and time label
+			$("#slider").labeledslider( "option", "value", dvc.timeIndex );
+			d3.select("#txtTime")
+			.text(dvc.chartData.timeLabels[dvc.timeIndex]);
+			
+			//update buttons if required
+			if(dvc.bAnimate==true){
+				$('#forwardStepBtn').prop('disabled', true);
+				$('#backStepBtn').prop('disabled', true);
+			} else if (dvc.timeIndex==0){
+				$('#forwardStepBtn').prop('disabled', false);
+				$('#backStepBtn').prop('disabled', true);
+			} else if (dvc.timeIndex==15){
+				$('#forwardStepBtn').prop('disabled', true);
+				$('#backStepBtn').prop('disabled', false);
+			} else {
+				$('#forwardStepBtn').prop('disabled', false);
+				$('#backStepBtn').prop('disabled', false);
+			}
+			
+			
+			//apply transition on the y axis
+			bar.transition()
+				.duration(1000)
+				.delay(function(d, i) {
+					return i * 50;
+				})
+				.attr("transform", function(d, i) {
+					return "translate(0," + dvc.yScale(i) + ")";
+				});
+			//remvove current annotation
+			//d3.select(".fact").remove();	
+			
+			keypoints.empty();
+			
+			$("#controls").empty();
+			
+		//	annotationCreation();
+			controlsCreation();
+		
+		if (pymChild) {
+				pymChild.sendHeight();
+			}
+		
+		} //end updateMarkers
+		
+		
+		
+		
+		if (Modernizr.svg) {
+			
+			d3.json("data/config.json", function(json)	{
+				dvc.chartConfig=json;
+		
+				var zip = d3.zip(dvc.chartConfig.filenames, dvc.chartConfig.vars, dvc.chartConfig.code);
+				
+				
+			var dropdown = d3.select("#dataChoices")
+//					//.attr("class","dropdown col-sm-6")
+//			
+//			dropdown.append("button")
+//					.attr("class", "btn btn-default dropdown-toggle")
+//					.attr("type", "button")
+//					.attr("id","dropdownMenu1")
+//					.attr("data-toggle", "dropdown")
+//					.attr("aria-expanded", true)
+//					.text("Select a category ")
+//					.append("span")
+//					.attr("class","caret");
+//					
+//			dropdown.append("ul")
+//					.attr("class", "dropdown-menu")
+//					.attr("role", "menu")
+//					.attr("aria-labelledby", "dropdown-menu1")
+//					.selectAll("li")
+//					.data(zip)
+//					.enter()
+//					.append("li")
+//					.attr("role", "presentation")
+//					.append("a")
+//					.attr("role", "menuitem")
+//					.attr("tabindex", "-1")
+//					.attr("id", function(d){ return d[0]}) /* Optional */
+//					.text(function(d){ return d[1]});
+			
+			dropdown.selectAll("button")
+					.data(zip)
+					.enter()
+					.append("button")
+					.attr("type","button")
+					.attr("class", "btn btn_z btn-default btn-xs")
+					.attr("id", function(d){ return d[2]}) /* Optional */
+					.text(function(d){ return d[1]});
+			
+			initialDataLoad(dvc.currentData)		
+							
+			$("#dataChoices button").click(function(){
+				selection = $(this).attr("id")
+				
+				dvc.previousTSLength = dvc.chartData.timeLabels.length;
+//				dvc.timeIndex=9;
+//				dvc.bAnimate=false;
+//				
+//				//replace button text n icon
+//					d3.select("#playPauseBtn").select("span")
+//						.attr("class","glyphicon glyphicon-play");
+//					
+//					d3.select("#playPauseBtn").select("text")
+//						.text(" play");
+//						
+//					$('#backStepBtn').prop('disabled', false);
+//					$('#forwardStepBtn').prop('disabled', false);
+//					
+//					clearInterval(dvc.theInterval);
+				
+				loadNewData(selection)
+				
+			});
+			
+			
+			
+			//pymChild = new pym.Child({renderCallback: drawgraphic2});
+			
+//			var optns =dropdown.append("div").attr("id","sel")
+//					.append("select").attr("id","areaselect")
+//					.attr("style","width:200px")
+//					.attr("class","chosen-select");
+//	
+//											
+//				optns.selectAll("p").data(zip).enter().append("option")
+//					.attr("id", function(d){ return d[0]}) /* Optional */
+//					.text(function(d){ return d[1]});
+				
+					
+				
+//				$('#areaselect').chosen({
+//									width: "200px",
+//									allow_single_deselect: true
+//								})
+//								.on('change',function(d){killChart();})
+//			
+//				
+//				initialDataLoad();
+			});
+			 
+			 
+			
+//			d3.csv(graphic2_data_url, function(error, data) {
+//		        graphic2_data = data;
+//
+//				ageNames = d3.keys(/*data*/graphic2_data[0]).filter(function(key) { return key !== "State"; });
+//			  
+//				/*data*/graphic2_data.forEach(function(d) {
+//				  d.ages = ageNames.map(function(name) { return {name: name, value: +d[name]}; });	
+//				}); 				
+		
+				
+//			});
+		} else {
+				pymChild = new pym.Child();
+				pymChild.sendHeight();
+		}
+
+	
+    </script>
+</body>
+</html>
