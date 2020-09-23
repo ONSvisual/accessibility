@@ -689,6 +689,8 @@
 
     <div style="font-size:20px; font-weight:bold; margin-bottom:5px; margin-top:0px; color:#206095;">Your extension could be worth...</div>
 
+    <p class="visuallyhidden" id="announcer" role="alert"></p>
+
     <div id="answerArray" class="row" style="clear:both; min-height:90px;">
     	<div class="col-xs-12 col-sm-6">
         	<div class="statHeader" id="yourAreaName" style="width:100%; background-color:#206095;">Fareham</div>
@@ -1044,7 +1046,12 @@ function getCodes1(myValue2)    {
 //		Lo_Value = TimesBy*775;
 //			d3.select("#BotAreaValue").html(numberFormat(Lo_Value));
 
-			d3.select("#yourAreaM2Value").html(numberFormat(price));
+        // Screen reader announcement
+        var announcement = `In £${LAname}, your ${TimesBy} square meter extension could be worth £${Yr_Value}. In England and Wales it could be worth £${Av_Value}. In ${LAname}, the price per square meter is ${numberFormat(price)}.`
+
+        d3.select("#announcer").html(announcement)
+
+		d3.select("#yourAreaM2Value").html(numberFormat(price));
 
 		if (updateTheChart == "yep"){drawGraphic();}
 
