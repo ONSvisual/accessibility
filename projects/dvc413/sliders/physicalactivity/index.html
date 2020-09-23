@@ -85,7 +85,6 @@
       color: #414042;
       -webkit-font-smoothing: antialiased;
       font-size: 16px;
-	  user-select: none;
     }
 
     .guess {
@@ -211,9 +210,6 @@
           </p>
         </div>
 
-        <p class="visuallyhidden" id="announcer" role="alert"></p>
-
-
         <!-- Slider -->
         <label id="sliderLabel" for="slider" class="visuallyhidden">Slider</label>
         <input id="slider" data-slider-id='ex1Slider' type="text" data-slider-min="-10" data-slider-max="10" data-slider-step="1" data-slider-value="0" data-slider-labelledby="sliderLabel"/>
@@ -227,8 +223,10 @@
         <!-- Handle text -->
         <div class="guess"><p> Drag the handle</p></div>
 
-         <!-- Text output-->
+        <!-- Screen Reader Announcer -->
+        <p class="visuallyhidden" id="announcer" role="alert"></p>
 
+        <!-- Text output-->
         <div class="textbit col-sm-12 col-xs-12">
          <p id="textbit">if the number of people meeting physical activity guidlines remains the same, an areas healthy life expectancy would remain the same.<br>&nbsp;</p>
         </div>
@@ -275,26 +273,19 @@
 			smokingFemale = 0.4499257;
 
 			sliderVal = $('#slider').data('slider').getValue();
-      var sliderValAbs = 0
-
+      // Absolute slider value, not negative
+      var sliderValAbs = Math.abs(sliderVal)
 
 			if(sliderVal >0){
 				higherLowerSame = "higher";
-				d3.select("#textbit").html("If <span class='bold'>" + sliderVal + "</span> more people in every <span class='bold'>100</span> met the physical activity guideline, healthy life expectancy could <span class='bold'>increase by</span>");
-
-        // Absolute slider value, not negative
-        sliderValAbs = Math.abs(sliderVal)
+				d3.select("#textbit").html("If <span class='bold'>" + sliderValAbs + "</span> more people in every <span class='bold'>100</span> met the physical activity guideline, healthy life expectancy could <span class='bold'>increase by</span>");
 
 			} else if(sliderVal <0) {
 				higherLowerSame = "lower";
-
-        // Absolute slider value, not negative
-				sliderValAbs = Math.abs(sliderVal)
-
 				d3.select("#textbit").html("If <span class='bold'>" + sliderValAbs + "</span> less people in every in every <span class='bold'>100</span> met the physical activity, healthy life expectancy could <span class='bold'>decrease by</span>");
 			} else {
 				higherLowerSame = "same";
-				d3.select("#textbit").html("if the number of people meeting physical activity guidlines remains the same, an areas healthy life expectancy would remain the same.<br>&nbsp;");
+				d3.select("#textbit").html("if the number of people meeting physical activity guidlines remains the same, an area's healthy life expectancy would remain the same.<br>&nbsp;");
 			}
 
 			//Work out months from decimal   0.83333333 = 1 month  0.416666666 = 1/2 month
@@ -354,7 +345,7 @@
 
       // When slider is on 0
       if (sliderValAbs==0) {
-        announcement = "If the number of people meeting physical activity guidelines remains the same, an areas healthy life expectancy would remain the same."
+        announcement = "If the number of people meeting physical activity guidelines remains the same, an area's healthy life expectancy would remain the same."
       }
 
       // Make announcement
