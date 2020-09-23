@@ -12,7 +12,7 @@
 
     <style>
 
-    .container { 
+    .container {
       font-family: 'Open Sans', Arial, sans-serif;
       max-width: 800px;
       padding-top: 50px;
@@ -85,7 +85,6 @@
       color: #414042;
       -webkit-font-smoothing: antialiased;
       font-size: 16px;
-	  user-select: none;
     }
 
     .guess {
@@ -101,7 +100,7 @@
       float: left;
 	  text-align:left;
     }
-	
+
 	.male p {
 		float: right;
 		text-align:right;
@@ -115,11 +114,11 @@
       margin-right: 15px;
       margin-bottom: 10px;
     }
-	
+
 	.male img {
-    	float:right;  
+    	float:right;
     }
-	
+
 	.big-number {
       font-size: 24px;
       font-weight: 700;
@@ -146,29 +145,47 @@
 
 	#labelleft {
 		width:40%;
-		float:left;	
-		text-align:right;	
+		float:left;
+		text-align:right;
 	}
-	
+
 	#labelmiddle {
 		width:20%;
-		float:left;	
-		text-align:center;	
+		float:left;
+		text-align:center;
 	}
-	
+
 	#labelright {
 		width:40%;
-		float:right;		
+		float:right;
 	}
 
 	.bold {
-		font-weight:bold;	
+		font-weight:bold;
 	}
-	
+
 	#textbit{
-		text-align:center;	
+		text-align:center;
 	}
-	
+
+  /* Accessibility */
+
+  .visuallyhidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .slider-handle:focus {
+    outline: none;
+    box-shadow: 0 0 0px 3pt orange;
+  }
+
     </style>
 
 
@@ -178,14 +195,24 @@
   <body>
 
     <div class="container">
-    
-    	<!-- Labelling -->
-        <div id="labelleft"><p><span style="font-weight:900; color:#004358"><</span> Fewer people eating their 5 A Day</p></div>
-        <div id="labelright"><p>More people eating their 5 A Day <span style="font-weight:900; color:#00a7a3">></span> </p></div>
-       
+
+        <!-- Labelling -->
+        <div id="labelleft">
+          <p>
+            <span style="font-weight:900; color:#004358">&lt;</span>
+            Fewer people eating their 5 A Day
+          </p>
+        </div>
+        <div id="labelright">
+          <p>
+            More people eating their 5 A Day
+            <span style="font-weight:900; color:#00a7a3">&gt;</span>
+          </p>
+        </div>
 
         <!-- Slider -->
-        <input id="slider" data-slider-id='ex1Slider' type="text" data-slider-min="-10" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
+        <label id="sliderLabel" for="slider" class="visuallyhidden">Slider</label>
+        <input id="slider" data-slider-id='ex1Slider' type="text" data-slider-min="-10" data-slider-max="10" data-slider-step="1" data-slider-value="0" data-slider-labelledby="sliderLabel"/>
 
         <!-- Tick marks -->
         <div class="tick">
@@ -196,25 +223,27 @@
         <!-- Handle text -->
         <div class="guess"><p> Drag the handle</p></div>
 
-         <!-- Text output-->
-         
+        <!-- Screen Reader Announcer -->
+        <p class="visuallyhidden" id="announcer" role="alert"></p>
+
+        <!-- Text output-->
         <div class="textbit col-sm-12 col-xs-12">
          <p id="textbit">If the same number of people met the guideline of five fruit and vegetables per day, an area's healthy life expectancy would remain the same. <br>&nbsp;</p>
         </div>
         <div class="male col-sm-6 col-xs-6">
-          <img src="../img/more-male-icon.svg" alt="Male"></img>
-          
+          <img src="../img/more-male-icon.svg" alt="Male" />
+
           <p id="maleYear" class="big-number">0 years</p>
         </div>
 
         <div class="female col-sm-6 col-xs-6">
-          <img src="../img/more-female-icon.svg" alt="Female"></img>
-          
+          <img src="../img/more-female-icon.svg" alt="Female" />
+
           <p id="femaleYear" class="big-number">0 years</p>
         </div>
 
     </div>
-      
+
     <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/bootstrap-slider.js"></script>
@@ -224,7 +253,7 @@
     <script src="../lib/footer.js"></script>
 
     <script>
-	
+
 	var pymChild = new pym.Child;
 
       // Bootstrap slider style
@@ -233,96 +262,104 @@
       }).on('slide', changeModel);
 
       // Hide 'drag to guess' text on hover
-      $(".slider-handle").hover(function () {     
+      $(".slider-handle").hover(function () {
 		  d3.select(".guess").transition().duration(1000).style("opacity",0);
       });
-	  
+
 	  function changeModel() {
-		
-			nodecimals = d3.format(".0f")	
+
+			nodecimals = d3.format(".0f")
 			dietMale = 0.3894438;
 			dietFemale = 0.4299151;
-			
+
 			sliderVal = $('#slider').data('slider').getValue();
-		
-			
+      // Absolute slider value, not negative
+      var sliderValAbs = Math.abs(sliderVal)
+
+
 			if(sliderVal >0){
 				higherLowerSame = "higher";
-				d3.select("#textbit").html("If <span class='bold'>" + sliderVal + "</span> more people in every 100 met the guideline of five fruit and vegetables per day, an area's healthy life expectancy could <br><span class='bold'>increase by</span>");
-				
+				d3.select("#textbit").html("If <span class='bold'>" + sliderValAbs + "</span> more people in every 100 met the guideline of five fruit and vegetables per day, an area's healthy life expectancy could <br><span class='bold'>increase by</span>");
+
 			} else if(sliderVal <0) {
 				higherLowerSame = "lower";
-				//take absolute value
-				
-				sliderVal = Math.abs(sliderVal)
-				d3.select("#textbit").html("If <span class='bold'>" + sliderVal + "</span> fewer people in every 100 met the guideline of five fruit and vegetables per day, an area's healthy life expectancy could <br><span class='bold'>decrease by</span>");
-				
-				
+				d3.select("#textbit").html("If <span class='bold'>" + sliderValAbs + "</span> fewer people in every 100 met the guideline of five fruit and vegetables per day, an area's healthy life expectancy could <br><span class='bold'>decrease by</span>");
 			} else {
 				higherLowerSame = "same";
 				d3.select("#textbit").html("If the same number of people met the guideline of five fruit and vegetables per day, an area's healthy life expectancy would remain the same. <br>&nbsp;");
 			}
-			
+
 			//Work out months from decimal   0.83333333 = 1 month  0.416666666 = 1/2 month
-			
-			n = dietMale * sliderVal;
-			o = dietFemale * sliderVal;
-			
+
+			n = dietMale * sliderValAbs;
+			o = dietFemale * sliderValAbs;
+
 			n = Math.abs(n);
 			o = Math.abs(o);
 			var monthsm = Math.round((n - Math.floor(n)) * 12);
 			var monthsf = Math.round((o - Math.floor(o)) * 12);
-			
-			yearsm = Math.floor(dietMale * sliderVal);
-			yearsf = Math.floor(dietFemale * sliderVal)
-			
+
+			yearsm = Math.floor(dietMale * sliderValAbs);
+			yearsf = Math.floor(dietFemale * sliderValAbs)
+
 			if(monthsm == 12) {
 				yearsm = yearsm + 1;
 				monthsm = 0;
 			}
-			
+
 			if(monthsf == 12) {
 				yearsf = yearsf + 1;
-				monthsf = 0;	
+				monthsf = 0;
 			}
-			
-			
+
+
 			if (monthsm <=1) {
 				monthtextm = "month";
 			} else {
 				monthtextm = "months";
 			}
-			
+
 			if (monthsf <=1) {
 				monthtextf = "month";
 			} else {
 				monthtextf = "months";
 			}
-			
+
 			if(yearsm<1){
 				d3.select("#maleYear").html("&nbsp;<br><span class='smaller-number'>" + monthsm + " " + monthtextm +" </span>");
-			} else if(yearsm<=1){			
-				d3.select("#maleYear").html(yearsm + " year <br><span class='smaller-number'>" + monthsm + " " + monthtextm +" </span>");		
+			} else if(yearsm<=1){
+				d3.select("#maleYear").html(yearsm + " year <br><span class='smaller-number'>" + monthsm + " " + monthtextm +" </span>");
 			} else {
 				d3.select("#maleYear").html(yearsm + " years <br><span class='smaller-number'>" + monthsm + " " + monthtextm +" </span>");
 			}
-			
-			
+
+
 			if(yearsf<1){
 				d3.select("#femaleYear").html("&nbsp;<br><span class='smaller-number'>" + monthsf + " " + monthtextf +" </span>");
 			} else if(yearsf<=1){
 				d3.select("#femaleYear").html(yearsf + " year <br><span class='smaller-number'>" + monthsf + " " + monthtextf +" </span>");
 			} else {
 				d3.select("#femaleYear").html(yearsf + " years <br><span class='smaller-number'>" + monthsf + " " + monthtextf +" </span>");
-			}		
-			
+			}
+
+      // Screen reader announcement
+      var announcement = `If ${sliderValAbs} ${(sliderVal>=1 ? 'more' : 'fewer')} ${(sliderValAbs==1 ? 'person' : 'people')} in every 100 met the guideline of five fruit and vegetables per day, an area's healthy life expectancy could ${(sliderVal>=1 ? 'increase' : 'decrease')} by ${(yearsm<1 ? '' : yearsm + (yearsm==1 ? ' year, ' : ' years, '))}${(monthsm<1 ? '' : monthsm + (monthsm==1 ? ' month ' : ' months '))} for males, ${(yearsf<1 ? '' : yearsf + (yearsf==1 ? ' year, ' : ' years, '))}${(monthsf<1 ? '' : monthsf + (monthsf==1 ? ' month ' : ' months '))} for females.`
+
+      // When slider is on 0
+      if (sliderValAbs==0) {
+        announcement = "If the same number of people met the guideline of five fruit and vegetables per day, an area's healthy life expectancy would remain the same."
+      }
+
+      // Make announcement
+      d3.select("#announcer").html(announcement)
+
 			pymChild.sendHeight();
-			
+
 	  }
 
 
     </script>
-   
+
     <script>
 
 
@@ -330,7 +367,7 @@
 		  _gaq.push(['_setAccount', 'UA-37894017-1']);
 		  _gaq.push(['_trackPageview']);
 
-		
+
 		  (function() {
 
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -338,7 +375,7 @@
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
 
-		  
+
 
     </script>
 
