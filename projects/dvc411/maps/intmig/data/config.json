@@ -1,6 +1,8 @@
 {
+    "visualisationTitle": "Population estimates for UK, England and Wales, Scotland and Northern Ireland: mid-2016",
+    "sourceUrl": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/annualmidyearpopulationestimates/mid2016",
     "essential" : {
-            "graphic_data_url": "data.csv",
+            "graphic_data_url": "data/data.csv",
 			
 			"fieldsToIgnore" : [ "AREACD" , "AREANM" ], 
 			
@@ -20,22 +22,28 @@
             "annotationCXCY":[
             ],        
             "xAxisLabel":"Year",
-       
+            "yAxisLabel":"%",
             "xAxisScale":"auto_zero_max",
             "yAxisScale":"auto_min_max",		
             "xAxisScaleDivisor":1,
             "yAxisScaleDivisor":1,
             "yAxisBreak": false,
-            "yAxisBreak_sm_md_lg": [65,65,65] ,
+            "yAxisBreak_sm_md_lg": [65,65,65],
+            "unitofmeasure": [
+                "%",
+                "%",
+                "%",
+                "%"
+            ],
 			"numRows_sm_md_lg":[4,2,2],
 			"numColumns_sm_md_lg":[1,2,2],
 			"breakDivisions":6,
-            "breaks" : [
-       
-                [0.00, 0.00, 3.5, 5.7 ,6.4 ,8.4,11.4],
-                [0.00, 0.00, 3.5, 5.7 ,6.4 ,8.4,11.4],
-				[-2.5, -0.6, 0.0, 0.6,1.2, 1.8, 7.32]
-                
+            "breaks": [
+
+                [0.00, 0.00, 3.5, 5.7, 6.4, 8.4, 11.4],
+                [0.00, 0.00, 3.5, 5.7, 6.4, 8.4, 11.4],
+                [-2.5, -0.6, 0.0, 0.6, 1.2, 1.8, 7.32]
+
             ]
     },
     "optional" : {
