@@ -451,10 +451,12 @@
     <div class="container-fluid">
       <div id="main-wrapper">
         <div id="mainContent" style="display:none">
-          <div id="blurb" class="row">
-            <text id="txt2"></text>
-            <text id="txt3"></text>
-          </div>
+          <p id="chartDescription" class="visuallyhidden"></p>
+
+          <p id="blurb" class="row">
+            <span id="txt2"></span>
+            <span id="txt3"></span>
+          </p>
 
           <div class="row">
             <!--					<button type="button" id="upBtn" class="nav btn btn-ons ">
@@ -512,7 +514,6 @@
     <script src="js/chosen.jquery.js" type="text/javascript"></script>
 
     <script>
-
       if (Modernizr.inlinesvg = true) {
 
         $("#main-wrapper").fadeIn(1000);
@@ -522,9 +523,7 @@
         $("#ieMsg").fadeIn(1000);
       }
 
-
       pymChild = new pym.Child();
-
 
       var transitioning;
       var widthCalc;
@@ -533,13 +532,11 @@
       var selectedArray = []
       getSizes();
 
-
       $(window).resize(function () {
         if (window.innerWidth != bwidth) {
           getSizes();
         }
       });
-
 
       function getSizes() {
 
@@ -578,7 +575,6 @@
         makeChart(width, fullheight);
 
       }
-
 
       function create_dropdown() {
 
@@ -702,7 +698,6 @@
       var yBarAxis;
       var xBarAxis;
       var xBarDomain;
-
 
       function draw_barchart() {
         create_dropdown();
@@ -1354,13 +1349,10 @@
         layer.exit().remove();
       } //end stack bar chart
 
-
       function makeChart(width, fullheight) {
 
         margin = {top: 10, right: 0, bottom: 0, left: 0}
         formatNumber = d3.format(",.0f"),
-
-
           atTop = true,
           level = 0,
           levelArray = Array(level);
@@ -1410,14 +1402,12 @@
           .attr("width", width)
           .attr("height", margin.top);
 
-
         d3.csv("imports.csv", function (data) {
 
           data.forEach(function (d) {
             d.size = Number(d.size);
             //d.var2 = Number(d.var2);
           });
-
 
           var tree = DataStructures.Tree.createFromFlatTable(data),
             root = tree.toSimpleObject(function (objectToDecorate, originalNode) {
@@ -1435,8 +1425,13 @@
           layout(root);
           display(root);
 
-          d3.select("#blurb").select("#txt2").html("Goods imports 2019: ")
-          d3.select("#blurb").select("#txt3").html("£" + formatNumber(dataset.size) + " million");
+          var heading = "Goods imports 2019: ";
+          var value = "£" + formatNumber(dataset.size) + " million";
+          var label = `A chart displaying goods imported 2019 (${value}) broken down by type of goods and country of origin.`;
+          $('#chartDescription').html(label);
+          d3.select("#blurb").select("#txt2").html(heading);
+          d3.select("#blurb").select("#txt3").html(value);
+
           d3.json("config.json", function (error, config) {
             dvc = config
             d3.csv("trade_imports.csv", function (data) {
@@ -1447,10 +1442,7 @@
             }) // end trade csv
           }) //end json config
         }); //end treemap csv load
-
-
       }
-
 
       function initialize(root) {
         root.x = root.y = 0;
@@ -1701,7 +1693,6 @@
           });
       }
 
-
       function rect(rect) {
         rect.attr("x", function (d) {
           return x(d.x);
@@ -1727,7 +1718,6 @@
       //            ? desc(d.parent) + " > " + d.desc
       //            : d.desc;
       //      }
-
 
       function mouseover(d) {
 
@@ -1789,7 +1779,6 @@
         backToTop();
       });
 
-
       setTimeout(function () {
         if (pymChild) {
           pymChild.sendHeight();
@@ -1822,7 +1811,6 @@
         }
       }, 700)
 
-
       function backToTop() {
 
         $(levelArray).each(function (i) {
@@ -1832,12 +1820,9 @@
         });
       };
 
-
       function updateHash() {
 
       }
-
-
     </script>
 
     <script>
