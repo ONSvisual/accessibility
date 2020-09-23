@@ -12,7 +12,7 @@
 
     <style>
 
-    .container { 
+    .container {
       font-family: 'Open Sans', Arial, sans-serif;
       max-width: 800px;
       padding-top: 50px;
@@ -101,7 +101,7 @@
       float: left;
 	  text-align:left;
     }
-	
+
 	.male p {
 		float: right;
 		text-align:right;
@@ -115,11 +115,11 @@
       margin-right: 15px;
       margin-bottom: 10px;
     }
-	
+
 	.male img {
-    	float:right;  
+    	float:right;
     }
-	
+
 	.big-number {
       font-size: 24px;
       font-weight: 700;
@@ -146,29 +146,28 @@
 
 	#labelleft {
 		width:40%;
-		float:left;	
-		text-align:right;	
+		float:left;
+		text-align:right;
 	}
-	
+
 	#labelmiddle {
 		width:20%;
-		float:left;	
-		text-align:center;	
+		float:left;
+		text-align:center;
 	}
-	
+
 	#labelright {
 		width:40%;
-		float:right;		
+		float:right;
 	}
 
 	.bold {
-		font-weight:bold;	
+		font-weight:bold;
 	}
-	
+
 	#textbit{
-		text-align:center;	
+		text-align:center;
 	}
-	
     </style>
 
 
@@ -178,11 +177,20 @@
   <body>
 
     <div class="container">
-    
+
     	<!-- Labelling -->
-        <div id="labelleft"><p><span style="font-weight:900; color:#004358"><</span> Fewer physically active people</p></div>
-        <div id="labelright"><p>More physically active people <span style="font-weight:900; color:#00a7a3">></span> </p></div>
-       
+        <div id="labelleft">
+          <p>
+            <span style="font-weight:900; color:#004358">&lt;</span>
+            Fewer physically active people
+          </p>
+        </div>
+        <div id="labelright">
+          <p>
+            More physically active people
+            <span style="font-weight:900; color:#00a7a3">&gt;</span>
+          </p>
+        </div>
 
         <!-- Slider -->
         <input id="slider" data-slider-id='ex1Slider' type="text" data-slider-min="-10" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
@@ -197,7 +205,7 @@
         <div class="guess"><p> Drag the handle</p></div>
 
          <!-- Text output-->
-         
+
         <div class="textbit col-sm-12 col-xs-12">
          <p id="textbit">if the number of people meeting physical activity guidlines remains the same, an areas healthy life expectancy would remain the same.<br>&nbsp;</p>
         </div>
@@ -214,7 +222,7 @@
         </div>
 
     </div>
-      
+
     <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/bootstrap-slider.js"></script>
@@ -224,7 +232,7 @@
     <script src="../lib/footer.js"></script>
 
     <script>
-	
+
 	var pymChild = new pym.Child;
 
       // Bootstrap slider style
@@ -233,16 +241,16 @@
       }).on('slide', changeModel);
 
       // Hide 'drag to guess' text on hover
-      $(".slider-handle").hover(function () {     
+      $(".slider-handle").hover(function () {
 		  d3.select(".guess").transition().duration(1000).style("opacity",0);
       });
-	  
+
 	  function changeModel() {
-		
-			nodecimals = d3.format(".0f")	
+
+			nodecimals = d3.format(".0f")
 			smokingMale = 0.4210727;
 			smokingFemale = 0.4499257;
-			
+
 			sliderVal = $('#slider').data('slider').getValue();
 		
 			
@@ -262,7 +270,7 @@
 				higherLowerSame = "same";
 				d3.select("#textbit").html("if the number of people meeting physical activity guidlines remains the same, an areas healthy life expectancy would remain the same.<br>&nbsp;");
 			}
-			
+
 			//Work out months from decimal   0.83333333 = 1 month  0.416666666 = 1/2 month
 			
 			n = smokingMale * sliderVal;
@@ -280,33 +288,33 @@
 				yearsm = yearsm + 1;
 				monthsm = 0;
 			}
-			
+
 			if(monthsf == 12) {
 				yearsf = yearsf + 1;
-				monthsf = 0;	
+				monthsf = 0;
 			}
-			
+
 			if (monthsm <=1) {
 				monthtextm = "month";
 			} else {
 				monthtextm = "months";
 			}
-			
+
 			if (monthsf <=1) {
 				monthtextf = "month";
 			} else {
 				monthtextf = "months";
 			}
-			
+
 			if(yearsm<1){
 				d3.select("#maleYear").html("&nbsp;<br><span class='smaller-number'>" + monthsm + " " + monthtextm +" </span>");
-			} else if(yearsm<=1){			
-				d3.select("#maleYear").html(yearsm + " year <br><span class='smaller-number'>" + monthsm + " " + monthtextm +" </span>");		
+			} else if(yearsm<=1){
+				d3.select("#maleYear").html(yearsm + " year <br><span class='smaller-number'>" + monthsm + " " + monthtextm +" </span>");
 			} else {
 				d3.select("#maleYear").html(yearsm + " years <br><span class='smaller-number'>" + monthsm + " " + monthtextm +" </span>");
 			}
-			
-			
+
+
 			if(yearsf<1){
 				d3.select("#femaleYear").html("&nbsp;<br><span class='smaller-number'>" + monthsf + " " + monthtextf +" </span>");
 			} else if(yearsf<=1){
@@ -316,12 +324,12 @@
 			}		
 						
 			pymChild.sendHeight();
-			
+
 	  }
 
 
     </script>
-   
+
     <script>
 
 
@@ -329,7 +337,7 @@
 		  _gaq.push(['_setAccount', 'UA-37894017-1']);
 		  _gaq.push(['_trackPageview']);
 
-		
+
 		  (function() {
 
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -337,7 +345,7 @@
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
 
-		  
+
 
     </script>
 
