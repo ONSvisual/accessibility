@@ -211,6 +211,9 @@
           </p>
         </div>
 
+        <p class="visuallyhidden" id="announcer" role="alert"></p>
+
+
         <!-- Slider -->
         <input id="slider" data-slider-id='ex1Slider' type="text" data-slider-min="-10" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
 
@@ -271,38 +274,41 @@
 			smokingFemale = 0.4499257;
 
 			sliderVal = $('#slider').data('slider').getValue();
-		
-			
+      var sliderValAbs = 0
+
+
 			if(sliderVal >0){
 				higherLowerSame = "higher";
 				d3.select("#textbit").html("If <span class='bold'>" + sliderVal + "</span> more people in every <span class='bold'>100</span> met the physical activity guideline, healthy life expectancy could <span class='bold'>increase by</span>");
-				
+
+        // Absolute slider value, not negative
+        sliderValAbs = Math.abs(sliderVal)
+
 			} else if(sliderVal <0) {
 				higherLowerSame = "lower";
-				//take absolute value
-				
-				sliderVal = Math.abs(sliderVal)
-				d3.select("#textbit").html("If <span class='bold'>" + sliderVal + "</span> less people in every in every <span class='bold'>100</span> met the physical activity, healthy life expectancy could <span class='bold'>decrease by</span>");
-				
-				
+
+        // Absolute slider value, not negative
+				sliderValAbs = Math.abs(sliderVal)
+
+				d3.select("#textbit").html("If <span class='bold'>" + sliderValAbs + "</span> less people in every in every <span class='bold'>100</span> met the physical activity, healthy life expectancy could <span class='bold'>decrease by</span>");
 			} else {
 				higherLowerSame = "same";
 				d3.select("#textbit").html("if the number of people meeting physical activity guidlines remains the same, an areas healthy life expectancy would remain the same.<br>&nbsp;");
 			}
 
 			//Work out months from decimal   0.83333333 = 1 month  0.416666666 = 1/2 month
-			
-			n = smokingMale * sliderVal;
-			o = smokingFemale * sliderVal;
-			
+
+			n = smokingMale * sliderValAbs;
+			o = smokingFemale * sliderValAbs;
+
 			n = Math.abs(n);
 			o = Math.abs(o);
 			var monthsm = Math.round((n - Math.floor(n)) * 12);
 			var monthsf = Math.round((o - Math.floor(o)) * 12);
-			
-			yearsm = Math.floor(smokingMale * sliderVal);
-			yearsf = Math.floor(smokingFemale * sliderVal)
-			
+
+			yearsm = Math.floor(smokingMale * sliderValAbs);
+			yearsf = Math.floor(smokingFemale * sliderValAbs)
+
 			if(monthsm == 12) {
 				yearsm = yearsm + 1;
 				monthsm = 0;
@@ -340,8 +346,19 @@
 				d3.select("#femaleYear").html(yearsf + " year <br><span class='smaller-number'>" + monthsf + " " + monthtextf +" </span>");
 			} else {
 				d3.select("#femaleYear").html(yearsf + " years <br><span class='smaller-number'>" + monthsf + " " + monthtextf +" </span>");
-			}		
-						
+			}
+
+      // Screen reader announcement
+      var announcement = `If ${sliderValAbs} ${(sliderVal>=1 ? 'more' : 'less')} ${(sliderValAbs==1 ? 'person' : 'people')} in every 100 met the physical activity guidelines, healthy life expectancy could ${(sliderVal>=1 ? 'increase' : 'decrease')} by ${(yearsm<1 ? '' : yearsm + (yearsm==1 ? ' year, ' : ' years, '))}${(monthsm<1 ? '' : monthsm + (monthsm==1 ? ' month ' : ' months '))} for males, ${(yearsf<1 ? '' : yearsf + (yearsf==1 ? ' year, ' : ' years, '))}${(monthsf<1 ? '' : monthsf + (monthsf==1 ? ' month ' : ' months '))} for females.`
+
+      // When slider is on 0
+      if (sliderValAbs==0) {
+        announcement = "If the number of people meeting physical activity guidelines remains the same, an areas healthy life expectancy would remain the same."
+      }
+
+      // Make announcement
+      d3.select("#announcer").html(announcement)
+
 			pymChild.sendHeight();
 
 	  }
