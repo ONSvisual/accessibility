@@ -126,7 +126,7 @@ Zoom in up to 400% to check page is still usable at high zoom. Text does not ove
 ## Status Message
 Implement **role=“status”** on the <div> containing the error so that screen reader users are at least made aware that an error has occurred.
 
-### Keyboard control on cross on chosen dropdown
+## Keyboard control on cross on chosen dropdown
 
 Add keybinding events to cross once it's generated, this is normally once something is selected from the chosen dropdown.
 
