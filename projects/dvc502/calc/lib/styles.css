@@ -1,0 +1,58 @@
+		/* y-axis tick labels */
+        #graphic .axis  /* required */
+		{
+            font-size: 11px;
+            fill: #666;
+        }
+
+
+		/* x-axis baseline; not to be confused with centreline. Can consider overlaying this with #centreline */
+		#graphic .axis path {
+            fill: none;
+            stroke: none;
+            shape-rendering: crispEdges;
+        }
+
+
+		#graphic .axis line /* required */
+		{
+            fill: none;
+            stroke: #f3f3f3;
+            shape-rendering: crispEdges;
+        }
+
+		#graphic .axis text {
+			fill: #9c9c9c;
+		}
+
+		/* y-axis line path */
+        #graphic .axis.y path /* required */
+		{
+			display: none;
+		}
+
+		/* y-axis full width grid lines */
+        #graphic .grid .tick line/* required */
+		{
+            stroke: #E5E6E7;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+
+
+
+		/* plotted graph line */
+        #graphic .line /* required */
+		{
+            fill: none; /* must be 'none' */
+            stroke-width: 3px;
+			stroke-linecap:round;
+			stroke-linejoin:round;
+        }
+
+        #graphic img /* required */
+		{
+            max-width: 100%;
+            height: auto;
+        }
+		

@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})
+  (window,document,'script','dataLayer','GTM-MBCBVQS');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Access to parks</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+  <link href='css/mapbox-gl.css' rel='stylesheet' />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <link href="./css/chosen.css" rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <link href="css/bootstrap-grid-custom.css" rel="stylesheet" />
+  <link href="css/odometer-theme-default.css" rel="stylesheet" />
+
+
+  <style>
+    /* fix for odometer https://github.com/HubSpot/odometer/issues/137 yay! */
+  .odometer .odometer-digit .odometer-value {
+    width: 100%;
+  }
+
+    body {
+		margin:0;
+		padding:0 0 25px 0;
+		font-family: 'Open Sans', sans-serif;
+		max-width:700px;
+		margin: 0px auto;
+		display:block;
+    color:#206095;
+	}
+
+  legend{
+    font-size: 38px;
+    margin-top:22px;
+    font-weight: 700;
+  }
+
+  h4{
+    font-size:17pt;
+    font-weight:400;
+    margin-top:14px;
+    margin-bottom:0px;
+  }
+
+  p{
+    font-size: 16px;
+    margin-top:6px;
+    font-weight:400;
+    margin-bottom:0px;
+  }
+
+  p.bigger{
+    font-size: 18px;
+
+  }
+
+  label {
+    display: block;
+    width: 100%;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: inherit;
+    color: #206095;
+    border: 0;
+    margin: 25px 0 0 0;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    width: 100%;
+    margin:0;
+  }
+
+	#header{
+		height:70px;
+		width:100%
+	}
+
+	.mapboxgl-ctrl-group .mapboxgl-ctrl-compass {
+		display: none;
+	}
+
+	@media (min-width: 599px) {
+		#map {
+			height: 300px;
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 600px) {
+
+	    #map {
+			position:relative;
+			top:0px;
+			margin-top:0;
+			height: 300px;
+			width: 100%;
+			overflow:hidden;
+		}
+
+		.mapboxgl-ctrl-fullscreen {
+			display:none !important;
+		}
+	}
+
+
+  /* Postcode search */
+
+
+  .input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+  }
+  .input-group-addon{
+    display: table-cell;
+    width: 1%;
+  }
+
+  .input-group-addon {
+    /* padding: 6px 12px; */
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1;
+      color: #555;
+      text-align: center;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+
+  .input-group-addon{
+      width: 1%;
+      white-space: nowrap;
+      vertical-align: middle;
+  }
+
+  .search-control {
+    height: 40px;
+    width: 100%;
+    /* padding: 6px 12px; */
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #206095;
+    background-color: #fff;
+    background-image: none;
+    border: 2px solid #1b5f97;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.search-group {
+    border-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-color: #206095;
+    color: white;
+    /* padding: 6px 3px; */
+    border: 0;
+    border-left-color: currentcolor;
+    border-left-style: none;
+    border-left-width: 0px;
+    /* font-size: 1.3em; */
+}
+
+#pcError{
+  height:40px;
+}
+
+#pcErrorText{
+  line-height: 40px;
+  padding-left:10px;
+}
+
+.visuallyhidden {
+  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+
+  .correct {
+    background-color: #1b5f97 !important;
+    color: #fff !important;
+    font-weight: bold;
+  }
+
+  .incorrect {
+    background-color: #db4742 !important;
+    color: #fff !important;
+    font-weight: bold;
+    text-transform: none !important;
+  }
+
+  /* Buttons */
+
+
+  .btn {
+    position: relative;
+    color: #fff;
+    font-size: 1.3em !important;
+    text-rendering: optimizeLegibility;
+    transition: background-color .2s ease-in, color .2s ease-in;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    display: inline-block;
+    width: auto;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+    transition: background-color 0.25s ease-out;
+    text-decoration: none;
+    line-height: 24px;
+    display: inline-block;
+    padding: 8px 20px;
+    margin-bottom: 0;
+    line-height: 1.42857143;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 0px;
+  }
+
+  /* social media buttons */
+  .social-btn{
+    width:31%;
+    display:inline-block;
+    background: none;
+    border: 0;
+    margin-top:55px;
+  }
+
+  #twitter {
+    background: url('images/Twitter.svg') no-repeat;
+    height:30px;
+    margin-right:5px;
+  }
+
+  #twitter:hover {
+    background: url('images/Twitter_Hover.svg') no-repeat;
+  }
+
+  #facebook {
+    background: url('images/Facebook.svg') no-repeat;
+    height:30px;
+    margin-right:5px;
+  }
+
+  #facebook:hover {
+    background: url('images/Facebook_Hover.svg') no-repeat;
+  }
+
+  #link {
+    background: url('images/Link.svg') no-repeat;
+    height:30px;
+    margin-right:5px;
+  }
+
+  #link:hover {
+    background: url('images/Link_Hover.svg') no-repeat;
+  }
+
+  .btn--select {
+    color: #206095;
+    border: 2px solid #206095;
+    margin-left: 0px;
+    /* margin-right: 15px; */
+    transition: all ease .2s;
+    /* border-radius: 30px !important; */
+  }
+
+  .btn--primary {
+    margin-top:55px;
+    background-color: #0F8243;
+  }
+
+  .btn--primary-disabled {
+    opacity: 0.7;
+    color: #5f7682;
+    background-color: #d0d2d3;
+    cursor: not-allowed;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  input,
+  select {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  input {
+    line-height: normal;
+    background: transparent;
+    border: none;
+  }
+
+  input[type=text] {
+    border: none;
+    border-radius: 0;
+    /* border: 2px solid #1b5f97; */
+    font-size: 18px;
+    line-height: 20px;
+    height: 40px;
+    /* margin: 16px 0; */
+    padding: 0px 0 0px 10px;
+    width: 100%;
+    /* text-align: center; */
+    float: left;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  .btn:active,
+  .btn.active {
+    -webkit-box-shadow: none;
+    box-shadow: 0 0 0pt 3pt orange;
+  }
+
+  .btn--select:hover {
+    background-color: #206095;
+    color: white !important;
+  }
+
+  .btn--select:active,
+  .btn--select.active {
+    color: white;
+    background-color: #206095;
+    box-shadow: 0 0 0pt 3pt orange;
+  }
+
+  .btn:focus,
+  .btn.focus {
+    outline: none;
+    box-shadow: 0px 0px 0 3px #FFA23A;
+    color: white;
+    outline-offset: 0px;
+  }
+
+  button:focus {
+    outline: 3px solid #f93;
+  }
+
+
+
+  @-moz-document url-prefix() {
+    input[type=number] {
+      padding: 0px 0 3px 0;
+    }
+  }
+
+  @media screen and (-ms-high-contrast: active),
+  (-ms-high-contrast: none) {
+    input[type=number] {
+      padding: 5px 0 0 0;
+    }
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input:focus {
+    outline: 3px solid #FFA23A;
+    z-index: 1;
+    outline-offset: -3px;
+  }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    margin: 0;
+    font: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    color: inherit;
+  }
+
+  .select::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    right: 9px;
+    bottom: 0;
+    margin: auto;
+    border-style: solid;
+    border-width: 8px 8px 0 8px;
+    border-color: #ffffff transparent transparent transparent;
+    pointer-events: none;
+  }
+
+  ::after,
+  ::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .select::before {
+    width: 34px;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    background: #206095;
+    content: '';
+    pointer-events: none;
+  }
+
+  .select {
+    position: relative;
+    height: 40px;
+    background: white;
+    border: none;
+    width: 134px;
+    ;
+  }
+
+  .select select {
+    /* font-size: 1.1em; */
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    padding-right: 35px;
+    padding-left: 4px;
+    border: 2px solid #206095;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .borderbox {
+    border: 2px solid #1b5f97;
+    /* height: 40px;*/
+    width: 100%;
+    margin-top:25px;
+    /* display: inline-block; */
+  }
+
+  .redBorder {
+    border: 2px solid #db4742 !important;
+  }
+
+  .pound {
+    float: left;
+    display: inline;
+    height: 40px;
+    width: 40px;
+    font-size: 21px;
+    background-color: #5F7682;
+    color: #fff;
+    text-align: center;
+    float: left;
+    font-weight: 700;
+    box-sizing: border-box;
+    padding-top: 4px;
+  }
+
+
+  input, select {
+      font-family: "Open Sans",Helvetica,Arial,sans-serif;
+      font-size: 14px;
+  }
+
+  .marker {
+  background-image: url('./images/pin-drop.svg');
+  background-size: cover;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  cursor: pointer;
+  vertical-align: bottom;
+  /* opacity:0.8; */
+}
+
+  .marker2 {
+    background-image: url('./images/leaf-drop.svg');
+    background-size: cover;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    cursor: pointer;
+    vertical-align: bottom;
+  }
+
+  .mapboxgl-marker .marker{
+    transform: translate(-50%, -100%);
+  }
+
+/* explainer box */
+
+.results_box {
+    padding: 1px 20px 30px 20px;
+    width: 100%;
+    font-weight: bold;
+    line-height: 2em;
+    margin-top:40px;
+    margin-bottom: 21px;
+}
+.results_box--blue {
+    background-color: #206095;
+    color: white;
+}
+
+.results_text {
+    font-size: 2.5em;
+}
+
+/* Odometer */
+
+.odometer{
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+
+
+/* simple slider */
+g.tick text{
+  font-size: 18px;
+}
+
+.slider text {
+    font-size: 21px;
+}
+
+.parameter-value path{
+  fill:#206095;
+  stroke:white;
+  stroke-width:1.5px;
+}
+.parameter-value path:focus{
+  fill:#206095;
+  stroke:orange;
+  stroke-width:3px;
+}
+
+span.greenText{
+  color:#0F8243;
+}
+
+
+</style>
+
+</head>
+
+<body>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <hr style="border: 0;height: 0;border-top: 6px solid #D0D2D3;">
+  <div id="page1">
+    <form onSubmit="return false;">
+      <fieldset>
+        <legend>Find parks, gardens and playing fields close to you</legend>
+        <label for="postcodeInput">Enter a postcode in Great Britain</label>
+        <div id="specialBorder" class="borderbox input-group">
+          <input id="postcodeInput" style="text-transform:uppercase;" type="text" class="search-control;" placeholder="">
+        </div>
+
+        <div id="pcError">
+          <p id=pcErrorText></p>
+        </div>
+
+      </fieldset>
+      <div style="clear:left">
+        <button id="startButton" type="button" class="btn btn-group__btn btn--primary btn--green">Get results</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="page2" class="d-none">
+    <h3>Your nearest <span class="greenText" id="greenspacetype">playing field</span> is <span class="greenText" id=distance></span> metres from your home.</h3>
+    <h3>This is <span class="greenText" id="distancecomparison">closer/further away</span> than the average for your neighbourhood which is <span class="greenText" id="averagedistance"></span> metres.</h3>
+    <h3>This is the nearest <span class="greenText" id="greenspacetype2">playing field</span> for <span class="greenText" id="parkpop"></span> other people.</h3>
+
+    <div id='map'>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-1 col-xs-12">
+        <button class="btn btn--primary btn--previous " id="backButton" type="button" style="margin-bottom:4px;"><img src="images/left-arrow.svg" height="15.38" alt="" style="margin-right:5px;"> Back</button>
+      </div>
+
+      <!-- <div class="col-sm-4 col-xs-12 offset-sm-7" style="clear:both;">
+        <button onclick="copyLink()" class="social-btn">
+          <div id="link"></div>
+        </button>
+        <button class="social-btn"><a href="https://www.facebook.com/sharer/sharer.php?u=CHANGE THIS LINK" target="_blank" title="Facebook">
+            <div id="facebook"></div>
+          </a></button>
+        <button class="social-btn"><a href="https://twitter.com/intent/tweet?text=How%20much%20does%20green%20space%20add%20value%20to%20your%20property%20CHANGE THIS LINK"
+            target="_blank" title="twitter">
+            <div id="twitter"></div>
+          </a></button>
+
+
+      </div> -->
+
+    </div>
+
+    <p>We use Ordnance Survey (OS) data to measure distance to your nearest public park, public garden or playing field. OS data cannot distinguish between public and private playing fields, so some of them may not be publicly accessible. Distance is measured as the crow flies.<p>
+
+    <p>In this case your "neighbourhood" is your Lower Layer Super Output Area (LSOA) if you live in England or Wales and your Data Zone if you live in Scotland. These are small areas with similarly sized populations. Our <a href="https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography#super-output-area-soa">Census geography page</a> has more information.</p>
+
+
+
+  </div>
+  <hr style="margin-top:45px; border: 0;height: 0;border-top: 3px solid #D0D2D3;">
+
+
+  <script src="js/modernizr.min.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/d3/4.13.0/d3.min.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+
+  <script src='js/mapbox-gl.js'></script>
+
+  <script src="js/popper.min.js"></script>
+  <script src="js/tippy-bundle.min.js"></script>
+
+  <script type="application/javascript">
+    //// TODO: change link for copy to clipboard
+
+    var pymChild = new pym.Child();;
+    //load percentage data and store it globally
+
+    // postcodeCheck = false;
+    // myArray = [];
+
+    // anElement = new AutoNumeric('#property', 0, {
+    //   decimalPlaces: 0
+    // });
+
+    // input=document.getElementById('postcodeInput')
+
+    d3.select('#postcodeInput').on('keypress', function(event) {
+      if (d3.event.keyCode === 13) {
+        getCodes1(document.getElementById("postcodeInput").value)
+      }
+    })
+
+    d3.select('#startButton').on('click', function() {
+      getCodes1(document.getElementById("postcodeInput").value)
+    })
+
+    d3.select('#backButton').on('click', function() {
+      showpage1()
+    })
+
+
+    tippy('#link', {
+      placement: "top-start",
+      content: "Link copied to clipboard",
+      trigger: 'click',
+      duration: 1000,
+    })
+
+    if (pymChild) pymChild.sendHeight();
+
+
+    function getCodes1(myValue2) {
+      var myURIstring = encodeURI("https://api.postcodes.io/postcodes/" + myValue2);
+      $.support.cors = true;
+      $.ajax({
+        type: "GET",
+        crossDomain: true,
+        dataType: "jsonp",
+        url: myURIstring,
+        error: function(xhr, ajaxOptions, thrownError) {
+
+          d3.select("#pcErrorText").text("Sorry, that's not a valid postcode.")
+          d3.select("#pcError")
+            .classed('incorrect', true);
+        },
+        success: function(data1) {
+
+          d3.select("#pcErrorText").text("")
+          d3.select("#pcError")
+            .classed('incorrect', false);
+
+          if (data1.status == 200) {
+            //check if in England and Wales
+            // if (data1.result.country == "England" || data1.result.country == "Wales") {
+            //check whether urban area
+            postcodeiodata = data1;
+            d3.csv("https://cdn.ons.gov.uk/maptiles/t31/eb67nb75/split/" + data1.result.outcode + ".csv", function(data) {
+              row = data.filter(function(e) {
+                return e.pcd_end == data1.result.incode
+              })
+              if (row === undefined || row.length == 0) {
+                d3.select("#pcErrorText").text("Sorry, we don't have data for your area.")
+                d3.select("#pcError")
+                  .classed('incorrect', true);
+              }else{
+                showPage2();
+              }
+
+            })
+          } else {
+            d3.select('#pcErrorText')
+              .classed('incorrect', true)
+            document.getElementById("pcErrorText").value = "Sorry, that's not a valid postcode."
+          }
+        }
+      });
+    }
+
+    function showpage1() {
+      d3.select('#page1').classed('d-none', false)
+      d3.select('#page2').classed('d-none', true)
+      pymChild.sendHeight()
+
+    }
+
+    function showPage2() {
+      d3.select('#page1').classed('d-none', true)
+      d3.select('#page2').classed('d-none', false)
+
+      width = document.body.clientWidth
+
+      d3.select('#distance').text(d3.format(",.0f")(+row[0].nearest_greenspace_distance_m))
+
+      d3.select('#greenspacetype').text(row[0].greenspace_description.toLowerCase())
+      d3.select('#greenspacetype2').text(row[0].greenspace_description.toLowerCase())
+      d3.select('#distancecomparison').text(function() {
+        if (+row[0].nearest_greenspace_distance_m > +row[0].lsoa_mean_nearest_greenspace_distance_m) {
+          return "further away"
+        } else {
+          return "closer"
+        }
+      })
+      d3.select("#averagedistance").text(d3.format(",.0f")(+row[0].lsoa_mean_nearest_greenspace_distance_m))
+      d3.select("#parkpop").text(d3.format(",.0f")(Math.round(+row[0].popbypark / 100) * 100))
+
+
+      map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'data/style.json', //stylesheet location
+        center: [postcodeiodata.result.longitude, postcodeiodata.result.latitude], // starting position
+        zoom: 13, // starting zoom
+        // pitch: 75,
+        maxZoom: 20, //
+        minZoom: 4,
+        attributionControl: false
+      });
+
+      // Add zoom and rotation controls to the map.
+      map.addControl(new mapboxgl.NavigationControl());
+
+      // Disable map rotation using right click + drag
+      map.dragRotate.disable();
+
+      // Disable map rotation using touch rotation gesture
+      map.touchZoomRotate.disableRotation();
+
+      //add compact attribution
+      map.addControl(new mapboxgl.AttributionControl({
+        compact: true,
+        customAttribution:"Contains OS data © Crown copyright and database right ("+new Date(Date.now()).getFullYear()+")"
+      }));
+
+      map.addControl(new mapboxgl.ScaleControl({
+        position: 'bottom-right'
+      }));
+
+
+      //leaf marker
+      var el2 = document.createElement('div');
+      el2.className = 'marker2';
+      new mapboxgl.Marker(el2)
+        .setLngLat([+row[0].centroid_lon,+row[0].centroid_lat])
+        .addTo(map);
+
+      //house marker
+      //create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker';
+
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el)
+        .setLngLat([postcodeiodata.result.longitude, postcodeiodata.result.latitude])
+        .addTo(map);
+
+      map.on('load', function() {
+        map.addLayer({
+          "id": "greenspaces",
+          "type": "fill",
+          "source": {
+            "type": 'vector',
+            "tiles": ['https://cdn.ons.gov.uk/maptiles/t31/eb67nb75/greenspace/{z}/{x}/{y}.pbf']
+            // "tiles": ['http://127.0.0.1:8080/Tiles/greenspace/{z}/{x}/{y}.pbf']
+          },
+          "source-layer": "greenspace",
+          "background-color": "#ccc",
+          "paint": {
+            'fill-color': "#0F8243",
+            'fill-opacity': 0.6
+          },
+          "filter": ["any", ["==", "function", "Public Park Or Garden"],
+            ["==", "function", "Playing Field"]
+          ]
+        })
+
+          map.addLayer({
+            "id": "greenspace-outline",
+            "type": "line",
+            "source": {
+              "type": 'vector',
+              "tiles": ['https://cdn.ons.gov.uk/maptiles/t31/eb67nb75/greenspace/{z}/{x}/{y}.pbf']
+              // "tiles": ['http://127.0.0.1:8080/Tiles/greenspace/{z}/{x}/{y}.pbf']
+            },
+            "source-layer": "greenspace",
+            "paint": {
+              "line-color": "#00541a",
+              "line-width": 2
+            },
+            "filter": ["==", "id", row[0].id_greenspace]
+          })
+
+
+
+        // map.addLayer({
+        //   "id": "lsoa-outlines",
+        //   "type": "line",
+        //   "source": {
+        //     "type": "vector",
+        //     // "tiles": ["https://cdn.ons.gov.uk/maptiles/t24/boundaries3/{z}/{x}/{y}.pbf"]
+        //     "tiles": ["http://127.0.0.1:8080/Tiles/lsoa/{z}/{x}/{y}.pbf"]
+        //   },
+        //   "source-layer": "gb",
+        //   "background-color": "#ccc",
+        //   'paint': {
+        //     'line-color': 'orange',
+        //     "line-width": 3
+        //   },
+        //   "filter": ["==", "AREANM", postcodeiodata.result.lsoa]
+        // });
+
+
+      }) //end map on load
+
+
+      pymChild.sendHeight()
+
+    } //end showpage2 function
+
+
+    function copyLink() {
+      var dummy = document.createElement('input'),
+
+
+
+
+
+        text = "https://www.ons.gov.uk/economy/environmentalaccounts/articles/oneineightbritishhouseholdshasnogarden/2020-05-14"
+
+
+
+
+
+
+      document.body.appendChild(dummy);
+      dummy.value = text;
+      dummy.select();
+      document.execCommand('copy');
+      document.body.removeChild(dummy);
+    }
+
+    //findIndex polyfill
+    // https://tc39.github.io/ecma262/#sec-array.prototype.findindex
+    if (!Array.prototype.findIndex) {
+      Object.defineProperty(Array.prototype, 'findIndex', {
+        value: function(predicate) {
+          // 1. Let O be ? ToObject(this value).
+          if (this == null) {
+            throw new TypeError('"this" is null or not defined');
+          }
+
+          var o = Object(this);
+
+          // 2. Let len be ? ToLength(? Get(O, "length")).
+          var len = o.length >>> 0;
+
+          // 3. If IsCallable(predicate) is false, throw a TypeError exception.
+          if (typeof predicate !== 'function') {
+            throw new TypeError('predicate must be a function');
+          }
+
+          // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
+          var thisArg = arguments[1];
+
+          // 5. Let k be 0.
+          var k = 0;
+
+          // 6. Repeat, while k < len
+          while (k < len) {
+            // a. Let Pk be ! ToString(k).
+            // b. Let kValue be ? Get(O, Pk).
+            // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
+            // d. If testResult is true, return k.
+            var kValue = o[k];
+            if (predicate.call(thisArg, kValue, k, o)) {
+              return k;
+            }
+            // e. Increase k by 1.
+            k++;
+          }
+
+          // 7. Return -1.
+          return -1;
+        },
+        configurable: true,
+        writable: true
+      });
+    }
+  </script>
+
+  <noscript>
+    <p>Your browser does not support JavaScript. If you're able to please enable Javascript to view the map.</p>
+  </noscript>
+
+</body>
+
+</html>

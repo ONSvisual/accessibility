@@ -1,0 +1,27 @@
+{"code":"mental",
+ "filepth":"https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/bulletins/measuringnationalwellbeing/2015to2016",
+ "description":{
+        "title":"Average rating of mental well-being",
+        "unit":"Score out of 35"
+    },
+    "months":[],
+    "days":[],
+    "quarters":[],
+    "years":[],
+	"other":{
+            "catLabels":[
+                "2008", 
+                "2009/10", 
+                "2012/13",
+		"2015/16" 
+                
+            ],
+            "dataValues":[
+                24.3,
+                25.2, 
+                24.6,
+		25.2
+            ]
+    }
+} 
+

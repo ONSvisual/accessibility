@@ -1,0 +1,11 @@
+{"config":{
+"questions":[
+["For every 100 people who live here, how many were non-British nationals in 2016?","pernonuk",0,100,"person","",""],
+["In the year ending June 2016, how many international migrants entered the area intending to stay for more than a year?","Inflow",0,16000,"bar","",""],
+["For every 100 births in this area, how many were to non-UK born mothers in 2016?","birthfromnonukmoms",0,100,"baby","",""],
+["In the year ending June 2016, how many adults from outside the UK registered for a National Insurance number in this area? ","ninoreg",0,25000,"bar","",""]
+],
+"sources":[],
+"urls":[]
+}
+}
