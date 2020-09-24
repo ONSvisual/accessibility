@@ -561,7 +561,7 @@
                                                                   target="_blank">Find out more about browsers</a></b>
             </p>
           </div>
-          <img id="thumbNail" src="exports.png" alt="A chart displaying goods imported 2019 broken down by type of goods and country of origin.">
+          <img id="thumbNail" src="exports.png" alt="A chart displaying goods exported 2019 broken down by type of goods and destination.">
         </div>
       </div>
     </div><!--end of .container-fluid-->
@@ -1508,7 +1508,7 @@
 
           var heading = "Goods exports 2019: ";
           var value = "£" + formatNumber(dataset.size) + " million";
-          var label = `A chart displaying goods imported 2019 (${value}) broken down by type of goods and country of origin.`;
+          var label = `A chart displaying goods exported 2019 (${value}) broken down by type of goods and destination.`;
           $('#chartDescription').html(label);
           d3.select("#blurb").select("#txt2").html(heading);
           d3.select("#blurb").select("#txt3").html(value);
