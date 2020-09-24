@@ -86,8 +86,12 @@
         fill-opacity: .2;
       }
 
-      .children:hover rect.child {
+      .children:hover rect.child, .parent:focus ~ rect.child {
         fill: #bbb;
+      }
+
+      .children:hover text, .child:hover ~ text, .parent:focus ~ text {
+        fill: #000;
       }
 
       .child:hover {
@@ -570,6 +574,13 @@
       } else {
         $("#ieMsg").fadeIn(1000);
       }
+
+      jQuery.fn.d3Click = function () {
+        this.each(function (i, e) {
+          var evt = new MouseEvent("click");
+          e.dispatchEvent(evt);
+        });
+      };
 
       pymChild = null;
 
@@ -1575,15 +1586,8 @@
           .classed("children", true)
           .on("click", transition);
 
-        g.selectAll(".child")
-          .data(function (d) {
-            return d._children || [d];
-          })
-          .enter().append("rect")
-          .attr("class", "child")
-          .attr("code", function (d) {
-            return d.id
-          })
+        g.append("rect")
+          .attr("class", "parent")
           .attr("desc", function (d) {
             return d.name
           })
@@ -1596,12 +1600,27 @@
           .attr("realvals", function (d) {
             return d.size
           })
+          .attr('aria-label', function(d) { return d.name + " £" + formatNumber(d.size) + "m"; })
           .on("mouseover", mouseover)
+          .on("focus", mouseover)
           .on("mouseout", mouseout)
+          .on("blur", mouseout)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+              $(d3.event.target).parent().d3Click();
+            }
+          })
           .call(rect);
 
-        g.append("rect")
-          .attr("class", "parent")
+        g.selectAll(".child")
+          .data(function (d) {
+            return d._children || [d];
+          })
+          .enter().append("rect")
+          .attr("class", "child")
+          .attr("code", function (d) {
+            return d.id
+          })
           .attr("desc", function (d) {
             return d.name
           })
