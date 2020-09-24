@@ -433,6 +433,17 @@
         text-align: right;
         padding-right: 5px !important;
       }
+
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
     </style>
   </head>
 
@@ -446,13 +457,14 @@
 
     <div class="container-fluid">
       <div id="main-wrapper">
-
         <div id="mainContent" style="display:none">
+          <p id="chartDescription" class="visuallyhidden"></p>
 
-          <div id="blurb" class="row">
-            <text id="txt2"></text>
-            <text id="txt3"></text>
-          </div>
+          <p id="blurb" class="row">
+            <span id="txt2"></span>
+            <span id="txt3"></span>
+          </p>
+
           <div class="row">
             <!--					<button type="button" id="upBtn" class="nav btn btn-ons ">
                         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Up a level
@@ -485,9 +497,8 @@
           <div id="source">
             Source: UK Trade Statistics, Office for National Statistics
           </div>
-
-
         </div>
+
         <div id="ieMsg" style="display:none">
           <div id="suptext">
             <h1>Browser requirements</h1>
@@ -1357,11 +1368,8 @@
       } //end stack bar chart
 
       function makeChart(width, fullheight) {
-
         margin = {top: 10, right: 0, bottom: 0, left: 0}
         formatNumber = d3.format(",.0f"),
-
-
           atTop = true,
           level = 0,
           levelArray = Array(level);
@@ -1419,7 +1427,6 @@
             //d.var2 = Number(d.var2);
           });
 
-
           var tree = DataStructures.Tree.createFromFlatTable(data),
             root = tree.toSimpleObject(function (objectToDecorate, originalNode) {
               objectToDecorate.size = originalNode.size;
@@ -1436,8 +1443,13 @@
           layout(root);
           display(root);
 
-          d3.select("#blurb").select("#txt2").html("Goods exports 2019: ")
-          d3.select("#blurb").select("#txt3").html("£" + formatNumber(dataset.size) + " million");
+          var heading = "Goods exports 2019: ";
+          var value = "£" + formatNumber(dataset.size) + " million";
+          var label = `A chart displaying goods imported 2019 (${value}) broken down by type of goods and country of origin.`;
+          $('#chartDescription').html(label);
+          d3.select("#blurb").select("#txt2").html(heading);
+          d3.select("#blurb").select("#txt3").html(value);
+
           d3.json("config.json", function (error, config) {
             dvc = config
             d3.csv("trade_exports.csv", function (data) {
@@ -1449,8 +1461,6 @@
             }) // end trade csv
           }) //end json config
         }); //end treemap csv load
-
-
       }
 
       function initialize(root) {
