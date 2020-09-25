@@ -996,7 +996,7 @@ if (Modernizr.webgl) {
         // Set up scales for chart
         x = d3.scalePoint()
           .domain(dvc.timepoints) /*range for data*/
-          .range([0, keywidth - 60])
+          .range([0, keywidth - 62])
           .align(0.5); /*range for pixels*/
 
 

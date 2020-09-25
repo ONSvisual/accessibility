@@ -14,7 +14,7 @@
 "sourceURL" : "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthsummarytables",
 "chartLabels": ["1", "2", "3"],
 "timelineLabelsMB":["", "02", "", "04", "", "06", "", "08", "", "10", "", "12", "", "14","","16","17"],
-"timelineLabelsDT":["2002","2009","2016"],
+"timelineLabelsDT":["2001","2009","2017"],
 "average": [null, null],
 "averageText":""
 }}
