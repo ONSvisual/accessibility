@@ -983,10 +983,10 @@ if (Modernizr.webgl) {
           .attr('aria-hidden',true)
           .attr("id", "key")
           .attr("width", keywidth)
-          .attr("height", keyheight + 30)
+          .attr("height", keyheight + 40)
 
         svgkeyGroup = svgkey.append("g")
-          .attr("transform", "translate(45,10)");
+          .attr("transform", "translate(65,10)");
 
         // Set up scales for legend
         y = d3.scaleLinear()
@@ -996,14 +996,14 @@ if (Modernizr.webgl) {
         // Set up scales for chart
         x = d3.scalePoint()
           .domain(dvc.timepoints) /*range for data*/
-          .range([0, keywidth - 60])
+          .range([0, keywidth - 82])
           .align(0.5); /*range for pixels*/
 
 
         var yAxis = d3.axisLeft(y)
           .tickSize(15)
           .tickValues(color.domain())
-          .tickFormat(legendformat);
+          // .tickFormat(legendformat);
 
 
         //Add
@@ -1048,7 +1048,7 @@ if (Modernizr.webgl) {
         g.call(yAxis).append("text");
 
         svgkeyGroup.append("g").attr("id", "timeaxis")
-          .attr("transform", "translate(0," + keyheight + ")")
+          .attr("transform", "translate(0," + (keyheight + 10) + ")")
           .attr("font-weight", "600")
           .style("font-family", "'open sans'")
           .style("font-size", "12px")
