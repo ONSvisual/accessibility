@@ -820,12 +820,14 @@
 
         var selectClass = $(this).attr('desc');
         var selectValue = $(this).attr('realvals');
-        d3.select("#blurb").select("#txt3").html(selectClass + ": £" + formatNumber(selectValue) + " per week");
+        d3.select("#blurb").select("#txt2").html(selectClass + ": ");
+        d3.select("#blurb").select("#txt3").html("£" + formatNumber(selectValue) + " per week");
 
       };
 
       function mouseout() {
-        d3.select("#blurb").select("#txt3").html("Total household spend: £" + formatNumber(dataset.vals[1]) + " per week");
+        d3.select("#blurb").select("#txt2").html("Total household spend: ");
+        d3.select("#blurb").select("#txt3").html("£" + formatNumber(dataset.vals[1]) + " per week");
       };
 
       function simulateClick(elem /* Must be the element */) {
