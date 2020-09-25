@@ -123,14 +123,18 @@
       }
 
       #blurb {
+        height: 80px;
         pointer-events: none;
-        line-height: 2.2em;
-        font-size: 1em;
-        font-weight: 600;
+        line-height: 1.2em;
+        font-size: 30px;
       }
 
       #txt2 {
-        font-weight: 200;
+        font-weight: 700;
+      }
+
+      #txt3 {
+        font-weight: 500;
       }
 
       @media (max-width: 500px) {
@@ -275,6 +279,17 @@
         width: 80px;
         height: 80px;
       }
+
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
     </style>
   </head>
 
@@ -282,10 +297,13 @@
     <div class="container-fluid">
       <div id="main-wrapper">
         <div id="mainContent" style="display:none">
-          <div id="blurb" class="row">
-            <text id="txt2"></tspan>
-              <text id="txt3"></tspan>
-          </div>
+          <p id="chartDescription" class="visuallyhidden"></p>
+
+          <p id="blurb" class="row">
+            <span id="txt2"></span>
+            <span id="txt3"></span>
+
+          </p>
 
           <div class="row">
             <button type="button" id="upBtn" class="nav btn btn-ons ">
@@ -385,7 +403,6 @@
       }
 
       function makeChart(width, fullheight) {
-
         margin = {top: 0, right: 0, bottom: 0, left: 0},
           formatNumber = d3.format(".2f"),
 
@@ -447,12 +464,13 @@
           layout(root);
           display(root);
 
-          d3.select("#blurb").select("#txt3").html("Total household spend: £" + formatNumber(dataset.vals[1]) + " per week.");
-
-
+          var heading = "Total household spend: ";
+          var value = "£" + formatNumber(dataset.vals[1]) + " per week.";
+          var label = `A chart displaying household spending (${value}) broken down by expenditure type.`;
+          $('#chartDescription').html(label);
+          d3.select("#blurb").select("#txt2").html(heading);
+          d3.select("#blurb").select("#txt3").html(value);
         });
-
-
       }
 
       function initialize(root) {
