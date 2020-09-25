@@ -916,7 +916,7 @@ if (Modernizr.webgl) {
           .attr("cx", x(dvc.timepoints[a]))
           .attr("fill", "#666")
           .attr("stroke", "black")
-          .style("opacity", 0)
+          // .style("opacity", 0)
 
       } else {
 
