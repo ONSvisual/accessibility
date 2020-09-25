@@ -54,13 +54,20 @@
         cursor: pointer;
       }
 
-      .children rect.parent {
+      .children:hover rect.child, .parent:focus ~ rect.child {
         fill: #bbb;
-        fill-opacity: .2;
+      }
+
+      .children:hover text, .child:hover ~ text, .parent:focus ~ text {
+        fill: #000;
       }
 
       .children:hover rect.child {
         fill: #bbb;
+      }
+
+      .children:hover rect.child {
+        cursor: pointer;
       }
 
       *[code*=c1_] {
@@ -393,6 +400,13 @@
         $("#ieMsg").fadeIn(1000);
       }
 
+      jQuery.fn.d3Click = function () {
+        this.each(function (i, e) {
+          var evt = new MouseEvent("click");
+          e.dispatchEvent(evt);
+        });
+      };
+
       pymChild = new pym.Child();
 
       var transitioning;
@@ -583,15 +597,8 @@
           .classed("children", true)
           .on("click", transition);
 
-        g.selectAll(".child")
-          .data(function (d) {
-            return d._children || [d];
-          })
-          .enter().append("rect")
-          .attr("class", "child")
-          .attr("code", function (d) {
-            return d.code
-          })
+        g.append("rect")
+          .attr("class", "parent")
           .attr("desc", function (d) {
             return d.desc
           })
@@ -604,12 +611,27 @@
           .attr("realvals", function (d) {
             return d.vals[1]
           })
+          .attr('aria-label', function(d) { return d.desc + " £" + formatNumber(d.vals[1]) })
           .on("mouseover", mouseover)
           .on("mouseout", mouseout)
+          .on("focus", mouseover)
+          .on("blur", mouseout)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+              $(d3.event.target).parent().d3Click();
+            }
+          })
           .call(rect);
 
-        g.append("rect")
-          .attr("class", "parent")
+        g.selectAll(".child")
+          .data(function (d) {
+            return d._children || [d];
+          })
+          .enter().append("rect")
+          .attr("class", "child")
+          .attr("code", function (d) {
+            return d.code
+          })
           .attr("desc", function (d) {
             return d.desc
           })
@@ -649,7 +671,7 @@
             window.location.hash = encodeURI(selectedView)
           }
 
-          if (selectedArray.length == 0) {
+          if (selectedArray.length === 0) {
             d3.select("#topBtn").style("visibility", "hidden");
             d3.select("#upBtn").style("visibility", "hidden");
 
