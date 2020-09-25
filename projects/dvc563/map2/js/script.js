@@ -491,7 +491,7 @@ if (Modernizr.webgl) {
 
     function onchange(i) {
 
-      chartDrawn = false;
+      // chartDrawn = false;
       navvalue = i;
       //load new csv file
 
@@ -744,32 +744,32 @@ if (Modernizr.webgl) {
 
 
       if (mobile == false) {
-        d3.select("#currLine")
-          .style("opacity", function() {
-            if (!isNaN(rateById[code])) {
-              return 1
-            } else {
-              return 0
-            }
-          })
-          .transition()
-          .duration(300)
-          .attr("y1", function() {
-            if (!isNaN(rateById[code])) {
-              return yChart(rateById[code])
-            } else {
-              return yChart(midpoint)
-            }
-          })
-          .attr("y2", function() {
-            if (!isNaN(rateById[code])) {
-              return yChart(rateById[code])
-            } else {
-              return yChart(midpoint)
-            }
-          })
-          .attr("x2", xChart(dvc.timepointsChart[a]))
-          .attr("x1", xChart(0));
+        // d3.select("#currLine")
+        //   .style("opacity", function() {
+        //     if (!isNaN(rateById[code])) {
+        //       return 1
+        //     } else {
+        //       return 0
+        //     }
+        //   })
+        //   .transition()
+        //   .duration(300)
+        //   .attr("y1", function() {
+        //     if (!isNaN(rateById[code])) {
+        //       return yChart(rateById[code])
+        //     } else {
+        //       return yChart(midpoint)
+        //     }
+        //   })
+        //   .attr("y2", function() {
+        //     if (!isNaN(rateById[code])) {
+        //       return yChart(rateById[code])
+        //     } else {
+        //       return yChart(midpoint)
+        //     }
+        //   })
+        //   .attr("x2", xChart(dvc.timepointsChart[a]))
+        //   .attr("x1", xChart(0));
 
         d3.select("#currValChart")
           .text(function() {
@@ -896,7 +896,7 @@ if (Modernizr.webgl) {
     function updateChart(code, selectlist) {
 
       if (chartDrawn == false) {
-
+console.log(chartDrawn)
         chartDrawn = true;
 
 
@@ -1044,8 +1044,10 @@ if (Modernizr.webgl) {
 
     			g2.selectAll("rect")
     				.data(mapcolor.range().map(function(d, i) {
+              console.log(d);
+              console.log( i ? x(mapcolor.domain()[i]) : x.range()[0])
     				  return {
-    					x0: i ? x(mapcolor.domain()[i-1]) : x.range()[0],
+    					x0: i ? x(mapcolor.domain()[i]) : x.range()[0],
     					x1: i < mapcolor.domain().length ? x(mapcolor.domain()[i]) : x.range()[1],
     					z: d
     								  };
@@ -1079,7 +1081,7 @@ if (Modernizr.webgl) {
     			keyhor.selectAll("rect")
     				.data(mapcolor.range().map(function(d, i) {
     				  return {
-    					x0: i ? x(mapcolor.domain()[i-1]) : x.range()[0],
+    					x0: i ? x(mapcolor.domain()[i]) : x.range()[0],
     					x1: i < mapcolor.domain().length ? x(mapcolor.domain()[i]) : x.range()[1],
     					z: d
     				  };
@@ -1257,130 +1259,130 @@ if (Modernizr.webgl) {
             }
 
 
-      } else {
-        // Horizontal legend
-        keyheight = 65;
-
-        keywidth = d3.select("#keydiv").node().getBoundingClientRect().width;
-
-        svgkey = d3.select("#keydiv")
-          .append("svg")
-          .attr("aria-hidden",true)
-          .attr("id", "key")
-          .attr("width", keywidth)
-          .attr("height", keyheight);
-
-
-        xkey = d3.scaleLinear()
-          .domain([chartBreaks[0], chartBreaks[dvc.numberBreaks]]) /*range for data*/
-          .range([0, keywidth - 30]); /*range for pixels*/
-
-        y = d3.scaleLinear()
-          .domain([chartBreaks[0], chartBreaks[dvc.numberBreaks]]) /*range for data*/
-          .range([0, keywidth - 30]); /*range for pixels*/
-
-        var xAxis = d3.axisBottom(xkey)
-          .tickSize(15)
-          .tickValues(color.domain())
-          .tickFormat(legendformat);
-
-        var g2 = svgkey.append("g").attr("id", "horiz")
-          .attr("transform", "translate(15,30)");
-
-        keyhor = d3.select("#horiz");
-
-        g2.selectAll("rect")
-          .data(color.range().map(function(d, i) {
-
-            return {
-              x0: i ? xkey(color.domain()[i + 1]) : xkey.range()[0],
-              x1: i < color.domain().length ? xkey(color.domain()[i + 1]) : xkey.range()[1],
-              z: d
-            };
-          }))
-          .enter().append("rect")
-          .attr("class", "blocks")
-          .attr("height", 8)
-          .attr("x", function(d) {
-            return d.x0;
-          })
-          .attr("width", function(d) {
-            return d.x1 - d.x0;
-          })
-          .style("opacity", 0.8)
-          .style("fill", function(d) {
-            return d.z;
-          });
-
-
-        g2.append("line")
-          .attr("id", "currLine")
-          .attr("x1", xkey(10))
-          .attr("x2", xkey(10))
-          .attr("y1", -10)
-          .attr("y2", 8)
-          .attr("stroke-width", "2px")
-          .attr("stroke", "#000")
-          .attr("opacity", 0);
-
-        g2.append("text")
-          .attr("id", "currVal")
-          .attr("x", xkey(10))
-          .attr("y", -15)
-          .attr("fill", "#000")
-          .text("");
-
-
-
-        keyhor.selectAll("rect")
-          .data(color.range().map(function(d, i) {
-            return {
-              x0: i ? xkey(color.domain()[i]) : xkey.range()[0],
-              x1: i < color.domain().length ? xkey(color.domain()[i + 1]) : xkey.range()[1],
-              z: d
-            };
-          }))
-          .attr("x", function(d) {
-            return d.x0;
-          })
-          .attr("width", function(d) {
-            return d.x1 - d.x0;
-          })
-          .style("fill", function(d) {
-            return d.z;
-          });
-
-        keyhor.call(xAxis).append("text")
-          .attr("id", "caption")
-          .attr("x", -63)
-          .attr("y", -20)
-          .text("");
-
-        keyhor.append("rect")
-          .attr("id", "keybar")
-          .attr("width", 8)
-          .attr("height", 0)
-          .attr("transform", "translate(15,0)")
-          .style("fill", "#ccc")
-          .attr("x", xkey(0));
-
-        d3.select("#keydiv")
-          .append("p")
-          .attr('aria-hidden',true)
-          .attr("id", "keyunit")
-          .style("margin-top", "-10px")
-          .style("margin-left", "10px")
-          .text(dvc.varunit[b]);
-
-
-        if (dvc.dropticks) {
-          d3.select("#timeaxis").selectAll("text").attr("transform", function(d, i) {
-            // if there are more that 4 breaks, so > 5 ticks, then drop every other.
-            if (i % 2) {
-              return "translate(0,10)"
-            }
-          });
-        }
+      // } else {
+      //   // Horizontal legend
+      //   keyheight = 65;
+      //
+      //   keywidth = d3.select("#keydiv").node().getBoundingClientRect().width;
+      //
+      //   svgkey = d3.select("#keydiv")
+      //     .append("svg")
+      //     .attr("aria-hidden",true)
+      //     .attr("id", "key")
+      //     .attr("width", keywidth)
+      //     .attr("height", keyheight);
+      //
+      //
+      //   xkey = d3.scaleLinear()
+      //     .domain([chartBreaks[0], chartBreaks[dvc.numberBreaks]]) /*range for data*/
+      //     .range([0, keywidth - 30]); /*range for pixels*/
+      //
+      //   y = d3.scaleLinear()
+      //     .domain([chartBreaks[0], chartBreaks[dvc.numberBreaks]]) /*range for data*/
+      //     .range([0, keywidth - 30]); /*range for pixels*/
+      //
+      //   var xAxis = d3.axisBottom(xkey)
+      //     .tickSize(15)
+      //     .tickValues(color.domain())
+      //     .tickFormat(legendformat);
+      //
+      //   var g2 = svgkey.append("g").attr("id", "horiz")
+      //     .attr("transform", "translate(15,30)");
+      //
+      //   keyhor = d3.select("#horiz");
+      //
+      //   g2.selectAll("rect")
+      //     .data(color.range().map(function(d, i) {
+      //
+      //       return {
+      //         x0: i ? xkey(color.domain()[i + 1]) : xkey.range()[0],
+      //         x1: i < color.domain().length ? xkey(color.domain()[i + 1]) : xkey.range()[1],
+      //         z: d
+      //       };
+      //     }))
+      //     .enter().append("rect")
+      //     .attr("class", "blocks")
+      //     .attr("height", 8)
+      //     .attr("x", function(d) {
+      //       return d.x0;
+      //     })
+      //     .attr("width", function(d) {
+      //       return d.x1 - d.x0;
+      //     })
+      //     .style("opacity", 0.8)
+      //     .style("fill", function(d) {
+      //       return d.z;
+      //     });
+      //
+      //
+      //   g2.append("line")
+      //     .attr("id", "currLine")
+      //     .attr("x1", xkey(10))
+      //     .attr("x2", xkey(10))
+      //     .attr("y1", -10)
+      //     .attr("y2", 8)
+      //     .attr("stroke-width", "2px")
+      //     .attr("stroke", "#000")
+      //     .attr("opacity", 0);
+      //
+      //   g2.append("text")
+      //     .attr("id", "currVal")
+      //     .attr("x", xkey(10))
+      //     .attr("y", -15)
+      //     .attr("fill", "#000")
+      //     .text("");
+      //
+      //
+      //
+      //   keyhor.selectAll("rect")
+      //     .data(color.range().map(function(d, i) {
+      //       return {
+      //         x0: i ? xkey(color.domain()[i]) : xkey.range()[0],
+      //         x1: i < color.domain().length ? xkey(color.domain()[i + 1]) : xkey.range()[1],
+      //         z: d
+      //       };
+      //     }))
+      //     .attr("x", function(d) {
+      //       return d.x0;
+      //     })
+      //     .attr("width", function(d) {
+      //       return d.x1 - d.x0;
+      //     })
+      //     .style("fill", function(d) {
+      //       return d.z;
+      //     });
+      //
+      //   keyhor.call(xAxis).append("text")
+      //     .attr("id", "caption")
+      //     .attr("x", -63)
+      //     .attr("y", -20)
+      //     .text("");
+      //
+      //   keyhor.append("rect")
+      //     .attr("id", "keybar")
+      //     .attr("width", 8)
+      //     .attr("height", 0)
+      //     .attr("transform", "translate(15,0)")
+      //     .style("fill", "#ccc")
+      //     .attr("x", xkey(0));
+      //
+      //   d3.select("#keydiv")
+      //     .append("p")
+      //     .attr('aria-hidden',true)
+      //     .attr("id", "keyunit")
+      //     .style("margin-top", "-10px")
+      //     .style("margin-left", "10px")
+      //     .text(dvc.varunit[b]);
+      //
+      //
+      //   if (dvc.dropticks) {
+      //     d3.select("#timeaxis").selectAll("text").attr("transform", function(d, i) {
+      //       // if there are more that 4 breaks, so > 5 ticks, then drop every other.
+      //       if (i % 2) {
+      //         return "translate(0,10)"
+      //       }
+      //     });
+      //   }
       }
 
 

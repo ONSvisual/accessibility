@@ -100,16 +100,71 @@
       width: calc(100% - 8px);
     }
 
+    #chartdiv {
+        position:absolute;
+        top:60px;
+        height:100px;
+        background-color:rgba(255,255,255,0.5);
+        z-index:1;
+      }
+
+      #mapInfo{
+        display:inline-block;
+      }
+          #mapInfo p{
+              display:inline-block;
+              margin: 0px;
+              padding: 0px 0px 0px 10px;
+            }
+
+      #mapKeyContainer{
+      display:inline-block;
+      height:80px;
+
+        /*top:60px;
+        width:30%;
+        height:80px;
+        background-color:rgba(255,255,255,0.8);
+        z-index:1;*/
+      }
+      #mapkey{
+        padding: 0px 20px 0px 0px;
+        height:60px;
+      }
+
+      #timePeriod {
+      display:inline-block;
+      float:right;
+       /* top: 60px;*/
+       /* z-index: 2;*/
+       margin: 0px 10px 0px 10px;
+        font-size: 26px;
+        font-weight: 600;
+        color: #666;
+      }
+
+    #rankLabel
+    {
+      display:inline-block;
+      /*float:left;*/
+      margin: 0px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #666;
+    }
+
+    #rankLabel p
+    {
+    margin: 0px;
+    }
+
+
     @media (min-width: 600px) {
       #map {
         height: 500px;
       }
 
-      #horiz {
-        display: none;
-      }
-
-      #selectnav {
+      #rankLabel, #selectnav {
         display: none;
       }
 
@@ -491,6 +546,25 @@
     </div>
   </div>
   <div class="row">
+
+    <div id='chartdiv'>
+         <div class="row">
+           <div class="col-sm-4"></div>
+           <div class="col-sm-8">
+             <div id="mapInfo"></div>
+             <div id='timePeriod'></div>
+           </div>
+         </div>
+
+         <div class="row">
+           <div class="col-sm-4"></div>
+           <div class="col-sm-8 col-sm-push-4 col-xs-12">
+             <div id='mapKeyContainer'></div>
+             <div id='rankLabel'>Rank: <p>-</p></div>
+           </div>
+         </div>
+     </div>
+
     <div class="col-sm-4 col-xs-12">
       <div id='selectNav'></div>
       <div id='keydiv'>
@@ -512,8 +586,8 @@
       </div>
     </div>
     <div id='map' class="col-sm-8 col-xs-12">
-      <div id="mapInfo"></div>
-      <div aria-label="time point" id='timePeriod'><p aria-live='polite'></p></div>
+      <!-- <div id="mapInfo"></div> -->
+      <!-- <div aria-label="time point" id='timePeriod'><p aria-live='polite'></p></div> -->
     </div>
 
   </div>
@@ -525,15 +599,14 @@
       <div id="footer">
         <h6> Notes: </h6>
         <ol>
-          <li>Add</li>
-          <li>Footnotes</li>
-          <li>Here.</li>
+          	<li>Local areas include upper tier local authorities (UTLAs) in England only.</li>
+			<li>Healthy life expectancy figures are not available for Isles of Scilly and City of London because of insufficient population size.</li>
+			<li>Rank one presents the UTLA with the highest healthy life expectancy (HLE) and rank 150 represents the lowest HLE.</li>
+			<li>Each UTLA’s ranking of healthy life expectancy in England applies to a specific time-period, but their relative move upwards or downwards provides a guide to how well they are performing on this measure against other areas. The ranking thereby acts as a tool to benchmark with other UTLAs over time. However, the confidence intervals provided in the pivot table should be taken into account to decide whether differences are statistically significant.</li>
         </ol>
-
-        <h6>Download this map</h6>
-        <a class="btn btn--primary" aria-label="Download as an image" download href="image.png">Image</a>
-        <a class="btn btn--primary" aria-label="Download the data behind this map as an .csv file" href="data.csv">.csv</a>
-        <a class="btn btn--primary" aria-label="Download the data behind this map as an .xlsx file" href="datadownload.xlsx">.xlsx</a>
+       <!-- <a class="btn btn--primary" href=".png">Image</a>
+        <a class="btn btn--primary" href=".xlsx">.xls</a>
+        <a class="btn btn--primary" href=".csv">.csv</a>-->
       </div>
     </div>
   </div>

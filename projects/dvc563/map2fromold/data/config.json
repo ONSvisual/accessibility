@@ -1,0 +1,26 @@
+{"ons":{
+"maptitle": "HLE ranking",
+
+"varcolour": "YlGnBu",
+"numberBreaks": 3,
+"varcolourMap": [["aaa", "#D0DCEC", "#789AC8", "#33537D"], ["#fef0d9","#fdcc8a","#fc8d59","#d7301f"], ["aaa", "#D0DCEC", "#789AC8", "#33537D"], ["#fef0d9","#fdcc8a","#fc8d59","#d7301f"] ],
+"numberBreaksMap": 3,
+"breaksMap":[[53,59,65,72], [48,57,66,75.02], [5,9,14,18], [5,9,14,18]],
+"breaksChart":["equal"],
+
+"varlabels": ["Males - HLE at birth", "Females - HLE at birth", "Males - HLE at age 65", "Females - HLE at age 65"],
+"timeload": "last",
+"timepoints": ["2009","2010","2011","2012","2013","2014","2015"],
+"timepointsChart":["2009", "2010","2011","2012","2010","2011", "2015"],
+"varunit": ["HLE ranking"],
+"mapunit": ["Healthy life expectancy, years", "Healthy life expectancy, years", "Healthy life expectancy, years", "Healthy life expectancy, years"],
+"displaydecimals": 1,
+"legenddecimals": 0,
+
+"dropticks": false,
+"sourcetext": "Office for National Statistics",
+"sourceURL" : "https://www.ons.gov.uk",
+"timelineLabelsMB":["", "02", "", "04", "", "06", "", "08", "", "10", "", "11", "", "13", "", "15"],
+"timelineLabelsDT":["","2002","","2004","","2006","","2008","","2010","","2012","","2014",""]
+}
+}
