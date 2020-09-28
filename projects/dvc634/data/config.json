@@ -12,6 +12,9 @@
 "numberBreaks": 5,
 "sourcetext": "Office for National Statistics - Regional gross disposable household income (GDHI)",
 "timelineLabelsDT":["1997","2007","2017"],
-"average": [null, null],
-"averageText":""
+"average": [[10807,11191,11557,12321,12779,13137,13464,13939,14427,15007,15644,16074,16344,16353,16570,17310,17866,18297,19234,19322,19514]],
+"averageText":"UK"
 }}
+
+
+
