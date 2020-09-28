@@ -751,13 +751,8 @@ if (Modernizr.webgl) {
           .transition()
           .duration(300)
           .attr("x", x(dvc.timepoints[a]))
-          .attr("y", function() {
-            if (!isNaN(rateById[code])) {
-              return y(rateById[code]) - 20
-            } else {
-              return y(midpoint)
-            }
-          });
+          .attr("y", findCurrValy )
+          .attr("text-anchor", "middle");
 
         d3.select("#currVal2")
           .text(function() {
@@ -771,13 +766,23 @@ if (Modernizr.webgl) {
           .transition()
           .duration(300)
           .attr("x", x(dvc.timepoints[a]))
-          .attr("y", function() {
-            if (!isNaN(rateById[code])) {
-              return y(rateById[code]) - 20
-            } else {
-              return y(midpoint)
+          .attr("y", findCurrValy)
+          .attr("text-anchor", "middle");
+
+        function findCurrValy() {
+          if (!isNaN(rateById[code])) { // if there exists a numerical value
+            // if value is greater than threshold, put it below the line
+            var yThreshold = ( y.domain()[0] + y.domain()[1] ) * 2 / 3
+            if (rateById[code] > yThreshold ) {
+              yAdjustment = 22
+            } else { // otherwise it goes above
+              yAdjustment = -12
             }
-          });
+            return y(rateById[code]) + yAdjustment
+          } else { // if there is no numerical value
+            return y(midpoint)
+          }
+        }
 
         d3.select("#currPoint")
           .text(function() {
@@ -957,7 +962,7 @@ if (Modernizr.webgl) {
 
       if (mobile == false) {
 
-        d3.select("#keydiv").append("p").attr("id", "keyunit").style("margin-top", "25px").style("margin-left", "10px").text(dvc.varunit[b]);
+        d3.select("#keydiv").append("p").attr("id", "keyunit").attr('aria-hidden',true).style("margin-top", "25px").style("margin-left", "10px").style("font-size","14px").text(dvc.varunit[b]);
 
         keyheight = 150;
 
@@ -1100,6 +1105,7 @@ if (Modernizr.webgl) {
 
         svgkey = d3.select("#keydiv")
           .append("svg")
+          .attr("aria-hidden",true)
           .attr("id", "key")
           .attr("width", keywidth)
           .attr("height", keyheight);
@@ -1197,6 +1203,7 @@ if (Modernizr.webgl) {
 
 				d3.select("#keydiv")
           .append("p")
+          .attr('aria-hidden',true)
           .attr("id","keyunit")
           .style("margin-top","-10px")
           .style("margin-left","10px")
@@ -1204,7 +1211,7 @@ if (Modernizr.webgl) {
 
 
         if (dvc.dropticks) {
-          d3.select("#horiz").selectAll("text").attr("transform", function(d, i) {
+          d3.select("#timeaxis").selectAll("text").attr("transform", function(d, i) {
             // if there are more that 4 breaks, so > 5 ticks, then drop every other.
             if (i % 2) {
               return "translate(0,10)"
@@ -1284,15 +1291,9 @@ if (Modernizr.webgl) {
     };
 
 		function setSource() {
-
-			d3.select("#source")
-				.append("h6")
-				.attr("class", "source")
-				.attr("text-anchor", "start")
-				.style("font-size", "14px")
-				.style("fill", "#666")
-				.style("font-weight", 700)
-				.text("Source: " + dvc.sourcetext)
+      d3.select("#source")
+        .append("h5")
+        .text("Source: "+dvc.sourcetext)
     }
 
     function selectlist(datacsv) {
@@ -1306,6 +1307,11 @@ if (Modernizr.webgl) {
       var menuarea = d3.zip(areanames, areacodes).sort(function(a, b) {
         return d3.ascending(a[0], b[0]);
       });
+
+      //hide area dropdown to screen reader if on mobile
+      if(mobile==true){
+        d3.select("selectNav").attr('aria-hidden',true)
+      }
 
       // Build option menu for occupations
       var optns = d3.select("#selectNav").append("div").attr("id", "sel").append("select")
