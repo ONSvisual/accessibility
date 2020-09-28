@@ -1,3 +1,6 @@
+.title {
+    font-weight: 800;
+}
 /* .input {
     width: 220px;
     padding: 1rem;
@@ -374,20 +377,19 @@
 }
 
 .borderBottom {
+    min-height: 50px;
     width: 145px;
     float: right;
     border-left: solid 5px #3b7a9e;
-    background-color: #EAEAEA;
+    background-color: #fff;
+    position: relative;
 }
 
-.borderBottom2 {
-    float: right;
-    width: 145px;
-    border-left: solid 5px #3b7a9e;
-    background-color: #EAEAEA;
-
+.borderBottom p {
+    position: absolute;
+    right: 0;
+    text-align: right;
 }
-
 
 .valueHours p,
 .spendingValue p {

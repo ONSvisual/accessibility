@@ -69,14 +69,14 @@ if (Modernizr.svg) {
     var parts = [
       // '<div class="container">',
         '<div class="valueHours" aria-live="polite" id="', personValueId ,'">',
-          '<div class="borderBottom2">',
+          '<div class="borderBottom">',
       '<p>Hours per week: <span id="changeHours', params.num,'">0</span></p>',
           '</div>',
         '</div>',
 
         '<div class="row row--slider">',
           '<!-- Slider -->',
-              '<div id="q9-container" class="q-container">',
+              '<div id="q' + params.num + '-container" class="q-container">',
                 // '<label for="' + personId + '">' + 'Slide left and right to select hours worked per week' + '</label>', 
                 '<input id="', personId, '" class="hours" data-slider-id="P', params.num,'Slider" type="text" data-slider-min="0" data-slider-max="60"',
                   'data-slider-step="1" data-slider-value="0" />',
@@ -404,7 +404,7 @@ if (Modernizr.svg) {
         d3.select('#text-slider').style('opacity', '1').style('display', 'block');
         d3.select('#saveSettings').style('opacity', '0').style('display', 'none');
         d3.select('#previous-next-inputs').style('opacity', '0').style('display', 'none');
-        d3.select('#previous-next-sliders').style('opacity', '1').st
+        d3.select('#previous-next-sliders').style('opacity', '1').style('display', 'block');
 
 
         for (i = 0; i < inputs.length; i++) {
@@ -1224,6 +1224,168 @@ if (Modernizr.svg) {
     }
   };
 
+
+  function navigateInputs() {
+    // scroll to top otherwise the position of previous screen is used
+    document.getElementById("wrapper").scrollIntoView();
+
+    // d3.select('#third').style('display', 'none');
+    d3.select('#config').style('opacity', '0').style('display', 'none');
+    // d3.select('#changeSettings').style('opacity', '0').style('display', 'none');
+    d3.select('#sliders').style('opacity', '0').style('display', 'none');
+    d3.select('#result').style('opacity', '0').style('display', 'none');
+    d3.select('#under-nlw').style('opacity', '0').style('display', 'none');
+    d3.select('#inputs').style('opacity', '1').style('display', 'block');
+    d3.select('#config-text').style('opacity', '0').style('display', 'none');
+    d3.select('#text-slider').style('opacity', '0').style('display', 'none');
+    d3.select('#text-inputs').style('opacity', '1').style('display', 'block');
+    d3.select('#saveSettings').style('opacity', '0').style('display', 'none');
+    d3.select('#previous-next-inputs').style('opacity', '1').style('display', 'block');
+    d3.select('#previous-next-sliders').style('opacity', '0').style('display', 'none');
+
+    $("#ex1, #ex2, #ex3, #ex4, #ex5, #ex6, #ex7, #ex8, #ex9").slider('destroy');
+
+    pymChild.sendHeight();
+
+  }
+
+  function navigateHome() {
+    // scroll to top otherwise the position of previous screen is used
+    document.getElementById("wrapper").scrollIntoView();
+
+    // d3.select('#second').style('display', 'none');
+    // d3.select('#third').style('display', 'none');
+    d3.select('#config').style('opacity', '1').style('display', 'block');
+    // d3.select('#changeSettings').style('opacity', '0').style('display', 'none');
+    d3.select('#inputs').style('opacity', '0').style('display', 'none');
+    d3.select('#sliders').style('opacity', '0').style('display', 'none');
+    d3.select('#result').style('opacity', '0').style('display', 'none');
+    d3.select('#under-nlw').style('opacity', '0').style('display', 'none');
+    d3.select('#config-text').style('opacity', '1').style('display', 'block');
+    d3.select('#text-slider').style('opacity', '0').style('display', 'none');
+    d3.select('#text-inputs').style('opacity', '0').style('display', 'none');
+    d3.select('#saveSettings').style('opacity', '1').style('display', 'block');
+    d3.select('#previous-next-inputs').style('opacity', '0').style('display', 'none');
+    d3.select('#previous-next-sliders').style('opacity', '0').style('display', 'none');
+
+
+    pymChild.sendHeight();
+
+  }
+
+  function resetCalculator() {
+
+    // scroll to top otherwise the position of previous screen is used
+    document.getElementById("wrapper").scrollIntoView();
+
+    // reset all period of time dropdowns
+    var elements = document.getElementsByTagName('select');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].selectedIndex = 1;
+    }
+
+    // set the on load values
+    wagePerson1 = 7.83;
+    wagePerson2 = 7.83;
+    wagePerson3 = 7.83;
+    wagePerson4 = 7.83;
+    livingWageBudget = 0;
+    housing = 0;
+    housingAverage = 202.41;
+    transport = 0;
+    transportAverage = 72.88;
+    food = 0;
+    foodAverage = 97.13;
+    alcohol = 0;
+    alcoholAverage = 11.93;
+    clothing = 0;
+    clothingAverage = 25.13;
+    communication = 0;
+    communicationAverage = 17.18;
+    hobbies = 0;
+    hobbiesAverage = 46.7;
+    holidays = 0;
+    holidaysAverage = 44.54;
+    maintenance = 0;
+    maintenanceAverage = 36.28;
+    scotlandResident = 0;
+    // var health = 0;
+    // var healthAverage = 13;
+    // var publicTransport = 0;
+    // var publicTransportAverage = 18.20;
+    yourSpending = 0;
+    otherBenefits = 0;
+    adults = 1;
+    children = 0;
+    salary = 0
+    dispDiv = document.getElementById("result");
+    // reset all buttons on settings page
+    for (var i = 1; i < 18; i++) {
+      if (document.getElementById("button-" + i).checked === true) {
+        document.getElementById('button-' + i).checked = false;
+        document.getElementById('button-' + i).setAttribute("aria-checked", false);
+      }
+    };
+
+    document.getElementById('button-4').setAttribute("aria-checked", true);
+    document.getElementById('button-4').checked = true;
+
+    document.getElementById('button-11').setAttribute("aria-checked", true);
+    document.getElementById('button-11').checked = true;
+
+    document.getElementById('button-15').setAttribute("aria-checked", true);
+    document.getElementById('button-15').checked = true;
+
+
+    // select a button for people in household
+    // document.getElementById('button-5').checked = true;
+    // document.getElementById('button-5').setAttribute("aria-checked", true);
+
+    for (i = 1; i <= 4; i++) {
+      d3.select('.person' + i).style('opacity', '0').style('display', 'none');
+    }
+
+
+
+    // reseting the input values
+    document.getElementById('housing-input').value = 0;
+    document.getElementById('transport-input').value = 0;
+    document.getElementById('food-input').value = 0;
+    document.getElementById('alcohol-input').value = 0;
+    document.getElementById('clothing-input').value = 0;
+    document.getElementById('communication-input').value = 0;
+    document.getElementById('leisure-input').value = 0;
+    // document.getElementById('restaurant-input').value = 0;
+    document.getElementById('holidays-input').value = 0;
+    document.getElementById('maintenance-input').value = 0;
+    // document.getElementById('health-input').value = 0;
+    // document.getElementById('public-input').value = 0;
+
+
+
+    // displaying only the settings div
+    dispDiv.innerHTML = budgetCalculation();
+    d3.select('#saveSettings').style('opacity', '0').style('display', 'none');
+    d3.select('#first').style('display', 'inline');
+    d3.select('#second').style('display', 'none');
+    d3.select('#third').style('display', 'none');
+    d3.select('#config').style('opacity', '1').style('display', 'block');
+    d3.select('#inputs').style('opacity', '0').style('display', 'none');
+    d3.select('#sliders').style('opacity', '0').style('display', 'none');
+    d3.select('#result').style('opacity', '0').style('display', 'none');
+    d3.select('#under-nlw').style('opacity', '0').style('display', 'none');
+    d3.select('#config-text').style('opacity', '1').style('display', 'block');
+    d3.select('#text-slider').style('opacity', '0').style('display', 'none');
+    d3.select('#text-inputs').style('opacity', '0').style('display', 'none');
+    d3.select('#household-contributers').style('opacity', '0').style('display', 'none');
+    d3.select('#saveSettings').style('opacity', '0').style('display', 'none');
+    d3.select('#previous-next-inputs').style('opacity', '0').style('display', 'none');
+    d3.select('#previous-next-sliders').style('opacity', '0').style('display', 'none');
+
+    pymChild.sendHeight();
+
+  }
+
   // calculating the figure in the result div
   function budgetCalculation() {
     if (livingWageBudget - yourSpending > 0) {
@@ -1447,29 +1609,7 @@ if (Modernizr.svg) {
 
 
   // when home navigation link is clicked, display only the settings div and only the home navigation link
-  d3.select('#button-18').on('click', function() {
-    // scroll to top otherwise the position of previous screen is used
-    document.getElementById("wrapper").scrollIntoView();
-
-    // d3.select('#second').style('display', 'none');
-    // d3.select('#third').style('display', 'none');
-    d3.select('#config').style('opacity', '1').style('display', 'block');
-    // d3.select('#changeSettings').style('opacity', '0').style('display', 'none');
-    d3.select('#inputs').style('opacity', '0').style('display', 'none');
-    d3.select('#sliders').style('opacity', '0').style('display', 'none');
-    d3.select('#result').style('opacity', '0').style('display', 'none');
-    d3.select('#under-nlw').style('opacity', '0').style('display', 'none');
-    d3.select('#config-text').style('opacity', '1').style('display', 'block');
-    d3.select('#text-slider').style('opacity', '0').style('display', 'none');
-    d3.select('#text-inputs').style('opacity', '0').style('display', 'none');
-    d3.select('#saveSettings').style('opacity', '1').style('display', 'block');
-    d3.select('#previous-next-inputs').style('opacity', '0').style('display', 'none');
-    d3.select('#previous-next-sliders').style('opacity', '0').style('display', 'none');
-
-
-    pymChild.sendHeight();
-
-  });
+  d3.select('#button-18').on('click', navigateHome);
 
   $("#button-20").keypress(function(e){
         if(e.which == 13){//Enter key pressed
@@ -1480,31 +1620,7 @@ if (Modernizr.svg) {
 
 
   // when navigation link for inputs is clicked display the inputs div and destroy sliders
-  d3.select('#button-20').on('click', function() {
-    // scroll to top otherwise the position of previous screen is used
-    document.getElementById("wrapper").scrollIntoView();
-
-    // d3.select('#third').style('display', 'none');
-    d3.select('#config').style('opacity', '0').style('display', 'none');
-    // d3.select('#changeSettings').style('opacity', '0').style('display', 'none');
-    d3.select('#sliders').style('opacity', '0').style('display', 'none');
-    d3.select('#result').style('opacity', '0').style('display', 'none');
-    d3.select('#under-nlw').style('opacity', '0').style('display', 'none');
-    d3.select('#inputs').style('opacity', '1').style('display', 'block');
-    d3.select('#config-text').style('opacity', '0').style('display', 'none');
-    d3.select('#text-slider').style('opacity', '0').style('display', 'none');
-    d3.select('#text-inputs').style('opacity', '1').style('display', 'block');
-    d3.select('#saveSettings').style('opacity', '0').style('display', 'none');
-    d3.select('#previous-next-inputs').style('opacity', '1').style('display', 'block');
-    d3.select('#previous-next-sliders').style('opacity', '0').style('display', 'none');
-
-
-
-    $("#ex1, #ex2, #ex3, #ex4, #ex5, #ex6, #ex7, #ex8, #ex9").slider('destroy');
-
-    pymChild.sendHeight();
-
-  });
+  d3.select('#button-20').on('click', navigateInputs);
 
   $("#button-22").keypress(function(e){
         if(e.which == 13){//Enter key pressed
@@ -1514,31 +1630,7 @@ if (Modernizr.svg) {
 
 
   // when navigation link for inputs is clicked display the inputs div and destroy sliders
-  d3.select('#button-22').on('click', function() {
-    // scroll to top otherwise the position of previous screen is used
-    document.getElementById("wrapper").scrollIntoView();
-
-    // d3.select('#third').style('display', 'none');
-    d3.select('#config').style('opacity', '0').style('display', 'none');
-    // d3.select('#changeSettings').style('opacity', '0').style('display', 'none');
-    d3.select('#sliders').style('opacity', '0').style('display', 'none');
-    d3.select('#result').style('opacity', '0').style('display', 'none');
-    d3.select('#under-nlw').style('opacity', '0').style('display', 'none');
-    d3.select('#inputs').style('opacity', '1').style('display', 'block');
-    d3.select('#config-text').style('opacity', '0').style('display', 'none');
-    d3.select('#text-slider').style('opacity', '0').style('display', 'none');
-    d3.select('#text-inputs').style('opacity', '1').style('display', 'block');
-    d3.select('#saveSettings').style('opacity', '0').style('display', 'none');
-    d3.select('#previous-next-inputs').style('opacity', '1').style('display', 'block');
-    d3.select('#previous-next-sliders').style('opacity', '0').style('display', 'none');
-
-
-
-    // $("#ex1, #ex2, #ex3, #ex4, #ex5, #ex6, #ex7, #ex8, #ex9").slider('destroy');
-
-    pymChild.sendHeight();
-
-  })
+  d3.select('#button-22').on('click', navigateInputs)
 
   // delete input box content when clicked
   document.getElementById('housing-input').onclick = function () {
@@ -1593,121 +1685,7 @@ if (Modernizr.svg) {
   d3.select('#button-19').on('click', showResult);
 
   // when reset button is clicked, reset all previous input and return to first screen
-  d3.selectAll('.resetSettings').on('click', function() {
-
-    // scroll to top otherwise the position of previous screen is used
-    document.getElementById("wrapper").scrollIntoView();
-
-    // reset all period of time dropdowns
-    var elements = document.getElementsByTagName('select');
-    for (var i = 0; i < elements.length; i++)
-    {
-        elements[i].selectedIndex = 1;
-    }
-
-    // set the on load values
-    wagePerson1 = 7.83;
-    wagePerson2 = 7.83;
-    wagePerson3 = 7.83;
-    wagePerson4 = 7.83;
-    livingWageBudget = 0;
-    housing = 0;
-    housingAverage = 202.41;
-    transport = 0;
-    transportAverage = 72.88;
-    food = 0;
-    foodAverage = 97.13;
-    alcohol = 0;
-    alcoholAverage = 11.93;
-    clothing = 0;
-    clothingAverage = 25.13;
-    communication = 0;
-    communicationAverage = 17.18;
-    hobbies = 0;
-    hobbiesAverage = 46.7;
-    holidays = 0;
-    holidaysAverage =44.54;
-    maintenance = 0;
-    maintenanceAverage = 36.28;
-    scotlandResident = 0;
-    // var health = 0;
-    // var healthAverage = 13;
-    // var publicTransport = 0;
-    // var publicTransportAverage = 18.20;
-    yourSpending = 0;
-    otherBenefits = 0;
-    adults = 1;
-    children = 0;
-    salary = 0
-    dispDiv = document.getElementById("result");
-    // reset all buttons on settings page
-    for ( var i = 1; i < 18; i++) {
-      if (document.getElementById("button-" + i).checked === true) {
-        document.getElementById('button-' + i).checked = false;
-        document.getElementById('button-' + i).setAttribute("aria-checked", false);
-      }
-    };
-
-    document.getElementById('button-4').setAttribute("aria-checked", true);
-    document.getElementById('button-4').checked = true;
-
-    document.getElementById('button-11').setAttribute("aria-checked", true);
-    document.getElementById('button-11').checked = true;
-
-    document.getElementById('button-15').setAttribute("aria-checked", true);
-    document.getElementById('button-15').checked = true;
-
-
-    // select a button for people in household
-    // document.getElementById('button-5').checked = true;
-    // document.getElementById('button-5').setAttribute("aria-checked", true);
-
-    for (i = 1; i <= 4; i++) {
-      d3.select('.person' + i).style('opacity', '0').style('display', 'none');
-    }
-
-
-
-    // reseting the input values
-    document.getElementById('housing-input').value = 0;
-    document.getElementById('transport-input').value = 0;
-    document.getElementById('food-input').value = 0;
-    document.getElementById('alcohol-input').value = 0;
-    document.getElementById('clothing-input').value = 0;
-    document.getElementById('communication-input').value = 0;
-    document.getElementById('leisure-input').value = 0;
-    // document.getElementById('restaurant-input').value = 0;
-    document.getElementById('holidays-input').value = 0;
-    document.getElementById('maintenance-input').value = 0;
-    // document.getElementById('health-input').value = 0;
-    // document.getElementById('public-input').value = 0;
-
-
-
-    // displaying only the settings div
-    dispDiv.innerHTML = budgetCalculation();
-    d3.select('#saveSettings').style('opacity', '0').style('display', 'none');
-    d3.select('#first').style('display', 'inline');
-    d3.select('#second').style('display', 'none');
-    d3.select('#third').style('display', 'none');
-    d3.select('#config').style('opacity', '1').style('display', 'block');
-    d3.select('#inputs').style('opacity', '0').style('display', 'none');
-    d3.select('#sliders').style('opacity', '0').style('display', 'none');
-    d3.select('#result').style('opacity', '0').style('display', 'none');
-    d3.select('#under-nlw').style('opacity', '0').style('display', 'none');
-    d3.select('#config-text').style('opacity', '1').style('display', 'block');
-    d3.select('#text-slider').style('opacity', '0').style('display', 'none');
-    d3.select('#text-inputs').style('opacity', '0').style('display', 'none');
-    d3.select('#household-contributers').style('opacity', '0').style('display', 'none');
-    d3.select('#saveSettings').style('opacity', '0').style('display', 'none');
-    d3.select('#previous-next-inputs').style('opacity', '0').style('display', 'none');
-    d3.select('#previous-next-sliders').style('opacity', '0').style('display', 'none');
-
-
-
-    pymChild.sendHeight();
-
-  })
+  d3.selectAll('.resetSettings').on('click', resetCalculator)
 
 } else {
   // not-supported

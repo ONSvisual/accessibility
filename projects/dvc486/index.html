@@ -3,15 +3,18 @@
 
 <head>
   <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MBCBVQS');
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MBCBVQS');
   </script>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta  charset="utf-8" />
+  <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/gov_uk.css">
@@ -19,80 +22,81 @@
   <link rel="stylesheet" href="css/style_new.css">
   <link href="css/slider/bootstrap.css" rel="stylesheet">
   <link href="css/slider/bootstrap-slider.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet'
+    type='text/css'>
 
   <title>National Living Wage calculator</title>
 </head>
 
 <body>
 
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <div id="wrapper" class="wrapper">
-    
 
 
-<section class="app">
-  <img src="img/fallback.png" alt="" id="fallback">
-  <h3 class="title" aria-live="polite">
-    <span id="config-text">
-      Use our calculator to see whether you could live your current lifestyle on the National Living Wage.
-    </span>
-    <span id="text-inputs">
-      Please tell us how much your household spends on each of these categories. You can choose to enter the amount
-      per week, per month or per year.
-    </span>
-    <span id="text-slider">
-      Please adjust your spending and see where you have to cut back to make it on national living wage budget.
-    </span>
-  </h3>
-</section>
 
-<article id='result'></article>
-<div id="dev"></div>
-      
-      <div id="config">
-        <form>
-          <h3>Do you live in Scotland?</h3>
-          <!--Radio Buttons-->
-          <fieldset>
-            <legend class="govuk-visually-hidden">Do you live in Scotland?</legend>
-            <div class="field__item js-focusable-box">
-              <input id="button-16" class="input input--radio js-focusable" name="button-scotland" value='1'
-                aria-checked="false" type="radio">
-              <label class="label label--inline venus " for="button-16">Yes</label>
-            </div>
-            <div class="field__item js-focusable-box">
-              <input id="button-17" class="input input--radio js-focusable" name="button-scotland" value='0'
-                aria-checked="false" type="radio">
-              <label class="label label--inline venus " for="button-17">No</label>
-            </div>
-          </fieldset>
-        </form>
-        
-        <div id="household-contributers"></div>
-        
-        
-        <div id='hours-sliders'></div>
-      </div>
-      <div id=saveSettings>
-        <button class="btn btn-primary large">Next</button>
-      </div>
+    <section class="app">
+      <img aria-hidden="true" src="img/fallback.png" alt="" id="fallback">
+      <h3 class="title" aria-live="polite">
+        <span id="config-text">
+          Use our calculator to see whether you could live your current lifestyle on the National Living Wage.
+        </span>
+        <span id="text-inputs">
+          Please tell us how much your household spends on each of these categories. You can choose to enter the amount
+          per week, per month or per year.
+        </span>
+        <span id="text-slider">
+          Please adjust your spending and see where you have to cut back to make it on national living wage budget.
+        </span>
+      </h3>
+    </section>
+
+    <article id='result'></article>
+    <div id="dev"></div>
+
+    <div id="config">
+      <form>
+        <h3>Do you live in Scotland?</h3>
+        <!--Radio Buttons-->
+        <fieldset>
+          <legend class="govuk-visually-hidden">Do you live in Scotland?</legend>
+          <div class="field__item js-focusable-box">
+            <input id="button-16" class="input input--radio js-focusable" name="button-scotland" value='1'
+              aria-checked="false" type="radio">
+            <label class="label label--inline venus " for="button-16">Yes</label>
+          </div>
+          <div class="field__item js-focusable-box">
+            <input id="button-17" class="input input--radio js-focusable" name="button-scotland" value='0'
+              aria-checked="false" type="radio">
+            <label class="label label--inline venus " for="button-17">No</label>
+          </div>
+        </fieldset>
+      </form>
+
+      <div id="household-contributers"></div>
 
 
-      <div id="inputs">
-        <table class="inputtable">
-          <tbody id="inputtableBody">
-            <!-- <div class="commodity-pic"><img src="img/nlw_calculator_housing.svg" alt=""></div> -->
-          </tbody>
-        </table>
+      <div id='hours-sliders'></div>
+    </div>
+    <div id=saveSettings>
+      <button class="btn btn-primary large">Next</button>
+    </div>
 
-        
-      </div>
-      <div id="previous-next-inputs">
-        <!-- <form class="btn-form btn-form-fullwidth" role="radiogroup">
+
+    <div id="inputs">
+      <table class="inputtable">
+        <tbody id="inputtableBody">
+          <!-- <div class="commodity-pic"><img src="img/nlw_calculator_housing.svg" alt=""></div> -->
+        </tbody>
+      </table>
+
+
+    </div>
+    <div id="previous-next-inputs">
+      <!-- <form class="btn-form btn-form-fullwidth" role="radiogroup">
           <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
 
             <input id="button-18" class="radio-primary radio-primary-fullwidth" type="radio" name="input-previous" value='1' aria-checked="false">
@@ -103,242 +107,308 @@
             <label class="label-primary label-primary-fullwidth navigation" for="button-19">Next</label>
           </div>
         </form> -->
-        <button id="button-18" class="btn btn-primary large">Previous</button>
-        <button id="button-19" class="btn btn-primary large">Next</button>
-      </div>
-
-
-
-      <div id='sliders'>
-        <h3>Calculation Results</h3>
-        <div class="container">
-          <div class="spendingtitle">
-            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_housing.svg" alt="housing icon"></div>
-            <div class="commodity-text"><p>Housing & household maintenance<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input1" class="info-sign" data-placement="right" title="This includes mortgage repayments or rent, council tax, water, electricity and fuel as well as goods and services (plumber, electrician, gardener etc.) for house maintenance." /></p></div>
-          </div>
-          <div class="spendingValue" aria-live="polite">
-            <div class="borderBottom">
-              <span class="govuk-visually-hidden">Your household spend </span>
-              <p>Per <span id="housing-time">month</span><span class="govuk-visually-hidden"> is</span>: <span id="changeHousing">£1500</span></p>
-            </div>
-          </div>
-          <div class="row row--slider">
-            <!-- Slider -->
-
-
-            <div id="q1-container" class="q-container">
-              <input id="ex1" aria-hidden="true" data-slider-id='ex1Slider' data-slider-results-id="changeHousing" data-slider-index="1" type="text" data-slider-min="0" data-slider-max="3000" data-slider-step="1" />
-            </div>
-          </div>
-          <div id="uk-average-1"></div>
-        </div>
-
-        <div class="container">
-          <div class="spendingtitle">
-            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_transport.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text"><p>Transport<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input2" class="info-sign" data-placement="right" title="This includes tickets for public transport, fuel, car insurance/tax and car repayments." /></p></div>
-          </div>
-          <div class="spendingValue">
-            <div class="borderBottom" aria-live="polite">
-              <span class="govuk-visually-hidden">Your household spend </span>
-              <p>Per <span id="transport-time">month</span><span class="govuk-visually-hidden"> is</span>: <span id="changeTransport">£500</span></p>
-            </div>
-          </div>
-
-
-          <div class="row row--slider">
-            <!-- Slider -->
-            <div id="q2-container" class="q-container">
-              <input id="ex2" aria-hidden="true" data-slider-id='ex2Slider' data-slider-results-id="changeTransport" data-slider-index="2" type="text" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-value="500" />
-            </div>
-          </div>
-          <div id="uk-average-2"></div>
-        </div>
-
-        <div class="container">
-          <div class="spendingtitle">
-            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_food.svg" alt="" class="commodity-pic"></div>
-            <div class='commodity-text'><p>Food and non-alcoholic drinks & eating out<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input3" class="info-sign" data-placement="right" title="This includes restaurants, cafés, takeaway meals and pubs etc." /></p></div>
-          </div>
-          <div class="spendingValue">
-            <div class="borderBottom" aria-live="polite">
-              <span class="govuk-visually-hidden">Your household spend </span>
-              <p>Per <span id="food-time">month</span>: <span id="changeFood">£500</span></p>
-            </div>
-          </div>
-
-          <div class="row row--slider">
-            <!-- Slider -->
-
-            <div id="q3-container" class="q-container">
-              <input id="ex3" aria-hidden="true" data-slider-id='ex3Slider' data-slider-results-id="changeFood" data-slider-index="3" type="text" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-value="500" />
-            </div>
-          </div>
-          <div id="uk-average-3"></div>
-        </div>
-
-        <div class="container">
-          <div class="spendingtitle">
-            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_alcohol.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text"><p>Alcoholic drinks & tobacco<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input4" class="info-sign" data-placement="right" title="This includes drinks consumed at home." /></p></div>
-          </div>
-          <div class="spendingValue">
-            <div class="borderBottom" aria-live="polite">
-              <span class="govuk-visually-hidden">Your household spend </span>
-              <p>Per <span id="alcohol-time">month</span>: <span id="changeAlcohol">£250</span></p>
-            </div>
-          </div>
-          <div class="row row--slider">
-            <!-- Slider -->
-            <div id="q4-container" class="q-container">
-              <input id="ex4" aria-hidden="true" data-slider-id='ex4Slider' data-slider-results-id="changeAlcohol" data-slider-index="4" type="text" data-slider-min="0" data-slider-max="500" data-slider-step="1" data-slider-value="250" />
-            </div>
-          </div>
-          <div id="uk-average-4"></div>
-        </div>
-
-        <div class="container">
-          <div class="spendingtitle">
-            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_clothing.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text"><p>Clothing & footwear</p></div>
-              <!-- <img src="img/nlw_calculator_information.svg" id="tooltip-input5" data-placement="right" title="What does your household spend on items of clothing & footwear?" /></p> -->
-          </div>
-          <div class="spendingValue">
-            <div class="borderBottom" aria-live="polite">
-              <span class="govuk-visually-hidden">Your household spend </span>
-              <p>Per <span id="clothing-time">month</span>: <span id="changeClothing">£750</span></p>
-            </div>
-          </div>
-          <div class="row row--slider">
-            <!-- Slider -->
-            <div id="q5-container" class="q-container">
-              <input id="ex5" aria-hidden="true" data-slider-id='ex5Slider' data-slider-results-id="changeClothing" data-slider-index="5" type="text" data-slider-min="0" data-slider-max="1500" data-slider-step="1" data-slider-value="750" />
-            </div>
-
-          </div>
-          <div id="uk-average-5"></div>
-        </div>
-
-        <div class="container">
-          <div class="spendingtitle">
-            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_communication.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text"><p>Communication<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input6" class="info-sign" data-placement="right" title="This includes telephone, mobile phone bills and broadband." /></p></div>
-          </div>
-          <div class="spendingValue">
-            <div class="borderBottom" aria-live="polite">
-              <span class="govuk-visually-hidden">Your household spend </span>
-              <p>Per <span id="communication-time">month</span>: <span id="changeCommunication">£250</span></p>
-            </div>
-          </div>
-
-          <div class="row row--slider">
-            <!-- Slider -->
-            <div id="q6-container" class="q-container">
-              <input id="ex6" aria-hidden="true" data-slider-id='ex6Slider' data-slider-results-id="changeCommunication" data-slider-index="6" type="text" data-slider-min="0" data-slider-max="500" data-slider-step="1" data-slider-value="250" />
-            </div>
-
-       
-          </div>
-          <div id="uk-average-6"></div>
-        </div>
-
-        <div class="container">
-          <div class="spendingtitle">
-            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_recreation.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text"><p>Recreation and culture<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input7" class="info-sign" data-placement="right" title="This includes TV licence, subscriptions, consumer electronics, newspapers, books, toys and games, pets, garden equipment, plants sport admissions, leisure classes etc." /></p></div>
-          </div>
-          <div class="spendingValue">
-            <div class="borderBottom" aria-live="polite">
-              <span class="govuk-visually-hidden">Your household spend </span>
-              <p>Per <span id="leasure-time">year</span>: <span id="changeLeisure">£5000</span></p>
-            </div>
-          </div>
-
-          <div class="row row--slider">
-            <!-- Slider -->
-            <div id="q7-container" class="q-container">
-              <input id="ex7" aria-hidden="true" data-slider-id='ex7Slider' data-slider-results-id="changeLeisure" data-slider-index="7" type="text" data-slider-min="0" data-slider-max="10000" data-slider-step="1" data-slider-value="5000" />
-            </div>
-
-          </div>
-          <div id="uk-average-7"></div>
-        </div>
-
-        <div class="container">
-          <div class="spendingtitle">
-            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_holidays.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text"><p>Holidays<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input8" class="info-sign" data-placement="right" title="This includes plane tickets, hotel accommodation and package holidays." /></p></div>
-          </div>
-          <div class="spendingValue">
-            <div class="borderBottom" aria-live="polite">
-              <span class="govuk-visually-hidden">Your household spend </span>
-              <p>Per <span id="holidays-time">month</span>: <span id="changeHolidays">£500</span></p>
-            </div>
-          </div>
-
-          <div class="row row--slider">
-            <!-- Slider -->
-            <div id="q8-container" class="q-container">
-              <input id="ex8" aria-hidden="true" data-slider-id='ex8Slider' data-slider-results-id="changeHolidays" data-slider-index="8" type="text" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-value="500" />
-            </div>
-
-          </div>
-          <div id="uk-average-8"></div>
-        </div>
-
-
-        <div class="container container-9">
-          <div class="spendingtitle">
-            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_other.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text"><p>Other expenses<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input9" class="info-sign" data-placement="right" title="This includes any other expenses you may have." /></p></div>
-          </div>
-          <div class="spendingValue">
-            <div class="borderBottom" aria-live="polite">
-              <span class="govuk-visually-hidden">Your household spend </span>
-              <p>Per <span id="maintenance-time">year</span>: <span id="changeMaintenance">£5000</span></p>
-            </div>
-          </div>
-
-          <div class="row row--slider">
-            <!-- Slider -->
-            <div id="q9-container" class="q-container">
-              <input id="ex9" aria-hidden="true" data-slider-id='ex9Slider' data-slider-results-id="changeMaintenance" data-slider-index="9" type="text" data-slider-min="0" data-slider-max="10000" data-slider-step="1" data-slider-value="5000" />
-            </div>
-            <div id="uk-average-9"></div>
-          </div>
-
-      </div>
-
-      <div id="previous-next-sliders">
-        <!-- <form class="btn-form btn-form-fullwidth" role="radiogroup">
-          <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
-
-            <input id="button-20" class="radio-primary radio-primary-fullwidth" type="radio" name="input-previous" value='1' aria-checked="false">
-            <label class="label-primary label-primary-fullwidth navigation" for="button-20" title="Click to go back to the previous screen">Previous</label>
-          </div>
-          <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
-            <input id="button-21" class="radio-primary radio-primary-fullwidth resetSettings" type="radio" name="input-next" value='0' aria-checked="false">
-            <label class="label-primary label-primary-fullwidth navigation start-again" for="button-21" title="Click to proceed to the next screen">Start again</label>
-          </div>
-        </form> -->
-        <button id="button-20" class="btn btn-primary large" title="Click to go back to the previous screen">Previous</button>
-        <button id="button-21" class="btn btn-primary large" title="Click to start again">Start again</button>
-      </div>
-
-    <div id="under-nlw">
-      <form class="btn-form btn-form-fullwidth" role="radiogroup">
-        <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
-
-          <input id="button-22" class="radio-primary radio-primary-fullwidth" type="radio" name="button-22" value='1' aria-checked="false">
-          <label class="label-primary label-primary-fullwidth navigation" for="button-22">Previous</label>
-        </div>
-        <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
-          <input id="button-23" class="radio-primary radio-primary-fullwidth resetSettings" type="radio" name="button-23" value='0' aria-checked="false">
-          <label class="label-primary label-primary-fullwidth navigation start-again" for="button-23">Start again</label>
-        </div>
-      </form>
+      <button id="button-18" class="btn btn-primary large">Previous</button>
+      <button id="button-19" class="btn btn-primary large">Next</button>
     </div>
 
+
+
+    <div id='sliders'>
+      <h3>Calculation Results</h3>
+      <div class="container">
+        <div class="spendingtitle">
+          <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_housing.svg" alt="housing icon">
+          </div>
+          <div class="commodity-text">
+            <p>Housing & household maintenance<img aria-hidden="true" src="img/nlw_calculator_information.svg"
+                id="tooltip-input1" class="info-sign" data-placement="right"
+                title="This includes mortgage repayments or rent, council tax, water, electricity and fuel as well as goods and services (plumber, electrician, gardener etc.) for house maintenance." />
+            </p>
+          </div>
+        </div>
+        <div class="spendingValue" aria-live="polite">
+          <div class="borderBottom">
+            <span class="govuk-visually-hidden">Your household spend </span>
+            <p>Per <span id="housing-time">month</span><span class="govuk-visually-hidden"> is</span>: <span
+                id="changeHousing">£1500</span></p>
+          </div>
+        </div>
+        <div class="row row--slider">
+          <!-- Slider -->
+          <div id="q1-container" class="q-container">
+            <input id="ex1" aria-hidden="true" data-slider-id='ex1Slider' data-slider-results-id="changeHousing"
+              data-slider-index="1" type="text" data-slider-min="0" data-slider-max="3000" data-slider-step="1" />
+          </div>
+        </div>
+        <div id="uk-average-1"></div>
+      </div>
+
+      <div class="container">
+        <div class="spendingtitle">
+          <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_transport.svg" alt=""
+              class="commodity-pic"></div>
+          <div class="commodity-text">
+            <p>Transport<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input2"
+                class="info-sign" data-placement="right"
+                title="This includes tickets for public transport, fuel, car insurance/tax and car repayments." /></p>
+          </div>
+        </div>
+        <div class="spendingValue">
+          <div class="borderBottom" aria-live="polite">
+            <span class="govuk-visually-hidden">Your household spend </span>
+            <p>Per <span id="transport-time">month</span><span class="govuk-visually-hidden"> is</span>: <span
+                id="changeTransport">£500</span></p>
+          </div>
+        </div>
+
+
+        <div class="row row--slider">
+          <!-- Slider -->
+          <div id="q2-container" class="q-container">
+            <input id="ex2" aria-hidden="true" data-slider-id='ex2Slider' data-slider-results-id="changeTransport"
+              data-slider-index="2" type="text" data-slider-min="0" data-slider-max="1000" data-slider-step="1"
+              data-slider-value="500" />
+          </div>
+        </div>
+        <div id="uk-average-2"></div>
+      </div>
+
+      <div class="container">
+        <div class="spendingtitle">
+          <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_food.svg" alt=""
+              class="commodity-pic"></div>
+          <div class='commodity-text'>
+            <p>Food and non-alcoholic drinks & eating out<img aria-hidden="true"
+                src="img/nlw_calculator_information.svg" id="tooltip-input3" class="info-sign" data-placement="right"
+                title="This includes restaurants, cafés, takeaway meals and pubs etc." /></p>
+          </div>
+        </div>
+        <div class="spendingValue">
+          <div class="borderBottom" aria-live="polite">
+            <span class="govuk-visually-hidden">Your household spend </span>
+            <p>Per <span id="food-time">month</span>: <span id="changeFood">£500</span></p>
+          </div>
+        </div>
+
+        <div class="row row--slider">
+          <!-- Slider -->
+
+          <div id="q3-container" class="q-container">
+            <input id="ex3" aria-hidden="true" data-slider-id='ex3Slider' data-slider-results-id="changeFood"
+              data-slider-index="3" type="text" data-slider-min="0" data-slider-max="1000" data-slider-step="1"
+              data-slider-value="500" />
+          </div>
+        </div>
+        <div id="uk-average-3"></div>
+      </div>
+
+      <div class="container">
+        <div class="spendingtitle">
+          <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_alcohol.svg" alt=""
+              class="commodity-pic"></div>
+          <div class="commodity-text">
+            <p>Alcoholic drinks & tobacco<img aria-hidden="true" src="img/nlw_calculator_information.svg"
+                id="tooltip-input4" class="info-sign" data-placement="right"
+                title="This includes drinks consumed at home." /></p>
+          </div>
+        </div>
+        <div class="spendingValue">
+          <div class="borderBottom" aria-live="polite">
+            <span class="govuk-visually-hidden">Your household spend </span>
+            <p>Per <span id="alcohol-time">month</span>: <span id="changeAlcohol">£250</span></p>
+          </div>
+        </div>
+        <div class="row row--slider">
+          <!-- Slider -->
+          <div id="q4-container" class="q-container">
+            <input id="ex4" aria-hidden="true" data-slider-id='ex4Slider' data-slider-results-id="changeAlcohol"
+              data-slider-index="4" type="text" data-slider-min="0" data-slider-max="500" data-slider-step="1"
+              data-slider-value="250" />
+          </div>
+        </div>
+        <div id="uk-average-4"></div>
+      </div>
+
+      <div class="container">
+        <div class="spendingtitle">
+          <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_clothing.svg" alt=""
+              class="commodity-pic"></div>
+          <div class="commodity-text">
+            <p>Clothing & footwear</p>
+          </div>
+          <!-- <img src="img/nlw_calculator_information.svg" id="tooltip-input5" data-placement="right" title="What does your household spend on items of clothing & footwear?" /></p> -->
+        </div>
+        <div class="spendingValue">
+          <div class="borderBottom" aria-live="polite">
+            <span class="govuk-visually-hidden">Your household spend </span>
+            <p>Per <span id="clothing-time">month</span>: <span id="changeClothing">£750</span></p>
+          </div>
+        </div>
+        <div class="row row--slider">
+          <!-- Slider -->
+          <div id="q5-container" class="q-container">
+            <input id="ex5" aria-hidden="true" data-slider-id='ex5Slider' data-slider-results-id="changeClothing"
+              data-slider-index="5" type="text" data-slider-min="0" data-slider-max="1500" data-slider-step="1"
+              data-slider-value="750" />
+          </div>
+
+        </div>
+        <div id="uk-average-5"></div>
+      </div>
+
+      <div class="container">
+        <div class="spendingtitle">
+          <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_communication.svg" alt=""
+              class="commodity-pic"></div>
+          <div class="commodity-text">
+            <p>Communication<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input6"
+                class="info-sign" data-placement="right"
+                title="This includes telephone, mobile phone bills and broadband." /></p>
+          </div>
+        </div>
+        <div class="spendingValue">
+          <div class="borderBottom" aria-live="polite">
+            <span class="govuk-visually-hidden">Your household spend </span>
+            <p>Per <span id="communication-time">month</span>: <span id="changeCommunication">£250</span></p>
+          </div>
+        </div>
+
+        <div class="row row--slider">
+          <!-- Slider -->
+          <div id="q6-container" class="q-container">
+            <input id="ex6" aria-hidden="true" data-slider-id='ex6Slider' data-slider-results-id="changeCommunication"
+              data-slider-index="6" type="text" data-slider-min="0" data-slider-max="500" data-slider-step="1"
+              data-slider-value="250" />
+          </div>
+
+
+        </div>
+        <div id="uk-average-6"></div>
+      </div>
+
+      <div class="container">
+        <div class="spendingtitle">
+          <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_recreation.svg" alt=""
+              class="commodity-pic"></div>
+          <div class="commodity-text">
+            <p>Recreation and culture<img aria-hidden="true" src="img/nlw_calculator_information.svg"
+                id="tooltip-input7" class="info-sign" data-placement="right"
+                title="This includes TV licence, subscriptions, consumer electronics, newspapers, books, toys and games, pets, garden equipment, plants sport admissions, leisure classes etc." />
+            </p>
+          </div>
+        </div>
+        <div class="spendingValue">
+          <div class="borderBottom" aria-live="polite">
+            <span class="govuk-visually-hidden">Your household spend </span>
+            <p>Per <span id="leasure-time">year</span>: <span id="changeLeisure">£5000</span></p>
+          </div>
+        </div>
+
+        <div class="row row--slider">
+          <!-- Slider -->
+          <div id="q7-container" class="q-container">
+            <input id="ex7" aria-hidden="true" data-slider-id='ex7Slider' data-slider-results-id="changeLeisure"
+              data-slider-index="7" type="text" data-slider-min="0" data-slider-max="10000" data-slider-step="1"
+              data-slider-value="5000" />
+          </div>
+
+        </div>
+        <div id="uk-average-7"></div>
+      </div>
+
+      <div class="container">
+        <div class="spendingtitle">
+          <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_holidays.svg" alt=""
+              class="commodity-pic"></div>
+          <div class="commodity-text">
+            <p>Holidays<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input8"
+                class="info-sign" data-placement="right"
+                title="This includes plane tickets, hotel accommodation and package holidays." /></p>
+          </div>
+        </div>
+        <div class="spendingValue">
+          <div class="borderBottom" aria-live="polite">
+            <span class="govuk-visually-hidden">Your household spend </span>
+            <p>Per <span id="holidays-time">month</span>: <span id="changeHolidays">£500</span></p>
+          </div>
+        </div>
+
+        <div class="row row--slider">
+          <!-- Slider -->
+          <div id="q8-container" class="q-container">
+            <input id="ex8" aria-hidden="true" data-slider-id='ex8Slider' data-slider-results-id="changeHolidays"
+              data-slider-index="8" type="text" data-slider-min="0" data-slider-max="1000" data-slider-step="1"
+              data-slider-value="500" />
+          </div>
+
+        </div>
+        <div id="uk-average-8"></div>
+      </div>
+
+
+      <div class="container container-9">
+        <div class="spendingtitle">
+          <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_other.svg" alt=""
+              class="commodity-pic"></div>
+          <div class="commodity-text">
+            <p>Other expenses<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input9"
+                class="info-sign" data-placement="right" title="This includes any other expenses you may have." /></p>
+          </div>
+        </div>
+        <div class="spendingValue">
+          <div class="borderBottom" aria-live="polite">
+            <span class="govuk-visually-hidden">Your household spend </span>
+            <p>Per <span id="maintenance-time">year</span>: <span id="changeMaintenance">£5000</span></p>
+          </div>
+        </div>
+
+        <div class="row row--slider">
+          <!-- Slider -->
+          <div id="q9-container" class="q-container">
+            <input id="ex9" aria-hidden="true" data-slider-id='ex9Slider' data-slider-results-id="changeMaintenance"
+              data-slider-index="9" type="text" data-slider-min="0" data-slider-max="10000" data-slider-step="1"
+              data-slider-value="5000" />
+          </div>
+          <div id="uk-average-9"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="previous-next-sliders">
+      <!-- <form class="btn-form btn-form-fullwidth" role="radiogroup">
+              <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
+    
+                <input id="button-20" class="radio-primary radio-primary-fullwidth" type="radio" name="input-previous" value='1' aria-checked="false">
+                <label class="label-primary label-primary-fullwidth navigation" for="button-20" title="Click to go back to the previous screen">Previous</label>
+              </div>
+              <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
+                <input id="button-21" class="radio-primary radio-primary-fullwidth resetSettings" type="radio" name="input-next" value='0' aria-checked="false">
+                <label class="label-primary label-primary-fullwidth navigation start-again" for="button-21" title="Click to proceed to the next screen">Start again</label>
+              </div>
+            </form> -->
+      <button id="button-20" class="btn btn-primary large"
+        title="Click to go back to the previous screen">Previous</button>
+      <button id="button-21" class="btn btn-primary large resetSettings" title="Click to start again">Start again</button>
+    </div>
+
+    <div id="under-nlw">
+      <!-- <form class="btn-form btn-form-fullwidth" role="radiogroup">
+            <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
+    
+              <input id="button-22" class="radio-primary radio-primary-fullwidth" type="radio" name="button-22" value='1' aria-checked="false">
+              <label class="label-primary label-primary-fullwidth navigation" for="button-22">Previous</label>
+            </div>
+            <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
+              <input id="button-23" class="radio-primary radio-primary-fullwidth resetSettings" type="radio" name="button-23" value='0' aria-checked="false">
+              <label class="label-primary label-primary-fullwidth navigation start-again" for="button-23">Start again</label>
+            </div>
+          </form> -->
+      <button id="button-22" class="btn btn-primary large"
+        title="Click to go back to the previous screen">Previous</button>
+      <button id="button-23" class="btn btn-primary large resetSettings" title="Click to start again">Start again</button>
+    </div>
   </div>
 
   <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
@@ -350,7 +420,7 @@
   <script src="js/script.js"></script>
 
   <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
       $(
         '#tooltip-input1, #tooltip-input2, #tooltip-input3, #tooltip-input4, #tooltip-input6, #tooltip-input7, #tooltip-input8, #tooltip-input9, #tooltipSlider1, #tooltipSlider2, #tooltipSlider3, #tooltipSlider4, #tooltipSlider6, #tooltipSlider7, #tooltipSlider8, #tooltipSlider9'
       ).tooltip();
