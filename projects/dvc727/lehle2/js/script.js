@@ -152,7 +152,7 @@ if (Modernizr.webgl) {
 
     //setInterval(function(){animate()}, 3000);
 
-        function buildNav() {
+    function buildNav() {
 
       fieldset=d3.select('#nav').append('fieldset');
 
@@ -535,60 +535,42 @@ if (Modernizr.webgl) {
 
       if (a < variables.length - 1) {
         a = a + 1;
-        setRates(thisdata);
-        updateLayers();
-        updateTimeLabel();
-
-        if (selected) {
-          setAxisVal($("#areaselect").val());
-          if (mobile == false) {
-            updateChart($("#areaselect").val());
-          }
-        }
       } else {
         a = 0;
-        setRates(thisdata);
-        updateLayers();
-        updateTimeLabel();
-
-        if (selected) {
-          setAxisVal($("#areaselect").val());
-          if (mobile == false) {
-            updateChart($("#areaselect").val());
-          }
-        }
       }
-
+      updateFrame();
     }
 
     function rev_animate() {
 
       if (a > 0) {
         a = a - 1;
-        setRates(thisdata);
-        updateLayers();
-        updateTimeLabel();
-
-        if (selected) {
-          setAxisVal($("#areaselect").val());
-          if (mobile == false) {
-            updateChart($("#areaselect").val());
-          }
-        }
       } else {
         a = variables.length - 1;
-        setRates(data);
-        updateLayers();
-        updateTimeLabel();
+      }
+      updateFrame();
+    }
 
-        if (selected) {
-          setAxisVal($("#areaselect").val());
-          if (mobile == false) {
-            updateChart($("#areaselect").val());
-          }
+    function updateFrame() {
+      setRates(thisdata);
+      updateLayers();
+      updateTimeLabel();
+
+      if (selected) {
+        setAxisVal($("#areaselect").val());
+        if (mobile == false) {
+          updateChart($("#areaselect").val());
         }
       }
-
+      if (mobile == false) {
+        if (dvc.average[navvalue] != null) {
+          d3.select("#currPoint2")
+            .transition()
+            .duration(300)
+            .attr("cx", x(dvc.timepoints[a]))
+            .attr("cy", y(dvc.average[navvalue][a]))
+        }
+      }
     }
 
     function updateTimeLabel() {
@@ -720,6 +702,15 @@ if (Modernizr.webgl) {
 
 
     function setAxisVal(code) {
+      d3.select('#accessibilityInfo').select('p.visuallyhidden')
+      .text(function(){
+        if (!isNaN(rateById[code])) {
+          return areaById[code]+": "+ displayformat(rateById[code]) +" "+ dvc.varunit[b];
+        } else {
+          return "Data unavailable";
+        }
+      });
+
       if (mobile == false) {
         d3.select("#currLine")
           .style("opacity", function() {
@@ -996,7 +987,7 @@ if (Modernizr.webgl) {
 					.tickFormat(legendformat);
 
 
-//Add
+        //Add
 				var xAxisTime = d3.axisBottom(x)
 					.tickSize(5)
 					//.ticks(0);
@@ -1009,7 +1000,7 @@ if (Modernizr.webgl) {
 					.style("font-family","'Open Sans'")
 					.style("font-size","12px");
 
-					d3.selectAll("path").attr("display", "none")
+				d3.selectAll("path").attr("display", "none")
 
         g.selectAll("rect")
           .data(color.range().map(function(d, i) {
@@ -1041,18 +1032,6 @@ if (Modernizr.webgl) {
           .style("font-size", "12px")
           .call(xAxisTime)
 
-
-				//
-        // g.append("line")
-        //   .attr("id", "currLine")
-        //   .attr("y1", y(10))
-        //   .attr("y2", y(10))
-        //   .attr("x1", -10)
-        //   .attr("x2", 0)
-        //   .attr("stroke-width", "2px")
-        //   .attr("stroke", "#000")
-        //   .attr("opacity", 0);
-
 				g.append("text")
 					.attr("id", "currVal")
 					.attr("y", y(11))
@@ -1063,7 +1042,6 @@ if (Modernizr.webgl) {
 					.attr("stroke-linecap","butt")
 					.attr("stroke-linejoin","miter")
 					.text("");
-
 
 				g.append("text")
 					.attr("id", "currVal2")
@@ -1079,48 +1057,42 @@ if (Modernizr.webgl) {
 					.attr("fill","#666")
 					.attr("opacity",0);
 
+				if (typeof b === 'undefined' ){
+					linedata2 = d3.zip(dvc.timepoints, dvc.average[0]);
+          console.log(b)
+				} else {
+					//console.log(dvc.average[b])
 
+          linedata2 = d3.zip(dvc.timepoints, dvc.average[b]);
+        };
 
+        line2 = d3.line()
+          .x(function(d,i) { return x(linedata2[i][0]); })
+          .y(function(d,i) { return y(linedata2[i][1]); });
 
-					if (typeof b === 'undefined' ){
-						linedata2 = d3.zip(dvc.timepoints, dvc.average[0]);
+        svgkey.append("g")
+          .attr("transform", "translate(45,10)")
+          .attr("id","chartgroup")
+          .append("path")
+          .attr("id","line2")
+          .style("opacity",0.3)
+          .attr("d", line2(linedata2))
+          .attr("stroke", "#666")
+          .attr("stroke-width", "2px")
+          .attr("fill","none");
 
-						console.log(b)
-
-					} else {
-
-						//console.log(dvc.average[b])
-
-					 	linedata2 = d3.zip(dvc.timepoints, dvc.average[b]); };
-
-										line2 = d3.line()
-														//.defined(function(linedata2){return !isNaN(linedata2[0]); })
-														.x(function(d,i) { return x(linedata2[i][0]); })
-														.y(function(d,i) { return y(linedata2[i][1]); });
-
-
-										svgkey.append("g")
-												.attr("transform", "translate(45,10)")
-												.attr("id","chartgroup")
-												.append("path")
-												.attr("id","line2")
-												.style("opacity",0.3)
-												.attr("d", line2(linedata2))
-												.attr("stroke", "#666")
-												.attr("stroke-width", "2px")
-												.attr("fill","none");
-
-											svgkey.append("text")
-													.attr("id", "averagelabel")
-													.attr("x", function(d){ return x(linedata2[linedata2.length-1][0])})
-													.attr("y", function(d) { return y(linedata2[linedata2.length-1][1])})
-													.attr("font-size", "12px")
-													.style("opacity",0.3)
-													.attr("fill","#666")
-													.attr("text-anchor", "middle")
-													.text("England Average");
+        svgkey.append("text")
+          .attr("id", "averagelabel")
+          .attr("x", function(d){ return x(linedata2[linedata2.length-1][0])})
+          .attr("y", function(d) { return y(linedata2[linedata2.length-1][1])})
+          .attr("font-size", "12px")
+          .style("opacity",0.3)
+          .attr("fill","#666")
+          .attr("text-anchor", "middle")
+          .text("England Average");
 
       } else {
+
         // Horizontal legend
         keyheight = 65;
 
@@ -1149,7 +1121,6 @@ if (Modernizr.webgl) {
         var g2 = svgkey.append("g").attr("id", "horiz")
           .attr("transform", "translate(15,30)");
 
-
         keyhor = d3.select("#horiz");
 
         g2.selectAll("rect")
@@ -1175,7 +1146,6 @@ if (Modernizr.webgl) {
             return d.z;
           });
 
-
         g2.append("line")
           .attr("id", "currLine")
           .attr("x1", xkey(10))
@@ -1192,8 +1162,6 @@ if (Modernizr.webgl) {
           .attr("y", -15)
           .attr("fill", "#000")
           .text("");
-
-
 
         keyhor.selectAll("rect")
           .data(color.range().map(function(d, i) {
@@ -1227,12 +1195,12 @@ if (Modernizr.webgl) {
           .style("fill", "#ccc")
           .attr("x", xkey(0));
 
-					d3.select("#keydiv")
-						.append("p")
-						.attr("id","keyunit")
-						.style("margin-top","-10px")
-						.style("margin-left","10px")
-						.text(dvc.varunit[b]);
+				d3.select("#keydiv")
+          .append("p")
+          .attr("id","keyunit")
+          .style("margin-top","-10px")
+          .style("margin-left","10px")
+          .text(dvc.varunit[b]);
 
 
         if (dvc.dropticks) {
@@ -1244,16 +1212,12 @@ if (Modernizr.webgl) {
           });
         }
       }
-
-
-
     } // Ends create key
 
     function addFullscreen() {
 
       currentBody = d3.select("#map").style("height");
       d3.select(".mapboxgl-ctrl-fullscreen").on("click", setbodyheight)
-
     }
 
     function setbodyheight() {
@@ -1263,7 +1227,6 @@ if (Modernizr.webgl) {
       document.addEventListener('mozfullscreenchange', exitHandler, false);
       document.addEventListener('fullscreenchange', exitHandler, false);
       document.addEventListener('MSFullscreenChange', exitHandler, false);
-
     }
 
 
@@ -1318,22 +1281,19 @@ if (Modernizr.webgl) {
       if (mobile == false) {
         updateChart(e.features[0].properties.AREACD);
       }
-
-
     };
+
 		function setSource() {
 
-
-					d3.select("#source")
-						.append("h6")
-						.attr("class", "source")
-						.attr("text-anchor", "start")
-						.style("font-size", "14px")
-						.style("fill", "#666")
-						.style("font-weight", 700)
-						.text("Source: " + dvc.sourcetext)
-
-	}
+			d3.select("#source")
+				.append("h6")
+				.attr("class", "source")
+				.attr("text-anchor", "start")
+				.style("font-size", "14px")
+				.style("fill", "#666")
+				.style("font-weight", 700)
+				.text("Source: " + dvc.sourcetext)
+    }
 
     function selectlist(datacsv) {
 
@@ -1353,9 +1313,7 @@ if (Modernizr.webgl) {
         .attr("style", "width:98%")
         .attr("class", "chosen-select");
 
-
       optns.append("option")
-
 
       optns.selectAll("p").data(menuarea).enter().append("option")
         .attr("value", function(d) {
@@ -1404,6 +1362,7 @@ if (Modernizr.webgl) {
       });
 
     };
+
     pymChild.sendHeight()
   }
 
