@@ -26,6 +26,7 @@ if (Modernizr.webgl) {
     chartDrawn = false;
     thisdata = data;
     overallwidth = d3.select("body").node().getBoundingClientRect().width;
+    navvalue = 0;
 
     if (overallwidth < 600) {
       mobile = true;
@@ -151,72 +152,77 @@ if (Modernizr.webgl) {
 
     //setInterval(function(){animate()}, 3000);
 
-    function buildNav() {
+        function buildNav() {
 
-      formgroup = d3.select('#nav')
-        .append('form')
-        .attr('class', 'form-group-fullwidth')
-        .attr('role', 'radiogroup')
-        .selectAll('div')
-        .data(dvc.varlabels)
-        .enter()
-        .append('div')
-        .attr("class", 'form-group-fullwidth')
-        .attr("role", "radio")
-        .attr("tabindex", "1");
+      fieldset=d3.select('#nav').append('fieldset');
 
-      formgroup.append('input')
-        .attr("id", function(d, i) {
-          return "button" + i
-        })
-        .attr('class', 'radio-primary-fullwidth')
-        .attr("type", "radio")
-        .attr("name", "button")
-        .attr("value", function(d, i) {
-          return i
-        })
-        .attr("aria-checked", function(d, i) {
-          if (i == b) {
-            return true
-          }
-        })
-        .property("checked", function(d, i) {
-          return i === b;
-        })
+      fieldset
+      .append('legend')
+      .attr('class','visuallyhidden')
+      .html('Choose a variable');
 
-      formgroup.append('label')
-        .attr('class', 'label-primary-fullwidth')
-        .attr("for", function(d, i) {
-          return "button" + i
-        })
-        .text(function(d, i) {
-          return dvc.varlabels[i]
-        })
-        .on('click', function(d, i) {
-          onchange(i)
-        })
+      fieldset
+      .append("div")
+      .attr('class','visuallyhidden')
+      .attr('aria-live','polite')
+      .append('span')
+      .attr('id','selected');
 
-      selectgroup = d3.select('#selectnav')
-        .append('select')
+      grid=fieldset.append('div')
+      .attr('class','grid grid--full large-grid--fit');
+
+      cell=grid.selectAll('div')
+      .data(dvc.varlabels)
+      .enter()
+      .append('div')
+      .attr('class','grid-cell');
+
+      cell.append('input')
+      .attr('type','radio')
+      .attr('class','visuallyhidden')
+      .attr('id',function(d,i){return 'button'+i;})
+      .attr('value',function(d,i){return i;})
+      .attr('name','button');
+
+      cell.append('label')
+      .attr('for',function(d,i){return 'button'+i;})
+      .html(function(d){return d;});
+
+      d3.selectAll('input[type="radio"]').on('change', function(d) {
+        onchange(document.querySelector('input[name="button"]:checked').value);
+        d3.select('#selected').text(dvc.varlabels[document.querySelector('input[name="button"]:checked').value] + " is selected");
+      });
+
+      d3.select('#button0').property('checked',true);
+      d3.select('#selected').text(dvc.varlabels[document.querySelector('input[name="button"]:checked').value] + " is selected");
+
+
+      //mobile nav
+      selectgroup = d3.select('#selectnav');
+
+      selectgroup.append('label')
+        .attr('for','mobileDropdown')
+        .attr('class','visuallyhidden')
+        .html('Choose a variable');
+
+
+      selectgroup.append('select')
         .attr('class', 'dropdown')
+        .attr('id','mobileDropdown')
         .on('change', onselect)
         .selectAll("option")
         .data(dvc.varlabels)
         .enter()
         .append('option')
         .attr("value", function(d, i) {
-          return i
+          return i;
         })
         .property("selected", function(d, i) {
           return i === b;
         })
         .text(function(d, i) {
-          return dvc.varlabels[i]
+          return dvc.varlabels[i];
         });
-
-
-
-
     }
 
     function setRates(thisdata) {
@@ -232,7 +238,7 @@ if (Modernizr.webgl) {
     }
 
     function setTimeLabel() {
-      d3.select("#timePeriod").text(dvc.timepoints[a]);
+      d3.select("#timePeriod").select('p').text(dvc.timepoints[a]);
     }
 
     function checkIfFirstorLast() {
@@ -293,7 +299,6 @@ if (Modernizr.webgl) {
       } else if (config.ons.breaks == "equal") {
         breaks = ss.equalIntervalBreaks(allvalues, dvc.numberBreaks);
       } else {
-
         breaks = config.ons.breaks[b];
       };
 
@@ -313,11 +318,11 @@ if (Modernizr.webgl) {
       //Load colours
       if (typeof dvc.varcolour === 'string') {
         // colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
-        color=chroma.scale(dvc.varcolour).colors(dvc.numberBreaks)
-  			colour=[]
-  		  color.forEach(function(d){colour.push(chroma(d).darken(0.4).saturate(0.6).hex())})
-
-
+        color = chroma.scale(dvc.varcolour).colors(dvc.numberBreaks)
+        colour = []
+        color.forEach(function(d) {
+          colour.push(chroma(d).darken(0.4).saturate(0.6).hex())
+        })
       } else {
         colour = dvc.varcolour;
       }
@@ -430,10 +435,6 @@ if (Modernizr.webgl) {
 
       //Add click event
       map.on("click", "area", onClick);
-
-
-
-
     }
 
 
@@ -462,12 +463,13 @@ if (Modernizr.webgl) {
     function onchange(i) {
 
       chartDrawn = false;
+      navvalue = i;
 
       //load new csv file
 
       filepth = "data/data" + i + ".csv"
 
-	  b=i;
+      b=i;
 
       d3.csv(filepth, function(data) {
         thisdata = data;
@@ -495,41 +497,38 @@ if (Modernizr.webgl) {
     }
 
     function setButtons() {
-      d3.select("#play").on("click", function() {
-        dataLayer.push({
-          'event': 'playButton',
-          'selected': 'play'
-        })
-
-        animating = setInterval(function() {
-          animate()
-        }, 2000);
-        d3.selectAll(".btn--neutral").classed("btn--neutral-disabled", true)
-
-        d3.select("#playImage").attr("src", "images/pause.svg");
-
-        d3.select("#play").attr("id", "pause");
-
-        d3.select("#pause").on("click", function() {
-          dataLayer.push({
-            'event': 'playButton',
-            'selected': 'pause'
-          })
-
-          d3.select("#pause").attr("id", "play")
-          d3.select("#playImage").attr("src", "images/play.svg");
-          setButtons();
-          clearInterval(animating);
-          d3.selectAll(".btn--neutral").classed("btn--neutral-disabled", false)
-        });
-
-
-      })
+      d3.select("#play").on("click", onPlay)
 
       d3.select("#forward").on("click", animate);
 
       d3.select("#back").on("click", rev_animate);
 
+    }
+
+    function onPlay() {
+      // if playing, pause
+      if(d3.select("#play").classed('playing')===true){
+        d3.select("#play").classed('playing',false);
+        d3.select("#play").attr('aria-checked',"false");
+
+        d3.select("#playImage").attr("src", "images/play.svg");
+        setButtons();
+        clearInterval(animating);
+        d3.selectAll(".btn--neutral").classed("btn--neutral-disabled", false);
+
+      // if paused, play
+      }else{
+        d3.select("#play").attr('aria-checked',"true");
+        d3.select("#play").classed('playing',true);
+
+        animate()
+        animating = setInterval(function() {
+          animate();
+        }, 2000);
+        d3.selectAll(".btn--neutral").classed("btn--neutral-disabled", true);
+        d3.select("#playImage").attr("src", "images/pause.svg");
+
+      }
     }
 
     function animate() {
@@ -594,7 +593,7 @@ if (Modernizr.webgl) {
 
     function updateTimeLabel() {
 
-      d3.select("#timePeriod").text(dvc.timepoints[a])
+      d3.select("#timePeriod").select('p').text(dvc.timepoints[a])
 
     }
 
