@@ -12,34 +12,27 @@
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-MBCBVQS');
   </script>
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/gov_uk.css">
-  <!-- <link rel="stylesheet" href="css/style.css"> -->
-  <link rel="stylesheet" href="css/style_new.css">
-  <link href="css/slider/bootstrap.css" rel="stylesheet">
-  <link href="css/slider/bootstrap-slider.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet'
-    type='text/css'>
-
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/gov_uk.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="css/slider/bootstrap.css" rel="stylesheet" />
+  <link href="css/slider/bootstrap-slider.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300" rel="stylesheet"
+    type="text/css" />
   <title>National Living Wage calculator</title>
 </head>
 
 <body>
-
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <div id="wrapper" class="wrapper">
-
-
-
     <section class="app">
-      <img aria-hidden="true" src="img/fallback.png" alt="" id="fallback">
+      <img aria-hidden="true" src="img/fallback.png" alt="fallback image" id="fallback">
       <h3 class="title" aria-live="polite">
         <span id="config-text">
           Use our calculator to see whether you could live your current lifestyle on the National Living Wage.
@@ -77,8 +70,6 @@
       </form>
 
       <div id="household-contributers"></div>
-
-
       <div id='hours-sliders'></div>
     </div>
     <div id=saveSettings>
@@ -88,25 +79,12 @@
 
     <div id="inputs">
       <table class="inputtable">
-        <tbody id="inputtableBody">
-          <!-- <div class="commodity-pic"><img src="img/nlw_calculator_housing.svg" alt=""></div> -->
-        </tbody>
+        <tbody id="inputtableBody"></tbody>
       </table>
 
 
     </div>
     <div id="previous-next-inputs">
-      <!-- <form class="btn-form btn-form-fullwidth" role="radiogroup">
-          <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
-
-            <input id="button-18" class="radio-primary radio-primary-fullwidth" type="radio" name="input-previous" value='1' aria-checked="false">
-            <label class="label-primary label-primary-fullwidth navigation" for="button-18">Previous</label>
-          </div>
-          <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
-            <input id="button-19" class="radio-primary radio-primary-fullwidth" type="radio" name="input-next" value='0' aria-checked="false">
-            <label class="label-primary label-primary-fullwidth navigation" for="button-19">Next</label>
-          </div>
-        </form> -->
       <button id="button-18" class="btn btn-primary large">Previous</button>
       <button id="button-19" class="btn btn-primary large">Next</button>
     </div>
@@ -377,37 +355,17 @@
     </div>
 
     <div id="previous-next-sliders">
-      <!-- <form class="btn-form btn-form-fullwidth" role="radiogroup">
-              <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
-    
-                <input id="button-20" class="radio-primary radio-primary-fullwidth" type="radio" name="input-previous" value='1' aria-checked="false">
-                <label class="label-primary label-primary-fullwidth navigation" for="button-20" title="Click to go back to the previous screen">Previous</label>
-              </div>
-              <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
-                <input id="button-21" class="radio-primary radio-primary-fullwidth resetSettings" type="radio" name="input-next" value='0' aria-checked="false">
-                <label class="label-primary label-primary-fullwidth navigation start-again" for="button-21" title="Click to proceed to the next screen">Start again</label>
-              </div>
-            </form> -->
       <button id="button-20" class="btn btn-primary large"
         title="Click to go back to the previous screen">Previous</button>
-      <button id="button-21" class="btn btn-primary large resetSettings" title="Click to start again">Start again</button>
+      <button id="button-21" class="btn btn-primary large resetSettings" title="Click to start again">Start
+        again</button>
     </div>
 
     <div id="under-nlw">
-      <!-- <form class="btn-form btn-form-fullwidth" role="radiogroup">
-            <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
-    
-              <input id="button-22" class="radio-primary radio-primary-fullwidth" type="radio" name="button-22" value='1' aria-checked="false">
-              <label class="label-primary label-primary-fullwidth navigation" for="button-22">Previous</label>
-            </div>
-            <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
-              <input id="button-23" class="radio-primary radio-primary-fullwidth resetSettings" type="radio" name="button-23" value='0' aria-checked="false">
-              <label class="label-primary label-primary-fullwidth navigation start-again" for="button-23">Start again</label>
-            </div>
-          </form> -->
       <button id="button-22" class="btn btn-primary large"
         title="Click to go back to the previous screen">Previous</button>
-      <button id="button-23" class="btn btn-primary large resetSettings" title="Click to start again">Start again</button>
+      <button id="button-23" class="btn btn-primary large resetSettings" title="Click to start again">Start
+        again</button>
     </div>
   </div>
 
