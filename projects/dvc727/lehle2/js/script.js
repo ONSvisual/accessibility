@@ -12,7 +12,7 @@ if (Modernizr.webgl) {
   d3.queue()
     .defer(d3.csv, "data/data0.csv")
     .defer(d3.json, "data/config.json")
-    .defer(d3.json, "data/geog.json")
+    .defer(d3.json, "data/geogengua.json")
     .await(ready);
 
 
@@ -298,7 +298,7 @@ if (Modernizr.webgl) {
       } else if (config.ons.breaks == "equal") {
         breaks = ss.equalIntervalBreaks(allvalues, dvc.numberBreaks);
       } else {
-        breaks = config.ons.breaks;
+        breaks = config.ons.breaks[b];
       };
 
 
