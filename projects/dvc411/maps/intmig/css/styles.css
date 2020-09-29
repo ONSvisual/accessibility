@@ -1,0 +1,494 @@
+body {
+  padding-bottom: 60px;
+  font-family: Helvetica Neue, Arial, Helvetica, sans-serif
+}
+
+#areanm {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  height: 30px;
+  margin: 20px 0 10px 3px;
+}
+
+.btn {
+  vertical-align: middle;
+  margin-right: 10px;
+  padding: 10px 20px;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0px 3pt orange;
+}
+
+@media(min-width: 1000px) {
+
+  #yearLabel {
+    font-family: "open_sansbold", sans-serif, Helvetica, Arial;
+    font-size: 7.5em;
+    color: red;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+}
+
+/* end @media (min-width: 1000px) */
+
+
+@media screen and(min-width: 768px) {
+
+  #yearLabel {
+    font-family: "open_sansbold", sans-serif, Helvetica, Arial;
+    font-size: 7.5em;
+    color: blue;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+}
+
+/* end @media screen and (min-width: 768px) */
+
+
+@media(min-width: 700px) {
+
+  #yearLabel {
+    font-family: "open_sansbold", sans-serif, Helvetica, Arial;
+    font-size: 7.5em;
+    color: green;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+}
+
+/* end @media (min-width: 700px) */
+
+
+
+
+@media(max-width: 400px) {
+
+  #yearLabel {
+    font-family: "open_sansbold", sans-serif, Helvetica, Arial;
+    font-size: 7.5em;
+    color: black;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+}
+
+/* end @media (min-width: 400px) */
+
+
+@media(min-width: 401px) {
+
+  #yearLabel {
+    font-family: "open_sansbold", sans-serif, Helvetica, Arial;
+    font-size: 3.5em;
+    color: #666;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+
+  .text {
+    font-family: "open_sansbold", sans-serif, Helvetica, Arial;
+    font-size: 1.0em;
+    color: green;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+}
+
+/* end @media (min-width: 401px) */
+
+
+@media(min-width: 768px) {
+
+  #yearLabel {
+    font-family: "open_sansbold", sans-serif, Helvetica, Arial;
+    font-size: 4.0em;
+    color: #666;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+
+  .text {
+    font-family: "open_sansbold", sans-serif, Helvetica, Arial;
+    font-size: 1.0em;
+    color: red;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+}
+
+/* end @media (min-width: 768px) */
+
+
+
+.keys path {
+  display: none;
+
+}
+
+.keys line {
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.keys {
+  font-size: 10px;
+  fill: #666;
+}
+
+.selected {
+  stroke: #990000;
+  stroke-width: 2px;
+}
+
+#key rect {
+  stroke: #666;
+  stroke-width: 0.5px;
+  z-index: +1;
+}
+
+
+
+.line-0 {
+  stroke: #274796;
+}
+
+.line-1 {
+  stroke: #F90;
+}
+
+.line-2 {
+  stroke: #F00;
+}
+
+
+.circle {
+  fill: #F90;
+  stroke: #F90;
+}
+
+.svgRect {
+  fill: white;
+  fill-opacity: 0.0;
+}
+
+.yearLines {
+  stroke: #666;
+  stroke-width: 2px;
+  display: none;
+  stroke-dasharray: 10 5;
+}
+
+
+#header {}
+
+/*
+		
+		.text{
+			color:#666;	
+			font-size:16px;
+			font-weight:bold;
+		}*/
+
+.area {
+  fill: lightsteelblue;
+  stroke-width: 2px;
+}
+
+.area.above {
+  fill: #E89B9B;
+}
+
+.area.below {
+  fill: blue;
+}
+
+.bars {
+  stroke: none;
+  fill: #274796;
+  fill-opacity: 0.5;
+}
+
+
+.circle:hover,
+.bars:hover {
+  cursor: pointer;
+}
+
+/*
+		#yearLabel{
+			color:#666;	
+			font-size:56px;
+			font-weight:bolder;
+		}*/
+
+/* Zoom CSS */
+
+.zoom-control-zoom a,
+.zoom-control-layers-toggle {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.zoom-control-zoom a {
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  text-decoration: none;
+  color: #5381ca;
+}
+
+.zoom-control-zoom-in {
+  cursor: pointer;
+  font: bold 18px / 24px Arial, Helvetica, sans- serif;
+}
+
+.zoom-control-zoom-in:hover {
+  color: #fff;
+  background-color: #5381ca;
+}
+
+
+.zoom-bar-part {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid #aaa;
+}
+
+.zoom-control-zoom-out {
+  cursor: pointer;
+  font: bold 23px / 20px Tahoma, Verdana, sans-serif;
+}
+
+.zoom-control-zoom-out:hover {
+  color: #fff;
+  background-color: #5381ca;
+}
+
+.zoom-bar-part:focus {
+  box-shadow: 0 0 0 3pt orange;
+  background-color: #414042;
+  color: #ededed;
+
+}
+
+.zoom-bar-part-bottom {
+  border-bottom: none;
+}
+
+.zoom-container {
+  margin-left: 5px;
+  margin-top: 30px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.zoom-bar {
+
+  border: 1px solid #59a4da;
+}
+
+.zoom-popup-pane,
+.zoom-control {
+  cursor: auto;
+}
+
+.zoom-control {
+  float: left;
+  clear: both;
+}
+
+.zoom-control {
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.areaname {
+  margin: 0px;
+  font-size: 12px;
+}
+
+.graphUnitSVGs {
+  border: 2px solid #fff;
+}
+
+
+.graphUnitSVGs text {
+  font-size: 14px;
+  fill: #000;
+}
+
+.keys text {
+  font-size: 12px;
+  fill: #000;
+}
+
+.graphUnitSVGs line,
+.keys line {
+  font-size: 11px;
+  stroke: #AAAAAA;
+}
+
+.svgTitle {
+  text-anchor: start;
+}
+
+#pcText {
+  width: 140px;
+  height: 30px;
+  padding: 3px;
+  color: #999999;
+}
+
+.picaarticle {
+  font-size: 13px;
+
+
+}
+
+.btnEnable,
+.clearBtn {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 40px;
+  border: none;
+  padding: 6px 0;
+  background-color: #0084d1;
+  font: 700 14px Arial;
+  color: #FFF;
+  filter: inherit;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+.showHideBtn {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 160px;
+  border: none;
+  padding: 6px 0;
+  background-color: #0084d1;
+  font: 700 14px Arial;
+  color: #FFF;
+  filter: inherit;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+#intro {
+  display: none;
+}
+
+#ztable {
+  font-size: 11px !important;
+}
+
+.tablehead {
+  font-weight: 800 !important;
+}
+
+.total {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#boldtext {
+  font-weight: bold;
+}
+
+#ChartFooterDiv,
+.footer {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  line-height: 24px !important;
+  margin: opx 0 !important;
+  padding: 5px 0 3px 0 !important;
+  font-family: Helvetica, sans-serif !important;
+  color: #414042 !important;
+  box-sizing: border-box !important;
+  margin-top: 8px;
+}
+
+/* #submitbut {
+    background-color:#0F8243;
+    display: block;
+    width: 200px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    font-weight: 100;
+    text-decoration: underline;
+    width: 70px;
+    height: 43px;
+    padding-top: 12px;
+    margin-right: 6px;
+    float: left;
+}
+		#submitbut:hover {
+    cursor: hand;
+    cursor: pointer;
+    display: block;
+    background-color: rgb(11, 93, 48)!important;
+    width: 200px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    font-weight: 100;
+    text-decoration: underline;
+    width: 70px;
+    height: 43px;
+    padding-top: 12px;
+    margin-right: 6px;
+    float: left;
+} */
+#notesdiv {
+  width: 480px;
+}
+
+.visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+/* .chosen-container-active .chosen-single {
+  box-shadow: 0 0 0px 3pt orange;
+}
+
+.chosen-container .chosen-results li.active-result {
+  display: list-item;
+  cursor: pointer;
+}
+
+.chosen-container .chosen-results li.disabled-result {
+  display: list-item;
+  color: #ccc;
+  cursor: default;
+}
+
+.chosen-container .chosen-results li.highlighted {
+  background-color: #3875d7;
+  
+  color: #fff;
+} */
