@@ -1,5 +1,20 @@
+.wrapper {
+    max-width: 600px;
+    height: 600px;
+    overflow-y: scroll;
+}
+
 .title {
     font-weight: 800;
+}
+
+.poundDiv {
+    position: relative;
+}
+
+.result {
+    background: #206095;
+    color: #fff;
 }
 /* .input {
     width: 220px;

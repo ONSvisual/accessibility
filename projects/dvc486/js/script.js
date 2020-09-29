@@ -145,6 +145,7 @@ if (Modernizr.svg) {
     var tdNumberEntry = ctrRow.append('td')
       .attr('class', 'inputtable__cell')
     var tdNumberDiv = tdNumberEntry.append('div')
+    .attr('class', 'poundDiv')
     // var tdNumberLabel = tdNumberDiv.append('label')
     //   .attr('class', 'govuk-visually-hidden')
     //   .attr('for', params.inputAttrs.id)
@@ -191,10 +192,6 @@ if (Modernizr.svg) {
         option.attr('selected', 'selected')
       }
     })
-    
-
-
-
 
 
   }
@@ -204,7 +201,7 @@ if (Modernizr.svg) {
     console.log('showing result')
     
     // scroll to top otherwise the position of previous screen is used
-    document.getElementById("wrapper").scrollIntoView();
+    document.getElementById("result").scrollIntoView();
 
     // get values
     housing = +document.getElementById('housing-input').value;
@@ -1227,7 +1224,7 @@ if (Modernizr.svg) {
 
   function navigateInputs() {
     // scroll to top otherwise the position of previous screen is used
-    document.getElementById("wrapper").scrollIntoView();
+    document.getElementById("app").scrollIntoView();
 
     // d3.select('#third').style('display', 'none');
     d3.select('#config').style('opacity', '0').style('display', 'none');
