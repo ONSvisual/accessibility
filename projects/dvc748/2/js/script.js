@@ -1123,6 +1123,7 @@ if (Modernizr.webgl) {
               .attr("cx", x(dvc.timepoints[a]))
               .attr("fill", "#b0b0b0")
               .attr("stroke", "black")
+              .attr("opacity", 0)
 
             g2.append("text")
                 .attr("id", "averagelabel")
