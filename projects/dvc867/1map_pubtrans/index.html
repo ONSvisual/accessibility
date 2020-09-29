@@ -1,67 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})
-  (window,document,'script','dataLayer','GTM-MBCBVQS');
+  <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })
+      (window, document, 'script', 'dataLayer', 'GTM-MBCBVQS');
   </script>
 
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>Industries and public transport</title>
   <meta name='viewport' content='initial-scale=1' />
 
-  <link href='css/mapbox-gl.css' rel='stylesheet' type="text/css"/>
+  <link href='css/mapbox-gl.css' rel='stylesheet' type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/chosen.css" type="text/css">
   <link rel="stylesheet" href="css/styles.css" type="text/css">
 
 </head>
+
 <body>
   <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
   </noscript>
-<div class="col-sm-12 nav-container">
-	<div id='selectNav'></div>
+  <div class="col-sm-12 nav-container">
+    <div id='selectNav'></div>
 
-	<!-- <div id="info"></div> -->
-</div>
-<div id='map' class="col-sm-4">
-	<div id='keydiv'></div>
-</div>
-<div id="graphic" class="hidden-xs col-sm-8">
-  <ul class="key"></ul>
-	<svg width="100%"></svg>
-</div>
-<div id='accessibilityInfo'>
-  <p aria-live="assertive" class='visuallyhidden'></p>
-</div>
-<div id="source"></div>
-<div>
-  <p style="font-size:12px;" aria-label="polite">Note: Rail includes underground, light railway and tram. Bus includes coach and private bus.</p>
-</div>
-<!--<script src="http://d3js.org/d3.v3.min.js"></script>
+    <!-- <div id="info"></div> -->
+  </div>
+  <div id="map" class="col-sm-4" aria-hidden="true">
+    <div id='keydiv'></div>
+  </div>
+  <div id="graphic" class="hidden-xs col-sm-8" aria-hidden="true">
+    <ul class="key" aria-hidden="true"></ul>
+    <svg width="100%"></svg>
+  </div>
+  <div id='accessibilityInfo'>
+    <p aria-live="assertive" class='visuallyhidden'></p>
+  </div>
+  <div id="source"></div>
+  <div>
+    <p style="font-size:12px;" aria-label="polite">Note: Rail includes underground, light railway and tram. Bus includes
+      coach and private bus.</p>
+  </div>
+  <!--<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>-->
 
-<script src="https://cdn.ons.gov.uk/vendor/d3/4.2.7/d3.min.js"></script>
-<script src="js/topojson.v2.min.js"></script>
-<script src="js/simple-statistics.min.js"></script>
-<script src="js/modernizr.min.js"></script>
-<script src="js/d3-queue.min.js"></script>
-<!--<script src="js/colorbrewer.js"></script>-->
-<script src="js/chroma.min.js"></script>
-<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/chosen.jquery.js"></script>
-<script src="js/limit.js"></script>
-<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/d3/4.2.7/d3.min.js"></script>
+  <script src="js/topojson.v2.min.js"></script>
+  <script src="js/simple-statistics.min.js"></script>
+  <script src="js/modernizr.min.js"></script>
+  <script src="js/d3-queue.min.js"></script>
+  <!--<script src="js/colorbrewer.js"></script>-->
+  <script src="js/chroma.min.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+  <script src="js/chosen.jquery.js"></script>
+  <script src="js/limit.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
 
 
 
-<script src='js/mapbox-gl.js'></script>
-<script src='js/turf.min.js'></script>
-<script src="js/script.js"></script>
+  <script src='js/mapbox-gl.js'></script>
+  <script src='js/turf.min.js'></script>
+  <script src="js/script.js"></script>
 
-<noscript>
-	<p>Your browser does not support JavaScript. If you're able to please enable Javascript to view the map.</p>
-</noscript>
+  <noscript>
+    <p>Your browser does not support JavaScript. If you're able to please enable Javascript to view the map.</p>
+  </noscript>
 
 </body>
+
 </html>
