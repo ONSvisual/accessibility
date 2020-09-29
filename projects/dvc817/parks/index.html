@@ -217,7 +217,6 @@
 
       /* Buttons */
 
-
       .btn {
         position: relative;
         color: #fff;
@@ -381,7 +380,6 @@
       button:focus {
         outline: 3px solid #f93;
       }
-
 
       @-moz-document url-prefix() {
         input[type=number] {
@@ -586,11 +584,16 @@
         stroke-width: 3px;
       }
 
+      .nearest-park-data {
+        font-size: 1.17em;
+        font-weight: bold;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+      }
+
       span.greenText {
         color: #0F8243;
       }
-
-
     </style>
   </head>
 
@@ -599,7 +602,7 @@
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
 
-    <hr style="border: 0;height: 0;border-top: 6px solid #D0D2D3;">
+    <hr aria-hidden="true" style="border: 0;height: 0;border-top: 6px solid #D0D2D3;">
 
     <div id="page1">
       <form onSubmit="return false;">
@@ -622,53 +625,68 @@
     </div>
 
     <div id="page2" class="d-none">
-      <h3>Your nearest <span class="greenText" id="greenspacetype">playing field</span> is <span class="greenText"
-                                                                                                 id=distance></span> metres
-        from your home.</h3>
-      <h3>This is <span class="greenText" id="distancecomparison">closer/further away</span> than the average for your
-        neighbourhood which is <span class="greenText" id="averagedistance"></span> metres.</h3>
-      <h3>This is the nearest <span class="greenText" id="greenspacetype2">playing field</span> for <span class="greenText"
-                                                                                                          id="parkpop"></span>
-        other people.</h3>
-
-      <div id='map'>
+      <div aria-live="assertive">
+        <p class="nearest-park-data">Your nearest
+          <span class="greenText" id="greenspacetype">playing field</span>
+          is
+          <span class="greenText" id=distance></span>
+          metres from your home.
+        </p>
+        <p class="nearest-park-data">This is
+          <span class="greenText" id="distancecomparison">closer/further away</span>
+          than the average for your neighbourhood which is
+          <span class="greenText" id="averagedistance"></span>
+          metres.
+        </p>
+        <p class="nearest-park-data">This is the nearest
+          <span class="greenText" id="greenspacetype2">playing field</span>
+          for
+          <span class="greenText" id="parkpop"></span>
+          other people.
+        </p>
       </div>
 
-      <div class="row">
-        <div class="col-sm-1 col-xs-12">
-          <button class="btn btn--primary btn--previous " id="backButton" type="button" style="margin-bottom:4px;"><img
-              src="images/left-arrow.svg" height="15" alt="" style="margin-right:5px;"> Back
-          </button>
+      <div aria-hidden="true" id='map'>
+      </div>
+
+      <div aria-live="off">
+        <div class="row">
+          <div class="col-sm-1 col-xs-12">
+            <button class="btn btn--primary btn--previous " id="backButton" type="button" style="margin-bottom:4px;"><img
+                src="images/left-arrow.svg" height="15" alt="" style="margin-right:5px;"> Back
+            </button>
+          </div>
+
+          <!-- <div class="col-sm-4 col-xs-12 offset-sm-7" style="clear:both;">
+            <button onclick="copyLink()" class="social-btn">
+              <div id="link"></div>
+            </button>
+            <button class="social-btn"><a href="https://www.facebook.com/sharer/sharer.php?u=CHANGE THIS LINK" target="_blank" title="Facebook">
+                <div id="facebook"></div>
+              </a></button>
+            <button class="social-btn"><a href="https://twitter.com/intent/tweet?text=How%20much%20does%20green%20space%20add%20value%20to%20your%20property%20CHANGE THIS LINK"
+                target="_blank" title="twitter">
+                <div id="twitter"></div>
+              </a></button>
+
+
+          </div> -->
+
         </div>
 
-        <!-- <div class="col-sm-4 col-xs-12 offset-sm-7" style="clear:both;">
-          <button onclick="copyLink()" class="social-btn">
-            <div id="link"></div>
-          </button>
-          <button class="social-btn"><a href="https://www.facebook.com/sharer/sharer.php?u=CHANGE THIS LINK" target="_blank" title="Facebook">
-              <div id="facebook"></div>
-            </a></button>
-          <button class="social-btn"><a href="https://twitter.com/intent/tweet?text=How%20much%20does%20green%20space%20add%20value%20to%20your%20property%20CHANGE THIS LINK"
-              target="_blank" title="twitter">
-              <div id="twitter"></div>
-            </a></button>
+        <p>We use Ordnance Survey (OS) data to measure distance to your nearest public park, public garden or playing field.
+          OS data cannot distinguish between public and private playing fields, so some of them may not be publicly
+          accessible. Distance is measured as the crow flies.
+        </p>
 
-
-        </div> -->
-
+        <p>In this case your "neighbourhood" is your Lower Layer Super Output Area (LSOA) if you live in England or Wales and
+          your Data Zone if you live in Scotland. These are small areas with similarly sized populations. Our
+          <a href="https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography#super-output-area-soa">
+            Census geography page
+          </a>
+          has more information.
+        </p>
       </div>
-
-      <p>We use Ordnance Survey (OS) data to measure distance to your nearest public park, public garden or playing field.
-        OS data cannot distinguish between public and private playing fields, so some of them may not be publicly
-        accessible. Distance is measured as the crow flies.
-      <p>
-
-      <p>In this case your "neighbourhood" is your Lower Layer Super Output Area (LSOA) if you live in England or Wales and
-        your Data Zone if you live in Scotland. These are small areas with similarly sized populations. Our <a
-            href="https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography#super-output-area-soa">Census
-          geography page</a> has more information.</p>
-
-
     </div>
 
     <hr style="margin-top:45px; border: 0;height: 0;border-top: 3px solid #D0D2D3;">
@@ -687,7 +705,6 @@
       //// TODO: change link for copy to clipboard
 
       var pymChild = new pym.Child();
-      ;
       //load percentage data and store it globally
 
       // postcodeCheck = false;
