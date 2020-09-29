@@ -466,6 +466,7 @@ if (Modernizr.webgl) {
       chartDrawn = false;
       navvalue = i;
       //load new csv file
+      b=i;
 
       filepth = "data/data" + i + ".csv"
 
