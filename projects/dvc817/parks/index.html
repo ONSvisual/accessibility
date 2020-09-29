@@ -785,10 +785,10 @@
       }
 
       function showpage1() {
-        d3.select('#page1').classed('d-none', false)
-        d3.select('#page2').classed('d-none', true)
+        d3.select('#page1').classed('d-none', false);
+        d3.select('#page2').classed('d-none', true);
+        $('#page1').find('input')[0].focus();
         pymChild.sendHeight()
-
       }
 
       function showPage2() {
