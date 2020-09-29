@@ -1,5 +1,5 @@
 {"ons":{
-  "maptitle": "dvc495 - Housing affordability map",
+  "maptitle": "Time series map about housing affordability",
   "varcolour": "YlGnBu",
   "varlabels": ["First var"],
   "timeload": "last",
