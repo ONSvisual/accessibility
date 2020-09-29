@@ -1,0 +1,65 @@
+Liability,Asset,Y1,Y2,Y3
+In Work Adult - Not in Poverty,In Work Adult - Not in Poverty,0.366,0,0
+In Work Adult - Not in Poverty,Out of Work Adult - Not in Poverty,0.011,0,0
+In Work Adult - Not in Poverty,Child - Not in Poverty,0.002,0,0
+In Work Adult - Not in Poverty,Retired - Not in Poverty,0.008,0,0
+In Work Adult - Not in Poverty,In Work Adult - Poverty,0.023,0.262,0
+In Work Adult - Not in Poverty,Out of Work Adult - Poverty,0.004,0.042,0
+In Work Adult - Not in Poverty,Child - Poverty,0,0.006,0
+In Work Adult - Not in Poverty,Retired - Poverty,0.002,0.018,0
+Out of Work Adult - Not in Poverty,In Work Adult - Not in Poverty,0.01,0,0
+Out of Work Adult - Not in Poverty,Out of Work Adult - Not in Poverty,0.036,0,0
+Out of Work Adult - Not in Poverty,Child - Not in Poverty,0,0,0
+Out of Work Adult - Not in Poverty,Retired - Not in Poverty,0.005,0,0
+Out of Work Adult - Not in Poverty,In Work Adult - Poverty,0.001,0.01,0
+Out of Work Adult - Not in Poverty,Out of Work Adult - Poverty,0.013,0.147,0
+Out of Work Adult - Not in Poverty,Child - Poverty,0,0,0
+Out of Work Adult - Not in Poverty,Retired - Poverty,0.001,0.013,0
+Child - Not in Poverty,In Work Adult - Not in Poverty,0.009,0,0
+Child - Not in Poverty,Out of Work Adult - Not in Poverty,0.001,0,0
+Child - Not in Poverty,Child - Not in Poverty,0.168,0,0
+Child - Not in Poverty,Retired - Not in Poverty,0,0,0
+Child - Not in Poverty,In Work Adult - Poverty,0.001,0.012,0
+Child - Not in Poverty,Out of Work Adult - Poverty,0,0,0
+Child - Not in Poverty,Child - Poverty,0.026,0.298,0
+Child - Not in Poverty,Retired - Poverty,0,0,0
+Retired - Not in Poverty,In Work Adult - Not in Poverty,0.003,0,0
+Retired - Not in Poverty,Out of Work Adult - Not in Poverty,0.004,0,0
+Retired - Not in Poverty,Child - Not in Poverty,0,0,0
+Retired - Not in Poverty,Retired - Not in Poverty,0.135,0,0
+Retired - Not in Poverty,In Work Adult - Poverty,0,0,0
+Retired - Not in Poverty,Out of Work Adult - Poverty,0.001,0.003,0
+Retired - Not in Poverty,Child - Poverty,0,0,0
+Retired - Not in Poverty,Retired - Poverty,0.016,0.09,0
+In Work Adult - Poverty,In Work Adult - Not in Poverty,0.015,0,0.236
+In Work Adult - Poverty,Out of Work Adult - Not in Poverty,0,0,0.007
+In Work Adult - Poverty,Child - Not in Poverty,0,0,0.005
+In Work Adult - Poverty,Retired - Not in Poverty,0.001,0,0.009
+In Work Adult - Poverty,In Work Adult - Poverty,0.012,0,0
+In Work Adult - Poverty,Out of Work Adult - Poverty,0.003,0,0
+In Work Adult - Poverty,Child - Poverty,0,0,0
+In Work Adult - Poverty,Retired - Poverty,0,0,0
+Out of Work Adult - Poverty,In Work Adult - Not in Poverty,0.006,0,0.086
+Out of Work Adult - Poverty,Out of Work Adult - Not in Poverty,0.01,0,0.148
+Out of Work Adult - Poverty,Child - Not in Poverty,0,0,0.002
+Out of Work Adult - Poverty,Retired - Not in Poverty,0.001,0,0.011
+Out of Work Adult - Poverty,In Work Adult - Poverty,0.002,0,0
+Out of Work Adult - Poverty,Out of Work Adult - Poverty,0.021,0,0
+Out of Work Adult - Poverty,Child - Poverty,0,0,0
+Out of Work Adult - Poverty,Retired - Poverty,0.001,0,0
+Child - Poverty,In Work Adult - Not in Poverty,0.002,0,0.026
+Child - Poverty,Out of Work Adult - Not in Poverty,0,0,0
+Child - Poverty,Child - Not in Poverty,0.017,0,0.265
+Child - Poverty,Retired - Not in Poverty,0,0,0
+Child - Poverty,In Work Adult - Poverty,0.001,0,0
+Child - Poverty,Out of Work Adult - Poverty,0,0,0
+Child - Poverty,Child - Poverty,0.03,0,0
+Child - Poverty,Retired - Poverty,0,0,0
+Retired - Poverty,In Work Adult - Not in Poverty,0.001,0,0.012
+Retired - Poverty,Out of Work Adult - Not in Poverty,0,0,0.004
+Retired - Poverty,Child - Not in Poverty,0,0,0
+Retired - Poverty,Retired - Not in Poverty,0.012,0,0.187
+Retired - Poverty,In Work Adult - Poverty,0,0,0
+Retired - Poverty,Out of Work Adult - Poverty,0.001,0,0
+Retired - Poverty,Child - Poverty,0,0,0
+Retired - Poverty,Retired - Poverty,0.019,0,0

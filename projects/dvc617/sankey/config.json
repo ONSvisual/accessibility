@@ -1,0 +1,20 @@
+{
+    "essential" : {
+            
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["https://www.ons.gov.uk/aboutus/whatwedo/paidservices/longitudinalstudyls"]
+        
+             
+    },
+    "optional" : {
+            "margin_sm": [20, 0, 5, 0],
+            "margin_md": [20, 0, 5, 0],
+            "margin_lg": [20, 0, 5, 0],
+        
+            "aspectRatio_sm" : [6,9],
+            "aspectRatio_md" : [16,14],
+            "aspectRatio_lg" : [16,14],
+        
+            "mobileBreakpoint" : 610
+    }
+}

@@ -1,509 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-   
+  <head>
     <title>Household expenditure treemap family spending</title>
 
     <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
-<link rel="stylesheet" href="css/styles.css" media="screen">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="css/styles.css" media="screen">
+    <link href="https://onsvisual.github.io/pattern-library/dist/fontawesome/css/all.css" rel="stylesheet">
 
-<style>
-body{
-	max-width:800px;
-}
+    <style>
+      body {
+        max-width: 800px;
+      }
 
-#svgEle{
-	width:100%;
-}
+      #svgEle {
+        width: 100%;
+      }
 
-text {
-  pointer-events: none;
-}
+      text {
+        pointer-events: none;
+      }
 
-.grandparent text {
-  /*font-weight: bold;*/
-  fill: #606060;
-  font-size:1.8em;
-}
+      .grandparent text {
+        /*font-weight: bold;*/
+        fill: #606060;
+        font-size: 1.8em;
+      }
 
-rect {
-  fill: none;
-  stroke: #fff;
-}
+      rect {
+        fill: none;
+        stroke: #fff;
+      }
 
-.grandparent{
-/*	pointer-events:none;*/
-}
+      .grandparent {
+        /*	pointer-events:none;*/
+      }
+
+      rect.parent,
+      .grandparent rect {
+        stroke-width: 2px;
+      }
+
+      .grandparent line {
+        stroke: #606060;
+        stroke-width: 1px;
+      }
+
+      .children rect.parent,
+      .grandparent rect {
+        cursor: pointer;
+      }
+
+      .children rect.parent {
+        fill: #bbb;
+        fill-opacity: .2;
+      }
+
+      .children:hover rect.child, .children:focus-within rect.child {
+        fill: #bbb;
+      }
+
+      .children:hover text, .children:focus-within text {
+        fill: #000000;
+      }
+
+      *[code*=c1_] {
+        fill: #833b8e;
+      }
+
+      *[code*=c2_] {
+        fill: #88bfe5;
+      }
+
+      *[code*=c3_] {
+        fill: #9f6aaa;
+      }
+
+      *[code*=c4_] {
+        fill: #0073b3;
+      }
+
+      *[code*=c5_] {
+        fill: #007c58;
+      }
+
+      *[code*=c6_] {
+        fill: #ce5b67;
+      }
+
+      *[code*=c7_] {
+        fill: #d32b3c;
+      }
+
+      *[code*=c8_] {
+        fill: #75bc9a;
+      }
+
+      *[code*=c9_] {
+        fill: #44a2cc;
+      }
+
+      *[code*=c10_] {
+        fill: #f4b97d;
+      }
+
+      *[code*=c11_] {
+        fill: #f6aa53;
+      }
+
+      *[code*=c12_] {
+        fill: #007c58;
+      }
+
+      *[code*=c13_] {
+        fill: #ed7d04;
+      }
+
+      .depth text {
+        fill: white;
+      }
+
+      #blurb{
+        height: 80px;
+        pointer-events: none;
+        line-height: 1.2em;
+        font-size: 30px;
+      }
+
+      #txt2{
+        font-weight:700;
+      }
+
+      #txt3{
+        font-weight:500;
+      }
+
+      @media (max-width: 500px) {
+
+      }
+
+      @media (min-width: 501px) {
+
+      }
+
+      @media (min-width: 939px) {
+
+      }
+
+      @media (min-width: 1200px) {
+
+      }
+
+      .horizLine {
+        border-bottom: 1px solid #B9B9B9;
+        padding-bottom: 5px;
+        margin: 0px 0px 5px -5px;
+      }
+
+      .btn {
+        position: relative;
+        padding: 10px 15px;
+        margin: 0 0 20px;
+        line-height: normal;
+        color: #fff;
+        font-size: 1.3em !important;
+        border-radius: 0px;
+        display: inline-block;
+        text-rendering: optimizeLegibility;
+        transition: background-color .2s ease-in, color .2s ease-in;
+
+        font-family: "Open Sans",Helvetica,Arial,sans-serif;
+        font-weight: 400;
+        width: auto;
+        cursor: pointer;
+        border: 0 none;
+        text-align: center;
+        text-decoration: none;
+
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+        user-select: none;
+        background-image: none;
+      }
+      .btn:hover {
+        color: #ffffff;
+      }
+      .btn:focus {
+        outline: none;
+        box-shadow: 0px 0px 0 3px #FFA23A;
+        color: white;
+        outline-offset: 0px;
+      }
+      .btn:hover, .btn:focus {
+        text-decoration: none;
+      }
+      .btn--primary {
+        background-color: #206095 !important;
+      }
+      .btn--primary:hover {
+        background-color: #174c78 !important;
+      }
+
+      .btn--up::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f3bf";
+        margin-right: 10px;
+      }
+
+      .btn--top::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f139";
+        margin-right: 10px;
+      }
+
+      hr {
+        margin-top: 0px;
+        margin-bottom: 3px;
+        border: 0;
+        border-top: 1px solid #dddddd;
+      }
+
+      #intro {
+        display: none;
+      }
+
+      #social {
+        top: 5px;
+      }
+
+      .social {
+        padding-top: 5px;
+        padding-left: 5px;
+        float: right;
+        opacity: 0.5;
+        cursor: pointer;
+      }
+
+      .social:hover {
+        opacity: 1;
+
+      }
+
+      .social {
+
+      }
+
+      #embedrow {
+        padding-bottom: 5px;
+        margin: 5px;
+        border-bottom: 1px solid #d3d3d3;
+        border-top: 1px solid #d3d3d3;
+      }
+
+      #close {
+        padding-bottom: 3px;
+      }
+
+      #allDivs {
+        margin: auto;
+      }
+
+      #ieMsg {
+        width: 940px;
+        margin: 0 auto;
+      }
+
+      #suptext {
+        padding: 20px 20px 20px 20px;
+        width: 900px;
+        background-color: #F2EEF5;
+      }
+
+      #suptext p {
+        margin: 0px 20px 10px 20px;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #8064A0;
+
+      }
+
+      #suptext a {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #8064A0;
+
+      }
+
+      #suptext h1 {
+        margin: 0px;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 24px;
+        color: #8064A0;
+      }
+
+      #thumbNail {
+        top: 0px;
+        left: 0px;
+      }
+
+      .img-responsive,
+      .thumbnail > img,
+      .thumbnail a > img,
+      .carousel-inner > .item > img,
+      .carousel-inner > .item > a > img {
+        width: 100% !important;
 
 
-rect.parent,
-.grandparent rect {
-  stroke-width: 2px;
-}
+      }
 
-.grandparent line {
-  stroke: #606060;
-  stroke-width: 1px;
-}
+      #source, #footnote {
+        font-size: 12px;
+        margin-left: -15px;
+      }
 
-.btn{
-	font-size:13px
-}
+      .item {
+        width: 80px;
+        height: 80px;
+      }
 
-.children rect.parent,
-.grandparent rect {
-  cursor: pointer;
-}
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+    </style>
+  </head>
 
-.children rect.parent {
-  fill: #bbb;
-  fill-opacity: .2;
-}
+  <body id="childt">
+    <div class="container-fluid">
+      <div id="main-wrapper">
+        <div id="mainContent" style="display:none">
+          <p id="chartDescription" class="visuallyhidden"></p>
 
-.children:hover rect.child {
-  fill: #bbb;
-}
+          <p id="blurb" class="row">
+            <span id="txt2"></span>
+            <span id="txt3"></span>
+          </p>
 
-*[code*=c1_] {
-	fill:#833b8e;
-}
+          <div class="row">
+            <button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up" style="visibility:hidden">
+              Up a level
+            </button>
+            <button type="button" id="topBtn" class="btn btn-group__btn btn--primary btn--green btn--top" style="visibility:hidden">
+              Back to top
+            </button>
+          </div>
 
-*[code*=c2_] {
-	fill:#88bfe5;
-}
+          <div class="row">
+            <div id="chart"></div>
 
-*[code*=c3_] {
-	fill:#9f6aaa;
-}
+          </div>
 
-*[code*=c4_] {
-	fill:#0073b3;
-}
-
-*[code*=c5_] {
-	fill:#007c58;
-}
-*[code*=c6_] {
-	fill:#ce5b67;
-}
-
-*[code*=c7_] {
-	fill:#d32b3c;
-}
-
-*[code*=c8_] {
-	fill:#75bc9a;
-}
-
-*[code*=c9_] {
-	fill:#44a2cc;
-}
-
-*[code*=c10_] {
-	fill:#f4b97d;
-}
-
-*[code*=c11_] {
-	fill:#f6aa53;
-}
-
-*[code*=c12_] {
-	fill:#007c58;
-}
-*[code*=c13_] {
-	fill:#ed7d04;
-}
-
-.depth text{
-	fill:white;
-}
-
-#blurb{
-	pointer-events:none;
-	line-height: 2.2em;
-	font-size:1em;
-	font-weight: 600;
-}
-
-
-#txt2{
-	font-weight:200;	
-}
-
-@media (max-width: 500px) {
-
-}
-
-
-@media (min-width: 501px) {
-
-}
-
-	
-
-@media (min-width: 939px) {
-  		
-}
-
-
-@media (min-width: 1200px) {
-  	
-}
-
-.horizLine{
-	border-bottom:1px solid #B9B9B9;	
-	padding-bottom:5px;
-	margin:0px 0px 5px -5px;
-}
-
-
-
-
-
-.btn-ons {
-  color: #6f6f6f;
-  background-color: #ffffff;
-  border-color: #D3D3D3;
-}
-.btn-ons:hover,
-.btn-ons:focus,
-.btn-ons.focus,
-.btn-ons:active,
-.btn-ons.active,
-.open > .dropdown-toggle.btn-ons {
-  color: #6f6f6f;
-  background-color: #E7E7E7;
-  border-color: #D3D3D3;
-}
-
-hr {
-  margin-top: 0px;
-  margin-bottom: 3px;
-  border: 0;
-  border-top: 1px solid #dddddd;
-}
-
-#intro{
-	display:none;
-}
-
-#social{
-	top:5px;
-}
-
-.social {
-			padding-top:5px;
-			padding-left:5px;
-			float:right;
-			opacity:0.5;
-			cursor:pointer;
-		}
-		
-		.social:hover {
-			opacity:1;
-				
-		}
-		
-		
-		.social {
-			
-		}
-		
-		#embedrow {
-			padding-bottom:5px;
-			margin:5px;
-			border-bottom:1px solid #d3d3d3;
-			border-top:1px solid #d3d3d3;
-		}
-		
-		
-		#close {
-			padding-bottom:3px;	
-		}
-		
-		#allDivs{
-			margin:auto;	
-		}
-
-#ieMsg{
-	width: 940px;
-    margin: 0 auto;
-}
-#suptext {
-	padding:20px 20px 20px 20px;
-	width:900px;
-	background-color:#F2EEF5;
-}
-
-#suptext p{
-	margin:0px 20px 10px 20px;
-	font-family: Helvetica, Arial, sans-serif;
-    font-size:14px;
-	color:#8064A0;
-
-}
-
-#suptext a{
-	font-family: Helvetica, Arial, sans-serif;
-    font-size:14px;
-	color:#8064A0;
-
-}
-
-#suptext h1{
-	margin:0px;
-	font-family: Helvetica, Arial, sans-serif;
-    font-size:24px;
-	color:#8064A0;
-}
-
-#thumbNail{
-	top:0px;
-	left:0px;
-}
-
-.img-responsive,
-.thumbnail > img,
-.thumbnail a > img,
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-  width: 100% !important;
-  
-
-}
-
-#source, #footnote{
-	font-size:12px;	
-	margin-left: -15px;
-}
-
-.item{
-	width:80px;
-	height:80px;
-}
-
-</style>
-
-
-
-</head>
-  <body id="childt">         
-  
-  
-
-<div class="container-fluid">
-           <div id="main-wrapper"> 
-         
-          <div id="mainContent" style="display:none">
-             
-				<div id="blurb" class="row">
-					<text id ="txt2"></tspan>
-					<text id ="txt3"></tspan>
-				</div>
-				<div class="row">
-					<button type="button" id="upBtn" class="nav btn btn-ons ">
-					  <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Up a level
-					</button>
-					<button type="button" id="topBtn" class="nav btn btn-ons ">
-					  <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Back to top
-					</button>
-				</div>
-                  
-              
-              <div class="row" >      
-                    <div id="chart"></div>
-                    
-              </div>
-            
-            <div id="footnote">
+          <div id="footnote">
             <p style="font-weight:700">Notes: </p>
-            <p>1. Mortgage interest payments, council tax and Northern Ireland rates are excluded from Housing(net) fuel and power.<p>
-            <p>2. Components of spending based on fewer than 10 recording households, or where the average rounds to 0, do not appear in the tree map</p>
-            </div>
-            <div id="source" style="font-weight:700">
-            	<p>Source: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/bulletins/familyspendingintheuk/financialyearending2017" target="_blank"> Family spending in the UK: financial year ending March 2017</a>, ONS</p>
-            </div>
-                              
+            <p>1. Mortgage interest payments, council tax and Northern Ireland rates are excluded from Housing(net) fuel and
+              power.
+            <p>
+            <p>2. Components of spending based on fewer than 10 recording households, or where the average rounds to 0, do
+              not appear in the tree map</p>
+          </div>
+
+          <div id="source" style="font-weight:700">
+            <p>Source: <a
+                href="https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/bulletins/familyspendingintheuk/financialyearending2017"
+                target="_blank"> Family spending in the UK: financial year ending March 2017</a>, ONS</p>
+          </div>
         </div>
-         <div id="ieMsg" style="display:none">
-                    <div id="suptext">
-                      <h1>Browser requirements</h1>
-                      <p><b>For a safer, faster, better experience online you should upgrade your browser. You would have been able to play with this lovely interactive graphic below. <a href="https://www.gov.uk/support/browsers" target="_blank">Find out more about browsers</a></b>
-                      </p>
-                    </div>
-                      <img id="thumbNail" src="Capture.png">
-                </div>
-       </div> 
-</div><!--end of .container-fluid-->
+        <div id="ieMsg" style="display:none">
+          <div id="suptext">
+            <h1>Browser requirements</h1>
+            <p><b>For a safer, faster, better experience online you should upgrade your browser. You would have been able to
+              play with this lovely interactive graphic below. <a href="https://www.gov.uk/support/browsers"
+                                                                  target="_blank">Find out more about browsers</a></b>
+            </p>
+          </div>
+          <img id="thumbNail" src="Capture.png" alt="A chart displaying total household spending broken type of expense.">
+        </div>
+      </div>
+    </div><!--end of .container-fluid-->
 
-<script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
-<script src="js/modernizr.custom.56904.js"></script>
-<script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
-<script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.js" charset="utf-8"></script>
-<script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
-   
-<script>
-	
-	if (Modernizr.inlinesvg= true ){		
-		
-			$("#main-wrapper").fadeIn(1000);
-			$("#mainContent").fadeIn(1000);
-			
-		}else{
-				$("#ieMsg").fadeIn(1000);
-		}	
-	
-	
-	
-		
-	pymChild = new pym.Child();	
-					
-			
-    
-	
-	var	transitioning;	
-	var widthCalc;  
-	var heightCalc;	
-	
-	
-	getSizes();
+    <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/modernizr.custom.56904.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.js" charset="utf-8"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
 
-		
-	$(window).resize(function () {
-		  if(window.innerWidth != bwidth) {		 	
-			getSizes();
-		  }
-	});		
-	
-	
-	function getSizes() {
-	
-		bodywidth = d3.select("body").style("width");
-		bwidth = bodywidth.replace('px', '');
-		divwidth = d3.select("#chart").style("width");
-		width = divwidth.replace('px', '') - 30;
-		if(bwidth >= 767) {
-			fullheight = 500;
-			ratiovar = 0.5;
-		} else {
-			var url = (window.location != window.parent.location) ;
-			if(url == false){
-					ratiovar = 0.2;			
-					windowheight = window.innerHeight;
-					
-					if(windowheight<=500) {
-						fullheight = window.innerHeight;
-					} else if (windowheight >500 && windowheight <=800) {
-						fullheight = window.innerHeight - 250;
-					} else if (windowheight >800 && windowheight <=2000) {
-						fullheight = window.innerHeight - 350;
-					}
-			} else {
-				ratiovar = 0.2;			
-					windowheight = 500;
-					fullheight =550;
-			}
-		}
-		
-		d3.select("#svgEle").remove();
-		makeChart(width, fullheight);
-	
-	}
-	
-	
-	
-	
-	
-	function makeChart(width, fullheight) {
-    // console.log("makeChart"); 		
-	 margin = {top: 0, right: 0, bottom: 0, left: 0},
-        formatNumber = d3.format(".2f"),
-		formatNumber1dp = d3.format(".0f"),
-			
-		atTop=true,
-		level = 0,
-		levelArray = Array(level);
-   
-    height = fullheight - margin.top - margin.bottom;
-			
-     x = d3.scale.linear()
-        .domain([0, width])
-        .range([0, width]);
-    
-     y = d3.scale.linear()
-        .domain([0, height])
-        .range([0, height]);
-    
-    treemap = d3.layout.treemap()
-        .children(function(d, depth) { return depth ? null : d._children; })
-        .sort(function(a, b) { return a.vals[0] - b.vals[0]; })
-        .ratio(height / width * ratiovar * (1 + Math.sqrt(5)))
-		.value(function(d) { console.log(d.vals); return d.vals[0]; })
-        .round(false);
-    
-     svg = d3.select("#chart")
-		.append("svg")
-		.attr("id", "svgEle")
-		.attr("width", width + "px")
-		.attr("height", height + "px")
-		//.attr("viewBox", "0 0 "+width+" "+ (height))
-		.attr("preserveAspectRatio", "xMidYMid meet")
-        .style("margin-left", -margin.left + "px")
-        .style("margin.right", -margin.right + "px")
-      .append("g")
-	  	.attr("id", "tree")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-       // .style("shape-rendering", "crispEdges");
-    
-     grandparent = svg.append("g")
-        .attr("class", "grandparent")
-	 	.append("rect")
-	 	.attr("id", "gparent")
-		.attr("y", -margin.top)
-		.attr("width", width)
-		.attr("height", margin.top);
-      
-   
-    d3.json("data2018.json", function(root) {
-		dataset = root;
-		 initialize(root);
-		 accumulate(root);
-		 layout(root);
-		 display(root);
-		
-	d3.select("#blurb").select("#txt3").html("Total household spend: £"+formatNumber(dataset.vals[1])+" per week.");
-			
-		
-	});
-	
-	 
-	
-	}
-	
-   	
+    <script>
+      if (Modernizr.inlinesvg = true) {
+
+        $("#main-wrapper").fadeIn(1000);
+        $("#mainContent").fadeIn(1000);
+
+      } else {
+        $("#ieMsg").fadeIn(1000);
+      }
+
+      pymChild = new pym.Child();
+
+      jQuery.fn.d3Click = function () {
+        this.each(function (i, e) {
+          var evt = new MouseEvent("click");
+          e.dispatchEvent(evt);
+        });
+      };
+
+      var transitioning;
+      var widthCalc;
+      var heightCalc;
+
+      getSizes();
+
+      $(window).resize(function () {
+        if (window.innerWidth != bwidth) {
+          getSizes();
+        }
+      });
+
+      function getSizes() {
+
+        bodywidth = d3.select("body").style("width");
+        bwidth = bodywidth.replace('px', '');
+        divwidth = d3.select("#chart").style("width");
+        width = divwidth.replace('px', '') - 30;
+        if (bwidth >= 767) {
+          fullheight = 500;
+          ratiovar = 0.5;
+        } else {
+          var url = (window.location != window.parent.location);
+          if (url == false) {
+            ratiovar = 0.2;
+            windowheight = window.innerHeight;
+
+            if (windowheight <= 500) {
+              fullheight = window.innerHeight;
+            } else if (windowheight > 500 && windowheight <= 800) {
+              fullheight = window.innerHeight - 250;
+            } else if (windowheight > 800 && windowheight <= 2000) {
+              fullheight = window.innerHeight - 350;
+            }
+          } else {
+            ratiovar = 0.2;
+            windowheight = 500;
+            fullheight = 550;
+          }
+        }
+
+        d3.select("#svgEle").remove();
+        makeChart(width, fullheight);
+
+      }
+
+      function makeChart(width, fullheight) {
+        // console.log("makeChart");
+        margin = {top: 0, right: 0, bottom: 0, left: 0},
+          formatNumber = d3.format(".2f"),
+          formatNumber1dp = d3.format(".0f"),
+
+          atTop = true,
+          level = 0,
+          levelArray = Array(level);
+
+        height = fullheight - margin.top - margin.bottom;
+
+        x = d3.scale.linear()
+          .domain([0, width])
+          .range([0, width]);
+
+        y = d3.scale.linear()
+          .domain([0, height])
+          .range([0, height]);
+
+        treemap = d3.layout.treemap()
+          .children(function (d, depth) {
+            return depth ? null : d._children;
+          })
+          .sort(function (a, b) {
+            return a.vals[0] - b.vals[0];
+          })
+          .ratio(height / width * ratiovar * (1 + Math.sqrt(5)))
+          .value(function (d) {
+            //console.log(d.vals);
+            return d.vals[0];
+          })
+          .round(false);
+
+        svg = d3.select("#chart")
+          .append("svg")
+          .attr("id", "svgEle")
+          .attr("width", width + "px")
+          .attr("height", height + "px")
+          //.attr("viewBox", "0 0 "+width+" "+ (height))
+          .attr("preserveAspectRatio", "xMidYMid meet")
+          .style("margin-left", -margin.left + "px")
+          .style("margin.right", -margin.right + "px")
+          .append("g")
+          .attr("id", "tree")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        // .style("shape-rendering", "crispEdges");
+
+        grandparent = svg.append("g")
+          .attr("class", "grandparent")
+          .append("rect")
+          .attr("id", "gparent")
+          .attr("y", -margin.top)
+          .attr("width", width)
+          .attr("height", margin.top);
+
+        d3.json("data2018.json", function (root) {
+          dataset = root;
+          initialize(root);
+          accumulate(root);
+          layout(root);
+          display(root);
+
+          var heading = "Total household spend: ";
+          var value = "£" + formatNumber(dataset.vals[1]) + " per week.";
+          var label = `A chart displaying total household spending (${value}) broken type of expense.`;
+          $('#chartDescription').html(label);
+          d3.select("#blurb").select("#txt2").html(heading);
+          d3.select("#blurb").select("#txt3").html(value);
+        });
+      }
+
       function initialize(root) {
         root.x = root.y = 0;
         root.dx = width;
-	    root.dy = height;
+        root.dy = height;
         root.depth = 0;
       }
-    
+
       // Aggregate the values for internal nodes. This is normally done by the
       // treemap layout, but not here because of our custom implementation.
       // We also take a snapshot of the original children (_children) to avoid
       // the children being overwritten when when layout is computed.
       function accumulate(d) {
-		   //console.log('accumulate')
+        //console.log('accumulate')
         return (d._children = d.children)
-            ? d.vals[0] = d.children.reduce(function(p, v) { return p + accumulate(v); }, 0)
-            : d.vals[0];
-			
+          ? d.vals[0] = d.children.reduce(function (p, v) {
+            return p + accumulate(v);
+          }, 0)
+          : d.vals[0];
+
       }
-    
+
       // Compute the treemap layout recursively such that each group of siblings
       // uses the same size (1×1) rather than the dimensions of the parent cell.
       // This optimizes the layout for the current zoom state. Note that a wrapper
@@ -512,350 +561,388 @@ hr {
       // of sibling was laid out in 1×1, we must rescale to fit using absolute
       // coordinates. This lets us use a viewport to zoom.
       function layout(d) {
-		 //console.log("layout");    
+        //console.log("layout");
         if (d._children) {
-		
-         treemap.nodes({_children: d._children});
-          d._children.forEach(function(c) {
-            
-			//console.log(c);
-			c.x = d.x + c.x * d.dx;
+
+          treemap.nodes({_children: d._children});
+          d._children.forEach(function (c) {
+
+            //console.log(c);
+            c.x = d.x + c.x * d.dx;
             c.y = d.y + c.y * d.dy;
             c.dx *= d.dx;
             c.dy *= d.dy;
             c.parent = d;
-			
+
             layout(c);
           });
         }
       }
-    
+
       function display(d) {
-		 //console.log("display"); 
+        //console.log("display");
         grandparent
-            .datum(d.parent)
-            .on("click", transition)
-//            .select("text")
-//            .text(desc(d))
-			
-		d3.select("#titleText")
-            .datum(d.parent)
-           // .text(desc(d))
-			
+          .datum(d.parent)
+          .on("click", transition)
+    //            .select("text")
+    //            .text(desc(d))
+
+        d3.select("#titleText")
+          .datum(d.parent)
+        // .text(desc(d))
+
         var g1 = svg.insert("g", ".grandparent")
-            .datum(d)
-            .attr("class", "depth");
-    
+          .datum(d)
+          .attr("class", "depth");
+
         var g = g1.selectAll("g")
-            .data(d._children)
+          .data(d._children)
           .enter().append("g");
-		  
-        g.filter(function(d) { return d._children; })
-            .classed("children", true)
-            .on("click", transition);
-    
+
+        g.filter(function (d) {
+          return d._children;
+        })
+          .classed("children", true)
+          .on("click", transition);
+
         g.selectAll(".child")
-            .data(function(d) { return d._children || [d]; })
+          .data(function (d) {
+            return d._children || [d];
+          })
           .enter().append("rect")
-            .attr("class", "child")
-			.attr("code",function(d) { return d.code} )
-			.attr("desc",function(d) { return d.desc} )
-			.attr("id",function(d) { return d.code} )
-			.attr("vals",function(d) { return d.vals[0]} )
-			.attr("realvals",function(d) { return d.vals[1]} )
-			.attr("percent",function(d) { return d.vals[2]} )
-			.on("mouseover", mouseover)
-			.on("mouseout", mouseout)
-            .call(rect);
-		
+          .attr("class", "child")
+          .attr("code", function (d) {
+            return d.code
+          })
+          .attr("desc", function (d) {
+            return d.desc
+          })
+          .attr("id", function (d) {
+            return d.code
+          })
+          .attr("vals", function (d) {
+            return d.vals[0]
+          })
+          .attr("realvals", function (d) {
+            return d.vals[1]
+          })
+          .attr("percent", function (d) {
+            return d.vals[2]
+          })
+          .on("mouseover", mouseover)
+          .on("mouseout", mouseout)
+          .call(rect);
+
         g.append("rect")
-            .attr("class", "parent")
-			.attr("desc",function(d) { return d.desc} )
-			.attr("id",function(d) { return d.code} )
-			.attr("vals",function(d) { return d.vals[0]} )
-			.attr("realvals",function(d) { return d.vals[1]} )
-			.attr("percent",function(d) { return d.vals[2]} )
-			.on("mouseover", mouseover)
-			.on("mouseout", mouseout)
-            .call(rect);
-			
-       g.append("text")
-			.attr("class", "parentLabels")
-            .attr("dy", "1em")
-            .text(function(d) {
-				if(d.vals[2]==0){ 
-					return d.desc+" £"+formatNumber(d.vals[1])	
-				} else {
-					return d.desc+" £"+formatNumber(d.vals[1])+" ("+formatNumber1dp(d.vals[2])+"%)"
-				}
-			; })
-			.call(resize)
-            .call(text);
-		
-		  
-		  	
+          .attr("class", "parent")
+          .attr("desc", function (d) {
+            return d.desc
+          })
+          .attr("id", function (d) {
+            return d.code
+          })
+          .attr("vals", function (d) {
+            return d.vals[0]
+          })
+          .attr("realvals", function (d) {
+            return d.vals[1]
+          })
+          .attr("percent", function (d) {
+            return d.vals[2]
+          })
+          .attr('aria-label', function(d) { return d.desc + " £" + formatNumber(d.vals[1]); })
+          .on("mouseover", mouseover)
+          .on("focus", mouseover)
+          .on("mouseout", mouseout)
+          .on("blur", mouseout)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+              $(d3.event.target).parent().d3Click();
+            }
+          })
+          .call(rect);
+
+        g.append("text")
+          .attr("class", "parentLabels")
+          .attr("dy", "1em")
+          .text(function (d) {
+            if (d.vals[2] == 0) {
+              return d.desc + " £" + formatNumber(d.vals[1])
+            } else {
+              return d.desc + " £" + formatNumber(d.vals[1]) + " (" + formatNumber1dp(d.vals[2]) + "%)"
+            }
+            ;
+          })
+          .call(resize)
+          .call(text);
+
+
         function transition(d) {
-			if(d3.select(this).attr("id") != "gparent"){
-				selectedArray.push(d3.select(this).select('.parent').attr("id"))
-				selectedView = selectedArray.join().replace(/,/g , "/")
-								
-				window.location.hash = encodeURI(selectedView);
-			} else {
-						selectedArray.splice(-1,1)					
-						selectedView = selectedArray.join().replace(/,/g , "/")
-						
-						window.location.hash = encodeURI(selectedView)
-			}
-		
-			
-			
+          if (d3.select(this).attr("id") != "gparent") {
+            selectedArray.push(d3.select(this).select('.parent').attr("id"))
+            selectedView = selectedArray.join().replace(/,/g, "/")
+
+            window.location.hash = encodeURI(selectedView);
+          } else {
+            selectedArray.splice(-1, 1)
+            selectedView = selectedArray.join().replace(/,/g, "/")
+
+            window.location.hash = encodeURI(selectedView)
+          }
+
+          if(selectedArray.length === 0){
+            d3.select("#topBtn").style("visibility", "hidden");
+            d3.select("#upBtn").style("visibility", "hidden");
+
+          } else {
+            d3.select("#topBtn").style("visibility", "visible");
+            d3.select("#upBtn").style("visibility", "visible");
+          }
+
           if (transitioning || !d) return;
           transitioning = true;
-  
+
           var g2 = display(d),
-              t1 = g1.transition().duration(400),
-              t2 = g2.transition().duration(400);
-     
+            t1 = g1.transition().duration(400),
+            t2 = g2.transition().duration(400);
+
           // Update the domain only after entering new elements.
           x.domain([d.x, d.x + d.dx]);
           y.domain([d.y, d.y + d.dy]);
-    
+
           // Enable anti-aliasing during the transition.
           svg.style("shape-rendering", null);
-    
+
           // Draw child nodes on top of parent nodes.
-          svg.selectAll(".depth").sort(function(a, b) { return a.depth - b.depth; });
-   
+          svg.selectAll(".depth").sort(function (a, b) {
+            return a.depth - b.depth;
+          });
+
           // Fade-in entering text.
           g2.selectAll("text").style("fill-opacity", 0);
-    	
-	
+
+
           // Transition to the new view.
           t1.selectAll("rect").call(rect);
-		  t1.selectAll("text").call(text).style("fill-opacity", 1);
-         // t1.selectAll(".childLabels").call(text).style("fill-opacity",1);
-          t1.selectAll(".parentLabels").call(text).style("fill-opacity",1);
-          
+          t1.selectAll("text").call(text).style("fill-opacity", 1);
+          // t1.selectAll(".childLabels").call(text).style("fill-opacity",1);
+          t1.selectAll(".parentLabels").call(text).style("fill-opacity", 1);
+
           t2.selectAll("rect").call(rect);
-		  t2.selectAll("text").call(resize).call(text).style("fill-opacity", 1);
-		//  t2.selectAll(".childLabels").call(text).call(resize2).style("fill-opacity", 1);
-		  t2.selectAll(".parentLabels").call(resize).call(text).style("fill-opacity", 1);
-         
-    
+          t2.selectAll("text").call(resize).call(text).style("fill-opacity", 1);
+          //  t2.selectAll(".childLabels").call(text).call(resize2).style("fill-opacity", 1);
+          t2.selectAll(".parentLabels").call(resize).call(text).style("fill-opacity", 1);
+
+
           // Remove the old node when the transition is finished.
-          t1.remove().each("end", function() {
+          t1.remove().each("end", function () {
             svg.style("shape-rendering", "crispEdges");
             transitioning = false;
           });
-        
-			myClass = $(this).attr("class");
-			
-			if(myClass=="children"){
-				level = level+1;
-				levelArray = Array(level);
-			} else {
-				level = level-1;
-				levelArray = Array(level);
-			}
-			
-		}
-    
+
+          myClass = $(this).attr("class");
+
+          if (myClass == "children") {
+            level = level + 1;
+            levelArray = Array(level);
+          } else {
+            level = level - 1;
+            levelArray = Array(level);
+          }
+
+        }
+
         return g;
-		g.each( function(d,i) {
-			d3.selectAll(".children").selectAll("text")
-				.data(d._children).enter().append("text")
-				.attr("class", "childLabels")
-				.attr("dy", "0.5em")
-				.text(function(d){ return d.desc;});
-			})
+        g.each(function (d, i) {
+          d3.selectAll(".children").selectAll("text")
+            .data(d._children).enter().append("text")
+            .attr("class", "childLabels")
+            .attr("dy", "0.5em")
+            .text(function (d) {
+              return d.desc;
+            });
+        })
       }
-	  
-	  function resize(text, width){
-		  
-			text.each(function(d,i) {
-				
-				var text = d3.select(this).style("font-size", function(d) { 
-						return Math.sqrt((d.widthCalc*d.heightCalc))/ Math.log(this.getComputedTextLength())*0.45 + "px";  
-				})	
-			});
-	  };
-	  
-	  function text(text, width) {
-		  	text.each(function(d,i) {
-				var text = d3.select(this),
-					words = text.text().split(/\s+/).reverse(),
-					word,
-					line = [],
-					y = text.attr("y"),
-					dy = parseFloat(text.attr("dy")),
-					tspan = text.text(null).append("tspan")/*.attr("x", 0).attr("y", y)*/.attr("dy",  "1em");
-				
-				while (word = words.pop()) {
-				  line.push(word+" ");
-				  tspan.text(line.join(" "));
-				  
-				 if (tspan.node().getComputedTextLength() >  d.widthCalc-10) {
-					line.pop();
-					tspan.text(line.join(" "));
-					line = [word+" "];
-					
-					tspan = text.append("tspan").attr("x", function(d) { return x(d.x) + 6; }).attr("dy",  dy + "em").text(word+" ");
-					
-				  }
-				 }		
-			  });
-				
-       d3.selectAll(".parentLabels").attr("y", function(d) { return y(d.y) + 6; })
-      					   			.attr("x", function(d) { return x(d.x) + 6; });
-	  }
-    
-	
-	  function rect(rect) {
-		rect.attr("x", function(d) { return x(d.x); })
-            .attr("y", function(d) { return y(d.y); })
-      		.attr("width", function(d) {
-				   widthCalc = x(d.x + d.dx) - x(d.x);
-				  
-				  d["widthCalc"] = widthCalc;
-				  return widthCalc;
-        	})
-            .attr("height", function(d) {
-				 heightCalc =y(d.y + d.dy) - y(d.y);
-				 d["heightCalc"] = heightCalc;
-				  return heightCalc;				  
-     		})
-	  }
-    
-//      function desc(d) {
-//		return d.parent
-//            ? desc(d.parent) + " > " + d.desc
-//            : d.desc;
-//      }
-  
-	
-	function mouseover (d){
-			
-			var	selectClass = $(this).attr('desc');
-			var	selectValue = $(this).attr('realvals');
-			var	selectPer = $(this).attr('percent');		
-			d3.select("#blurb").select("#txt3").html(function(d){ 
-				if(selectPer==0){ 
-					return selectClass+": £"+formatNumber(selectValue)+" per week";
-				} else {
-					return selectClass+" £"+formatNumber(selectValue)+" per week ("+formatNumber1dp(selectPer)+"%)"
-				}})
-			
-	};
-	
-	function mouseout (){
-			d3.select("#blurb").select("#txt3").html("Total household spend: £"+formatNumber(dataset.vals[1])+" per week");
-	};
-    
-	function simulateClick(elem /* Must be the element */) {
-		var evt = document.createEvent("MouseEvents");
-		evt.initMouseEvent(
-			"click", /* type */
-			true, /* canBubble */
-			true, /* cancelable */
-			window, /* view */
-			0, /* detail */
-			0, /* screenX */
-			0, /* screenY */
-			0, /* clientX */
-			0, /* clientY */
-			false, /* ctrlKey */
-			false, /* altKey */
-			false, /* shiftKey */
-			false, /* metaKey */
-			0, /* button */
-			null); /* relatedTarget */
-		elem.dispatchEvent(evt);	
-	}
-	
-	d3.select("#upBtn").on('click', function() {
-	    	simulateClick(grandparent[0][0]);
-			
-	});
-	
-	d3.select("#topBtn").on('click', function() {
-	    	backToTop();
-	});
-	
-	
-	
-	setTimeout( function(){ 
-	 	if (pymChild) {
-       		pymChild.sendHeight();
-			
-			
-			
-			var url = decodeURI(window.location.hash);
-			
-			
-			selectedArray = []
-			if (url == ""){
-				selectedView = "c0"	
-			} else {
-				params = url.split("/");
-				params[0] = params[0].replace("#", "")
-				storyArray = params;
-				selectedView = storyArray.join().replace(/,/g , "/")
-				
-				$(storyArray).each(function(i){
-					
-					setTimeout(function(){
-						storyId = "#"+storyArray[i];
-						simulateClick(d3.select(storyId)[0][0]);						
-					}, 760*i); 
-			});
-			
-			}
-			
-		}
-	}, 700)
-	
 
-		
+      function resize(text, width) {
 
-		
+        text.each(function (d, i) {
+
+          var text = d3.select(this).style("font-size", function (d) {
+            return Math.sqrt((d.widthCalc * d.heightCalc)) / Math.log(this.getComputedTextLength()) * 0.45 + "px";
+          })
+        });
+      };
+
+      function text(text, width) {
+        text.each(function (d, i) {
+          var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            y = text.attr("y"),
+            dy = parseFloat(text.attr("dy")),
+            tspan = text.text(null).append("tspan")/*.attr("x", 0).attr("y", y)*/.attr("dy", "1em");
+
+          while (word = words.pop()) {
+            line.push(word + " ");
+            tspan.text(line.join(" "));
+
+            if (tspan.node().getComputedTextLength() > d.widthCalc - 10) {
+              line.pop();
+              tspan.text(line.join(" "));
+              line = [word + " "];
+
+              tspan = text.append("tspan").attr("x", function (d) {
+                return x(d.x) + 6;
+              }).attr("dy", dy + "em").text(word + " ");
+
+            }
+          }
+        });
+
+        d3.selectAll(".parentLabels").attr("y", function (d) {
+          return y(d.y) + 6;
+        })
+          .attr("x", function (d) {
+            return x(d.x) + 6;
+          });
+      }
+
+      function rect(rect) {
+        rect.attr("x", function (d) {
+          return x(d.x);
+        })
+          .attr("y", function (d) {
+            return y(d.y);
+          })
+          .attr("width", function (d) {
+            widthCalc = x(d.x + d.dx) - x(d.x);
+
+            d["widthCalc"] = widthCalc;
+            return widthCalc;
+          })
+          .attr("height", function (d) {
+            heightCalc = y(d.y + d.dy) - y(d.y);
+            d["heightCalc"] = heightCalc;
+            return heightCalc;
+          })
+      }
+
+      //      function desc(d) {
+      //		return d.parent
+      //            ? desc(d.parent) + " > " + d.desc
+      //            : d.desc;
+      //      }
+
+      function mouseover(d) {
+
+        var selectClass = $(this).attr('desc');
+        var selectValue = $(this).attr('realvals');
+        var selectPer = $(this).attr('percent');
+        d3.select("#blurb").select("#txt2").html(selectClass + ": ");
+        d3.select("#blurb").select("#txt3").html(function (d) {
+          if (selectPer == 0) {
+            return "£" + formatNumber(selectValue) + " per week";
+          } else {
+            return "£" + formatNumber(selectValue) + " per week (" + formatNumber1dp(selectPer) + "%)"
+          }
+        })
+
+      };
+
+      function mouseout() {
+        d3.select("#blurb").select("#txt2").html("Total household spend: ");
+        d3.select("#blurb").select("#txt3").html("£" + formatNumber(dataset.vals[1]) + " per week");
+      };
+
+      function simulateClick(elem /* Must be the element */) {
+        var evt = document.createEvent("MouseEvents");
+        evt.initMouseEvent(
+          "click", /* type */
+          true, /* canBubble */
+          true, /* cancelable */
+          window, /* view */
+          0, /* detail */
+          0, /* screenX */
+          0, /* screenY */
+          0, /* clientX */
+          0, /* clientY */
+          false, /* ctrlKey */
+          false, /* altKey */
+          false, /* shiftKey */
+          false, /* metaKey */
+          0, /* button */
+          null); /* relatedTarget */
+        elem.dispatchEvent(evt);
+      }
+
+      d3.select("#upBtn").on('click', function () {
+        simulateClick(grandparent[0][0]);
+
+      });
+
+      d3.select("#topBtn").on('click', function () {
+        backToTop();
+      });
+
+      setTimeout(function () {
+        if (pymChild) {
+          pymChild.sendHeight();
 
 
-
-function backToTop (){
-				
-			$(levelArray).each(function(i){		
-				setTimeout(function(){
-					simulateClick(grandparent[0][0]);
-				},760*i);
-			});
-};
+          var url = decodeURI(window.location.hash);
 
 
+          selectedArray = []
+          if (url == "") {
+            selectedView = "c0"
+          } else {
+            params = url.split("/");
+            params[0] = params[0].replace("#", "")
+            storyArray = params;
+            selectedView = storyArray.join().replace(/,/g, "/")
 
-	function updateHash() {
-	   
-	}
-		
-		
-		
+            $(storyArray).each(function (i) {
+
+              setTimeout(function () {
+                storyId = "#" + storyArray[i];
+                simulateClick(d3.select(storyId)[0][0]);
+              }, 760 * i);
+            });
+
+          }
+
+        }
+      }, 700)
+
+      function backToTop() {
+
+        $(levelArray).each(function (i) {
+          setTimeout(function () {
+            simulateClick(grandparent[0][0]);
+          }, 760 * i);
+        });
+      };
+
+      function updateHash() {
+
+      }
     </script>
 
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-37894017-1']);
+      _gaq.push(['_trackPageview']);
 
-<script>
-
-
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-37894017-1']);
-		  _gaq.push(['_trackPageview']);
-		
-		
-		  (function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-
-</script>
-
-</body>
+      (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
 </html>

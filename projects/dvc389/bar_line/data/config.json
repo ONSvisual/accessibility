@@ -1,0 +1,6 @@
+{"vars": ["Inflation adjusted prices", "Current prices"],
+
+ "filenames": ["adjusted.json", "current.json"],
+
+ "code": ["adjusted", "current"]
+}

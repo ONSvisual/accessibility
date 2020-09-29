@@ -1,0 +1,64 @@
+{
+    "essential" : {
+            "graphic_data_url": "linechart/data2.csv",
+            "graphic_data_url2": "linechart/data3.csv",
+			"graphic_data_url3": "linechart/data4.csv",
+			"graphic_data_url4": "linechart/data5.csv",
+
+
+            "dateFormat":"%Y",
+
+            "legendLabels" : [],
+
+            "sourceText":["Annual Population Survey, ONS"],
+            "sourceURL":["http://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/bulletins/measuringnationalwellbeing/2015to2016"],
+
+            "annotationChart": [
+
+            ],
+            "annotationBullet": [
+
+            ],
+            "annotationXY":[
+
+            ],
+            "annotationAlign":[
+
+            ],
+
+            "circles" : true,
+            "annotationCXCY":[
+
+
+            ],
+
+            "yAxisLabel":"out of ten",
+            "yAxisLabel2":" ",
+            "yAxisScale":[[6,9],
+						  [6,9],
+						  [6,9],
+						  [1,5]
+			],
+
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [52, 52, 52]
+    },
+    "optional" : {
+            "margin_sm": [10, 23, 28, 30],
+            "margin_md": [10, 23, 28, 30],
+            "margin_lg": [10, 23, 28, 30],
+
+            "aspectRatio_sm" : [16,13],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,8],
+
+            "mobileBreakpoint" : 610,
+
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%Y"],
+
+            "x_num_ticks_sm_md_lg" : [2,17,17],
+            "y_num_ticks_sm_md_lg" : [5,5,5],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}

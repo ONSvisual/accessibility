@@ -1,0 +1,15 @@
+{"ons":{
+"maptitle": "Gardens MSOA map",
+"varcolour": ["#7fcdbb", "#41b6c4", "#1d91c0", "#225ea8", "#0c2c84"],
+"legendvars":["% without an outdoor space","Average size"],
+"varunit": "&nbsp;&nbsp;<b>&#x25B2;</b> <br>10% least deprived areas",
+"varunit2": "&#x25B2;&nbsp;&nbsp;<br>10% most deprived areas",
+"varunit3": "10% highest income areas <br>&nbsp;&nbsp;&darr;",
+"varunit4": "10% lowest income areas <br>&nbsp;&nbsp;&darr;",
+"displaydecimals": 0,
+"legenddecimals": 2,
+"breaks": [[0,0.07,0.15,0.27,0.49,0.98]],
+"dropticks": true,
+"numberBreaks":5,
+"keyLabel":"% of dwellings without outdoor space"
+}}

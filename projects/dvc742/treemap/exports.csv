@@ -1,0 +1,43 @@
+id,parentId,name,size
+c0,NULL,Total Services,306870
+c1,c0,Manufacturing,2264
+c2,c0,Maintenance and Repair,3427
+c3,c0,Transportation,29469
+c3_1,c3,Sea transportation,8004
+c3_2,c3,Air transportation,18648
+c3_3,c3,Other modes of transportation,1112
+c3_4,c3,Postal and courier services,1705
+c4,c0,Travel,36431
+c4_1,c4,Business travel,5202
+c4_2,c4,Personal travel,31229
+c5,c0,Construction,2671
+c5_1,c5,Construction abroad,2226
+c5_2,c5,Construction in the reporting economy,445
+c6,c0,Insurance and Pension,19425
+c6_1,c6,Direct insurance,15937
+c6_2,c6,Reinsurance,537
+c6_3,c6,Auxiliary insurance services,2951
+c6_4,c6,Pension and standardised guarantee services,0
+c7,c0,Financial,63222
+c7_1,c7,Explicitly charged and other financial services,52288
+c7_2,c7,Financial intermediation services indirectly measured (FISIM),10934
+c8,c0,Intellectual property,19721
+c9,c0,"Telecommunications, computer and information services",23960
+c9_1,c9,Telecommunications services,7353
+c9_2,c9,Computer services,12536
+c9_3,c9,Information services,4071
+c10,c0,Other Business Services,98796
+c10_1,c10,Research and development services,10194
+c10_2,c10,Professional and management consulting services,45223
+c10_2_1,c10_2,"Legal, accounting, management consulting and public relations",36000
+c10_2_2,c10_2,"Advertising, market research and public opinion polling",9223
+c10_3,c10,"Technical, trade-related and other business services",43379
+c10_3_1,c10_3,"Architectural, engineering, scientific and other technical services",10810
+c10_3_2,c10_3,"Waste treatment and de-pollution, agricultural and mining services",615
+c10_3_3,c10_3,Operating leasing services,267
+c10_3_4,c10_3,Trade-related services,3209
+c10_3_5,c10_3,Other business services not included elsewhere,28478
+c11,c0,"Personal, Cultural and Recreational",4584
+c11_1,c11,Audiovisual and related services,1951
+c11_2,c11,"Other personal, cultural, and recreational services",2633
+c12,c0,Government,2900

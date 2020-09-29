@@ -1,0 +1,44 @@
+{
+    "essential" : {
+            "graphic_data_url": "data/data.csv",
+            "pickxdata":"popchange",
+            "pickydata":"empchange",
+            "groups" : ["Least Deprived Working","Least Deprived Residential","Most Deprived Working","Most Deprived Residential","Other"],
+            "fills":["#008080","#7fbdbd","#d32f2f","#e79e9e","#cccccc"],
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+            "rectannotations":[],
+            "textAnnotations":[{
+              "x":50,
+              "y":3.5,
+                "text":""
+              }],
+            "textAnnotationWrap":100,
+            "d3AnnotationWrap":190,
+            "xAxisLabel":"% Population growth",
+            "yAxisLabel":"% Employment growth",
+            "AxisScale":"",
+      			"xAxisScale":[-10,50],
+      			"yAxisScale":[-50,250]
+
+	},
+    "optional" : {
+            "margin_sm": [50 ,20, 10, 50],
+            "margin_md": [50, 20, 10, 50],
+            "margin_lg": [50, 50, 10, 50],
+
+            "aspectRatio_sm" : [1.5,1],
+            "aspectRatio_md" : [1.5,1],
+            "aspectRatio_lg" : [1.5,1],
+
+            "mobileBreakpoint" : 610,
+
+            "x_num_ticks_sm_md_lg" : [4,5,5],
+            "y_num_ticks_sm_md_lg" : [4,5,5],
+
+            "annotateLineX1_Y1_X2_Y2":[[[-70,0],[900,0]],[[0,-10],[0,50]]],
+            "lineColor_opcty" : [["#000", 1],["#000", 1],["#000", 1],["#000", 1]]
+
+
+    }
+}

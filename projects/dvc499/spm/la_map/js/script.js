@@ -18,7 +18,7 @@ if (Modernizr.webgl) {
     // create blank svg to get correct height
     d3.select("body")
       .append('svg')
-        .attr('height', '0px');
+      .attr('height', '0px');
 
 
     // display detail info on mobile button click
@@ -26,7 +26,7 @@ if (Modernizr.webgl) {
     d3.select(".btn-primary").on('click', function() {
 
       displayDetail = !displayDetail;
-      if(displayDetail === true) {
+      if (displayDetail === true) {
         d3.select('#text-title').style('display', 'block');
         d3.select('#textdiv').style('display', 'block');
         d3.select(".btn-primary").text("Hide detail")
@@ -43,34 +43,43 @@ if (Modernizr.webgl) {
     dvc = config.ons;
     oldAREACD = "";
 
-
     //get column names and store them in an array
     var columnNames = [];
 
     for (var column in data[0]) {
       if (column == 'AREACD') continue;
       if (column == 'AREANM') continue;
+      if (column == 'region') continue;
+      if (column == 'country') continue;
       columnNames.push(column);
-      // dvc.varname = column;
     }
 
     //set title of page
     //Need to test that this shows up in GA
     document.title = dvc.maptitle;
 
+    // hide title of the table and "show more" button if all varables are scales
+    if (columnNames.length === dvc.numberLegends) {
+      d3.select('#text-title')
+        .style('display', 'none');
+
+      d3.select('#show-more')
+        .style('display', 'none');
+    }
+
     //Fire design functions
     selectlist(data);
 
     //Set up number formats
-    displayformat = d3.format("." + dvc.displaydecimals + "f");
-    displayformatOthers = d3.format("." + dvc.decimalsOther + "f");
-    legendformat = d3.format("." + dvc.legenddecimals + "f");
+    displayformat = d3.format(",." + dvc.displaydecimals + "f");
+    displayformatOthers = d3.format(",." + dvc.decimalsOther + "f");
+    legendformat = d3.format(",." + dvc.legenddecimals + "f");
 
     //set up basemap
     map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'data/style.json', //stylesheet location
-      center: [-2.5, 54], // starting position
+      center: [-2.5, 53], // starting position
       zoom: 4.5, // starting zoom
       maxZoom: 13, //
       attributionControl: false
@@ -111,11 +120,6 @@ if (Modernizr.webgl) {
     databyId = {};
     var dataById = {};
 
-
-
-
-
-
     data.forEach(function(d) {
       rateById[d.AREACD] = +eval("d." + dvc.columnMap);
       areaById[d.AREACD] = d.AREANM
@@ -128,8 +132,6 @@ if (Modernizr.webgl) {
         dataByColumn[columnNames[i]] = +d[columnNames[i]]
       }
     })
-
-
 
     //Flatten data values and work out breaks
     var values = {};
@@ -147,8 +149,11 @@ if (Modernizr.webgl) {
 
     for (j = 0; j < columnNames.length; j++) {
       if (config.ons.breaks == "jenks") {
+
+        breaks[columnNames[j]] = [];
+
         ss.ckmeans(values[columnNames[j]], (dvc.numberBreaks)).map(function(cluster, i) {
-          breaks[columnNames[j]] = [];
+
           if (i < dvc.numberBreaks - 1) {
             breaks[columnNames[j]].push(cluster[0]);
           } else {
@@ -159,9 +164,13 @@ if (Modernizr.webgl) {
         });
       } else if (config.ons.breaks == "equal") {
         breaks[columnNames[j]] = ss.equalIntervalBreaks(values[columnNames[j]], dvc.numberBreaks);
+        // console.log(breaks[columnNames[j]])
+
       } else {
         breaks[columnNames[j]] = config.ons.breaks;
       };
+
+      // console.log(breaks)
 
       // //round breaks to specified decimal places
       breaks[columnNames[j]] = breaks[columnNames[j]].map(function(each_element) {
@@ -176,10 +185,9 @@ if (Modernizr.webgl) {
       }
 
       // custom breaks for map legend if set true in config
-      if(dvc.customBreaksMapLegend === true) {
-        breaks.percent_change = dvc.breakPoints;
+      if (dvc.customBreaksMapLegend === true) {
+        breaks[dvc.columnMap] = dvc.breakPoints;
       }
-
 
       //set up d3 color scales
       color[columnNames[j]] = d3.scaleThreshold()
@@ -279,6 +287,11 @@ if (Modernizr.webgl) {
           "text-halo-blur": 1
         }
       });
+
+      // make source
+      d3.select('#source')
+        .text('Source: ' + dvc.sourceText);
+
 
 
       //test whether ie or not
@@ -391,6 +404,13 @@ if (Modernizr.webgl) {
 
     function selectArea(code) {
       $("#areaselect").val(code).trigger("chosen:updated");
+      d3.select('abbr').on('keypress', function(evt) {
+        if (d3.event.keyCode == 13 || d3.event.keyCode == 32) {
+          d3.event.preventDefault();
+          onLeave();
+          resetZoom();
+        }
+      })
     }
 
     function zoomToArea(code) {
@@ -484,53 +504,55 @@ if (Modernizr.webgl) {
       } //end of for loop
 
       // create text
-      for (i = dvc.numberLegends; i<columnNames.length; i++) {
+      for (i = dvc.numberLegends; i < columnNames.length; i++) {
         var textnumber = d3.select("#number" + i)
-          .text(dataById[code][columnNames[i]]);
+          .text(displayformat(dataById[code][columnNames[i]]));
       } //end of create text loop
 
+
+      d3.select("div#info").select('p').text("In " + areaById[code] + ", the " + dvc.textChartTitle + " is " + dataById[code][columnNames[0]] + " " + dvc.labelNames[0]);
 
     }
 
     function hideaxisVal() {
-         for (i = 0; i < dvc.numberLegends; i++) {
-           d3.select("#currLine"+i)
-             .style("opacity", 0)
+      for (i = 0; i < dvc.numberLegends; i++) {
+        d3.select("#currLine" + i)
+          .style("opacity", 0)
 
-           d3.select("#currVal"+i).text("")
-             .style("opacity", 0)
-         }
+        d3.select("#currVal" + i).text("")
+          .style("opacity", 0)
+      }
 
-         for (i = dvc.numberLegends; i < columnNames.length; i++) {
-           // d3.select("#number"+i)
-             // .style("opacity", 0)
+      for (i = dvc.numberLegends; i < columnNames.length; i++) {
+        // d3.select("#number"+i)
+        // .style("opacity", 0)
 
-           d3.select("#number"+i).text("")
-             // .style("opacity", 0)
-         }
-       }
-//     function SettingKeys(code) {
-//        MyKey = dataById[code];
-//       Object.keys(MyKey).forEach(function(key) {
-//         console.log(key, MyKey[key]);
-//       });
-//
-// key.forEach(
-// function(){
-// 			d3.select("#keys")
-// 					.append("g")
-// 					.selectAll("svg")
-// 					.data(MyKey)
-// 					.enter()
-// 					.append("svg")
-// 					.attr("id", function(d, i){
-// 						console.log(d)
-// 						console.log(i)
-// 					})
-// 					.attr("width", 200)
-// 					.attr("height", 65);
-// 			});
-// }
+        d3.select("#number" + i).text("")
+        // .style("opacity", 0)
+      }
+    }
+    //     function SettingKeys(code) {
+    //        MyKey = dataById[code];
+    //       Object.keys(MyKey).forEach(function(key) {
+    //         console.log(key, MyKey[key]);
+    //       });
+    //
+    // key.forEach(
+    // function(){
+    // 			d3.select("#keys")
+    // 					.append("g")
+    // 					.selectAll("svg")
+    // 					.data(MyKey)
+    // 					.enter()
+    // 					.append("svg")
+    // 					.attr("id", function(d, i){
+    // 						console.log(d)
+    // 						console.log(i)
+    // 					})
+    // 					.attr("width", 200)
+    // 					.attr("height", 65);
+    // 			});
+    // }
     createKey(config, code);
 
     function createKey(config, code) {
@@ -545,37 +567,44 @@ if (Modernizr.webgl) {
       // }
 
 
-      for (i = 0; i<dvc.numberLegends; i++) {
+      for (i = 0; i < dvc.numberLegends; i++) {
 
         keywidth = d3.select("#keydiv").node().getBoundingClientRect().width;
 
         var svgkey = d3.select("#keydiv")
           .append("svg")
+          .attr('aria-hidden', 'true')
           .attr("id", "key" + i)
           .attr("width", keywidth)
-          .attr("height", function () {
-            if(columnNames[i] === dvc.columnMap) {
+          .attr("height", function() {
+            if (columnNames[i] === dvc.columnMap) {
               return 75;
-            } else {return 75;}});
+            } else {
+              return 75;
+            }
+          });
 
         svgkey.append('text')
-        .attr("x",15)
-        .attr("y",function () {
-          if(columnNames[i] === dvc.columnMap) {
-            return 10;
-          } else {return 10;}})
-        .attr("font-size","10px")
-        .text(dvc.labelNames[i])
+          .attr("x", 15)
+          .attr("y", function() {
+            if (columnNames[i] === dvc.columnMap) {
+              return 10;
+            } else {
+              return 10;
+            }
+          })
+          .attr("font-size", "14px")
+          .text(dvc.labelNames[i])
         // var color = d3.scaleThreshold()
         // 	 .domain(breaks)
         // 	 .range(colour);
 
-        x={};//create an object to hold all the different x functions
+        x = {}; //create an object to hold all the different x functions
 
-        for(k=0;k<dvc.numberLegends;k++){
-                x[columnNames[k]] = d3.scaleLinear()
-                  .domain([breaks[columnNames[k]][0], breaks[columnNames[k]][dvc.numberBreaks]]) /*range for data*/
-                  .range([0, keywidth - 30]);
+        for (k = 0; k < dvc.numberLegends; k++) {
+          x[columnNames[k]] = d3.scaleLinear()
+            .domain([breaks[columnNames[k]][0], breaks[columnNames[k]][dvc.numberBreaks]]) /*range for data*/
+            .range([0, keywidth - 55]);
         }
 
 
@@ -584,11 +613,15 @@ if (Modernizr.webgl) {
         //   .domain([breaks[columnNames[i]][0], breaks[columnNames[i]][dvc.numberBreaks]]) /*range for data*/
         //   .range([0, keywidth - 30]); /*range for pixels*/
 
-// function(d) {if(columnNames[i] === dvc.columnMap) { return 15;} else { return 0;
+        // function(d) {if(columnNames[i] === dvc.columnMap) { return 15;} else { return 0;
 
         // change tick height for every but first key
         var tickHeight;
-        if(columnNames[i] === dvc.columnMap) { tickHeight = 15;} else { tickHeight = 5;}
+        if (columnNames[i] === dvc.columnMap) {
+          tickHeight = 15;
+        } else {
+          tickHeight = 5;
+        }
 
         var xAxis = d3.axisBottom(x[columnNames[i]])
           .tickSize(tickHeight)
@@ -596,23 +629,27 @@ if (Modernizr.webgl) {
           .tickFormat(legendformat);
 
         var g2 = svgkey.append("g").attr("id", "horiz" + i)
-          .attr("transform", function () {
-            if(columnNames[i] === dvc.columnMap) {
-              return "translate(15,40)";
-            } else {return "translate(15,40)";}});
+          .attr("transform", function() {
+            if (columnNames[i] === dvc.columnMap) {
+              return "translate(30,40)";
+            } else {
+              return "translate(30,40)";
+            }
+          });
 
 
         keyhor = d3.select("#horiz" + i);
 
-        dataforscales={};
+        dataforscales = {};
 
         dataforscales[columnNames[i]] = color[columnNames[i]].range().map(function(d, j) {
           return {
-            x0: j ? x[columnNames[i]](color[columnNames[i]].domain()[j-1]) : x[columnNames[i]].range()[0],
+            x0: j ? x[columnNames[i]](color[columnNames[i]].domain()[j - 1]) : x[columnNames[i]].range()[0],
             x1: j < color[columnNames[i]].domain().length ? x[columnNames[i]](color[columnNames[i]].domain()[j]) : x[columnNames[i]].range()[1],
             z: d
           };
         })
+
 
         g2.selectAll("rect")
           .data(dataforscales[columnNames[i]])
@@ -625,7 +662,7 @@ if (Modernizr.webgl) {
           })
           .attr("width", function(d, i) {
             //return x[columnNames[i]](d[i + 1]) - x[columnNames[i]](d[i]);
-            return d.x1-d.x0;
+            return d.x1 - d.x0;
           })
           .style("opacity", 0.8)
           .style("fill", function(d) {
@@ -639,9 +676,11 @@ if (Modernizr.webgl) {
           .attr("x2", x[columnNames[i]](10))
           .attr("y1", -10)
           .attr("y2", function() {
-            if(columnNames[i] === dvc.columnMap) {
+            if (columnNames[i] === dvc.columnMap) {
               return 8;
-            } else {return 0;}
+            } else {
+              return 0;
+            }
           })
           .attr("stroke-width", "2px")
           .attr("stroke", "#666")
@@ -649,21 +688,23 @@ if (Modernizr.webgl) {
 
         g2.append("text")
           .attr("id", "currVal" + i)
+          .attr("class", "currVal")
           .attr("x", x[columnNames[i]](10))
-          .attr("y", function () {
-            if(columnNames[i] === dvc.columnMap) {
+          .attr("y", function() {
+            if (columnNames[i] === dvc.columnMap) {
               return -15;
-            } else {return -12;}})
+            } else {
+              return -12;
+            }
+          })
           .attr("fill", "#000")
           .text("");
-
-
 
         keyhor.selectAll("rect")
           .data(color[columnNames[i]].range().map(function(d, j) {
             return {
-              x0: j ? x[columnNames[i]](color[columnNames[i]].domain()[j-1]) : x[columnNames[i]].range()[0],
-              x1: j < color[columnNames[i]].domain().length ? x[columnNames[i]](color[columnNames[i]].domain()[j ]) : x[columnNames[i]].range()[1],
+              x0: j ? x[columnNames[i]](color[columnNames[i]].domain()[j - 1]) : x[columnNames[i]].range()[0],
+              x1: j < color[columnNames[i]].domain().length ? x[columnNames[i]](color[columnNames[i]].domain()[j]) : x[columnNames[i]].range()[1],
               z: d
             };
           }))
@@ -674,7 +715,7 @@ if (Modernizr.webgl) {
             return d.x1 - d.x0;
           })
           .style("fill", function(d) {
-            if(columnNames[i] === dvc.columnMap) {
+            if (columnNames[i] === dvc.columnMap) {
               return d.z;
             } else {
               return "none";
@@ -713,23 +754,23 @@ if (Modernizr.webgl) {
 
       // create text
       var textTitle = d3.select("#text-title")
-            .text(dvc.textChartTitle)
-            // .style('float', 'right')
+        .text(dvc.textChartTitle)
+      // .style('float', 'right')
 
-      for (i = dvc.numberLegends; i<columnNames.length; i++) {
+      for (i = dvc.numberLegends; i < columnNames.length; i++) {
         var textkey = d3.select("#textdiv")
           .append("div")
-            .attr("id", "text" + i)
-            // .attr("width", keywidth)
-            .style("height", "25px")
-            .style('border-top', '1px solid grey')
-            .style("font-size", "10px")
+          .attr("id", "text" + i)
+          // .attr("width", keywidth)
+          .style("height", "35px")
+          .style('border-top', '1px solid grey')
+          .style("font-size", "14px")
           .append("p")
-            .text(dvc.labelNames[i]+": ")
-            .style('line-height', '5px')
+          .text(dvc.labelNames[i] + ": ")
+          .style('line-height', '5px')
           .append("span")
-            .attr("id", "number" + i)
-            .style('float', 'right');
+          .attr("id", "number" + i)
+          .style('float', 'right');
       } //end of create text loop
 
 
@@ -778,8 +819,6 @@ if (Modernizr.webgl) {
         timeout: 5000,
         maximumAge: 0
       };
-
-
 
       navigator.geolocation.getCurrentPosition(success, error, options);
     }
@@ -839,7 +878,8 @@ if (Modernizr.webgl) {
 
       $('#areaselect').chosen({
         width: "98%",
-        allow_single_deselect: true
+        allow_single_deselect: true,
+        placeholder_text_single: "Select an area"
       }).on('change', function(evt, params) {
 
         if (typeof params != 'undefined') {
@@ -861,6 +901,10 @@ if (Modernizr.webgl) {
         }
 
       });
+
+      d3.select('input.chosen-search-input').attr('id', 'chosensearchinput')
+      d3.select('div.chosen-search').insert('label', 'input.chosen-search-input').attr('class', 'visuallyhidden').attr('for', 'chosensearchinput').html("Type to select an area")
+
 
     };
 

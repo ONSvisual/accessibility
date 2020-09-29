@@ -1,0 +1,52 @@
+{
+	"code": "disabi",
+	"filepth": "",
+	"description": {
+		"title": "Reported harmonised standard definition of disability",
+		"unit": "%"
+	},
+	"months": [],
+	"days": [],
+	"quarters": {
+		"catLabels": [
+			"2013 Jun",
+			"2013 Sep",
+			"2013 Dec",
+			"2014 Mar",
+			"2014 Jun",
+			"2014 Sep",
+			"2014 Dec",
+			"2015 Mar",
+			"2015 Jun",
+			"2015 Sep",
+			"2015 Dec",
+			"2016 Mar",
+			"2016 Jun",
+			"2016 Sep",
+			"2016 Dec",
+			"2017 Mar",
+			"2017 Jun"
+		],
+		"dataValues": [
+			16.5, 
+			16.5, 
+			16.7, 
+			16.6, 
+			16.7, 
+			17.0, 
+			16.9, 
+			17.1, 
+			17.5, 
+			17.4, 
+			17.3, 
+			17.5, 
+			17.4, 
+			17.6,
+			17.7,
+			17.5,
+			17.4
+
+		]
+	},
+	"years": []
+}

@@ -1,0 +1,5 @@
+﻿size,rate
+less than 25,1.6
+25 to 49,2.1
+50 to 499,2.0
+500 or more,2.3
