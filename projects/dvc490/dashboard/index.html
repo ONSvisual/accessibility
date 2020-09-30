@@ -5,17 +5,17 @@
 <html class="no-js lt-ie8 ie7" lang="en"><![endif]-->
 <!--[if IE 8]>
 <html class="ie8" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--><!-->
+<!--[if gt IE 8]>-->
 <html lang="en">
 <!--<![endif]-->
   <head>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Well-being dashboard</title>
 
     <meta charset="utf-8"/>
     <meta content="width=device-width,initial-scale=1.0" name="viewport">
-    <meta content="on" http-equiv="cleartype"/>
+    <!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
     <meta name="format-detection" content="telephone=no">
     <meta name="theme-color" content="#58595B">
     <meta name="apple-mobile-web-app-status-bar-style" content="#58595B">
@@ -26,9 +26,9 @@
     <!--[if IE 9]>
     <link rel="stylesheet" type="text/css" href="//cdn.ons.gov.uk/sixteens/1f354a7/css/ie-9.css">
     <![endif]-->
-    <!--[if gt IE 9]><!-->
+    <!--[if gt IE 9]>-->
     <link rel="stylesheet" type="text/css" href="//cdn.ons.gov.uk/sixteens/1f354a7/css/main.css">
-    <![endif]-->
+    <!--<![endif]-->
 
     <link rel="stylesheet" href="../lib/styles.css"/>
     <link rel="stylesheet" href="../lib/vis-styles.css"/>
@@ -63,7 +63,8 @@
         </div>
 
         <div class="col-lg-4 col-lg-offset-0  col-md-5 col-md-offset-0 col-sm-offset-1  col-sm-10 col-xs-12 col-xs-offset-0">
-          <img id="AoC" src="images/dashboard-chart.svg"></img>
+          <img id="AoC" src="images/dashboard-chart.svg"
+               alt="Chart displaying Long term change trends of measures. 27 measures showing improving trend (63% of total), 9 measures showing no change (21% of total), 5 measures not assessed (12% of total) and 2 measures showing deteriorating trend (5% of total)">
         </div>
       </div>
 
@@ -73,33 +74,31 @@
         <ul class="indicators-filter">
           <li>
             <a class="filter-btn allIndicators highlighted" href="#section1" data-filter=".indicatorPanel" style="opacity:1;">
-              <img style="margin-right:5px;" src="images/all.svg">
+              <img style="margin-right:5px;" src="images/all.svg" alt="">
               <span class="visuallyhidden">Show measures for </span>All indicators (43)
             </a>
           </li>
           <li>
             <a class="filter-btn" href="#section3" data-filter=".up" style="opacity:1;">
-              <img style="margin-right:5px;"
-                                                                                     src="images/positive.svg">
+              <img style="margin-right:5px;" src="images/positive.svg" alt="">
               <span class="visuallyhidden">Filter measures to </span>Positive Change (27)
             </a>
           </li>
           <li>
             <a class="filter-btn" href="#section1" data-filter=".down" style="opacity:1;">
-              <img style="margin-right:5px;"
-                                                                                       src="images/negative.svg">
+              <img style="margin-right:5px;" src="images/negative.svg" alt="">
               <span class="visuallyhidden">Filter measures to </span>Negative Change (2)
             </a>
           </li>
           <li>
-            <a class="filter-btn" href="#section1" data-filter=".no" style="opacity:1;"><img style="margin-right:5px;"
-                                                                                     src="images/nochange.svg">
+            <a class="filter-btn" href="#section1" data-filter=".no" style="opacity:1;">
+              <img style="margin-right:5px;" src="images/nochange.svg" alt="">
               <span class="visuallyhidden">Filter measures to </span>No Change (9)
             </a>
           </li>
           <li>
             <a class="filter-btn" href="#section1" data-filter=".null" style="opacity:1;">
-              <img style="margin-right:5px;" src="images/null.svg">
+              <img style="margin-right:5px;" src="images/null.svg" alt="">
               <span class="visuallyhidden">Filter measures to </span>Not assessed (5)
             </a>
           </li>
@@ -1241,7 +1240,7 @@
       }// end else ...
     </script>
 
-    <!--[if gt IE 8]><!-->
+    <!--[if gt IE 8]>-->
     <script type="text/javascript" src="//cdn.ons.gov.uk/sixteens/1f354a7/js/main.js"></script>
 
     <script>
@@ -1258,6 +1257,6 @@
         s.parentNode.insertBefore(ga, s);
       })();
     </script>
-    <![endif]-->
+    <!--<![endif]-->
   </body>
 </html>
