@@ -48,11 +48,12 @@
 		cursor:hand;
 		background-color:#274796!important;
 	}
-	
+
 	/*Bootstrap grid */
 	.row {
 	/*  margin-left: -15px;*/
 	height:98px;
+	clear: both;
 	/*  margin-right: -15px;*/
 	}
 	.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-4, .col-md-4, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-8, .col-md-8, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
@@ -248,7 +249,7 @@
 	  .col-sm-4 {
 		width: 33.33333333%;
 	  }
-	  .col-sm-4 {
+	  .col-sm-3 {
 		width: 25%;
 	  }
 	  .col-sm-2 {
@@ -376,11 +377,11 @@
 		margin-left: 0%;
 	  }
 	}
-	
+
 	@media (min-width: 699px) {
 		.graphicslabel{
 			color:#666666;
-			font-size:12px;
+			font-size:14px;
 			margin-bottom:10px;
 			margin-top:0px;
 			font-weight:normal;
@@ -401,7 +402,7 @@
 		@media (max-width: 699px) {
 		.graphicslabel{
 			color:grey;
-			font-size:12px;
+			font-size:14px;
 			margin-bottom:10px;
 			margin-top:0px;
 			font-weight:normal;
@@ -439,103 +440,98 @@
 		transform:translate(-1,0);
 	}
 
-	
+
 
     </style>
 </head>
 <body>
     <div id="occupation"></div>
     <div>
-    	<p style="font-size:12px; color:grey;">Your selected area is labelled <span style="color:#0075A3; font-weight:bold;">BLUE</span> and the area labelled <span style="font-weight:bold; color:#D2376D;">PINK</span> is the UK average</p>
+    	<p style="font-size:14px;">Your selected area is labelled <span style="color:#0075A3; font-weight:bold;">BLUE</span> and the area labelled <span style="font-weight:bold; color:#D2376D;">PINK</span> is the UK average</p>
     </div>
-       
-    
+
+
     <div id="KeyContainer" style="margin-bottom:20px;"></div>
-    
+
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <p class="graphicslabel">Long-term international net<sup>2</sup> migration per 1,000 resident population, mid-2016</p>
             </div>
-            
+
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic"></div>
         </div>
-        
-        
-        
+
+
+
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <p class="graphicslabel">Short-term international migration<sup>3</sup> inflow estimate, mid-2015 (persons per 1,000 resident population)</p>
             </div>
-            
+
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic2"></div>
         </div>
-    
-    	
-        
+
+
+
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
             	<p class="graphicslabel">New migrant GP<sup>4</sup> registrations, mid-2016 (persons per 1,000 resident population)</p>
             </div>
-            
+
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic3"></div>
         </div>
-        
-        
-        
+
+
+
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
             	<p class="graphicslabel">NINo registrations to non-UK nationals, mid-2016 (persons per 1,000 resident population)</p>
             </div>
-            
+
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic4"></div>
         </div>
-        
-        
-        
+
+
+
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <p class="graphicslabel">Non-British estimate, 2016 (%)</p>
             </div>
-            
+
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic5"></div>
         </div>
-        
-        
-        
+
+
+
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <p class="graphicslabel">Non-UK born estimate, 2016 (%)</p>
             </div>
-            
+
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic6"></div>
         </div>
-        
-        
-        
+
+
+
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <p class="graphicslabel">Live births to non-UK born mothers, 2016 (%)</p>
             </div>
-            
+
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic7"></div>
         </div>
     </div>
-    
-    <div id="footer"></div>
-        
 
-    
     <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" type="text/javascript"></script>
     <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
     <script src="../lib/modernizr.svg.min.js" type="text/javascript"></script>
     <script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.min.js" type="text/javascript"></script>
-    <script src="../lib/footer.js"></script>
     <script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../lib/saveSvgAsPng.js" type="text/javascript"></script>
     <script src="js/chosen.jquery.js"></script>
- 
-    
+
+
     <script>
     //╭━━╮╱╱╱╱╱╱╱╱╭╮
 	//╰┫┣╯╱╱╱╱╱╱╱╭╯╰╮
