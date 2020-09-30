@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="../lib/globalStyle.css" />
     <link rel="stylesheet" href="css/chosen.css" />
-    <style type="text/css">
+    <style>
 
 	body {
 		display:block;
@@ -26,7 +26,6 @@
 
     #pcGo:hover {
         cursor:pointer;
-        cursor:hand;
     }
 	sup{
 		vertical-align:super;
@@ -45,7 +44,6 @@
 
 	.useLocation {
 		cursor:pointer;
-		cursor:hand;
 		background-color:#274796!important;
 	}
 
@@ -418,14 +416,11 @@
 
 	.hoverbar{
 		cursor:pointer;
-		cursor:hand;
 	}
 	.hoverbar:hover{
 		cursor:pointer;
-		cursor:hand;
 		opacity:1;
 		width:2px;
-		transform:translate(0,2)
 	}
 
 	.container {
@@ -433,11 +428,9 @@
 	}
 	.hovertrick{
 		cursor:pointer;
-		cursor:hand;
 		width:2px;
 		opacity:1;
 		fill:#008cba;
-		transform:translate(-1,0);
 	}
 
 	.visuallyhidden {
@@ -683,6 +676,11 @@
 
 				}
 			});
+
+			// Adding label to the search input
+            d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+            d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
+
 		} //End of make occupation
 
 		function drawGraphic(width) {
@@ -1080,6 +1078,13 @@
 					}
 				};
 
+				// Close dropdown 'X' with keyboard
+				d3.select('abbr').on('keypress',function(evt){
+	            	if(d3.event.keyCode==13 || d3.event.keyCode==32){
+	                    d3.event.preventDefault();
+	            		$("#occselect").val("").trigger("chosen:updated");
+	            	}
+	            })
 
 				d3.selectAll("text").attr("font-family","'Open Sans', sans-serif");
 
