@@ -441,16 +441,16 @@
           })
           .append("text")
           .html(function (d) {
-            if (d.change3 == "up") {
-              return '<img src="images/positive.svg">';
-            } else if (d.change3 == "down") {
-              return '<img src="images/negative.svg">';
-            } else if (d.change3 == "no") {
-              return '<img src="images/nochange.svg">';
-            } else if (d.change3 == "null") {
-              return '<img src="images/null.svg">';
-            } else if (d.change3 == "m_up_f_nochange") {
-              return '<img src="images/m_up_f_nochange.svg">';
+            if (d.change3 === "up") {
+              return '<img src="images/positive.svg" alt="">';
+            } else if (d.change3 === "down") {
+              return '<img src="images/negative.svg" alt="">';
+            } else if (d.change3 === "no") {
+              return '<img src="images/nochange.svg" alt="">';
+            } else if (d.change3 === "null") {
+              return '<img src="images/null.svg" alt="">';
+            } else if (d.change3 === "m_up_f_nochange") {
+              return '<img src="images/m_up_f_nochange.svg" alt="">';
             }
           })
 
