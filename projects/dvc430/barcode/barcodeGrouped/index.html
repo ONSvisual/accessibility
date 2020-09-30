@@ -440,6 +440,17 @@
 		transform:translate(-1,0);
 	}
 
+	.visuallyhidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding:0;
+		overflow: hidden;
+		clip: rect(0,0,0,0); border: 0;
+		display:block !important;
+	}
+
 
 
     </style>
@@ -457,6 +468,10 @@
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <p class="graphicslabel">Long-term international net<sup>2</sup> migration per 1,000 resident population, mid-2016</p>
+            	<ul class="visuallyhidden">
+            		<li><span class="selectedAreaSR"></span>: <span id="selectedAreaValue_1"></span></li>
+            		<li><span>UK</span>: <span id="UKValue_1"></span></li>
+            	</ul>
             </div>
 
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic"></div>
@@ -467,6 +482,10 @@
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <p class="graphicslabel">Short-term international migration<sup>3</sup> inflow estimate, mid-2015 (persons per 1,000 resident population)</p>
+            	<ul class="visuallyhidden">
+            		<li><span class="selectedAreaSR"></span>: <span id="selectedAreaValue_2"></span></li>
+            		<li><span>UK</span>: <span id="UKValue_2"></span></li>
+            	</ul>
             </div>
 
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic2"></div>
@@ -477,6 +496,10 @@
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
             	<p class="graphicslabel">New migrant GP<sup>4</sup> registrations, mid-2016 (persons per 1,000 resident population)</p>
+        		<ul class="visuallyhidden">
+            		<li><span class="selectedAreaSR"></span>: <span id="selectedAreaValue_3"></span></li>
+            		<li><span>UK</span>: <span id="UKValue_3"></span></li>
+            	</ul>
             </div>
 
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic3"></div>
@@ -487,6 +510,10 @@
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
             	<p class="graphicslabel">NINo registrations to non-UK nationals, mid-2016 (persons per 1,000 resident population)</p>
+        		<ul class="visuallyhidden">
+            		<li><span class="selectedAreaSR"></span>: <span id="selectedAreaValue_4"></span></li>
+            		<li><span>UK</span>: <span id="UKValue_4"></span></li>
+            	</ul>
             </div>
 
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic4"></div>
@@ -497,6 +524,10 @@
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <p class="graphicslabel">Non-British estimate, 2016 (%)</p>
+            	<ul class="visuallyhidden">
+            		<li><span class="selectedAreaSR"></span>: <span id="selectedAreaValue_5"></span></li>
+            		<li><span>UK</span>: <span id="UKValue_5"></span></li>
+            	</ul>
             </div>
 
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic5"></div>
@@ -507,6 +538,10 @@
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <p class="graphicslabel">Non-UK born estimate, 2016 (%)</p>
+            	<ul class="visuallyhidden">
+            		<li><span class="selectedAreaSR"></span>: <span id="selectedAreaValue_6"></span></li>
+            		<li><span>UK</span>: <span id="UKValue_6"></span></li>
+            	</ul>
             </div>
 
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic6"></div>
@@ -517,6 +552,10 @@
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <p class="graphicslabel">Live births to non-UK born mothers, 2016 (%)</p>
+            	<ul class="visuallyhidden">
+            		<li><span class="selectedAreaSR"></span>: <span id="selectedAreaValue_7"></span></li>
+            		<li><span>UK</span>: <span id="UKValue_7"></span></li>
+            	</ul>
             </div>
 
             <div class="graphics col-xs-12 col-sm-8 col-md-8" id="graphic7"></div>
@@ -834,6 +873,8 @@
 
 				//draw full annotations if width is more than 700px, else draw them in the Key div.
 
+				var selAreaValue;
+
 				svg.append('g').attr("class","selectedArea").selectAll('text')
 					.data(filtereddata)
 					.enter()
@@ -845,16 +886,21 @@
 					.text(function(d,i) {
 						if (dvc.essential.textFormat[j] == "round") {
 
-							if(filtereddata[0][dvc.essential.VariableLoad[j]]<1.6 && filtereddata[0][dvc.essential.VariableLoad[j]] >0.5) {return numberFormat1(filtereddata[0][dvc.essential.VariableLoad[j]]) + dvc.essential.UnitSelectorAlternative[j]
+							if(filtereddata[0][dvc.essential.VariableLoad[j]]<1.6 && filtereddata[0][dvc.essential.VariableLoad[j]] >0.5) {
+								selAreaValue = numberFormat1(filtereddata[0][dvc.essential.VariableLoad[j]]) + dvc.essential.UnitSelectorAlternative[j];
+								return selAreaValue;
 							} else {
-								return numberFormat1(filtereddata[0][dvc.essential.VariableLoad[j]]) + dvc.essential.UnitSelector[j]
+								selAreaValue = numberFormat1(filtereddata[0][dvc.essential.VariableLoad[j]]) + dvc.essential.UnitSelector[j];
+								return selAreaValue;
 							}
 						} else if (dvc.essential.textFormat[j] == "1dp") {
 
 							if(filtereddata[0][dvc.essential.VariableLoad[j]]<=1) {
-								return numberFormat2(filtereddata[0][dvc.essential.VariableLoad[j]]) + dvc.essential.UnitSelectorAlternative[j]
+								selAreaValue = numberFormat2(filtereddata[0][dvc.essential.VariableLoad[j]]) + dvc.essential.UnitSelectorAlternative[j];
+								return selAreaValue;
 							} else {
-								return numberFormat2(filtereddata[0][dvc.essential.VariableLoad[j]]) + dvc.essential.UnitSelector[j]
+								selAreaValue = numberFormat2(filtereddata[0][dvc.essential.VariableLoad[j]]) + dvc.essential.UnitSelector[j];
+								return selAreaValue;
 							}
 						}
 					})
@@ -881,9 +927,17 @@
 					.transition().duration(500).attr("fill","#0075A3")
 					.attr("id",function(d,i){return "SelectedAreaText" + j});
 
+				// Screen reader only values
+				d3.select("#selectedAreaValue_" + (j+1)).text(selAreaValue)
+
 				legendArea = filtereddata[0].name;
 
+				// Screen reader only values
+				d3.selectAll(".selectedAreaSR").text(legendArea)
+
 				d3.select("#KeyContainer").html(function(d){return "<p><span style='color:#0075A3; font-size:18px; font-weight: bold'>-" + legendArea + " </span><span style='color:#D2376D; font-size:18px; font-weight: bold'>-UK</span></p>"});
+
+				var UKValue;
 
 				svg.append('g').attr("class","selectedAreaEngland").selectAll('text')
 					.data(filtereddataEngland)
@@ -891,9 +945,11 @@
 					.append("text")
 					.text(function(d,i) {
 						if (dvc.essential.textFormat[j] == "round") {
-							return numberFormat1(filtereddataEngland[0][dvc.essential.VariableLoad[j]]) + dvc.essential.UnitSelector[j]
+							UKValue = numberFormat1(filtereddataEngland[0][dvc.essential.VariableLoad[j]]) + dvc.essential.UnitSelector[j];
+							return UKValue;
 						} else if (dvc.essential.textFormat[j] == "1dp") {
-							return numberFormat2(filtereddataEngland[0][dvc.essential.VariableLoad[j]]) + dvc.essential.UnitSelector[j]
+							UKValue = numberFormat2(filtereddataEngland[0][dvc.essential.VariableLoad[j]]) + dvc.essential.UnitSelector[j];
+							return UKValue;
 						}
 					})
 
@@ -906,6 +962,8 @@
 					.transition().duration(500).attr("fill","#D2376D")
 					.attr("id","SelectedAreaText");
 
+				// Screen reader only values
+				d3.select("#UKValue_" + (j+1)).text(UKValue)
 
 				//Extend and shade selected bars
 
