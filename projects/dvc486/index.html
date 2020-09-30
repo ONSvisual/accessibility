@@ -9,9 +9,8 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MBCBVQS');
   </script>
-  <meta charset="UTF-8">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style/style.css">
@@ -29,8 +28,8 @@
 
   <div id="wrapper">
     <div class="app">
-      <img src="img/fallback.png" alt="" id="fallback">
-      <div class="title">
+      <img aria-hidden="true" src="img/fallback.png" alt="" id="fallback">
+      <section class="title" aria-live="polite">
         <!-- <p class = 'title-paragraph'>Could you live on National living wage?</p> -->
         <!-- <a href="#" class="resetSettings">Start again</a> -->
         <!-- <button class="btn-primary large resetSettings" resetSettings>Reset</button> -->
@@ -57,7 +56,7 @@
 
 
 
-        </div>
+      </section>
       </div>
 
 
@@ -69,34 +68,34 @@
           <p>We need some information from you to calculate the budget you would be intitled to if you would live on national living wage.</p>
         </div> -->
 
-        <p class="question">Do you live in Scotland?</p>
+        <p class="question" id="q1">Do you live in Scotland?</p>
 
-        <form class="btn-form btn-form-fullwidth" role="radiogroup">
+        <form class="btn-form btn-form-fullwidth" role="radiogroup" aria-labelledby="q1">
           <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
 
             <input id="button-16" class="radio-primary radio-primary-fullwidth" type="radio" name="button-scotland" value='1' aria-checked="false">
             <label class="label-primary label-primary-fullwidth" for="button-16">Yes</label>
           </div>
-          <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
+          <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
             <input id="button-17" class="radio-primary radio-primary-fullwidth" type="radio" name="button-scotland" value='0' aria-checked="false">
             <label class="label-primary label-primary-fullwidth" for="button-17">No</label>
           </div>
         </form>
 
         <div id="household-contributers">
-          <p class="question">How many people contribute to your household budget?</p>
+          <p class="question" id="q2">How many people contribute to your household budget?</p>
 
-          <form class="btn-form btn-form-fullwidth" role="radiogroup">
+          <form class="btn-form btn-form-fullwidth" role="radiogroup" aria-labelledby="q2">
             <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
 
               <input id="button-5" class="radio-primary radio-primary-fullwidth" type="radio" name="button-household" value="1" aria-checked="false">
               <label class="label-primary label-primary-fullwidth" for="button-5">1</label>
             </div>
-            <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
+            <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
               <input id="button-6" class="radio-primary radio-primary-fullwidth" type="radio" name="button-household" value="2" aria-checked="false">
               <label class="label-primary label-primary-fullwidth" for="button-6">2</label>
             </div>
-            <div class="form-group form-group-fullwidth" role="radio" tabindex="3">
+            <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
               <input id="button-7" class="radio-primary radio-primary-fullwidth" type="radio" name="button-household" value="3" aria-checked="false">
               <label class="label-primary label-primary-fullwidth" for="button-7">3</label>
             </div>
@@ -113,20 +112,20 @@
 
             <p id="question-person1-age" class="question">How old are you?</p>
 
-            <form class="btn-form btn-form-fullwidth" role="radiogroup">
+            <form class="btn-form btn-form-fullwidth" role="radiogroup" aria-labelledby="question-person1-age">
               <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
                 <input id="button-1" class="radio-primary radio-primary-fullwidth" type="radio" name="button-age-1" value="4.20" aria-checked="false">
                 <label class="label-primary label-primary-fullwidth button-1" for="button-1">Under 18</label>
               </div>
-              <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
+              <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
                 <input id="button-2" class="radio-primary radio-primary-fullwidth" type="radio" name="button-age-1" value="5.90" aria-checked="false">
                 <label class="label-primary label-primary-fullwidth" for="button-2">18-20</label>
               </div>
-              <div class="form-group form-group-fullwidth" role="radio" tabindex="3">
+              <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
                 <input id="button-3" class="radio-primary radio-primary-fullwidth" type="radio" name="button-age-1" value="7.38" aria-checked="false">
                 <label class="label-primary label-primary-fullwidth" for="button-3">21-24</label>
               </div>
-              <div class="form-group form-group-fullwidth" role="radio" tabindex="4">
+              <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
                 <input id="button-4" class="radio-primary radio-primary-fullwidth" type="radio" name="button-age-1" value="7.83" aria-checked="true" checked>
                 <label class="label-primary label-primary-fullwidth" for="button-4">25+</label>
               </div>
@@ -158,28 +157,28 @@
           </div>
 
           <div class="person2">
-            <p class="question">How old is person 2?</p>
+            <p class="question" id="question-person2-age">How old is person 2?</p>
 
-            <form class="btn-form btn-form-fullwidth" role="radiogroup">
+            <form class="btn-form btn-form-fullwidth" role="radiogroup" aria-labelledby="question-person2-age">
               <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
                 <input id="button-8" class="radio-primary radio-primary-fullwidth" type="radio" name="button-age-2" value="4.20" aria-checked="false">
                 <label class="label-primary label-primary-fullwidth button-8" for="button-8">Under 18</label>
               </div>
-              <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
+              <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
                 <input id="button-9" class="radio-primary radio-primary-fullwidth" type="radio" name="button-age-2" value="5.90" aria-checked="false">
                 <label class="label-primary label-primary-fullwidth" for="button-9">18-20</label>
               </div>
-              <div class="form-group form-group-fullwidth" role="radio" tabindex="3">
+              <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
                 <input id="button-10" class="radio-primary radio-primary-fullwidth" type="radio" name="button-age-2" value="7.38" aria-checked="false">
                 <label class="label-primary label-primary-fullwidth" for="button-10">21-24</label>
               </div>
-              <div class="form-group form-group-fullwidth" role="radio" tabindex="4">
+              <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
                 <input id="button-11" class="radio-primary radio-primary-fullwidth" type="radio" name="button-age-2" value="7.83" aria-checked="true" checked>
                 <label class="label-primary label-primary-fullwidth" for="button-11">25+</label>
               </div>
             </form>
 
-            <p class="question">How many hours does person 2 work per week?</p>
+            <p class="question" id="question-person2-age">How many hours does person 2 work per week?</p>
             <div class="container">
               <!-- <p class="hoursTitle">Person 2</p> -->
               <div class="valueHours" id="valuePerson2">
@@ -207,28 +206,28 @@
 
 
           <div class="person3">
-            <p class="question">How old is person 3?</p>
+            <p class="question" id="question-person3-age">How old is person 3?</p>
 
-            <form class="btn-form btn-form-fullwidth" role="radiogroup">
+            <form class="btn-form btn-form-fullwidth" role="radiogroup" aria-labelledby="question-person3-age">
               <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
                 <input id="button-12" class="radio-primary radio-primary-fullwidth" type="radio" name="button-age-3" value="4.20" aria-checked="false">
                 <label class="label-primary label-primary-fullwidth button-12" for="button-12">Under 18</label>
               </div>
-              <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
+              <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
                 <input id="button-13" class="radio-primary radio-primary-fullwidth" type="radio" name="button-age-3" value="5.90" aria-checked="false">
                 <label class="label-primary label-primary-fullwidth" for="button-13">18-20</label>
               </div>
-              <div class="form-group form-group-fullwidth" role="radio" tabindex="3">
+              <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
                 <input id="button-14" class="radio-primary radio-primary-fullwidth" type="radio" name="button-age-3" value="7.38" aria-checked="false">
                 <label class="label-primary label-primary-fullwidth" for="button-14">21-24</label>
               </div>
-              <div class="form-group form-group-fullwidth" role="radio" tabindex="4">
+              <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
                 <input id="button-15" class="radio-primary radio-primary-fullwidth" type="radio" name="button-age-3" value="7.83" aria-checked="true" checked>
                 <label class="label-primary label-primary-fullwidth" for="button-15">25+</label>
               </div>
             </form>
 
-            <p class="question">How many hours does person 2 work per week?</p>
+            <p class="question" id="question-person3-hours">How many hours does person 2 work per week?</p>
 
             <div class="container">
               <!-- <p class="hoursTitle">Person 3</p> -->
@@ -296,22 +295,24 @@
         </div> -->
         <div class="input1">
           <div class="input-title">
-            <div class="commodity-pic"><img src="img/nlw_calculator_housing.svg" alt=""></div>
-            <div class="commodity-text-1"><p>Housing & household maintenance<img src = "img/nlw_calculator_information.svg" id="tooltip-input1" class="info-sign" data-placement="right" title="This includes mortgage repayments or rent, council tax, water, electricity and fuel as well as goods and services (plumber, electrician, gardener etc.) for house maintenance." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_housing.svg" alt=""></div>
+            <div class="commodity-text-1"><p>Housing &amp; household maintenance<img aria-hidden="true" src = "img/nlw_calculator_information.svg" id="tooltip-input1" class="info-sign" data-placement="right" title="This includes mortgage repayments or rent, council tax, water, electricity and fuel as well as goods and services (plumber, electrician, gardener etc.) for house maintenance." /></p></div>
           </div>
           <div class='input-group'>
             <div class="input-value">
               <form class="input">
-                <div class="pound">
+                <div class="pound" aria-hidden="true">
                   £
                 </div>
                 <div class="input-window">
+                  <label for="housing-input" class="visuallyhidden">Housing &amp; household maintenance spend in pounds</label>
                   <input id='housing-input' class="input-general" type="text" name="" value="0">
                 </div>
               </form>
             </div>
             <div class="period-input">
               <div class="float">
+                <label for="period-1" class="visuallyhidden">Select frequency of spend</label>
                 <select id="period-1" class="form-control">
                   <option value="52">Per week</option>
                   <option value='12' selected="selected">Per month</option>
@@ -334,16 +335,17 @@
 
         <div class="input2">
           <div class="input-title">
-            <div class="commodity-pic"><img src="img/nlw_calculator_transport.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-2"><p>Transport<img src = "img/nlw_calculator_information.svg" id="tooltip-input2" class="info-sign" data-placement="right" title="This includes tickets for public transport, fuel, car insurance/tax and car repayments." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_transport.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-2"><p>Transport<img aria-hidden="true" src = "img/nlw_calculator_information.svg" id="tooltip-input2" class="info-sign" data-placement="right" title="This includes tickets for public transport, fuel, car insurance/tax and car repayments." /></p></div>
           </div>
           <div class="input-group">
             <div class="input-value">
               <form class="input">
-                <div class="pound">
+                <div class="pound" aria-hidden="true">
                   £
                 </div>
                 <div class="input-window">
+                  <label for="transport-input" class="visuallyhidden">Transport spend in pounds</label>
                   <input id='transport-input' class="input-general" type="text" name="" value="0">
                 </div>
               </form>
@@ -369,16 +371,17 @@
 
         <div class="input3">
           <div class="input-title">
-            <div class="commodity-pic"><img src="img/nlw_calculator_food.svg" alt="" class="commodity-pic"></div>
-            <div class='commodity-text-3'><p>Food and non-alcoholic drinks & eating out<img src="img/nlw_calculator_information.svg" id="tooltip-input3" class="info-sign" data-placement="right" title="This includes restaurants, cafés, takeaway meals and pubs etc." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_food.svg" alt="" class="commodity-pic"></div>
+            <div class='commodity-text-3'><p>Food and non-alcoholic drinks &amp eating out<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input3" class="info-sign" data-placement="right" title="This includes restaurants, cafés, takeaway meals and pubs etc." /></p></div>
           </div>
           <div class="input-group">
             <div class="input-value">
               <form class="input">
-                <div class="pound">
+                <div class="pound" aria-hidden="true">
                   £
                 </div>
                 <div class="input-window">
+                  <label for="food-input" class="visuallyhidden">Food and non-alcoholic drinks &amp eating out spend in pounds</label>
                   <input id='food-input' type="text" name="" value="0">
                 </div>
               </form>
@@ -404,17 +407,18 @@
 
         <div class="input4">
           <div class="input-title">
-            <div class="commodity-pic"><img src="img/nlw_calculator_alcohol.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-4"><p>Alcoholic drinks & tobacco<img src="img/nlw_calculator_information.svg" id="tooltip-input4" class="info-sign" data-placement="right" title="This includes drinks consumed at home." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_alcohol.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-4"><p>Alcoholic drinks &amp; tobacco<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input4" class="info-sign" data-placement="right" title="This includes drinks consumed at home." /></p></div>
 
           </div>
           <div class="input-group">
             <div class="input-value">
               <form class="input">
-                <div class="pound">
+                <div class="pound" aria-hidden="true">
                   £
                 </div>
                 <div class="input-window">
+                  <label for="alcohol-input" class="visuallyhidden">Alcoholic drinks &amp; tobacco spend in pounds</label>
                   <input id='alcohol-input' type="text" name="" value="0">
                 </div>
               </form>
@@ -440,17 +444,18 @@
 
         <div class="input5">
           <div class="input-title">
-            <div class="commodity-pic"><img src="img/nlw_calculator_clothing.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-5"><p>Clothing & footwear</p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_clothing.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-5"><p>Clothing &amp; footwear</p></div>
 
           </div>
           <div class="input-group">
             <div class="input-value">
               <form class="input">
-                <div class="pound">
+                <div class="pound" aria-hidden="true">
                   £
                 </div>
                 <div class="input-window">
+                  <label for="clothing-input" class="visuallyhidden">Clothing &amp; footwear spend in pounds</label>
                   <input id='clothing-input' type="text" name="" value="0">
                 </div>
               </form>
@@ -476,16 +481,17 @@
 
         <div class="input6">
           <div class="input-title">
-            <div class="commodity-pic"><img src="img/nlw_calculator_communication.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-6"><p>Communication<img src="img/nlw_calculator_information.svg" id="tooltip-input6" class="info-sign" data-placement="right" title="This includes telephone, mobile phone bills and broadband." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_communication.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-6"><p>Communication<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input6" class="info-sign" data-placement="right" title="This includes telephone, mobile phone bills and broadband." /></p></div>
           </div>
           <div class="input-group">
             <div class="input-value">
               <form class="input">
-                <div class="pound">
+                <div class="pound" aria-hidden="true">
                   £
                 </div>
                 <div class="input-window">
+                  <label for="communication-input" class="visuallyhidden">Communication spend in pounds</label>
                   <input id='communication-input' type="text" name="" value="0">
                 </div>
               </form>
@@ -512,17 +518,18 @@
 
         <div class="input7">
           <div class="input-title">
-            <div class="commodity-pic"><img src="img/nlw_calculator_recreation.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-7"><p>Recreation and culture<img src="img/nlw_calculator_information.svg" id="tooltip-input7" class="info-sign" data-placement="right" title="This includes TV licence, subscriptions, consumer electronics, newspapers, books, toys and games, pets, garden equipment, plants sport admissions, leisure classes etc." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_recreation.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-7"><p>Recreation and culture<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input7" class="info-sign" data-placement="right" title="This includes TV licence, subscriptions, consumer electronics, newspapers, books, toys and games, pets, garden equipment, plants sport admissions, leisure classes etc." /></p></div>
           </div>
           <div class="input-group">
             <div class="input-value">
               <form class="input">
-                <div class="pound">
+                <div class="pound" aria-hidden="true">
                   £
                 </div>
                 <div class="input-window">
-                  <input id='leasure-input' type="text" name="" value="0">
+                  <label for="leisure-input" class="visuallyhidden">Recreation and culture spend in pounds</label>
+                  <input id='leisure-input' type="text" name="" value="0">
                 </div>
               </form>
             </div>
@@ -548,12 +555,12 @@
 
         <!-- <div class="input-title">
           <p>Restaurants</p>
-          <img src="img/nlw_calculator_information.svg" id="tooltip-input8" data-placement="right" title="This includes restaurants, cafés, takeaway meals and pubs etc." />
+          <img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input8" data-placement="right" title="This includes restaurants, cafés, takeaway meals and pubs etc." />
         </div>
         <div class="input-group">
           <div class="input-value">
             <form class="input">
-              <div class="pound">
+              <div class="pound" aria-hidden="true">
                 £
               </div>
               <div class="input-window">
@@ -572,16 +579,17 @@
 
         <div class="input8">
           <div class="input-title">
-            <div class="commodity-pic"><img src="img/nlw_calculator_holidays.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-8"><p>Holidays<img src="img/nlw_calculator_information.svg" id="tooltip-input8" class="info-sign" data-placement="right" title="This includes plane tickets, hotel accommodation and package holidays." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_holidays.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-8"><p>Holidays<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input8" class="info-sign" data-placement="right" title="This includes plane tickets, hotel accommodation and package holidays." /></p></div>
           </div>
           <div class="input-group">
             <div class="input-value">
               <form class="input">
-                <div class="pound">
+                <div class="pound" aria-hidden="true">
                   £
                 </div>
                 <div class="input-window">
+                  <label for="holiday-input" class="visuallyhidden">Holiday spend in pounds</label>
                   <input id='holidays-input' type="text" name="" value="0">
                 </div>
               </form>
@@ -607,16 +615,17 @@
 
         <div class="input9">
           <div class="input-title">
-            <div class="commodity-pic"><img src="img/nlw_calculator_other.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-9"><p>Other expenses<img src="img/nlw_calculator_information.svg" id="tooltip-input9" class="info-sign" data-placement="right" title="This includes any other expenses you may have." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_other.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-9"><p>Other expenses<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input9" class="info-sign" data-placement="right" title="This includes any other expenses you may have." /></p></div>
           </div>
           <div class="input-group">
             <div class="input-value">
               <form class="input">
-                <div class="pound">
+                <div class="pound" aria-hidden="true">
                   £
                 </div>
                 <div class="input-window">
+                  <label for="maintenance-input" class="visuallyhidden">Other expenses spend in pounds</label>
                   <input id='maintenance-input' type="text" name="" value="0">
                 </div>
               </form>
@@ -642,11 +651,11 @@
 
         <!-- <div class="input-title">
           <p>Health & education</p>
-          <img src="img/nlw_calculator_information.svg" id="tooltip-input10" data-placement="right" title="What does your household spend on hospital services, medical products, education fees and school trips?" />
+          <img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input10" data-placement="right" title="What does your household spend on hospital services, medical products, education fees and school trips?" />
         </div>
         <div class="input-value">
           <form class="input">
-            <div class="pound">
+            <div class="pound" aria-hidden="true">
               £
             </div>
             <div class="input-window">
@@ -664,11 +673,11 @@
 
         <!-- <div class="input-title">
           <p>Public transport</p>
-          <img src="img/nlw_calculator_information.svg" id="tooltip-input10" data-placement="right" title="What does your household spend on public transport?" />
+          <img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input10" data-placement="right" title="What does your household spend on public transport?" />
         </div>
         <div class="input-value">
           <form class="input">
-            <div class="pound">
+            <div class="pound" aria-hidden="true">
               £
             </div>
             <div class="input-window">
@@ -695,11 +704,11 @@
           <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
 
             <input id="button-18" class="radio-primary radio-primary-fullwidth" type="radio" name="input-previous" value='1' aria-checked="false">
-            <label class="label-primary label-primary-fullwidth navigation" for="button-18">Previous</label>
+            <label class="label-primary label-primary-fullwidth navigation" for="button-18"><span class="visuallyhidden">Click to go back to the </span>Previous<span class="visuallyhidden"> screen</span></label>
           </div>
-          <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
+          <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
             <input id="button-19" class="radio-primary radio-primary-fullwidth" type="radio" name="input-next" value='0' aria-checked="false">
-            <label class="label-primary label-primary-fullwidth navigation" for="button-19">Next</label>
+            <label class="label-primary label-primary-fullwidth navigation" for="button-19"><span class="visuallyhidden">Click to proceed to the </span>Next<span class="visuallyhidden"> screen</span></label>
           </div>
         </form>
       </div>
@@ -715,8 +724,8 @@
 
         <div class="container">
           <div class="spendingtitle">
-            <div class="commodity-pic"><img src="img/nlw_calculator_housing.svg" alt=""></div>
-            <div class="commodity-text-1"><p>Housing & household maintenance<img src = "img/nlw_calculator_information.svg" id="tooltip-input1" class="info-sign" data-placement="right" title="This includes mortgage repayments or rent, council tax, water, electricity and fuel as well as goods and services (plumber, electrician, gardener etc.) for house maintenance." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_housing.svg" alt=""></div>
+            <div class="commodity-text-1"><p>Housing & household maintenance<img aria-hidden="true" src = "img/nlw_calculator_information.svg" id="tooltip-input1" class="info-sign" data-placement="right" title="This includes mortgage repayments or rent, council tax, water, electricity and fuel as well as goods and services (plumber, electrician, gardener etc.) for house maintenance." /></p></div>
           </div>
           <div class="spendingValue">
             <div class="borderBottom">
@@ -744,8 +753,8 @@
 
         <div class="container">
           <div class="spendingtitle">
-            <div class="commodity-pic"><img src="img/nlw_calculator_transport.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-2"><p>Transport<img src = "img/nlw_calculator_information.svg" id="tooltip-input2" class="info-sign" data-placement="right" title="This includes tickets for public transport, fuel, car insurance/tax and car repayments." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_transport.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-2"><p>Transport<img aria-hidden="true" src = "img/nlw_calculator_information.svg" id="tooltip-input2" class="info-sign" data-placement="right" title="This includes tickets for public transport, fuel, car insurance/tax and car repayments." /></p></div>
           </div>
           <div class="spendingValue">
             <div class="borderBottom">
@@ -774,8 +783,8 @@
 
         <div class="container">
           <div class="spendingtitle">
-            <div class="commodity-pic"><img src="img/nlw_calculator_food.svg" alt="" class="commodity-pic"></div>
-            <div class='commodity-text-3'><p>Food and non-alcoholic drinks & eating out<img src="img/nlw_calculator_information.svg" id="tooltip-input3" class="info-sign" data-placement="right" title="This includes restaurants, cafés, takeaway meals and pubs etc." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_food.svg" alt="" class="commodity-pic"></div>
+            <div class='commodity-text-3'><p>Food and non-alcoholic drinks & eating out<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input3" class="info-sign" data-placement="right" title="This includes restaurants, cafés, takeaway meals and pubs etc." /></p></div>
           </div>
           <div class="spendingValue">
             <div class="borderBottom">
@@ -804,8 +813,8 @@
 
         <div class="container">
           <div class="spendingtitle">
-            <div class="commodity-pic"><img src="img/nlw_calculator_alcohol.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-4"><p>Alcoholic drinks & tobacco<img src="img/nlw_calculator_information.svg" id="tooltip-input4" class="info-sign" data-placement="right" title="This includes drinks consumed at home." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_alcohol.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-4"><p>Alcoholic drinks & tobacco<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input4" class="info-sign" data-placement="right" title="This includes drinks consumed at home." /></p></div>
           </div>
           <div class="spendingValue">
             <div class="borderBottom">
@@ -832,9 +841,9 @@
 
         <div class="container">
           <div class="spendingtitle">
-            <div class="commodity-pic"><img src="img/nlw_calculator_clothing.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_clothing.svg" alt="" class="commodity-pic"></div>
             <div class="commodity-text-5"><p>Clothing & footwear</p></div>
-              <!-- <img src="img/nlw_calculator_information.svg" id="tooltip-input5" data-placement="right" title="What does your household spend on items of clothing & footwear?" /></p> -->
+              <!-- <img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input5" data-placement="right" title="What does your household spend on items of clothing & footwear?" /></p> -->
           </div>
           <div class="spendingValue">
             <div class="borderBottom">
@@ -861,8 +870,8 @@
 
         <div class="container">
           <div class="spendingtitle">
-            <div class="commodity-pic"><img src="img/nlw_calculator_communication.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-6"><p>Communication<img src="img/nlw_calculator_information.svg" id="tooltip-input6" class="info-sign" data-placement="right" title="This includes telephone, mobile phone bills and broadband." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_communication.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-6"><p>Communication<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input6" class="info-sign" data-placement="right" title="This includes telephone, mobile phone bills and broadband." /></p></div>
           </div>
           <div class="spendingValue">
             <div class="borderBottom">
@@ -890,12 +899,12 @@
 
         <div class="container">
           <div class="spendingtitle">
-            <div class="commodity-pic"><img src="img/nlw_calculator_recreation.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-7"><p>Recreation and culture<img src="img/nlw_calculator_information.svg" id="tooltip-input7" class="info-sign" data-placement="right" title="This includes TV licence, subscriptions, consumer electronics, newspapers, books, toys and games, pets, garden equipment, plants sport admissions, leisure classes etc." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_recreation.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-7"><p>Recreation and culture<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input7" class="info-sign" data-placement="right" title="This includes TV licence, subscriptions, consumer electronics, newspapers, books, toys and games, pets, garden equipment, plants sport admissions, leisure classes etc." /></p></div>
           </div>
           <div class="spendingValue">
             <div class="borderBottom">
-              <p>Per <span id="leasure-time">year</span>: <span id="changeLeasure">£5000</span></p>
+              <p>Per <span id="leisure-time">year</span>: <span id="changeLeisure">£5000</span></p>
             </div>
           </div>
 
@@ -919,7 +928,7 @@
         <!-- <div class="container">
           <div class="spendingtitle">
             <p>Restaurants</p>
-            <img src="img/nlw_calculator_information.svg" id="tooltipSlider8" data-placement="right" title="This includes restaurants, cafés, takeaway meals and pubs etc." />
+            <img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltipSlider8" data-placement="right" title="This includes restaurants, cafés, takeaway meals and pubs etc." />
           </div>
           <div class="spendingValue">
             <div class="borderBottom">
@@ -946,8 +955,8 @@
 
         <div class="container">
           <div class="spendingtitle">
-            <div class="commodity-pic"><img src="img/nlw_calculator_holidays.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-8"><p>Holidays<img src="img/nlw_calculator_information.svg" id="tooltip-input8" class="info-sign" data-placement="right" title="This includes plane tickets, hotel accommodation and package holidays." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_holidays.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-8"><p>Holidays<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input8" class="info-sign" data-placement="right" title="This includes plane tickets, hotel accommodation and package holidays." /></p></div>
           </div>
           <div class="spendingValue">
             <div class="borderBottom">
@@ -975,8 +984,8 @@
 
         <div class="container container-9">
           <div class="spendingtitle">
-            <div class="commodity-pic"><img src="img/nlw_calculator_other.svg" alt="" class="commodity-pic"></div>
-            <div class="commodity-text-9"><p>Other expenses<img src="img/nlw_calculator_information.svg" id="tooltip-input9" class="info-sign" data-placement="right" title="This includes any other expenses you may have." /></p></div>
+            <div class="commodity-pic"><img aria-hidden="true" src="img/nlw_calculator_other.svg" alt="" class="commodity-pic"></div>
+            <div class="commodity-text-9"><p>Other expenses<img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltip-input9" class="info-sign" data-placement="right" title="This includes any other expenses you may have." /></p></div>
           </div>
           <div class="spendingValue">
             <div class="borderBottom">
@@ -1004,7 +1013,7 @@
         <!-- <div class="container">
           <div class="spendingtitle">
             <p>Health & education</p>
-            <img src="img/nlw_calculator_information.svg" id="tooltipSlider10" data-placement="right" title="What does your household spend on hospital services, medical products, education fees and school trips?" />
+            <img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltipSlider10" data-placement="right" title="What does your household spend on hospital services, medical products, education fees and school trips?" />
           </div>
           <div class="spendingValue">
             <div class="borderBottom">
@@ -1032,7 +1041,7 @@
         <!-- <div class="container">
           <div class="spendingtitle">
             <p>Public transport</p>
-            <img src="img/nlw_calculator_information.svg" id="tooltipSlider10" data-placement="right" title="What does your household spend on public transport?" />
+            <img aria-hidden="true" src="img/nlw_calculator_information.svg" id="tooltipSlider10" data-placement="right" title="What does your household spend on public transport?" />
           </div>
           <div class="spendingValue">
             <div class="borderBottom">
@@ -1066,11 +1075,11 @@
           <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
 
             <input id="button-20" class="radio-primary radio-primary-fullwidth" type="radio" name="input-previous" value='1' aria-checked="false">
-            <label class="label-primary label-primary-fullwidth navigation" for="button-20">Previous</label>
+            <label class="label-primary label-primary-fullwidth navigation" for="button-20"><span class="visuallyhidden">Click to go back to the </span>Previous<span class="visuallyhidden"> screen</span></label>
           </div>
-          <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
+          <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
             <input id="button-21" class="radio-primary radio-primary-fullwidth resetSettings" type="radio" name="input-next" value='0' aria-checked="false">
-            <label class="label-primary label-primary-fullwidth navigation start-again" for="button-21">Start again</label>
+            <label class="label-primary label-primary-fullwidth navigation start-again" for="button-21"><span class="visuallyhidden">Click to </span>Start again</label>
           </div>
         </form>
       </div>
@@ -1082,11 +1091,11 @@
         <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
 
           <input id="button-22" class="radio-primary radio-primary-fullwidth" type="radio" name="button-22" value='1' aria-checked="false">
-          <label class="label-primary label-primary-fullwidth navigation" for="button-22">Previous</label>
+          <label class="label-primary label-primary-fullwidth navigation" for="button-22"><span class="visuallyhidden">Click to go back to the </span>Previous<span class="visuallyhidden"> screen</span></label>
         </div>
-        <div class="form-group form-group-fullwidth" role="radio" tabindex="2">
+        <div class="form-group form-group-fullwidth" role="radio" tabindex="0">
           <input id="button-23" class="radio-primary radio-primary-fullwidth resetSettings" type="radio" name="button-23" value='0' aria-checked="false">
-          <label class="label-primary label-primary-fullwidth navigation start-again" for="button-23">Start again</label>
+          <label class="label-primary label-primary-fullwidth navigation start-again" for="button-23"><span class="visuallyhidden">Click to </span>Start again</label>
         </div>
       </form>
 
@@ -1100,7 +1109,7 @@
   <script src="https://cdn.ons.gov.uk/vendor/d3/4.2.7/d3.min.js"></script>
   <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" charset="utf-8"></script>
   <script src="script/modernizr.js"></script>
-  <script src="script/script2.js"></script>
+  <script src="script/script.js"></script>
 
   <script type="text/javascript">
     $(document).ready(function() {
