@@ -324,6 +324,11 @@ p {
 }
 */
 
+.measures {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card {
   border-style: solid;
   border-width: 1px;
