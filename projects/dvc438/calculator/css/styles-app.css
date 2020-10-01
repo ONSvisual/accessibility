@@ -1,0 +1,313 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+}
+
+.container {
+    background-color: white;
+    max-width: 800px;
+}
+
+.calctitle {
+    font-size: 20px;
+    text-align: left;
+    margin-left: 0px;
+}
+
+.row {
+    text-align: left;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* font colour */
+
+body,
+.inputRow,
+.input-group,
+.form-control,
+.InputSides {
+    color: #000;
+}
+
+.TitleWords {
+    color: rgb(0, 37, 0);
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.qlabel {
+    padding-top: 0px;
+    margin-bottom: 10px !important;
+    padding-right: 0px;
+    text-align: left;
+    margin-left: 0px;
+    color: #CCC;
+}
+
+.qlabel--hasValue {
+    color: #000;
+}
+
+
+/* BUTTON STYLING */
+
+
+.btn:focus,
+.btn:hover {
+    border-color: white !important;
+}
+
+.btn:focus,
+.form-control:focus {
+    box-shadow: 0 0 0px 3pt orange;
+}
+
+.franksbutton {
+    border-radius: 0px !important;
+    border-color: white !important;
+    color: white !important;
+    background-color: grey !important;
+}
+
+#submitButton {
+    border-radius: 0px !important;
+    border-color: white !important;
+    color: white !important;
+    background-color: steelblue
+        /*#477209*/
+         !important;
+    height: 40px;
+}
+
+#submitButton:hover {
+    border-radius: 0px !important;
+    border-color: white !important;
+    color: white !important;
+    background-color: #386890 !important;
+    height: 40px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.measureselect {
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+#lineSep {
+    height: 2px;
+    background-color: #dadada;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#numberChoose {
+    height: 55px !important;
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.inputwrapper {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    margin-top: 0px !important;
+}
+
+.milbilbuts {
+    height: 50px;
+}
+
+#selectedmeasure1,
+#selectedmeasure2,
+#selectedmeasure3,
+#selectedmeasure4 {
+    margin-bottom: 10px;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    margin-top: 10px;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 0px !important;
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.infoBlock {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-left-color: white;
+    border-left-style: solid;
+    border-left-width: 2px;
+
+}
+
+.infoBlockText {
+    color: white !important;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px !important;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #1F4851;
+}
+
+#color1,
+#color3 {
+    margin-right: 5px !important;
+}
+
+
+/* #color1 {
+    background-color: #1F4851;
+}
+
+#color2 {
+    background-color: #2D6976;
+}
+
+#color3 {
+    background-color: #3C8A9A;
+}
+
+#color4 {
+    background-color: #4EA8BB;
+} */
+
+
+.answerrow {
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 20px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    text-align: left;
+}
+
+.label2 {
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    text-align: left;
+    color: steelblue;
+    font-size: 20px;
+}
+
+.numberinput {
+    margin-top: 0px !important;
+}
+
+.input-group,
+.form-control {
+    height: 45px !important;
+    width: 100px !important;
+    font-size: 30px;
+    font-weight: bold;
+    float: left;
+}
+
+.selectOptions {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.btn,
+.btn-group {
+    border-color: white;
+    border-width: 2px;
+}
+
+
+.option {
+    background-color: rgb(0, 37, 0);
+    color: white;
+}
+
+/* .option:hover,
+.option:hover,
+.option:hover {
+    background-color: #2D6976;
+    color: white;
+} */
+
+.franksButton {
+    background-color: #1F4851 !important;
+}
+
+#FormInputHalf {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.form-group {
+    width: 225px !important;
+}
+
+.noPadding {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.InputSides {
+    float: left;
+    padding-top: 0px;
+    font-size: 30px;
+    font-weight: bold;
+    height: 45px;
+}
+
+#PoundSign {
+    float: left;
+    text-align: center;
+    margin-right: 10px;
+    border-left-color: white;
+    border-left-style: solid;
+}
+
+#BillionLabel {
+    margin-left: 10px;
+}
+
+.buttonNumber {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#buttonText {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.visuallyhidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

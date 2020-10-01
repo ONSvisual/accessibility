@@ -1,367 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <title>Context Calculator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/styles.css" media="screen">
 
- 
-    <style>
-		body {
-			font-family: 'Open Sans', sans-serif;
-			color:#666;
-			background-color: white;
-		}
-        .container{
-			background-color: white;
-			max-width:800px;
-        }
-        .calctitle{
-			font-size: 20px;
-            text-align:left;
-			margin-left:0px;
-        }
-
-        .row{
-            text-align:left;
-            margin-left:0px;
-            margin-right:0px;
-            margin-top:0px;
-            margin-bottom:0px;
-        }
-		.TitleWords {
-			color:#1F4851;
-			font-size:20px;
-			font-weight:bold;
-		}
-		
-        .qlabel{
-            padding-top:0px;
-			margin-bottom:10px!important;
-            padding-right:0px;
-            text-align:left;
-			margin-left:0px;
-			color:#CCC;
-        }
-
-		/* BUTTON STYLING */
-		
-
-		.btn:focus, .btn:hover {
-			border-color:white!important;
-		}
-		.franksbutton {
-			border-radius:0px !important;
-			border-color:white!important;
-			color:white!important;
-			background-color: grey!important;			
-		}
-		#submitButton {
-			border-radius:0px !important;
-			border-color:white!important;
-			color:white!important;
-			background-color: steelblue/*#477209*/!important;	
-			height:40px;		
-		}
-		#submitButton:hover {
-			border-radius:0px !important;
-			border-color:white!important;
-			color:white!important;
-			background-color: #386890!important;	
-			height:40px;		
-		}
-		img {
-			max-width:100%;
-			max-height:100%;
-		}
-		.measureselect {
-			padding-bottom:10px;
-			padding-left:10px;
-			padding-right:10px;
-			padding-top:10px;
-		}
-		#lineSep {
-			height:2px;
-			background-color:#dadada;
-			margin-top:30px;
-			margin-bottom:30px;
-		}
-				
-		#numberChoose {
-			height:55px!important;
-			text-align:center;
-			font-size:34px;
-			font-weight:bold;
-			margin-bottom:30px;
-		}
-		.inputwrapper {
-			padding-left:0px!important;
-			padding-right:0px!important;
-			margin-top:0px!important;
-		}
-		.milbilbuts {
-			height:50px;
-		}
-		#selectedmeasure1, 
-		#selectedmeasure2, 
-		#selectedmeasure3,
-		#selectedmeasure4 {
-			margin-bottom:10px;
-			margin-left:0px!important;
-			margin-right:0px!important;
-			margin-top:10px;
-			padding-bottom:0px!important;
-			padding-left:0px!important;
-			padding-right:0px!important;
-			padding-top:0px!important;
-			text-align:left;
-			font-size:30px;
-			font-weight:bold;
-		}
-		
-		.infoBlock {
-			padding-left:0px!important;
-			padding-right:0px!important;
-			border-left-color:white;
-			border-left-style:solid;
-			border-left-width:2px;
-			
-		}
-		
-		#color1, #color2, #color3, #color4 {
-			color:white!important;
-			font-weight:bold;
-			font-size:20px;
-			margin-top:10px;
-			margin-bottom:10px;
-			margin-left:0px!important;
-			padding-left:10px;
-			padding-top:3px;
-			padding-bottom:3px;
-		}
-		#color1, #color3 {
-			margin-right:5px!important;
-		}
-		
-		
-		#color1 {
-			background-color:#1F4851;
-		}
-		#color2 {
-			background-color:#2D6976;
-		}
-		#color3 {
-			background-color:#3C8A9A;
-		}
-		#color4 {
-			background-color:#4EA8BB;
-		}
-		
-		
-		.answerrow {
-			margin-bottom:20px;
-			margin-left:0px;
-			margin-right:0px;
-			margin-top:20px;
-			padding-bottom:0px;
-			padding-left:0px;
-			padding-right:0px;
-			padding-top:0px;
-			text-align:left;
-		}
-		.label2 {
-			margin-bottom:0px;
-			margin-left:0px;
-			margin-right:0px;
-			margin-top:0px;
-			padding-bottom:0px;
-			padding-left:0px;
-			padding-right:0px;
-			padding-top:0px;
-			text-align:left;
-			color:steelblue;
-			font-size:20px;
-		}
-		.numberinput {
-			margin-top:0px!important;
-		}
-		
-		.input-group, .form-control {
-			height:45px!important;
-			width:100px!important;
-			font-size:30px;
-			font-weight:bold;
-			float:left;
-		}
-		.selectOptions {
-			margin-bottom:10px;
-			margin-top:20px;
-		}
-		.btn, .btn-group {
-			border-color:white;
-			border-width:2px;
-		}
-		
-		
-		#Option2, #Option3, #Option4 {
-			background-color:#3C8A9A;
-			color:white;
-		}
-		#Option2:hover, #Option3:hover, #Option4:hover {
-			background-color:#2D6976;
-			color:white;
-		}
-		.franksButton {
-			background-color:#1F4851!important;
-		}
-		#FormInputHalf {
-			padding-left:0px!important;
-			padding-right:0px!important;
-		}
-		.form-group {
-			width:225px!important;
-		}
-		.noPadding {
-			padding-left:0px!important;
-			padding-right:0px!important;
-		}
-		.InputSides {
-			float:left;
-			padding-top:0px;
-			font-size:30px;
-			font-weight:bold;
-			color:#666666;
-			height:45px;
-		}
-		#PoundSign {
-			float:left;
-			text-align:center;
-			margin-right:10px;
-			border-left-color:white;
-			border-left-style:solid;
-		}
-		#BillionLabel {
-			margin-left:10px;
-		}
-		#buttonNumber {
-			font-size:22px;
-			font-weight:bold;
-		}
-		#buttonText {
-			font-size:15px;
-			font-weight:normal;
-		}
-
-
-			
-</style>
+<head>
+	<meta charset="utf-8">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet'
+		type='text/css'>
+	<title>Context Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/styles.css" media="screen">
+	<link rel="stylesheet" href="css/styles-app.css" media="screen">
 </head>
 
-<body id="childt"> 
-<div id="fallback"><img src="fallback.png" alt="[Chart]" /></div>
-<div class ="container hide">
+<body id="childt">
+	<div id="fallback"><img src="img/fallback.png" alt="[Chart]" /></div>
+	<div class="container hide">
+		<main>
 
-<!-- Title and Instruction -->
+			<!-- Title and Instruction -->
 
-<div style="padding-left:3px; padding-right:0px;">
-<p class="TitleWords">Context Calculator</p>
-<p>This handy calculator is here to help you make meaning of the many large numbers used in the EU debate, particularly the figures on the UK's net contribution to the EU.</p>
-<p>Click on either of the two buttons - or just type in a figure - and it will break it down for you.</p>
-</div>
+			<section style="padding-left:3px; padding-right:0px;">
+				<h1 class="TitleWords">Context Calculator</h1>
+				<p>This handy calculator is here to help you make meaning of the many large numbers used in the EU
+					debate,
+					particularly the figures on the UK's net contribution to the EU.</p>
+				<p>Click on either of the two buttons - or just type in a figure - and it will break it down for you.
+				</p>
+			</section>
 
-<div class="btn-group btn-group-justified selectOptions">
-  <a href="#" data-nm="9.4" class="btn btn-default selectable" id="Option3" onClick="ChangeBack(this.id)"><span id="buttonNumber">£9.4 billion</span></br>ONS net contribution figure<sup>1</sup></a>
-  <a href="#" data-nm="8.1" class="btn btn-default selectable" id="Option4" onClick="ChangeBack(this.id)"><span id="buttonNumber">£8.1 billion</span></br>European Commission net contribution figure<sup>2</sup></a>
-</div>
+			<div class="btn-group btn-group-justified selectOptions">
+				<a href="#" data-nm="9.4" title="Click to set calculation value to ONS figure" class="btn btn-default selectable option" id="Option3"
+					onClick="ChangeBack(this.id)"><span class="buttonNumber" id="buttonNumber1" aria-label="9.4 billion pounds">£9.4 billion</span><br />ONS net contribution
+					figure<sup>1</sup></a>
+				<a href="#" data-nm="8.1" title="Click to set calculation value to European Commission figure" class="btn btn-default selectable option" id="Option4"
+					onClick="ChangeBack(this.id)"><span class="buttonNumber" id="buttonNumber2" aria-label="8.1 billion pounds">£8.1 billion</span><br />European Commission
+					net
+					contribution figure<sup>2</sup></a>
+			</div>
 
-<div class="row" style="margin-bottom:20px;">
-<div class="col-xs-6 col-sm-6" style="padding-left:0px; text-align:center">
+			<div class="row" style="margin-bottom:20px;">
+				<div class="col-xs-6 col-sm-6" style="padding-left:0px; text-align:center">
 
-</div>
-<div class="col-xs-6 col-sm-6" style="padding-left:0px; text-align:center">
+				</div>
+				<div class="col-xs-6 col-sm-6" style="padding-left:0px; text-align:center">
 
-</div>
-</div>
+				</div>
+			</div>
 
-<!-- Number selection -->
+			<!-- Number selection -->
 
-<div class="row inputRow noPadding" style="margin-top:30px;">
-    <div id="PoundSign" class="InputSides">£</div>
-    	<div class="noPadding">
-            <form>
-                <input type="number" value="0" class="form-control" min="0" max="999"> 
-            </form>
-        </div>
-    <div id="BillionLabel" class="InputSides">billion</div>
-</div>
+			<div class="row inputRow noPadding" style="margin-top:30px;">
+				<div aria-hidden="true" id="PoundSign" class="InputSides">£</div>
+				<div class="noPadding">
+					<form>
+						<label for="userEntry" class="visuallyhidden">Enter the amount in billions to calculate</label>
+						<input id="userEntry" type="number" value="0" class="form-control" min="0" max="999">
+					</form>
+				</div>
+				<div aria-hidden="true" id="BillionLabel" class="InputSides">billion</div>
+			</div>
 
-<!-- Revealed stuff -->
+			<!-- Revealed stuff -->
 
-<div class="row answerrow">
-    
-    <div class="infoBlock col-sm-6 col-md-6 col-xs-12">
-        <div id="color1">
-            Per week
-        </div>
-        <div>
-            <p class="qlabel" id="selectedmeasure1">make selection</p>
-        </div>
-    </div>
-    
-    <div class="infoBlock col-sm-6 col-md-6 col-xs-12">
-        <div id="color2">
-            Per person per year
-        </div>
-        <div>
-            <p class="qlabel" id="selectedmeasure2">make selection</p>
-        </div>
-    </div>
-    
-    <div class="infoBlock col-sm-6 col-md-6 col-xs-12">
-        <div id="color3">
-            Per person per day
-        </div>
-        <div>
-            <p class="qlabel" id="selectedmeasure3">make selection</p>
-        </div>
-    </div>
-    
-    <div class="infoBlock col-sm-6 col-md-6 col-xs-12">
-        <div id="color4">
-            % of  2016 government spending
-        </div>
-        <div>
-            <p class="qlabel" id="selectedmeasure4">make selection</p>
-        </div>
-    </div>
-    
+			<div aria-hidden="true" class="row answerrow">
+
+				<div class="infoBlock col-sm-6 col-md-6 col-xs-12">
+					<div id="color1" class="infoBlockText">
+						Per week
+					</div>
+					<div>
+						<p class="qlabel" id="selectedmeasure1">make selection</p>
+					</div>
+				</div>
+
+				<div class="infoBlock col-sm-6 col-md-6 col-xs-12">
+					<div id="color2" class="infoBlockText">
+						Per person per year
+					</div>
+					<div>
+						<p class="qlabel" id="selectedmeasure2">make selection</p>
+					</div>
+				</div>
+
+				<div class="infoBlock col-sm-6 col-md-6 col-xs-12">
+					<div id="color3" class="infoBlockText">
+						Per person per day
+					</div>
+					<div>
+						<p class="qlabel" id="selectedmeasure3">make selection</p>
+					</div>
+				</div>
+
+				<div class="infoBlock col-sm-6 col-md-6 col-xs-12">
+					<div id="color4" class="infoBlockText">
+						% of 2016 government spending
+					</div>
+					<div>
+						<p class="qlabel" id="selectedmeasure4">make selection</p>
+					</div>
+				</div>
+			</div><!-- Close answerrow -->
+			<div aria-live="polite" class="visuallyhidden" id="accessibilityInfo"></div>
+		</main>
+		<footer>
+			<p style="margin-top:30px; margin-bottom:5px; font-size:12px;">
+				1 - This figure is the UK's contribution to the EU in 2016 net of the rebate and the EU payments to the
+				UK
+				public sector.
+			</p>
+			<p style="font-size:12px;">
+				2 - This figure is the UK's average contribution to the EU for 2012 to 2016, net of the rebate and the
+				EU
+				payments to the UK public and private sectors.
+			</p>
+		</footer>
+
+	</div> <!-- Close Container -->
 
 
-</div><!-- Close answerrow -->
-<p style="margin-top:30px; margin-bottom:5px; font-size:12px;">
-1 - This figure is the UK's contribution to the EU in 2016 net of the rebate and the EU payments to the UK public sector.
-</p>
-<p style="font-size:12px;">
-2 - This figure is the UK's average contribution to the EU for 2012 to 2016, net of the rebate and the EU payments to the UK public and private sectors.
-</p>
-</div> <!-- Close Container -->
-
-
-<!-- Constant libraries / frameworks -->
-    <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
- 	<script src="js/modernizr.custom.56904.js"></script>
-    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
-    <script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.min.js" charset="utf-8"></script>
+	<!-- Constant libraries / frameworks -->
+	<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/modernizr.custom.56904.js"></script>
+	<script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+	<script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.min.js" charset="utf-8"></script>
 	<script>
-    pymChild = new pym.Child()
-	
-    </script>
-    
-<!--Optional libraries/frameworks-->
-<!--
+		pymChild = new pym.Child()
+
+	</script>
+
+	<!--Optional libraries/frameworks-->
+	<!--
     
     <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
     <script src="js/idangerous.swiper-2.1.min.js"></script>
@@ -373,29 +141,30 @@
     <script src="js/topojson.min.js"></script>
 
 -->
-<!--Main code-->
+	<!--Main code-->
 
-    <script src="js/script.js"></script>
+	<script src="js/script.js"></script>
 
-    <script>
-	
-		  /* Analytics */
+	<script>
 
-		  /* Google */
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-37894017-1']);
-		  _gaq.push(['_trackPageview']);
-		
-		
-		  (function() {
+		/* Analytics */
+
+		/* Google */
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-37894017-1']);
+		_gaq.push(['_trackPageview']);
+
+
+		(function () {
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
+		})();
 
 
-    </script>
+	</script>
 
 
-  </body>
+</body>
+
 </html>
