@@ -1,0 +1,467 @@
+.title {
+    font-weight: 800;
+}
+/* .input {
+    width: 220px;
+    padding: 1rem;
+    padding-right: 1rem;
+    height: 45px;
+    color: inherit;
+    border: 2px solid #1b5f97;
+    border-radius: 0;
+    font-size: 1.1em;
+    text-align: right;
+} */
+
+.input--pound {
+    position: absolute;
+    height: 45px;
+    width: 40px;
+    font-size: 21px;
+    padding-top: 8px;
+    background-color: #206095;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.input[type=number] {
+    text-align: right;
+}
+
+.inputtable {
+    border-collapse: collapse;
+}
+
+.inputtable__cell {
+    padding: 1rem .5rem;
+}
+
+/* old stuff */
+.input1,
+.input2,
+.input3,
+.input4,
+.input5,
+.input6,
+.input7,
+.input8,
+.input9 {
+    overflow: overlay !important;
+    height: 70px;
+}
+
+.input2,
+.input5,
+.input6,
+.input8,
+.input9 {
+    padding-bottom: 10px;
+}
+
+.input-title {
+    width: 50%;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    float: left;
+}
+
+.input-group {
+    width: 50%;
+    margin-top: 2px;
+}
+
+.input-title p {
+    padding-top: 8px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    float: right;
+}
+
+#tooltip-input1,
+#tooltip-input2,
+#tooltip-input3,
+#tooltip-input4,
+#tooltip-input5,
+#tooltip-input6,
+#tooltip-input7,
+#tooltip-input8,
+#tooltip-input9,
+#tooltip-input10,
+#tooltip-input11,
+#tooltip-input12 {
+    word-wrap: break-word;
+    width: 15px;
+    padding-top: 0px;
+    height: 15px;
+}
+
+.tooltip-inner {
+    font-size: 14px;
+}
+
+#inputs {
+    width: 400px;
+}
+
+.input1,
+.input2,
+.input3,
+.input4,
+.input5,
+.input6,
+.input7,
+.input8,
+.input9 {
+    overflow: overlay !important;
+    height: 70px;
+}
+
+.input2,
+.input5,
+.input6,
+.input8,
+.input9 {
+    padding-bottom: 10px;
+}
+
+.commodity-pic {
+    width: 40px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.commodity-pic img {
+    width: 40px;
+    height: 40px;
+}
+
+
+.commodity-text-1 {
+    display: inline-block;
+    max-width: 195px;
+}
+
+.commodity-text-1 p {
+    padding-top: 0px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.commodity-text-2 {
+    display: inline-block;
+    max-width: 215px;
+    padding-top: 10px;
+}
+
+.commodity-text-2 p {
+    padding-top: 0px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.commodity-text-3 {
+    display: inline-block;
+    max-width: 215px;
+}
+
+.commodity-text-3 p {
+    padding-top: 0px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.commodity-text-4 {
+    display: inline-block;
+    max-width: 215px;
+}
+
+.commodity-text-4 p {
+    padding-top: 0px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.commodity-text-5 {
+    display: inline-block;
+    max-width: 215px;
+}
+
+.commodity-text-5 p {
+    padding-top: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.commodity-text-6 {
+    display: inline-block;
+    max-width: 215px;
+}
+
+.commodity-text-6 p {
+    padding-top: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.commodity-text-7 {
+    display: inline-block;
+    max-width: 198px;
+
+}
+
+.commodity-text-7 p {
+    padding-top: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 0px;
+}
+
+.commodity-text-8 {
+    display: inline-block;
+    max-width: 215px;
+}
+
+.commodity-text-8 p {
+    padding-top: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.commodity-text-9 {
+    display: inline-block;
+    max-width: 215px;
+}
+
+.commodity-text-9 p {
+    padding-top: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+
+
+.commodity-info {
+    display: inline-block;
+}
+
+
+/* SLIDER */
+.container {
+    font-family: 'Open Sans', Arial, sans-serif;
+    max-width: 100% !important;
+    padding-top: 0px;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    text-align: left;
+    position: relative;
+    margin-top: 20px;
+
+}
+
+.slider-track {
+    background-color: #000 !important;
+    height: 7px !important;
+    margin-top: 7px !important;
+}
+
+.slider-selection {
+    background-color: #000;
+}
+
+.slider-handle {
+    animation-duration: 0s !important;
+    /* border: 10px solid #FFF !important; */
+}
+
+.slider-handle:focus {
+    outline: 3px solid #FF9933 !important;
+}
+
+
+.tick-marks {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+.zero {
+    float: left;
+    color: #414042;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    /* margin-left: 15px; */
+}
+
+.one-hundred {
+    height: auto;
+    float: right;
+    color: #414042;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    /* margin-right: 15px; */
+}
+
+.tick-one {
+    text-align: left;
+    margin-top: 18px;
+}
+
+.tick-two {
+    text-align: right;
+    margin-top: 18px;
+}
+
+
+.commodity-text {
+    display: inline-block;
+    max-width: 195px;
+}
+
+.commodity-text p {
+    padding-top: 0px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.commodity-info {
+    display: inline-block;
+}
+
+
+
+.spendingtitle p,
+.input-title p {
+    float: left;
+    padding-right: 5px;
+
+}
+
+.valueHours,
+.spendingValue {
+    text-align: left;
+    padding-right: 0px !important;
+    width: 50%;
+    float: right;
+}
+
+.input-value {
+    text-align: left;
+    padding-right: 0px !important;
+    width: 45%;
+    float: left;
+}
+
+/* .input form {
+  max-width: 110px;
+} */
+
+.input-window>input {
+    max-width: 80px;
+}
+
+
+.period-input {
+    width: 55%;
+    float: right;
+}
+
+.float>select {
+    z-index: 0 !important;
+    max-width: 150px;
+}
+
+.borderBottom {
+    min-height: 50px;
+    width: 145px;
+    float: right;
+    border-left: solid 5px #3b7a9e;
+    background-color: #fff;
+    position: relative;
+}
+
+.borderBottom p {
+    position: absolute;
+    right: 0;
+    text-align: right;
+}
+
+.valueHours p,
+.spendingValue p {
+    /* border-bottom: 2px solid #424046; */
+    float: left;
+    font-size: 12px;
+    padding-top: 5px;
+    padding-left: 7px;
+}
+
+.spendingValue, .spendingtitle {
+    position: absolute;
+    top: 0;
+}
+
+.spendingValue {
+    right: 40px;
+}
+
+.spendingtitle {
+    left: 40px;
+}
+
+#changeHousing,
+#changeTransport,
+#changeFood,
+#changeAlcohol,
+#changeClothing,
+#changeCommunication,
+#changeLeasure,
+#changeHolidays,
+#changeMaintenance,
+#changeHours1,
+#changeHours2,
+#changeHours3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3b7a9e;
+}
+
+
+.row.row--slider {
+    margin-top: 70px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.q-container {
+    width: 100%;
+}
+
+.uk-average path {
+    stroke: #000;
+}
+
+.uk-average path.line {
+    fill: none;
+    stroke: #000;
+    stroke-width: 3;
+}
+
+.uk-average text {
+    fill: #000;
+    text-anchor: start;
+}
+
+.uk-average text.amountValue {
+    fill: #000;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.uk-average text.amountLabel {
+    font-size: 12px;
+}
