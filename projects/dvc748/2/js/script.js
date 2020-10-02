@@ -704,7 +704,7 @@ if (Modernizr.webgl) {
       d3.select('#accessibilityInfo').select('p.visuallyhidden')
       .text(function(){
         if (!isNaN(rateById[code])) {
-          return areaById[code]+": "+ displayformat(rateById[code]) +" "+ dvc.varunit[b];
+          return areaById[code]+": "+ displayformat(rateById[code]) +" "+ dvc.varunit[navvalue];
         } else {
           return "Data unavailable";
         }
@@ -972,7 +972,7 @@ if (Modernizr.webgl) {
 
       if (mobile == false) {
 
-        d3.select("#keydiv").append("p").attr("id", "keyunit").attr('aria-hidden',true).style("margin-top", "25px").style("margin-left", "10px").style("font-size","14px").text(dvc.varunit[b]);
+        d3.select("#keydiv").append("p").attr("id", "keyunit").attr('aria-hidden',true).style("margin-top", "25px").style("margin-left", "10px").style("font-size","14px").text(dvc.varunit[navvalue]);
 
         keyheight = 150;
 
@@ -1254,7 +1254,7 @@ if (Modernizr.webgl) {
           .attr("id", "keyunit")
           .style("margin-top", "-10px")
           .style("margin-left", "10px")
-          .text(dvc.varunit[b]);
+          .text(dvc.varunit[navvalue]);
 
 
         if (dvc.dropticks) {
