@@ -28,8 +28,6 @@ if(Modernizr.webgl) {
 			if (column == 'AREANM') continue;
 			dvc.varname = 'quads5';
 
-			console.log(dvc.varname)
-
 		}
 
 		//set title of page
@@ -174,12 +172,9 @@ if(Modernizr.webgl) {
 
 		//and add properties to the geojson based on the csv file we've read in
 		areas.features.map(function(d,i) {
-			console.log(empgrowth[d.properties.AREACD])
-
 		  d.properties.fill = rateById[d.properties.AREACD];
 		  d.properties.empgrowth = empgrowth[d.properties.AREACD];
 		  d.properties.popgrowth = popgrowth[d.properties.AREACD];
-
 		});
 
 
@@ -305,7 +300,6 @@ if(Modernizr.webgl) {
 			if(detectIE()){
 				onMove = onMove.debounce(100);
 				onLeave = onLeave.debounce(100);
-				console.log("ie");
 			};
 
 			//Highlight stroke on mouseover (and show area information)
@@ -579,7 +573,6 @@ if(Modernizr.webgl) {
 
 	function exitHandler() {
 
-		console.log("shrink");
 			if (document.webkitIsFullScreen === false)
 			{
 				shrinkbody();

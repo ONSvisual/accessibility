@@ -92,11 +92,14 @@ button {
     display: none;
 }
 
-.mapboxgl-ctrl-group:focus,
 .btn:focus
 {
     box-shadow: 0 0 0px 3pt orange;
     outline: none;
+}
+
+.mapboxgl-ctrl-group > button:focus {
+    border: solid 3pt orange;
 }
 
 @media (min-width: 599px) {
