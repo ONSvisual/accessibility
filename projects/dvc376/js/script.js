@@ -45,7 +45,7 @@ $(document).ready(function(){
 	function mutateDom () {
 		d3.selectAll('.square').each(function() {
 			var ctr = $(this)
-			var labelText = ctr.find('.category').text()
+			var labelText = ctr.find('.category').text().split('.')[0]
 			ctr.find('.btn-minus').attr('aria-label', 'Click to decrease ' + labelText + ' hours')
 			ctr.find('.btn-plus').attr('aria-label', 'Click to increase ' + labelText + ' hours')
 		})

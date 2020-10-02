@@ -157,8 +157,8 @@ a:active {
 a,
 a:link,
 a:visited {
-    font-weight: 300;
-    color: #4774CC;
+    /* font-weight: 300; */
+    color: #003C57;
 }
 
 .h2 {
@@ -376,8 +376,8 @@ a:visited {
 .source-text {
     text-align: center;
     font-size: 14px;
-    font-weight: 300;
-    color: #808080;
+    /* font-weight: 300; */
+    color: #000;
     padding-top: 10px;
 }
 
