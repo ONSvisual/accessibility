@@ -19,6 +19,8 @@ $(document).ready(function(){
 		//calls add listeners function	
 		addListeners();
 
+		// mutateDOM
+		mutateDom()
 		 //load config 
 			d3.json("config.json", function(error, config) {
 			dvc=config
@@ -40,6 +42,14 @@ $(document).ready(function(){
 				});
 			});	
 		
+	function mutateDom () {
+		d3.selectAll('.square').each(function() {
+			var ctr = $(this)
+			var labelText = ctr.find('.category').text().split('.')[0]
+			ctr.find('.btn-minus').attr('aria-label', 'Click to decrease ' + labelText + ' hours')
+			ctr.find('.btn-plus').attr('aria-label', 'Click to increase ' + labelText + ' hours')
+		})
+	}
 
 	function drawGraphic(width) {
 			
@@ -240,7 +250,9 @@ $(document).ready(function(){
 		    }
 		}			
 
-    $('[data-toggle="tooltip"]').tooltip(); 
+    $('[data-toggle="tooltip"]').tooltip({
+		template: '<div class="tooltip" aria-hidden="true" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+	}); 
 	
  
 
@@ -395,7 +407,11 @@ $(document).ready(function(){
   				
   				//d3.select("#totalAnnualValue").text("£"+ mynumbformat(totalYear));
 				d3.select("#totalAnnualValue").text(totalYear);
-				
+				// annouceUpdate
+				d3.select('#accessibilityInfo').text([
+					'Total per week: ', dataTotalValue.toFixed(2), ' pounds. ',
+					'Total per year: ', totalYear.toFixed(2), ' pounds.',
+				].join(''))
 				addShare();
   				
 	}
@@ -411,19 +427,19 @@ $(document).ready(function(){
 		    if (!isNaN(currentVal)) {
 		        if(type == 'minus') {
 		            
-		            if(currentVal > input.attr('min')) {
+		            if(currentVal > input.attr('data-min')) {
 		                input.val(currentVal - 1).change();
 		            } 
-		            if(parseInt(input.val()) == input.attr('min')) {
+					if (parseInt(input.val()) == input.attr('data-min')) {
 		                $(this).attr('disabled', true);
 		            }
 
 		        } else if(type == 'plus') {
 
-		            if(currentVal < input.attr('max')) {
+					if (currentVal < input.attr('data-max')) {
 		                input.val(currentVal + 1).change();
 		            }
-		            if(parseInt(input.val()) == input.attr('max')) {
+					if (parseInt(input.val()) == input.attr('data-max')) {
 		                $(this).attr('disabled', true);
 		            }
 
@@ -437,8 +453,8 @@ $(document).ready(function(){
 		});
 		$('.input-number').change(function() {
 		    
-		    minValue =  parseInt($(this).attr('min'));
-		    maxValue =  parseInt($(this).attr('max'));
+			minValue = parseInt($(this).attr('data-min'));
+			maxValue = parseInt($(this).attr('data-max'));
 		    valueCurrent = parseInt($(this).val());
 		    
 		    name = $(this).attr('name');
@@ -515,38 +531,25 @@ function addShare() {
 
 			//appending the buttons
 			d3.select("#share").append("a")
+				.attr('class', 'social-button social-button--facebook')
 				.attr("id","facebookShare")
 				.attr("href","https://www.facebook.com/sharer/sharer.php?u=" + urlshare)
 				.attr("target","_blank")
-				.style("position","relative")
-				.style("left","45%")
-				.style("height","30px")
-				.style("width","30px")
-				.style("background","#fff")
-				.style("opacity","1.0")
-				.style("float","left")
-				.style("margin-right","15px")
 				.attr("title","Facebook")
 				.append("img")
-				.style("height","35px")
-				.style("width","35px")
-				.attr("src","./img/facebook-icon.svg");
+				.attr("src","./img/facebook-icon.svg")
+				.attr("alt", "facebook icon");
 			
 			d3.select("#share").append("a")
+				.attr('class', 'social-button social-button--twitter')
 				.attr("id","twitterShare")
 				.attr("href","https://twitter.com/intent/tweet?text=The value of my unpaid work is £" + mynumbformat(totalYear) + " a year " + urlshare)
 				.attr("target","_blank")
-				.style("position","relative")
-				.style("left","45%")
-				.style("height","30px")
-				.style("width","30px")
-				.style("background","#fff")
-				.style("opacity","1.0")
+				
 				.attr("title","Twitter")
 				.append("img")
-				.style("height","35px")
-				.style("width","35px")
-				.attr("src","./img/twitter-icon.svg");
+				.attr("src","./img/twitter-icon.svg")
+				.attr("alt", "twitter icon");
 
 			//on mouseover
 			d3.select("#facebookShare").on("mouseover", function() {
