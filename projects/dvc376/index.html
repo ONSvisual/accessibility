@@ -55,8 +55,8 @@
                             </button>
                         </span>
                         <label for="housework" class="visuallyhidden">Enter hours spent doing housework</label>
-                        <input type="number" id="housework" name="quant[2]" class="form-control input-number" value="0"
-                            min="0" max="100">
+                        <input type="text" id="housework" name="quant[2]" class="form-control input-number" value="0"
+                            data-min="0" data-max="100">
                         <span class="input-group-btn">
                             <button type="button" name="housework-plus" class="btn btn-plus btn-number plus" data-type="plus"
                                 data-field="quant[2]">
@@ -104,8 +104,8 @@
                             </button>
                         </span>
                         <label for="childcare" class="visuallyhidden">Enter hours spent doing childcare</label>
-                        <input type="number" id="childcare" name="quant[3]" class="form-control input-number" value="0"
-                            min="0" max="100">
+                        <input type="text" id="childcare" name="quant[3]" class="form-control input-number" value="0"
+                            data-min="0" data-max="100">
                         <span class="input-group-btn">
                             <button type="button" name="housework-plus" class="btn btn-plus btn-number plus" data-type="plus"
                                 data-field="quant[3]">
@@ -152,8 +152,8 @@
                             </button>
                         </span>
                         <label for="cooking" class="visuallyhidden">Enter hours spent doing cooking</label>
-                        <input type="number" id="cooking" name="quant[4]" class="form-control input-number" value="0"
-                            min="0" max="100">
+                        <input type="text" id="cooking" name="quant[4]" class="form-control input-number" value="0"
+                            data-min="0" data-max="100">
                         <span class="input-group-btn">
                             <button type="button" name="cooking-plus" class="btn btn-plus btn-number plus" data-type="plus"
                                 data-field="quant[4]">
@@ -198,8 +198,8 @@
                             </button>
                         </span>
                         <label for="laundry" class="visuallyhidden">Enter hours spent doing laundry</label>
-                        <input type="number" id="laundry" name="quant[5]" class="form-control input-number" value="0"
-                            min="0" max="100">
+                        <input type="text" id="laundry" name="quant[5]" class="form-control input-number" value="0"
+                            data-min="0" data-max="100">
                         <span class="input-group-btn">
                             <button type="button" name="laundry-plus" class="btn btn-plus btn-number plus" data-type="plus"
                                 data-field="quant[5]">
@@ -246,8 +246,8 @@
                             </button>
                         </span>
                         <label for="transport" class="visuallyhidden">Enter hours spent doing transport</label>
-                        <input type="number" id="transport" name="quant[6]" class="form-control input-number" value="0"
-                            min="0" max="100">
+                        <input type="text" id="transport" name="quant[6]" class="form-control input-number" value="0"
+                            data-min="0" data-max="100">
                         <span class="input-group-btn">
                             <button type="button" name="transport-plus" class="btn btn-plus btn-number plus" data-type="plus"
                                 data-field="quant[6]">
@@ -298,8 +298,8 @@
                             </button>
                         </span>
                         <label for="adult-care" class="visuallyhidden">Enter hours spent doing adult care</label>
-                        <input type="number" id="adult-care" name="quant[7]" class="form-control input-number" value="0"
-                            min="0" max="100">
+                        <input type="text" id="adult-care" name="quant[7]" class="form-control input-number" value="0"
+                            data-min="0" data-max="100">
                         <span class="input-group-btn">
                             <button type="button" name="adult-care-plus" class="btn btn-plus btn-number plus" data-type="plus"
                                 data-field="quant[7]">
@@ -347,8 +347,8 @@
                             </button>
                         </span>
                         <label for="volunteering" class="visuallyhidden">Enter hours spent doing volunteering</label>
-                        <input type="number" id="volunteering" name="quant[8]" class="form-control input-number" value="0"
-                            min="0" max="100">
+                        <input type="text" id="volunteering" name="quant[8]" class="form-control input-number" value="0"
+                            data-min="0" data-max="100">
                         <span class="input-group-btn">
                             <button type="button" name="volunteering-plus" class="btn btn-plus btn-number plus" data-type="plus"
                                 data-field="quant[8]">
@@ -367,12 +367,12 @@
             </div>
 
             <section id="monthly-value">
-                <p id="totalWeek" class="total">Total per week:</p>
+                <p id="totalWeek" class="total" role="heading" aria-level="3">Total per week:</p>
                 <p id="totalWeekValue" class="odometer">0</p>
             </section>
 
             <section id="annual-value">
-                <p class="total">Total per year:</p>
+                <p class="total" role="heading" aria-level="3">Total per year:</p>
                 <p id="totalAnnualValue" class="odometer">0</p>
             </section>
             <article class="visuallyhidden" id="accessibilityInfo" aria-live="assertive"></article>
@@ -402,9 +402,9 @@
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/modernizr.custom.56904.js"></script>
-    <script src="js/d3.v3.min.js" charset="utf-8"></script>
-    <script src="js/pym.js" charset="utf-8"></script>
-    <script src="js/odometer.min.js" charset="utf-8"></script>
+    <script src="js/d3.v3.min.js"></script>
+    <script src="js/pym.js"></script>
+    <script src="js/odometer.min.js"></script>
     <script src="js/script.js"></script>
 
 
