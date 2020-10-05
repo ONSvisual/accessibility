@@ -814,10 +814,28 @@ function enableHoverEvents() {
 
 
 function enableZoom() {
-	    d3.select('.zoom-control-zoom-in').on('click', function(){m.zoomIn()});
-		d3.select('.zoom-control-zoom-out').on('click', function(){m.zoomOut()});
+	d3.select('.zoom-control-zoom-in')
+		.on('click', function() {
+			m.zoomIn();
+		})
+		.on('keypress', function() {
+			if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+				d3.event.preventDefault();
+				m.zoomIn();
+			}
+		});
 
-}; //enableHoverEvents
+	d3.select('.zoom-control-zoom-out')
+		.on('click', function() {
+			m.zoomOut();
+		})
+		.on('keypress', function() {
+			if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+				d3.event.preventDefault();
+				m.zoomOut();
+			}
+		});
+} //enableHoverEvents
 
 function barchartstart(){
 
