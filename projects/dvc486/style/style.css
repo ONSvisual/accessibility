@@ -308,7 +308,10 @@ label {
 .form-group {
   /* border-right: solid 1px #A6A8AB; */
 }
-
+.form-group:focus.slider-handle:focus {
+  box-shadow: 0 0 0px 3pt orange;
+  outline: 2px dotted transparent;
+}
 /* Primary button group */
 
 .label-primary {
@@ -556,7 +559,8 @@ select {
 #tooltip-input9,
 #tooltip-input10,
 #tooltip-input11,
-#tooltip-input12 {
+#tooltip-input12,
+.tooltip {
   word-wrap: break-word;
   width: 15px;
   padding-top: 0px;
@@ -1649,4 +1653,15 @@ input {
     #sliders {
       height: 260px;
     }
+  }
+
+  .visuallyhidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
   }
