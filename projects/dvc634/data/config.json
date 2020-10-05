@@ -3,12 +3,18 @@
 "varcolour": "YlGnBu",
 "varlabels": ["First var"],
 "timeload": "last",
-"timepoints": ["1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017"],    
+"timepoints": ["1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017"],
 "varunit": ["GDHI per head (£)"],
 "displaydecimals": 0,
 "legenddecimals": 0,
 "breaks": [6000,12000,16000,21000,34000,60000],
 "dropticks": false,
 "numberBreaks": 5,
-"sourcetext": "Office for National Statistics - Regional gross disposable household income (GDHI)"
+"sourcetext": "Office for National Statistics - Regional gross disposable household income (GDHI)",
+"timelineLabelsDT":["1997","2007","2017"],
+"average": [[10807,11191,11557,12321,12779,13137,13464,13939,14427,15007,15644,16074,16344,16353,16570,17310,17866,18297,19234,19322,19514]],
+"averageText":"UK"
 }}
+
+
+
