@@ -14,7 +14,9 @@ d3.select("#fallback").remove();
 
 function ready (error, dataexports, dataimports, geog){
 
-  colour_palette =["#766FAF","#0F8243"]
+	var dvcyear = 2017;
+
+  colour_palette =["#766FAF","#0F8243"];
   legendLabels=["UK investments overseas","Foreign Investments in the UK"]
 
   var margin = {top: 40, right: 15, bottom: 40, left: 40};
@@ -381,15 +383,16 @@ function highlightcountry(countrycode) {
 
     //Get country name
     a = areacodes.indexOf(countrycode);
-    countryname = areanames[a]
+    countryname = areanames[a];
 
     //barcode labels
-    d3.select("#importlabel").html("<p>into " + countryname +"</p><p class='labelbold'>£"+ d3.format(",.1f")(importval/1000) +"bn</p>")
-    d3.select("#exportlabel").html("<p>from " + countryname +"</p><p class='labelbold'>£"+ d3.format(",.1f")(exportval/1000) +"bn</p>")
+    d3.select("#importlabel").html("<p>into " + countryname +"</p><p class='labelbold'>£"+ d3.format(",.1f")(importval/1000) +"bn</p>");
+    d3.select("#exportlabel").html("<p>from " + countryname +"</p><p class='labelbold'>£"+ d3.format(",.1f")(exportval/1000) +"bn</p>");
 
     //Update labels
-    d3.select("#tradewith").html("Investments into/from " + countryname + " <span style='font-weight:300'>2017</span>")
+    d3.select("#tradewith").html("Investments into/from " + countryname + " <span style='font-weight:300'>dvcyear</span>");
 
+	d3.select("#accessibility p").text("The total invested in " + countryname + " in " + dvcyear + " was  £" + d3.format(",")(importval * 1000000) + ". The total investments from " + countryname + " in " + dvcyear + " was £" + d3.format(",")(exportval * 1000000) + ".")
 } //end highlightcountry
 
 
@@ -405,14 +408,15 @@ function unhighlightcountry(countrycode) {
 	d3.selectAll(".highlights").remove();
 
   //Update labels
-  d3.select("#tradewith").html("UK IIP, assets & liabilities <span style='font-weight:300'>2017</span>")
+  d3.select("#tradewith").html("UK IIP, assets & liabilities <span style='font-weight:300'>2017</span>");
 
 	d3.select("#shape" + countrycode).classed("countries_highlights",false);
 
 	//reset barcode labels
-	d3.select("#importlabel").html("<p>into</p>")
-	d3.select("#exportlabel").html("<p>from</p>")
+	d3.select("#importlabel").html("<p>into</p>");
+	d3.select("#exportlabel").html("<p>from</p>");
 
+	d3.select("#accessibility p").text("");
 } //end unhighlightcountry
 
 
