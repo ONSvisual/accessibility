@@ -559,7 +559,8 @@ select {
 #tooltip-input9,
 #tooltip-input10,
 #tooltip-input11,
-#tooltip-input12 {
+#tooltip-input12,
+.tooltip {
   word-wrap: break-word;
   width: 15px;
   padding-top: 0px;
