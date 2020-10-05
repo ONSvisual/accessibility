@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' >
+    <title>Sankey diagram of people moving in and out of poverty, dvc617</title>
 
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <link rel="stylesheet" href="css/globalStyle.css" />
-    <link rel="stylesheet" href="css/style-chosen.css">
+    <link href="./css/style-chosen.css" rel="stylesheet" />
 
-    <style type="text/css">
+    <style>
 
 	body {
 		max-width:800px;
@@ -87,13 +87,11 @@
 		.node text {
 		  pointer-events: none;
 		  font-size:13px;
-		  font-weight:;
-		  fill:"black";
+		  fill:black;
 		}
 		.table > tbody > tr > td {
 		  pointer-events: none;
 		  font-size:11px;
-		  font-weight:;
 		  fill:#999;
 		  border-top: 2px solid white;
 
@@ -148,7 +146,6 @@
 		}
 		.explanation{
 			font-size:14px;
-			font-weight:;
 		}
 		#dropdown2001{
 			display:inline-block;
@@ -649,6 +646,35 @@ a {
     line-height: 32px;
 }
 
+.visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.focussed{
+  opacity: 0.9;
+  stroke:orange;
+  stroke-width:5;
+}
+
+rect:focus{
+outline-style:none;
+}
+
+path:focus{
+outline-style:none;
+}
+
+.btn:hover, .btn:focus{
+  outline: 3px solid orange;
+}
+
     </style>
 
 </head>
@@ -656,10 +682,11 @@ a {
 
 	<div id="altern">
     	<p>Unfortunately your browser cannot display this graphic. You might need to upgrade to a modern browser - Find out more information here <a href="https://www.gov.uk/help/browsers">https://www.gov.uk/help/browsers</a></p>
-        <img src="alt.png"></img>
+        <img src="alt.png" alt="Screenshot of sankey diagram showing how people move in and out of poverty">
     </div>
+    <h5 class="visuallyhidden">sankey diagram showing how people move in and out of poverty between 2016 and 2017</h5>
 
-    <div class="container-fluid">
+    <div class="container-fluid" aria-hidden="true">
 <!--           <div class="row header">
                <h3>Changes in women's circumstances over 10 years in England and Wales</h3>
            </div>-->
@@ -667,7 +694,7 @@ a {
            <div class="row">
            		<div class="yearTxt2001" > Select a variable:</div>
                 <div id="dropdown2001" style="width:200px;"></div>
-
+                <p aria-live="polite" id="selected_var" class="visuallyhidden"></p>
            </div>
 
 <!--           <div class="row">
@@ -707,7 +734,7 @@ a {
                 </div>
            </div>-->
 
-           <div class="row headings">
+           <div class="row headings" aria-hidden="true">
            		<div class="col-sm-4 col-xs-4">2016</div>
                 <div class="col-sm-4 col-xs-4 text-center"></div>
                 <div class="col-sm-4 col-xs-4 text-right">2017</div>
@@ -718,12 +745,9 @@ a {
                 <div class="col-sm-3 col-xs-4 text-right">(e.g money received)</div>
            </div>-->
            <div class="row">
-           		<div class="col-sm-12  text-center" id="info"></div>
-           </div>
-           <div class="row">
-           		<div class="col-sm-12 col-xs-12" >
-           			<div id="graphic"></div>
-           		</div>
+           		<div class="col-sm-12  text-center" id="info" aria-hidden="true"></div>
+              <div class="col-sm-12 col-xs-12" id="graphic"></div>
+
 <!--                <div class="col-sm-3 col-xs-12  hidden-xs" >
                 	<div  id="legend table-responsive">
                 		<br>
@@ -764,16 +788,16 @@ a {
     </div> <!--end container-fluid-->
 
     <h6 class="">Download this chart</h6>
-    <a class="btn btn--primary" href="image.png" download>Image</a>
-    <a class="btn btn--primary" title="Download as csv" href="datadownload.csv" target="_blank">.csv</a>
-    <a class="btn btn--primary" title="Download as xlsx" href="datadownload.xls" target="_blank">.xls</a>
+    <a class="btn btn--primary" role="button" aria-label="Download an image of the sankey diagram" href="image.png" download>Image</a>
+    <a class="btn btn--primary" role="button" aria-label="Download an excel file of the data behind the sankey diagram" href="datadownload.csv" target="_blank">.csv</a>
+    <a class="btn btn--primary" role="button" aria-label="Download a csv file of the data behind the sankey diagram" href="datadownload.xls" target="_blank">.xls</a>
 
     <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
  	<script src="js/modernizr.custom.56904.js"></script>
-    <script src="js/chosen.jquery.js"></script>
-    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
-    <script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.min.js" charset="utf-8"></script>
+  <script src="./lib/chosen.jquery.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.min.js"></script>
 
 
 <script src="js/sankey.js"></script>
@@ -931,10 +955,12 @@ a {
 
 						if(d.name.substr(d.name.lastIndexOf(" ass")+1) == "asset") {
 							text = ""
+              year = "2017"
 							label = node.replace("&", "") + "A"
 
 						} else if(d.name.substr(d.name.lastIndexOf(" lia")+1) == "liability"){
 							text = ""
+              year = "2016"
 							label = node.replace("&", "") + "L"
 						} else {
 							text = "";
@@ -986,9 +1012,14 @@ a {
 
 				$("#dropdown2001").empty();
 
-				var opts = d3.select("#dropdown2001").append("select")
+				d3.select("#dropdown2001").insert("label")
+          .attr("class", "visuallyhidden")
+          .attr("for", "dropdown3")
+          .html("Inactive dropdown element, replaced by custom dropdown")
+
+        var opts = d3.select("#dropdown2001").append("select")
 						.attr("id","dropdown3")
-						.attr("style","width:200px")
+						.attr("style","width:250px")
 						.attr("class","chosen-select")
 
 					//set option for placeholder text
@@ -1007,8 +1038,16 @@ a {
 							"disable_search": true,
 							placeholder_text_single:"All transitions"
 						})
-					   .on('change',function(evt,params){
-					   		updateSankey(params.selected);
+
+        d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+        d3.select('div.chosen-search').insert('label','input.chosen-search-input')
+            .attr('class','visuallyhidden')
+            .attr('for','chosensearchinput')
+            .html("Select a variable")
+
+				$('#dropdown3').on('change',function(evt,params){
+                d3.select("#selected_var").text($("#dropdown3 option:selected").text())
+                updateSankey(params.selected);
 						});
 
 

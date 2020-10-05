@@ -1,5 +1,5 @@
 {"ons":{
-"maptitle": "Time series map about mortality",
+"maptitle": "Time series map about births in England and Wales",
 "varcolour": "YlGnBu",
 "varlabels": [],
 "timeload": "last",
@@ -14,5 +14,7 @@
 "sourceURL" : "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthsummarytables",
 "chartLabels": ["1", "2", "3"],
 "timelineLabelsMB":["", "02", "", "04", "", "06", "", "08", "", "10", "", "12", "", "14","","16","17"],
-"timelineLabelsDT":["","2002","","2004","","2006","","2008","","2010","","2012","","2014","","2016",""]
+"timelineLabelsDT":["2001","2009","2017"],
+"average": [[1.63,1.64,1.72,1.77,1.77,1.83,1.88,1.92,1.90,1.94,1.93,1.94,1.85,1.83,1.82,1.81,1.76]],
+"averageText":"E&W"
 }}

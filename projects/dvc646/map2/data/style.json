@@ -16,10 +16,7 @@
         "name": "Places",
         "collapsed": false
       }
-    },
-    "openmaptiles:version": "3.x",
-    "openmaptiles:mapbox:owner": "openmaptiles",
-    "openmaptiles:mapbox:source:url": "mapbox://openmaptiles.4qljc88t"
+    }
   },
   "center": [
     10.184401828277089,
@@ -31,11 +28,13 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "https://maps.tilehosting.com/data/v3.json?key=7rA0yA362pBi9PZxyYlY"
+      "tiles": [
+        "https://cdn.ons.gov.uk/maptiles/osm/v1/{z}/{x}/{y}.pbf"
+      ]
     }
   },
-  "sprite": "https://openmaptiles.github.io/positron-gl-style/sprite",
-  "glyphs": "https://maps.tilehosting.com/fonts/{fontstack}/{range}.pbf?key=7rA0yA362pBi9PZxyYlY",
+  "sprite": "https://cdn.ons.gov.uk/maptiles/osm/spritesv1/sprite",
+  "glyphs": "https://cdn.ons.gov.uk/maptiles/osm/fontsv1/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -75,7 +74,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "fill-color": "rgb(220, 220, 220)",
+        "fill-color": "rgb(255, 255, 255)",
         "fill-antialias": true
       }
     },
@@ -256,14 +255,13 @@
         "text-rotation-alignment": "map",
         "symbol-spacing": 500,
         "text-font": [
-          "Metropolis Medium Italic",
           "Open Sans Italic"
         ],
         "text-size": 12
       },
       "paint": {
-        "text-color": "rgb(157,169,177)",
-        "text-halo-color": "rgb(242,243,240)",
+        "text-color": "rgb(50, 51, 33)",
+        "text-halo-color": "rgb(255,255,255)",
         "text-halo-width": 1,
         "text-halo-blur": 1
       }
@@ -1380,7 +1378,6 @@
         "text-transform": "none",
         "symbol-spacing": 350,
         "text-font": [
-          "Metropolis Regular",
           "Open Sans Regular"
         ],
         "symbol-placement": "line",
@@ -1425,7 +1422,6 @@
         "text-size": 10,
         "symbol-spacing": 350,
         "text-font": [
-          "Metropolis Light",
           "Open Sans Regular"
         ],
         "symbol-placement": "line",
@@ -1435,7 +1431,7 @@
         "text-field": "{ref}"
       },
       "paint": {
-        "text-color": "rgb(117, 129, 145)",
+        "text-color": "rgb(50, 51, 33)",
         "text-halo-color": "hsl(0, 0%, 100%)",
         "text-translate": [
           0,
@@ -1564,7 +1560,6 @@
         "text-size": 10,
         "text-transform": "none",
         "text-font": [
-          "Metropolis Regular",
           "Open Sans Regular"
         ],
         "text-justify": "center",
@@ -1578,8 +1573,8 @@
         "text-keep-upright": false
       },
       "paint": {
-        "text-color": "rgb(117, 129, 145)",
-        "text-halo-color": "rgb(242,243,240)",
+        "text-color": "rgb(50, 51, 33)",
+        "text-halo-color": "rgb(255,255,255)",
         "text-halo-width": 1,
         "text-halo-blur": 1
       }
@@ -1610,7 +1605,6 @@
         "text-size": 10,
         "text-transform": "none",
         "text-font": [
-          "Metropolis Regular",
           "Open Sans Regular"
         ],
         "text-justify": "center",
@@ -1623,8 +1617,8 @@
         "text-field": "{name:latin}\n{name:nonlatin}"
       },
       "paint": {
-        "text-color": "rgb(117, 129, 145)",
-        "text-halo-color": "rgb(242,243,240)",
+        "text-color": "rgb(50, 51, 33)",
+        "text-halo-color": "rgb(255,255,255)",
         "text-halo-width": 1,
         "text-halo-blur": 1
       }
@@ -1655,7 +1649,6 @@
         "text-size": 10,
         "text-transform": "none",
         "text-font": [
-          "Metropolis Regular",
           "Open Sans Regular"
         ],
         "text-justify": "left",
@@ -1669,8 +1662,8 @@
         "text-field": "{name:latin}\n{name:nonlatin}"
       },
       "paint": {
-        "text-color": "rgb(117, 129, 145)",
-        "text-halo-color": "rgb(242,243,240)",
+        "text-color": "rgb(50, 51, 33)",
+        "text-halo-color": "rgb(255,255,255)",
         "text-halo-width": 1,
         "text-halo-blur": 1,
         "icon-opacity": 0.7
@@ -1715,7 +1708,6 @@
         },
         "text-transform": "none",
         "text-font": [
-          "Metropolis Regular",
           "Open Sans Regular"
         ],
         "text-justify": "left",
@@ -1741,8 +1733,8 @@
         "text-field": "{name:latin}\n{name:nonlatin}"
       },
       "paint": {
-        "text-color": "rgb(117, 129, 145)",
-        "text-halo-color": "rgb(242,243,240)",
+        "text-color": "rgb(50, 51, 33)",
+        "text-halo-color": "rgb(255,255,255)",
         "text-halo-width": 1,
         "text-halo-blur": 1,
         "icon-opacity": 0.7
@@ -1800,7 +1792,6 @@
         },
         "text-transform": "none",
         "text-font": [
-          "Open Sans Regular",
           "Open Sans Regular"
         ],
         "text-justify": "left",
@@ -1826,8 +1817,8 @@
         "text-field": "{name:latin}\n{name:nonlatin}"
       },
       "paint": {
-        "text-color": "rgb(117, 129, 145)",
-        "text-halo-color": "rgb(242,243,240)",
+        "text-color": "rgb(50, 51, 33)",
+        "text-halo-color": "rgb(255,255,255)",
         "text-halo-width": 1,
         "text-halo-blur": 1,
         "icon-opacity": 0.7
@@ -1880,7 +1871,6 @@
         },
         "text-transform": "none",
         "text-font": [
-          "Open Sans Regular",
           "Open Sans Regular"
         ],
         "text-justify": "left",
@@ -1906,8 +1896,8 @@
         "text-field": "{name:latin}\n{name:nonlatin}"
       },
       "paint": {
-        "text-color": "rgb(117, 129, 145)",
-        "text-halo-color": "rgb(242,243,240)",
+        "text-color": "rgb(50, 51, 33)",
+        "text-halo-color": "rgb(255,255,255)",
         "text-halo-width": 1,
         "text-halo-blur": 1,
         "icon-opacity": 0.7
@@ -1965,7 +1955,6 @@
         },
         "text-transform": "none",
         "text-font": [
-          "Open Sans Regular",
           "Open Sans Regular"
         ],
         "text-justify": "left",
@@ -1991,8 +1980,8 @@
         "text-field": "{name:latin}\n{name:nonlatin}"
       },
       "paint": {
-        "text-color": "rgb(117, 129, 145)",
-        "text-halo-color": "rgb(242,243,240)",
+        "text-color": "rgb(50, 51, 33)",
+        "text-halo-color": "rgb(255,255,255)",
         "text-halo-width": 1,
         "text-halo-blur": 1,
         "icon-opacity": 0.7
@@ -2024,15 +2013,14 @@
         "visibility": "visible",
         "text-field": "{name:latin}\n{name:nonlatin}",
         "text-font": [
-          "Metropolis Regular",
           "Open Sans Regular"
         ],
         "text-transform": "none",
         "text-size": 10
       },
       "paint": {
-        "text-color": "rgb(113, 129, 144)",
-        "text-halo-color": "rgb(242,243,240)",
+        "text-color": "rgb(50, 51, 33)",
+        "text-halo-color": "rgb(255,255,255)",
         "text-halo-width": 1,
         "text-halo-blur": 1
       }
@@ -2067,7 +2055,6 @@
         "visibility": "visible",
         "text-field": "{name:latin}",
         "text-font": [
-          "Metropolis Light Italic",
           "Open Sans Italic"
         ],
         "text-transform": "none",
@@ -2087,7 +2074,7 @@
       },
       "paint": {
         "text-halo-width": 1.4,
-        "text-halo-color": "rgba(236,236,234,0.7)",
+        "text-halo-color": "rgba(255,255,255,1)",
         "text-color": {
           "base": 1,
           "stops": [
@@ -2138,7 +2125,6 @@
         "visibility": "visible",
         "text-field": "{name:latin}",
         "text-font": [
-          "Metropolis Regular",
           "Open Sans Regular"
         ],
         "text-transform": "none",
@@ -2158,7 +2144,7 @@
       },
       "paint": {
         "text-halo-width": 1.4,
-        "text-halo-color": "rgba(236,236,234,0.7)",
+        "text-halo-color": "rgba(255,255,255,1)",
         "text-color": {
           "base": 1,
           "stops": [
@@ -2209,7 +2195,6 @@
         "visibility": "visible",
         "text-field": "{name:latin}",
         "text-font": [
-          "Open Sans Regular",
           "Open Sans Regular"
         ],
         "text-transform": "none",
@@ -2234,7 +2219,7 @@
       },
       "paint": {
         "text-halo-width": 1.4,
-        "text-halo-color": "rgba(236,236,234,0.7)",
+        "text-halo-color": "rgba(255,255,255,1)",
         "text-color": {
           "base": 1,
           "stops": [
