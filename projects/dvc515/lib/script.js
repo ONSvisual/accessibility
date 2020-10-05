@@ -318,10 +318,24 @@ function getCentroids() {
 function highlightcountry(countrycode) {
 
     //Update dropdown
-    $("#areaselect").val(countrycode).trigger('change.select2');
+		$("#areaselect").val(countrycode).trigger('chosen:updated');
+
+		// add keybindings to cross
+		d3.select('abbr').on('keypress', function(evt) {
+			if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+				d3.event.preventDefault();
+				unhighlightcountry(countrycode);
+				filterdata("W1");
+				enableHoverEvents();
+			}
+		}).on('mouseup', function() {
+			unhighlightcountry(countrycode);
+			filterdata("W1");
+			enableHoverEvents();
+		});
 
     //Draw barcode highlight rects on top of all bars
-    if(mobile == false) {
+    if(mobile === false) {
 
       d3.selectAll("." + countrycode).each(fadeToFront);
       //Give map area a highlight class
@@ -383,7 +397,7 @@ function highlightcountry(countrycode) {
 function unhighlightcountry(countrycode) {
 
   //update dropdown
-	$("#areaselect").val("").trigger('change.select2');
+	$("#areaselect").val("").trigger('chosen:updated');
 
 
 	d3.select("#shape" + countrycode).classed("countries_highlights",false);
@@ -734,7 +748,14 @@ function selectList() {
 
 	myId=null;
 
- 	$('#areaselect').select2({placeholder:"Choose a country",allowClear:true,dropdownParent:$('#sel')})
+ 	$('#areaselect').chosen({
+		allow_single_deselect: true,
+		no_results_text: "No results found for:",
+		width: "67%"
+	});
+
+	d3.select('input.chosen-search-input').attr('id', 'chosensearchinput')
+	d3.select('div.chosen-search').insert('label', 'input.chosen-search-input').attr('class', 'visuallyhidden').attr('for', 'chosensearchinput').html("Type to select a country as a investment partner with the UK")
 
 	$('#areaselect').on('change',function(){
 
@@ -757,14 +778,12 @@ function selectList() {
             'countryselected':areacode
           })
 
+			} else {
+				unhighlightcountry(areacode);
+				enableHoverEvents();
+				changeURL("")
 			}
 
-	});
-
-	$("#areaselect").on("select2:unselect", function (e) {
-          unhighlightcountry(areacode);
-					enableHoverEvents();
-          changeURL("")
 	});
 
 }; // end selectlist
@@ -944,19 +963,6 @@ function barchartstart(){
 
 
 }//end of barchartstart
-
-
-//some code to stop select2 opening when clearing
-$('#areaselect').on('select2:unselecting', function(ev) {
-    if (ev.params.args.originalEvent) {
-        // When unselecting (in multiple mode)
-        ev.params.args.originalEvent.stopPropagation();
-    } else {
-        // When clearing (in single mode)
-        $(this).one('select2:opening', function(ev) { ev.preventDefault(); });
-        filterdata("W1")//set the it back to world view
-    }
-});
 
 
 }//end ready
