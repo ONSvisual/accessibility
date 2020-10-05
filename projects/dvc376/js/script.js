@@ -427,19 +427,19 @@ $(document).ready(function(){
 		    if (!isNaN(currentVal)) {
 		        if(type == 'minus') {
 		            
-		            if(currentVal > input.attr('min')) {
+		            if(currentVal > input.attr('data-min')) {
 		                input.val(currentVal - 1).change();
 		            } 
-		            if(parseInt(input.val()) == input.attr('min')) {
+					if (parseInt(input.val()) == input.attr('data-min')) {
 		                $(this).attr('disabled', true);
 		            }
 
 		        } else if(type == 'plus') {
 
-		            if(currentVal < input.attr('max')) {
+					if (currentVal < input.attr('data-max')) {
 		                input.val(currentVal + 1).change();
 		            }
-		            if(parseInt(input.val()) == input.attr('max')) {
+					if (parseInt(input.val()) == input.attr('data-max')) {
 		                $(this).attr('disabled', true);
 		            }
 
@@ -453,8 +453,8 @@ $(document).ready(function(){
 		});
 		$('.input-number').change(function() {
 		    
-		    minValue =  parseInt($(this).attr('min'));
-		    maxValue =  parseInt($(this).attr('max'));
+			minValue = parseInt($(this).attr('data-min'));
+			maxValue = parseInt($(this).attr('data-max'));
 		    valueCurrent = parseInt($(this).val());
 		    
 		    name = $(this).attr('name');
