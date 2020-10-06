@@ -77,7 +77,7 @@ if (Modernizr.svg) {
         '<div class="row row--slider">',
           '<!-- Slider -->',
               '<div id="q' + params.num + '-container" class="q-container">',
-                // '<label for="' + personId + '">' + 'Slide left and right to select hours worked per week' + '</label>', 
+                // '<label for="' + personId + '">' + 'Slide left and right to select hours worked per week' + '</label>',
                 '<input id="', personId, '" class="hours" data-slider-id="P', params.num,'Slider" type="text" data-slider-min="0" data-slider-max="60"',
                   'data-slider-step="1" data-slider-value="0" />',
           '</div>',
@@ -96,7 +96,7 @@ if (Modernizr.svg) {
     sliderCtr.html(parts.join(''))
 
   }
-  function addRadioInput(container, params) { 
+  function addRadioInput(container, params) {
     //  div
     var formcontrol = container.append('div')
       .attr('class', 'field__item js-focusable-box')
@@ -124,7 +124,7 @@ if (Modernizr.svg) {
      * {
      *  inputAttrs - {object} html attributes
      *  selectAttrs - {object} html attributes
-     *  
+     *
      * }
      */
 
@@ -155,12 +155,12 @@ if (Modernizr.svg) {
     tdNumberDiv.append('span')
       .attr('class', 'input--pound')
       .text('£')
-    
+
       // number input
     var tdNumberInput = tdNumberDiv.append('input')
       .attr('class', 'input mb-2')
       .attr('aria-label', 'Please enter ' + params.labelText + ' spend in pounds')
-    
+
     Object.getOwnPropertyNames(params.inputAttrs).map(function (attr) {
       tdNumberInput.attr(attr, params.inputAttrs[attr])
     })
@@ -174,7 +174,7 @@ if (Modernizr.svg) {
     // select
     var select = tdPeriodSelectDiv.append('select')
     select.attr('aria-label', 'Please select the frequency of spend for ' + params.labelText)
-    
+
     Object.getOwnPropertyNames(params.selectAttrs).map(function (attr) {
       select.attr(attr, params.selectAttrs[attr])
     })
@@ -183,7 +183,7 @@ if (Modernizr.svg) {
       .attr('selected', '')
       .attr('disabled', '')
       .text('Select an option')
-    
+
     selectOptions.map(function (opt) {
       var option = select.append('option')
         .attr('value', opt.value)
@@ -199,7 +199,7 @@ if (Modernizr.svg) {
 
   function showResult() {
     console.log('showing result')
-    
+
     // scroll to top otherwise the position of previous screen is used
     document.getElementById("result").scrollIntoView();
 
@@ -422,7 +422,7 @@ if (Modernizr.svg) {
 
           if (inputValue > averageValue) {
             // set the values of sliders with the values from inputs
-            
+
             // if ($(sliderSelector)) {
             //   $(sliderSelector).slider('destroy');
             // }
@@ -776,7 +776,7 @@ if (Modernizr.svg) {
   householdFieldset.append('legend')
     .attr('class', 'govuk-visually-hidden')
     .text('How many people contribute to your household budget?')
-  
+
   addRadioInput(householdFieldset, {
     labelText: '1',
     attrs: {
@@ -806,7 +806,7 @@ if (Modernizr.svg) {
       'aria-checked': false
     }
   })
-  
+
   // hours worked
   var hoursContainer = d3.select('#hours-sliders')
   var numHourForms = 3
@@ -817,12 +817,12 @@ if (Modernizr.svg) {
   hours1Form.append('h3')
     .attr('id', 'question-person1-age')
     .text('How old are you?')
-  
+
   var hours1Fieldset = hours1Form.append('fieldset')
   hours1Fieldset.append('legend')
     .attr('class', 'govuk-visually-hidden')
     .text('How old is person number 1?')
-  
+
   addRadioInput(hours1Fieldset, {
     labelText: 'Under 18',
     attrs: {
@@ -866,7 +866,7 @@ if (Modernizr.svg) {
   hours1Form.append('h3')
     .attr('class', 'question')
     .html('How many hours <span id="question-person1-hours">do you</span> work per week?')
-  
+
   addSlider(hours1Form, {num: 1})
 
   // hours 2
@@ -1092,8 +1092,8 @@ if (Modernizr.svg) {
       id: 'period-9'
     }
   })
-  
-  
+
+
 
   // function making slider handlers
 
@@ -1448,7 +1448,7 @@ if (Modernizr.svg) {
   // })
 
   $("#input[name='button-scotland']").keypress(function(e){
-        if(e.which == 13){//Enter key pressed
+        if(e.which == 13 || e.which == 32){//Enter key pressed
             $("input[name='button-scotland']").click();//Trigger button click event
         }
     });
@@ -1568,7 +1568,7 @@ if (Modernizr.svg) {
     });
 
     $('#saveSettings').keypress(function(e){
-          if(e.which == 13){//Enter key pressed
+          if(e.which == 13|| e.which ==32){//Enter key pressed
               $('#saveSettings').click();//Trigger search button click event
           }
       });
@@ -1599,7 +1599,7 @@ if (Modernizr.svg) {
   });
 
   $("#button-18").keypress(function(e){
-        if(e.which == 13){//Enter key pressed
+        if(e.which == 13 || e.which ==32){//Enter key pressed
             $("button-18").click();//Trigger button click event
         }
     });
@@ -1609,7 +1609,7 @@ if (Modernizr.svg) {
   d3.select('#button-18').on('click', navigateHome);
 
   $("#button-20").keypress(function(e){
-        if(e.which == 13){//Enter key pressed
+        if(e.which == 13|| e.which ==32){//Enter key pressed
             $("button-20").click();//Trigger button click event
         }
     });
@@ -1620,7 +1620,7 @@ if (Modernizr.svg) {
   d3.select('#button-20').on('click', navigateInputs);
 
   $("#button-22").keypress(function(e){
-        if(e.which == 13){//Enter key pressed
+        if(e.which == 13|| e.which ==32){//Enter key pressed
             $("button-22").click();//Trigger button click event
         }
     });
@@ -1672,7 +1672,7 @@ if (Modernizr.svg) {
 
 
   $("#button-19").keypress(function(e){
-        if(e.which == 13){//Enter key pressed
+        if(e.which == 13|| e.which ==32){//Enter key pressed
             $("button-19").click();//Trigger button click event
         }
     });
