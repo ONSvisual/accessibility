@@ -1035,7 +1035,26 @@ if (Modernizr.webgl) {
           .attr("font-weight", "600")
           .style("font-family", "'open sans'")
           .style("font-size", "12px")
-          .call(xAxisTime)
+          .call(xAxisTime);
+
+        var longestLabelLength = 0;
+
+        var xAxisLabels = d3.select("#timeaxis").selectAll('text').nodes();
+        xAxisLabels.forEach(function(a) {
+          if (a.getBBox().width > longestLabelLength) {
+            longestLabelLength = a.getBBox().width;
+          }
+        });
+
+        var pointSpace = d3.select("#timeaxis").selectAll('path').node().getBBox().width / xAxisLabels.length;
+        if (longestLabelLength > pointSpace) {
+          d3.select("#timeaxis").selectAll('text')
+            .attr('transform', 'translate(14,10)rotate(90)')
+            .attr('text-anchor', 'start');
+
+
+          svgkey.attr('height', parseInt(svgkey.attr('height')) + longestLabelLength);
+        }
 
 				g.append("text")
 					.attr("id", "currVal")
