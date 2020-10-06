@@ -43,7 +43,7 @@ body {
     width: 130px;
     height: 21px;
     padding: 3px;
-    color: #999999;
+    color: #000;
 }
 
 @media (max-width: 300px) {

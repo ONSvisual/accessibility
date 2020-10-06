@@ -1,128 +1,133 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<title>How well do you know migration?</title>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600%7COpen+Sans+Condensed:300' rel='stylesheet'
 		type='text/css'>
-    <link rel="stylesheet" href="js/jquery-ui.min.css"/>
+	<link rel="stylesheet" href="js/jquery-ui.min.css" />
 	<link rel="stylesheet" href="css/styles.css" />
 
-  </head>
-  
-    
-  <body>
- 	<div id="quiz">
-    <h1 class="trafalger" id="quizTitle" aria-live="polite">Quiz - What is migration like in your area?</h1>
-    <p id="test" class="picaarticle">Enter your postcode and test yourself with two simple questions.</p>
-    <div class="col-sm-12 col-xs-12" id="postcode">
-    		<form id="pcForm">
-				<label for="pcText" class="visuallyhidden">Enter postcode</label>
-            	<input id="pcText" class="picaarticle" type="text" placeholder="e.g. NP10 8XG">
-           		<button class="btnEnable" id="submitPost" type="submit">GO!</button>
-            </form>
-            <div id="pcError" class="picaarticle">Sorry, that's not a valid postcode. Try an English, Welsh or Scottish postcode eg PO15 5RR.</div>
-            <div id="pcNodata" class="picaarticle">Sorry, we don't have data for a few areas. Unfortunately your area is one of these.</div>
-    </div>
-    <div class="col-sm-12 col-xs-12" id="uiContainer">
-        <div id="quizText" aria-live="polite">
-            <div id="quizQuestion" class="doublepica"></div>
-            <div id="quizSubtext" class="picaarticle"></div>
-            <div id="questionHint" class="picaarticle"></div>
-        </div>
-    </div>
-    
-    <div class="col-sm-12 col-xs-12" id="quizContent">
-    	<div class="col-sm-10 col-xs-12" id="picto" style="display: none;">
-        </div> 
-        <div class="col-sm-2 col-xs-12" id="pictoText" style="display: none;">
-			<div id="guess1Container" class="labels col-sm-12 col-xs-4" aria-live="polite">
-                <div class="labelt doublepica" id="pictoGuessLabel">Guess</div>
-                <div class="valuet trafalger" id="pictoGuessValue">0</div>
-            </div>
-            <div class="labels col-sm-12 col-xs-4">
-                <div class="labelt doublepica" id="pictoActualLabel">Actual</div>
-                <div class="valuet trafalger" id="pictoActualValue"></div>
-            </div>
-            <div class="labels col-sm-12 col-xs-4">
-                <div class="labelt doublepica">UK</div>
-                <div class="valuet trafalger" id="pictoNatValue"></div>
-            </div>
-        
-        </div>   
-        <div class="col-sm-12 col-xs-12" id="bar" style="display: none;">
-                <div class="labels2 doublepica">Guess</div>
-            	<div id="guessValue" class="valuet2 trafalger" aria-live="polite"></div>
-	        	<div class="barReveal col-sm-12 col-xs-12"></div>
-	        	<div id="guessReveal" class="barReveal2 trafalger"></div>    
+</head>
 
-               	<div class="labels2 doublepica">Actual</div>            
-            	<div id="actualValueText" class="valuet2 trafalger"></div>
-	        	<div class="barReveal col-sm-12 col-xs-12"></div>
-                <div id="actualReveal" class="barReveal2 trafalger"></div>  
- 
-<!--            	<div class="labels2 doublepica natValLabel">National</div>
+
+<body>
+	<main id="quiz">
+		<h1 class="trafalger" id="quizTitle" aria-live="polite">Quiz - What is migration like in your area?</h1>
+		<p id="test" class="picaarticle">Enter your postcode and test yourself with two simple questions.</p>
+		<div class="col-sm-12 col-xs-12" id="postcode">
+			<form id="pcForm">
+				<label for="pcText" class="visuallyhidden">Enter postcode</label>
+				<input id="pcText" class="picaarticle" type="text" placeholder="e.g. NP10 8XG">
+				<button class="btnEnable" id="submitPost" type="submit">GO!</button>
+			</form>
+			<div id="pcError" class="picaarticle">Sorry, that's not a valid postcode. Try an English, Welsh or Scottish
+				postcode eg PO15 5RR.</div>
+			<div id="pcNodata" class="picaarticle">Sorry, we don't have data for a few areas. Unfortunately your area is
+				one of these.</div>
+		</div>
+		<div class="col-sm-12 col-xs-12" id="uiContainer">
+			<div id="quizText" aria-live="polite">
+				<div id="quizQuestion" class="doublepica"></div>
+				<div id="quizSubtext" class="picaarticle"></div>
+				<div id="questionHint" class="picaarticle"></div>
+			</div>
+		</div>
+
+		<div class="col-sm-12 col-xs-12" id="quizContent">
+			<div class="col-sm-10 col-xs-12" id="picto" style="display: none;">
+			</div>
+			<div class="col-sm-2 col-xs-12" id="pictoText" style="display: none;">
+				<div id="guess1Container" class="labels col-sm-12 col-xs-4" aria-live="polite">
+					<div class="labelt doublepica" id="pictoGuessLabel">Guess</div>
+					<div class="valuet trafalger" id="pictoGuessValue">0</div>
+				</div>
+				<div class="labels col-sm-12 col-xs-4">
+					<div class="labelt doublepica" id="pictoActualLabel">Actual</div>
+					<div class="valuet trafalger" id="pictoActualValue"></div>
+				</div>
+				<div class="labels col-sm-12 col-xs-4">
+					<div class="labelt doublepica">UK</div>
+					<div class="valuet trafalger" id="pictoNatValue"></div>
+				</div>
+
+			</div>
+			<div class="col-sm-12 col-xs-12" id="bar" style="display: none;">
+				<div class="labels2 doublepica">Guess</div>
+				<div id="guessValue" class="valuet2 trafalger" aria-live="polite"></div>
+				<div class="barReveal col-sm-12 col-xs-12"></div>
+				<div id="guessReveal" class="barReveal2 trafalger"></div>
+
+				<div class="labels2 doublepica">Actual</div>
+				<div id="actualValueText" class="valuet2 trafalger"></div>
+				<div class="barReveal col-sm-12 col-xs-12"></div>
+				<div id="actualReveal" class="barReveal2 trafalger"></div>
+
+				<!--            	<div class="labels2 doublepica natValLabel">National</div>
             	<div id="natValueText" class="valuet2 trafalger"></div>
 	        	<div class="barReveal col-sm-12 col-xs-12"></div>
-                <div id="natReveal" class="barReveal2 trafalger"></div>     -->           
+                <div id="natReveal" class="barReveal2 trafalger"></div>     -->
 
 
-        
-        </div> 
-        
-        <div class="col-sm-12 col-xs-12" id="results" style="display: none;">
-        		<div class="picaarticle">You scored:</div>
-        		<div id="score" class="trafalger"></div>
-                <div class="picaarticle">
-	                <p>Rating<br>
-                	<span class="fontw"> 0-25</span>: Postcode loss-ary; <span class="fontw"> 26-50</span>: Grey area<br>
-                    <span class="fontw"> 51-75</span>: Cunning constituent; <span class="fontw"> 76-100</span>: First-class citizen</p>
-                </div>
-                <div id="share" class="picaarticle">Share your result</div>
-                
-                <br><br>
-                
-                <div id="aboutQuiz" class="picaarticle"><a href="#" target="_top">More about this quiz</a></div>           
-                <div class="picaarticle" id="credit"></div>
-                
-                
-                
-		</div> 
-		<div id="accessibilityInfo" class="visuallyhidden" aria-live="polite"></div>
-  
-    
-    
-    <div class="col-sm-12 col-xs-12">
-         <div id="sliderVal"></div>
-   
-    </div>
-    
-        <div class="col-sm-12 col-xs-12" id="submitDiv">
-            <button class="btnEnable" id="submitBtn" type="submit">SUBMIT</button>
-            <button class="btnEnable" id="nextBtn" type="submit">NEXT</button>
-        </div>
-    
-    </div>
-    </div>
+
+			</div>
+
+			<div class="col-sm-12 col-xs-12" id="results" style="display: none;">
+				<div class="picaarticle">You scored:</div>
+				<div id="score" class="trafalger"></div>
+				<div class="picaarticle">
+					<p>Rating<br>
+						<span class="fontw"> 0-25</span>: Postcode loss-ary; <span class="fontw"> 26-50</span>: Grey
+						area<br>
+						<span class="fontw"> 51-75</span>: Cunning constituent; <span class="fontw"> 76-100</span>:
+						First-class citizen</p>
+				</div>
+				<div id="share" class="picaarticle">Share your result</div>
+
+				<br><br>
+
+				<div id="aboutQuiz" class="picaarticle"><a href="#" target="_top">More about this quiz</a></div>
+				<div class="picaarticle" id="credit"></div>
+
+
+
+			</div>
+			<div id="accessibilityInfo" class="visuallyhidden" aria-live="polite"></div>
+
+
+
+			<div class="col-sm-12 col-xs-12">
+				<div id="sliderVal"></div>
+
+			</div>
+
+			<div class="col-sm-12 col-xs-12" id="submitDiv">
+				<button class="btnEnable" id="submitBtn" type="submit">SUBMIT</button>
+				<button class="btnEnable" id="nextBtn" type="submit">NEXT</button>
+			</div>
+
+		</div>
+	</main>
 
 	<script data-main="main" src="require.js"></script>
-    <script>
-	
-    	var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-37894017-1']);
-		  _gaq.push(['_trackPageview']);
-		
-		
-		  (function() {
+	<script>
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-37894017-1']);
+		_gaq.push(['_trackPageview']);
+
+
+		(function () {
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		  
- 	</script>
+		})();
 
-  </body>
+	</script>
+
+</body>
+
 </html>
-
