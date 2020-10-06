@@ -30,6 +30,7 @@
 
     .btn:focus{
 			box-shadow: 0 0 0px 3px orange;
+      outline:none;
 		}
 
 		.select-items div,.select-selected {
@@ -350,6 +351,16 @@
         outline: 3px solid #FFA23A;
     }
 
+    .visuallyhidden{
+    	position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+     	clip: rect(0,0,0,0);
+      border: 0;
+    }
 
 
 	</style>
@@ -378,40 +389,42 @@
   		</div>
   		<div class="row questions">
   			<p>I work in the</p>
-            <div id="industry_dropdownDiv" class="dropdown" style="width: 280px">
-            	<select id="industry_dropdown" >
-                <option></option>
-  				<option value="0">agriculture, forestry & fishing</option>
-  				<option value="1">energy & water</option>
-  				<option value="2">manufacturing</option>
-  				<option value="3">construction</option>
-  				<option value="4">distribution, hotels & restaurants</option>
-  				<option value="5">transport & communication</option>
-  				<option value="6">banking and finance</option>
-  				<option value="7">public admin, education & health</option>
-  				<option value="8">other services</option>
+            <div id="industry_dropdownDiv" class="dropdown" style="width: 280px"><label class="visuallyhidden" for="industry_dropdown">Choose an industry</label>
+        	<select id="industry_dropdown" >
+              <option></option>
+      				<option value="0">agriculture, forestry & fishing</option>
+      				<option value="1">energy & water</option>
+      				<option value="2">manufacturing</option>
+      				<option value="3">construction</option>
+      				<option value="4">distribution, hotels & restaurants</option>
+      				<option value="5">transport & communication</option>
+      				<option value="6">banking and finance</option>
+      				<option value="7">public admin, education & health</option>
+      				<option value="8">other services</option>
   			  </select>
             </div>
   			<p>industry in the</p>
-            <div id="pubpri_dropdownDiv" class="dropdown" style="width: 200px"><select id="pubpri_dropdown" >
-  				<option></option>
-  				<option value="0">public</option>
-  				<option value="1">private</option>
-  			   </select>
+            <div id="pubpri_dropdownDiv" class="dropdown" style="width: 200px"><label class="visuallyhidden" for="pubpri_dropdown">Choose public or private sector</label>
+               <select id="pubpri_dropdown" required>
+          				<option></option>
+          				<option value="0">public</option>
+          				<option value="1">private</option>
+      			   </select>
             </div>
   			<p>sector with</p>
-            <div id="size_dropdownDiv" class="dropdown" style="width: 220px"><select id ="size_dropdown" >
-  				<option></option>
-  				<option value="0">less than 25</option>
-  				<option value="1">25 to 49</option>
-  				<option value="2">50 to 499</option>
-  				<option value="3">500 or more</option>
+            <div id="size_dropdownDiv" class="dropdown" style="width: 220px"><label class="visuallyhidden" for="size_dropdown">Choose the size of your business</label>
+          <select id ="size_dropdown" >
+    				<option></option>
+    				<option value="0">less than 25</option>
+    				<option value="1">25 to 49</option>
+    				<option value="2">50 to 499</option>
+    				<option value="3">500 or more</option>
   			  </select>
             </div>
   			<p>people.</p>
   		</div>
   		<div class="row">
-  			<button id="submit" class="btn btn--primary-alternative btn--bold btn--large">
+  			<button aria-label="Submit" id="submit" class="btn btn--primary-alternative btn--bold btn--large">
   				Submit
   			</button>
   		</div>
@@ -851,6 +864,7 @@ d3.select(".charts").select(".reset_btn").remove();
         .append("button")
         .attr("id", "reset")
         .attr("class", "btn btn--primary-alternative btn--bold btn--large")
+        .attr("aria-label","reset")
         .on("click", function(){  location.reload(); })
         .text("Reset")
     }
