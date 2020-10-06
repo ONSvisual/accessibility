@@ -12,7 +12,7 @@ body {
 }
 
 .iconSelected {
-    fill: #0094eb;
+    fill: #206095;
 
 }
 
@@ -179,6 +179,12 @@ svg {}
     width: 100%
 }
 
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-slider .ui-slider-range {
+    background-color: #206095;
+}
 
 
 .labelt {
@@ -188,13 +194,13 @@ svg {}
 
 .valuet {
     padding: 10px 10px 0px 10px;
-    color: #0084d1;
+    color: #206095;
     width: 50px;
     text-align: left;
 }
 
 .valuet2 {
-    color: #0084d1;
+    color: #206095;
     width: 50px;
     text-align: left;
 }
@@ -220,7 +226,7 @@ svg {}
     width: 110px;
     border: none;
     padding: 6px 0;
-    background-color: #0084d1;
+    background-color: #206095;
     font: 700 16px Arial;
     color: #FFF;
     filter: inherit;
@@ -241,7 +247,7 @@ svg {}
     width: 110px;
     border: none;
     padding: 6px 0;
-    background-color: #0084d1;
+    background-color: #206095;
     opacity: 0.5;
     font: 700 16px Arial;
     color: #FFF;
