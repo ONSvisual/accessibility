@@ -3,10 +3,10 @@ if (Modernizr.inlinesvg) {
 var pymChild = new pym.Child();
 
   d3.queue()
-          .defer(d3.csv, "intheeu.csv")
-          .defer(d3.csv, "intheuk.csv")
-          .defer(d3.json, "geo/worldjson8.json")
-          .await(ready);
+    .defer(d3.csv, "data/intheeu.csv")
+    .defer(d3.csv, "data/intheuk.csv")
+    .defer(d3.json, "geo/worldjson8.json")
+      .await(ready);
 
 //remove fallback image
 d3.select("#fallback").remove();
@@ -28,13 +28,12 @@ function ready (error, dataexports, dataimports, geog){
 
   var path = d3.geoPath();
 
-  var svg = d3.select("#mapDiv")
-              .append("svg")
-			  .attr("id","svgMap")
-              .attr("width", width-20)
-              .attr("height", height)
-              .append('g')
-              .attr('class', 'map');
+  var svg = d3.select("#mapDiv").append("svg")
+    .attr("id","svgMap")
+    .attr("width", width-20)
+    .attr("height", height)
+      .append('g')
+        .attr('class', 'map');
 
 
 //Gradient definition
@@ -318,7 +317,15 @@ function getCentroids() {
 function highlightcountry(countrycode) {
 
     //Update dropdown
-    $("#areaselect").val(countrycode).trigger('change.select2');
+    $("#areaselect").val(countrycode).trigger('chosen:updated');d3.select('abbr').attr('tabindex', 0)
+    d3.select('.abbr').attr('tabindex', -1)
+    d3.select('abbr').attr('tabindex', 0)
+    .on('keypress', function (evt) {
+      if (d3.event.keyCode == 13 || d3.event.keyCode == 32) {
+        d3.event.preventDefault();
+        unhighlightcountry(countrycode)
+      }
+    })
 
     //Draw barcode highlight rects on top of all bars
     if(mobile == false) {
@@ -376,6 +383,13 @@ function highlightcountry(countrycode) {
     //Update labels
     d3.select("#tradewith").html("Investments into/from " + countryname)
 
+    // announceUpdate
+    var announceStr = [
+      'Investments in 2018. Into ', countryname, ' ', d3.format(",.1f")(importval / 1000), ' billion pounds.',
+      ' From ', countryname, ' ', d3.format(",.1f")(exportval / 1000), ' billion pounds.'
+    ].join('')
+  $('#accessibilityInfo').text(announceStr)
+
 } //end highlightcountry
 
 
@@ -383,7 +397,7 @@ function highlightcountry(countrycode) {
 function unhighlightcountry(countrycode) {
 
   //update dropdown
-	$("#areaselect").val("").trigger('change.select2');
+	$("#areaselect").val("").trigger('chosen:updated');
 
 
 	d3.select("#shape" + countrycode).classed("countries_highlights",false);
@@ -446,11 +460,12 @@ function createBarcode(lastyear){
     //add labels
 
     barcodeLabels = d3.select("#barcode")
-        .append("div")
-		.attr("id","barcodelabels")
-		.attr("class","hidden-xs")
-		.html("<span style='font-weight:bold'>Investments</span> in 2018")
-		.append("div")
+      .append("div")
+        .attr("id","barcodelabels")
+        .attr('aria-live', 'polite')
+        .attr("class","hidden-xs")
+        .html("<span style='font-weight:bold'>Investments</span> in 2018")
+	  	.append("div")
         .style("padding-left",barcodemarginDT[3] + "px")
         .style("padding-right",barcodemarginDT[1] + "px")
         .style("width","calc(100%-" + barcodemarginDT[3]+ " - " + barcodemarginDT[1] + ")" )
@@ -735,7 +750,14 @@ function selectList() {
 
 	myId=null;
 
- 	$('#areaselect').select2({placeholder:"Choose a country",allowClear:true,dropdownParent:$('#sel')})
+  // $('#areaselect').select2({placeholder:"Choose a country",allowClear:true,dropdownParent:$('#sel')})
+  $('#areaselect').chosen({ placeholder_text_single: "Select a country", allow_single_deselect: true })
+
+  d3.select('input.chosen-search-input').attr('id', 'chosensearchinput')
+  d3.select('div.chosen-search').insert('label', 'input.chosen-search-input')
+    .attr('class', 'visuallyhidden')
+    .attr('for', 'chosensearchinput')
+    .html("Type to select a country")
 
 	$('#areaselect').on('change',function(){
 
@@ -758,15 +780,14 @@ function selectList() {
             'countryselected':areacode
           })
 
-			}
+			} else {
+        unhighlightcountry(areacode);
+        enableHoverEvents();
+        changeURL("")
+      }
 
 	});
-
-	$("#areaselect").on("select2:unselect", function (e) {
-          unhighlightcountry(areacode);
-					enableHoverEvents();
-          changeURL("")
-	});
+  
 
 }; // end selectlist
 
@@ -948,18 +969,38 @@ function barchartstart(){
 
 
 //some code to stop select2 opening when clearing
-$('#areaselect').on('select2:unselecting', function(ev) {
-    if (ev.params.args.originalEvent) {
-        // When unselecting (in multiple mode)
-        ev.params.args.originalEvent.stopPropagation();
-    } else {
-        // When clearing (in single mode)
-        $(this).one('select2:opening', function(ev) { ev.preventDefault(); });
-        filterdata("W1")//set the it back to world view
+// $('#areaselect').on('select2:unselecting', function(ev) {
+//     if (ev.params.args.originalEvent) {
+//         // When unselecting (in multiple mode)
+//         ev.params.args.originalEvent.stopPropagation();
+//     } else {
+//         // When clearing (in single mode)
+//         $(this).one('select2:opening', function(ev) { ev.preventDefault(); });
+//         filterdata("W1")//set the it back to world view
+//     }
+// });
+
+  $('.zoom-bar-part').attr('tabindex', 0)
+  $('.zoom-control-zoom-in').attr('aria-label', 'Click to zoom into the map')
+  $('.zoom-control-zoom-out').attr('aria-label', 'Click to zoom out of the map')
+  
+  // event listeners
+  $('.zoom-container').on('keypress', function (e) {
+    var target = e.target
+    if (target.classList.contains('zoom-bar-part')) {
+      if (e.keyCode === 13 || e.keyCode === 32) {
+        e.preventDefault();
+        // $(target).trigger('click')
+        if (target.classList.contains('zoom-control-zoom-in')) {
+          m.zoomIn()
+        } else if (target.classList.contains('zoom-control-zoom-out')) {
+          m.zoomOut()
+        }
+      }
     }
-});
-
-
+    
+  })
+  
 }//end ready
 }//end modernizr
 else {
