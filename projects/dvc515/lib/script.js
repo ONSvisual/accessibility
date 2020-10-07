@@ -77,13 +77,13 @@ function ready (error, dataexports, dataimports, geog){
 	  .attr("id", function(d){return "shape" + d.properties.fips})
       .attr("d", path)
       .on("mouseover",function(d){
-		highlightcountry(d.properties.fips);
-        filterdata(d.properties.fips);
-      })
-	  .on("mouseout",function(d){
-		unhighlightcountry(d.properties.fips);
-        filterdata("W1");
-      })
+				highlightcountry(d.properties.fips);
+				filterdata(d.properties.fips);
+			})
+	  	.on("mouseout",function(d){
+				unhighlightcountry(d.properties.fips);
+				filterdata("W1");
+			});
 
     dataexports.forEach(function(d,i){
       //  d3.select("#shape" + d.CountryId).style("fill","#EAEAEA");
@@ -390,7 +390,7 @@ function highlightcountry(countrycode) {
     d3.select("#exportlabel").html("<p>from " + countryname +"</p><p class='labelbold'>£"+ d3.format(",.1f")(exportval/1000) +"bn</p>");
 
     //Update labels
-    d3.select("#tradewith").html("Investments into/from " + countryname + " <span style='font-weight:300'>dvcyear</span>");
+    d3.select("#tradewith").html("Investments into/from " + countryname + " <span style='font-weight:300'>" + dvcyear + "</span>");
 
 	d3.select("#accessibility p").text("The total invested in " + countryname + " in " + dvcyear + " was  £" + d3.format(",")(importval * 1000000) + ". The total investments from " + countryname + " in " + dvcyear + " was £" + d3.format(",")(exportval * 1000000) + ".")
 } //end highlightcountry
