@@ -67,10 +67,10 @@ function createStructure() {
         .attr("class", "summary")
 
 
-    var topic_div = summary.append("div")
-        topic_div.attr("class", "topic_title")
-        .attr('role', 'heading')
-        .attr('aria-level', '2')
+    var topic_heading = summary.append("h2")
+        topic_heading.attr("class", "topic_title")
+        // .attr('role', 'heading')
+        // .attr('aria-level', '2')
         .style("color", function (d) {
             return d.values[0].color
         })
