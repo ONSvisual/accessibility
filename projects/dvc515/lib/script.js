@@ -740,7 +740,8 @@ function selectList() {
 	var optns = d3.select("#selectNav").append("div").attr("id","sel").append("select")
 		.attr("id","areaselect")
 		.attr("style","width:67%")
-		.attr("class","chosen-select");
+		.attr("class","chosen-select")
+		.attr('data-placeholder', "Choose a country");
 
 
 	optns.append("option")
