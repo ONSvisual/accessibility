@@ -246,6 +246,11 @@ img {
     color: white;
 }
 
+.option:focus,
+.option:hover {
+    background-color: rgb(0, 67, 0);
+    color: #fff;
+}
 /* .option:hover,
 .option:hover,
 .option:hover {
