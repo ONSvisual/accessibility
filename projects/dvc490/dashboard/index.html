@@ -606,7 +606,7 @@
       function drawLineChart() {
 
         //console.log(dvc.config[j].link_to)
-        d3.select('#' + dvc.measures[j]).select(".title_div").append("h2").attr("class", "measure_caption").text(dvc.config[j].measure);
+        d3.select('#' + dvc.measures[j]).select(".title_div").append("h3").attr("class", "measure_caption").text(dvc.config[j].measure);
         d3.select('#' + dvc.measures[j]).select(".measure_title")
           .append("div")
           .attr("class", "subtitle")
@@ -950,7 +950,7 @@
 
       function drawBigNo() {
 
-        d3.select('#' + dvc.measures[j]).select(".title_div").append("h2").attr("class", "measure_caption").text(dvc.config[j].measure);
+        d3.select('#' + dvc.measures[j]).select(".title_div").append("h3").attr("class", "measure_caption").text(dvc.config[j].measure);
 
         d3.select('#' + dvc.measures[j]).select(".measure_title")
           .append("div")
@@ -988,7 +988,7 @@
 
       function drawHorizontalBarChart() {
 
-        d3.select('#' + dvc.measures[j]).select(".title_div").append("h2").attr("class", "measure_caption").text(dvc.config[j].measure);
+        d3.select('#' + dvc.measures[j]).select(".title_div").append("h3").attr("class", "measure_caption").text(dvc.config[j].measure);
         d3.select('#' + dvc.measures[j]).select(".measure_title")
           .append("div")
           .attr("class", "subtitle")
@@ -1078,7 +1078,7 @@
 
       function drawVerticalBarChart() {
 
-        d3.select('#' + dvc.measures[j]).select(".title_div").append("h2").attr("class", "measure_caption").text(dvc.config[j].measure);
+        d3.select('#' + dvc.measures[j]).select(".title_div").append("h3").attr("class", "measure_caption").text(dvc.config[j].measure);
         d3.select('#' + dvc.measures[j]).select(".measure_title")
           .append("div")
           .attr("class", "subtitle")

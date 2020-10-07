@@ -4,6 +4,14 @@
 .indicatorPanel{
 	display: block;
 }
+
+.measure_caption {
+  font-weight: 500;
+  margin: 10px 0px;
+  font-size: 24px;
+  line-height: 24px;
+}
+
 .grey-bar-text p, .intro p{
 		padding-right:0px;
 		padding-left:15px;
