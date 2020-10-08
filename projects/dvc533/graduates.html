@@ -355,6 +355,17 @@
         width: 80px;
         height: 80px;
       }
+
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
     </style>
   </head>
 
@@ -370,10 +381,12 @@
     <div class="container-fluid">
       <div id="main-wrapper">
         <div id="mainContent" style="display:none">
-          <div id="blurb" class="row">
-            <text id="txt2"></text>
-            <text id="txt3"></text>
-          </div>
+          <p id="chartDescription" class="visuallyhidden">A chart displaying types of employment roles held by graduates.</p>
+
+          <p id="blurb" class="row">
+            <span id="txt2"></span>
+            <span id="txt3"></span>
+          </p>
 
           <div class="row">
             <!--					<button type="button" id="upBtn" class="nav btn btn-ons ">
@@ -541,7 +554,6 @@
             //d.var2 = Number(d.var2);
           });
 
-
           var tree = DataStructures.Tree.createFromFlatTable(data),
             root = tree.toSimpleObject(function (objectToDecorate, originalNode) {
               objectToDecorate.size = originalNode.size;
@@ -569,8 +581,6 @@
             }) // end trade csv
           }) //end json config
         }); //end treemap csv load
-
-
       }
 
       function initialize(root) {
