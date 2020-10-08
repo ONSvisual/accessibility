@@ -485,6 +485,13 @@
 
       pymChild = new pym.Child();
 
+      jQuery.fn.d3Click = function () {
+        this.each(function (i, e) {
+          var evt = new MouseEvent("click");
+          e.dispatchEvent(evt);
+        });
+      };
+      
       var transitioning;
       var widthCalc;
       var heightCalc;
