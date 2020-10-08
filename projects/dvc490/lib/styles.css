@@ -3,9 +3,15 @@
 
 .indicatorPanel{
 	display: block;
-	height:580px;
-	
 }
+
+.measure_caption {
+  font-weight: 500;
+  margin: 10px 0px;
+  font-size: 24px;
+  line-height: 24px;
+}
+
 .grey-bar-text p, .intro p{
 		padding-right:0px;
 		padding-left:15px;
@@ -120,8 +126,7 @@
 
 @media (min-width: 400px) {
   .indicatorPanel{
-	display: block;
-	height:580px;
+  	display: block;
   }
  
   .col-xs-12 {
@@ -131,8 +136,7 @@
 
 @media (min-width: 500px) {
   .indicatorPanel{
-	display: block;
-	height:650px;
+	  display: block;
   }
  
   .col-xs-12 {
@@ -142,8 +146,7 @@
 
 @media (min-width: 550px) {
   .indicatorPanel{
-	display: block;
-	height:660px;
+	  display: block;
   }
  
   .col-xs-12 {
@@ -153,8 +156,7 @@
 
 @media (min-width: 600px) {
   .indicatorPanel{
-	display: block;
-	height:570px;
+	  display: block;
   }
   
   .container {
@@ -250,15 +252,13 @@
 
 @media (min-width: 720px) {
   .indicatorPanel{
-	display: block;
-	height:560px;
+	  display: block;
   }
 }
 
 @media (min-width: 850px) {
   .indicatorPanel{
-	display: block;
-	height:553px;
+	  display: block;
   }
  
   .container {
@@ -355,27 +355,23 @@
 
 @media (min-width: 950px) {
   .indicatorPanel{
-	display: block;
-	height:580px;
+	  display: block;
   }
   
-  	.grey-bar-text p, .intro p{
+  .grey-bar-text p, .intro p{
 		padding-right:150px;
 		padding-left:15px;
-		
 	}
 }
 
 @media (min-width: 1200px) {
-  	.grey-bar-text p, .intro p{
+  .grey-bar-text p, .intro p{
 		padding-left:15px;
 		padding-right:300px;
-		
 	}
   
   .indicatorPanel{
-	display: block;
-	height:560px;
+	  display: block;
   }
   
   .container {
