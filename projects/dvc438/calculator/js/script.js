@@ -51,7 +51,19 @@ function changeValue() {
 	document.getElementById('selectedmeasure2').innerHTML=("£" + numberFormat(mes2));
 	document.getElementById('selectedmeasure3').innerHTML=("£" + numberFormat2(mes3));
 	document.getElementById('selectedmeasure4').innerHTML=(numberFormat3(mes4) + "%");
-	d3.selectAll(".qlabel").style("color","#6f6f6f");
+	d3.selectAll(".qlabel").each(function () {
+		this.classList.add('qlabel--hasValue')
+	});
+	// announceUpdate
+	var annouceText = [
+		usernumber, ' billion pounds equates to: ',
+		numberFormat(mes1), ' million pounds per week. ',
+		numberFormat(mes2), ' pounds per person per year. ',
+		numberFormat2(mes3), ' pounds per person per day, and ',
+		numberFormat3(mes4), ' percent of 2016 government spending.',
+
+	].join('')
+	document.getElementById('accessibilityInfo').innerHTML = annouceText
 }
 
 //user to submit number with form control
