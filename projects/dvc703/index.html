@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -9,353 +9,16 @@
     })(window,document,'script','dataLayer','GTM-MBCBVQS');
   </script>
 
-<title>International Investment Position: UK assets & liabilities by country, 1999 to 2017</title>
+<title>International Investment Position: UK assets &amp; liabilities by country, 1999 to 2017</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link href="lib/select2.min.css" rel="stylesheet" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7COpen+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<!-- <link href="lib/select2.min.css" rel="stylesheet" /> -->
+<link href="css/chosen.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="lib/bootstrap-grid.css">
-
-<style>
-
-/* reset browser styles */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-
-	body {
-		    max-width:900px;
-        font-family: "Open Sans", sans-serif;
-        color:
-	}
-
-  text {
-    stroke:none;
-  }
-
-    #chartsnsparks {
-        background-color: #F9F9F9;
-    }
-
-	#source {
-		font-size: 14px;
-	    font-weight: 700;
-		margin-top:5px;
-	}
-
-	#importlabel, #exportlabel {
-		font-size:14px;
-		height:0px;
-		pointer-events:none;
-		line-height: 1;
-		text-align:center;
-	}
-
-	.labelbold {
-    margin-top: 4px;
-		font-weight:bold;
-	}
-
-  @media (min-width: 600px) {
-
-	#tradewith {
-        font-size:20px;
-        font-weight:bold;
-        margin-left:15px;
-    }
-
-	#barcodelabels {
-		font-size:20px;
-	}
-
-	}
-
-	@media (max-width: 599px) {
-
-	#tradewith {
-        font-size:16px;
-        font-weight:bold;
-        /* margin-left:5px; */
-    }
-
-	#barcodelabels {
-		position:absolute;
-		top:50px;
-		font-size:16px;
-		margin-left:5px;
-	}
-
-	#importlabel {
-		position:absolute;
-		top:25px;
-		font-size:14px;
-		height:0px;
-		pointer-events:none;
-		text-align:center;
-	}
-
-	#exportlabel {
-		position:absolute;
-		top:75px;
-		font-size:14px;
-		height:0px;
-		pointer-events:none;
-		text-align:center;
-	}
-
-	}
-
-	.countries {
-    stroke: #ccc;
-    stroke-width: 0.05%;
-    	/*fill: #EAEAEA; */
-    fill: url(#diagonalHatch);
-		cursor:pointer;
-    pointer-events: none;
-	}
-
-  .countries-selectable {
-		stroke: #5F7682;
-    stroke-width: 0.05%;
-    fill: #EAEAEA;
-		cursor:pointer;
-    pointer-events: all;
-	}
-
-	.countries_highlights {
-    	fill: #00A7A3;
-        fill-opacity:0.5;
-	}
-
-	.axis text {
-		fill: #323132;
-		font-size: 11px;
-		font-family: "Open Sans", sans-serif;
-	}
-
-	.domain {
-		stroke:none;
-	}
-
-	#selectNav {
-		position: absolute;
-		top: 10px;
-		z-index: 2;
-		max-width: 620px;
-	}
-
-	.y {
-		text-anchor: start;
-	}
-
-    .x .tick line, .axis .tick line,.ygrid .tick line {
-        stroke:#ccc;
-        stroke-width:1px;
-    }
-
-    .axis .tick line {
-        stroke:none;
-    }
-
-/*Map zoom buttons */
-	.zoom-control-zoom a, .zoom-control-layers-toggle {
-		background-position: 50% 50%;
-		background-repeat: no-repeat;
-		display: block;
-	}
-
-	.zoom-control-zoom a {
-		width: 22px;
-		height: 22px;
-		text-align: center;
-		text-decoration: none;
-		color: #323132;
-	}
-
-	.zoom-control-zoom-in {
-		cursor:pointer;
-		font: bold 18px/24px Arial, Helvetica, sans-serif;
-	}
-
-	.zoom-control-zoom-in:hover {
-			color: #fff;
-			background-color: #323132;
-	}
-
-	.zoom-bar-part {
-		background-color: #ededed;
-		border-bottom: 1px solid white;
-	}
-
-	.zoom-control-zoom-out {
-		cursor:pointer;
-		font: bold 23px/20px Tahoma, Verdana, sans-serif;
-	}
-
-	.zoom-control-zoom-out:hover {
-		color: #fff;
-		background-color: #323132;
-	}
-
-	.zoom-bar-part-bottom {
-		border-bottom: none;
-	}
-
-	.zoom-container {
-		margin-left: 8px;
-		margin-top: 55px;
-		position: absolute;
-		left: 0px;
-		top: 0px;
-	}
-
-	/* .zoom-bar {
-		border: 1px solid #323132;
-	} */
-
-	.zoom-popup-pane, .zoom-control {
-		cursor: auto;
-	}
-
-	.zoom-control {
-		float: left;
-		clear: both;
-	}
-
-	.zoom-control {
-		z-index: 1;
-		pointer-events: auto;
-	}
-
-  /*  SELECT DROPBOX */
-  .select2-dropdown {
-    border: 1px solid #FF9933;
-  }
-
-  .select2-search__field{
-    border: 1px solid #FF9933!important;
-  }
-
-  .select2-container--default .select2-selection--single {
-      background-color: #EDEDED!important;
-      border: 1px #FF9933 !important;
-  }
-
-  .select2-container .select2-selection--single {
-      height: 36px!important;
-  }
-
-  .select2-container--default .select2-selection--single .select2-selection__placeholder {
-      color: #4A494B!important;
-  }
-
-  .select2-container--default .select2-selection--single .select2-selection__rendered {
-      line-height: 36px!important;
-  }
-
-  .select2-dropdown.select2-dropdown--below{
-        /* width: 148px !important; */
-  }
-
-  .select2-container--default .select2-selection--single{
-      /* padding:6px; */
-      /* height: 37px; */
-      /* width: 148px; */
-      /* font-size: 1.2em; */
-      position: relative;
-  }
-
-  .select2-container--default .select2-selection--single .select2-selection__arrow {
-      background-image: -khtml-gradient(linear, left top, left bottom, from(#3b7a9e), to(#3b7a9e));
-      background-image: -moz-linear-gradient(top, #3b7a9e, #3b7a9e);
-      background-image: -ms-linear-gradient(top, #3b7a9e, #3b7a9e);
-      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3b7a9e), color-stop(100%, #3b7a9e));
-      background-image: -webkit-linear-gradient(top, #3b7a9e, #3b7a9e);
-      background-image: -o-linear-gradient(top, #3b7a9e, #3b7a9e);
-      background-image: linear-gradient(#3b7a9e, #3b7a9e);
-      /* width: 40px; */
-      /* color: #fff; */
-      /* font-size: 1.3em; */
-      padding: 0px 6px;
-      /* height: 27px; */
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      /* width: 20px; */
-  }
-
-  /*.select2-container--default .select2-selection--single .select2-selection__rendered {
-    line-height: 25px !important;
-  }*/
-
-  .select2-selection__arrow b {
-    border-color: white transparent transparent transparent !important;
-    border-width: 7px 6px 0px 6px !important;
-    left: 48% !important;
-    top: 45% !important;
-  }
-
-  .select2-selection__clear {
-    padding-right: 15px !important;
-    color: #3b7a9e !important;
-    font-size: 25px !important;
-    line-height: 24px !important;
-
-  }
-
-
-  .select2-container--default .select2-selection--single .select2-selection__arrow {
-      height: 36px!important;
-      width: 30px!important;
-  }
-
-  .select2-selection__clear {
-      padding-right: 25px !important;
-      color: #3b7a9e !important;
-      font-size: 36px !important;
-      line-height: 35px !important;
-  }
-  /*  SELECT DROPBOX END */
-
-  h6 {
-      font-size: 14px;
-      font-weight: 700;
-      margin: 16px 0 0 0;
-  }
-
-  ul, ol {
-      margin: 0px 0;
-      padding-left: 16px;
-  }
-
-  li {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 24px;
-      margin: 0px 0;
-      padding: 6px 0 10px 16px;
-  }
-
-</style>
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
 
 </head>
 <body>
@@ -363,33 +26,31 @@ time, mark, audio, video {
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div id="fallback"><img width="100%" src="./images/alt.png" alt="World trade map"/></div>
+<div id="fallback"><img style="width:100%;" src="./images/alt.png" alt="World trade map"/></div>
 <div id="selectNav" class="col-sm-9 col-xs-12"></div>
 <div class="row">
 	<div class="zoom-container zoom-control-zoom zoom-bar zoom-control hidden-xs">
     	<a class="zoom-control-zoom-in zoom-bar-part zoom-bar-part-top" title="Zoom in">+</a>
         <a class="zoom-control-zoom-out zoom-bar-part zoom-bar-part-bottom" title="Zoom out">-</a>
     </div>
-    <div id="mapDiv" class="col-sm-9 hidden-xs">
-
-
-    </div>
-    <div id="barcode" class="col-sm-3 col-xs-12"></div>
+    <div id="mapDiv" class="col-sm-9 hidden-xs"></div>
+    <div id="accessibilityInfo" class="visuallyhidden" aria-live="polite"></div>
+    <div id="barcode" class="col-sm-3 col-xs-12" aria-hidden="true"></div>
 </div>
-<div id="chartsnsparks">
-    <div id="tradewith">UK IIP, assets & liabilities<span style="font-weight:300"> 2018</span></div>
+<div id="chartsnsparks" aria-hidden="true">
+    <div id="tradewith">UK IIP, assets &amp; liabilities<span style="font-weight:300"> 2018</span></div>
 
   <div id="linechart"></div>
 </div>
 
-<div id="footer">
+<footer id="footer">
   <h6>Source: ONS</h6>
   <h6>Notes:</h6>
   <ol>
     <li>Please note, this experimental map includes the UK’s largest counterpart countries.</li>
     <li>Investment data for 2018 does not include annual benchmark data.</li>
   </ol>
-</div>
+</footer>
 
 
 
@@ -400,7 +61,7 @@ time, mark, audio, video {
     <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
     <script src="lib/d3-queue.min.js"></script>
     <script src="lib/jquery-3.0.0.slim.min.js"></script>
-	  <script src="lib/select2.min.js"></script>
+	  <script src="lib/chosen.jquery.js"></script>
     <script src="lib/svg-pan-zoom.min.js"></script>
     <script src="lib/modernizr.custom.56904.js"></script>
   	<script src="lib/script.js"></script>
