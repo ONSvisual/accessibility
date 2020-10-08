@@ -192,28 +192,19 @@ p {
   margin-top: 5px;
 }
 
-.subtitle a {
-  text-decoration: none;
-}
-
 .subtitle a:link {
-  color: #206095 !important;
-  font-weight: 400;
-}
-
-.subtitle a:visited {
   color: #206095 !important;
   font-weight: 400;
 }
 
 
 .subtitle a:hover {
-  text-decoration: underline;
+  color: #003c57 !important;
 }
 
 .blurb {
-  line-height: 15px;
-  font-size: 12px;
+  line-height: 20px;
+  font-size: 14px;
   margin: 10px 0px;
 }
 
@@ -387,7 +378,7 @@ p {
 }
 
 .measure_title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 300;
 }
 
