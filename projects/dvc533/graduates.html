@@ -86,11 +86,20 @@
         fill-opacity: .2;
       }
 
-      .children:hover rect.child {
+      .children:hover rect.child, .parent:focus ~ rect.child {
         fill: #bbb;
       }
 
-      .child:hover {
+      .children:hover text, .child:hover ~ text, .parent:focus ~ text {
+        fill: #000;
+      }
+
+      .child:hover, .child:focus {
+        fill: #bbb;
+      }
+
+      .children:hover rect.child {
+        cursor: pointer;
         fill: #bbb;
       }
 
@@ -535,8 +544,6 @@
 
         margin = {top: 10, right: 0, bottom: 0, left: 0}
         formatNumber = d3.format(",.1f"),
-
-
           atTop = true,
           level = 0,
           levelArray = Array(level);
@@ -670,7 +677,6 @@
       }
 
       function display(d) {
-
         grandparent
           .datum(d.parent)
           .on("click", transition)
@@ -696,15 +702,8 @@
           .classed("children", true)
           .on("click", transition);
 
-        g.selectAll(".child")
-          .data(function (d) {
-            return d._children || [d];
-          })
-          .enter().append("rect")
-          .attr("class", "child")
-          .attr("code", function (d) {
-            return d.id
-          })
+        g.append("rect")
+          .attr("class", "parent")
           .attr("desc", function (d) {
             return d.name
           })
@@ -717,12 +716,27 @@
           .attr("realvals", function (d) {
             return d.fake_size
           })
+          .attr('aria-label', function(d) { return d.name + " " + formatNumber(d.fake_size) + "%"; })
           .on("mouseover", mouseover)
+          .on("focus", mouseover)
           .on("mouseout", mouseout)
+          .on("blur", mouseout)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+              $(d3.event.target).parent().d3Click();
+            }
+          })
           .call(rect);
 
-        g.append("rect")
-          .attr("class", "parent")
+        g.selectAll(".child")
+          .data(function (d) {
+            return d._children || [d];
+          })
+          .enter().append("rect")
+          .attr("class", "child")
+          .attr("code", function (d) {
+            return d.id
+          })
           .attr("desc", function (d) {
             return d.name
           })
