@@ -751,7 +751,11 @@ function selectList() {
 	myId=null;
 
   // $('#areaselect').select2({placeholder:"Choose a country",allowClear:true,dropdownParent:$('#sel')})
-  $('#areaselect').chosen({ placeholder_text_single: "Select a country", allow_single_deselect: true })
+  $('#areaselect').chosen({
+    placeholder_text_single: "Select a country",
+    allow_single_deselect: true,
+    width: '100%'
+  })
 
   d3.select('input.chosen-search-input').attr('id', 'chosensearchinput')
   d3.select('div.chosen-search').insert('label', 'input.chosen-search-input')
@@ -871,7 +875,7 @@ function barchartstart(){
 
     svgline = d3.select("#linechart").append('svg')
           .attr("id","linechartsvg")
-          .attr("width", chartWidth+margin.left+margin.right)
+          .attr("width", '100%')
           .attr("height", height+margin.top + margin.bottom)
           .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
