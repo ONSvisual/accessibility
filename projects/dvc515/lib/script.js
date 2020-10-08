@@ -14,7 +14,9 @@ d3.select("#fallback").remove();
 
 function ready (error, dataexports, dataimports, geog){
 
-  colour_palette =["#766FAF","#0F8243"]
+	var dvcyear = 2017;
+
+  colour_palette =["#766FAF","#0F8243"];
   legendLabels=["UK investments overseas","Foreign Investments in the UK"]
 
   var margin = {top: 40, right: 15, bottom: 40, left: 40};
@@ -75,13 +77,13 @@ function ready (error, dataexports, dataimports, geog){
 	  .attr("id", function(d){return "shape" + d.properties.fips})
       .attr("d", path)
       .on("mouseover",function(d){
-		highlightcountry(d.properties.fips);
-        filterdata(d.properties.fips);
-      })
-	  .on("mouseout",function(d){
-		unhighlightcountry(d.properties.fips);
-        filterdata("W1");
-      })
+				highlightcountry(d.properties.fips);
+				filterdata(d.properties.fips);
+			})
+	  	.on("mouseout",function(d){
+				unhighlightcountry(d.properties.fips);
+				filterdata("W1");
+			});
 
     dataexports.forEach(function(d,i){
       //  d3.select("#shape" + d.CountryId).style("fill","#EAEAEA");
@@ -318,10 +320,24 @@ function getCentroids() {
 function highlightcountry(countrycode) {
 
     //Update dropdown
-    $("#areaselect").val(countrycode).trigger('change.select2');
+		$("#areaselect").val(countrycode).trigger('chosen:updated');
+
+		// add keybindings to cross
+		d3.select('abbr').on('keypress', function(evt) {
+			if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+				d3.event.preventDefault();
+				unhighlightcountry(countrycode);
+				filterdata("W1");
+				enableHoverEvents();
+			}
+		}).on('mouseup', function() {
+			unhighlightcountry(countrycode);
+			filterdata("W1");
+			enableHoverEvents();
+		});
 
     //Draw barcode highlight rects on top of all bars
-    if(mobile == false) {
+    if(mobile === false) {
 
       d3.selectAll("." + countrycode).each(fadeToFront);
       //Give map area a highlight class
@@ -367,15 +383,16 @@ function highlightcountry(countrycode) {
 
     //Get country name
     a = areacodes.indexOf(countrycode);
-    countryname = areanames[a]
+    countryname = areanames[a];
 
     //barcode labels
-    d3.select("#importlabel").html("<p>into " + countryname +"</p><p class='labelbold'>£"+ d3.format(",.1f")(importval/1000) +"bn</p>")
-    d3.select("#exportlabel").html("<p>from " + countryname +"</p><p class='labelbold'>£"+ d3.format(",.1f")(exportval/1000) +"bn</p>")
+    d3.select("#importlabel").html("<p>into " + countryname +"</p><p class='labelbold'>£"+ d3.format(",.1f")(importval/1000) +"bn</p>");
+    d3.select("#exportlabel").html("<p>from " + countryname +"</p><p class='labelbold'>£"+ d3.format(",.1f")(exportval/1000) +"bn</p>");
 
     //Update labels
-    d3.select("#tradewith").html("Investments into/from " + countryname + " <span style='font-weight:300'>2017</span>")
+    d3.select("#tradewith").html("Investments into/from " + countryname + " <span style='font-weight:300'>" + dvcyear + "</span>");
 
+	d3.select("#accessibility p").text("The total invested in " + countryname + " in " + dvcyear + " was  £" + d3.format(",")(importval * 1000000) + ". The total investments from " + countryname + " in " + dvcyear + " was £" + d3.format(",")(exportval * 1000000) + ".")
 } //end highlightcountry
 
 
@@ -383,7 +400,7 @@ function highlightcountry(countrycode) {
 function unhighlightcountry(countrycode) {
 
   //update dropdown
-	$("#areaselect").val("").trigger('change.select2');
+	$("#areaselect").val("").trigger('chosen:updated');
 
 
 	d3.select("#shape" + countrycode).classed("countries_highlights",false);
@@ -391,14 +408,15 @@ function unhighlightcountry(countrycode) {
 	d3.selectAll(".highlights").remove();
 
   //Update labels
-  d3.select("#tradewith").html("UK IIP, assets & liabilities <span style='font-weight:300'>2017</span>")
+  d3.select("#tradewith").html("UK IIP, assets & liabilities <span style='font-weight:300'>2017</span>");
 
 	d3.select("#shape" + countrycode).classed("countries_highlights",false);
 
 	//reset barcode labels
-	d3.select("#importlabel").html("<p>into</p>")
-	d3.select("#exportlabel").html("<p>from</p>")
+	d3.select("#importlabel").html("<p>into</p>");
+	d3.select("#exportlabel").html("<p>from</p>");
 
+	d3.select("#accessibility p").text("");
 } //end unhighlightcountry
 
 
@@ -722,7 +740,8 @@ function selectList() {
 	var optns = d3.select("#selectNav").append("div").attr("id","sel").append("select")
 		.attr("id","areaselect")
 		.attr("style","width:67%")
-		.attr("class","chosen-select");
+		.attr("class","chosen-select")
+		.attr('data-placeholder', "Choose a country");
 
 
 	optns.append("option")
@@ -734,7 +753,14 @@ function selectList() {
 
 	myId=null;
 
- 	$('#areaselect').select2({placeholder:"Choose a country",allowClear:true,dropdownParent:$('#sel')})
+ 	$('#areaselect').chosen({
+		allow_single_deselect: true,
+		no_results_text: "No results found for:",
+		width: "67%"
+	});
+
+	d3.select('input.chosen-search-input').attr('id', 'chosensearchinput')
+	d3.select('div.chosen-search').insert('label', 'input.chosen-search-input').attr('class', 'visuallyhidden').attr('for', 'chosensearchinput').html("Type to select a country as a investment partner with the UK")
 
 	$('#areaselect').on('change',function(){
 
@@ -757,14 +783,12 @@ function selectList() {
             'countryselected':areacode
           })
 
+			} else {
+				unhighlightcountry(areacode);
+				enableHoverEvents();
+				changeURL("")
 			}
 
-	});
-
-	$("#areaselect").on("select2:unselect", function (e) {
-          unhighlightcountry(areacode);
-					enableHoverEvents();
-          changeURL("")
 	});
 
 }; // end selectlist
@@ -795,10 +819,28 @@ function enableHoverEvents() {
 
 
 function enableZoom() {
-	    d3.select('.zoom-control-zoom-in').on('click', function(){m.zoomIn()});
-		d3.select('.zoom-control-zoom-out').on('click', function(){m.zoomOut()});
+	d3.select('.zoom-control-zoom-in')
+		.on('click', function() {
+			m.zoomIn();
+		})
+		.on('keypress', function() {
+			if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+				d3.event.preventDefault();
+				m.zoomIn();
+			}
+		});
 
-}; //enableHoverEvents
+	d3.select('.zoom-control-zoom-out')
+		.on('click', function() {
+			m.zoomOut();
+		})
+		.on('keypress', function() {
+			if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+				d3.event.preventDefault();
+				m.zoomOut();
+			}
+		});
+} //enableHoverEvents
 
 function barchartstart(){
 
@@ -944,19 +986,6 @@ function barchartstart(){
 
 
 }//end of barchartstart
-
-
-//some code to stop select2 opening when clearing
-$('#areaselect').on('select2:unselecting', function(ev) {
-    if (ev.params.args.originalEvent) {
-        // When unselecting (in multiple mode)
-        ev.params.args.originalEvent.stopPropagation();
-    } else {
-        // When clearing (in single mode)
-        $(this).one('select2:opening', function(ev) { ev.preventDefault(); });
-        filterdata("W1")//set the it back to world view
-    }
-});
 
 
 }//end ready
