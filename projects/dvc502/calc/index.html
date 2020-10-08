@@ -380,6 +380,7 @@
       clip: rect(0, 0, 0, 0);
       border: 0;
     }
+
   </style>
 
 
@@ -410,7 +411,7 @@
         <p>I work in the</p>
         <div id="industry_dropdownDiv" class="dropdown" style="width: 280px"><label class="visuallyhidden" for="industry_dropdown">Choose an industry</label>
           <select id="industry_dropdown" required>
-            <option label="placeholder"></option>
+            <option></option>
             <option value="0">agriculture, forestry & fishing</option>
             <option value="1">energy & water</option>
             <option value="2">manufacturing</option>
@@ -425,7 +426,7 @@
         <p>industry in the</p>
         <div id="pubpri_dropdownDiv" class="dropdown" style="width: 200px"><label class="visuallyhidden" for="pubpri_dropdown">Choose public or private sector</label>
           <select id="pubpri_dropdown" required>
-            <option label="placeholder"></option>
+            <option></option>
             <option value="0">public</option>
             <option value="1">private</option>
           </select>
@@ -433,7 +434,7 @@
         <p>sector with</p>
         <div id="size_dropdownDiv" class="dropdown" style="width: 220px"><label class="visuallyhidden" for="size_dropdown">Choose the size of your organisation</label>
           <select id="size_dropdown" required>
-            <option label="placeholder"></option>
+            <option></option>
             <option value="0">less than 25</option>
             <option value="1">25 to 49</option>
             <option value="2">50 to 499</option>
@@ -443,7 +444,7 @@
         <p>people.</p>
       </div>
 
-      <div class="subtitle error hide" id="error_message" aria-live="assertive" role="status">
+      <div class="subtitle error hide" id="error_message" role="alert">
         Select an option in all fields.
       </div>
 
