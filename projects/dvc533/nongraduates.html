@@ -26,6 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="css/styles.css" media="screen">
+    <link href="https://onsvisual.github.io/pattern-library/dist/fontawesome/css/all.css" rel="stylesheet">
 
     <style>
       body {
@@ -73,10 +74,6 @@
       .grandparent line {
         stroke: #606060;
         stroke-width: 1px;
-      }
-
-      .btn {
-        font-size: 15px
       }
 
       .children rect.parent,
@@ -239,20 +236,63 @@
 
 
       */
-      .btn-ons {
-        color: #4a494b;
-        background-color: #ededed;
+      .btn {
+        position: relative;
+        padding: 10px 15px;
+        margin: 0 0 20px;
+        line-height: normal;
+        color: #fff;
+        font-size: 1.3em !important;
+        border-radius: 0px;
+        display: inline-block;
+        text-rendering: optimizeLegibility;
+        transition: background-color .2s ease-in, color .2s ease-in;
+
+        font-family: "Open Sans",Helvetica,Arial,sans-serif;
+        font-weight: 400;
+        width: auto;
+        cursor: pointer;
+        border: 0 none;
+        text-align: center;
+        text-decoration: none;
+
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+        user-select: none;
+        background-image: none;
+      }
+      .btn:hover {
+        color: #ffffff;
+      }
+      .btn:focus {
+        outline: none;
+        box-shadow: 0px 0px 0 3px #FFA23A;
+        color: white;
+        outline-offset: 0px;
+      }
+      .btn:hover, .btn:focus {
+        text-decoration: none;
+      }
+      .btn--primary {
+        background-color: #206095 !important;
+      }
+      .btn--primary:hover {
+        background-color: #174c78 !important;
       }
 
-      .btn-ons:hover,
-      .btn-ons:focus,
-      .btn-ons.focus,
-      .btn-ons:active,
-      .btn-ons.active,
-      .open > .dropdown-toggle.btn-ons {
-        color: #6f6f6f;
-        background-color: #E7E7E7;
-        border-color: #D3D3D3;
+      .btn--up::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f3bf";
+        margin-right: 10px;
+      }
+
+      .btn--top::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f139";
+        margin-right: 10px;
       }
 
       hr {
@@ -387,11 +427,11 @@
           </p>
 
           <div class="row">
-            <!--					<button type="button" id="upBtn" class="nav btn btn-ons ">
-                        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Up a level
-                      </button>-->
-            <button type="button" id="topBtn" class="nav btn btn-ons " style="visibility:hidden">
-              <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top
+            <!--		<button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up">
+                      Up a level
+                    </button>-->
+            <button type="button" id="topBtn" class="btn btn-group__btn btn--primary btn--green btn--top" style="visibility:hidden">
+              Back to top
             </button>
           </div>
 
