@@ -207,6 +207,26 @@ if(Modernizr.webgl) {
 		function setTimeLabel(){
 			d3.select("#timePeriod").text(dvc.timepoints[a]);
 		}
+
+		function announceUpdate() {
+			var year = $('#timePeriod').text()
+			var place = $('#areaselect').find('option:selected').text()
+			var rate = $("#currVal2").text()
+			
+			if (place == '') {
+				$('#accessibilityInfo').text('')
+				return
+			}
+			// var str = [
+			// 	'In ', year, ' ', place, ' had an under-18 conception rate of ', rate,
+			// 	' per 1000 women aged 15 to 17'
+			// ].join('')
+
+			var str = [
+				'In ', year, ' ', place, ' had a rate of ', rate
+			].join('')
+			$('#accessibilityInfo').html(str)
+		}
 		
 		function checkIfFirstorLast() {
 			if(a=0) {
@@ -446,7 +466,7 @@ if(Modernizr.webgl) {
 		function setButtons() {
 			d3.select("#play").on("click", function() {
 				
-				animating = setInterval(function(){animate()}, 2000);
+				animating = setInterval(function(){animate()}, 4000);
 				d3.selectAll(".btn--neutral").classed("btn--neutral-disabled",true)
 				
 				d3.select("#playImage").attr("src","images/pause.png");
@@ -497,6 +517,7 @@ if(Modernizr.webgl) {
 					}
 				}
 			}
+			announceUpdate()
 				
 		}
 		
@@ -527,6 +548,7 @@ if(Modernizr.webgl) {
 					}
 				}
 			}
+			announceUpdate()
 				
 		}
 		
@@ -565,7 +587,7 @@ if(Modernizr.webgl) {
 				map.getCanvasContainer().style.cursor = null;
 				map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
 				oldAREACD = "";
-				$("#areaselect").val(null).trigger('change.select2');
+				$("#areaselect").val(null).trigger('chosen:updated');
 				hideaxisVal();
 		};
 			
@@ -602,7 +624,15 @@ if(Modernizr.webgl) {
 		}
 		
 		function selectArea(code) {
-			$("#areaselect").val(code).trigger('change.select2');
+			$("#areaselect").val(code).trigger('chosen:updated');
+			d3.select('abbr').on('keypress', function (evt) {
+				if (d3.event.keyCode == 13 || d3.event.keyCode == 32) {
+					console.log('clear')
+					$("#areaselect").val("").trigger('chosen:updated');
+					onLeave();
+					resetZoom();
+				}
+			})
 		}
 		
 		function zoomToArea(code) {
@@ -671,7 +701,7 @@ if(Modernizr.webgl) {
 				.duration(400)
 				.attr("x", function(){if(!isNaN(rateById[code])) {return xkey(rateById[code])} else{return xkey(midpoint)}});
 			}
-				
+			announceUpdate()
 		}
 		
 		function updateChart(code) {
@@ -759,7 +789,10 @@ if(Modernizr.webgl) {
 			
 			if(mobile == false) {
 				
-				d3.select("#keydiv").append("p").attr("id","keyunit").style("margin-top","25px").style("margin-left","10px").text(dvc.varunit[b]);
+				d3.select("#keydiv").append("p")
+					.attr("id","keyunit")
+					// .attr('aria-label', 'Chart shows statistics for under-18 conception rates per 1,000 women aged 15 to 17 years old')
+					.html('<span class="visuallyhidden">Chart shows statistics for </span>' + dvc.varunit[b]);
 				
 				keyheight = 150;
 			
@@ -769,7 +802,8 @@ if(Modernizr.webgl) {
 					.append("svg")
 					.attr("id", "key")
 					.attr("width", keywidth)
-					.attr("height",keyheight + 30);
+					.attr("height",keyheight + 30)
+					.attr('aria-hidden', true);
 				
 				// Set up scales for legend
 				y = d3.scaleLinear()
@@ -1079,7 +1113,19 @@ if(Modernizr.webgl) {
 
 			myId=null;
 
-		 $('#areaselect').select2({placeholder:"Select an area",allowClear:true,dropdownParent:$('#sel')})
+			$('#areaselect').chosen({
+				placeholder_text_single: "Select an area",
+				allow_single_deselect: true,
+				width: '100%'
+			})
+
+			d3.select('input.chosen-search-input').attr('id', 'chosensearchinput')
+			d3.select('div.chosen-search').insert('label', 'input.chosen-search-input').attr('class', 'visuallyhidden').attr('for', 'chosensearchinput').html("Type to select an area")
+			// $('#areaselect').select2({
+			// 	placeholder:"Select an area",
+			// 	allowClear:true,
+			// 	dropdownParent:$('#sel')
+			// 	})
 
 			$('#areaselect').on('change',function(){
 
