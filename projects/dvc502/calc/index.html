@@ -2,219 +2,233 @@
 <html lang="en">
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <title>Sickness absence calculator</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <title>Sickness absence calculator</title>
 
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="description" content="Compare the sickness absence rates for your industry">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-    <link rel="stylesheet"  href="lib/ONSstyle.css" />
-	<link rel="stylesheet" href="lib/select2.min.css" />
-    <style type="text/css">
-		body {
-			max-width: 800px;
-			margin: 0px auto;
-			/*background:  #DDE7EF;*/
-			color: #1A5E96!important;
-      		padding-bottom: 170px;
-		}
+  <link rel="stylesheet" href="lib/ONSstyle.css" />
+  <style>
+    body {
+      max-width: 800px;
+      margin: 0px auto;
+      /*background:  #DDE7EF;*/
+      color: #1A5E96 !important;
+      padding-bottom: 170px;
+    }
 
-		p{
-			margin: 15px 0 10px 0!important;
-		}
+    p {
+      margin: 15px 0 10px 0 !important;
+    }
 
-		.btn{
-			margin-top:15px!important;
-		}
+    .btn {
+      margin-top: 15px !important;
+    }
 
-		.select-items div,.select-selected {
-		  	padding: 5px 16px 7px 7px;
-		}
+    .btn:focus {
+      box-shadow: 0 0 0px 3px orange;
+      outline: none;
+    }
 
-		.titles{
-			margin: 20px 0px;
-		}
+    .select-items div,
+    .select-selected {
+      padding: 5px 16px 7px 7px;
+    }
 
-		.title{
-			font-size: 40px;
-			font-weight: 700;
-			line-height: 1.1em;
-			  padding: 10px 10px 0px 0px;
-			  border-top: 5px;
-			  border-style: solid;
-			  border-color: #1A5E96;
-		}
+    .titles {
+      margin: 20px 0px;
+    }
 
-		.subtitle, .subtitle2{
-			font-size: 20px;
-		}
+    .title {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1em;
+      padding: 10px 10px 0px 0px;
+      border-top: 5px;
+      border-style: solid;
+      border-color: #1A5E96;
+    }
 
-		.subtitle{
-			font-weight: 700;
-		}
+    .subtitle,
+    .subtitle2 {
+      font-size: 20px;
+    }
 
-		.subtitle2{
-			font-weight: 500;
-			font-size: 18px;
+    .subtitle {
+      font-weight: 700;
+    }
+
+    .subtitle2 {
+      font-weight: 500;
+      font-size: 18px;
       margin-top: 5px;
-		}
+    }
 
-	.paddingLeft{
-	  padding:10px 0px 10px 0px;
-	  box-sizing: border-box;
-	}
-	.paddingRight{
-	  padding:10px 0px 10px 0px;
-	  box-sizing: border-box;
-	}
+    .paddingLeft {
+      padding: 10px 0px 10px 0px;
+      box-sizing: border-box;
+    }
 
-	@media (min-width: 650px) {
-		.paddingLeft{
-		  padding:10px 10px 10px 0px;
-		  box-sizing: border-box;
-		}
-		.paddingRight{
-		  padding:10px 0px 10px 10px;
-		  box-sizing: border-box;
-		}
-	}
-    .rates{
-			font-weight: 700;
-      height:50px;
+    .paddingRight {
+      padding: 10px 0px 10px 0px;
+      box-sizing: border-box;
+    }
+
+    @media (min-width: 650px) {
+      .paddingLeft {
+        padding: 10px 10px 10px 0px;
+        box-sizing: border-box;
+      }
+
+      .paddingRight {
+        padding: 10px 0px 10px 10px;
+        box-sizing: border-box;
+      }
+    }
+
+    .rates {
+      font-weight: 700;
+      height: 50px;
       background: #206095;
       color: white;
       font-size: 18px;
       padding: 10px;
-		}
+    }
 
-    .days{
-			font-weight: 700;
-      height:50px;
+    .days {
+      font-weight: 700;
+      height: 50px;
       background: #008181;
       color: white;
       font-size: 18px;
       padding: 10px;
-		}
+    }
 
     /* On screens that are 797px wide or less*/
     @media screen and (max-width: 797px) {
-        .rates, .days {
-            height:70px;
-        }
+
+      .rates,
+      .days {
+        height: 70px;
+      }
     }
 
     /* On screens that are 513px wide or less*/
     @media screen and (max-width: 650px) {
-		.rates{
-			height:47px;
-		}
+      .rates {
+        height: 47px;
+      }
 
-	  	.days {
-          height:24px;
-      	}
+      .days {
+        height: 24px;
+      }
     }
 
-	    /* On screens that are 513px wide or less*/
+    /* On screens that are 513px wide or less*/
     @media screen and (max-width: 556px) {
-		.rates{
-			height:47px;
-		}
+      .rates {
+        height: 47px;
+      }
 
-	  	.days {
-          height:47px;
-      	}
+      .days {
+        height: 47px;
+      }
     }
 
-		    /* On screens that are 513px wide or less*/
+    /* On screens that are 513px wide or less*/
     @media screen and (max-width: 396px) {
-		.rates{
-			height:73px;
-		}
+      .rates {
+        height: 73px;
+      }
 
-	  	.days {
-          height:47px;
-      	}
+      .days {
+        height: 47px;
+      }
     }
-		.questions{
-			font-size: 30px;
-			font-weight: 700;
-		}
 
-		.questions p {
-			display:inline-block;
-		}
+    .questions {
+      font-size: 30px;
+      font-weight: 700;
+    }
 
-		.questions div {
-			display:inline-block;
-			font-size: 20px;
-			font-weight: 600;
-			border:2px solid transparent;
-			box-sizing:border-box;
-		}
+    .questions p {
+      display: inline-block;
+    }
 
-		#submit{
-			margin: 20px 0px;
-		}
+    .questions div {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: 600;
+      border: 2px solid transparent;
+      box-sizing: border-box;
+    }
 
-		span#select2-industry_dropdown-container, span#select2-industry_dropdown-container .select2-selection__placeholder{
-			color: #6C94A5!important;
-		}
+    #submit {
+      margin: 20px 0px;
+    }
 
-		span#select2-pubpri_dropdown-container, span#select2-pubpri_dropdown-container .select2-selection__placeholder{
-			color: #00A7A3!important;
-		}
+    span#select2-industry_dropdown-container,
+    span#select2-industry_dropdown-container .select2-selection__placeholder {
+      color: #6C94A5 !important;
+    }
 
-		span#select2-size_dropdown-container, span#select2-size_dropdown-container .select2-selection__placeholder{
-			color: #008081!important;
-		}
+    span#select2-pubpri_dropdown-container,
+    span#select2-pubpri_dropdown-container .select2-selection__placeholder {
+      color: #00A7A3 !important;
+    }
 
-    .dropstyle{
+    span#select2-size_dropdown-container,
+    span#select2-size_dropdown-container .select2-selection__placeholder {
+      color: #008081 !important;
+    }
+
+    .dropstyle {
       display: grid;
     }
 
-    .bars text{
+    .bars text {
       line-height: 60px;
       font-size: 15px;
       font-weight: 500;
     }
 
-    .rate_days{
+    .rate_days {
       font-size: 27px;
       font-weight: 700;
     }
 
-    .bartext{
+    .bartext {
       font-weight: 600;
     }
 
-		#selection{
+    #selection {
       background-color: #206095;
     }
 
-    #selection2{
+    #selection2 {
       background-color: #008181;
     }
 
-    .UK{
+    .UK {
       background-color: #064561;
-			color: white;
+      color: white;
     }
 
-    .header{
+    .header {
       color: white;
       background: #1A5E96;
       padding: 10px;
     }
 
-    .whiteback{
-    /*  background: white;*/
+    .whiteback {
+      /*  background: white;*/
       margin-top: 20px;
     }
 
     .x .tick line {
-        stroke: #ccc;
+      stroke: #ccc;
     }
 
     .y .tick line {
@@ -222,915 +236,1101 @@
     }
 
     path.domain {
-        stroke: none;
-    }
-    .charts{
-    /*  background: white;*/
-    margin-top: 20px;
+      stroke: none;
     }
 
-    .rowpadding{
+    .charts {
+      /*  background: white;*/
+      margin-top: 20px;
+    }
+
+    .rowpadding {
       margin-top: 10px;
     }
 
-	.chart_titleLeft{
-	  font-size: 17px;
-	  font-weight: 700;
-	}
-
-	.chart_titleRight{
-	  font-size: 17px;
-	  font-weight: 700;
-	}
-
-	@media (min-width: 650px) {
-		.chart_titleLeft{
-		  font-size: 17px;
-		  font-weight: 700;
-		  padding: 0px 10px 0px 0px;
-		}
-
-		.chart_titleRight{
-		  font-size: 17px;
-		  font-weight: 700;
-		  padding: 0px 0px 0px 10px;
-		}
-	}
-
-    .lightblue{
-      color:#206095;
+    .chart_titleLeft {
+      font-size: 17px;
+      font-weight: 700;
     }
 
-    .darkblue{
-      color:#064561;
+    .chart_titleRight {
+      font-size: 17px;
+      font-weight: 700;
     }
 
-    .teal{
-      color:#008181;
+    @media (min-width: 650px) {
+      .chart_titleLeft {
+        font-size: 17px;
+        font-weight: 700;
+        padding: 0px 10px 0px 0px;
+      }
+
+      .chart_titleRight {
+        font-size: 17px;
+        font-weight: 700;
+        padding: 0px 0px 0px 10px;
+      }
     }
 
-    .blurb{
-      margin:10px 0px;
+    .lightblue {
+      color: #206095;
+    }
+
+    .darkblue {
+      color: #064561;
+    }
+
+    .teal {
+      color: #008181;
+    }
+
+    .blurb {
+      margin: 10px 0px;
       padding: 0px 10px;
     }
 
-	a {
-		text-decoration:underline;
-		color:#090;
-		word-wrap: break-word;
-	}
+    a {
+      text-decoration: underline;
+      color: #090;
+      word-wrap: break-word;
+    }
 
-	.error{
-		border:2px solid red!important;
-		box-sizing:border-box;
-	}
+    .error {
+      border: 2px solid red !important;
+      box-sizing: border-box;
+    }
 
-	</style>
+    #error_message {
+      margin: 10px 0px;
+      color: white;
+      border: none;
+      background-color: red;
+      padding: 10px 0 10px 10px;
+    }
 
+    /* select */
+    .dropdown {
+      position: relative;
+      height: 45px;
+      background: white;
+      border: none;
+      max-width: 18em;
+      min-width: 13em;
+      height: 50px;
+    }
+
+    .dropdown::before {
+
+      height: 43px;
+      width: 46px;
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      bottom: 1px;
+      background: #206095;
+      content: '';
+      pointer-events: none;
+
+    }
+
+    .dropdown::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 0;
+      height: 0;
+      right: 17px;
+      bottom: 0;
+      margin: 18px 0 0 0;
+      border-style: solid;
+      border-width: 10px 9px 0 9px;
+      border-color: #ffffff transparent transparent transparent;
+      pointer-events: none;
+    }
+
+    select {
+      font-size: 1.1em;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      background: transparent;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      outline: none;
+      padding-right: 35px;
+      padding-left: 15px;
+      border: 2px solid #206095;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      color: #206095;
+    }
+
+    select:focus {
+      outline: 3px solid #FFA23A;
+    }
+
+    .visuallyhidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+  </style>
+
+
+  <script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/d3/4.2.7/d3.js"></script>
+  <script src="./lib/modernizr.svg.min.js"></script>
+  <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js"></script>
+  <!-- <script src="lib/select2.min.js" type="text/javascript"></script> -->
 </head>
-<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
-<script src="https://cdn.ons.gov.uk/vendor/d3/4.2.7/d3.js" type="text/javascript"></script>
-<script src="./lib/modernizr.svg.min.js" type="text/javascript"></script>
-<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" type="text/javascript"></script>
-<script src="lib/select2.min.js" type="text/javascript"></script>
 
 <body>
-	<div id="iemsg">
-    	<p><b>For a safer, faster, better experience online you should upgrade your browser. You would have been able to play with this lovely interactive graphic below. <a href="https://www.gov.uk/support/browsers" target="_blank">Find out more about browsers</a></b>
-        </p>
-         <img src="fallback.png" style="max-width:700px;">
-    </div>
-    <div class="wrapper">
+  <div id="iemsg">
+    <p><b>For a safer, faster, better experience online you should upgrade your browser. You would have been able to play with this lovely interactive graphic below. <a href="https://www.gov.uk/support/browsers" target="_blank">Find out more about
+          browsers</a></b>
+    </p>
+    <img alt="" src="fallback.png" style="max-width:700px;">
+  </div>
+  <div class="wrapper">
     <div class="title">Find out how sickness rates compare</div>
     <div id="selections">
       <div class="row">
-  			<div class="titles">
-  				<div class="subtitle">Tell us about where you work</div>
-  				<div class="subtitle2">Choose from the dropdowns below</div>
-  			</div>
-  		</div>
-  		<div class="row questions">
-  			<p>I work in the</p>
-            <div id="industry_dropdownDiv">
-            	<select id="industry_dropdown" class="dropdown" style="width: 280px">
-                <option></option>
-  				<option value="0">agriculture, forestry & fishing</option>
-  				<option value="1">energy & water</option>
-  				<option value="2">manufacturing</option>
-  				<option value="3">construction</option>
-  				<option value="4">distribution, hotels & restaurants</option>
-  				<option value="5">transport & communication</option>
-  				<option value="6">banking and finance</option>
-  				<option value="7">public admin, education & health</option>
-  				<option value="8">other services</option>
-  			  </select>
-            </div>
-  			<p>industry in the</p>
-            <div id="pubpri_dropdownDiv">
-            	<select id="pubpri_dropdown" class="dropdown" style="width: 200px">
-  				<option></option>
-  				<option value="0">public</option>
-  				<option value="1">private</option>
-  			   </select>
-            </div>
-  			<p>sector with</p>
-            <div id ="size_dropdownDiv">
-            	<select id ="size_dropdown" class="dropdown" style="width: 220px">
-  				<option></option>
-  				<option value="0">less than 25</option>
-  				<option value="1">25 to 49</option>
-  				<option value="2">50 to 499</option>
-  				<option value="3">500 or more</option>
-  			  </select>
-            </div>
-  			<p>people.</p>
-  		</div>
-  		<div class="row">
-  			<button id="submit" class="btn btn--primary-alternative btn--bold btn--large">
-  				Submit
-  			</button>
-  		</div>
-  </div>
-  <div id="results" class="hide">
-  		<!-- <div class="row header">
+        <div class="titles">
+          <div class="subtitle">Tell us about where you work</div>
+          <div class="subtitle2">Choose from the dropdowns below</div>
+        </div>
+      </div>
+      <div class="row questions">
+        <p>I work in the</p>
+        <div id="industry_dropdownDiv" class="dropdown" style="width: 280px"><label class="visuallyhidden" for="industry_dropdown">Choose an industry</label>
+          <select id="industry_dropdown" required>
+            <option></option>
+            <option value="0">agriculture, forestry & fishing</option>
+            <option value="1">energy & water</option>
+            <option value="2">manufacturing</option>
+            <option value="3">construction</option>
+            <option value="4">distribution, hotels & restaurants</option>
+            <option value="5">transport & communication</option>
+            <option value="6">banking and finance</option>
+            <option value="7">public admin, education & health</option>
+            <option value="8">other services</option>
+          </select>
+        </div>
+        <p>industry in the</p>
+        <div id="pubpri_dropdownDiv" class="dropdown" style="width: 200px"><label class="visuallyhidden" for="pubpri_dropdown">Choose public or private sector</label>
+          <select id="pubpri_dropdown" required>
+            <option></option>
+            <option value="0">public</option>
+            <option value="1">private</option>
+          </select>
+        </div>
+        <p>sector with</p>
+        <div id="size_dropdownDiv" class="dropdown" style="width: 220px"><label class="visuallyhidden" for="size_dropdown">Choose the size of your organisation</label>
+          <select id="size_dropdown" required>
+            <option></option>
+            <option value="0">less than 25</option>
+            <option value="1">25 to 49</option>
+            <option value="2">50 to 499</option>
+            <option value="3">500 or more</option>
+          </select>
+        </div>
+        <p>people.</p>
+      </div>
+
+      <div class="subtitle error hide" id="error_message" role="alert">
+        Select an option in all fields.
+      </div>
+
+      <div class="row">
+        <button aria-label="Submit" id="submit" class="btn btn--primary-alternative btn--bold btn--large">
+          Submit
+        </button>
+      </div>
+    </div>
+    <div id="results" class="hide">
+      <!-- <div class="row header">
         <text class="subtitle2"> ...</text>
       </div> -->
-      <div class="row whiteback">
-          <div class="col-sm-6 paddingLeft">
-            <div class="row">
-              <div class="rates">
-                <text>People who work for similar employers, have sickness absence rates of</text>
-              </div>
-            </div>
-            <div class="row rowpadding">
-              <div class="col-xs-4 col-sm-4 dropstyle lightblue">
-                  <text id="rateVal" class="rate_days"></text>
-                  <text class="bartext">Your work</text>
-              </div>
-              <div class="col-xs-8 col-sm-8" >
-                  <div class="bars you" id="selection" style="width:0%; height:50px"></div>
-              </div>
-              <!-- <div class="col-sm-1"></div> -->
-            </div>
-            <div class="row">
-              <div class="col-xs-4 col-sm-4 dropstyle darkblue">
-                  <text class="rate_days">1.9%</text>
-                  <text class="bartext">UK average</text>
-              </div>
-              <div class="col-xs-8 col-sm-8">
-                  <div class="bars UK" id="uk_average2" style="width:31.67%; height:50px"></div>
-              </div>
-              <!-- <div class="col-sm-1"></div> -->
-            </div>
+      <div class="visuallyhidden" aria-live="assertive">
+          <span id="acc1"></span>
+          <span id="acc2"></span>
+          <span id="acc3"></span>
+          <span id="acc4"></span>
+          <span id="acc5"></span>
 
-          </div>
+      </div>
 
-          <div class="col-sm-6 paddingRight">
-            <div class="row">
-              <div class="days">
-                <text>and an average number of days off per worker per year of</text>
-              </div>
-            </div>
-              <div class="row rowpadding">
-                <div class="col-xs-4 col-sm-4 dropstyle teal">
-                    <text id="daysVal" class="rate_days"></text>
-                    <text class="bartext">Your work</text>
-                </div>
-                <div class="col-xs-8 col-sm-8" >
-                    <div class="bars you" id="selection2" style="width:0%; height:50px"></div>
-                </div>
-                <!-- <div class="col-sm-1"></div> -->
-              </div>
-              <div class="row">
-                <div class="col-xs-4 col-sm-4 dropstyle darkblue">
-                    <text class="rate_days">4.1 days</text>
-                    <text class="bartext">UK average</text>
-                </div>
-                <div class="col-xs-8 col-sm-8">
-                    <div class="bars UK" id="uk_average2" style="width:31.67%; height:50px"></div>
-                </div>
-                <!-- <div class="col-sm-1"></div> -->
-              </div>
-    		  </div>
-        </div>
-</div>
-<div class="row blurb">
-  <!-- <p>Some text here to explain what these charts show</p> -->
-</div>
-<div class="row charts">
-        <div class="col-sm-6" id="graphic">
-
-        </div>
-        <div class="col-sm-6">
+      <div class="row whiteback" aria-hidden='true'>
+        <div class="col-sm-6 paddingLeft">
           <div class="row">
-            <div id="graphic2"></div>
-            <div id="graphic3"></div>
+            <div class="rates">
+              <span>People who work for similar employers, have sickness absence rates of</span>
+            </div>
+          </div>
+          <div class="row rowpadding">
+            <div class="col-xs-4 col-sm-4 dropstyle lightblue">
+              <span id="rateVal" class="rate_days"></span>
+              <span class="bartext">Your work</span>
+            </div>
+            <div class="col-xs-8 col-sm-8">
+              <div class="bars you" id="selection" style="width:0%; height:50px"></div>
+            </div>
+            <!-- <div class="col-sm-1"></div> -->
+          </div>
+          <div class="row">
+            <div class="col-xs-4 col-sm-4 dropstyle darkblue">
+              <span class="rate_days">1.9%</span>
+              <span class="bartext">UK average</span>
+            </div>
+            <div class="col-xs-8 col-sm-8">
+              <div class="bars UK" id="uk_average1" style="width:31.67%; height:50px"></div>
+            </div>
+            <!-- <div class="col-sm-1"></div> -->
+          </div>
+
+        </div>
+
+        <div class="col-sm-6 paddingRight">
+          <div class="row">
+            <div class="days">
+              <span>and an average number of days off per worker per year of</span>
+            </div>
+          </div>
+          <div class="row rowpadding">
+            <div class="col-xs-4 col-sm-4 dropstyle teal">
+              <span id="daysVal" class="rate_days"></span>
+              <span class="bartext">Your work</span>
+            </div>
+            <div class="col-xs-8 col-sm-8">
+              <div class="bars you" id="selection2" style="width:0%; height:50px"></div>
+            </div>
+            <!-- <div class="col-sm-1"></div> -->
+          </div>
+          <div class="row">
+            <div class="col-xs-4 col-sm-4 dropstyle darkblue">
+              <span class="rate_days">4.1 days</span>
+              <span class="bartext">UK average</span>
+            </div>
+            <div class="col-xs-8 col-sm-8">
+              <div class="bars UK" id="uk_average2" style="width:31.67%; height:50px"></div>
+            </div>
+            <!-- <div class="col-sm-1"></div> -->
           </div>
         </div>
-</div>
+      </div>
+    </div>
+  </div>
+  <div class="row blurb">
+    <!-- <p>Some text here to explain what these charts show</p> -->
+  </div>
+  <div class="row charts">
+    <div class="col-sm-6" id="graphic">
+
+    </div>
+    <div class="col-sm-6">
+      <div class="row">
+        <div id="graphic2"></div>
+        <div id="graphic3"></div>
+      </div>
+    </div>
+  </div>
 
 
 
-<script>
-	new pym.Child();
+  <script>
+    new pym.Child();
 
-  var graphic = d3.select('#graphic');
-  var graphic2 = d3.select('#graphic2');
-  var graphic3 = d3.select('#graphic3');
+    var graphic = d3.select('#graphic');
+    var graphic2 = d3.select('#graphic2');
+    var graphic3 = d3.select('#graphic3');
 
-  var pymChild = null;
+    var pymChild = null;
 
-	var industry;
-	var pub_pri;
-	var size;
-  var completed = false;
+    var industry;
+    var pub_pri;
+    var size;
+    var completed = false;
 
-function drawGraphic() {
-    var margin = {top: 15, right: 35, bottom: 10, left: 220};
-    var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
-    var height = 28 * graphic_data.length - margin.top - margin.bottom;
+    function drawGraphic() {
+      var margin = {
+        top: 15,
+        right: 35,
+        bottom: 10,
+        left: 220
+      };
+      var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+      var height = 28 * graphic_data.length - margin.top - margin.bottom;
 
-    // clear out existing graphics
-    graphic.selectAll("*").remove();
+      // clear out existing graphics
+      graphic.selectAll("*").remove();
 
-    d3.select("#graphic").append("div")
-      .attr("class", "chart_titleLeft")
+      d3.select("#graphic").append("div")
+        .attr("class", "chart_titleLeft")
 
-    var x = d3.scaleLinear()
-          .range([ 0, chart_width]);
+      var x = d3.scaleLinear()
+        .range([0, chart_width]);
 
-    var y = d3.scaleBand()
-      .rangeRound([0, height])
-      .paddingInner(0.1);
+      var y = d3.scaleBand()
+        .rangeRound([0, height])
+        .paddingInner(0.1);
 
-      y.domain(graphic_data.map(function(d) { return d.industry; }));
+      y.domain(graphic_data.map(function(d) {
+        return d.industry;
+      }));
 
       var yAxis = d3.axisLeft(y)
 
       var xAxis = d3.axisBottom(x)
-      .tickSize(-height, 0, 0);
+        .tickSize(-height, 0, 0);
 
-    //specify number or ticks on x axis
-    if(parseInt(d3.select(".wrapper").style("width")) < 650){
-		xAxis.ticks(2)
-	} else {
-		xAxis.ticks(5)
-	}
+      //specify number or ticks on x axis
+      if (parseInt(d3.select(".wrapper").style("width")) < 650) {
+        xAxis.ticks(2)
+      } else {
+        xAxis.ticks(5)
+      }
 
-    // parse data into columns
-    var bars = {};
-    for (var column in graphic_data[0]) {
+      // parse data into columns
+      var bars = {};
+      for (var column in graphic_data[0]) {
         if (column == 'industry') continue;
         bars[column] = graphic_data.map(function(d) {
-            return {
-                'industry': d.industry,
-                'amt': d[column]
-            };
+          return {
+            'industry': d.industry,
+            'amt': d[column]
+          };
         });
-    }
+      }
 
-    x.domain([0, 2.2]);
+      x.domain([0, 2.2]);
 
-    //create svg for chart
-    var svg = d3.select('#graphic').append('svg')
-        .attr("id","chart")
-          //  .style("background-color","#fff")
-            .attr("width", chart_width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom +30)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      //create svg for chart
+      var svg = d3.select('#graphic').append('svg')
+        .attr('aria-hidden', 'true')
+        .attr("id", "chart")
+        //  .style("background-color","#fff")
+        .attr("width", chart_width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom + 30)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    svg.append("rect")
-        .attr("class","svgRect")
+      svg.append("rect")
+        .attr("class", "svgRect")
         .attr("width", chart_width)
         .attr("height", height)
-        .attr("fill","transparent")
+        .attr("fill", "transparent")
 
-    svg.append('g')
+      svg.append('g')
         .attr('class', 'x axis')
-        .attr("transform", "translate(0, "+height+")")
+        .attr("transform", "translate(0, " + height + ")")
         .call(xAxis).append("text")
         .attr("y", 25)
-        .attr("x",chart_width)
+        .attr("x", chart_width)
         .style("text-anchor", "start")
-        .attr("font-size","12px")
-        .attr("fill","#666")
+        .attr("font-size", "12px")
+        .attr("fill", "#666")
         .text("%");
 
-    //create y axis, if x axis doesn't start at 0 drop x axis accordingly
-    svg.append('g')
-          .attr('class', 'y axis')
-          .attr('transform',  'translate(' + 0  + ', 0)' )
-          .call(yAxis);
+      //create y axis, if x axis doesn't start at 0 drop x axis accordingly
+      svg.append('g')
+        .attr('class', 'y axis')
+        .attr('transform', 'translate(' + 0 + ', 0)')
+        .call(yAxis);
 
-    svg.append('g').attr("class","bars").selectAll('rect')
+      svg.append('g').attr("class", "bars").selectAll('rect')
         .data(bars["rate"])
         .enter()
         .append('rect')
         .attr("fill", "#064561")
-        .attr("id", function (d){
-          return d.industry.substr(0,2).toLowerCase()+"_bar"
+        .attr("id", function(d) {
+          return d.industry.substr(0, 2).toLowerCase() + "_bar"
         })
-        .attr("width", function(d) { return 0 + Math.abs(x(d.amt) - x(0)); })
-        .attr("x", function(d) { return x(Math.min(0, d.amt)); })
-        .attr("y", function(d) { return y(d.industry); })
+        .attr("width", function(d) {
+          return 0 + Math.abs(x(d.amt) - x(0));
+        })
+        .attr("x", function(d) {
+          return x(Math.min(0, d.amt));
+        })
+        .attr("y", function(d) {
+          return y(d.industry);
+        })
         .attr("height", y.bandwidth())
 
-    d3.selectAll("text").attr("font-family","'Open Sans', sans-serif");
+      d3.selectAll("text").attr("font-family", "'Open Sans', sans-serif");
 
-	function insertLinebreaksLabels() {
+      function insertLinebreaksLabels() {
 
-		var str = this.textContent;
+        var str = this.textContent;
 
-		var words = str.split('  ');
+        var words = str.split('  ');
 
-		d3.select(this/*str*/).text('');
+        d3.select(this /*str*/ ).text('');
 
-		for (var j = 0; j < words.length; j++) {
-			var tspan = d3.select(this)
-					.append('tspan')
-					.attr('dy', function(){
-						if (words.length == 1) {
-							return '0.4em'
-						} else {
-							return '-0.2em'
-						}
-					})
-					.text(words[j]);
+        for (var j = 0; j < words.length; j++) {
+          var tspan = d3.select(this)
+            .append('tspan')
+            .attr('dy', function() {
+              if (words.length == 1) {
+                return '0.4em'
+              } else {
+                return '-0.2em'
+              }
+            })
+            .text(words[j]);
 
-			if (j > 0)
-				tspan
-				.attr('x',  -10)
-				.attr('dy', function(){
-					if (words.length == 1) {
-						return '0.4em'
-					} else {
-						return '0.9em'
-					}
-				})
-			}
-	};
+          if (j > 0)
+            tspan
+            .attr('x', -10)
+            .attr('dy', function() {
+              if (words.length == 1) {
+                return '0.4em'
+              } else {
+                return '0.9em'
+              }
+            })
+        }
+      };
 
-	d3.selectAll(".y text").each(insertLinebreaksLabels)
+      d3.selectAll(".y text").each(insertLinebreaksLabels)
 
 
-    // //use pym to calculate chart dimensions
-    // if (pymChild) {
-    //     pymChild.sendHeight();
-    // }
+      // //use pym to calculate chart dimensions
+      // if (pymChild) {
+      //     pymChild.sendHeight();
+      // }
 
-    drawGraphic2();
-} //end drawGraphic
+      drawGraphic2();
+    } //end drawGraphic
 
-function drawGraphic2() {
-    var margin2 = {top: 5, right: 15, bottom: 0, left: 100};
-    var chart_width2 = parseInt(graphic2.style("width")) - margin2.left - margin2.right;
-    var height2 = 28 * graphic_data2.length - margin2.top - margin2.bottom;
+    function drawGraphic2() {
+      var margin2 = {
+        top: 5,
+        right: 15,
+        bottom: 0,
+        left: 100
+      };
+      var chart_width2 = parseInt(graphic2.style("width")) - margin2.left - margin2.right;
+      var height2 = 28 * graphic_data2.length - margin2.top - margin2.bottom;
 
-    // clear out existing graphics
-    graphic2.selectAll("*").remove();
+      // clear out existing graphics
+      graphic2.selectAll("*").remove();
 
-    d3.select("#graphic2").append("div")
-      .attr("class", "chart_titleRight")
+      d3.select("#graphic2").append("div")
+        .attr("class", "chart_titleRight")
 
-    var x = d3.scaleLinear()
-          .range([ 0, chart_width2]);
+      var x = d3.scaleLinear()
+        .range([0, chart_width2]);
 
-    var y = d3.scaleBand()
-      .rangeRound([0, height2])
-      .paddingInner(0.1);
+      var y = d3.scaleBand()
+        .rangeRound([0, height2])
+        .paddingInner(0.1);
 
-      y.domain(graphic_data2.map(function(d) { return d.pub_pri; }));
+      y.domain(graphic_data2.map(function(d) {
+        return d.pub_pri;
+      }));
 
       var yAxis = d3.axisLeft(y)
 
       var xAxis = d3.axisBottom(x)
-      .tickSize(-height2, 0, 0);
+        .tickSize(-height2, 0, 0);
 
-    //specify number or ticks on x axis
-    xAxis.ticks(5)
+      //specify number or ticks on x axis
+      xAxis.ticks(5)
 
-    // parse data into columns
-    var bars2 = {};
-    for (var column in graphic_data2[0]) {
+      // parse data into columns
+      var bars2 = {};
+      for (var column in graphic_data2[0]) {
         if (column == 'pub_pri') continue;
         bars2[column] = graphic_data2.map(function(d) {
-            return {
-                'pub_pri': d.pub_pri,
-                'amt': d[column]
-            };
+          return {
+            'pub_pri': d.pub_pri,
+            'amt': d[column]
+          };
         });
-    }
+      }
 
 
-    x.domain([0, 2.2]);
+      x.domain([0, 2.2]);
 
-    //create svg for chart
-    var svg2 = d3.select('#graphic2').append('svg')
-        .attr("id","chart2")
-            //.style("background-color","#fff")
-            .attr("width", chart_width2 + margin2.left + margin2.right)
-            .attr("height", height2 + margin2.top + margin2.bottom +30)
-            .append("g")
-            .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+      //create svg for chart
+      var svg2 = d3.select('#graphic2').append('svg')
+        .attr("id", "chart2")
+        .attr('aria-hidden', 'true')
+        //.style("background-color","#fff")
+        .attr("width", chart_width2 + margin2.left + margin2.right)
+        .attr("height", height2 + margin2.top + margin2.bottom + 30)
+        .append("g")
+        .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
-    svg2.append("rect")
-        .attr("class","svgRect")
+      svg2.append("rect")
+        .attr("class", "svgRect")
         .attr("width", chart_width2)
         .attr("height", height2)
-        .attr("fill","transparent")
+        .attr("fill", "transparent")
 
-    svg2.append('g')
+      svg2.append('g')
         .attr('class', 'x axis')
-        .attr("transform", "translate(0, "+height2+")")
+        .attr("transform", "translate(0, " + height2 + ")")
         .call(xAxis).append("text")
         .attr("y", 25)
-        .attr("x",chart_width2)
+        .attr("x", chart_width2)
         .style("text-anchor", "start")
-        .attr("font-size","12px")
-        .attr("fill","#666")
+        .attr("font-size", "12px")
+        .attr("fill", "#666")
         .text("%");
 
-    //create y axis, if x axis doesn't start at 0 drop x axis accordingly
-    svg2.append('g')
-          .attr('class', 'y axis')
-          .attr('transform',  'translate(' + 0  + ', 0)' )
-          .call(yAxis);
+      //create y axis, if x axis doesn't start at 0 drop x axis accordingly
+      svg2.append('g')
+        .attr('class', 'y axis')
+        .attr('transform', 'translate(' + 0 + ', 0)')
+        .call(yAxis);
 
-    svg2.append('g').attr("class","bars").selectAll('rect')
+      svg2.append('g').attr("class", "bars").selectAll('rect')
         .data(bars2["rate"])
         .enter()
         .append('rect')
         .attr("fill", "#064561")
-        .attr("id", function (d){
-          return d.pub_pri+"_bar"
+        .attr("id", function(d) {
+          return d.pub_pri + "_bar"
         })
-        .attr("width", function(d) { return 0 + Math.abs(x(d.amt) - x(0)); })
-        .attr("x", function(d) { return x(Math.min(0, d.amt)); })
-        .attr("y", function(d) { return y(d.pub_pri); })
+        .attr("width", function(d) {
+          return 0 + Math.abs(x(d.amt) - x(0));
+        })
+        .attr("x", function(d) {
+          return x(Math.min(0, d.amt));
+        })
+        .attr("y", function(d) {
+          return y(d.pub_pri);
+        })
         .attr("height", y.bandwidth())
 
-    d3.selectAll("text").attr("font-family","'Open Sans', sans-serif");
+      d3.selectAll("text").attr("font-family", "'Open Sans', sans-serif");
 
 
 
-    // //use pym to calculate chart dimensions
-    // if (pymChild) {
-    //     pymChild.sendHeight();
-    // }
-    drawGraphic3();
-} //end drawGraphic2
+      // //use pym to calculate chart dimensions
+      // if (pymChild) {
+      //     pymChild.sendHeight();
+      // }
+      drawGraphic3();
+    } //end drawGraphic2
 
-function drawGraphic3() {
-    var margin3 = {top: 5, right: 15, bottom: 10, left: 100};
-    var chart_width3 = parseInt(graphic3.style("width")) - margin3.left - margin3.right;
-    var height3 = 28 * graphic_data3.length - margin3.top - margin3.bottom;
+    function drawGraphic3() {
+      var margin3 = {
+        top: 5,
+        right: 15,
+        bottom: 10,
+        left: 100
+      };
+      var chart_width3 = parseInt(graphic3.style("width")) - margin3.left - margin3.right;
+      var height3 = 28 * graphic_data3.length - margin3.top - margin3.bottom;
 
-    // clear out existing graphics
-    graphic3.selectAll("*").remove();
+      // clear out existing graphics
+      graphic3.selectAll("*").remove();
 
-    d3.select("#graphic3").append("div")
-      .attr("class", "chart_titleRight")
+      d3.select("#graphic3").append("div")
+        .attr("class", "chart_titleRight")
 
-    var x = d3.scaleLinear()
-          .range([ 0, chart_width3]);
+      var x = d3.scaleLinear()
+        .range([0, chart_width3]);
 
-    var y = d3.scaleBand()
-      .rangeRound([0, height3])
-      .paddingInner(0.1);
+      var y = d3.scaleBand()
+        .rangeRound([0, height3])
+        .paddingInner(0.1);
 
-      y.domain(graphic_data3.map(function(d) { return d.size; }));
+      y.domain(graphic_data3.map(function(d) {
+        return d.size;
+      }));
 
       var yAxis = d3.axisLeft(y)
 
       var xAxis = d3.axisBottom(x)
-      .tickSize(-height3, 0, 0);
+        .tickSize(-height3, 0, 0);
 
-    //specify number or ticks on x axis
-    xAxis.ticks(5)
+      //specify number or ticks on x axis
+      xAxis.ticks(5)
 
-    // parse data into columns
-    var bars3 = {};
-    for (var column in graphic_data3[0]) {
+      // parse data into columns
+      var bars3 = {};
+      for (var column in graphic_data3[0]) {
         if (column == 'size') continue;
         bars3[column] = graphic_data3.map(function(d) {
-            return {
-                'size': d.size,
-                'amt': d[column]
-            };
+          return {
+            'size': d.size,
+            'amt': d[column]
+          };
         });
-    }
+      }
 
-    x.domain([0, 2.2]);
+      x.domain([0, 2.2]);
 
-    //create svg for chart
-    var svg3 = d3.select('#graphic3').append('svg')
-        .attr("id","chart3")
-            //.style("background-color","#fff")
-            .attr("width", chart_width3 + margin3.left + margin3.right)
-            .attr("height", height3 + margin3.top + margin3.bottom +30)
-            .append("g")
-            .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
+      //create svg for chart
+      var svg3 = d3.select('#graphic3').append('svg')
+        .attr("id", "chart3")
+        .attr('aria-hidden', 'true')
+        .attr("width", chart_width3 + margin3.left + margin3.right)
+        .attr("height", height3 + margin3.top + margin3.bottom + 30)
+        .append("g")
+        .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
 
-    svg3.append("rect")
-        .attr("class","svgRect")
+      svg3.append("rect")
+        .attr("class", "svgRect")
         .attr("width", chart_width3)
         .attr("height", height3)
-        .attr("fill","transparent")
+        .attr("fill", "transparent")
 
-    svg3.append('g')
+      svg3.append('g')
         .attr('class', 'x axis')
-        .attr("transform", "translate(0, "+height3+")")
+        .attr("transform", "translate(0, " + height3 + ")")
         .call(xAxis).append("text")
         .attr("y", 25)
-        .attr("x",chart_width3)
+        .attr("x", chart_width3)
         .style("text-anchor", "start")
-        .attr("font-size","12px")
-        .attr("fill","#666")
+        .attr("font-size", "12px")
+        .attr("fill", "#666")
         .text("%");
 
-    //create y axis, if x axis doesn't start at 0 drop x axis accordingly
-    svg3.append('g')
-          .attr('class', 'y axis')
-          .attr('transform',  'translate(' + 0  + ', 0)' )
-          .call(yAxis);
+      //create y axis, if x axis doesn't start at 0 drop x axis accordingly
+      svg3.append('g')
+        .attr('class', 'y axis')
+        .attr('transform', 'translate(' + 0 + ', 0)')
+        .call(yAxis);
 
-    svg3.append('g').attr("class","bars").selectAll('rect')
+      svg3.append('g').attr("class", "bars").selectAll('rect')
         .data(bars3["rate"])
         .enter()
         .append('rect')
         .attr("fill", "#064561")
-        .attr("id", function (d){
-          return "size_"+d.size.replace(" to ", "-").replace("less than ", "").replace(" or more", "")+"_bar"
+        .attr("id", function(d) {
+          return "size_" + d.size.replace(" to ", "-").replace("less than ", "").replace(" or more", "") + "_bar"
         })
-        .attr("width", function(d) { return 0 + Math.abs(x(d.amt) - x(0)); })
-        .attr("x", function(d) { return x(Math.min(0, d.amt)); })
-        .attr("y", function(d) { return y(d.size); })
+        .attr("width", function(d) {
+          return 0 + Math.abs(x(d.amt) - x(0));
+        })
+        .attr("x", function(d) {
+          return x(Math.min(0, d.amt));
+        })
+        .attr("y", function(d) {
+          return y(d.size);
+        })
         .attr("height", y.bandwidth())
 
-    d3.selectAll("text").attr("font-family","'Open Sans', sans-serif");
+      d3.selectAll("text").attr("font-family", "'Open Sans', sans-serif");
 
-    d3.selectAll(".y text").attr("font-size","12px").attr("fill","#1A5E96");
-    d3.selectAll(".x text").attr("font-size","12px").attr("fill","#1A5E96"); // dates - timelines
-    //  d3.select(".charts").style("opacity",0)
+      d3.selectAll(".y text").attr("font-size", "12px").attr("fill", "#1A5E96");
+      d3.selectAll(".x text").attr("font-size", "12px").attr("fill", "#1A5E96"); // dates - timelines
+      //  d3.select(".charts").style("opacity",0)
 
-    if(completed == true){
-      first = false
-      highlight_choices(first);
+      if (completed == true) {
+        first = false
+        highlight_choices(first);
 
-d3.select(".charts").select(".reset_btn").remove();
+        d3.select(".charts").select(".reset_btn").remove();
 
-      d3.select(".charts")
-        .append("div")
-        .attr("class", "row reset_btn")
-        .append("button")
-        .attr("id", "reset")
-        .attr("class", "btn btn--primary-alternative btn--bold btn--large")
-        .on("click", function(){  location.reload(); })
-        .text("Reset")
-    }
+        d3.select(".charts")
+          .append("div")
+          .attr("class", "row reset_btn")
+          .append("button")
+          .attr("id", "reset")
+          .attr("class", "btn btn--primary-alternative btn--bold btn--large")
+          .attr("aria-label", "reset")
+          .on("click", function() {
+            location.reload();
+          })
+          .text("Reset")
+      }
 
 
-    //use pym to calculate chart dimensions
-    if (pymChild) {
+      //use pym to calculate chart dimensions
+      if (pymChild) {
         pymChild.sendHeight();
-    }
-} //end drawGraphic3
+      }
+    } //end drawGraphic3
 
-function highlight_choices(){
+    function highlight_choices() {
 
-  d3.select("body").style("padding-bottom", "10px")
-
-
-  d3.select("#graphic").select(".chart_titleLeft").selectAll("*").remove();
-  d3.select("#graphic2").select(".chart_titleRight").selectAll("*").remove();
-  d3.select("#graphic3").select(".chart_titleRight").selectAll("*").remove();
-
-              if(industry == "ag"){
-                d3.select("#graphic").select(".chart_titleLeft")
-                  .append("text")
-                  .append("tspan")
-                  .text("Agriculture, forestry and fishing has the lowest sickness rates out of all industies")
-              } else if (industry == "ba"){
-                d3.select("#graphic").select(".chart_titleLeft")
-                  .append("text")
-                  .append("tspan")
-                  .text("Banking and finance has the 2nd lowest sickness rates out of all industies")
-              } else if (industry == "ot"){
-                d3.select("#graphic").select(".chart_titleLeft")
-                  .append("text")
-                  .append("tspan")
-                  .text("Other services have the 3rd lowest sickness rates out of all industies")
-              } else if (industry == "co"){
-                d3.select("#graphic").select(".chart_titleLeft")
-                  .append("text")
-                  .append("tspan")
-                  .text("The construction industry is ranked 6 out of 9 for sickness absence rates")
-              } else if (industry == "di"){
-                d3.select("#graphic").select(".chart_titleLeft")
-                  .append("text")
-                  .append("tspan")
-                  .text("The distribution industry is ranked 5 out of 9 for sickness absence rates")
-              } else if (industry == "tr"){
-                d3.select("#graphic").select(".chart_titleLeft")
-                  .append("text")
-                  .append("tspan")
-                  .text("The transport and communication industry is ranked 4 out of 9 for sickness absence rates")
-              } else if (industry == "en"){
-                d3.select("#graphic").select(".chart_titleLeft")
-                  .append("text")
-                  .append("tspan")
-                  .text("Energy and water has the 3rd highest sickness rates out of all industries")
-              } else if (industry == "ma"){
-                d3.select("#graphic").select(".chart_titleLeft")
-                  .append("text")
-                  .append("tspan")
-                  .text("Manufacturing has the 2nd highest sickness rates out of all industries")
-              } else if (industry == "pu"){
-                d3.select("#graphic").select(".chart_titleLeft")
-                  .append("text")
-                  .append("tspan")
-                  .text("Public admin, education and health has the highest sickness rates out of all industries")
-              }
-
-              if(pub_pri == "public"){
-                d3.select("#graphic2").select(".chart_titleRight")
-                  .append("text")
-                  .append("tspan")
-                  .text("The public sector has the highest sickness rates")
-              } else if (pub_pri == "private"){
-                d3.select("#graphic2").select(".chart_titleRight")
-                  .append("text")
-                  .append("tspan")
-                  .text("The private sector has the lowest sickness rates")
-              }
-
-              if(size == "<25"){
-                d3.select("#graphic3").select(".chart_titleRight")
-                  .append("text")
-                  .append("tspan")
-                  .text("Your size of organisation has the lowest sickness absence")
-              } else if(size == "25-49"){
-                d3.select("#graphic3").select(".chart_titleRight")
-                  .append("text")
-                  .append("tspan")
-                  .text("Your size of organisation has the 2nd lowest sickness absence")
-              } else if(size == "50-499"){
-                d3.select("#graphic3").select(".chart_titleRight")
-                  .append("text")
-                  .append("tspan")
-                  .text("Your size of organisation has the 2nd highset sickness absence")
-              } else if(size == "500+"){
-                d3.select("#graphic3").select(".chart_titleRight")
-                  .append("text")
-                  .append("tspan")
-                  .text("Your size of organisation has the highest sickness absence")
-              }
+      d3.select("body").style("padding-bottom", "10px")
 
 
+      d3.select("#graphic").select(".chart_titleLeft").selectAll("*").remove();
+      d3.select("#graphic2").select(".chart_titleRight").selectAll("*").remove();
+      d3.select("#graphic3").select(".chart_titleRight").selectAll("*").remove();
 
-          d3.select("#selections").classed("hide", true)
-          d3.select("#results").classed("hide", false)
-          d3.select(".charts").classed("hide", false)
-          d3.select("#"+industry+"_bar").style("fill", "#206095")
-          d3.select("#"+pub_pri+"_bar").style("fill", "#206095")
-          d3.select("#size_"+size.replace("<", "").replace("+", "")+"_bar").style("fill", "#206095")
+      if (industry == "ag") {
+        d3.select("#graphic").select(".chart_titleLeft")
+          .append("text")
+          .append("tspan")
+          .text("Agriculture, forestry and fishing has the lowest sickness rates out of all industies")
+        d3.select("#acc3").text("Agriculture, forestry and fishing has the lowest sickness rates out of all industies.")
 
-          d3.select(".charts").style("opacity",1)
+      } else if (industry == "ba") {
+        d3.select("#graphic").select(".chart_titleLeft")
+          .append("text")
+          .append("tspan")
+          .text("Banking and finance has the 2nd lowest sickness rates out of all industies")
+        d3.select("#acc3")
+      } else if (industry == "ot") {
+        d3.select("#graphic").select(".chart_titleLeft")
+          .append("text")
+          .append("tspan")
+          .text("Other services have the 3rd lowest sickness rates out of all industies")
+        d3.select("#acc3").text("Other services have the 3rd lowest sickness rates out of all industies.")
+      } else if (industry == "co") {
+        d3.select("#graphic").select(".chart_titleLeft")
+          .append("text")
+          .append("tspan")
+          .text("The construction industry is ranked 6 out of 9 for sickness absence rates")
+        d3.select("#acc3").text("The construction industry is ranked 6 out of 9 for sickness absence rates.")
+      } else if (industry == "di") {
+        d3.select("#graphic").select(".chart_titleLeft")
+          .append("text")
+          .append("tspan")
+          .text("The distribution industry is ranked 5 out of 9 for sickness absence rates")
+        d3.select("#acc3").text("The distribution industry is ranked 5 out of 9 for sickness absence rates.")
+      } else if (industry == "tr") {
+        d3.select("#graphic").select(".chart_titleLeft")
+          .append("text")
+          .append("tspan")
+          .text("The transport and communication industry is ranked 4 out of 9 for sickness absence rates")
+        d3.select("#acc3").text("The transport and communication industry is ranked 4 out of 9 for sickness absence rates.")
+      } else if (industry == "en") {
+        d3.select("#graphic").select(".chart_titleLeft")
+          .append("text")
+          .append("tspan")
+          .text("Energy and water has the 3rd highest sickness rates out of all industries")
+        d3.select("#acc3").text("Energy and water has the 3rd highest sickness rates out of all industries.")
+      } else if (industry == "ma") {
+        d3.select("#graphic").select(".chart_titleLeft")
+          .append("text")
+          .append("tspan")
+          .text("Manufacturing has the 2nd highest sickness rates out of all industries")
+        d3.select("#acc3").text("Manufacturing has the 2nd highest sickness rates out of all industries.")
+      } else if (industry == "pu") {
+        d3.select("#graphic").select(".chart_titleLeft")
+          .append("text")
+          .append("tspan")
+          .text("Public admin, education and health has the highest sickness rates out of all industries")
+        d3.select("#acc3").text("Public admin, education and health has the highest sickness rates out of all industries.")
+      }
 
-          rate = nest[industry][pub_pri][size][0].rate
-          d3.select("#rateVal").text(rate+"%")
+      if (pub_pri == "public") {
+        d3.select("#graphic2").select(".chart_titleRight")
+          .append("text")
+          .append("tspan")
+          .text("The public sector has the highest sickness rates")
 
-           parentWidth = parseInt(d3.select("#selection2").select(function() { return this.parentNode; }).style("width"));
+        d3.select("#acc4").text("The public sector has the highest sickness rates.")
+      } else if (pub_pri == "private") {
+        d3.select("#graphic2").select(".chart_titleRight")
+          .append("text")
+          .append("tspan")
+          .text("The private sector has the lowest sickness rates")
 
-           if(rate=="-"){
-             d3.select("#rateVal").text("N/A")
-             d3.select("#selection")
-                .select("text")
-				.remove();
+        d3.select("#acc4").text("The private sector has the lowest sickness rates.")
+      }
 
-			 d3.select("#selection").style("width", "100%").
-                style("background", "white")
-                .append("text")
-                .style("color", "#206095")
-                .style("line-height", "45px")
-                .text("Data supressed at this level")
-           }
-		   days = nest[industry][pub_pri][size][0].days
-		   d3.select("#daysVal").text(days+" days")
+      if (size == "<25") {
+        d3.select("#graphic3").select(".chart_titleRight")
+          .append("text")
+          .append("tspan")
+          .text("Your size of organisation has the lowest sickness absence")
 
-		   if(days=="-"){
-             d3.select("#daysVal").text("N/A")
-             d3.select("#selection2")
-                .select("text")
-				.remove();
+          d3.select("#acc5").text("Organisation with less than 25 people have the lowest sickness absence.")
+      } else if (size == "25-49") {
+        d3.select("#graphic3").select(".chart_titleRight")
+          .append("text")
+          .append("tspan")
+          .text("Your size of organisation has the 2nd highest sickness absence")
 
-			 d3.select("#selection2").style("width", "100%").
-                style("background", "white")
-                .append("text")
-                .style("color", "#008181")
-                .style("line-height", "45px")
-                .text("Data supressed at this level")
-           }
+          d3.select("#acc5").text("Organisation with 25 to 49 have the second highest sickness absence.")
+      } else if (size == "50-499") {
+        d3.select("#graphic3").select(".chart_titleRight")
+          .append("text")
+          .append("tspan")
+          .text("Your size of organisation has the 2nd lowest sickness absence")
 
-if (first == true){
-              d3.select("#selection")
-                .transition()
-                .delay(100)
-                .duration(1500)
-                .style("width", (rate/6)*parentWidth+"px")
+          d3.select("#acc5").text("Organisation with 50 to 499 people have the second lowest sickness absence.")
+      } else if (size == "500+") {
+        d3.select("#graphic3").select(".chart_titleRight")
+          .append("text")
+          .append("tspan")
+          .text("Your size of organisation has the highest sickness absence")
+
+          d3.select("#acc5").text("Organisation with 500+ people have the highest sickness absence.")
+      }
 
 
-              d3.select("#selection2")
-                .transition()
-                .delay(100)
-                .duration(1500)
-                .style("width", (days/14)*parentWidth+"px")
 
-  } else {
-    d3.select("#selection")
-      .style("width", (rate/6)*parentWidth+"px")
+      d3.select("#selections").classed("hide", true)
+      d3.select("#results").classed("hide", false)
+      d3.select(".charts").classed("hide", false)
+      d3.select("#" + industry + "_bar").style("fill", "#206095")
+      d3.select("#" + pub_pri + "_bar").style("fill", "#206095")
+      d3.select("#size_" + size.replace("<", "").replace("+", "") + "_bar").style("fill", "#206095")
 
-    days = nest[industry][pub_pri][size][0].days
-    d3.select("#daysVal").text(days+" days")
-    d3.select("#selection2")
-      .style("width", (days/14)*parentWidth+"px")
+      d3.select(".charts").style("opacity", 1)
 
-  }
-} //end highlight_choices
+      rate = nest[industry][pub_pri][size][0].rate
+      d3.select("#rateVal").text(rate + "%")
+      if(rate!="-"){d3.select("#acc1").text("People who work for similar employers, have sickness absence rates of " + rate + "%. This compares with the UK average of 1.9%.")}
 
-	//check to see if the web browser can handle 'inline svg'
-if (Modernizr)
-{
-	$("#iemsg").hide();
-	$(".wrapper").show()
+      parentWidth = parseInt(d3.select("#selection2").select(function() {
+        return this.parentNode;
+      }).style("width"));
 
-  //load chart data
-  d3.csv("industry.csv", function(error, data) {
-    graphic_data = data;
+      if (rate == "-") {
+        d3.select("#rateVal").text("N/A")
+        d3.select("#selection")
+          .select("text")
+          .remove();
 
-    industrys = d3.keys(graphic_data[0]).filter(function(key) { return key !== "state"; });
-    d3.csv("pub_pri.csv", function(error, data) {
-      graphic_data2 = data;
+        d3.select("#selection").style("width", "100%").
+        style("background", "white")
+          .append("text")
+          .style("color", "#206095")
+          .style("line-height", "45px")
+          .text("Data supressed at this level")
+      }
+      days = nest[industry][pub_pri][size][0].days
+      d3.select("#daysVal").text(days + " days")
 
-      pub_pri = d3.keys(graphic_data2[0]).filter(function(key) { return key !== "state"; });
+      if(days!="-"){d3.select("#acc2").text("The average number of days off per worker per year of "+ days + " days. This compares with the UK average of 4.1 days.")}
 
-      d3.csv("size.csv", function(error, data) {
-        graphic_data3 = data;
+      if (days == "-") {
+        d3.select("#daysVal").text("N/A")
+        d3.select("#selection2")
+          .select("text")
+          .remove();
 
-        sizes = d3.keys(graphic_data3[0]).filter(function(key) { return key !== "state"; });
+        d3.select("#selection2").style("width", "100%").
+        style("background", "white")
+          .append("text")
+          .style("color", "#008181")
+          .style("line-height", "45px")
+          .text("Data supressed at this level")
+      }
 
+      if (first == true) {
+        d3.select("#selection")
+          .transition()
+          .delay(100)
+          .duration(1500)
+          .style("width", (rate / 6) * parentWidth + "px")
+
+
+        d3.select("#selection2")
+          .transition()
+          .delay(100)
+          .duration(1500)
+          .style("width", (days / 14) * parentWidth + "px")
+
+      } else {
+        d3.select("#selection")
+          .style("width", (rate / 6) * parentWidth + "px")
+
+        days = nest[industry][pub_pri][size][0].days
+        d3.select("#daysVal").text(days + " days")
+        d3.select("#selection2")
+          .style("width", (days / 14) * parentWidth + "px")
+
+      }
+    } //end highlight_choices
+
+    //check to see if the web browser can handle 'inline svg'
+    if (Modernizr) {
+      $("#iemsg").hide();
+      $(".wrapper").show()
+
+      //load chart data
+      d3.csv("industry.csv", function(error, data) {
+        graphic_data = data;
+
+        industrys = d3.keys(graphic_data[0]).filter(function(key) {
+          return key !== "state";
+        });
+        d3.csv("pub_pri.csv", function(error, data) {
+          graphic_data2 = data;
+
+          pub_pri = d3.keys(graphic_data2[0]).filter(function(key) {
+            return key !== "state";
+          });
+
+          d3.csv("size.csv", function(error, data) {
+            graphic_data3 = data;
+
+            sizes = d3.keys(graphic_data3[0]).filter(function(key) {
+              return key !== "state";
+            });
+
+          });
         });
       });
-    });
 
-	//load chart data
-	d3.csv("data.csv", function(error, data) {
-			graphic_data2 = data;
+      //load chart data
+      d3.csv("data.csv", function(error, data) {
+        graphic_data2 = data;
 
-		 nest = d3.nest()
-			  .key(function(d) { return d.code; })
-			  .key(function(d) { return d.sector; })
-			  .key(function(d) { return d.size; })
-			  .object(graphic_data2);
+        nest = d3.nest()
+          .key(function(d) {
+            return d.code;
+          })
+          .key(function(d) {
+            return d.sector;
+          })
+          .key(function(d) {
+            return d.size;
+          })
+          .object(graphic_data2);
 
 
-	})
+      })
 
 
 
 
-} else {
-	$("#iemsg").show();
-	$(".wrapper").hide();
+    } else {
+      $("#iemsg").show();
+      $(".wrapper").hide();
 
-	//use pym to create iframe containing fallback image (which is set as default)
-	pymChild = new pym.Child();
-	if (pymChild) { pymChild.sendHeight(); }
-}
-
-$('#industry_dropdown').select2({
-  placeholder: 'select',minimumResultsForSearch: -1
-});
-$('#pubpri_dropdown').select2({
-  placeholder: 'select',minimumResultsForSearch: -1
-});
-$('#size_dropdown').select2({
-  placeholder: 'select',minimumResultsForSearch: -1
-});
-
-//	//JS for custome simple dropdown
-//	var x, i, j, selElmnt, a, b, c;
-//	/*look for any elements with the class "custom-select":*/
-//	x = document.getElementsByClassName("custom-select");
-//	for (i = 0; i < x.length; i++) {
-//	  selElmnt = x[i].getElementsByTagName("select")[0];
-//	  /*for each element, create a new DIV that will act as the selected item:*/
-//	  a = document.createElement("DIV");
-//	  a.setAttribute("class", "select-selected");
-//	  a.setAttribute("tabindex", "0")
-//	  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-//	  x[i].appendChild(a);
-//	  /*for each element, create a new DIV that will contain the option list:*/
-//	  b = document.createElement("DIV");
-//	  b.setAttribute("class", "select-items select-hide");
-//	  for (j = 0; j < selElmnt.length; j++) {
-//		/*for each option in the original select element,
-//		create a new DIV that will act as an option item:*/
-//		if(j != 0) {
-//			c = document.createElement("DIV");
-//			c.innerHTML = selElmnt.options[j].innerHTML;
-//			c.addEventListener("click", function(e) {
-//
-//        /*when an item is clicked, update the original select box,
-//				and the selected item:*/
-//				var y, i, k, s, h;
-//				s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-//				h = this.parentNode.previousSibling;
-//				for (i = 0; i < s.length; i++) {
-//				  if (s.options[i].innerHTML == this.innerHTML) {
-//					s.selectedIndex = i;
-//					h.innerHTML = this.innerHTML;
-//					y = this.parentNode.getElementsByClassName("same-as-selected");
-//					for (k = 0; k < y.length; k++) {
-//					  y[k].removeAttribute("class");
-//					}
-//					this.setAttribute("class", "same-as-selected");
-//					break;
-//				  }
-//				}
-//				h.click();
-//			});
-//			b.appendChild(c);
-//		}
-//	  }
-//	  x[i].appendChild(b);
-//	  a.addEventListener("click", function(e) {
-//		  /*when the select box is clicked, close any other select boxes,
-//		  and open/close the current select box:*/
-//		  e.stopPropagation();
-//		  closeAllSelect(this);
-//		  this.nextSibling.classList.toggle("select-hide");
-//		  this.classList.toggle("select-arrow-active");
-//		});
-//	}
-//	function closeAllSelect(elmnt) {
-//	  /*a function that will close all select boxes in the document,
-//	  except the current select box:*/
-//	  var x, y, i, arrNo = [];
-//	  x = document.getElementsByClassName("select-items");
-//	  y = document.getElementsByClassName("select-selected");
-//
-//
-//	  for (i = 0; i < y.length; i++) {
-//		if (elmnt == y[i]) {
-//		  arrNo.push(i)
-//		} else {
-//		  y[i].classList.remove("select-arrow-active");
-//		}
-//	  }
-//	  for (i = 0; i < x.length; i++) {
-//		if (arrNo.indexOf(i)) {
-//		  x[i].classList.add("select-hide");
-//		}
-//	  }
-//	}
-//	/*if the user clicks anywhere outside the select box,
-//	then close all select boxes:*/
-//	document.addEventListener("click", closeAllSelect);
-//
-//  d3.select("#industry_dropdown").select(".select-selected").on("change", function(){ console.log("change")})
-
-	d3.select('#submit').on("click",function(){
-    completed = true;
-    //use pym to create iframed chart dependent on specified variables
-
-    var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-    if(isFirefox!=true){
-		event.preventDefault();
-		event.stopPropagation();
+      //use pym to create iframe containing fallback image (which is set as default)
+      pymChild = new pym.Child();
+      if (pymChild) {
+        pymChild.sendHeight();
+      }
     }
 
-    industry=$("#industry_dropdown option:selected").text().substr(0,2)
-		pub_pri=$("#pubpri_dropdown option:selected").text()
-		size=$("#size_dropdown option:selected").text().replace(" to ", "-").replace("less than ", "<").replace(" or more", "+")
+    // $('#industry_dropdown').select2({
+    //   placeholder: 'select',minimumResultsForSearch: -1
+    // });
+    // $('#pubpri_dropdown').select2({
+    //   placeholder: 'select',minimumResultsForSearch: -1
+    // });
+    // $('#size_dropdown').select2({
+    //   placeholder: 'select',minimumResultsForSearch: -1
+    // });
+
+    //	//JS for custome simple dropdown
+    //	var x, i, j, selElmnt, a, b, c;
+    //	/*look for any elements with the class "custom-select":*/
+    //	x = document.getElementsByClassName("custom-select");
+    //	for (i = 0; i < x.length; i++) {
+    //	  selElmnt = x[i].getElementsByTagName("select")[0];
+    //	  /*for each element, create a new DIV that will act as the selected item:*/
+    //	  a = document.createElement("DIV");
+    //	  a.setAttribute("class", "select-selected");
+    //	  a.setAttribute("tabindex", "0")
+    //	  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+    //	  x[i].appendChild(a);
+    //	  /*for each element, create a new DIV that will contain the option list:*/
+    //	  b = document.createElement("DIV");
+    //	  b.setAttribute("class", "select-items select-hide");
+    //	  for (j = 0; j < selElmnt.length; j++) {
+    //		/*for each option in the original select element,
+    //		create a new DIV that will act as an option item:*/
+    //		if(j != 0) {
+    //			c = document.createElement("DIV");
+    //			c.innerHTML = selElmnt.options[j].innerHTML;
+    //			c.addEventListener("click", function(e) {
+    //
+    //        /*when an item is clicked, update the original select box,
+    //				and the selected item:*/
+    //				var y, i, k, s, h;
+    //				s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+    //				h = this.parentNode.previousSibling;
+    //				for (i = 0; i < s.length; i++) {
+    //				  if (s.options[i].innerHTML == this.innerHTML) {
+    //					s.selectedIndex = i;
+    //					h.innerHTML = this.innerHTML;
+    //					y = this.parentNode.getElementsByClassName("same-as-selected");
+    //					for (k = 0; k < y.length; k++) {
+    //					  y[k].removeAttribute("class");
+    //					}
+    //					this.setAttribute("class", "same-as-selected");
+    //					break;
+    //				  }
+    //				}
+    //				h.click();
+    //			});
+    //			b.appendChild(c);
+    //		}
+    //	  }
+    //	  x[i].appendChild(b);
+    //	  a.addEventListener("click", function(e) {
+    //		  /*when the select box is clicked, close any other select boxes,
+    //		  and open/close the current select box:*/
+    //		  e.stopPropagation();
+    //		  closeAllSelect(this);
+    //		  this.nextSibling.classList.toggle("select-hide");
+    //		  this.classList.toggle("select-arrow-active");
+    //		});
+    //	}
+    //	function closeAllSelect(elmnt) {
+    //	  /*a function that will close all select boxes in the document,
+    //	  except the current select box:*/
+    //	  var x, y, i, arrNo = [];
+    //	  x = document.getElementsByClassName("select-items");
+    //	  y = document.getElementsByClassName("select-selected");
+    //
+    //
+    //	  for (i = 0; i < y.length; i++) {
+    //		if (elmnt == y[i]) {
+    //		  arrNo.push(i)
+    //		} else {
+    //		  y[i].classList.remove("select-arrow-active");
+    //		}
+    //	  }
+    //	  for (i = 0; i < x.length; i++) {
+    //		if (arrNo.indexOf(i)) {
+    //		  x[i].classList.add("select-hide");
+    //		}
+    //	  }
+    //	}
+    //	/*if the user clicks anywhere outside the select box,
+    //	then close all select boxes:*/
+    //	document.addEventListener("click", closeAllSelect);
+    //
+    //  d3.select("#industry_dropdown").select(".select-selected").on("change", function(){ console.log("change")})
+
+    d3.select('#submit').on("click", function() {
+      completed = true;
+      //use pym to create iframed chart dependent on specified variables
+
+      var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+      if (isFirefox != true) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      industry = $("#industry_dropdown option:selected").text().substr(0, 2)
+      pub_pri = $("#pubpri_dropdown option:selected").text()
+      size = $("#size_dropdown option:selected").text().replace(" to ", "-").replace("less than ", "<").replace(" or more", "+")
 
 
-    if(industry == "" || pub_pri == "" || size == ""){
-        console.log("not all completed")
+      if (industry == "" || pub_pri == "" || size == "") {
+        if ($("#industry_dropdown option:selected").text() == "") {
+          d3.select("#industry_dropdownDiv").classed("error", true)
+          d3.select("#error_message").classed("hide", false)
+        }
+        if ($("#pubpri_dropdown option:selected").text() == "") {
+          d3.select("#pubpri_dropdownDiv").classed("error", true)
+          d3.select("#error_message").classed("hide", false)
+        }
+        if ($("#size_dropdown option:selected").text() == "") {
+          d3.select("#size_dropdownDiv").classed("error", true)
+          d3.select("#error_message").classed("hide", false)
+        }
+      } else {
 
-          if($("#industry_dropdown option:selected").text() ==""){
-              d3.select("#industry_dropdownDiv").classed("error", true)
-          }
-          if ($("#pubpri_dropdown option:selected").text()==""){
-              d3.select("#pubpri_dropdownDiv").classed("error", true)
-          }
-          if ($("#size_dropdown option:selected").text()=="") {
-            d3.select("#size_dropdownDiv").classed("error", true)
-          }
-     } else {
-
-       pymChild = new pym.Child({ renderCallback: drawGraphic});
+        pymChild = new pym.Child({
+          renderCallback: drawGraphic
+        });
 
 
         first = true;
@@ -1140,25 +1340,26 @@ $('#size_dropdown').select2({
 
       //use pym to calculate chart dimensions
       if (pymChild) {
-          pymChild.sendHeight();
+        pymChild.sendHeight();
       }
 
-	})
+    })
+  </script>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37894017-1']);
+    _gaq.push(['_trackPageview']);
 
 
-</script>
-<script>
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-37894017-1']);
-		  _gaq.push(['_trackPageview']);
-
-
-		  (function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-
-</script>
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </body>
+
 </html>
