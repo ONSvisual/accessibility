@@ -2,21 +2,21 @@
 
 [Text content](#text-content)
 
-[Images, video and audio content](link)
+[Images, video and audio content](#images-video-and-audio-content)
 
-[Interactive tools and transactions](link)
+[Interactive tools and transactions](#interactive-tools-and-transactions)
 
-[Technology](link)
+[Technology](#technology)
 
-[HTML checks](link)
+[HTML checks](#html-checks)
 
-[Screen reader](link)
+[Screen reader](#screen-reader)
 
-[JavaScript](link)
+[JavaScript](#javascript)
 
-[Tools](link)
+[Tools](#tools)
 
-[How to use VoiceOver](link)
+[How to use VoiceOver](#how-to-use-voiceover)
 
 
 ## Text content
