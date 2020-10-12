@@ -116,13 +116,13 @@ function createStructure() {
                 .enter()
                 .append("section")
                 .attr("class", function (d) {
-                    return "col-xs-12 col-sm-4 col-md-3 col-lg-3 indicatorPanel " + d.change;
+                    return "col-xs-12 col-sm-4 col-md-4 col-lg-4" + d.change;
                 })
                 .attr("id", function (d) {
                     return d.measure_code;
                 })
                 .append("div")
-                .attr("class", "panel panel-default")
+                .attr("class", "indicatorPanel panel panel-default")
                 .append("div")
                 // .style("background", function (d) {
                 //     //								return d.color
@@ -898,7 +898,7 @@ function drawVerticalBarChart() {
             pymChild.sendHeight();
         }
     }
-} //end of drawVerticalBarChart() 
+} //end of drawVerticalBarChart()
 
 
 
