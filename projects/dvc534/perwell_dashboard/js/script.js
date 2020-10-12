@@ -1,12 +1,7 @@
-//$(document).ready();
 
-//var window_width = $(window).width();
+
 var dvc = {};
 var pymChild = null;
-//	var dateFormat = "%Y";
-
-//specify colours for each topic
-//var wb_colours = ["#5454C9", "#AA74CC", "#AD3C39", "#D95F99", "#D1B900", "#A0B844", "#00B3AB", "#E28600", "#3584B8", "#298C45"]
 
 //create structure- rows and columns
 function createStructure() {
@@ -17,7 +12,6 @@ function createStructure() {
     }
 
     //console.log("I'm firing")
-
 
     d3.selectAll(".title_div").selectAll("*").remove();
     d3.selectAll(".container-fluid").selectAll("*").remove();
@@ -70,17 +64,12 @@ function createStructure() {
     });
 
 
-
-
     topic_row = d3.select(".container-fluid")
         .selectAll("div")
         .data(nested_data)
         .enter()
         .append("div")
         .attr("class", function (d) { return "row topic " + d.key; })
-    //.style("fill", function(d){console.log(d.values[0].color); return "10px solid "+d.values[0].color})
-
-
 
 
     summary = topic_row.append("div")
@@ -98,10 +87,6 @@ function createStructure() {
     summary.append("div")
         .attr("class", "topic_text")
         .html(function (d) { return d.values[0].topic_text; })
-
-    //            summary.append("div")
-    //				.attr("class", "topic_text")
-    //				.html(function(d){ return d.values[0].status; })
 
 
 
@@ -124,58 +109,28 @@ function createStructure() {
                 .append("div")
                 .attr("class", "indicatorPanel panel panel-default")
                 .append("div")
-                // .style("background", function (d) {
-                //     //								return d.color
-                // })
 
 
         })
 
-    //		d3.selectAll(".panel").append("div")
-    //				.attr("class", "status")
-    //            .html (function(d){
-    //								return d.status;
-    //                                })
 
 
     d3.selectAll(".panel").append("div")
         .append("a")
         .style("text-decoration", "none")
         .style("color", "#181818")
-        //.attr("href", function(d){
-        //return "https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/incomeandwealth/bulletins/economicwellbeing/julytoseptember2017#"+d.section;
-        //return "#"+d3.select(this.parentNode.parentNode.parentNode).attr("id")+"2"
-        //})
-        //.attr("target", "_blank")
         .attr("class", "card")
-        //            .style("border-bottom-color", function(d){
-        //								return d.color
-        //                                })
+
         .append("div")
         .attr("class", "measure_title row")
         .append("div")
         .attr("class", "title_div")
-    //
-    //            d3.selectAll(".measure_title").append("div")
-    //            	.attr("class", "title_div col-1")
-    //				.html('<img height="20px" src="images/info.svg">')
 
     d3.selectAll(".card")
         .style("border-top-color",
             function (d) {
                 return d.color;
             }
-            /*					function(d,i){
-                                    if(d.change=="up"){
-                                        return "green"
-                                    } else if (d.change=="down"){
-                                        return  "red"
-                                    } else if(d.change=="no"){
-                                        return "teal"
-                                    } else {
-                                        return "grey"
-                                    }
-                                }*/
         )
         .append("div")
         .attr("class", "status")
@@ -215,7 +170,6 @@ function createStructure() {
     d3.selectAll(".card")
         .append("div")
         .attr("class", "graphic")
-        // .attr('aria-hidden', true)
 
 
     d3.selectAll(".card")
@@ -245,7 +199,7 @@ function createStructure() {
 function loadData() {
     chartData = {};
     json = {};
-    //				//console.log(dvc.ons_urls[j])
+    //console.log(dvc.ons_urls[j])
     if (dvc.ons_urls[j] == "none") {
         filepth = 'data/' + dvc.measures[j].toLowerCase() + ".json";
     } else if (dvc.ons_urls[j] == "bigNo") {
@@ -255,12 +209,6 @@ function loadData() {
     } else {
         filepth = dvc.ons_urls[j];
     }
-
-    //console.log(filepth)
-
-    //				queue()
-    //					.defer(d3.json, filepth)
-    //					.awaitAll(ready);
 
 
     xhr = d3.json(filepth)
@@ -273,28 +221,15 @@ function loadData() {
             ready(error, data);
         });
 
-
-
-
-
-
-
-
 }//end loaddata()
+
 
 function ready(error, json) {
     chartData = json;
 
-    //console.log()
-    //console.log(json)
+
     if (dvc.ons_urls[j] == "none") {
         startDate = parseStartTime(dvc.config[j].data_start);
-
-        //console.log(error);
-        //console.log(j);
-        //console.log(dvc.period[j]);
-        //console.log(chartData);
-        //console.log(chartData[dvc.period[j]].catLabels);
 
 
         chartData[dvc.period[j]].catLabels.forEach(function (d, i) {
@@ -376,11 +311,7 @@ function getDimensions() {
     margin = { top: +dvc.config[j].margin_t, right: +dvc.config[j].margin_r, bottom: +dvc.config[j].margin_b, left: +dvc.config[j].margin_l };
     chart_width = parseInt(d3.select('.graphic').style("width")) - margin.left - margin.right;
 
-    //		if(chart_width>200){
-    //			 aspectRatio = [5,4];
-    //		} else {
     aspectRatio = [5, 4];
-    //		}
 
     if (chart_width < 200) {
         height = 140//Math.ceil((chart_width * aspectRatio[1]) / aspectRatio[0]) - margin.top - margin.bottom;
@@ -459,7 +390,6 @@ function drawLineChart() {
 
     dates = [chartData[dvc.period[j]].catLabels[0], chartData[dvc.period[j]].catLabels[chartData[dvc.period[j]].catLabels.length - 1]]
 
-    // dates = [dvc.config[j].start_end_label[0],dvc.config[j].start_end_label[1] ]
     xAxis.tickValues(dates)
 
 
@@ -544,9 +474,6 @@ function drawLineChart() {
                 return x(chartData[dvc.period[j]].catLabels[i]);
             })
             .y(function (d, i) {
-                //console.log(d)
-                //console.log(i)
-                //console.log(chartData[dvc.period[j]].dataValues[i])
                 return y(chartData[dvc.period[j]].dataValues[i][0]);
             });
 
@@ -582,8 +509,6 @@ function drawLineChart() {
         }
 
 
-
-        //	 if(dvc.config[j].rolling == "none"){
         svg.append("path")
             .style("stroke", function (d, i) {
                 return d.color
@@ -674,8 +599,6 @@ function drawLineChart() {
         .append("text")
         .attr("class", "chartUnits")
         .html("" + chartData.description.unit)
-    //.html(function(d,i){ return ""+dvc.config[j].unit; })
-
 
 
     num_format = d3.format(",.0f")
@@ -700,11 +623,7 @@ function drawLineChart() {
             pymChild.sendHeight();
         }
     }
-    //use pym to calculate chart dimensions
-    //			if (pymChild) {
-    //				alert("SDfd")
-    //				pymChild.sendHeight();
-    //			}
+
 } //end drawLineChart()
 
 function drawHorizontalBarChart() {
@@ -727,7 +646,6 @@ function drawHorizontalBarChart() {
     y = d3.scaleBand()
         .range([0, height])
         .padding(0.1)
-        //.domain([50,70])
         .domain(chartData[dvc.period[j]].catLabels)
 
 
@@ -746,13 +664,12 @@ function drawHorizontalBarChart() {
 
 
 
-    yAxis = d3.axisLeft(y)//.tickFormat(d3.timeFormat("%Y"))
+    yAxis = d3.axisLeft(y)
 
 
 
     svg.append("g")
         .attr("class", "y axis")
-        //.attr("transform", "translate(0," + height + ")")
         .attr("transform", "translate(" + 0 + ", 0)")
         .call(yAxis);
 
@@ -768,13 +685,9 @@ function drawHorizontalBarChart() {
         .append("rect")
         .attr("class", "bar")
         .style("fill", function (d, i) { return dvc.config[j].color; })
-        //   .attr("x", function(d, i) { return x(chartData[dvc.period[j]].catLabels[i]); })
         .attr("y", function (d, i) { return y(chartData[dvc.period[j]].catLabels[i]); })
-        //   .attr("width", x.bandwidth())
         .attr("height", y.bandwidth())
-        //   .attr("y", function(d) { return y(d); })
         .attr("x", function (d) { return x(0); })
-        //   .attr("height", function(d,i) { return  height - y(d) ; });
         .attr("width", function (d, i) { return x(d); });
 
     svg.append("g").append("text")
@@ -823,7 +736,6 @@ function drawVerticalBarChart() {
     x = d3.scaleBand()
         .range([0, chart_width])
         .padding(0.1)
-        //.domain([50,70])
         .domain(chartData[dvc.period[j]].catLabels)
 
 
@@ -846,9 +758,7 @@ function drawVerticalBarChart() {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-
-    xAxis = d3.axisBottom(x)//.tickFormat(d3.timeFormat("%Y"))
-
+    xAxis = d3.axisBottom(x)
 
 
     svg.append("g")
