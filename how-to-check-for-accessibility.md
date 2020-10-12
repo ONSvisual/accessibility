@@ -1,6 +1,6 @@
 # How to check for accessibility
 
-[Text content](link)
+[Text content](#text-content)
 
 [Images, video and audio content](link)
 
@@ -21,47 +21,47 @@
 
 ## Text content
 
-###Check you’re using proper headings
+### Check you’re using proper headings
 
 In Web Developer go to 'Information > View Document Outline' to view the heading structure of the page.
 
 Heading should follow a logical structure, `H1` to `H6`
 
-###Check pages are usable when stylesheets are disabled
+### Check pages are usable when stylesheets are disabled
 
 In Web Developer, go to 'CSS - Disable All Styles' to view the page without styles.
 
 The page should still be understandable and usable without styles.
 
-###Check that instructions are styled properly
+### Check that instructions are styled properly
 
 Make sure you're not using instructions that rely on the users ability to see the page, such as 'Below the green button'.
 
-###Check that links make sense
+### Check that links make sense
 
 Taken out of context, links should convey enough information to understand where they will take the user. Text like 'Click here' or 'More information' would need more description.
 
-###Check that pages have good titles
+### Check that pages have good titles
 
 The page title should accurately describe the page you're on. For example, 'Apply for child benefits - GOV.UK' is better than just 'Application'.
 
 
 ## Images, video and audio content
 
-###Check any images have a description
+### Check any images have a description
 
 Check that non-decorative images have appropriate alternative (`alt`) text.
 
 Decorative images don't need description. Put `alt=''` on those.
 
-###Check any video or audio content is properly described
+### Check any video or audio content is properly described
 
 Audio and video should have text equivalent, such as captions and transcripts.
 
 
 ## Interactive tools and transactions
 
-###Check form fields are marked up appropriately
+### Check form fields are marked up appropriately
 
 Use `<fieldset>` and `<legend>` around groups of form fields.
 
