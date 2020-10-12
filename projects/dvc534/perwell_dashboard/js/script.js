@@ -101,7 +101,7 @@ function createStructure() {
                 .enter()
                 .append("section")
                 .attr("class", function (d) {
-                    return "col-xs-12 col-sm-4 col-md-4 col-lg-4" + d.change;
+                    return "col-xs-12 col-sm-6 col-md-4 col-lg-4 " + d.change;
                 })
                 .attr("id", function (d) {
                     return d.measure_code;
@@ -171,6 +171,9 @@ function createStructure() {
         .append("div")
         .attr("class", "graphic")
 
+    d3.selectAll(".card")
+        .append("div")
+        .attr("class", "description")
 
     d3.selectAll(".card")
         .append("div")
@@ -330,18 +333,16 @@ function drawLineChart() {
     d3.select('#' + dvc.measures[j]).selectAll(".panel")
         .selectAll(".card")
         .selectAll(".graphic")
-        .attr("data-toggle", "tooltip")
-        .attr("data-placement", "top")
-        .attr("title", dvc.config[j].text)
-        .attr('aria-label', dvc.config[j].text)
 
+    d3.select('#' + dvc.measures[j]).selectAll(".panel")
+        .selectAll(".description")
+        .insert("p")
+        .html(dvc.config[j].text)
 
     d3.select('#' + dvc.measures[j])
         .select(".title_div")
-        .append("div")
+        .append("h3")
         .attr("class", "measure_caption")
-        .attr('role', 'heading')
-        .attr('aria-level', '2')
         .style("color", dvc.config[j].color)
         .html(dvc.config[j].measure);
 
@@ -376,10 +377,10 @@ function drawLineChart() {
 
     var svg = d3.select('#' + dvc.measures[j]).select(".graphic").append('svg')
         .attr("width", chart_width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+        .attr("height", height + (margin.top + 10) + margin.bottom)
         .attr('aria-hidden', true)
         .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .attr("transform", "translate(" + margin.left + "," + (margin.top + 10) + ")");
 
 
     xAxis = d3.axisBottom(x).ticks(d3.timeMonth.every(+(dvc.config[j].tickNo))).tickFormat(d3.timeFormat("%b %Y"))
@@ -611,8 +612,6 @@ function drawLineChart() {
         .attr("aria-label", "Follow link to read full report")
         .html(chartData.description.title)
 
-    $('[data-toggle="tooltip"]').tooltip();
-
     j++;
 
     if (j < dvc.config.length) {
@@ -631,9 +630,6 @@ function drawHorizontalBarChart() {
     d3.select('#' + dvc.measures[j]).selectAll(".panel")
         .selectAll(".card")
         .selectAll(".graphic")
-        .attr("data-toggle", "tooltip")
-        .attr("data-placement", "top")
-        .attr("title", dvc.config[j].text)
 
 
     d3.select('#' + dvc.measures[j])
@@ -701,9 +697,6 @@ function drawHorizontalBarChart() {
         .attr("target", "_blank")
         .html(chartData.description.title + "<br>")
 
-
-    $('[data-toggle="tooltip"]').tooltip();
-
     j++;
 
     if (j < dvc.config.length) {
@@ -721,9 +714,6 @@ function drawVerticalBarChart() {
     d3.select('#' + dvc.measures[j]).selectAll(".panel")
         .selectAll(".card")
         .selectAll(".graphic")
-        .attr("data-toggle", "tooltip")
-        .attr("data-placement", "top")
-        .attr("title", dvc.config[j].text)
 
 
     d3.select('#' + dvc.measures[j])
@@ -795,8 +785,6 @@ function drawVerticalBarChart() {
         .attr("target", "_blank")
         .html(chartData.description.title + "<br>")
 
-
-    $('[data-toggle="tooltip"]').tooltip();
 
     j++;
 

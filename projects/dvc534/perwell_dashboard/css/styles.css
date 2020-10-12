@@ -211,11 +211,7 @@ img {
 .measure_title {
     font-size: 12px;
     font-weight: 300;
-    /*		border: 1px solid black;*/
-    height: 45px;
     display: block;
-
-
 }
 
 .topic_title {
@@ -224,30 +220,20 @@ img {
 }
 
 .measure_caption {
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 500;
+    margin: 10px 0;
+    font-size: 24px;
+    line-height: 24px
 }
 
-/*.measure_caption:hover{
-		text-decoration: underline!important;
-		color: darkcyan!important;
-
-	}
-*/
 .title_div {
-    /*		 border: 1px solid black;*/
-    height: 50px;
     display: inline-block;
     line-height: 50px;
-    /*  		 text-align: center; */
     float: left;
     width: 75%;
 }
 
 h2 {
-    /*font-weight:600;
-		color: #3B7A9E;
-		font-size: 14px;*/
     line-height: 1.3em !important;
     display: inline-block;
     vertical-align: middle;
@@ -280,16 +266,14 @@ p {
 .latest {
     font-weight: 200;
     font-size: 14px;
-    /*line-height: 1.2em!important;*/
-    float: left;
 }
 
 .latest a {
-    text-decoration: none !important;
+    color: #206095!important
 }
 
 .latest a:hover {
-    text-decoration: underline !important;
+    color: #003c57!important;
 }
 
 .latest span {
@@ -329,12 +313,6 @@ p {
     line-height: 15px;
     font-size: 12px;
     margin: 10px 0px;
-}
-
-.arrow {
-    margin-left: 5px;
-    margin-top: 2px;
-    height: 19px;
 }
 
 .measures-filter,
@@ -449,26 +427,25 @@ p {
 
 
 .card {
-    height: 295px;
     border-style: solid;
     border-width: 5px 1px 1px 1px;
     border-color: #DEDCDC;
     width: 100%;
     margin-bottom: 3px;
-    padding: 5px;
+    padding: 10px;
     float: left;
     box-sizing: border-box;
 
 }
 
-.status,
-.status2 {
-    line-height: 1.1em !important;
-    font-size: 12px;
-    height: 50px;
+.data {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px
 }
 
-.data,
 .data2 {
     display: inline-flex;
     height: 50px;
@@ -753,4 +730,15 @@ h4 {
 #gdpcap2 {
     clear: both;
     margin-top: 50px;
+}
+
+.measures {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.description p {
+    line-height: 20px;
+    font-size: 14px;
+    margin: 10px 0
 }
