@@ -447,7 +447,7 @@ function createMapKey(){ // driven by the initial set up
 			// Set up scales for legend
 			x = d3.scaleLinear()
 				.domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
-				.range([0,keywidthMap*0.5]); /*range for pixels*/
+				.range([0,keywidthMap*0.5 - 10]); /*range for pixels*/
 
 			var xAxis = d3.axisBottom(x)
 				.tickSize(15)
@@ -679,6 +679,7 @@ function defineLayers() {
 
     function onchange(i) {
 
+
       chartDrawn = false;
 
       //load new csv file
@@ -696,8 +697,8 @@ function defineLayers() {
 			rankdata = dataR;
 
 			 setRates(thisdata);
-			defineBreaks(thisdata, dvc.breaksMap[tab]);
-			setupScales(dvc.varcolourMap[tab], dvc.numberBreaksMap);
+			defineBreaks(thisdata, dvc.breaksMap[i]);
+			setupScales(dvc.varcolourMap[i], dvc.numberBreaksMap);
 			//setupScales(thisdata);
 			createMapKey(thisdata);
 		   // createChartKey(config);
@@ -856,9 +857,7 @@ function defineLayers() {
         oldAREACD = e.features[0].properties.AREACD;
         map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
 
-		$("#areaselect").val(e.features[0].properties.AREACD).trigger('change.select2');
-
-      //selectArea(e.features[0].properties.AREACD);
+        selectArea(e.features[0].properties.AREACD);
         setMapAxisVal(e.features[0].properties.AREACD);
         if (mobile == false) {
           updateChart(e.features[0].properties.AREACD);
@@ -871,7 +870,7 @@ function defineLayers() {
       map.getCanvasContainer().style.cursor = null;
       map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
       oldAREACD = "";
-      $("#areaselect").val(null).trigger('change.select2');
+      $("#areaselect").val(null).trigger('chosen:updated');
       hideaxisVal();
     };
 
@@ -913,15 +912,16 @@ function defineLayers() {
     }
 
     function selectArea(code) {
-      $("#areaselect").val(code).trigger('change.select2');
+      $("#areaselect").val(code).trigger('chosen:updated');
+      d3.select('abbr').on('keypress',function(evt){
+				if(d3.event.keyCode==13 || d3.event.keyCode==32){
+          d3.event.preventDefault();
+					onLeave();
+          resetZoom();
+				}
+			})
     }
 
-    $('#areaselect').on('select2:unselect', function() {
-      dataLayer.push({
-        'event': 'deselectCross',
-        'selected': 'deselect'
-      })
-    });
 
     function zoomToArea(code) {
 
@@ -1025,7 +1025,7 @@ function createChartKey(config) {
    //   if (mobile == false) {
 
         d3.select("#keydiv").append("p").attr("id", "keyunit").style("margin-top", "20px").style("margin-bottom", "0px").style("margin-left", "10px").text(dvc.varunit);
-		console.log(tab);
+
         keyheight = 150;
 
         keywidth = d3.select("#keydiv").node().getBoundingClientRect().width;
@@ -1382,11 +1382,14 @@ function selectlist(datacsv) {
 
       myId = null;
 
-      $('#areaselect').select2({
-        placeholder: "Select an area",
-        allowClear: true,
-        dropdownParent: $('#sel')
+      $('#areaselect').chosen({
+        placeholder_text_single: "Select an area",
+        allow_single_deselect: true
+        // dropdownParent: $('#sel')
       })
+
+      d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+      d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
 
       $('#areaselect').on('change', function() {
 
