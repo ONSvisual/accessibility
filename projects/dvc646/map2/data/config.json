@@ -1,0 +1,16 @@
+{"ons":{
+"maptitle": "Towns and cities growth map",
+"varcolour": "PuBu",
+"colour_palette": ["#d32f2f","#e79e9e","#008080","#7fbdbd","#bbb"],
+"varunit": "change in months",
+"displaydecimals": 1,
+"legenddecimals": 0,
+"legendEntries": [
+	"Declining Population, Declining Employment",
+	"Population Growth, Declining Employment",
+	"Population Growth, Employment Growth",
+	"Declining Population, Employment Growth"
+],
+"dropticks": false,
+"numberBreaks": 5
+}}

@@ -1,0 +1,12 @@
+{"ons":{
+"maptitle": "Multi Map about migration stocks",
+"varcolour": "YlGnBu",
+"varlabels": ["Percentage Non-UK born","Percentage Non-British nationals"],
+"varload": 0,
+"varunit": ["%","%"],
+"displaydecimals": 1,
+"legenddecimals": 0,
+"breaks": "jenks",
+"dropticks": false,
+"numberBreaks": 5
+}}

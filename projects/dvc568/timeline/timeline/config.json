@@ -1,0 +1,64 @@
+{
+    "essential" : {
+            "graphic_data_url": ["data.csv"],
+        
+            "dateFormat":"%Y",
+			
+            "legendLabels" : ["Net migration", "Emigration", "Immigration"],
+            "legendLab" : ["net", "out", "in "],
+        
+			"sourceText":["Source information"],
+            "sourceURL":["http://www.ons.gov.uk/ons"],
+        
+            "annotationBullet": [],
+            "annotationXY":[["1972", 450000], ["1972", 390000], ["1972", 330000]],
+            "annotationXY2":[["1971", 450000], ["1971", 390000], ["1971", 330000]],
+            "annotationAlign":["start", "start", "start"],
+        
+            "circles" : false,    
+            "annotationCXCY":[],
+            
+            "disc" : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],
+          
+            "annotateDiscXY":[
+                ["1964",-180000,1],
+                ["1967",-180000,8],
+                ["1970",-180000,11],
+                ["1972",-180000,18],
+                ["1974",-180000,21],
+                ["1976",-180000,25],
+                ["1981",-180000,27],
+                ["1985",-180000,35],
+                ["1989",-180000,38],
+                ["1993",-180000,40],
+                ["1997",-180000,44],
+                ["2001",-180000,46],
+                ["2004",-180000,44],
+                ["2010",-180000,46],
+                ["2014",-180000,46]
+            ],
+            
+            "yAxisLabel":"thousands",
+            "yAxisScale":[-150000, 700000],   
+            "yAxisBreak": true,
+            "yAxisBreak_sm_md_lg": [65,65,-200000]            
+    },
+    "optional" : {
+            "margin_sm": [26, 20, 15,37],
+            "margin_md": [26, 35, 15, 40],
+            "margin_lg": [26, 35, 15, 40],
+        
+            "aspectRatio_sm" : [16,8],
+            "aspectRatio_md" : [16,5],
+            "aspectRatio_lg" : [16,5],
+        
+            "mobileBreakpoint" : 480, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%Y", "%Y", "%Y"], 
+                
+            "x_num_ticks_sm_md_lg" : [5,5,5],    
+            "y_num_ticks_sm_md_lg" : [4,9,9],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}

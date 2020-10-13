@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<head>
+  <title>Family Spending Explorer</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <link rel="shortcut icon" href="">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/chosen.css">
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37894017-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })(); 
+  </script>
+</head>
+<body>
+
+<div id="main-wrapper">
+
+<div id="content" style="display:none">
+
+<!-- <div class="editorial">
+  <p>(Choose a consumption category<br/>
+and then explore by regions)</p>
+</div> -->
+
+<div id="combineddropdown">
+
+  <div id="dropdown">
+    <select name="categories" class="category" multiple data-placeholder="Choose a product">
+      <optgroup label="Alcoholic drink, tobacco and narcotics">
+        <option value="Spirits and liqueurs (brought home)">Spirits and liqueurs (brought home)</option>
+        <option value="Wines, fortified wines (brought home)">Wines, fortified wines (brought home)</option>
+        <option value="Beer, lager, ciders and perry (brought home)">Beer, lager, ciders and perry (brought home)</option>
+        <option value="Cigarettes">Cigarettes</option>
+        <option value="Cigars, other tobacco products and narcotics">Cigars, other tobacco products and narcotics</option>
+      </optgroup>
+      <optgroup label="Clothing and footwear">
+        <option value="Men's outer garments">Men's outer garments</option>
+        <option value="Men's under garments">Men's under garments</option>
+        <option value="Women's outer garments">Women's outer garments</option>
+        <option value="Women's under garments">Women's under garments</option>
+        <option value="Boys' outer garments (5-15)">Boys' outer garments (5-15)</option>
+        <option value="Girls' outer garments (5-15)">Girls' outer garments (5-15)</option>
+        <option value="Infants' outer garments (under 5)">Infants' outer garments (under 5)</option>
+        <option value="Children's under garments (under 16)">Children's under garments (under 16)</option>
+        <option value="Accessories">Accessories</option>
+        <option value="Footwear">Footwear</option>
+      </optgroup>
+      <optgroup label="Communication">
+        <option value="Postal services">Postal services</option>
+        <option value="Telephone and telefax services">Telephone and telefax services</option>
+        <option value="Internet subscription fees">Internet subscription fees</option>
+      </optgroup>
+      <optgroup label="Food and non-alcoholic drinks">
+        <option value="Bread, rice and cereals">Bread, rice and cereals</option>
+        <option value="Pasta products">Pasta products</option>
+        <option value="Buns, cakes, biscuits etc">Buns, cakes, biscuits etc</option>
+        <option value="Pastry (savoury)">Pastry (savoury)</option>
+        <option value="Beef (fresh, chilled or frozen)">Beef (fresh, chilled or frozen)</option>
+        <option value="Pork (fresh, chilled or frozen)">Pork (fresh, chilled or frozen)</option>
+        <option value="Lamb (fresh, chilled or frozen)">Lamb (fresh, chilled or frozen)</option>
+        <option value="Poultry (fresh, chilled or frozen)">Poultry (fresh, chilled or frozen)</option>
+        <option value="Bacon and ham">Bacon and ham</option>
+        <option value="Other meat and meat preparations">Other meat and meat preparations</option>
+        <option value="Fish and fish products">Fish and fish products</option>
+        <option value="Milk">Milk</option>
+        <option value="Cheese and curd">Cheese and curd</option>
+        <option value="Eggs">Eggs</option>
+        <option value="Other milk products">Other milk products</option>
+        <option value="Butter">Butter</option>
+        <option value="Margarine, other vegetable fats and peanut butter">Margarine, other vegetable fats and peanut butter</option>
+        <option value="Cooking oils and fats">Cooking oils and fats</option>
+        <option value="Fresh fruit">Fresh fruit</option>
+        <option value="Other fresh, chilled or frozen fruits">Other fresh, chilled or frozen fruits</option>
+        <option value="Dried fruit and nuts">Dried fruit and nuts</option>
+        <option value="Preserved fruit and fruit based products">Preserved fruit and fruit based products</option>
+        <option value="Fresh vegetables">Fresh vegetables</option>
+        <option value="Other preserved or processed vegetables">Other preserved or processed vegetables</option>
+        <option value="Potatoes">Potatoes</option>
+        <option value="Other tubers and products of tuber vegetables">Other tubers and products of tuber vegetables</option>
+        <option value="Sugar and sugar products">Sugar and sugar products</option>
+        <option value="Jams, marmalades">Jams, marmalades</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Confectionery products">Confectionery products</option>
+        <option value="Edible ices and ice cream">Edible ices and ice cream</option>
+        <option value="Other food products">Other food products</option>
+        <option value="Coffee">Coffee</option>
+        <option value="Tea">Tea</option>
+        <option value="Fruit and vegetable juices (inc. fruit squash)">Fruit and vegetable juices (inc. fruit squash)</option>
+        <option value="Mineral or spring waters">Mineral or spring waters</option>
+        <option value="Soft drinks">Soft drinks</option>
+      </optgroup>
+      <optgroup label="Household goods and services">
+        <option value="Furniture and furnishings">Furniture and furnishings</option>
+        <option value="Floor coverings">Floor coverings</option>
+        <option value="Household textiles">Household textiles</option>
+        <option value="Household appliances">Household appliances</option>
+        <option value="Glassware, tableware and household utensils">Glassware, tableware and household utensils</option>
+        <option value="Tools and equipment for house and garden">Tools and equipment for house and garden</option>
+        <option value="Cleaning materials">Cleaning materials</option>
+        <option value="Household goods and hardware">Household goods and hardware</option>
+        <option value="Domestic services, furniture costs">Domestic services, furniture costs</option>
+      </optgroup>
+      <optgroup label="Housing (net), fuel and power">
+        <option value="Net rent">Net rent</option>
+        <option value="Maintenance and repair of dwelling">Maintenance and repair of dwelling</option>
+        <option value="Water supply, dwelling services">Water supply, dwelling services</option>
+        <option value="Electricity">Electricity</option>
+        <option value="Gas">Gas</option>
+      </optgroup>
+      <optgroup label="Miscellaneous goods and services">
+        <option value="Hairdressing, beauty treatment">Hairdressing, beauty treatment</option>
+        <option value="Toilet paper">Toilet paper</option>
+        <option value="Toiletries and soap">Toiletries and soap</option>
+        <option value="Baby toiletries and accessories (disposable)">Baby toiletries and accessories (disposable)</option>
+        <option value="Hair products, cosmetics etc.">Hair products, cosmetics etc.</option>
+        <option value="Personal effects">Personal effects</option>
+        <option value="Social protection">Social protection</option>
+        <option value="Household insurance">Household insurance</option>
+        <option value="Medical insurance premiums">Medical insurance premiums</option>
+        <option value="Vehicle insurance including boat insurance">Vehicle insurance including boat insurance</option>
+        <option value="Moving house">Moving house</option>
+        <option value="Bank, building society, post office, credit card charges">Bank, building society, post office, credit card charges</option>
+        <option value="Other services and professional fees">Other services and professional fees</option>
+      </optgroup>
+      <optgroup label="Recreation and culture">
+        <option value="Audio equipment and accessories, CD players">Audio equipment and accessories, CD players</option>
+        <option value="Computers, TV and video">Computers, TV and video</option>
+        <option value="Games, toys and hobbies">Games, toys and hobbies</option>
+        <option value="Computer software and games">Computer software and games</option>
+        <option value="Equipment for sport, camping and open-air recreation">Equipment for sport, camping and open-air recreation</option>
+        <option value="Horticultural goods, garden equipment and plants">Horticultural goods, garden equipment and plants</option>
+        <option value="Pets and pet food">Pets and pet food</option>
+        <option value="Leisure classes and admissions">Leisure classes and admissions</option>
+        <option value="Cinema, theatre and museums etc">Cinema, theatre and museums etc</option>
+        <option value="Cable, satellite, TV, TV licences">Cable, satellite, TV, TV licences</option>
+        <option value="Miscellaneous entertainments">Miscellaneous entertainments</option>
+        <option value="Gambling payments">Gambling payments</option>
+        <option value="Books">Books</option>
+        <option value="Diaries, address books, cards etc">Diaries, address books, cards etc</option>
+        <option value="Newspapers">Newspapers</option>
+        <option value="Magazines and periodicals">Magazines and periodicals</option>
+        <option value="Package holidays - UK">Package holidays - UK</option>
+        <option value="Package holidays - abroad">Package holidays - abroad</option>
+      </optgroup>
+      <optgroup label="Restaurants and hotels">
+        <option value="Restaurant and café meals">Restaurant and café meals</option>
+        <option value="Alcoholic drinks (away from home)">Alcoholic drinks (away from home)</option>
+        <option value="Take away meals eaten at home">Take away meals eaten at home</option>
+        <option value="Other take-away and snack food">Other take-away and snack food</option>
+        <option value="Contract catering (food) and canteens">Contract catering (food) and canteens</option>
+        <option value="Holiday in the UK">Holiday in the UK</option>
+        <option value="Holiday abroad">Holiday abroad</option>
+      </optgroup>
+      <optgroup label="Transport">
+        <option value="Purchase of new cars and vans">Purchase of new cars and vans</option>
+        <option value="Purchase of second hand cars or vans">Purchase of second hand cars or vans</option>
+        <option value="Spares and accessories">Spares and accessories</option>
+        <option value="Petrol, diesel and other motor oils">Petrol, diesel and other motor oils</option>
+        <option value="Repairs and servicing">Repairs and servicing</option>
+        <option value="Other motoring costs">Other motoring costs</option>
+        <option value="Rail and tube fares">Rail and tube fares</option>
+        <option value="Bus and coach fares">Bus and coach fares</option>
+        <option value="Other travel and transport">Other travel and transport</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div id="dropdown2">
+    <select name="regions" class="region" data-placeholder="Choose a region">
+      <option></option>
+      <option value="none">No region selected</option>
+      <option value="NE">North East</option>
+      <option value="NW">North West</option>
+      <option value="Y">Yorkshire and The Humber</option>
+      <option value="EM">East Midlands</option>
+      <option value="WM">West Midlands</option>
+      <option value="E">East</option>
+      <option value="L">London</option>
+      <option value="SE">South East</option>
+      <option value="SW">South West</option>
+      <option value="W">Wales</option>
+      <option value="S">Scotland</option>
+      <option value="NI">Northern Ireland</option>
+    </select>
+  </div>
+
+</div>
+
+<div id="explore"></div>
+
+<div id="share"></div>
+
+<div id="source"><a class="source_link" href="https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/datasets/detailedhouseholdexpenditurebycountriesandregionsuktablea35" target="_blank">Source: Family Spending, Table A35, ONS</a></div>
+
+</div>
+
+<div id="ieMsg" style="display:none">
+    <img id="thumbNail" src="pics/fallback.png">
+</div>
+
+</div>
+
+<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>    
+<script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+<script src="js/modernizr.svg.min.js" type="text/javascript"></script>
+<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" type="text/javascript"></script>
+<script src="js/chosen.jquery.js" type="text/javascript"></script>
+<script src="js/calc.js" type="text/javascript"></script>
+
+</body>
+</html>

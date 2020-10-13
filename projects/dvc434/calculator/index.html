@@ -2,55 +2,42 @@
 <html lang="en">
 
 <head>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Extension value calculator</title>
 
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-    <link rel="stylesheet" href="../lib/globalStyle.css"/> 
-    <link rel="stylesheet" href="js/style-chosen.css"/> 
+    <link rel="stylesheet" href="../lib/globalStyle.css"/>
+    <link rel="stylesheet" href="css/chosen.css"/>
     <link rel="stylesheet" type="text/css" href="css/odometer-theme-default.css">
     <style type="text/css">
-    
+
 	body {
 		display:block;
 		overflow:auto;
 		margin-bottom:60px;
 		margin-left:0px;
 		padding-bottom:60px;
-		max-width:auto;
 		min-height:564px;
 		font-size:16px;
 	}
-	.picaarticle {
-	   font-size:14px;			
-	}
-        
+
     #pcGo:hover {
         cursor:pointer;
-        cursor:hand;
     }
-	
-    .inputOption{
-		height:25px;
-		margin-top:20px;
-		padding-left:10px;
-		background-color:white!important;
-	}	
-		
+
 	input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 		-webkit-box-shadow: 0 0 0px 1000px white inset;
 	}
 
 	.useLocation {
 		cursor:pointer;
-		cursor:hand;
 		background-color:#274796!important;
 	}
-	
+
 	/*Bootstrap grid */
 	.row {
 	/*  margin-left: -15px;*/
@@ -280,7 +267,7 @@
 		right: 50%;
 	  }
 	  .col-sm-pull-5 {
-	
+
 		right: 41.66666667%;
 	  }
 	  .col-sm-pull-4 {
@@ -377,7 +364,7 @@
 		margin-left: 0%;
 	  }
 	}
-	
+
 	@media (min-width: 550px) {
 		.graphicslabel{
 			color:grey;
@@ -389,9 +376,10 @@
 			padding-right:10px;
 			padding-top:15px;
 		}
-		
+
 	}
-		@media (max-width: 550px) {
+
+	@media (max-width: 550px) {
 		.graphicslabel{
 			color:grey;
 			font-size:12px;
@@ -402,45 +390,34 @@
 			padding-right:0px;
 			padding-top:15px;
 		}
-		
-		.graphics{
-
-		}
 	}
-	
+
 	.hoverbar{
 		cursor:pointer;
-		cursor:hand;
 	}
 	.hoverbar:hover{
 		cursor:pointer;
-		cursor:hand;
 	}
 	.hovertrick{
 		cursor:pointer;
-		cursor:hand;
 		width:3px;
 		opacity:1;
-		fill:#003C57;
-		transform:translate(-1,0);
+		fill:#206095;
 	}
-	
+
 	.container {
-		overflow:hidden;	
+		overflow:hidden;
 	}
 	.calcTitle{
 		font-size:24px;
 		font-weight:bold;
-		color:#003C57;
-		margin-bottom:10px;	
+		color:#206095;
+		margin-bottom:10px;
 	}
 	.questions{
 		font-size:18px;
 		font-weight:bold;
-		color:#003C57;
-		margin-bottom:10px;		
-	}
-	#occupation{
+		color:#206095;
 		margin-bottom:10px;
 	}
 	.radioOption{
@@ -452,15 +429,15 @@
 		font-weight:bold;
 		padding-left:5px;
 		padding-top: 5px;
-		padding-bottom:5px;	
+		padding-bottom:5px;
 		box-sizing: border-box;
     	-moz-box-sizing: border-box;
     	-webkit-box-sizing: border-box;
-    	border-right: 5px solid white;	
+    	border-right: 5px solid white;
 	}
 	.resultNumber{
 		font-size:28px;
-		color:#003C57;
+		color:#206095;
 		font-weight:bold;
 		margin-top:10px;
 		margin-bottom:10px;
@@ -472,130 +449,277 @@
 		margin-top:10px;
 		margin-bottom:10px;
 	}
-	#headerWithBackground{
-		background-image: url('images/option-2.png');
-		min-height:100px;
-		padding-top:10px;
-		margin-bottom:10px;
+
+	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  color: #666;
+	  font-weight:bold;
+	  font-size:15px;
+	  font-family:"Open Sans";
+	}
+	::-moz-placeholder { /* Firefox 19+ */
+	  color: #666;
+	  font-weight:bold;
+	  font-size:15px;
+	  font-family:"Open Sans";
+	}
+	:-ms-input-placeholder { /* IE 10+ */
+	  color: #666;
+	  font-weight:bold;
+	  font-size:15px;
+	  font-family:"Open Sans";
+	}
+	:-moz-placeholder { /* Firefox 18- */
+	  color: #666;
+	  font-weight:bold;
+	  font-size:15px;
+	  font-family:"Open Sans";
 	}
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #666;
-  font-weight:bold;
-  font-size:15px;
-  font-family:"Open Sans";
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: #666;
-  font-weight:bold;
-  font-size:15px;
-  font-family:"Open Sans";
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: #666;
-  font-weight:bold;
-  font-size:15px;
-  font-family:"Open Sans";
-}
-:-moz-placeholder { /* Firefox 18- */
-  color: #666;
-  font-weight:bold;
-  font-size:15px;
-  font-family:"Open Sans";
-}
+	/* Redesign August 2020 */
 
+	.header {
+		display: flex;
+		flex-direction: column;
+		background-image: url('images/option-2.png');
+		min-height: 100px;
+		padding: 12px;
+		margin-bottom: 10px;
+	}
 
+    .chosen-container {
+        width: 60% !important;
+    }
 
+    @media (max-width: 550px) {
+        .chosen-container {
+            width: 100% !important;
+        }
+    }
 
+	.input {
+		float:left;
+		height: 35px;
+		margin-top:0px;
+		padding-left: 5px;
+		color: #206095;
+		background: #FFF;
+		font-size: 16px;
+		outline: none;
+		border: 2px solid #206095;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+	}
+
+	.input:focus {
+		box-shadow: 0 0 0px 3pt orange;
+	}
+
+    .postcode {
+        width: 170px;
+    }
+
+    @media (max-width: 550px) {
+        .postcode {
+            width: 80%;
+        }
+    }
+
+    @media (max-width: 340px) {
+        .postcode {
+            width: 70%;
+        }
+    }
+
+	.btn {
+		float: left;
+		height: 41px;
+		padding: 0 13px;
+		border: 2px solid #206095;
+		border-left: 0;
+		background: #206095;
+		color: white;
+		font-size: 16px;
+		outline: 0;
+	}
+
+    .btn:focus {
+        box-shadow: 0 0 0px 3pt orange;
+    }
+
+	.input--radio {
+		float: left;
+    	width: 30px;
+    	height: 30px;
+    	appearance: none;
+    	border: 2px solid #206095;
+    	padding: 0.5rem;
+    	font-size: 1rem;
+    	box-shadow: inset 0 0 0 5px white;
+    	cursor: pointer;
+    	top: 0.75rem;
+    	left: 0.6rem;
+    }
+
+    .input--radio:focus,
+    .input--radio:checked {
+    	border-color: #206095;
+    	outline: none;
+    }
+
+    .input--radio {
+    	border-radius: 100px;
+    	box-shadow: inset 0 0 0 5px white;
+    }
+    .input--radio:checked {
+		background: #1b5f97;
+		box-shadow: inset 0 0 0 5px white;
+	}
+    .input--radio:focus {
+        border-color: #206095;
+        box-shadow: inset 0 0 0 5px white;
+        outline: none;
+	}
+    .input--radio:focus:checked {
+        border: 6px solid white;
+    }
+
+    input[type=radio]:focus {
+        outline: none;
+        position: inherit;
+        box-shadow: 0px 0px 0px 4px orange;
+    }
+
+    input[type=checkbox], input[type=radio] {
+        -webkit-appearance: none;
+    }
+
+    .label {
+		font-size:17px;
+		margin-left: 10px;
+		float:left;
+		color: #1b5f97;
+	}
+
+	/* Utility */
+
+	.flex { display: flex; }
+	.flex-col { flex-direction: column; }
+
+	.pl-1 { padding-left: 0.25rem; }
+	.pl-2 { padding-left: 0.5rem; }
+
+	.mb-2 { margin-bottom: 0.5rem; }
+    .mb-3 { margin-bottom: 0.75rem; }
+    .mb-4 { margin-bottom: 1rem; }
+
+	.mt-3 { margin-top: 0.75rem; }
+
+	/* Accessibility */
+
+    .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
 
     </style>
 </head>
 <body>
 
-<div class="calcTitle" style="margin-left:0px;">Will an extension increase the value of my house?</div>
+	<div class="calcTitle" style="margin-left:0px;">Will an extension increase the value of my house?</div>
+
+	<div class="header">
+
+	    <div class="mb-3"><!--postcode input here-->
+	    	<form id="postcodeForm">
+                <label for="pcText" class="visuallyhidden">Postcode</label>
+	    		<input id="pcText" class="input postcode" type="text" placeholder="insert your postcode">
+	    		<button type="submit" id="pcGo" class="btn">Go</button>
+	    	</form>
+	    </div>
+
+	    <div id="occupation">
+	    	<!--Dropdown drawn here-->
+	    </div>
 
 
+	</div> <!--end header-->
 
+	<div id="pcError" style="color:#972B3A;"></div><!--pcd error message-->
 
-<div id="headerWithBackground">
-        
-        <div style="height:30px; padding-left:10px;"><!--postcode input here-->
-                <form id="pcForm">
-                    <input style="float:left; width:170px; margin-top:0px; padding-left:5px; margin-left:0px; height:35px;" id="pcText" class="picaarticle inputOption" type="text" tabindex="1" placeholder="insert your postcode">
-                </form>
-                
-                <div id="pcGo" style="float:left; height:33px; width:50px; margin-right:0px; color:white; background-color:#003C57; padding-top:7px; text-align:center;"> Go </div>
-            </div> 
-            
-       <div id="occupation" style="margin-left:10px; clear:both; margin-top:20px;"></div> <!--Dropdown drawn here-->
-            
-       
-</div> <!--end headerWithBackground-->
+	<div style="font-size:20px; font-weight:bold; margin-bottom:5px; margin-top:0px; clear:both; color:#206095;">How big is your extension?</div>
 
-				<div id="pcError" style="color:#972B3A;"></div><!--pcd error message-->
-
-<div style="font-size:20px; font-weight:bold; margin-bottom:5px; margin-top:0px; clear:both; color:#003C57;">How big is your extension?</div>
-            
     <div id="roomSize" class="row" style="min-height:80px; clear:both;">
-    	<div class="col-xs-12 col-sm-5">
-            <form id="pcForm">
-               <input style="width:147px; float:left; height:30px; font-size:18px; padding-left:5px; margin-top:15px; color:#666;" id="custom2" value="25" type="number" tabindex="1" placeholder="Insert size" min="1" max="100"
+    	<div class="col-xs-12 col-sm-5 mb-4">
+            <form id="extensionForm">
+                <label for="custom2" class="visuallyhidden">How big is your extension in square meters?</label>
+               <input class="input mt-3" style="width: 140px; font-size:18px;" id="custom2" value="25" type="number" placeholder="Insert size" min="1" max="100" />
             </form>
-        <div style="height:33px; float:left; padding-top:3px; padding-left:5px; margin-right:20px; margin-top:15px; width:30px; background-color:#003C57; color:white;">m<sup>2</sup></div>
+        	<div style="height:35px; float:left; padding-top:6px; padding-left:5px; margin-right:20px; margin-top:12px; width:30px; background-color:#206095; color:white;">m<sup>2</sup></div>
         </div>
-        
-        <div class="col-xs-12 col-sm-7" style="margin-bottom:20px;">
+
+        <div class="col-xs-12 col-sm-7 mb-4">
             <form style="margin-left:20px; margin-bottom:30px;">
-              <input type="radio" class="radioOption closeCustom smExtension" name="extType" value="female"> Small (15 m<sup>2</sup>)<br>
-              <input type="radio" class="radioOption closeCustom mdExtension" name="extType" checked="true" value="female"> Medium (25 m<sup>2</sup>)<br>
-              <input type="radio" class="radioOption closeCustom lgExtension" name="extType" value="female"> Large (35 m<sup>2</sup>)<br>
+                <fieldset>
+                    <legend class="visuallyhidden">Common extension sizes</legend>
+                    <div class="flex flex-col">
+                    	<div class="mb-2">
+        	              	<input type="radio" id="radio1" class="input--radio radioOption closeCustom smExtension" name="extType" />
+        	              	<label class="label" for="radio1">Small (15 m<sup>2</sup>)</label>
+                    	</div>
+                    	<div class="mb-2">
+        	              	<input type="radio" id="radio2" class="input--radio radioOption closeCustom mdExtension" name="extType" checked="checked" />
+        	              	<label class="label" for="radio2">Medium (25 m<sup>2</sup>)</label>
+                    	</div>
+                    	<div>
+        	              	<input type="radio" id="radio3" class="input--radio radioOption closeCustom lgExtension" name="extType" />
+        	              	<label class="label" for="radio3">Large (35 m<sup>2</sup>)</label>
+                    	</div>
+                    </div>
+                </fieldset>
             </form>
         </div>
+
     </div>
-    
-    <div style="font-size:20px; font-weight:bold; margin-bottom:5px; margin-top:0px; color:#003C57;">Your extension could be worth...</div>
-    
+
+    <div style="font-size:20px; font-weight:bold; margin-bottom:5px; margin-top:0px; color:#206095;">Your extension could be worth...</div>
+
+    <p class="visuallyhidden" id="announcer" role="alert"></p>
+
     <div id="answerArray" class="row" style="clear:both; min-height:90px;">
     	<div class="col-xs-12 col-sm-6">
-        	<div class="statHeader" id="yourAreaName" style="width:100%; background-color:#003C57;">Fareham</div>
-            	<div id="yourAreaValue" class="odometer resultNumber" style="width:100%;">£34,272</div>
+        	<div class="statHeader" id="yourAreaName" style="width:100%; background-color:#206095;">Fareham</div>
+            <div id="yourAreaValue" class="odometer resultNumber" style="width:100%;">£34,272</div>
         </div>
         <div class="col-xs-12 col-sm-6">
-        	<div class="statHeader" style="width:100%; background-color:#B8860B">England and Wales</div>
-            	<div id="EWAreaValue" class="odometer resultNumberEW" style="width:100%;">£28,356</div>
+        	<div class="statHeader" style="width:100%; background-color:#986F09">England and Wales</div>
+            <div id="EWAreaValue" class="odometer resultNumberEW" style="width:100%;">£28,356</div>
         </div>
-       <!-- <div class="col-xs-12 col-sm-6">
-        	<div class="statHeader" style="width:100%; background-color:#003C57;">Kensington & Chelsea (highest)</div>
-            	<div id="TopAreaValue" class="odometer resultNumber" style="width:100%;">£215,856</div>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-        	<div class="statHeader" style="width:100%; background-color:#003C57;">Blenau Gwent (lowest)</div>
-            	<div id="BotAreaValue" class="odometer resultNumber" style="width:100%;">£9,300</div>
-        </div>-->
     </div>
-    
-    <!--__________--><div style="height:2px; clear:both; width:100%; background-color:#003C57; margin-bottom:10px;"></div>
-    
-    <div style="font-size:20px; font-weight:bold; margin-bottom:5px; color:#003C57;"><span id="m2AreaName"></span>price per m<sup>2</sup></div>
-    <div id="yourAreaM2Value" class="odometer" style="font-size:28px; font-weight:bold; color:#003C57;"></div>
-    
+
+    <!--__________--><div style="height:2px; clear:both; width:100%; background-color:#206095; margin-bottom:10px;"></div>
+
+    <div style="font-size:20px; font-weight:bold; margin-bottom:5px; color:#206095;"><span id="m2AreaName"></span>price per m<sup>2</sup></div>
+    <div id="yourAreaM2Value" class="odometer" style="font-size:28px; font-weight:bold; color:#206095;"></div>
+
     <div id="incomeOf" class="resultsChart" style="margin-bottom:0px; margin-top:5px;"></div>
 
-    <div id="footer" style="margin-top:20px;"></div>
-        
 
-    
     <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" type="text/javascript"></script>
     <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
     <script src="../lib/modernizr.svg.min.js" type="text/javascript"></script>
     <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" type="text/javascript"></script>
-    <script src="../lib/footer.js"></script>
     <script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../lib/saveSvgAsPng.js" type="text/javascript"></script>
     <script src="js/chosen.jquery.js"></script>
     <script src="js/odometer.min.js" charset="utf-8"></script>
- 
-    
+
+
     <script>
     //╭━━╮╱╱╱╱╱╱╱╱╭╮
 	//╰┫┣╯╱╱╱╱╱╱╱╭╯╰╮
@@ -605,7 +729,7 @@
 	//╰━━┻╯╰┫╭━┻━━┻━┻━━╯
 	//╱╱╱╱╱╱┃┃
 	//╱╱╱╱╱╱╰╯
-	
+
 		var graphic = d3.select('#graphic');
 		var graphic2 = d3.select('#graphic2');
 		var graphic3 = d3.select('#graphic3');
@@ -614,7 +738,6 @@
 		var graphic6 = d3.select('#graphic6');
 		var graphic7 = d3.select('#graphic7');
 		var keypoints = d3.select('#keypoints');
-		var footer = d3.select(".footer");
 		var pymChild = null;
 		var numberFormat = d3.format(",d");
 		var LAname = "Fareham";
@@ -628,13 +751,13 @@
 		var dontsweep = false;
 		var selectarea2 = null;
 		var solidSelected = "Fareham";
-		
+
 		var updateTheChart = "yep";
-		
+
 		//old axis scales for config min-max
 		//"xAxisScale":[[9.5,26.8],[44.8,69.8],[36.5,62.8],[379.4,1223.2],[54,71.1],[52.4,71.1]],
-		
-		
+
+
 			//╭━━╮╱╱╱╱╱╱╱╱╭╮
 	//╰┫┣╯╱╱╱╱╱╱╱╭╯╰╮
 	//╱┃┃╭━╮╭━━┳╮┣╮╭╋━━╮
@@ -643,36 +766,39 @@
 	//╰━━┻╯╰┫╭━┻━━┻━┻━━╯
 	//╱╱╱╱╱╱┃┃
 	//╱╱╱╱╱╱╰╯
-	
+
 	$("#pcError").hide();
 	$("#successMessage").hide();
-	$("#pcGo").click(function( event ) {
+    $("#postcodeForm").submit(function(){
+        return false
+    })
+	$("#pcGo").on("click",function( event ) {
 		//console.log("helloyou");
 			//	event.preventDefault();
 			//	event.stopPropagation();
-				myValue = $("#pcText").val(); 
+				myValue = $("#pcText").val();
 				myValue = myValue.toUpperCase();
 					//manual method for area lookup
-					myValue2 = myValue.replace(/\s+/g, ''); 
-					getCodes1(myValue2);	
-					console.log(myValue2);		
+					myValue2 = myValue.replace(/\s+/g, '');
+					getCodes1(myValue2);
+					console.log(myValue2);
 	});
 	$("#pcText").keypress(function( event ) {
 		if (event.which == 13) {
 				event.preventDefault();
 				event.stopPropagation();
-				myValue = $("#pcText").val(); 
+				myValue = $("#pcText").val();
 				myValue = myValue.toUpperCase();
 					//manual method for area lookup
-					myValue2 = myValue.replace(/\s+/g, ''); 
+					myValue2 = myValue.replace(/\s+/g, '');
 					getCodes1(myValue2);
-					console.log(myValue2);	  
+					console.log(myValue2);
 		}
 	});
-	
+
 function getCodes1(myValue2)    {
     var myURIstring=encodeURI("https://api.postcodes.io/postcodes/"+myValue2);
-    $.support.cors = true; 
+    $.support.cors = true;
     $.ajax({
         type: "GET",
         crossDomain: true,
@@ -683,10 +809,10 @@ function getCodes1(myValue2)    {
             },
         success: function(data1){
             if(data1.status == 200 ){
-				
-				             
+
+
                 $("#pcError").hide();
-        		
+
 				laCode =data1.result.admin_district;
 				laCode =laCode.replace(/\s+/g, '');
 				laCode =laCode.replace('-','');
@@ -694,72 +820,78 @@ function getCodes1(myValue2)    {
 				laCode =laCode.replace(';', '');
 				laCode =laCode.replace("'", '');
 				pcodeUpdate = laCode;
-				
+
 				$("#occselect").val(pcodeUpdate);
 				$("#occselect").trigger("chosen:updated");
-				
-				
+
+        d3.select('abbr').on('keypress',function(evt){
+          if(d3.event.keyCode==13 || d3.event.keyCode==32){
+            d3.event.preventDefault();
+            $("#occselect").val("").trigger("chosen:updated");
+          }
+        })
+
 				console.log(laCode);
-				
+
 				filtereddata = graphic_data.filter(function(d) {return d.name2 == laCode;});
-									
+
 									updateTheChart = "yep";
 									calculate();
-			
+
                 //LAname = data1.result.admin_district;
-							
+
 				//fire the function returning statistics
 				//drawStats();
-				
+
 				//gotoArea(data1.result.latitude,data1.result.longitude);
-				
-				
+
+
             } else {
       $("#successMessage").hide();
                $("#pcError").text("Sorry, that's not a valid postcode. Try an English or Welsh postcode eg PO15 5RR.").show();
             }
-        } 
+        }
     });
 }
 
-	
-	
-	
-	
-	
-	
-	
-		
-		
+
+
+
+
+
+
+
+
+
 		window.odometerOptions = {
 			  format: '(,ddd)',
 			  duration: 500, // Change how long the javascript expects the CSS animation to take
 		};
-			
-		
+
+
 		function occopt () {
-	
-		//Create a chosen drop down to show the list of occupations 
+
+		//Create a chosen drop down to show the list of occupations
 
 		dvc.allOcc = [];
-			
+
 		//Create an array for each occupation title
 		graphic_data.forEach(function(d,i){
-				dvc.allOcc.push(graphic_data[i].name);								
+				dvc.allOcc.push(graphic_data[i].name);
 		});
-		
+
 		dvc.allCode = [];
-	
+
 		//Create an array for each occupation code
-		graphic_data.forEach(function(d,i){	
-				dvc.allCode.push(graphic_data[i].name2);							
+		graphic_data.forEach(function(d,i){
+				dvc.allCode.push(graphic_data[i].name2);
 		});
 
 		// Join occupation and codes together in an array
 		var codeoccyzip = d3.zip(dvc.allOcc, dvc.allCode);
-		
-		
-		//sort occupation list alphabetically	
+
+
+		//sort occupation list alphabetically
 		dvc.codeoccyzip = codeoccyzip.sort(function(b, a){ return d3.descending(a[0], b[0])});
 
 
@@ -770,63 +902,75 @@ function getCodes1(myValue2)    {
 				.attr("style","margin-left:10px;")
 				.style("margin-left","20px")
 				.attr("class","chosen-select");
-			
+
 			//append message
-			
+
 			optns.append("option")
 				.attr("value","first")
 				.text("");
-			
+
 			optns.selectAll("p").data(dvc.codeoccyzip).enter().append("option")
-				.attr("value", function(d){ return d[1]}) 
+				.attr("value", function(d){ return d[1]})
 				.text(function(d){ return d[0]});
 
 
 			// Little function to bring objects to the front
-			d3.selection.prototype.moveToFront = function() { 
-			  return this.each(function() { 
+			d3.selection.prototype.moveToFront = function() {
+			  return this.each(function() {
 				this.parentNode.appendChild(this)
-			  }); 
-			}; 
-			
-			
-			$('#occselect').chosen({width: "60%", allow_single_deselect: true, placeholder_text_single:"or choose your area"}).on('change',function(evt,params){
-				
+			  });
+			};
+
+
+			$('#occselect').chosen({allow_single_deselect: true, placeholder_text_single:"or choose your area"}).on('change',function(evt,params){
+
 								if(typeof params != 'undefined') {
-									
+
+                  d3.select('abbr').on('keypress',function(evt){
+            				if(d3.event.keyCode==13 || d3.event.keyCode==32){
+                      d3.event.preventDefault();
+            					$("#occselect").val("").trigger("chosen:updated");
+            				}
+            			})
+
+
 									AreaLoad = params.selected;
-									
+
 									solidSelected = params.selected;
-		
+
 									AreaLoad2 = AreaLoad.replace(/\s/g,'');
 									AreaLoad3 = AreaLoad2.replace(',','');
 									AreaLoad4 = AreaLoad3.replace('-','');
 									AreaLoad4 = AreaLoad4.replace('-','');
-									
+
 									filtereddata = graphic_data.filter(function(d) {return d.name2 == AreaLoad;});
-									
+
 									updateTheChart = "yep";
 									calculate();
-									
+
 								}
 								else {
-									
-										
+
+
 								}
-								
+
 			});
-			
+
+            // Adding label to the search input
+            d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+            d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
+
 
 	} //End of make occupation
-	
-	//   ____      _      _        ____      ____    ___    ____    _____ 
+
+	//   ____      _      _        ____      ____    ___    ____    _____
 	//  / ___|    / \    | |      / ___|    / ___|  / _ \  |  _ \  | ____|
-	// | |       / _ \   | |     | |       | |     | | | | | | | | |  _|  
-	// | |___   / ___ \  | |___  | |___    | |___  | |_| | | |_| | | |___ 
-	//  \____| /_/   \_\ |_____|  \____|    \____|  \___/  |____/  |_____|	
-	//	
-	
-	
+	// | |       / _ \   | |     | |       | |     | | | | | | | | |  _|
+	// | |___   / ___ \  | |___  | |___    | |___  | |_| | | |_| | | |___
+	//  \____| /_/   \_\ |_____|  \____|    \____|  \___/  |____/  |_____|
+	//
+
+
 	var TimesBy = 25;
 	var price = null;
 	var avPrice = 2363;
@@ -834,8 +978,8 @@ function getCodes1(myValue2)    {
 	var TopLA = 17988;
 	var BotLA = 775;
 	var fromPrice = 0;
-	
-	
+
+
 	//these functions deal with the user's inputs
 	d3.select(".smExtension").on("click",function(){
 		TimesBy = 15;
@@ -855,10 +999,10 @@ function getCodes1(myValue2)    {
 			updateTheChart = "nope";
 		calculate();
 	})
-	
-	
+
+
 	d3.select("#custom2").on("change",function(){
-		TimesByCustom = $("#custom2").val(); 
+		TimesByCustom = $("#custom2").val();
 		TimesBy = TimesByCustom;
 			updateTheChart = "nope";
 		calculate();
@@ -866,36 +1010,33 @@ function getCodes1(myValue2)    {
 			$('.mdExtension').attr('checked', false);
 			$('.lgExtension').attr('checked', false);
 	}).on("keyup", function(){
-		TimesByCustom = $("#custom2").val(); 
+		TimesByCustom = $("#custom2").val();
 		TimesBy = TimesByCustom;
 			updateTheChart = "nope";
 		calculate();
-			$('.smExtension').attr('checked', false);
-			$('.mdExtension').attr('checked', false);
-			$('.lgExtension').attr('checked', false);
 	});
-	
+
 	//array of numbers bit
 	d3.select("#yourAreaValue").html(numberFormat(34272));
 	d3.select("#EWAreaValue").html(numberFormat(28356));
 //	d3.select("#TopAreaValue").html(numberFormat(215856));
-//	d3.select("#BotAreaValue").html(numberFormat(9300));	
+//	d3.select("#BotAreaValue").html(numberFormat(9300));
 	//chart bit
 	d3.select("#yourAreaM2Value").html(numberFormat(2856));
-	
-	
-	
-	
 
-	
-	
-	function calculate(){		
+
+
+
+
+
+
+	function calculate(){
 		price = filtereddata[0].Area;
 		LAname = filtereddata[0].name;
-		
+
 		d3.select("#yourAreaName").html(LAname);
 		d3.select("#m2AreaName").html(LAname + " ");
-		
+
 		Yr_Value = TimesBy*price;
 			d3.select("#yourAreaValue").html(numberFormat(Yr_Value));
 		Av_Value = TimesBy*2363;
@@ -905,23 +1046,28 @@ function getCodes1(myValue2)    {
 //		Lo_Value = TimesBy*775;
 //			d3.select("#BotAreaValue").html(numberFormat(Lo_Value));
 
-			d3.select("#yourAreaM2Value").html(numberFormat(price));
-		
+        // Screen reader announcement
+        var announcement = `In £${LAname}, your ${TimesBy} square meter extension could be worth £${Yr_Value}. In England and Wales it could be worth £${Av_Value}. In ${LAname}, the price per square meter is ${numberFormat(price)}.`
+
+        d3.select("#announcer").html(announcement)
+
+		d3.select("#yourAreaM2Value").html(numberFormat(price));
+
 		if (updateTheChart == "yep"){drawGraphic();}
-		
-		
+
+
 	};
-	
-	
-	
-	
+
+
+
+
 graphic = $(".resultsChart");
 function drawGraphic() {
-	
+
 	graphic.empty();
-	
-			
-			
+
+
+
 			barheight = 40;
 			margin = {}
 			margin.left = 0;
@@ -929,70 +1075,70 @@ function drawGraphic() {
 			margin.top = 0;
 			margin.bottom = 105;
 			graphic_width = graphic.width() - margin.left - margin.right;
-						
+
 			var height = barheight + margin.top + margin.bottom;
-		
+
 			var data = [price];
-			
+
 			var x = d3.scale.linear()
 				.domain([0,17988])
 				.range([0,graphic_width - 2]);
-				
+
 			var chart = d3.select(".resultsChart")
 				.attr("width", graphic_width)
 				.attr("height", height)
 				.attr("margin-right","10px;");
 
-			
+
 			var bar = chart.append("svg")
 				.attr("width", graphic_width)
 				.attr("height", height)
 				.attr("id","chartAreaStuff");
-			      
+
 			//Reset the text value to 0 so it animates up
 			d3.select("#incomeOfNumber").text("");
-			                         
+
 			//grey backing
 			bar.append("rect")
 				.attr("width", function(d) { return x(17988); })
 				.attr("height", barheight)
 				.attr("transform","translate(0,30)")
 				.attr("fill","#f4f4f4");
-				
+
 			//data bar
 			bar.append("rect")
 				.attr("width",fromPrice)
 				.attr("height", barheight)
 				.attr("transform","translate(0,30)")
-				.attr("fill","#003C57")
+				.attr("fill","#206095")
 				.transition().duration(1000).attr("width", function(d) { return x(price); });
-				
+
 				fromPrice = price;
-			
+
 			//average bar
 			bar.append("rect")
 				.attr("width","3")
 				.attr("height", barheight + 25)
 				.attr("transform","translate(" + x(2363) + ",5)")
 				.attr("fill","#B8860B");
-				
+
 			//Lowest
 			bar.append("rect")
 				.attr("width","3")
 				.attr("height", barheight + 50)
 				.attr("transform","translate(" + x(775) + ",30)")
 				.attr("fill","#B8860B");
-			
+
 			//Highest
 			bar.append("rect")
 				.attr("width","3")
 				.attr("height", barheight + 75)
 				.attr("transform","translate(" + x(17988) + ",30)")
 				.attr("fill","#B8860B");
-		
-			
-					
-							
+
+
+
+
 			//average text
 			var text = d3.select("#chartAreaStuff")
                         .append("text")
@@ -1026,9 +1172,9 @@ function drawGraphic() {
 							.attr("font-weight","bold")
 							.attr("fill","#B8860B")
 							.attr("id","EWAverageText");
-							
-						
-							
+
+
+
 			//axis text
 			var text = d3.select("#chartAreaStuff")
                         .append("text")
@@ -1038,7 +1184,7 @@ function drawGraphic() {
 							.attr("text-anchor","start")
 							.attr("font-size","14px")
 							.attr("fill","grey");
-							
+
 			var text = d3.select("#chartAreaStuff")
                         .append("text")
 							.text("£5k")
@@ -1063,7 +1209,7 @@ function drawGraphic() {
 							.attr("text-anchor","middle")
 							.attr("font-size","14px")
 							.attr("fill","grey");
-							
+
 			//var text = d3.select("#chartAreaStuff")
 //                        .append("text")
 //							.text("£17,988")
@@ -1072,7 +1218,7 @@ function drawGraphic() {
 //							.attr("text-anchor","end")
 //							.attr("font-size","14px")
 //							.attr("fill","grey");
-							
+
 			//axis tick marks
 			bar.append("rect")
 				.attr("width","1")
@@ -1099,51 +1245,51 @@ function drawGraphic() {
 //				.attr("height", 10)
 //				.attr("transform","translate(" + x(17900) + ",70)")
 //				.attr("fill","#dadada");
-				
-			setTimeout(function() {fromPrice = x(price)},1500);
-							
-			
 
-			//use pym to calculate dimensions	
+			setTimeout(function() {fromPrice = x(price)},1500);
+
+
+
+			//use pym to calculate dimensions
 		   if (pymChild) {
 		       pymChild.sendHeight();
 		   }
 }
 
-		
+
 										if (Modernizr.svg) {
-										   //load config 
+										   //load config
 											d3.json("config.json", function(error, config) {
 											dvc=config
-								
+
 												//load chart data
 												d3.csv( dvc.essential.graphic_data_url, function(error, data) {
 													graphic_data = data;
-													
+
 													filtereddata = data.filter(function(d) {return d.name == AreaLoad;});
 													filtereddataEngland = graphic_data.filter(function(d) {return d.name == "England";});
-																												
-													
-													
-												
+
+
+
+
 													// graphic_data.forEach(function(d) {
-													// 	d.name = d3.time.format(dvc.essential.dateFormat).parse(d.name); 
-														
+													// 	d.name = d3.time.format(dvc.essential.dateFormat).parse(d.name);
+
 													// });
-								
+
 													names = d3.keys(/*data*/graphic_data[0]).filter(function(key) { return key !== "state"; });
-											  
+
 													/*data*/graphic_data.forEach(function(d) {
-													  d.ages = names.map(function(name) { return {name: name, value: +d[name]}; });	
-													}); 
-														
+													  d.ages = names.map(function(name) { return {name: name, value: +d[name]}; });
+													});
+
 														//use pym to create iframed chart dependent on specified variables
 														pymChild = new pym.Child({ renderCallback: calculate
 														});
 														occopt();
 													});
 											})
-								
+
 										} else {
 											 //use pym to create iframe containing fallback image (which is set as default)
 											 pymChild = new pym.Child();
@@ -1151,23 +1297,23 @@ function drawGraphic() {
 												pymChild.sendHeight();
 											}
 										}
-										
-										
+
+
 			var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-37894017-1']);
 		  _gaq.push(['_trackPageview']);
 
-		
+
 		  (function() {
 
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
-										
-										
-					
-		
+
+
+
+
 
     </script>
 </body>

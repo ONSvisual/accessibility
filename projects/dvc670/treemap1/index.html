@@ -1,448 +1,509 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MBCBVQS');</script>
+    <!-- End Google Tag Manager -->
 
-<head>
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
-<!-- End Google Tag Manager -->
-
-    <title>Family spending treemap - dvc565</title>
+    <title>NHS workforce treemap - dvc670</title>
 
     <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	  <link rel="stylesheet" href="../lib/styles.css" media="screen">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../lib/styles.css" media="screen">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+    <link href="https://onsvisual.github.io/pattern-library/dist/fontawesome/css/all.css" rel="stylesheet">
 
-<style>
-body{
-	max-width:945px;
-}
+    <style>
+      body {
+        max-width: 945px;
+      }
 
-.chart-title{
-	font-weight: 700;
-	font-size: 16px;
-}
+      .chart-title {
+        font-weight: 700;
+        font-size: 16px;
+      }
 
-#chart{
-	/*width:100%;*/
-}
+      #chart {
+        /*width:100%;*/
+      }
 
-text {
-  pointer-events: none;
-}
+      text {
+        pointer-events: none;
+      }
 
-#footer p /* required */
-{
-font-family: 'Open Sans',sans-serif;
-  font-size: 16px;
-  margin: 16px 0 8px 0;
-  font-weight: 700;
-  line-height: 24px;
-  color: #323132;
-}
+      #footer p /* required */
+      {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        margin: 16px 0 8px 0;
+        font-weight: 700;
+        line-height: 24px;
+        color: #323132;
+      }
 
+      .grandparent text {
+        /*font-weight: bold;*/
+        fill: #606060;
+        font-size: 1.8em;
+      }
 
-.grandparent text {
-  /*font-weight: bold;*/
-  fill: #606060;
-  font-size:1.8em;
-}
+      rect {
+        /*fill: none;*/
+        stroke: #fff;
+        stroke-opacity: 0.1;
+      }
 
-rect {
-  /*fill: none;*/
-  stroke: #fff;
-  stroke-opacity:0.1;
-}
+      .grandparent {
+        /*	pointer-events:none;*/
+      }
 
-.grandparent{
-/*	pointer-events:none;*/
-}
+      rect.parent,
+      .grandparent rect {
+        stroke-width: 2px;
+        fill: none;
+        stroke: #fff;
+        stroke-opacity: 1;
+      }
 
+      .grandparent line {
+        stroke: #606060;
+        stroke-width: 1px;
+      }
 
-rect.parent,
-.grandparent rect {
-  stroke-width: 2px;
-  fill: none;
-  stroke: #fff;
-  stroke-opacity:1;
-}
+      .children rect.parent,
+      .grandparent rect {
+        cursor: pointer;
+      }
 
-.grandparent line {
-  stroke: #606060;
-  stroke-width: 1px;
-}
+      .children rect.parent {
+        fill: #eaeaea;
+        fill-opacity: 0.01;
+      }
 
-.btn{
-	font-size:15px
-}
+      .children:hover rect.child {
+        cursor: pointer;
+      }
 
-.children rect.parent,
-.grandparent rect {
-  cursor: pointer;
-}
+      .children:hover rect.child, .parent:focus ~ rect.child {
+        fill: #eaeaea;
+      }
 
-.children rect.parent {
-  fill: #eaeaea;
-  fill-opacity: 0.01;
-}
+      .child:hover, .child:focus {
+        fill: #eaeaea;
+      }
 
-.children:hover rect.child {
-  fill: #eaeaea;
-}
+      .depth text {
+        fill: white;
+      }
 
-.child:hover {
-  fill: #eaeaea;
-}
+      .children:hover text, .parent:focus ~ text {
+        fill: #323123;
+      }
 
-.depth text{
-	fill:white;
-}
+      .depth g:not(.children):hover text {
+        fill: #323123;
+      }
 
-.children:hover text{
-  fill:#323123;
-}
+      /* *[code*=c]{
+        fill:#008080;
+      } */
 
-.depth g:not(.children):hover text{
-  fill:#323123;
-}
+      *[level="1"] {
+        fill: #008080;
+      }
 
-/* *[code*=c]{
-  fill:#008080;
-} */
+      *[level="2"] {
+        fill: #008080;
+      }
 
-*[level="1"]{
-  fill:#008080;
-}
+      *[level="3"] {
+        fill: #1e6e8a;
+      }
 
-*[level="2"]{
-  fill:#008080;
-}
+      *[level="4"] {
+        fill: #235b94;
+      }
 
-*[level="3"]{
-  fill:#1e6e8a;
-}
+      *[level="5"] {
+        fill: #1d489d;
+      }
 
-*[level="4"]{
-  fill:#235b94;
-}
+      *[level="5"] {
+        fill: #0034a6;
+      }
 
-*[level="5"]{
-  fill:#1d489d;
-}
+      .hoveredOver {
+        fill: #bbb !important;
+      }
 
-*[level="5"]{
-  fill:#0034a6;
-}
+      #blurb {
+        height: 80px;
+        pointer-events: none;
+        line-height: 1.2em;
+        font-size: 30px;
+      }
 
-.hoveredOver {
-	fill:#bbb!important;
-}
+      #txt2 {
+        font-weight: 700;
+      }
 
+      #txt3 {
+        font-weight: 500;
+      }
 
-#blurb{
-	height:80px;
-	pointer-events:none;
-	line-height: 1.2em;
-	font-size:30px;
-}
+      @media only screen and (max-width: 768px) {
+        #blurb {
+          height: 70px;
+          line-height: 1.3em;
+          font-size: 24px;
+        }
 
-#txt2{
-	font-weight:700;
-}
+        #selectNav {
+          width: 100%;
+        }
 
-#txt3{
-	font-weight:500;
-}
+        body {
+          padding-bottom: 30px !important;
+        }
 
+        #source {
+          padding-top: 105px !important;
+        }
+      }
 
-@media only screen and (max-width: 768px) {
-	#blurb{
-		height:70px;
-		line-height: 1.3em;
-		font-size:24px;
-	}
+      @media only screen and (max-width: 650px) {
+        #blurb {
+          height: 70px;
+          line-height: 1.5em;
+          font-size: 20px;
+        }
 
-	#selectNav {
-		width: 100%;
-	}
+        #selectNav {
+          width: 100%;
+        }
 
-	body{
-		padding-bottom:30px!important;
-	}
+        body {
+          padding-bottom: 30px !important;
+        }
 
-	#source{
-		padding-top:105px!important;
-	}
-}
+        #source {
+          padding-top: 70px !important;;
+        }
+      }
 
-@media only screen and (max-width: 650px) {
-	#blurb{
-		height:70px;
-		line-height: 1.5em;
-		font-size:20px;
-	}
+      @media only screen and (max-width: 500px) {
+        body {
+          padding-bottom: 20px !important;
+        }
 
-	#selectNav {
-		width: 100%;
-	}
+        #source {
+          padding-top: 20px !important;;
+        }
+      }
 
-	body{
-		padding-bottom:30px!important;
-	}
+      .btn {
+        position: relative;
+        padding: 10px 15px;
+        margin: 0 0 20px;
+        line-height: normal;
+        color: #fff;
+        font-size: 1.3em !important;
+        border-radius: 0px;
+        display: inline-block;
+        text-rendering: optimizeLegibility;
+        transition: background-color .2s ease-in, color .2s ease-in;
 
-	#source{
-		padding-top:70px!important;;
-	}
-}
+        font-family: "Open Sans",Helvetica,Arial,sans-serif;
+        font-weight: 400;
+        width: auto;
+        cursor: pointer;
+        border: 0 none;
+        text-align: center;
+        text-decoration: none;
 
-@media only screen and (max-width: 500px) {
-	body{
-		padding-bottom:20px!important;
-	}
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+        user-select: none;
+        background-image: none;
+      }
+      .btn:hover {
+        color: #ffffff;
+      }
+      .btn:focus {
+        outline: none;
+        box-shadow: 0px 0px 0 3px #FFA23A;
+        color: white;
+        outline-offset: 0px;
+      }
+      .btn:hover, .btn:focus {
+        text-decoration: none;
+      }
 
-	#source{
-		padding-top:20px!important;;
-	}
-}
+      .btn--primary {
+        background-color: #206095 !important;
+      }
+      .btn--primary:hover {
+        background-color: #174c78 !important;
+      }
 
-.btn-ons {
-  color: #4a494b;
-  background-color: #ededed;
-}
+      .btn--up::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f3bf";
+        margin-right: 10px;
+      }
 
-.btn-ons:hover,
-.btn-ons:focus,
-.btn-ons.focus,
-.btn-ons:active,
-.btn-ons.active,
-.open > .dropdown-toggle.btn-ons {
-  color: #6f6f6f;
-  background-color: #E7E7E7;
-  border-color: #D3D3D3;
-}
+      .btn--top::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f139";
+        margin-right: 10px;
+      }
 
+      #intro {
+        display: none;
+      }
 
-#intro{
-	display:none;
-}
+      .item {
+        width: 80px;
+        height: 80px;
+      }
 
+      /*  SELECT DROPBOX END */
+      .btnDiv {
+        /*line-height:9em;
+        text-align:center;*/
+        margin-left: 5px;
+      }
 
-.item{
-	width:80px;
-	height:80px;
-}
+      @media only screen and (max-width: 595px) {
 
+        .btnDiv {
+          line-height: 1.0em;
+          text-align: left;
+        }
+      }
 
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+    </style>
+  </head>
 
-/*  SELECT DROPBOX END */
-.btnDiv{
-		/*line-height:9em;
-		text-align:center;*/
-		margin-left:5px;
-}
-
-@media only screen and (max-width: 595px) {
-
-	.btnDiv{
-		line-height:1.0em;
-		text-align:left;
-	}
-}
-
-
-
-</style>
-
-
-
-</head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="main-wrapper">
+      <div id="mainContent">
+        <p id="chartDescription" class="visuallyhidden"></p>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+        <p id="blurb">
+          <span id="txt2"></span>
+          <span id="txt3"></span>
+        </p>
 
+        <div class="btnDiv ">
+          <button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up" style="visibility:hidden">
+            Up a level
+          </button>
+          <button type="button" id="topBtn" class="btn btn-group__btn btn--primary btn--green btn--top" style="visibility:hidden">
+            Back to top
+          </button>
 
-<div id="blurb" >
-    <text id ="txt2"></text>
-    <text id ="txt3"></text>
-</div>
+        </div>
 
-<div class="btnDiv ">
-    <button type="button" id="topBtn" class="nav btn btn-ons" style="visibility:hidden">
-      <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top
-    </button>
-    <button type="button" id="upBtn" class="nav btn btn-ons" style="visibility:hidden">
-      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Up a level
-    </button>
-
-</div>
-
-<div id="graphic">
-<img src="fallback.png" alt="[Chart]" />
-</div>
-<div id="footer"></div>
-
-
-<script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
-<script src="../lib/modernizr.svg.min.js"></script>
-<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.js" charset="utf-8"></script>
-<script src="../lib/base.js" charset="utf-8"></script>
-<script src="../lib/datastructures.tree.js" charset="utf-8"></script>
-<script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
-
-<script>
-	var graphic = d3.select('#graphic');
-	var footer = d3.select('#footer');
-	pymChild = null;
-
-	var	transitioning;
-	var widthCalc;
-	var heightCalc;
-	var params;
-
-	function getSizes() {
-		var threshold_md = 788;
-	    var threshold_sm = dvc.optional.mobileBreakpoint;
-
-		//set variables for chart dimensions dependent on width of #graphic
-		if (parseInt(graphic.style("width")) < threshold_sm) {
-				 margin = {	top: 	dvc.optional.margin_sm[0],
-							right: 	dvc.optional.margin_sm[1],
-							bottom: dvc.optional.margin_sm[2],
-							left: 	dvc.optional.margin_sm[3]
-							};
-				 width = parseInt(graphic.style("width")) - margin.left - margin.right;
-				 height = Math.ceil((width * dvc.optional.aspectRatio_sm[1]) / dvc.optional.aspectRatio_sm[0]) - margin.top - margin.bottom;
-				}
-
-		else if (parseInt(graphic.style("width")) < threshold_md){
-				 margin = {	top: 	dvc.optional.margin_md[0],
-							right: 	dvc.optional.margin_md[1],
-							bottom: dvc.optional.margin_md[2],
-							left: 	dvc.optional.margin_md[3]
-							};
-				 width = parseInt(graphic.style("width")) - margin.left - margin.right;
-				 height = Math.ceil((width * dvc.optional.aspectRatio_md[1]) / dvc.optional.aspectRatio_md[0]) - margin.top - margin.bottom;
-				}
-
-		else {
-				 margin = {	top: 	dvc.optional.margin_lg[0],
-							right: 	dvc.optional.margin_lg[1],
-							bottom: dvc.optional.margin_lg[2],
-							left: 	dvc.optional.margin_lg[3]
-							};
-				 width = parseInt(graphic.style("width")) - margin.left - margin.right;
-				 height = Math.ceil((width * dvc.optional.aspectRatio_lg[1]) / dvc.optional.aspectRatio_lg[0]) - margin.top - margin.bottom;
-		}
-
-		// clear out existing graphics
-		graphic.selectAll("*").remove();
-		footer.selectAll("*").remove();
-
-		drawGraphic(width, height);
-}// end getSizes function
-
-	function drawGraphic(width, height) {
-    formatNumber = d3.format(dvc.essential.formatNumber),
-		atTop=true,
-		level = 0,
-		levelArray = Array(level);
-
-    var ratiovar = dvc.optional.ratiovar;
-
-  	x = d3.scale.linear()
-  		.domain([0, width])
-  		.range([0, width]);
-
-  	y = d3.scale.linear()
-  		.domain([0, height])
-  		.range([0, height]);
-
-		treemap = d3.layout.treemap()
-			.children(function(d, depth) { return depth ? null : d._children; })
-			.sort(function(a, b) { return a.size - b.size; })
-			.ratio(height / width * ratiovar * (1 + Math.sqrt(5)))
-			.value(function(d) { return d.size; })
-			.round(false);
-
-		svg = d3.select("#graphic")
-			.append("svg")
-			.attr("id", "chart")
-			.attr("width", width + margin.left + margin.right)
-			.attr("height", height + margin.top + margin.bottom )  //+30)
-			.append("g")
-			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-			.append("g")
-			.attr("id", "tree");
-
-		grandparent = svg.append("g")
-			.attr("class", "grandparent")
-			.append("rect")
-			.attr("id", "gparent")
-			.attr("y", -margin.top)
-			.attr("width", width)
-			.attr("height", margin.top);
+        <div id="graphic">
+          <img src="fallback.png" alt="A chart displaying NHS staff numbers broken down by nationality."/>
+        </div>
+        <div id="footer"></div>
+      </div>
+    </div>
 
 
-		d3.csv(dvc.essential.graphic_data_url, function(data){
+    <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../lib/modernizr.svg.min.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.js" charset="utf-8"></script>
+    <script src="../lib/base.js" charset="utf-8"></script>
+    <script src="../lib/datastructures.tree.js" charset="utf-8"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
 
-			data.forEach(function(d) {
-				d.size = Number(d.size);
-				d.realsize = Number(d.realsize);
-			});
+    <script>
+      jQuery.fn.d3Click = function () {
+        this.each(function (i, e) {
+          var evt = new MouseEvent("click");
+          e.dispatchEvent(evt);
+        });
+      };
 
-			treedata = data
+      var graphic = d3.select('#graphic');
+      var footer = d3.select('#footer');
+      pymChild = null;
 
-			var tree = DataStructures.Tree.createFromFlatTable(data),
-			   root = tree.toSimpleObject(function(objectToDecorate, originalNode) {
-					objectToDecorate.size = originalNode.size;
-					if (objectToDecorate.children && objectToDecorate.children.length == 0) {
-						delete objectToDecorate.children;
-					}
-					return objectToDecorate;
-				});
+      var transitioning;
+      var widthCalc;
+      var heightCalc;
+      var params;
 
+      function getSizes() {
+        var threshold_md = 788;
+        var threshold_sm = dvc.optional.mobileBreakpoint;
 
-			 dataset = root;
-			 initialize(root);
-			 accumulate(root);
-			 layout(root);
-			 display(root);
+        //set variables for chart dimensions dependent on width of #graphic
+        if (parseInt(graphic.style("width")) < threshold_sm) {
+          margin = {
+            top: dvc.optional.margin_sm[0],
+            right: dvc.optional.margin_sm[1],
+            bottom: dvc.optional.margin_sm[2],
+            left: dvc.optional.margin_sm[3]
+          };
+          width = parseInt(graphic.style("width")) - margin.left - margin.right;
+          height = Math.ceil((width * dvc.optional.aspectRatio_sm[1]) / dvc.optional.aspectRatio_sm[0]) - margin.top - margin.bottom;
+        } else if (parseInt(graphic.style("width")) < threshold_md) {
+          margin = {
+            top: dvc.optional.margin_md[0],
+            right: dvc.optional.margin_md[1],
+            bottom: dvc.optional.margin_md[2],
+            left: dvc.optional.margin_md[3]
+          };
+          width = parseInt(graphic.style("width")) - margin.left - margin.right;
+          height = Math.ceil((width * dvc.optional.aspectRatio_md[1]) / dvc.optional.aspectRatio_md[0]) - margin.top - margin.bottom;
+        } else {
+          margin = {
+            top: dvc.optional.margin_lg[0],
+            right: dvc.optional.margin_lg[1],
+            bottom: dvc.optional.margin_lg[2],
+            left: dvc.optional.margin_lg[3]
+          };
+          width = parseInt(graphic.style("width")) - margin.left - margin.right;
+          height = Math.ceil((width * dvc.optional.aspectRatio_lg[1]) / dvc.optional.aspectRatio_lg[0]) - margin.top - margin.bottom;
+        }
 
-		d3.select("#blurb").select("#txt2").html(dvc.essential.totalLabel)
-		d3.select("#blurb").select("#txt3").html(function(){
-			if(treedata[0].percent == "null"){
-				return dvc.essential.prefix+formatNumber(treedata[0].realsize)+dvc.essential.suffix
-			} else {
-				return dvc.essential.prefix+formatNumber(treedata[0].realsize)+dvc.essential.suffix + " ("+treedata[0].percent+"%)"
-			}
-		});
+        // clear out existing graphics
+        graphic.selectAll("*").remove();
+        footer.selectAll("*").remove();
 
+        drawGraphic(width, height);
+      }// end getSizes function
 
+      function drawGraphic(width, height) {
+        formatNumber = d3.format(dvc.essential.formatNumber),
+          atTop = true,
+          level = 0,
+          levelArray = Array(level);
 
+        var ratiovar = dvc.optional.ratiovar;
 
-		}); //end treemap csv load
+        x = d3.scale.linear()
+          .domain([0, width])
+          .range([0, width]);
 
+        y = d3.scale.linear()
+          .domain([0, height])
+          .range([0, height]);
 
-		//create link to source
-		d3.select("#footer").append("p")
-			.text("Source: "+dvc.essential.sourceText);
-	 } //end drawGraphic function
+        treemap = d3.layout.treemap()
+          .children(function (d, depth) {
+            return depth ? null : d._children;
+          })
+          .sort(function (a, b) {
+            return a.size - b.size;
+          })
+          .ratio(height / width * ratiovar * (1 + Math.sqrt(5)))
+          .value(function (d) {
+            return d.size;
+          })
+          .round(false);
 
+        svg = d3.select("#graphic")
+          .append("svg")
+          .attr("id", "chart")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)  //+30)
+          .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+          .append("g")
+          .attr("id", "tree");
+
+        grandparent = svg.append("g")
+          .attr("class", "grandparent")
+          .append("rect")
+          .attr("id", "gparent")
+          .attr("y", -margin.top)
+          .attr("width", width)
+          .attr("height", margin.top);
+
+        d3.csv(dvc.essential.graphic_data_url, function (data) {
+
+          data.forEach(function (d) {
+            d.size = Number(d.size);
+            d.realsize = Number(d.realsize);
+          });
+
+          treedata = data
+
+          var tree = DataStructures.Tree.createFromFlatTable(data),
+            root = tree.toSimpleObject(function (objectToDecorate, originalNode) {
+              objectToDecorate.size = originalNode.size;
+              if (objectToDecorate.children && objectToDecorate.children.length == 0) {
+                delete objectToDecorate.children;
+              }
+              return objectToDecorate;
+            });
+
+          dataset = root;
+          initialize(root);
+          accumulate(root);
+          layout(root);
+          display(root);
+
+          var value = dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix;
+          var label = `NHS Hospital and Community Health Services heath care staff working in Trusts and CCGs March 2019 (${value}) broken down by nationality.`;
+          $('#chartDescription').html(label);
+          d3.select("#blurb").select("#txt2").html(dvc.essential.totalLabel)
+          d3.select("#blurb").select("#txt3").html(function () {
+            if (treedata[0].percent == "null") {
+              return dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix
+            } else {
+              return dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix + " (" + treedata[0].percent + "%)"
+            }
+          });
+        }); //end treemap csv load
+
+        //create link to source
+        d3.select("#footer").append("p")
+          .text("Source: " + dvc.essential.sourceText);
+      } //end drawGraphic function
 
       function initialize(root) {
         root.x = root.y = 0;
         root.dx = width;
-	      root.dy = height;
+        root.dy = height;
         root.depth = 0;
       } //end initialize function
 
@@ -453,8 +514,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       function accumulate(d) {
 
         return (d._children = d.children)
-            ? d.size = d.children.reduce(function(p, v) { return p + accumulate(v); }, 0)
-            : d.size;
+          ? d.size = d.children.reduce(function (p, v) {
+            return p + accumulate(v);
+          }, 0)
+          : d.size;
 
       } //end accumulate function
 
@@ -469,8 +532,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         if (d._children) {
 
-         treemap.nodes({_children: d._children});
-          d._children.forEach(function(c) {
+          treemap.nodes({_children: d._children});
+          d._children.forEach(function (c) {
             c.x = d.x + c.x * d.dx;
             c.y = d.y + c.y * d.dy;
             c.dx *= d.dx;
@@ -482,485 +545,538 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       } // end layout function
 
-function display(d) {
-	grandparent
-		.datum(d.parent)
-		.on("click", transition)
-	//            .select("text")
-	//            .text(desc(d))
+      function display(d) {
+        grandparent
+          .datum(d.parent)
+          .on("click", transition)
+        //            .select("text")
+        //            .text(desc(d))
 
-	d3.select("#titleText")
-		.datum(d.parent)
-	   // .text(desc(d))
+        d3.select("#titleText")
+          .datum(d.parent)
+        // .text(desc(d))
 
-	var g1 = svg.insert("g", ".grandparent")
-		.datum(d)
-		.attr("class", "depth")
-		//.on("mouseout", leave_tree);
+        var g1 = svg.insert("g", ".grandparent")
+          .datum(d)
+          .attr("class", "depth")
+        //.on("mouseout", leave_tree);
 
-	var g = g1.selectAll("g")
-		.data(d._children)
-	  .enter().append("g");
+        var g = g1.selectAll("g")
+          .data(d._children)
+          .enter().append("g");
 
-	g.filter(function(d) { return d._children; })
-		.classed("children", true)
-		.on("click", transition);
-
-	g.selectAll(".child")
-		.data(function(d) { return d._children || [d]; })
-	  .enter().append("rect")
-		.attr("class", "child")
-		.attr("code",function(d) { return d.id} )
-		.attr("level",function(d){ return d.level})
-		.attr("desc",function(d) { return d.name} )
-		.attr("id",function(d) { return d.id} )
-		.attr("vals",function(d) {return d.size} )
-		.attr("realvals",function(d) {  return d.realsize} )
-		.attr("percent",function(d) {  return d.percent} )
-		.on("mouseover", mouseover)
-		.on("mouseout", mouseout)
-		.call(rect);
-
-	g.append("rect")
-		.attr("class", "parent")
-		.attr("desc",function(d) { return d.name} )
-		.attr("id",function(d) { return d.id} )
-		.attr("vals",function(d) { return d.size} )
-		.attr("realvals",function(d) { return d.realsize} )
-		.attr("percent",function(d) {  return d.percent} )
-		.on("mouseover", mouseover)
-		.on("mouseout", mouseout)
-		.call(rect);
-
-	g.append("text")
-		.attr("class", "parentLabels")
-		.attr("dy", "1.15em")
-		.text(function(d){
-			if(d.percent == "null"){
-				return d.name +" "+ dvc.essential.prefix+formatNumber(d.realsize)+dvc.essential.suffix
-			} else {
-				return d.name +" "+ dvc.essential.prefix+formatNumber(d.realsize)+dvc.essential.suffix
-			}
-		})
-    .style("font-weight",700)
-    .style("font-size","16px")
-    // .call(putTheTitleBack)
-    .call(resizeText)
-		.call(text)
-    // .call(doesTheTitleNeedEllipses)
-    // .call(shallIJustGetRidOfTheEllipsis);
-
-  // g.append("text")
-	// 	.attr("class", "parentLabels2")
-	// 	.attr("dy", "1.15em")
-	// 	.text(function(d){
-	// 		if(d.percent == "null"){
-	// 			return dvc.essential.prefix+formatNumber(d.realsize)+dvc.essential.suffix
-	// 		} else {
-	// 			return dvc.essential.prefix+formatNumber(d.realsize)+dvc.essential.suffix + " ("+d.percent+"%)"
-	// 		}
-	// 	})
-  //   .style("font-size","16px")
-  //   // .call(putTheTextBack)
-  //   .call(resizeText)
-	// 	.call(text)
-    // .call(moveText)
-    // .call(doYouNeedEllipses)
-    // .call(shallIJustGetRidOfTheEllipsis);
-
-
-	function transition(d) {
-		if(d3.select(this).attr("id") != "gparent"){
-
-			selectedArray.push(d3.select(this).select('.parent').attr("id"))
-			selectedView = selectedArray.join().replace(/,/g , "/")
-
-			// if(history.pushState){
-			// 	history.pushState(null, null, encodeURI("#"+selectedView))
-			// } else {
-			// 	window.location.hash = encodeURI("#"+selectedView);
-			// }
-
-		} else {
-					selectedArray.splice(-1,1)
-					selectedView = selectedArray.join().replace(/,/g , "/")
-
-					// if(history.pushState){
-					// 	history.pushState(null, null, encodeURI("#"+selectedView))
-					// } else {
-					// 	window.location.hash = encodeURI("#"+selectedView);
-					// }
-		}
-	if(selectedArray.length == 0){
-		d3.select("#topBtn").style("visibility", "hidden");
-		d3.select("#upBtn").style("visibility", "hidden");
-
-	} else {
-		d3.select("#topBtn").style("visibility", "visible");
-		d3.select("#upBtn").style("visibility", "visible");
-	}
-
-		  if (transitioning || !d) return;
-		  transitioning = true;
-
-		  var g2 = display(d),
-			  t1 = g1.transition().duration(400),
-			  t2 = g2.transition().duration(400);
-
-		  // Update the domain only after entering new elements.
-		  x.domain([d.x, d.x + d.dx]);
-		  y.domain([d.y, d.y + d.dy]);
-
-		  // Enable anti-aliasing during the transition.
-		  svg.style("shape-rendering", null);
-
-		  // Draw child nodes on top of parent nodes.
-		  svg.selectAll(".depth").sort(function(a, b) { return a.depth - b.depth; });
-
-		  // Fade-in entering text.
-		  g2.selectAll("text").style("fill-opacity", 0);
-
-		  // Transition to the new view.
-		  t1.selectAll("rect").call(rect);
-		  t1.selectAll("text").call(text).style("fill-opacity", 1);
-		 //t1.selectAll(".childLabels").call(text).style("fill-opacity",1);
-		  t1.selectAll(".parentLabels").call(text).style("fill-opacity",1);
-      // t1.selectAll(".parentLabels2").call(text).style("fill-opacity",1);
-
-
-		  t2.selectAll("rect")
-      .call(rect);
-		  t2.selectAll("text")
-      .call(text)
-      .call(resizeText)
-      .style("fill-opacity", 1);
-
-      //.call(moveText).style("fill-opacity", 1);
-
-		//t2.selectAll(".childLabels").call(text).call(resize2).style("fill-opacity", 1);
-		  t2.selectAll(".parentLabels")
-      // .call(putTheTitleBack)
-      .call(resizeText)
-      .call(text)
-      // .call(doesTheTitleNeedEllipses)
-      // .call(shallIJustGetRidOfTheEllipsis)
-      .style("fill-opacity", 1);
-
-      // t2.selectAll(".parentLabels2")
-      // // .call(putTheTextBack)
-      // .call(resizeText)
-      // // .call(moveText)
-      // .call(text)
-      // // .call(doYouNeedEllipses)
-      // // .call(shallIJustGetRidOfTheEllipsis)
-      // .style("fill-opacity", 1);
-
-      // g2.selectAll(".parentLabels").call(doesTheTitleNeedEllipses)
-
-		  // Remove the old node when the transition is finished.
-		  t1.remove().each("end", function() {
-			svg.style("shape-rendering", "crispEdges");
-			transitioning = false;
-		  });
-
-			myClass = $(this).attr("class");
-
-		if(myClass=="children"){
-			level = level+1;
-			levelArray = Array(level);
-		} else {
-			level = level-1;
-			levelArray = Array(level);
-		}
-
-	} //end transition function
-	return g;
-
-} //end display function
-
-d3.select("#upBtn").on('click', function() {
-		simulateClick(grandparent[0][0]);
-});
-
-d3.select("#topBtn").on('click', function() {
-		backToTop();
-});
-
-setTimeout( function(){
-		var url = decodeURI(window.location.hash);
-		selectedArray = []
-		if (url == ""){
-			selectedView = "c0"
-		} //else {
-		// 	params = url.split("/");
-		// 	params[0] = params[0].replace("#", "")
-		// 	storyArray = params;
-		// 	selectedView = storyArray.join().replace(/,/g , "/")
-		// 	$(storyArray).each(function(i){
-		// 		setTimeout(function(){
-		// 			storyId = "#"+storyArray[i];
-		// 			simulateClick(d3.select(storyId)[0][0]);
-		// 		}, 760*i);
-		// 	});
-		// }
-}, 700)
-
-function moveText(text, width){
-	text.each(function(d,i) {
-		//var text = d3.select(this).style("font-size", "16px")//function(d) {
-				//return Math.sqrt((d.widthCalc*d.heightCalc))/ Math.log(this.getComputedTextLength())*0.45 + "px";
-		//})
-    var bbox = d3.select(this.parentNode).select(".parentLabels")[0][0].getBBox()
-    var text = d3.select(this).attr("y",y(d.y)+bbox.height+6)
-	});
-}
-
-function resizeText(text,width){
-  text.each(function(d,i) {
-		var text = d3.select(this).style("font-size", function(d) {
-				return Math.sqrt((d.widthCalc*d.heightCalc))/ Math.log(this.getComputedTextLength())*0.45 + "px";
-		})
-	});
-}
-
-function text(text, width) {
-	text.each(function(d,i) {
-		var text = d3.select(this),
-			words = text.text().split(/\s+/).reverse(),
-			word,
-			line = [],
-			y = text.attr("y"),
-			dy = parseFloat(text.attr("dy")),
-			tspan = text.text(null).append("tspan").attr("x", function(d) { return x(d.x) + 6; }).attr("dy",  "1.15em");
-
-		while (word = words.pop()) {
-		  line.push(word+" ");
-		  tspan.text(line.join(" "));
-
-		 if (tspan.node().getComputedTextLength() >  d.widthCalc-10) {
-			line.pop();
-			tspan.text(line.join(" "));
-			line = [word+" "];
-
-			tspan = text.append("tspan").attr("x", function(d) { return x(d.x) + 6; }).attr("dy",  dy + "em").text(word+"");
-
-		  }
-		 }
-	  });
-
-	d3.selectAll(".parentLabels")
-		.attr("y", function(d) { return y(d.y) + 6; })
-		.attr("x", function(d) { return x(d.x) + 8; });
-  //
-  // d3.selectAll(".parentLabels2")
-	// 	.attr("y", function(d) { return y(d.y) + 26; })
-	// 	.attr("x", function(d) { return x(d.x) + 8; });
-} // end text function
-
-function putTheTextBack(text){
-  text.each(function(d,i){
-    var text = d3.select(this)
-      text.text(function(d){
-      	if(d.percent == "null"){
-      		return dvc.essential.prefix+formatNumber(d.realsize)+dvc.essential.suffix
-      	} else {
-      		return dvc.essential.prefix+formatNumber(d.realsize)+dvc.essential.suffix + " ("+d.percent+"%)"
-      	}
-      })
-  })
-}
-
-function doYouNeedEllipses(text){
-  text.each(function(d,i){
-    var text = d3.select(this)
-    var parentText = d3.select(this.parentNode).select(".parentLabels")
-    switch(parentText.text().length){
-      case 0:
-        text.text("…")
-        break;
-      default:
-        text.each(function(d,i){
-          var text = d3.select(this)
-          var bottomEdge = y(d.y)+d.heightCalc
-          var bbox = text[0][0].getBBox()
-          if(bbox.y+bbox.height>bottomEdge){
-            text.text("…")
-          }
+        g.filter(function (d) {
+          return d._children;
         })
-        break;
-    }
-  })
+          .classed("children", true)
+          .on("click", transition);
+
+        g.append("rect")
+          .attr("class", "parent")
+          .attr("desc", function (d) {
+            return d.name
+          })
+          .attr("id", function (d) {
+            return d.id
+          })
+          .attr("vals", function (d) {
+            return d.size
+          })
+          .attr("realvals", function (d) {
+            return d.realsize
+          })
+          .attr("percent", function (d) {
+            return d.percent
+          })
+          .attr('aria-label', function(d) {
+            if (d.percent == "null") {
+              return d.name + " " + dvc.essential.prefix + formatNumber(d.realsize) + dvc.essential.suffix
+            } else {
+              return d.name + " " + dvc.essential.prefix + formatNumber(d.realsize) + dvc.essential.suffix
+            }
+          })
+          .on("mouseover", mouseover)
+          .on("mouseout", mouseout)
+          .on("focus", mouseover)
+          .on("blur", mouseout)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+              $(d3.event.target).parent().d3Click();
+            }
+          })
+          .call(rect);
+
+        g.selectAll(".child")
+          .data(function (d) {
+            return d._children || [d];
+          })
+          .enter().append("rect")
+          .attr("class", "child")
+          .attr("code", function (d) {
+            return d.id
+          })
+          .attr("level", function (d) {
+            return d.level
+          })
+          .attr("desc", function (d) {
+            return d.name
+          })
+          .attr("id", function (d) {
+            return d.id
+          })
+          .attr("vals", function (d) {
+            return d.size
+          })
+          .attr("realvals", function (d) {
+            return d.realsize
+          })
+          .attr("percent", function (d) {
+            return d.percent
+          })
+          .on("mouseover", mouseover)
+          .on("mouseout", mouseout)
+          .call(rect);
+
+        g.append("text")
+          .attr("class", "parentLabels")
+          .attr("dy", "1.15em")
+          .text(function (d) {
+            if (d.percent == "null") {
+              return d.name + " " + dvc.essential.prefix + formatNumber(d.realsize) + dvc.essential.suffix
+            } else {
+              return d.name + " " + dvc.essential.prefix + formatNumber(d.realsize) + dvc.essential.suffix
+            }
+          })
+          .style("font-weight", 700)
+          .style("font-size", "16px")
+          // .call(putTheTitleBack)
+          .call(resizeText)
+          .call(text)
+        // .call(doesTheTitleNeedEllipses)
+        // .call(shallIJustGetRidOfTheEllipsis);
+
+        // g.append("text")
+        // 	.attr("class", "parentLabels2")
+        // 	.attr("dy", "1.15em")
+        // 	.text(function(d){
+        // 		if(d.percent == "null"){
+        // 			return dvc.essential.prefix+formatNumber(d.realsize)+dvc.essential.suffix
+        // 		} else {
+        // 			return dvc.essential.prefix+formatNumber(d.realsize)+dvc.essential.suffix + " ("+d.percent+"%)"
+        // 		}
+        // 	})
+        //   .style("font-size","16px")
+        //   // .call(putTheTextBack)
+        //   .call(resizeText)
+        // 	.call(text)
+        // .call(moveText)
+        // .call(doYouNeedEllipses)
+        // .call(shallIJustGetRidOfTheEllipsis);
 
 
+        function transition(d) {
+          if (d3.select(this).attr("id") != "gparent") {
+
+            selectedArray.push(d3.select(this).select('.parent').attr("id"))
+            selectedView = selectedArray.join().replace(/,/g, "/")
+
+            // if(history.pushState){
+            // 	history.pushState(null, null, encodeURI("#"+selectedView))
+            // } else {
+            // 	window.location.hash = encodeURI("#"+selectedView);
+            // }
+
+          } else {
+            selectedArray.splice(-1, 1)
+            selectedView = selectedArray.join().replace(/,/g, "/")
+
+            // if(history.pushState){
+            // 	history.pushState(null, null, encodeURI("#"+selectedView))
+            // } else {
+            // 	window.location.hash = encodeURI("#"+selectedView);
+            // }
+          }
+          if (selectedArray.length == 0) {
+            d3.select("#topBtn").style("visibility", "hidden");
+            d3.select("#upBtn").style("visibility", "hidden");
+
+          } else {
+            d3.select("#topBtn").style("visibility", "visible");
+            d3.select("#upBtn").style("visibility", "visible");
+          }
+
+          if (transitioning || !d) return;
+          transitioning = true;
+
+          var g2 = display(d),
+            t1 = g1.transition().duration(400),
+            t2 = g2.transition().duration(400);
+
+          // Update the domain only after entering new elements.
+          x.domain([d.x, d.x + d.dx]);
+          y.domain([d.y, d.y + d.dy]);
+
+          // Enable anti-aliasing during the transition.
+          svg.style("shape-rendering", null);
+
+          // Draw child nodes on top of parent nodes.
+          svg.selectAll(".depth").sort(function (a, b) {
+            return a.depth - b.depth;
+          });
+
+          // Fade-in entering text.
+          g2.selectAll("text").style("fill-opacity", 0);
+
+          // Transition to the new view.
+          t1.selectAll("rect").call(rect);
+          t1.selectAll("text").call(text).style("fill-opacity", 1);
+          //t1.selectAll(".childLabels").call(text).style("fill-opacity",1);
+          t1.selectAll(".parentLabels").call(text).style("fill-opacity", 1);
+          // t1.selectAll(".parentLabels2").call(text).style("fill-opacity",1);
 
 
-}
+          t2.selectAll("rect")
+            .call(rect);
+          t2.selectAll("text")
+            .call(text)
+            .call(resizeText)
+            .style("fill-opacity", 1);
 
-function shallIJustGetRidOfTheEllipsis(text){
-  text.each(function(d,i){
-    var text = d3.select(this)
-    var text = d3.select(this)
-    var bottomEdge = y(d.y)+d.heightCalc
-    var rightEdge = x(d.x)+d.widthCalc
-    var bbox = text[0][0].getBBox()
-    if(bbox.y+bbox.height>bottomEdge||bbox.x+bbox.width>rightEdge){
-      text.text("")
-    }
-  })
-}
+          //.call(moveText).style("fill-opacity", 1);
 
-function putTheTitleBack(text){
-  text.each(function(d,i){
-    var text = d3.select(this)
-      text.text(function(d){
-        if(d.percent == "null"){
-          return d.name
-        } else {
-          return d.name
-        }
-      })
-  })
-}
+          //t2.selectAll(".childLabels").call(text).call(resize2).style("fill-opacity", 1);
+          t2.selectAll(".parentLabels")
+          // .call(putTheTitleBack)
+            .call(resizeText)
+            .call(text)
+            // .call(doesTheTitleNeedEllipses)
+            // .call(shallIJustGetRidOfTheEllipsis)
+            .style("fill-opacity", 1);
 
-function doesTheTitleNeedEllipses(text){
-  text.each(function(d,i){
-    var text = d3.select(this)
-    var bottomEdge = y(d.y)+d.heightCalc
-    var rightEdge = x(d.x)+d.widthCalc
-    var bbox = text[0][0].getBBox()
-    //if text goes outside the box
-    if(bbox.x+bbox.width>rightEdge||bbox.y+bbox.height>bottomEdge){
-      //first get rid of the extra spaces
-      var words = text.text().replace("  "," ").replace("  "," ").split(" ")
-      switch (words.length){
-        case 1://if just one word, start chopping off letters
-          if(bbox.x+bbox.width>rightEdge&&bbox.y+bbox.height>bottomEdge){
-            text.text("");
-            break;
-          }else{
-            if(words[0]=="…"){
-              break;
-            }else{
-              if(bbox.x+bbox.width>rightEdge||bbox.y+bbox.height>bottomEdge){
-                while (bbox.x+bbox.width>rightEdge||bbox.y+bbox.height>bottomEdge) {
-                  var letters = text.text().split("")
-                  var shorterLetters = letters.slice(0,letters.length-2)
-                  text.text(shorterLetters.join("")+"…")
-                  var bbox=text[0][0].getBBox()
-                }
-                break;
-              }else{
-                break;
-              }
+          // t2.selectAll(".parentLabels2")
+          // // .call(putTheTextBack)
+          // .call(resizeText)
+          // // .call(moveText)
+          // .call(text)
+          // // .call(doYouNeedEllipses)
+          // // .call(shallIJustGetRidOfTheEllipsis)
+          // .style("fill-opacity", 1);
+
+          // g2.selectAll(".parentLabels").call(doesTheTitleNeedEllipses)
+
+          // Remove the old node when the transition is finished.
+          t1.remove().each("end", function () {
+            svg.style("shape-rendering", "crispEdges");
+            transitioning = false;
+          });
+
+          myClass = $(this).attr("class");
+
+          if (myClass == "children") {
+            level = level + 1;
+            levelArray = Array(level);
+          } else {
+            level = level - 1;
+            levelArray = Array(level);
+          }
+
+        } //end transition function
+        return g;
+
+      } //end display function
+
+      d3.select("#upBtn").on('click', function () {
+        simulateClick(grandparent[0][0]);
+      });
+
+      d3.select("#topBtn").on('click', function () {
+        backToTop();
+      });
+
+      setTimeout(function () {
+        var url = decodeURI(window.location.hash);
+        selectedArray = []
+        if (url == "") {
+          selectedView = "c0"
+        } //else {
+        // 	params = url.split("/");
+        // 	params[0] = params[0].replace("#", "")
+        // 	storyArray = params;
+        // 	selectedView = storyArray.join().replace(/,/g , "/")
+        // 	$(storyArray).each(function(i){
+        // 		setTimeout(function(){
+        // 			storyId = "#"+storyArray[i];
+        // 			simulateClick(d3.select(storyId)[0][0]);
+        // 		}, 760*i);
+        // 	});
+        // }
+      }, 700)
+
+      function moveText(text, width) {
+        text.each(function (d, i) {
+          //var text = d3.select(this).style("font-size", "16px")//function(d) {
+          //return Math.sqrt((d.widthCalc*d.heightCalc))/ Math.log(this.getComputedTextLength())*0.45 + "px";
+          //})
+          var bbox = d3.select(this.parentNode).select(".parentLabels")[0][0].getBBox()
+          var text = d3.select(this).attr("y", y(d.y) + bbox.height + 6)
+        });
+      }
+
+      function resizeText(text, width) {
+        text.each(function (d, i) {
+          var text = d3.select(this).style("font-size", function (d) {
+            return Math.sqrt((d.widthCalc * d.heightCalc)) / Math.log(this.getComputedTextLength()) * 0.45 + "px";
+          })
+        });
+      }
+
+      function text(text, width) {
+        text.each(function (d, i) {
+          var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            y = text.attr("y"),
+            dy = parseFloat(text.attr("dy")),
+            tspan = text.text(null).append("tspan").attr("x", function (d) {
+              return x(d.x) + 6;
+            }).attr("dy", "1.15em");
+
+          while (word = words.pop()) {
+            line.push(word + " ");
+            tspan.text(line.join(" "));
+
+            if (tspan.node().getComputedTextLength() > d.widthCalc - 10) {
+              line.pop();
+              tspan.text(line.join(" "));
+              line = [word + " "];
+
+              tspan = text.append("tspan").attr("x", function (d) {
+                return x(d.x) + 6;
+              }).attr("dy", dy + "em").text(word + "");
+
             }
           }
-        default://else start chopping off words
-          if(bbox.x+bbox.width>rightEdge&&bbox.y+bbox.height>bottomEdge){
-            //if the text is both outside the box in both x and y direction just make the title blank
-            text.text("")
-            break;
-          }else{
-               for(i=0;i<words.length;i++){
-                 if(bbox.x+bbox.width>rightEdge||bbox.y+bbox.height>bottomEdge) {
-                      var words = text.text().replace("  "," ").replace("  "," ").split(" ")
-                      var shorter = words.slice(0,words.length-1)
-                      text.text(shorter.join(" ")+"…")
-                      var bbox=text[0][0].getBBox()
-                 }
-               }
-           break;
+        });
+
+        d3.selectAll(".parentLabels")
+          .attr("y", function (d) {
+            return y(d.y) + 6;
+          })
+          .attr("x", function (d) {
+            return x(d.x) + 8;
+          });
+        //
+        // d3.selectAll(".parentLabels2")
+        // 	.attr("y", function(d) { return y(d.y) + 26; })
+        // 	.attr("x", function(d) { return x(d.x) + 8; });
+      } // end text function
+
+      function putTheTextBack(text) {
+        text.each(function (d, i) {
+          var text = d3.select(this)
+          text.text(function (d) {
+            if (d.percent == "null") {
+              return dvc.essential.prefix + formatNumber(d.realsize) + dvc.essential.suffix
+            } else {
+              return dvc.essential.prefix + formatNumber(d.realsize) + dvc.essential.suffix + " (" + d.percent + "%)"
+            }
+          })
+        })
+      }
+
+      function doYouNeedEllipses(text) {
+        text.each(function (d, i) {
+          var text = d3.select(this)
+          var parentText = d3.select(this.parentNode).select(".parentLabels")
+          switch (parentText.text().length) {
+            case 0:
+              text.text("…")
+              break;
+            default:
+              text.each(function (d, i) {
+                var text = d3.select(this)
+                var bottomEdge = y(d.y) + d.heightCalc
+                var bbox = text[0][0].getBBox()
+                if (bbox.y + bbox.height > bottomEdge) {
+                  text.text("…")
+                }
+              })
+              break;
           }
-      }//end switch
-    }//ends if text outside box
-  })//end text.each
-}//end doesTheTitleNeedEllipses
+        })
 
 
-function rect(rect) {
-	rect.attr("x", function(d) { return x(d.x); })
-		.attr("y", function(d) { return y(d.y); })
-		.attr("width", function(d) {
-			   widthCalc = x(d.x + d.dx) - x(d.x);
+      }
 
-			  d["widthCalc"] = widthCalc;
-			  return widthCalc;
-		})
-		.attr("height", function(d) {
-			 heightCalc =y(d.y + d.dy) - y(d.y);
-			 d["heightCalc"] = heightCalc;
-			  return heightCalc;
-		})
+      function shallIJustGetRidOfTheEllipsis(text) {
+        text.each(function (d, i) {
+          var text = d3.select(this)
+          var text = d3.select(this)
+          var bottomEdge = y(d.y) + d.heightCalc
+          var rightEdge = x(d.x) + d.widthCalc
+          var bbox = text[0][0].getBBox()
+          if (bbox.y + bbox.height > bottomEdge || bbox.x + bbox.width > rightEdge) {
+            text.text("")
+          }
+        })
+      }
 
-		if (pymChild) {
-				pymChild.sendHeight();
-		}
-}
+      function putTheTitleBack(text) {
+        text.each(function (d, i) {
+          var text = d3.select(this)
+          text.text(function (d) {
+            if (d.percent == "null") {
+              return d.name
+            } else {
+              return d.name
+            }
+          })
+        })
+      }
 
-function mouseover (d){
-	var	selectClass = $(this).attr('desc');
-	var	selectValue = $(this).attr('realvals');
-	var	selectPercent = $(this).attr('percent');
+      function doesTheTitleNeedEllipses(text) {
+        text.each(function (d, i) {
+          var text = d3.select(this)
+          var bottomEdge = y(d.y) + d.heightCalc
+          var rightEdge = x(d.x) + d.widthCalc
+          var bbox = text[0][0].getBBox()
+          //if text goes outside the box
+          if (bbox.x + bbox.width > rightEdge || bbox.y + bbox.height > bottomEdge) {
+            //first get rid of the extra spaces
+            var words = text.text().replace("  ", " ").replace("  ", " ").split(" ")
+            switch (words.length) {
+              case 1://if just one word, start chopping off letters
+                if (bbox.x + bbox.width > rightEdge && bbox.y + bbox.height > bottomEdge) {
+                  text.text("");
+                  break;
+                } else {
+                  if (words[0] == "…") {
+                    break;
+                  } else {
+                    if (bbox.x + bbox.width > rightEdge || bbox.y + bbox.height > bottomEdge) {
+                      while (bbox.x + bbox.width > rightEdge || bbox.y + bbox.height > bottomEdge) {
+                        var letters = text.text().split("")
+                        var shorterLetters = letters.slice(0, letters.length - 2)
+                        text.text(shorterLetters.join("") + "…")
+                        var bbox = text[0][0].getBBox()
+                      }
+                      break;
+                    } else {
+                      break;
+                    }
+                  }
+                }
+              default://else start chopping off words
+                if (bbox.x + bbox.width > rightEdge && bbox.y + bbox.height > bottomEdge) {
+                  //if the text is both outside the box in both x and y direction just make the title blank
+                  text.text("")
+                  break;
+                } else {
+                  for (i = 0; i < words.length; i++) {
+                    if (bbox.x + bbox.width > rightEdge || bbox.y + bbox.height > bottomEdge) {
+                      var words = text.text().replace("  ", " ").replace("  ", " ").split(" ")
+                      var shorter = words.slice(0, words.length - 1)
+                      text.text(shorter.join(" ") + "…")
+                      var bbox = text[0][0].getBBox()
+                    }
+                  }
+                  break;
+                }
+            }//end switch
+          }//ends if text outside box
+        })//end text.each
+      }//end doesTheTitleNeedEllipses
 
-	d3.select("#blurb").select("#txt2").html(selectClass+":")
-	d3.select("#blurb").select("#txt3").html(function(){
-		if(selectPercent=="null"){
-			return formatNumber(selectValue)+dvc.essential.suffix
-		} else {
-			return formatNumber(selectValue)+dvc.essential.suffix
-		}
-	})
-};
+      function rect(rect) {
+        rect.attr("x", function (d) {
+          return x(d.x);
+        })
+          .attr("y", function (d) {
+            return y(d.y);
+          })
+          .attr("width", function (d) {
+            widthCalc = x(d.x + d.dx) - x(d.x);
 
-function mouseout (){
-	d3.select("#blurb").select("#txt2").html(dvc.essential.totalLabel);
-	d3.select("#blurb").select("#txt3").html( dvc.essential.prefix+formatNumber(treedata[0].realsize)+dvc.essential.suffix )
-};
+            d["widthCalc"] = widthCalc;
+            return widthCalc;
+          })
+          .attr("height", function (d) {
+            heightCalc = y(d.y + d.dy) - y(d.y);
+            d["heightCalc"] = heightCalc;
+            return heightCalc;
+          })
 
-function simulateClick(elem /* Must be the element */) {
-	var evt = document.createEvent("MouseEvents");
-	evt.initMouseEvent(
-		"click", /* type */
-		true, /* canBubble */
-		true, /* cancelable */
-		window, /* view */
-		0, /* detail */
-		0, /* screenX */
-		0, /* screenY */
-		0, /* clientX */
-		0, /* clientY */
-		false, /* ctrlKey */
-		false, /* altKey */
-		false, /* shiftKey */
-		false, /* metaKey */
-		0, /* button */
-		null); /* relatedTarget */
-	elem.dispatchEvent(evt);
-}
+        if (pymChild) {
+          pymChild.sendHeight();
+        }
+      }
 
-function backToTop (){
-	$(levelArray).each(function(i){
-		setTimeout(function(){
-			simulateClick(grandparent[0][0]);
-		},760*i);
-	});
-};
+      function mouseover(d) {
+        var selectClass = $(this).attr('desc');
+        var selectValue = $(this).attr('realvals');
+        var selectPercent = $(this).attr('percent');
 
-//check whether browser can cope with svg
-if (Modernizr.svg) {
-	//load config
-	d3.json("config.json", function(error, config) {
-		dvc=config
+        d3.select("#blurb").select("#txt2").html(selectClass + ":")
+        d3.select("#blurb").select("#txt3").html(function () {
+          if (selectPercent == "null") {
+            return formatNumber(selectValue) + dvc.essential.suffix
+          } else {
+            return formatNumber(selectValue) + dvc.essential.suffix
+          }
+        })
+      };
 
-		//use pym to create iframed chart dependent on specified variables
-		pymChild = new pym.Child({ renderCallback: getSizes});
-	}) //end load config
-} else {
-	//use pym to create iframe containing fallback image (which is set as default)
-	pymChild = new pym.Child();
-	if (pymChild) {
-		pymChild.sendHeight();
-	}
-}
-</script>
-</body>
+      function mouseout() {
+        d3.select("#blurb").select("#txt2").html(dvc.essential.totalLabel);
+        d3.select("#blurb").select("#txt3").html(dvc.essential.prefix + formatNumber(treedata[0].realsize) + dvc.essential.suffix)
+      };
+
+      function simulateClick(elem /* Must be the element */) {
+        var evt = document.createEvent("MouseEvents");
+        evt.initMouseEvent(
+          "click", /* type */
+          true, /* canBubble */
+          true, /* cancelable */
+          window, /* view */
+          0, /* detail */
+          0, /* screenX */
+          0, /* screenY */
+          0, /* clientX */
+          0, /* clientY */
+          false, /* ctrlKey */
+          false, /* altKey */
+          false, /* shiftKey */
+          false, /* metaKey */
+          0, /* button */
+          null); /* relatedTarget */
+        elem.dispatchEvent(evt);
+      }
+
+      function backToTop() {
+        $(levelArray).each(function (i) {
+          setTimeout(function () {
+            simulateClick(grandparent[0][0]);
+          }, 760 * i);
+        });
+      };
+
+      //check whether browser can cope with svg
+      if (Modernizr.svg) {
+        //load config
+        d3.json("config.json", function (error, config) {
+          dvc = config
+
+          //use pym to create iframed chart dependent on specified variables
+          pymChild = new pym.Child({renderCallback: getSizes});
+        }) //end load config
+      } else {
+        //use pym to create iframe containing fallback image (which is set as default)
+        pymChild = new pym.Child();
+        if (pymChild) {
+          pymChild.sendHeight();
+        }
+      }
+    </script>
+  </body>
 </html>

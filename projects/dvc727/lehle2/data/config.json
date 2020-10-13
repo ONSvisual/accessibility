@@ -1,0 +1,28 @@
+{"ons":{
+"maptitle": "Time series map about healthy life expectancy",
+
+"varcolour": "YlGnBu",
+"numberBreaks": 3,
+"varcolourMap": [["aaa", "#D0DCEC", "#789AC8", "#33537D"], ["#fef0d9","#fdcc8a","#fc8d59","#d7301f"], ["aaa", "#D0DCEC", "#789AC8", "#33537D"], ["#fef0d9","#fdcc8a","#fc8d59","#d7301f"] ],
+"numberBreaksMap": 3,
+"breaks":[[48,59,65,72], [48,59,65,72], [5,9,14,18], [5,9,14,18]],
+"breaksChart":["equal"],
+
+"varlabels": ["Males - HLE at birth", "Females - HLE at birth", "Males - HLE at age 65", "Females - HLE at age 65"],
+"timeload": "last",
+"timepoints": ["2009-11","2010-12","2011-13","2012-14","2013-15","2014-16","2015-17","2016-18"],
+"timepointsChart":["2009", "2010","2011","2012","2010","2011", "2015"],
+"varunit": ["Years","Years","Years","Years"],
+"mapunit": ["Healthy life expectancy, years", "Healthy life expectancy, years", "Healthy life expectancy, years", "Healthy life expectancy, years"],
+"displaydecimals": 1,
+"legenddecimals": 0,
+
+"dropticks": false,
+"sourcetext": "Office for National Statistics",
+"sourceURL" : "https://www.ons.gov.uk",
+"timelineLabelsMB":["", "02", "", "04", "", "06", "", "08", "", "10", "", "11", "", "13", "", "15"],
+"timelineLabelsDT":["2002","2008","2014"],
+"average": [["61.0525774057604","61.380090524795","61.6608854388766","61.7238050584712","61.8305507648663","62.2179954433936","62.3203558658747","61.8836289641895"], ["63.039702115356","62.8232284425008","63.2101852059204","63.2407704727011","62.7389481936905","63.3054888279647","62.6360387528838","62.207406053026"],["9.2655863070402","9.32114031347746","9.32178232930042","9.69043434154809","9.73209839623348","9.95234069180374","9.95796604526238","9.86336797274402"], ["10.5733312280364","10.4619458446815","10.898732629503","10.6989776187668","10.739143690147","10.8355898148962","10.7119661495433","10.7944017170331"]],
+"averageText": ""
+}
+}

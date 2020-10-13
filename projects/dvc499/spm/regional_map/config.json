@@ -1,0 +1,51 @@
+{
+    "essential" : {
+
+            "colour_palette":[
+              "#c6dbef",
+              "#9ecae1",
+              "#6baed6",
+              "#3182bd",
+              "#08519c"
+            ],
+
+            "sourceText":["Source: Office for National Statistics"],
+            "sourceURL":[],
+
+            "annotationChart": [
+
+            ],
+            "annotationBullet": [
+            ],
+            "annotationXY":[
+                []
+            ],
+            "annotationAlign":[
+                "middle"
+            ],
+
+            "barHeight_sm_md_lg" : [40,40,40],
+
+            "xAxisLabel":"%",
+            "xAxisScale":[0,10]
+    },
+    "optional" : {
+            "display_average": "yes",
+            "average": 5.9,
+            "margin_sm": [25, 20, 55, 115],
+            "margin_md": [25, 20, 55, 115],
+            "margin_lg": [25, 20, 55, 115],
+
+            "aspectRatio_sm" : [4,7],
+            "aspectRatio_md" : [1,1],
+            "aspectRatio_lg" : [16,10],
+            "number_breaks" : 5,
+            "breaks_choice" : [0, 2, 4, 6, 8, 10],
+            "mobileBreakpoint" : 550,
+
+            "x_num_ticks_sm_md_lg" : [5,5,5],
+
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}

@@ -1,0 +1,8 @@
+
+{
+	"start_date": "2008, 01, 01",
+	"inflation" : "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23/data",
+	"average_wage_growth" : "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/timeseries/kac3/lms/data",
+	"time_period" : "months"
+	
+}

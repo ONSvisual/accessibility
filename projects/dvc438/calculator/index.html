@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600%7COpen+Sans+Condensed:300' rel='stylesheet'
+		type='text/css'>
+	<title>Context Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/styles.css" media="screen">
+	<link rel="stylesheet" href="css/styles-app.css" media="screen">
+</head>
+
+<body id="childt">
+	<div id="fallback"><img src="img/fallback.png" alt="[Chart]" /></div>
+	<div class="container hide">
+		<main>
+
+			<!-- Title and Instruction -->
+
+			<section style="padding-left:3px; padding-right:0px;">
+				<h1 class="TitleWords">Context Calculator</h1>
+				<p>This handy calculator is here to help you make meaning of the many large numbers used in the EU
+					debate,
+					particularly the figures on the UK's net contribution to the EU.</p>
+				<p>Click on either of the two buttons - or just type in a figure - and it will break it down for you.
+				</p>
+			</section>
+
+			<div class="btn-group btn-group-justified selectOptions">
+				<a href="#" data-nm="9.4" title="Click to set calculation value to ONS figure" class="btn btn-default selectable option" id="Option3"
+					onClick="ChangeBack(this.id)"><span class="buttonNumber" id="buttonNumber1" aria-label="9.4 billion pounds">£9.4 billion</span><br />ONS net contribution
+					figure<sup>1</sup></a>
+				<a href="#" data-nm="8.1" title="Click to set calculation value to European Commission figure" class="btn btn-default selectable option" id="Option4"
+					onClick="ChangeBack(this.id)"><span class="buttonNumber" id="buttonNumber2" aria-label="8.1 billion pounds">£8.1 billion</span><br />European Commission
+					net
+					contribution figure<sup>2</sup></a>
+			</div>
+
+			<div class="row" style="margin-bottom:20px;">
+				<div class="col-xs-6 col-sm-6" style="padding-left:0px; text-align:center">
+
+				</div>
+				<div class="col-xs-6 col-sm-6" style="padding-left:0px; text-align:center">
+
+				</div>
+			</div>
+
+			<!-- Number selection -->
+
+			<div class="row inputRow noPadding" style="margin-top:30px;">
+				<div aria-hidden="true" id="PoundSign" class="InputSides">£</div>
+				<div class="noPadding">
+					<form>
+						<label for="userEntry" class="visuallyhidden">Enter the amount in billions to calculate</label>
+						<input id="userEntry" type="number" value="0" class="form-control" min="0" max="999">
+					</form>
+				</div>
+				<div aria-hidden="true" id="BillionLabel" class="InputSides">billion</div>
+			</div>
+
+			<!-- Revealed stuff -->
+
+			<div aria-hidden="true" class="row answerrow">
+
+				<div class="infoBlock col-sm-6 col-md-6 col-xs-12">
+					<div id="color1" class="infoBlockText">
+						Per week
+					</div>
+					<div>
+						<p class="qlabel" id="selectedmeasure1">make selection</p>
+					</div>
+				</div>
+
+				<div class="infoBlock col-sm-6 col-md-6 col-xs-12">
+					<div id="color2" class="infoBlockText">
+						Per person per year
+					</div>
+					<div>
+						<p class="qlabel" id="selectedmeasure2">make selection</p>
+					</div>
+				</div>
+
+				<div class="infoBlock col-sm-6 col-md-6 col-xs-12">
+					<div id="color3" class="infoBlockText">
+						Per person per day
+					</div>
+					<div>
+						<p class="qlabel" id="selectedmeasure3">make selection</p>
+					</div>
+				</div>
+
+				<div class="infoBlock col-sm-6 col-md-6 col-xs-12">
+					<div id="color4" class="infoBlockText">
+						% of 2016 government spending
+					</div>
+					<div>
+						<p class="qlabel" id="selectedmeasure4">make selection</p>
+					</div>
+				</div>
+			</div><!-- Close answerrow -->
+			<div aria-live="polite" class="visuallyhidden" id="accessibilityInfo"></div>
+		</main>
+		<footer>
+			<p style="margin-top:30px; margin-bottom:5px; font-size:12px;">
+				1 - This figure is the UK's contribution to the EU in 2016 net of the rebate and the EU payments to the
+				UK
+				public sector.
+			</p>
+			<p style="font-size:12px;">
+				2 - This figure is the UK's average contribution to the EU for 2012 to 2016, net of the rebate and the
+				EU
+				payments to the UK public and private sectors.
+			</p>
+		</footer>
+
+	</div> <!-- Close Container -->
+
+
+	<!-- Constant libraries / frameworks -->
+	<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/modernizr.custom.56904.js"></script>
+	<script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js"></script>
+	<script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.min.js"></script>
+	<script>
+		pymChild = new pym.Child()
+
+	</script>
+
+	<!--Optional libraries/frameworks-->
+	<!--
+    
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/idangerous.swiper-2.1.min.js"></script>
+    <script src="js/idangerous.swiper.hashnav.js"></script>
+    <script src="js/chosen.jquery.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.ui.labeledslider.js"></script>
+    <script src="js/jquery.ui.touch-punch.min"></script>
+    <script src="js/topojson.min.js"></script>
+
+-->
+	<!--Main code-->
+
+	<script src="js/script.js"></script>
+
+	<script>
+
+		/* Analytics */
+
+		/* Google */
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-37894017-1']);
+		_gaq.push(['_trackPageview']);
+
+
+		(function () {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+
+	</script>
+
+
+</body>
+
+</html>

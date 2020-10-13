@@ -1,0 +1,97 @@
+/* Individual tab styles */
+
+
+/*****************************/
+/* Falling Icon, from http://vintageproductions.eu/grid/interactivity/ */ 
+/*****************************/
+
+.tabs-style-iconfall {
+	overflow: visible;
+}
+
+.tabs-style-iconfall nav a {
+	display: inline-block;
+	overflow: visible;
+	margin-bottom:10px;
+	margin-top:15px;
+	color: #74777b;
+	line-height: 1;
+	-webkit-transition: color 0.3s cubic-bezier(0.7,0,0.3,1); 
+	transition: color 0.3s cubic-bezier(0.7,0,0.3,1);
+}
+
+.tabs-style-iconfall nav a:hover,
+.tabs-style-iconfall nav a:focus,
+.tabs-style-iconfall nav li.tab-current a {
+	color: black;
+}
+
+
+
+
+.search-choice:nth-child(1) {
+    background-color: #66c2a5 !important;
+}
+
+.search-choice:nth-child(2) {
+    background-color: #fc8d62 !important;
+}
+
+.search-choice:nth-child(3) {
+    background-color:  #8da0cb !important;
+}
+
+.search-choice:nth-child(4) {
+    background-color:  #e78ac3 !important;
+}
+
+
+
+
+
+
+
+
+.tabs-style-iconfall nav a span {
+	font-weight: 700;
+}
+
+.tabs-style-iconfall nav li::before {
+	position: absolute;
+	bottom: 1em;
+	left: 50%;
+	margin-left: -20px;
+	width: 40px;
+	height: 4px;
+	background: #ffffff;
+	content: '';
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.2s ease-in;
+	transition: transform 0.2s ease-in;
+	-webkit-transform: scale3d(0,1,1);
+	transform: scale3d(0,1,1);
+}
+
+
+
+.tabs-style-iconfall .icon::before {
+	display: block;
+	margin: 0 0 0.35em;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+	transition: transform 0.2s, opacity 0.2s;
+	-webkit-transform: translate3d(0,-100px,0);
+	transform: translate3d(0,-100px,0);
+	pointer-events: none;
+}
+
+
+
+
+@media screen and (max-width: 58em) {
+	.tabs-style-iconfall nav li .icon::before {
+		opacity: 1;
+		-webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+}

@@ -1,0 +1,1957 @@
+AREACD,AREANM,agegroup,year,proportion
+E06000001,Hartlepool,0 to 15,2016,19.1
+E06000001,Hartlepool,16 to 64,2016,62.1
+E06000001,Hartlepool,65 and over,2016,18.8
+E06000001,Hartlepool,0 to 15,2026,18.5
+E06000001,Hartlepool,16 to 64,2026,59.7
+E06000001,Hartlepool,65 and over,2026,21.9
+E06000002,Middlesbrough,0 to 15,2016,20.6
+E06000002,Middlesbrough,16 to 64,2016,63.5
+E06000002,Middlesbrough,65 and over,2016,15.9
+E06000002,Middlesbrough,0 to 15,2026,20.8
+E06000002,Middlesbrough,16 to 64,2026,60.8
+E06000002,Middlesbrough,65 and over,2026,18.4
+E06000003,Redcar and Cleveland,0 to 15,2016,17.9
+E06000003,Redcar and Cleveland,16 to 64,2016,60.3
+E06000003,Redcar and Cleveland,65 and over,2016,21.8
+E06000003,Redcar and Cleveland,0 to 15,2026,17.8
+E06000003,Redcar and Cleveland,16 to 64,2026,57.1
+E06000003,Redcar and Cleveland,65 and over,2026,25.1
+E06000004,Stockton-on-Tees,0 to 15,2016,19.6
+E06000004,Stockton-on-Tees,16 to 64,2016,62.8
+E06000004,Stockton-on-Tees,65 and over,2016,17.6
+E06000004,Stockton-on-Tees,0 to 15,2026,19.2
+E06000004,Stockton-on-Tees,16 to 64,2026,60.1
+E06000004,Stockton-on-Tees,65 and over,2026,20.7
+E06000005,Darlington,0 to 15,2016,18.9
+E06000005,Darlington,16 to 64,2016,61.4
+E06000005,Darlington,65 and over,2016,19.6
+E06000005,Darlington,0 to 15,2026,18.0
+E06000005,Darlington,16 to 64,2026,59.0
+E06000005,Darlington,65 and over,2026,23.1
+E06000006,Halton,0 to 15,2016,19.9
+E06000006,Halton,16 to 64,2016,62.6
+E06000006,Halton,65 and over,2016,17.5
+E06000006,Halton,0 to 15,2026,19.2
+E06000006,Halton,16 to 64,2026,59.6
+E06000006,Halton,65 and over,2026,21.2
+E06000007,Warrington,0 to 15,2016,19.0
+E06000007,Warrington,16 to 64,2016,63.0
+E06000007,Warrington,65 and over,2016,18.0
+E06000007,Warrington,0 to 15,2026,18.7
+E06000007,Warrington,16 to 64,2026,60.5
+E06000007,Warrington,65 and over,2026,20.8
+E06000008,Blackburn with Darwen,0 to 15,2016,23.2
+E06000008,Blackburn with Darwen,16 to 64,2016,62.6
+E06000008,Blackburn with Darwen,65 and over,2016,14.2
+E06000008,Blackburn with Darwen,0 to 15,2026,22.1
+E06000008,Blackburn with Darwen,16 to 64,2026,61.5
+E06000008,Blackburn with Darwen,65 and over,2026,16.4
+E06000009,Blackpool,0 to 15,2016,18.1
+E06000009,Blackpool,16 to 64,2016,61.5
+E06000009,Blackpool,65 and over,2016,20.4
+E06000009,Blackpool,0 to 15,2026,18.2
+E06000009,Blackpool,16 to 64,2026,59.7
+E06000009,Blackpool,65 and over,2026,22.1
+E06000010,"Kingston upon Hull, City of",0 to 15,2016,19.5
+E06000010,"Kingston upon Hull, City of",16 to 64,2016,65.7
+E06000010,"Kingston upon Hull, City of",65 and over,2016,14.8
+E06000010,"Kingston upon Hull, City of",0 to 15,2026,19.7
+E06000010,"Kingston upon Hull, City of",16 to 64,2026,63.7
+E06000010,"Kingston upon Hull, City of",65 and over,2026,16.6
+E06000011,East Riding of Yorkshire,0 to 15,2016,16.3
+E06000011,East Riding of Yorkshire,16 to 64,2016,58.7
+E06000011,East Riding of Yorkshire,65 and over,2016,25.0
+E06000011,East Riding of Yorkshire,0 to 15,2026,15.8
+E06000011,East Riding of Yorkshire,16 to 64,2026,55.2
+E06000011,East Riding of Yorkshire,65 and over,2026,29.0
+E06000012,North East Lincolnshire,0 to 15,2016,19.1
+E06000012,North East Lincolnshire,16 to 64,2016,61.1
+E06000012,North East Lincolnshire,65 and over,2016,19.7
+E06000012,North East Lincolnshire,0 to 15,2026,18.6
+E06000012,North East Lincolnshire,16 to 64,2026,58.7
+E06000012,North East Lincolnshire,65 and over,2026,22.8
+E06000013,North Lincolnshire,0 to 15,2016,18.5
+E06000013,North Lincolnshire,16 to 64,2016,61.1
+E06000013,North Lincolnshire,65 and over,2016,20.4
+E06000013,North Lincolnshire,0 to 15,2026,17.3
+E06000013,North Lincolnshire,16 to 64,2026,58.7
+E06000013,North Lincolnshire,65 and over,2026,24.0
+E06000014,York,0 to 15,2016,15.8
+E06000014,York,16 to 64,2016,66.1
+E06000014,York,65 and over,2016,18.1
+E06000014,York,0 to 15,2026,15.5
+E06000014,York,16 to 64,2026,64.5
+E06000014,York,65 and over,2026,19.9
+E06000015,Derby,0 to 15,2016,20.8
+E06000015,Derby,16 to 64,2016,63.1
+E06000015,Derby,65 and over,2016,16.1
+E06000015,Derby,0 to 15,2026,20.3
+E06000015,Derby,16 to 64,2026,62.0
+E06000015,Derby,65 and over,2026,17.8
+E06000016,Leicester,0 to 15,2016,21.5
+E06000016,Leicester,16 to 64,2016,66.8
+E06000016,Leicester,65 and over,2016,11.7
+E06000016,Leicester,0 to 15,2026,21.6
+E06000016,Leicester,16 to 64,2026,64.8
+E06000016,Leicester,65 and over,2026,13.5
+E06000017,Rutland,0 to 15,2016,16.7
+E06000017,Rutland,16 to 64,2016,59.1
+E06000017,Rutland,65 and over,2016,24.2
+E06000017,Rutland,0 to 15,2026,16.8
+E06000017,Rutland,16 to 64,2026,54.4
+E06000017,Rutland,65 and over,2026,28.7
+E06000018,Nottingham,0 to 15,2016,18.7
+E06000018,Nottingham,16 to 64,2016,69.8
+E06000018,Nottingham,65 and over,2016,11.6
+E06000018,Nottingham,0 to 15,2026,19.2
+E06000018,Nottingham,16 to 64,2026,68.1
+E06000018,Nottingham,65 and over,2026,12.7
+E06000019,"Herefordshire, County of",0 to 15,2016,16.7
+E06000019,"Herefordshire, County of",16 to 64,2016,59.6
+E06000019,"Herefordshire, County of",65 and over,2016,23.7
+E06000019,"Herefordshire, County of",0 to 15,2026,16.4
+E06000019,"Herefordshire, County of",16 to 64,2026,56.5
+E06000019,"Herefordshire, County of",65 and over,2026,27.1
+E06000020,Telford and Wrekin,0 to 15,2016,20.3
+E06000020,Telford and Wrekin,16 to 64,2016,63.1
+E06000020,Telford and Wrekin,65 and over,2016,16.6
+E06000020,Telford and Wrekin,0 to 15,2026,19.5
+E06000020,Telford and Wrekin,16 to 64,2026,61.0
+E06000020,Telford and Wrekin,65 and over,2026,19.5
+E06000021,Stoke-on-Trent,0 to 15,2016,20.2
+E06000021,Stoke-on-Trent,16 to 64,2016,63.0
+E06000021,Stoke-on-Trent,65 and over,2016,16.9
+E06000021,Stoke-on-Trent,0 to 15,2026,20.2
+E06000021,Stoke-on-Trent,16 to 64,2026,61.1
+E06000021,Stoke-on-Trent,65 and over,2026,18.7
+E06000022,Bath and North East Somerset,0 to 15,2016,16.7
+E06000022,Bath and North East Somerset,16 to 64,2016,64.4
+E06000022,Bath and North East Somerset,65 and over,2016,18.9
+E06000022,Bath and North East Somerset,0 to 15,2026,17.4
+E06000022,Bath and North East Somerset,16 to 64,2026,62.2
+E06000022,Bath and North East Somerset,65 and over,2026,20.5
+E06000023,"Bristol, City of",0 to 15,2016,18.6
+E06000023,"Bristol, City of",16 to 64,2016,68.3
+E06000023,"Bristol, City of",65 and over,2016,13.1
+E06000023,"Bristol, City of",0 to 15,2026,19.2
+E06000023,"Bristol, City of",16 to 64,2026,67.5
+E06000023,"Bristol, City of",65 and over,2026,13.3
+E06000024,North Somerset,0 to 15,2016,18.1
+E06000024,North Somerset,16 to 64,2016,58.4
+E06000024,North Somerset,65 and over,2016,23.5
+E06000024,North Somerset,0 to 15,2026,17.8
+E06000024,North Somerset,16 to 64,2026,56.3
+E06000024,North Somerset,65 and over,2026,25.9
+E06000025,South Gloucestershire,0 to 15,2016,18.6
+E06000025,South Gloucestershire,16 to 64,2016,62.8
+E06000025,South Gloucestershire,65 and over,2016,18.6
+E06000025,South Gloucestershire,0 to 15,2026,18.8
+E06000025,South Gloucestershire,16 to 64,2026,61.1
+E06000025,South Gloucestershire,65 and over,2026,20.1
+E06000026,Plymouth,0 to 15,2016,17.8
+E06000026,Plymouth,16 to 64,2016,64.3
+E06000026,Plymouth,65 and over,2016,17.9
+E06000026,Plymouth,0 to 15,2026,17.7
+E06000026,Plymouth,16 to 64,2026,61.9
+E06000026,Plymouth,65 and over,2026,20.4
+E06000027,Torbay,0 to 15,2016,16.7
+E06000027,Torbay,16 to 64,2016,57.4
+E06000027,Torbay,65 and over,2016,26.0
+E06000027,Torbay,0 to 15,2026,16.7
+E06000027,Torbay,16 to 64,2026,54.2
+E06000027,Torbay,65 and over,2026,29.1
+E06000028,Bournemouth,0 to 15,2016,16.4
+E06000028,Bournemouth,16 to 64,2016,65.4
+E06000028,Bournemouth,65 and over,2016,18.1
+E06000028,Bournemouth,0 to 15,2026,16.5
+E06000028,Bournemouth,16 to 64,2026,63.8
+E06000028,Bournemouth,65 and over,2026,19.7
+E06000029,Poole,0 to 15,2016,17.8
+E06000029,Poole,16 to 64,2016,60.0
+E06000029,Poole,65 and over,2016,22.2
+E06000029,Poole,0 to 15,2026,17.6
+E06000029,Poole,16 to 64,2026,58.0
+E06000029,Poole,65 and over,2026,24.5
+E06000030,Swindon,0 to 15,2016,20.3
+E06000030,Swindon,16 to 64,2016,64.2
+E06000030,Swindon,65 and over,2016,15.4
+E06000030,Swindon,0 to 15,2026,19.9
+E06000030,Swindon,16 to 64,2026,61.1
+E06000030,Swindon,65 and over,2026,19.0
+E06000031,Peterborough,0 to 15,2016,22.6
+E06000031,Peterborough,16 to 64,2016,63.0
+E06000031,Peterborough,65 and over,2016,14.5
+E06000031,Peterborough,0 to 15,2026,22.8
+E06000031,Peterborough,16 to 64,2026,60.8
+E06000031,Peterborough,65 and over,2026,16.5
+E06000032,Luton,0 to 15,2016,23.9
+E06000032,Luton,16 to 64,2016,64.0
+E06000032,Luton,65 and over,2016,12.1
+E06000032,Luton,0 to 15,2026,23.6
+E06000032,Luton,16 to 64,2026,62.9
+E06000032,Luton,65 and over,2026,13.5
+E06000033,Southend-on-Sea,0 to 15,2016,19.2
+E06000033,Southend-on-Sea,16 to 64,2016,61.7
+E06000033,Southend-on-Sea,65 and over,2016,19.1
+E06000033,Southend-on-Sea,0 to 15,2026,18.9
+E06000033,Southend-on-Sea,16 to 64,2026,60.0
+E06000033,Southend-on-Sea,65 and over,2026,21.2
+E06000034,Thurrock,0 to 15,2016,22.5
+E06000034,Thurrock,16 to 64,2016,63.7
+E06000034,Thurrock,65 and over,2016,13.8
+E06000034,Thurrock,0 to 15,2026,22.6
+E06000034,Thurrock,16 to 64,2026,62.5
+E06000034,Thurrock,65 and over,2026,14.8
+E06000035,Medway,0 to 15,2016,20.4
+E06000035,Medway,16 to 64,2016,64.0
+E06000035,Medway,65 and over,2016,15.6
+E06000035,Medway,0 to 15,2026,20.7
+E06000035,Medway,16 to 64,2026,61.9
+E06000035,Medway,65 and over,2026,17.5
+E06000036,Bracknell Forest,0 to 15,2016,20.8
+E06000036,Bracknell Forest,16 to 64,2016,65.3
+E06000036,Bracknell Forest,65 and over,2016,13.9
+E06000036,Bracknell Forest,0 to 15,2026,20.4
+E06000036,Bracknell Forest,16 to 64,2026,62.7
+E06000036,Bracknell Forest,65 and over,2026,16.9
+E06000037,West Berkshire,0 to 15,2016,20.0
+E06000037,West Berkshire,16 to 64,2016,62.0
+E06000037,West Berkshire,65 and over,2016,18.0
+E06000037,West Berkshire,0 to 15,2026,19.3
+E06000037,West Berkshire,16 to 64,2026,58.8
+E06000037,West Berkshire,65 and over,2026,21.9
+E06000038,Reading,0 to 15,2016,20.5
+E06000038,Reading,16 to 64,2016,67.4
+E06000038,Reading,65 and over,2016,12.1
+E06000038,Reading,0 to 15,2026,20.0
+E06000038,Reading,16 to 64,2026,66.3
+E06000038,Reading,65 and over,2026,13.6
+E06000039,Slough,0 to 15,2016,25.6
+E06000039,Slough,16 to 64,2016,64.7
+E06000039,Slough,65 and over,2016,9.6
+E06000039,Slough,0 to 15,2026,24.6
+E06000039,Slough,16 to 64,2026,63.7
+E06000039,Slough,65 and over,2026,11.7
+E06000040,Windsor and Maidenhead,0 to 15,2016,20.2
+E06000040,Windsor and Maidenhead,16 to 64,2016,61.6
+E06000040,Windsor and Maidenhead,65 and over,2016,18.2
+E06000040,Windsor and Maidenhead,0 to 15,2026,19.7
+E06000040,Windsor and Maidenhead,16 to 64,2026,59.8
+E06000040,Windsor and Maidenhead,65 and over,2026,20.5
+E06000041,Wokingham,0 to 15,2016,21.0
+E06000041,Wokingham,16 to 64,2016,61.7
+E06000041,Wokingham,65 and over,2016,17.3
+E06000041,Wokingham,0 to 15,2026,20.6
+E06000041,Wokingham,16 to 64,2026,59.7
+E06000041,Wokingham,65 and over,2026,19.7
+E06000042,Milton Keynes,0 to 15,2016,22.9
+E06000042,Milton Keynes,16 to 64,2016,64.1
+E06000042,Milton Keynes,65 and over,2016,13.0
+E06000042,Milton Keynes,0 to 15,2026,22.0
+E06000042,Milton Keynes,16 to 64,2026,61.9
+E06000042,Milton Keynes,65 and over,2026,16.2
+E06000043,Brighton and Hove,0 to 15,2016,15.9
+E06000043,Brighton and Hove,16 to 64,2016,70.7
+E06000043,Brighton and Hove,65 and over,2016,13.4
+E06000043,Brighton and Hove,0 to 15,2026,15.3
+E06000043,Brighton and Hove,16 to 64,2026,70.3
+E06000043,Brighton and Hove,65 and over,2026,14.4
+E06000044,Portsmouth,0 to 15,2016,18.6
+E06000044,Portsmouth,16 to 64,2016,67.4
+E06000044,Portsmouth,65 and over,2016,14.0
+E06000044,Portsmouth,0 to 15,2026,18.3
+E06000044,Portsmouth,16 to 64,2026,65.9
+E06000044,Portsmouth,65 and over,2026,15.7
+E06000045,Southampton,0 to 15,2016,18.0
+E06000045,Southampton,16 to 64,2016,68.8
+E06000045,Southampton,65 and over,2016,13.2
+E06000045,Southampton,0 to 15,2026,18.4
+E06000045,Southampton,16 to 64,2026,67.2
+E06000045,Southampton,65 and over,2026,14.4
+E06000046,Isle of Wight,0 to 15,2016,15.7
+E06000046,Isle of Wight,16 to 64,2016,57.3
+E06000046,Isle of Wight,65 and over,2016,27.0
+E06000046,Isle of Wight,0 to 15,2026,15.3
+E06000046,Isle of Wight,16 to 64,2026,53.4
+E06000046,Isle of Wight,65 and over,2026,31.3
+E06000047,County Durham,0 to 15,2016,17.1
+E06000047,County Durham,16 to 64,2016,62.7
+E06000047,County Durham,65 and over,2016,20.2
+E06000047,County Durham,0 to 15,2026,16.8
+E06000047,County Durham,16 to 64,2026,60.1
+E06000047,County Durham,65 and over,2026,23.1
+E06000049,Cheshire East,0 to 15,2016,17.7
+E06000049,Cheshire East,16 to 64,2016,60.1
+E06000049,Cheshire East,65 and over,2016,22.2
+E06000049,Cheshire East,0 to 15,2026,17.5
+E06000049,Cheshire East,16 to 64,2026,56.8
+E06000049,Cheshire East,65 and over,2026,25.7
+E06000050,Cheshire West and Chester,0 to 15,2016,17.6
+E06000050,Cheshire West and Chester,16 to 64,2016,61.4
+E06000050,Cheshire West and Chester,65 and over,2016,20.9
+E06000050,Cheshire West and Chester,0 to 15,2026,17.7
+E06000050,Cheshire West and Chester,16 to 64,2026,58.4
+E06000050,Cheshire West and Chester,65 and over,2026,23.9
+E06000051,Shropshire,0 to 15,2016,16.5
+E06000051,Shropshire,16 to 64,2016,59.8
+E06000051,Shropshire,65 and over,2016,23.6
+E06000051,Shropshire,0 to 15,2026,15.7
+E06000051,Shropshire,16 to 64,2026,56.4
+E06000051,Shropshire,65 and over,2026,27.9
+E06000052,Cornwall,0 to 15,2016,16.9
+E06000052,Cornwall,16 to 64,2016,58.8
+E06000052,Cornwall,65 and over,2016,24.3
+E06000052,Cornwall,0 to 15,2026,16.9
+E06000052,Cornwall,16 to 64,2026,56.0
+E06000052,Cornwall,65 and over,2026,27.1
+E06000053,Isles of Scilly,0 to 15,2016,15.0
+E06000053,Isles of Scilly,16 to 64,2016,60.1
+E06000053,Isles of Scilly,65 and over,2016,24.9
+E06000053,Isles of Scilly,0 to 15,2026,15.6
+E06000053,Isles of Scilly,16 to 64,2026,56.2
+E06000053,Isles of Scilly,65 and over,2026,28.2
+E06000054,Wiltshire,0 to 15,2016,19.0
+E06000054,Wiltshire,16 to 64,2016,60.4
+E06000054,Wiltshire,65 and over,2016,20.7
+E06000054,Wiltshire,0 to 15,2026,18.2
+E06000054,Wiltshire,16 to 64,2026,57.4
+E06000054,Wiltshire,65 and over,2026,24.4
+E06000055,Bedford,0 to 15,2016,20.4
+E06000055,Bedford,16 to 64,2016,62.3
+E06000055,Bedford,65 and over,2016,17.3
+E06000055,Bedford,0 to 15,2026,20.2
+E06000055,Bedford,16 to 64,2026,60.2
+E06000055,Bedford,65 and over,2026,19.6
+E06000056,Central Bedfordshire,0 to 15,2016,19.7
+E06000056,Central Bedfordshire,16 to 64,2016,62.8
+E06000056,Central Bedfordshire,65 and over,2016,17.5
+E06000056,Central Bedfordshire,0 to 15,2026,19.8
+E06000056,Central Bedfordshire,16 to 64,2026,60.4
+E06000056,Central Bedfordshire,65 and over,2026,19.8
+E06000057,Northumberland,0 to 15,2016,16.4
+E06000057,Northumberland,16 to 64,2016,60.1
+E06000057,Northumberland,65 and over,2016,23.5
+E06000057,Northumberland,0 to 15,2026,15.4
+E06000057,Northumberland,16 to 64,2026,56.0
+E06000057,Northumberland,65 and over,2026,28.6
+E07000004,Aylesbury Vale,0 to 15,2016,20.5
+E07000004,Aylesbury Vale,16 to 64,2016,62.9
+E07000004,Aylesbury Vale,65 and over,2016,16.5
+E07000004,Aylesbury Vale,0 to 15,2026,20.8
+E07000004,Aylesbury Vale,16 to 64,2026,60.3
+E07000004,Aylesbury Vale,65 and over,2026,19.0
+E07000005,Chiltern,0 to 15,2016,20.5
+E07000005,Chiltern,16 to 64,2016,58.2
+E07000005,Chiltern,65 and over,2016,21.3
+E07000005,Chiltern,0 to 15,2026,20.6
+E07000005,Chiltern,16 to 64,2026,55.9
+E07000005,Chiltern,65 and over,2026,23.5
+E07000006,South Bucks,0 to 15,2016,19.3
+E07000006,South Bucks,16 to 64,2016,59.8
+E07000006,South Bucks,65 and over,2016,20.9
+E07000006,South Bucks,0 to 15,2026,19.6
+E07000006,South Bucks,16 to 64,2026,57.1
+E07000006,South Bucks,65 and over,2026,23.3
+E07000007,Wycombe,0 to 15,2016,20.7
+E07000007,Wycombe,16 to 64,2016,61.5
+E07000007,Wycombe,65 and over,2016,17.8
+E07000007,Wycombe,0 to 15,2026,20.3
+E07000007,Wycombe,16 to 64,2026,59.4
+E07000007,Wycombe,65 and over,2026,20.3
+E07000008,Cambridge,0 to 15,2016,16.4
+E07000008,Cambridge,16 to 64,2016,71.0
+E07000008,Cambridge,65 and over,2016,12.6
+E07000008,Cambridge,0 to 15,2026,16.8
+E07000008,Cambridge,16 to 64,2026,68.7
+E07000008,Cambridge,65 and over,2026,14.6
+E07000009,East Cambridgeshire,0 to 15,2016,19.8
+E07000009,East Cambridgeshire,16 to 64,2016,60.8
+E07000009,East Cambridgeshire,65 and over,2016,19.4
+E07000009,East Cambridgeshire,0 to 15,2026,19.3
+E07000009,East Cambridgeshire,16 to 64,2026,58.3
+E07000009,East Cambridgeshire,65 and over,2026,22.4
+E07000010,Fenland,0 to 15,2016,17.7
+E07000010,Fenland,16 to 64,2016,60.0
+E07000010,Fenland,65 and over,2016,22.3
+E07000010,Fenland,0 to 15,2026,17.8
+E07000010,Fenland,16 to 64,2026,56.9
+E07000010,Fenland,65 and over,2026,25.3
+E07000011,Huntingdonshire,0 to 15,2016,18.6
+E07000011,Huntingdonshire,16 to 64,2016,62.1
+E07000011,Huntingdonshire,65 and over,2016,19.2
+E07000011,Huntingdonshire,0 to 15,2026,18.2
+E07000011,Huntingdonshire,16 to 64,2026,58.8
+E07000011,Huntingdonshire,65 and over,2026,23.0
+E07000012,South Cambridgeshire,0 to 15,2016,20.0
+E07000012,South Cambridgeshire,16 to 64,2016,61.1
+E07000012,South Cambridgeshire,65 and over,2016,18.9
+E07000012,South Cambridgeshire,0 to 15,2026,19.4
+E07000012,South Cambridgeshire,16 to 64,2026,59.0
+E07000012,South Cambridgeshire,65 and over,2026,21.6
+E07000026,Allerdale,0 to 15,2016,16.4
+E07000026,Allerdale,16 to 64,2016,59.9
+E07000026,Allerdale,65 and over,2016,23.7
+E07000026,Allerdale,0 to 15,2026,16.0
+E07000026,Allerdale,16 to 64,2026,56.8
+E07000026,Allerdale,65 and over,2026,27.2
+E07000027,Barrow-in-Furness,0 to 15,2016,17.6
+E07000027,Barrow-in-Furness,16 to 64,2016,61.2
+E07000027,Barrow-in-Furness,65 and over,2016,21.2
+E07000027,Barrow-in-Furness,0 to 15,2026,17.5
+E07000027,Barrow-in-Furness,16 to 64,2026,58.3
+E07000027,Barrow-in-Furness,65 and over,2026,24.1
+E07000028,Carlisle,0 to 15,2016,17.6
+E07000028,Carlisle,16 to 64,2016,61.5
+E07000028,Carlisle,65 and over,2016,20.8
+E07000028,Carlisle,0 to 15,2026,17.5
+E07000028,Carlisle,16 to 64,2026,57.8
+E07000028,Carlisle,65 and over,2026,24.7
+E07000029,Copeland,0 to 15,2016,16.8
+E07000029,Copeland,16 to 64,2016,61.3
+E07000029,Copeland,65 and over,2016,21.9
+E07000029,Copeland,0 to 15,2026,16.7
+E07000029,Copeland,16 to 64,2026,57.4
+E07000029,Copeland,65 and over,2026,25.9
+E07000030,Eden,0 to 15,2016,15.2
+E07000030,Eden,16 to 64,2016,59.0
+E07000030,Eden,65 and over,2016,25.8
+E07000030,Eden,0 to 15,2026,14.6
+E07000030,Eden,16 to 64,2026,54.5
+E07000030,Eden,65 and over,2026,30.9
+E07000031,South Lakeland,0 to 15,2016,14.8
+E07000031,South Lakeland,16 to 64,2016,57.6
+E07000031,South Lakeland,65 and over,2016,27.5
+E07000031,South Lakeland,0 to 15,2026,14.3
+E07000031,South Lakeland,16 to 64,2026,54.2
+E07000031,South Lakeland,65 and over,2026,31.6
+E07000032,Amber Valley,0 to 15,2016,16.8
+E07000032,Amber Valley,16 to 64,2016,61.6
+E07000032,Amber Valley,65 and over,2016,21.6
+E07000032,Amber Valley,0 to 15,2026,16.3
+E07000032,Amber Valley,16 to 64,2026,58.8
+E07000032,Amber Valley,65 and over,2026,25.0
+E07000033,Bolsover,0 to 15,2016,17.6
+E07000033,Bolsover,16 to 64,2016,62.6
+E07000033,Bolsover,65 and over,2016,19.8
+E07000033,Bolsover,0 to 15,2026,17.3
+E07000033,Bolsover,16 to 64,2026,60.3
+E07000033,Bolsover,65 and over,2026,22.4
+E07000034,Chesterfield,0 to 15,2016,16.8
+E07000034,Chesterfield,16 to 64,2016,62.6
+E07000034,Chesterfield,65 and over,2016,20.6
+E07000034,Chesterfield,0 to 15,2026,16.6
+E07000034,Chesterfield,16 to 64,2026,59.8
+E07000034,Chesterfield,65 and over,2026,23.6
+E07000035,Derbyshire Dales,0 to 15,2016,15.4
+E07000035,Derbyshire Dales,16 to 64,2016,58.5
+E07000035,Derbyshire Dales,65 and over,2016,26.1
+E07000035,Derbyshire Dales,0 to 15,2026,14.6
+E07000035,Derbyshire Dales,16 to 64,2026,54.7
+E07000035,Derbyshire Dales,65 and over,2026,30.7
+E07000036,Erewash,0 to 15,2016,17.9
+E07000036,Erewash,16 to 64,2016,62.2
+E07000036,Erewash,65 and over,2016,19.9
+E07000036,Erewash,0 to 15,2026,17.8
+E07000036,Erewash,16 to 64,2026,60.0
+E07000036,Erewash,65 and over,2026,22.2
+E07000037,High Peak,0 to 15,2016,17.0
+E07000037,High Peak,16 to 64,2016,62.7
+E07000037,High Peak,65 and over,2016,20.3
+E07000037,High Peak,0 to 15,2026,16.1
+E07000037,High Peak,16 to 64,2026,59.4
+E07000037,High Peak,65 and over,2026,24.6
+E07000038,North East Derbyshire,0 to 15,2016,16.2
+E07000038,North East Derbyshire,16 to 64,2016,59.8
+E07000038,North East Derbyshire,65 and over,2016,24.0
+E07000038,North East Derbyshire,0 to 15,2026,16.2
+E07000038,North East Derbyshire,16 to 64,2026,56.7
+E07000038,North East Derbyshire,65 and over,2026,27.2
+E07000039,South Derbyshire,0 to 15,2016,19.0
+E07000039,South Derbyshire,16 to 64,2016,63.3
+E07000039,South Derbyshire,65 and over,2016,17.8
+E07000039,South Derbyshire,0 to 15,2026,18.3
+E07000039,South Derbyshire,16 to 64,2026,60.8
+E07000039,South Derbyshire,65 and over,2026,20.9
+E07000040,East Devon,0 to 15,2016,15.8
+E07000040,East Devon,16 to 64,2016,54.3
+E07000040,East Devon,65 and over,2016,29.9
+E07000040,East Devon,0 to 15,2026,16.3
+E07000040,East Devon,16 to 64,2026,51.7
+E07000040,East Devon,65 and over,2026,32.0
+E07000041,Exeter,0 to 15,2016,15.4
+E07000041,Exeter,16 to 64,2016,68.7
+E07000041,Exeter,65 and over,2016,15.9
+E07000041,Exeter,0 to 15,2026,15.3
+E07000041,Exeter,16 to 64,2026,67.7
+E07000041,Exeter,65 and over,2026,17.0
+E07000042,Mid Devon,0 to 15,2016,18.3
+E07000042,Mid Devon,16 to 64,2016,58.7
+E07000042,Mid Devon,65 and over,2016,23.0
+E07000042,Mid Devon,0 to 15,2026,17.8
+E07000042,Mid Devon,16 to 64,2026,56.1
+E07000042,Mid Devon,65 and over,2026,26.1
+E07000043,North Devon,0 to 15,2016,17.2
+E07000043,North Devon,16 to 64,2016,58.0
+E07000043,North Devon,65 and over,2016,24.8
+E07000043,North Devon,0 to 15,2026,16.9
+E07000043,North Devon,16 to 64,2026,55.3
+E07000043,North Devon,65 and over,2026,27.8
+E07000044,South Hams,0 to 15,2016,15.8
+E07000044,South Hams,16 to 64,2016,57.0
+E07000044,South Hams,65 and over,2016,27.3
+E07000044,South Hams,0 to 15,2026,15.7
+E07000044,South Hams,16 to 64,2026,53.2
+E07000044,South Hams,65 and over,2026,31.2
+E07000045,Teignbridge,0 to 15,2016,16.3
+E07000045,Teignbridge,16 to 64,2016,57.8
+E07000045,Teignbridge,65 and over,2016,25.8
+E07000045,Teignbridge,0 to 15,2026,16.5
+E07000045,Teignbridge,16 to 64,2026,54.8
+E07000045,Teignbridge,65 and over,2026,28.7
+E07000046,Torridge,0 to 15,2016,16.3
+E07000046,Torridge,16 to 64,2016,57.2
+E07000046,Torridge,65 and over,2016,26.5
+E07000046,Torridge,0 to 15,2026,16.0
+E07000046,Torridge,16 to 64,2026,54.0
+E07000046,Torridge,65 and over,2026,30.0
+E07000047,West Devon,0 to 15,2016,16.0
+E07000047,West Devon,16 to 64,2016,57.2
+E07000047,West Devon,65 and over,2016,26.8
+E07000047,West Devon,0 to 15,2026,15.4
+E07000047,West Devon,16 to 64,2026,53.3
+E07000047,West Devon,65 and over,2026,31.3
+E07000048,Christchurch,0 to 15,2016,15.6
+E07000048,Christchurch,16 to 64,2016,53.1
+E07000048,Christchurch,65 and over,2016,31.3
+E07000048,Christchurch,0 to 15,2026,15.5
+E07000048,Christchurch,16 to 64,2026,51.6
+E07000048,Christchurch,65 and over,2026,32.9
+E07000049,East Dorset,0 to 15,2016,15.3
+E07000049,East Dorset,16 to 64,2016,53.6
+E07000049,East Dorset,65 and over,2016,31.1
+E07000049,East Dorset,0 to 15,2026,15.4
+E07000049,East Dorset,16 to 64,2026,50.3
+E07000049,East Dorset,65 and over,2026,34.3
+E07000050,North Dorset,0 to 15,2016,17.0
+E07000050,North Dorset,16 to 64,2016,58.1
+E07000050,North Dorset,65 and over,2016,24.9
+E07000050,North Dorset,0 to 15,2026,16.3
+E07000050,North Dorset,16 to 64,2026,54.0
+E07000050,North Dorset,65 and over,2026,29.8
+E07000051,Purbeck,0 to 15,2016,16.0
+E07000051,Purbeck,16 to 64,2016,57.0
+E07000051,Purbeck,65 and over,2016,27.0
+E07000051,Purbeck,0 to 15,2026,15.8
+E07000051,Purbeck,16 to 64,2026,53.9
+E07000051,Purbeck,65 and over,2026,30.4
+E07000052,West Dorset,0 to 15,2016,15.4
+E07000052,West Dorset,16 to 64,2016,54.8
+E07000052,West Dorset,65 and over,2016,29.8
+E07000052,West Dorset,0 to 15,2026,15.2
+E07000052,West Dorset,16 to 64,2026,50.7
+E07000052,West Dorset,65 and over,2026,34.1
+E07000053,Weymouth and Portland,0 to 15,2016,16.5
+E07000053,Weymouth and Portland,16 to 64,2016,58.9
+E07000053,Weymouth and Portland,65 and over,2016,24.6
+E07000053,Weymouth and Portland,0 to 15,2026,15.7
+E07000053,Weymouth and Portland,16 to 64,2026,54.9
+E07000053,Weymouth and Portland,65 and over,2026,29.5
+E07000061,Eastbourne,0 to 15,2016,17.1
+E07000061,Eastbourne,16 to 64,2016,58.3
+E07000061,Eastbourne,65 and over,2016,24.5
+E07000061,Eastbourne,0 to 15,2026,16.6
+E07000061,Eastbourne,16 to 64,2026,55.8
+E07000061,Eastbourne,65 and over,2026,27.6
+E07000062,Hastings,0 to 15,2016,18.6
+E07000062,Hastings,16 to 64,2016,62.1
+E07000062,Hastings,65 and over,2016,19.2
+E07000062,Hastings,0 to 15,2026,18.3
+E07000062,Hastings,16 to 64,2026,59.7
+E07000062,Hastings,65 and over,2026,22.1
+E07000063,Lewes,0 to 15,2016,17.3
+E07000063,Lewes,16 to 64,2016,57.7
+E07000063,Lewes,65 and over,2016,25.0
+E07000063,Lewes,0 to 15,2026,16.7
+E07000063,Lewes,16 to 64,2026,55.8
+E07000063,Lewes,65 and over,2026,27.5
+E07000064,Rother,0 to 15,2016,15.0
+E07000064,Rother,16 to 64,2016,53.6
+E07000064,Rother,65 and over,2016,31.3
+E07000064,Rother,0 to 15,2026,14.5
+E07000064,Rother,16 to 64,2026,50.7
+E07000064,Rother,65 and over,2026,34.8
+E07000065,Wealden,0 to 15,2016,17.1
+E07000065,Wealden,16 to 64,2016,57.4
+E07000065,Wealden,65 and over,2016,25.5
+E07000065,Wealden,0 to 15,2026,16.6
+E07000065,Wealden,16 to 64,2026,54.7
+E07000065,Wealden,65 and over,2026,28.8
+E07000066,Basildon,0 to 15,2016,20.5
+E07000066,Basildon,16 to 64,2016,62.3
+E07000066,Basildon,65 and over,2016,17.2
+E07000066,Basildon,0 to 15,2026,21.0
+E07000066,Basildon,16 to 64,2026,60.5
+E07000066,Basildon,65 and over,2026,18.5
+E07000067,Braintree,0 to 15,2016,19.2
+E07000067,Braintree,16 to 64,2016,61.3
+E07000067,Braintree,65 and over,2016,19.5
+E07000067,Braintree,0 to 15,2026,18.0
+E07000067,Braintree,16 to 64,2026,59.0
+E07000067,Braintree,65 and over,2026,23.0
+E07000068,Brentwood,0 to 15,2016,18.4
+E07000068,Brentwood,16 to 64,2016,61.3
+E07000068,Brentwood,65 and over,2016,20.3
+E07000068,Brentwood,0 to 15,2026,19.4
+E07000068,Brentwood,16 to 64,2026,59.4
+E07000068,Brentwood,65 and over,2026,21.2
+E07000069,Castle Point,0 to 15,2016,16.6
+E07000069,Castle Point,16 to 64,2016,58.6
+E07000069,Castle Point,65 and over,2016,24.8
+E07000069,Castle Point,0 to 15,2026,17.4
+E07000069,Castle Point,16 to 64,2026,55.6
+E07000069,Castle Point,65 and over,2026,27.0
+E07000070,Chelmsford,0 to 15,2016,18.8
+E07000070,Chelmsford,16 to 64,2016,62.3
+E07000070,Chelmsford,65 and over,2016,18.9
+E07000070,Chelmsford,0 to 15,2026,18.7
+E07000070,Chelmsford,16 to 64,2026,60.2
+E07000070,Chelmsford,65 and over,2026,21.1
+E07000071,Colchester,0 to 15,2016,18.6
+E07000071,Colchester,16 to 64,2016,64.2
+E07000071,Colchester,65 and over,2016,17.2
+E07000071,Colchester,0 to 15,2026,18.9
+E07000071,Colchester,16 to 64,2026,62.8
+E07000071,Colchester,65 and over,2026,18.4
+E07000072,Epping Forest,0 to 15,2016,18.6
+E07000072,Epping Forest,16 to 64,2016,61.8
+E07000072,Epping Forest,65 and over,2016,19.5
+E07000072,Epping Forest,0 to 15,2026,19.2
+E07000072,Epping Forest,16 to 64,2026,60.0
+E07000072,Epping Forest,65 and over,2026,20.7
+E07000073,Harlow,0 to 15,2016,21.7
+E07000073,Harlow,16 to 64,2016,62.9
+E07000073,Harlow,65 and over,2016,15.3
+E07000073,Harlow,0 to 15,2026,22.3
+E07000073,Harlow,16 to 64,2026,60.7
+E07000073,Harlow,65 and over,2026,16.9
+E07000074,Maldon,0 to 15,2016,16.5
+E07000074,Maldon,16 to 64,2016,59.4
+E07000074,Maldon,65 and over,2016,24.1
+E07000074,Maldon,0 to 15,2026,16.2
+E07000074,Maldon,16 to 64,2026,55.1
+E07000074,Maldon,65 and over,2026,28.7
+E07000075,Rochford,0 to 15,2016,17.1
+E07000075,Rochford,16 to 64,2016,60.1
+E07000075,Rochford,65 and over,2016,22.8
+E07000075,Rochford,0 to 15,2026,16.9
+E07000075,Rochford,16 to 64,2026,57.8
+E07000075,Rochford,65 and over,2026,25.2
+E07000076,Tendring,0 to 15,2016,16.3
+E07000076,Tendring,16 to 64,2016,54.4
+E07000076,Tendring,65 and over,2016,29.3
+E07000076,Tendring,0 to 15,2026,16.3
+E07000076,Tendring,16 to 64,2026,51.7
+E07000076,Tendring,65 and over,2026,32.0
+E07000077,Uttlesford,0 to 15,2016,20.0
+E07000077,Uttlesford,16 to 64,2016,60.7
+E07000077,Uttlesford,65 and over,2016,19.3
+E07000077,Uttlesford,0 to 15,2026,20.0
+E07000077,Uttlesford,16 to 64,2026,57.5
+E07000077,Uttlesford,65 and over,2026,22.5
+E07000078,Cheltenham,0 to 15,2016,17.6
+E07000078,Cheltenham,16 to 64,2016,63.9
+E07000078,Cheltenham,65 and over,2016,18.6
+E07000078,Cheltenham,0 to 15,2026,17.6
+E07000078,Cheltenham,16 to 64,2026,60.9
+E07000078,Cheltenham,65 and over,2026,21.5
+E07000079,Cotswold,0 to 15,2016,16.2
+E07000079,Cotswold,16 to 64,2016,58.8
+E07000079,Cotswold,65 and over,2016,25.0
+E07000079,Cotswold,0 to 15,2026,15.9
+E07000079,Cotswold,16 to 64,2026,55.1
+E07000079,Cotswold,65 and over,2026,29.0
+E07000080,Forest of Dean,0 to 15,2016,16.4
+E07000080,Forest of Dean,16 to 64,2016,60.0
+E07000080,Forest of Dean,65 and over,2016,23.7
+E07000080,Forest of Dean,0 to 15,2026,16.4
+E07000080,Forest of Dean,16 to 64,2026,55.9
+E07000080,Forest of Dean,65 and over,2026,27.7
+E07000081,Gloucester,0 to 15,2016,20.2
+E07000081,Gloucester,16 to 64,2016,63.6
+E07000081,Gloucester,65 and over,2016,16.2
+E07000081,Gloucester,0 to 15,2026,20.1
+E07000081,Gloucester,16 to 64,2026,61.1
+E07000081,Gloucester,65 and over,2026,18.8
+E07000082,Stroud,0 to 15,2016,17.9
+E07000082,Stroud,16 to 64,2016,60.1
+E07000082,Stroud,65 and over,2016,22.0
+E07000082,Stroud,0 to 15,2026,17.8
+E07000082,Stroud,16 to 64,2026,57.1
+E07000082,Stroud,65 and over,2026,25.1
+E07000083,Tewkesbury,0 to 15,2016,18.2
+E07000083,Tewkesbury,16 to 64,2016,59.8
+E07000083,Tewkesbury,65 and over,2016,22.1
+E07000083,Tewkesbury,0 to 15,2026,18.6
+E07000083,Tewkesbury,16 to 64,2026,56.4
+E07000083,Tewkesbury,65 and over,2026,25.0
+E07000084,Basingstoke and Deane,0 to 15,2016,20.0
+E07000084,Basingstoke and Deane,16 to 64,2016,63.3
+E07000084,Basingstoke and Deane,65 and over,2016,16.7
+E07000084,Basingstoke and Deane,0 to 15,2026,19.4
+E07000084,Basingstoke and Deane,16 to 64,2026,60.8
+E07000084,Basingstoke and Deane,65 and over,2026,19.8
+E07000085,East Hampshire,0 to 15,2016,18.1
+E07000085,East Hampshire,16 to 64,2016,59.3
+E07000085,East Hampshire,65 and over,2016,22.5
+E07000085,East Hampshire,0 to 15,2026,17.4
+E07000085,East Hampshire,16 to 64,2026,55.7
+E07000085,East Hampshire,65 and over,2026,26.9
+E07000086,Eastleigh,0 to 15,2016,19.1
+E07000086,Eastleigh,16 to 64,2016,61.9
+E07000086,Eastleigh,65 and over,2016,19.0
+E07000086,Eastleigh,0 to 15,2026,18.8
+E07000086,Eastleigh,16 to 64,2026,59.2
+E07000086,Eastleigh,65 and over,2026,22.1
+E07000087,Fareham,0 to 15,2016,16.8
+E07000087,Fareham,16 to 64,2016,60.4
+E07000087,Fareham,65 and over,2016,22.8
+E07000087,Fareham,0 to 15,2026,16.6
+E07000087,Fareham,16 to 64,2026,57.5
+E07000087,Fareham,65 and over,2026,25.9
+E07000088,Gosport,0 to 15,2016,18.8
+E07000088,Gosport,16 to 64,2016,61.8
+E07000088,Gosport,65 and over,2016,19.4
+E07000088,Gosport,0 to 15,2026,17.1
+E07000088,Gosport,16 to 64,2026,59.4
+E07000088,Gosport,65 and over,2026,23.5
+E07000089,Hart,0 to 15,2016,20.0
+E07000089,Hart,16 to 64,2016,60.8
+E07000089,Hart,65 and over,2016,19.2
+E07000089,Hart,0 to 15,2026,19.2
+E07000089,Hart,16 to 64,2026,58.3
+E07000089,Hart,65 and over,2026,22.5
+E07000090,Havant,0 to 15,2016,17.6
+E07000090,Havant,16 to 64,2016,59.3
+E07000090,Havant,65 and over,2016,23.1
+E07000090,Havant,0 to 15,2026,17.3
+E07000090,Havant,16 to 64,2026,56.5
+E07000090,Havant,65 and over,2026,26.2
+E07000091,New Forest,0 to 15,2016,16.0
+E07000091,New Forest,16 to 64,2016,56.0
+E07000091,New Forest,65 and over,2016,28.1
+E07000091,New Forest,0 to 15,2026,15.4
+E07000091,New Forest,16 to 64,2026,52.8
+E07000091,New Forest,65 and over,2026,31.8
+E07000092,Rushmoor,0 to 15,2016,19.9
+E07000092,Rushmoor,16 to 64,2016,66.1
+E07000092,Rushmoor,65 and over,2016,13.9
+E07000092,Rushmoor,0 to 15,2026,18.9
+E07000092,Rushmoor,16 to 64,2026,63.9
+E07000092,Rushmoor,65 and over,2026,17.2
+E07000093,Test Valley,0 to 15,2016,18.7
+E07000093,Test Valley,16 to 64,2016,60.2
+E07000093,Test Valley,65 and over,2016,21.1
+E07000093,Test Valley,0 to 15,2026,18.9
+E07000093,Test Valley,16 to 64,2026,56.9
+E07000093,Test Valley,65 and over,2026,24.2
+E07000094,Winchester,0 to 15,2016,18.3
+E07000094,Winchester,16 to 64,2016,61.0
+E07000094,Winchester,65 and over,2016,20.6
+E07000094,Winchester,0 to 15,2026,17.9
+E07000094,Winchester,16 to 64,2026,58.9
+E07000094,Winchester,65 and over,2026,23.2
+E07000095,Broxbourne,0 to 15,2016,20.1
+E07000095,Broxbourne,16 to 64,2016,62.2
+E07000095,Broxbourne,65 and over,2016,17.7
+E07000095,Broxbourne,0 to 15,2026,20.2
+E07000095,Broxbourne,16 to 64,2026,60.4
+E07000095,Broxbourne,65 and over,2026,19.4
+E07000096,Dacorum,0 to 15,2016,20.0
+E07000096,Dacorum,16 to 64,2016,63.1
+E07000096,Dacorum,65 and over,2016,16.9
+E07000096,Dacorum,0 to 15,2026,20.1
+E07000096,Dacorum,16 to 64,2026,60.9
+E07000096,Dacorum,65 and over,2026,19.0
+E07000098,Hertsmere,0 to 15,2016,21.0
+E07000098,Hertsmere,16 to 64,2016,61.1
+E07000098,Hertsmere,65 and over,2016,17.9
+E07000098,Hertsmere,0 to 15,2026,21.1
+E07000098,Hertsmere,16 to 64,2026,58.6
+E07000098,Hertsmere,65 and over,2026,20.3
+E07000099,North Hertfordshire,0 to 15,2016,19.6
+E07000099,North Hertfordshire,16 to 64,2016,61.8
+E07000099,North Hertfordshire,65 and over,2016,18.6
+E07000099,North Hertfordshire,0 to 15,2026,19.5
+E07000099,North Hertfordshire,16 to 64,2026,59.8
+E07000099,North Hertfordshire,65 and over,2026,20.7
+E07000102,Three Rivers,0 to 15,2016,20.3
+E07000102,Three Rivers,16 to 64,2016,61.6
+E07000102,Three Rivers,65 and over,2016,18.1
+E07000102,Three Rivers,0 to 15,2026,20.5
+E07000102,Three Rivers,16 to 64,2026,59.6
+E07000102,Three Rivers,65 and over,2026,19.9
+E07000103,Watford,0 to 15,2016,21.9
+E07000103,Watford,16 to 64,2016,65.2
+E07000103,Watford,65 and over,2016,12.9
+E07000103,Watford,0 to 15,2026,22.0
+E07000103,Watford,16 to 64,2026,63.7
+E07000103,Watford,65 and over,2026,14.3
+E07000105,Ashford,0 to 15,2016,20.6
+E07000105,Ashford,16 to 64,2016,60.3
+E07000105,Ashford,65 and over,2016,19.1
+E07000105,Ashford,0 to 15,2026,20.0
+E07000105,Ashford,16 to 64,2026,58.6
+E07000105,Ashford,65 and over,2026,21.4
+E07000106,Canterbury,0 to 15,2016,15.8
+E07000106,Canterbury,16 to 64,2016,64.2
+E07000106,Canterbury,65 and over,2016,20.1
+E07000106,Canterbury,0 to 15,2026,15.4
+E07000106,Canterbury,16 to 64,2026,62.4
+E07000106,Canterbury,65 and over,2026,22.1
+E07000107,Dartford,0 to 15,2016,21.1
+E07000107,Dartford,16 to 64,2016,64.1
+E07000107,Dartford,65 and over,2016,14.7
+E07000107,Dartford,0 to 15,2026,21.5
+E07000107,Dartford,16 to 64,2026,62.9
+E07000107,Dartford,65 and over,2026,15.6
+E07000108,Dover,0 to 15,2016,17.4
+E07000108,Dover,16 to 64,2016,59.6
+E07000108,Dover,65 and over,2016,23.0
+E07000108,Dover,0 to 15,2026,16.5
+E07000108,Dover,16 to 64,2026,56.4
+E07000108,Dover,65 and over,2026,27.0
+E07000109,Gravesham,0 to 15,2016,20.9
+E07000109,Gravesham,16 to 64,2016,62.0
+E07000109,Gravesham,65 and over,2016,17.2
+E07000109,Gravesham,0 to 15,2026,21.0
+E07000109,Gravesham,16 to 64,2026,60.6
+E07000109,Gravesham,65 and over,2026,18.5
+E07000110,Maidstone,0 to 15,2016,19.4
+E07000110,Maidstone,16 to 64,2016,61.5
+E07000110,Maidstone,65 and over,2016,19.0
+E07000110,Maidstone,0 to 15,2026,19.5
+E07000110,Maidstone,16 to 64,2026,59.5
+E07000110,Maidstone,65 and over,2026,21.1
+E07000111,Sevenoaks,0 to 15,2016,20.0
+E07000111,Sevenoaks,16 to 64,2016,58.9
+E07000111,Sevenoaks,65 and over,2016,21.1
+E07000111,Sevenoaks,0 to 15,2026,20.2
+E07000111,Sevenoaks,16 to 64,2026,56.9
+E07000111,Sevenoaks,65 and over,2026,22.9
+E07000112,Shepway,0 to 15,2016,17.1
+E07000112,Shepway,16 to 64,2016,59.1
+E07000112,Shepway,65 and over,2016,23.9
+E07000112,Shepway,0 to 15,2026,16.0
+E07000112,Shepway,16 to 64,2026,56.5
+E07000112,Shepway,65 and over,2026,27.5
+E07000113,Swale,0 to 15,2016,20.0
+E07000113,Swale,16 to 64,2016,61.0
+E07000113,Swale,65 and over,2016,19.0
+E07000113,Swale,0 to 15,2026,19.7
+E07000113,Swale,16 to 64,2026,58.7
+E07000113,Swale,65 and over,2026,21.6
+E07000114,Thanet,0 to 15,2016,18.8
+E07000114,Thanet,16 to 64,2016,58.1
+E07000114,Thanet,65 and over,2016,23.1
+E07000114,Thanet,0 to 15,2026,18.1
+E07000114,Thanet,16 to 64,2026,56.0
+E07000114,Thanet,65 and over,2026,25.9
+E07000115,Tonbridge and Malling,0 to 15,2016,20.3
+E07000115,Tonbridge and Malling,16 to 64,2016,61.1
+E07000115,Tonbridge and Malling,65 and over,2016,18.6
+E07000115,Tonbridge and Malling,0 to 15,2026,20.0
+E07000115,Tonbridge and Malling,16 to 64,2026,59.3
+E07000115,Tonbridge and Malling,65 and over,2026,20.6
+E07000116,Tunbridge Wells,0 to 15,2016,20.1
+E07000116,Tunbridge Wells,16 to 64,2016,61.1
+E07000116,Tunbridge Wells,65 and over,2016,18.9
+E07000116,Tunbridge Wells,0 to 15,2026,19.2
+E07000116,Tunbridge Wells,16 to 64,2026,59.2
+E07000116,Tunbridge Wells,65 and over,2026,21.6
+E07000117,Burnley,0 to 15,2016,20.4
+E07000117,Burnley,16 to 64,2016,61.3
+E07000117,Burnley,65 and over,2016,18.3
+E07000117,Burnley,0 to 15,2026,20.0
+E07000117,Burnley,16 to 64,2026,59.2
+E07000117,Burnley,65 and over,2026,20.9
+E07000118,Chorley,0 to 15,2016,18.3
+E07000118,Chorley,16 to 64,2016,62.3
+E07000118,Chorley,65 and over,2016,19.4
+E07000118,Chorley,0 to 15,2026,18.2
+E07000118,Chorley,16 to 64,2026,59.6
+E07000118,Chorley,65 and over,2026,22.1
+E07000119,Fylde,0 to 15,2016,15.7
+E07000119,Fylde,16 to 64,2016,57.6
+E07000119,Fylde,65 and over,2016,26.7
+E07000119,Fylde,0 to 15,2026,15.0
+E07000119,Fylde,16 to 64,2026,53.9
+E07000119,Fylde,65 and over,2026,31.2
+E07000120,Hyndburn,0 to 15,2016,20.7
+E07000120,Hyndburn,16 to 64,2016,61.2
+E07000120,Hyndburn,65 and over,2016,18.1
+E07000120,Hyndburn,0 to 15,2026,20.1
+E07000120,Hyndburn,16 to 64,2026,59.0
+E07000120,Hyndburn,65 and over,2026,20.9
+E07000121,Lancaster,0 to 15,2016,16.9
+E07000121,Lancaster,16 to 64,2016,63.4
+E07000121,Lancaster,65 and over,2016,19.7
+E07000121,Lancaster,0 to 15,2026,17.6
+E07000121,Lancaster,16 to 64,2026,60.4
+E07000121,Lancaster,65 and over,2026,21.9
+E07000122,Pendle,0 to 15,2016,21.1
+E07000122,Pendle,16 to 64,2016,60.7
+E07000122,Pendle,65 and over,2016,18.3
+E07000122,Pendle,0 to 15,2026,20.5
+E07000122,Pendle,16 to 64,2026,58.5
+E07000122,Pendle,65 and over,2026,21.0
+E07000123,Preston,0 to 15,2016,19.7
+E07000123,Preston,16 to 64,2016,65.6
+E07000123,Preston,65 and over,2016,14.7
+E07000123,Preston,0 to 15,2026,19.8
+E07000123,Preston,16 to 64,2026,63.7
+E07000123,Preston,65 and over,2026,16.5
+E07000124,Ribble Valley,0 to 15,2016,17.3
+E07000124,Ribble Valley,16 to 64,2016,59.6
+E07000124,Ribble Valley,65 and over,2016,23.1
+E07000124,Ribble Valley,0 to 15,2026,16.4
+E07000124,Ribble Valley,16 to 64,2026,56.4
+E07000124,Ribble Valley,65 and over,2026,27.2
+E07000125,Rossendale,0 to 15,2016,19.6
+E07000125,Rossendale,16 to 64,2016,62.4
+E07000125,Rossendale,65 and over,2016,18.0
+E07000125,Rossendale,0 to 15,2026,19.0
+E07000125,Rossendale,16 to 64,2026,59.8
+E07000125,Rossendale,65 and over,2026,21.2
+E07000126,South Ribble,0 to 15,2016,18.2
+E07000126,South Ribble,16 to 64,2016,61.2
+E07000126,South Ribble,65 and over,2016,20.6
+E07000126,South Ribble,0 to 15,2026,17.9
+E07000126,South Ribble,16 to 64,2026,58.1
+E07000126,South Ribble,65 and over,2026,24.0
+E07000127,West Lancashire,0 to 15,2016,17.2
+E07000127,West Lancashire,16 to 64,2016,61.4
+E07000127,West Lancashire,65 and over,2016,21.5
+E07000127,West Lancashire,0 to 15,2026,16.9
+E07000127,West Lancashire,16 to 64,2026,58.7
+E07000127,West Lancashire,65 and over,2026,24.5
+E07000128,Wyre,0 to 15,2016,15.8
+E07000128,Wyre,16 to 64,2016,57.2
+E07000128,Wyre,65 and over,2016,26.9
+E07000128,Wyre,0 to 15,2026,15.6
+E07000128,Wyre,16 to 64,2026,54.5
+E07000128,Wyre,65 and over,2026,29.9
+E07000129,Blaby,0 to 15,2016,18.6
+E07000129,Blaby,16 to 64,2016,61.3
+E07000129,Blaby,65 and over,2016,20.2
+E07000129,Blaby,0 to 15,2026,18.8
+E07000129,Blaby,16 to 64,2026,58.8
+E07000129,Blaby,65 and over,2026,22.4
+E07000130,Charnwood,0 to 15,2016,16.9
+E07000130,Charnwood,16 to 64,2016,65.2
+E07000130,Charnwood,65 and over,2016,17.9
+E07000130,Charnwood,0 to 15,2026,17.3
+E07000130,Charnwood,16 to 64,2026,62.9
+E07000130,Charnwood,65 and over,2026,19.8
+E07000131,Harborough,0 to 15,2016,18.6
+E07000131,Harborough,16 to 64,2016,60.2
+E07000131,Harborough,65 and over,2016,21.2
+E07000131,Harborough,0 to 15,2026,18.1
+E07000131,Harborough,16 to 64,2026,56.8
+E07000131,Harborough,65 and over,2026,25.0
+E07000132,Hinckley and Bosworth,0 to 15,2016,17.7
+E07000132,Hinckley and Bosworth,16 to 64,2016,61.1
+E07000132,Hinckley and Bosworth,65 and over,2016,21.3
+E07000132,Hinckley and Bosworth,0 to 15,2026,17.6
+E07000132,Hinckley and Bosworth,16 to 64,2026,58.2
+E07000132,Hinckley and Bosworth,65 and over,2026,24.2
+E07000133,Melton,0 to 15,2016,17.7
+E07000133,Melton,16 to 64,2016,60.8
+E07000133,Melton,65 and over,2016,21.5
+E07000133,Melton,0 to 15,2026,17.3
+E07000133,Melton,16 to 64,2026,56.9
+E07000133,Melton,65 and over,2026,25.8
+E07000134,North West Leicestershire,0 to 15,2016,18.2
+E07000134,North West Leicestershire,16 to 64,2016,62.1
+E07000134,North West Leicestershire,65 and over,2016,19.7
+E07000134,North West Leicestershire,0 to 15,2026,17.7
+E07000134,North West Leicestershire,16 to 64,2026,60.0
+E07000134,North West Leicestershire,65 and over,2026,22.4
+E07000135,Oadby and Wigston,0 to 15,2016,17.6
+E07000135,Oadby and Wigston,16 to 64,2016,60.9
+E07000135,Oadby and Wigston,65 and over,2016,21.5
+E07000135,Oadby and Wigston,0 to 15,2026,18.4
+E07000135,Oadby and Wigston,16 to 64,2026,57.1
+E07000135,Oadby and Wigston,65 and over,2026,24.5
+E07000136,Boston,0 to 15,2016,18.4
+E07000136,Boston,16 to 64,2016,60.7
+E07000136,Boston,65 and over,2016,20.8
+E07000136,Boston,0 to 15,2026,18.8
+E07000136,Boston,16 to 64,2026,58.8
+E07000136,Boston,65 and over,2026,22.4
+E07000137,East Lindsey,0 to 15,2016,15.1
+E07000137,East Lindsey,16 to 64,2016,55.6
+E07000137,East Lindsey,65 and over,2016,29.3
+E07000137,East Lindsey,0 to 15,2026,14.9
+E07000137,East Lindsey,16 to 64,2026,52.4
+E07000137,East Lindsey,65 and over,2026,32.6
+E07000138,Lincoln,0 to 15,2016,16.8
+E07000138,Lincoln,16 to 64,2016,68.2
+E07000138,Lincoln,65 and over,2016,15.0
+E07000138,Lincoln,0 to 15,2026,16.9
+E07000138,Lincoln,16 to 64,2026,66.0
+E07000138,Lincoln,65 and over,2026,17.1
+E07000139,North Kesteven,0 to 15,2016,17.3
+E07000139,North Kesteven,16 to 64,2016,59.5
+E07000139,North Kesteven,65 and over,2016,23.2
+E07000139,North Kesteven,0 to 15,2026,17.5
+E07000139,North Kesteven,16 to 64,2026,56.6
+E07000139,North Kesteven,65 and over,2026,26.0
+E07000140,South Holland,0 to 15,2016,17.0
+E07000140,South Holland,16 to 64,2016,58.9
+E07000140,South Holland,65 and over,2016,24.1
+E07000140,South Holland,0 to 15,2026,17.6
+E07000140,South Holland,16 to 64,2026,56.5
+E07000140,South Holland,65 and over,2026,26.0
+E07000141,South Kesteven,0 to 15,2016,18.2
+E07000141,South Kesteven,16 to 64,2016,59.9
+E07000141,South Kesteven,65 and over,2016,21.9
+E07000141,South Kesteven,0 to 15,2026,17.9
+E07000141,South Kesteven,16 to 64,2026,56.3
+E07000141,South Kesteven,65 and over,2026,25.8
+E07000142,West Lindsey,0 to 15,2016,17.2
+E07000142,West Lindsey,16 to 64,2016,59.1
+E07000142,West Lindsey,65 and over,2016,23.7
+E07000142,West Lindsey,0 to 15,2026,17.5
+E07000142,West Lindsey,16 to 64,2026,55.3
+E07000142,West Lindsey,65 and over,2026,27.2
+E07000143,Breckland,0 to 15,2016,17.3
+E07000143,Breckland,16 to 64,2016,58.4
+E07000143,Breckland,65 and over,2016,24.3
+E07000143,Breckland,0 to 15,2026,17.0
+E07000143,Breckland,16 to 64,2026,55.6
+E07000143,Breckland,65 and over,2026,27.4
+E07000144,Broadland,0 to 15,2016,16.3
+E07000144,Broadland,16 to 64,2016,58.4
+E07000144,Broadland,65 and over,2016,25.3
+E07000144,Broadland,0 to 15,2026,16.4
+E07000144,Broadland,16 to 64,2026,55.9
+E07000144,Broadland,65 and over,2026,27.7
+E07000145,Great Yarmouth,0 to 15,2016,17.7
+E07000145,Great Yarmouth,16 to 64,2016,58.7
+E07000145,Great Yarmouth,65 and over,2016,23.6
+E07000145,Great Yarmouth,0 to 15,2026,17.3
+E07000145,Great Yarmouth,16 to 64,2026,56.1
+E07000145,Great Yarmouth,65 and over,2026,26.6
+E07000146,King's Lynn and West Norfolk,0 to 15,2016,17.2
+E07000146,King's Lynn and West Norfolk,16 to 64,2016,57.5
+E07000146,King's Lynn and West Norfolk,65 and over,2016,25.3
+E07000146,King's Lynn and West Norfolk,0 to 15,2026,17.3
+E07000146,King's Lynn and West Norfolk,16 to 64,2026,54.8
+E07000146,King's Lynn and West Norfolk,65 and over,2026,27.9
+E07000147,North Norfolk,0 to 15,2016,14.0
+E07000147,North Norfolk,16 to 64,2016,53.9
+E07000147,North Norfolk,65 and over,2016,32.1
+E07000147,North Norfolk,0 to 15,2026,13.6
+E07000147,North Norfolk,16 to 64,2026,50.8
+E07000147,North Norfolk,65 and over,2026,35.5
+E07000148,Norwich,0 to 15,2016,17.1
+E07000148,Norwich,16 to 64,2016,68.2
+E07000148,Norwich,65 and over,2016,14.8
+E07000148,Norwich,0 to 15,2026,17.1
+E07000148,Norwich,16 to 64,2026,67.2
+E07000148,Norwich,65 and over,2026,15.6
+E07000149,South Norfolk,0 to 15,2016,17.9
+E07000149,South Norfolk,16 to 64,2016,58.2
+E07000149,South Norfolk,65 and over,2016,23.9
+E07000149,South Norfolk,0 to 15,2026,17.9
+E07000149,South Norfolk,16 to 64,2026,56.0
+E07000149,South Norfolk,65 and over,2026,26.1
+E07000150,Corby,0 to 15,2016,22.0
+E07000150,Corby,16 to 64,2016,64.0
+E07000150,Corby,65 and over,2016,14.1
+E07000150,Corby,0 to 15,2026,21.9
+E07000150,Corby,16 to 64,2026,62.1
+E07000150,Corby,65 and over,2026,16.0
+E07000151,Daventry,0 to 15,2016,18.3
+E07000151,Daventry,16 to 64,2016,61.4
+E07000151,Daventry,65 and over,2016,20.3
+E07000151,Daventry,0 to 15,2026,17.6
+E07000151,Daventry,16 to 64,2026,58.1
+E07000151,Daventry,65 and over,2026,24.4
+E07000152,East Northamptonshire,0 to 15,2016,19.0
+E07000152,East Northamptonshire,16 to 64,2016,60.9
+E07000152,East Northamptonshire,65 and over,2016,20.2
+E07000152,East Northamptonshire,0 to 15,2026,18.0
+E07000152,East Northamptonshire,16 to 64,2026,57.6
+E07000152,East Northamptonshire,65 and over,2026,24.4
+E07000153,Kettering,0 to 15,2016,20.4
+E07000153,Kettering,16 to 64,2016,61.3
+E07000153,Kettering,65 and over,2016,18.3
+E07000153,Kettering,0 to 15,2026,19.8
+E07000153,Kettering,16 to 64,2026,59.5
+E07000153,Kettering,65 and over,2026,20.6
+E07000154,Northampton,0 to 15,2016,21.1
+E07000154,Northampton,16 to 64,2016,64.1
+E07000154,Northampton,65 and over,2016,14.8
+E07000154,Northampton,0 to 15,2026,20.6
+E07000154,Northampton,16 to 64,2026,62.4
+E07000154,Northampton,65 and over,2026,17.0
+E07000155,South Northamptonshire,0 to 15,2016,19.0
+E07000155,South Northamptonshire,16 to 64,2016,60.7
+E07000155,South Northamptonshire,65 and over,2016,20.2
+E07000155,South Northamptonshire,0 to 15,2026,18.6
+E07000155,South Northamptonshire,16 to 64,2026,57.3
+E07000155,South Northamptonshire,65 and over,2026,24.1
+E07000156,Wellingborough,0 to 15,2016,20.6
+E07000156,Wellingborough,16 to 64,2016,60.5
+E07000156,Wellingborough,65 and over,2016,18.9
+E07000156,Wellingborough,0 to 15,2026,20.2
+E07000156,Wellingborough,16 to 64,2026,58.3
+E07000156,Wellingborough,65 and over,2026,21.5
+E07000163,Craven,0 to 15,2016,16.1
+E07000163,Craven,16 to 64,2016,58.0
+E07000163,Craven,65 and over,2016,25.9
+E07000163,Craven,0 to 15,2026,15.7
+E07000163,Craven,16 to 64,2026,53.5
+E07000163,Craven,65 and over,2026,30.7
+E07000164,Hambleton,0 to 15,2016,16.3
+E07000164,Hambleton,16 to 64,2016,58.7
+E07000164,Hambleton,65 and over,2016,25.0
+E07000164,Hambleton,0 to 15,2026,15.8
+E07000164,Hambleton,16 to 64,2026,54.4
+E07000164,Hambleton,65 and over,2026,29.8
+E07000165,Harrogate,0 to 15,2016,17.8
+E07000165,Harrogate,16 to 64,2016,59.7
+E07000165,Harrogate,65 and over,2016,22.5
+E07000165,Harrogate,0 to 15,2026,16.8
+E07000165,Harrogate,16 to 64,2026,56.0
+E07000165,Harrogate,65 and over,2026,27.2
+E07000166,Richmondshire,0 to 15,2016,16.9
+E07000166,Richmondshire,16 to 64,2016,63.1
+E07000166,Richmondshire,65 and over,2016,20.0
+E07000166,Richmondshire,0 to 15,2026,16.2
+E07000166,Richmondshire,16 to 64,2026,58.5
+E07000166,Richmondshire,65 and over,2026,25.3
+E07000167,Ryedale,0 to 15,2016,15.6
+E07000167,Ryedale,16 to 64,2016,58.3
+E07000167,Ryedale,65 and over,2016,26.1
+E07000167,Ryedale,0 to 15,2026,16.0
+E07000167,Ryedale,16 to 64,2026,54.7
+E07000167,Ryedale,65 and over,2026,29.4
+E07000168,Scarborough,0 to 15,2016,15.9
+E07000168,Scarborough,16 to 64,2016,57.8
+E07000168,Scarborough,65 and over,2016,26.3
+E07000168,Scarborough,0 to 15,2026,15.5
+E07000168,Scarborough,16 to 64,2026,54.1
+E07000168,Scarborough,65 and over,2026,30.4
+E07000169,Selby,0 to 15,2016,18.3
+E07000169,Selby,16 to 64,2016,62.0
+E07000169,Selby,65 and over,2016,19.7
+E07000169,Selby,0 to 15,2026,18.1
+E07000169,Selby,16 to 64,2026,58.5
+E07000169,Selby,65 and over,2026,23.4
+E07000170,Ashfield,0 to 15,2016,18.8
+E07000170,Ashfield,16 to 64,2016,62.5
+E07000170,Ashfield,65 and over,2016,18.8
+E07000170,Ashfield,0 to 15,2026,18.5
+E07000170,Ashfield,16 to 64,2026,60.2
+E07000170,Ashfield,65 and over,2026,21.3
+E07000171,Bassetlaw,0 to 15,2016,17.4
+E07000171,Bassetlaw,16 to 64,2016,61.3
+E07000171,Bassetlaw,65 and over,2016,21.3
+E07000171,Bassetlaw,0 to 15,2026,17.3
+E07000171,Bassetlaw,16 to 64,2026,57.8
+E07000171,Bassetlaw,65 and over,2026,24.9
+E07000172,Broxtowe,0 to 15,2016,17.1
+E07000172,Broxtowe,16 to 64,2016,62.3
+E07000172,Broxtowe,65 and over,2016,20.6
+E07000172,Broxtowe,0 to 15,2026,17.5
+E07000172,Broxtowe,16 to 64,2026,60.0
+E07000172,Broxtowe,65 and over,2026,22.5
+E07000173,Gedling,0 to 15,2016,17.8
+E07000173,Gedling,16 to 64,2016,61.7
+E07000173,Gedling,65 and over,2016,20.4
+E07000173,Gedling,0 to 15,2026,18.1
+E07000173,Gedling,16 to 64,2026,59.5
+E07000173,Gedling,65 and over,2026,22.4
+E07000174,Mansfield,0 to 15,2016,18.4
+E07000174,Mansfield,16 to 64,2016,62.8
+E07000174,Mansfield,65 and over,2016,18.7
+E07000174,Mansfield,0 to 15,2026,18.4
+E07000174,Mansfield,16 to 64,2026,60.1
+E07000174,Mansfield,65 and over,2026,21.5
+E07000175,Newark and Sherwood,0 to 15,2016,17.8
+E07000175,Newark and Sherwood,16 to 64,2016,60.7
+E07000175,Newark and Sherwood,65 and over,2016,21.4
+E07000175,Newark and Sherwood,0 to 15,2026,17.7
+E07000175,Newark and Sherwood,16 to 64,2026,57.9
+E07000175,Newark and Sherwood,65 and over,2026,24.4
+E07000176,Rushcliffe,0 to 15,2016,18.3
+E07000176,Rushcliffe,16 to 64,2016,61.1
+E07000176,Rushcliffe,65 and over,2016,20.7
+E07000176,Rushcliffe,0 to 15,2026,17.9
+E07000176,Rushcliffe,16 to 64,2026,58.9
+E07000176,Rushcliffe,65 and over,2026,23.2
+E07000177,Cherwell,0 to 15,2016,19.8
+E07000177,Cherwell,16 to 64,2016,62.6
+E07000177,Cherwell,65 and over,2016,17.6
+E07000177,Cherwell,0 to 15,2026,18.7
+E07000177,Cherwell,16 to 64,2026,60.3
+E07000177,Cherwell,65 and over,2026,21.0
+E07000178,Oxford,0 to 15,2016,17.4
+E07000178,Oxford,16 to 64,2016,70.7
+E07000178,Oxford,65 and over,2016,11.8
+E07000178,Oxford,0 to 15,2026,17.1
+E07000178,Oxford,16 to 64,2026,69.1
+E07000178,Oxford,65 and over,2026,13.8
+E07000179,South Oxfordshire,0 to 15,2016,19.0
+E07000179,South Oxfordshire,16 to 64,2016,60.6
+E07000179,South Oxfordshire,65 and over,2016,20.4
+E07000179,South Oxfordshire,0 to 15,2026,18.4
+E07000179,South Oxfordshire,16 to 64,2026,57.8
+E07000179,South Oxfordshire,65 and over,2026,23.7
+E07000180,Vale of White Horse,0 to 15,2016,19.1
+E07000180,Vale of White Horse,16 to 64,2016,61.0
+E07000180,Vale of White Horse,65 and over,2016,20.0
+E07000180,Vale of White Horse,0 to 15,2026,18.7
+E07000180,Vale of White Horse,16 to 64,2026,58.5
+E07000180,Vale of White Horse,65 and over,2026,22.9
+E07000181,West Oxfordshire,0 to 15,2016,18.5
+E07000181,West Oxfordshire,16 to 64,2016,60.6
+E07000181,West Oxfordshire,65 and over,2016,20.9
+E07000181,West Oxfordshire,0 to 15,2026,18.0
+E07000181,West Oxfordshire,16 to 64,2026,57.5
+E07000181,West Oxfordshire,65 and over,2026,24.5
+E07000187,Mendip,0 to 15,2016,17.9
+E07000187,Mendip,16 to 64,2016,59.8
+E07000187,Mendip,65 and over,2016,22.3
+E07000187,Mendip,0 to 15,2026,17.6
+E07000187,Mendip,16 to 64,2026,56.4
+E07000187,Mendip,65 and over,2026,26.0
+E07000188,Sedgemoor,0 to 15,2016,18.0
+E07000188,Sedgemoor,16 to 64,2016,59.2
+E07000188,Sedgemoor,65 and over,2016,22.8
+E07000188,Sedgemoor,0 to 15,2026,18.1
+E07000188,Sedgemoor,16 to 64,2026,56.1
+E07000188,Sedgemoor,65 and over,2026,25.8
+E07000189,South Somerset,0 to 15,2016,17.4
+E07000189,South Somerset,16 to 64,2016,58.1
+E07000189,South Somerset,65 and over,2016,24.5
+E07000189,South Somerset,0 to 15,2026,17.0
+E07000189,South Somerset,16 to 64,2026,54.8
+E07000189,South Somerset,65 and over,2026,28.2
+E07000190,Taunton Deane,0 to 15,2016,18.0
+E07000190,Taunton Deane,16 to 64,2016,59.6
+E07000190,Taunton Deane,65 and over,2016,22.4
+E07000190,Taunton Deane,0 to 15,2026,17.8
+E07000190,Taunton Deane,16 to 64,2026,56.0
+E07000190,Taunton Deane,65 and over,2026,26.2
+E07000191,West Somerset,0 to 15,2016,13.6
+E07000191,West Somerset,16 to 64,2016,53.2
+E07000191,West Somerset,65 and over,2016,33.2
+E07000191,West Somerset,0 to 15,2026,13.1
+E07000191,West Somerset,16 to 64,2026,48.5
+E07000191,West Somerset,65 and over,2026,38.4
+E07000192,Cannock Chase,0 to 15,2016,18.0
+E07000192,Cannock Chase,16 to 64,2016,63.4
+E07000192,Cannock Chase,65 and over,2016,18.6
+E07000192,Cannock Chase,0 to 15,2026,16.9
+E07000192,Cannock Chase,16 to 64,2026,61.2
+E07000192,Cannock Chase,65 and over,2026,21.9
+E07000193,East Staffordshire,0 to 15,2016,19.4
+E07000193,East Staffordshire,16 to 64,2016,61.9
+E07000193,East Staffordshire,65 and over,2016,18.7
+E07000193,East Staffordshire,0 to 15,2026,19.1
+E07000193,East Staffordshire,16 to 64,2026,59.2
+E07000193,East Staffordshire,65 and over,2026,21.7
+E07000194,Lichfield,0 to 15,2016,17.0
+E07000194,Lichfield,16 to 64,2016,59.7
+E07000194,Lichfield,65 and over,2016,23.3
+E07000194,Lichfield,0 to 15,2026,16.3
+E07000194,Lichfield,16 to 64,2026,57.2
+E07000194,Lichfield,65 and over,2026,26.5
+E07000195,Newcastle-under-Lyme,0 to 15,2016,16.3
+E07000195,Newcastle-under-Lyme,16 to 64,2016,63.7
+E07000195,Newcastle-under-Lyme,65 and over,2016,20.0
+E07000195,Newcastle-under-Lyme,0 to 15,2026,16.2
+E07000195,Newcastle-under-Lyme,16 to 64,2026,61.9
+E07000195,Newcastle-under-Lyme,65 and over,2026,21.9
+E07000196,South Staffordshire,0 to 15,2016,15.5
+E07000196,South Staffordshire,16 to 64,2016,60.7
+E07000196,South Staffordshire,65 and over,2016,23.8
+E07000196,South Staffordshire,0 to 15,2026,15.7
+E07000196,South Staffordshire,16 to 64,2026,56.9
+E07000196,South Staffordshire,65 and over,2026,27.4
+E07000197,Stafford,0 to 15,2016,16.8
+E07000197,Stafford,16 to 64,2016,61.4
+E07000197,Stafford,65 and over,2016,21.8
+E07000197,Stafford,0 to 15,2026,16.4
+E07000197,Stafford,16 to 64,2026,58.9
+E07000197,Stafford,65 and over,2026,24.7
+E07000198,Staffordshire Moorlands,0 to 15,2016,16.1
+E07000198,Staffordshire Moorlands,16 to 64,2016,59.6
+E07000198,Staffordshire Moorlands,65 and over,2016,24.2
+E07000198,Staffordshire Moorlands,0 to 15,2026,15.8
+E07000198,Staffordshire Moorlands,16 to 64,2026,56.9
+E07000198,Staffordshire Moorlands,65 and over,2026,27.4
+E07000199,Tamworth,0 to 15,2016,19.5
+E07000199,Tamworth,16 to 64,2016,62.8
+E07000199,Tamworth,65 and over,2016,17.8
+E07000199,Tamworth,0 to 15,2026,18.3
+E07000199,Tamworth,16 to 64,2026,59.9
+E07000199,Tamworth,65 and over,2026,21.8
+E07000200,Babergh,0 to 15,2016,17.2
+E07000200,Babergh,16 to 64,2016,57.5
+E07000200,Babergh,65 and over,2016,25.3
+E07000200,Babergh,0 to 15,2026,16.4
+E07000200,Babergh,16 to 64,2026,54.1
+E07000200,Babergh,65 and over,2026,29.5
+E07000201,Forest Heath,0 to 15,2016,20.2
+E07000201,Forest Heath,16 to 64,2016,61.7
+E07000201,Forest Heath,65 and over,2016,18.2
+E07000201,Forest Heath,0 to 15,2026,22.0
+E07000201,Forest Heath,16 to 64,2026,57.6
+E07000201,Forest Heath,65 and over,2026,20.3
+E07000202,Ipswich,0 to 15,2016,19.9
+E07000202,Ipswich,16 to 64,2016,64.1
+E07000202,Ipswich,65 and over,2016,16.0
+E07000202,Ipswich,0 to 15,2026,19.4
+E07000202,Ipswich,16 to 64,2026,62.2
+E07000202,Ipswich,65 and over,2026,18.4
+E07000203,Mid Suffolk,0 to 15,2016,17.1
+E07000203,Mid Suffolk,16 to 64,2016,59.3
+E07000203,Mid Suffolk,65 and over,2016,23.6
+E07000203,Mid Suffolk,0 to 15,2026,15.8
+E07000203,Mid Suffolk,16 to 64,2026,56.1
+E07000203,Mid Suffolk,65 and over,2026,28.1
+E07000204,St Edmundsbury,0 to 15,2016,18.0
+E07000204,St Edmundsbury,16 to 64,2016,60.1
+E07000204,St Edmundsbury,65 and over,2016,21.9
+E07000204,St Edmundsbury,0 to 15,2026,17.3
+E07000204,St Edmundsbury,16 to 64,2026,57.6
+E07000204,St Edmundsbury,65 and over,2026,25.2
+E07000205,Suffolk Coastal,0 to 15,2016,16.7
+E07000205,Suffolk Coastal,16 to 64,2016,56.7
+E07000205,Suffolk Coastal,65 and over,2016,26.6
+E07000205,Suffolk Coastal,0 to 15,2026,15.7
+E07000205,Suffolk Coastal,16 to 64,2026,53.0
+E07000205,Suffolk Coastal,65 and over,2026,31.2
+E07000206,Waveney,0 to 15,2016,17.1
+E07000206,Waveney,16 to 64,2016,56.5
+E07000206,Waveney,65 and over,2016,26.4
+E07000206,Waveney,0 to 15,2026,16.7
+E07000206,Waveney,16 to 64,2026,54.3
+E07000206,Waveney,65 and over,2026,28.9
+E07000207,Elmbridge,0 to 15,2016,22.2
+E07000207,Elmbridge,16 to 64,2016,60.0
+E07000207,Elmbridge,65 and over,2016,17.8
+E07000207,Elmbridge,0 to 15,2026,21.9
+E07000207,Elmbridge,16 to 64,2026,58.2
+E07000207,Elmbridge,65 and over,2026,19.9
+E07000208,Epsom and Ewell,0 to 15,2016,20.2
+E07000208,Epsom and Ewell,16 to 64,2016,61.7
+E07000208,Epsom and Ewell,65 and over,2016,18.1
+E07000208,Epsom and Ewell,0 to 15,2026,20.7
+E07000208,Epsom and Ewell,16 to 64,2026,60.2
+E07000208,Epsom and Ewell,65 and over,2026,19.1
+E07000209,Guildford,0 to 15,2016,17.9
+E07000209,Guildford,16 to 64,2016,65.7
+E07000209,Guildford,65 and over,2016,16.4
+E07000209,Guildford,0 to 15,2026,17.7
+E07000209,Guildford,16 to 64,2026,64.4
+E07000209,Guildford,65 and over,2026,18.0
+E07000210,Mole Valley,0 to 15,2016,18.0
+E07000210,Mole Valley,16 to 64,2016,59.3
+E07000210,Mole Valley,65 and over,2016,22.7
+E07000210,Mole Valley,0 to 15,2026,17.5
+E07000210,Mole Valley,16 to 64,2026,56.8
+E07000210,Mole Valley,65 and over,2026,25.7
+E07000211,Reigate and Banstead,0 to 15,2016,20.3
+E07000211,Reigate and Banstead,16 to 64,2016,61.7
+E07000211,Reigate and Banstead,65 and over,2016,18.0
+E07000211,Reigate and Banstead,0 to 15,2026,20.3
+E07000211,Reigate and Banstead,16 to 64,2026,59.8
+E07000211,Reigate and Banstead,65 and over,2026,20.0
+E07000212,Runnymede,0 to 15,2016,17.3
+E07000212,Runnymede,16 to 64,2016,65.6
+E07000212,Runnymede,65 and over,2016,17.1
+E07000212,Runnymede,0 to 15,2026,17.4
+E07000212,Runnymede,16 to 64,2026,64.3
+E07000212,Runnymede,65 and over,2026,18.3
+E07000213,Spelthorne,0 to 15,2016,19.1
+E07000213,Spelthorne,16 to 64,2016,62.4
+E07000213,Spelthorne,65 and over,2016,18.5
+E07000213,Spelthorne,0 to 15,2026,19.3
+E07000213,Spelthorne,16 to 64,2026,60.5
+E07000213,Spelthorne,65 and over,2026,20.2
+E07000214,Surrey Heath,0 to 15,2016,19.2
+E07000214,Surrey Heath,16 to 64,2016,61.7
+E07000214,Surrey Heath,65 and over,2016,19.0
+E07000214,Surrey Heath,0 to 15,2026,18.7
+E07000214,Surrey Heath,16 to 64,2026,59.0
+E07000214,Surrey Heath,65 and over,2026,22.3
+E07000215,Tandridge,0 to 15,2016,19.1
+E07000215,Tandridge,16 to 64,2016,60.5
+E07000215,Tandridge,65 and over,2016,20.4
+E07000215,Tandridge,0 to 15,2026,18.9
+E07000215,Tandridge,16 to 64,2026,58.2
+E07000215,Tandridge,65 and over,2026,22.9
+E07000216,Waverley,0 to 15,2016,19.9
+E07000216,Waverley,16 to 64,2016,58.5
+E07000216,Waverley,65 and over,2016,21.6
+E07000216,Waverley,0 to 15,2026,19.6
+E07000216,Waverley,16 to 64,2026,56.5
+E07000216,Waverley,65 and over,2026,23.9
+E07000217,Woking,0 to 15,2016,21.2
+E07000217,Woking,16 to 64,2016,62.2
+E07000217,Woking,65 and over,2016,16.6
+E07000217,Woking,0 to 15,2026,20.4
+E07000217,Woking,16 to 64,2026,60.4
+E07000217,Woking,65 and over,2026,19.2
+E07000218,North Warwickshire,0 to 15,2016,17.2
+E07000218,North Warwickshire,16 to 64,2016,61.4
+E07000218,North Warwickshire,65 and over,2016,21.4
+E07000218,North Warwickshire,0 to 15,2026,16.9
+E07000218,North Warwickshire,16 to 64,2026,58.1
+E07000218,North Warwickshire,65 and over,2026,24.9
+E07000219,Nuneaton and Bedworth,0 to 15,2016,19.2
+E07000219,Nuneaton and Bedworth,16 to 64,2016,61.9
+E07000219,Nuneaton and Bedworth,65 and over,2016,18.9
+E07000219,Nuneaton and Bedworth,0 to 15,2026,19.2
+E07000219,Nuneaton and Bedworth,16 to 64,2026,59.5
+E07000219,Nuneaton and Bedworth,65 and over,2026,21.3
+E07000220,Rugby,0 to 15,2016,19.8
+E07000220,Rugby,16 to 64,2016,61.4
+E07000220,Rugby,65 and over,2016,18.9
+E07000220,Rugby,0 to 15,2026,19.8
+E07000220,Rugby,16 to 64,2026,59.3
+E07000220,Rugby,65 and over,2026,20.9
+E07000221,Stratford-on-Avon,0 to 15,2016,16.6
+E07000221,Stratford-on-Avon,16 to 64,2016,58.2
+E07000221,Stratford-on-Avon,65 and over,2016,25.3
+E07000221,Stratford-on-Avon,0 to 15,2026,16.2
+E07000221,Stratford-on-Avon,16 to 64,2026,54.9
+E07000221,Stratford-on-Avon,65 and over,2026,29.0
+E07000222,Warwick,0 to 15,2016,17.3
+E07000222,Warwick,16 to 64,2016,64.2
+E07000222,Warwick,65 and over,2016,18.6
+E07000222,Warwick,0 to 15,2026,17.0
+E07000222,Warwick,16 to 64,2026,62.6
+E07000222,Warwick,65 and over,2026,20.4
+E07000223,Adur,0 to 15,2016,18.0
+E07000223,Adur,16 to 64,2016,58.9
+E07000223,Adur,65 and over,2016,23.2
+E07000223,Adur,0 to 15,2026,18.3
+E07000223,Adur,16 to 64,2026,57.5
+E07000223,Adur,65 and over,2026,24.2
+E07000224,Arun,0 to 15,2016,16.0
+E07000224,Arun,16 to 64,2016,55.6
+E07000224,Arun,65 and over,2016,28.4
+E07000224,Arun,0 to 15,2026,15.7
+E07000224,Arun,16 to 64,2026,53.2
+E07000224,Arun,65 and over,2026,31.2
+E07000225,Chichester,0 to 15,2016,16.3
+E07000225,Chichester,16 to 64,2016,57.2
+E07000225,Chichester,65 and over,2016,26.5
+E07000225,Chichester,0 to 15,2026,15.8
+E07000225,Chichester,16 to 64,2026,54.6
+E07000225,Chichester,65 and over,2026,29.5
+E07000226,Crawley,0 to 15,2016,21.7
+E07000226,Crawley,16 to 64,2016,65.1
+E07000226,Crawley,65 and over,2016,13.2
+E07000226,Crawley,0 to 15,2026,21.1
+E07000226,Crawley,16 to 64,2026,63.8
+E07000226,Crawley,65 and over,2026,15.2
+E07000227,Horsham,0 to 15,2016,18.2
+E07000227,Horsham,16 to 64,2016,59.8
+E07000227,Horsham,65 and over,2016,22.0
+E07000227,Horsham,0 to 15,2026,17.9
+E07000227,Horsham,16 to 64,2026,56.4
+E07000227,Horsham,65 and over,2026,25.7
+E07000228,Mid Sussex,0 to 15,2016,19.4
+E07000228,Mid Sussex,16 to 64,2016,60.5
+E07000228,Mid Sussex,65 and over,2016,20.1
+E07000228,Mid Sussex,0 to 15,2026,19.5
+E07000228,Mid Sussex,16 to 64,2026,58.2
+E07000228,Mid Sussex,65 and over,2026,22.3
+E07000229,Worthing,0 to 15,2016,17.6
+E07000229,Worthing,16 to 64,2016,60.0
+E07000229,Worthing,65 and over,2016,22.3
+E07000229,Worthing,0 to 15,2026,16.4
+E07000229,Worthing,16 to 64,2026,58.2
+E07000229,Worthing,65 and over,2026,25.3
+E07000234,Bromsgrove,0 to 15,2016,17.6
+E07000234,Bromsgrove,16 to 64,2016,60.0
+E07000234,Bromsgrove,65 and over,2016,22.3
+E07000234,Bromsgrove,0 to 15,2026,18.3
+E07000234,Bromsgrove,16 to 64,2026,57.3
+E07000234,Bromsgrove,65 and over,2026,24.4
+E07000235,Malvern Hills,0 to 15,2016,15.8
+E07000235,Malvern Hills,16 to 64,2016,56.8
+E07000235,Malvern Hills,65 and over,2016,27.3
+E07000235,Malvern Hills,0 to 15,2026,15.6
+E07000235,Malvern Hills,16 to 64,2026,53.1
+E07000235,Malvern Hills,65 and over,2026,31.2
+E07000236,Redditch,0 to 15,2016,19.9
+E07000236,Redditch,16 to 64,2016,62.9
+E07000236,Redditch,65 and over,2016,17.2
+E07000236,Redditch,0 to 15,2026,19.1
+E07000236,Redditch,16 to 64,2026,59.9
+E07000236,Redditch,65 and over,2026,21.0
+E07000237,Worcester,0 to 15,2016,18.5
+E07000237,Worcester,16 to 64,2016,65.0
+E07000237,Worcester,65 and over,2016,16.4
+E07000237,Worcester,0 to 15,2026,18.0
+E07000237,Worcester,16 to 64,2026,63.4
+E07000237,Worcester,65 and over,2026,18.6
+E07000238,Wychavon,0 to 15,2016,16.9
+E07000238,Wychavon,16 to 64,2016,58.8
+E07000238,Wychavon,65 and over,2016,24.3
+E07000238,Wychavon,0 to 15,2026,16.9
+E07000238,Wychavon,16 to 64,2026,55.3
+E07000238,Wychavon,65 and over,2026,27.9
+E07000239,Wyre Forest,0 to 15,2016,17.1
+E07000239,Wyre Forest,16 to 64,2016,58.7
+E07000239,Wyre Forest,65 and over,2016,24.2
+E07000239,Wyre Forest,0 to 15,2026,17.4
+E07000239,Wyre Forest,16 to 64,2026,56.1
+E07000239,Wyre Forest,65 and over,2026,26.5
+E07000240,St Albans,0 to 15,2016,22.1
+E07000240,St Albans,16 to 64,2016,61.2
+E07000240,St Albans,65 and over,2016,16.6
+E07000240,St Albans,0 to 15,2026,22.0
+E07000240,St Albans,16 to 64,2026,59.8
+E07000240,St Albans,65 and over,2026,18.1
+E07000241,Welwyn Hatfield,0 to 15,2016,18.5
+E07000241,Welwyn Hatfield,16 to 64,2016,66.1
+E07000241,Welwyn Hatfield,65 and over,2016,15.4
+E07000241,Welwyn Hatfield,0 to 15,2026,19.2
+E07000241,Welwyn Hatfield,16 to 64,2026,64.2
+E07000241,Welwyn Hatfield,65 and over,2026,16.6
+E07000242,East Hertfordshire,0 to 15,2016,19.6
+E07000242,East Hertfordshire,16 to 64,2016,62.9
+E07000242,East Hertfordshire,65 and over,2016,17.5
+E07000242,East Hertfordshire,0 to 15,2026,19.6
+E07000242,East Hertfordshire,16 to 64,2026,60.2
+E07000242,East Hertfordshire,65 and over,2026,20.2
+E07000243,Stevenage,0 to 15,2016,20.5
+E07000243,Stevenage,16 to 64,2016,64.4
+E07000243,Stevenage,65 and over,2016,15.1
+E07000243,Stevenage,0 to 15,2026,20.3
+E07000243,Stevenage,16 to 64,2026,62.2
+E07000243,Stevenage,65 and over,2026,17.4
+E08000001,Bolton,0 to 15,2016,21.0
+E08000001,Bolton,16 to 64,2016,62.1
+E08000001,Bolton,65 and over,2016,16.9
+E08000001,Bolton,0 to 15,2026,21.1
+E08000001,Bolton,16 to 64,2026,60.2
+E08000001,Bolton,65 and over,2026,18.7
+E08000002,Bury,0 to 15,2016,20.3
+E08000002,Bury,16 to 64,2016,61.8
+E08000002,Bury,65 and over,2016,17.9
+E08000002,Bury,0 to 15,2026,20.4
+E08000002,Bury,16 to 64,2026,59.7
+E08000002,Bury,65 and over,2026,20.0
+E08000003,Manchester,0 to 15,2016,20.1
+E08000003,Manchester,16 to 64,2016,70.6
+E08000003,Manchester,65 and over,2016,9.3
+E08000003,Manchester,0 to 15,2026,20.6
+E08000003,Manchester,16 to 64,2026,69.4
+E08000003,Manchester,65 and over,2026,10.0
+E08000004,Oldham,0 to 15,2016,22.7
+E08000004,Oldham,16 to 64,2016,61.5
+E08000004,Oldham,65 and over,2016,15.9
+E08000004,Oldham,0 to 15,2026,22.4
+E08000004,Oldham,16 to 64,2026,60.2
+E08000004,Oldham,65 and over,2026,17.4
+E08000005,Rochdale,0 to 15,2016,21.3
+E08000005,Rochdale,16 to 64,2016,62.6
+E08000005,Rochdale,65 and over,2016,16.1
+E08000005,Rochdale,0 to 15,2026,21.1
+E08000005,Rochdale,16 to 64,2026,60.4
+E08000005,Rochdale,65 and over,2026,18.5
+E08000006,Salford,0 to 15,2016,20.0
+E08000006,Salford,16 to 64,2016,65.4
+E08000006,Salford,65 and over,2016,14.5
+E08000006,Salford,0 to 15,2026,20.4
+E08000006,Salford,16 to 64,2026,64.3
+E08000006,Salford,65 and over,2026,15.2
+E08000007,Stockport,0 to 15,2016,19.2
+E08000007,Stockport,16 to 64,2016,61.1
+E08000007,Stockport,65 and over,2016,19.7
+E08000007,Stockport,0 to 15,2026,19.7
+E08000007,Stockport,16 to 64,2026,58.7
+E08000007,Stockport,65 and over,2026,21.6
+E08000008,Tameside,0 to 15,2016,19.8
+E08000008,Tameside,16 to 64,2016,62.7
+E08000008,Tameside,65 and over,2016,17.5
+E08000008,Tameside,0 to 15,2026,19.9
+E08000008,Tameside,16 to 64,2026,60.3
+E08000008,Tameside,65 and over,2026,19.8
+E08000009,Trafford,0 to 15,2016,21.0
+E08000009,Trafford,16 to 64,2016,61.8
+E08000009,Trafford,65 and over,2016,17.2
+E08000009,Trafford,0 to 15,2026,21.0
+E08000009,Trafford,16 to 64,2026,60.3
+E08000009,Trafford,65 and over,2026,18.8
+E08000010,Wigan,0 to 15,2016,18.7
+E08000010,Wigan,16 to 64,2016,62.6
+E08000010,Wigan,65 and over,2016,18.7
+E08000010,Wigan,0 to 15,2026,17.8
+E08000010,Wigan,16 to 64,2026,60.9
+E08000010,Wigan,65 and over,2026,21.3
+E08000011,Knowsley,0 to 15,2016,19.7
+E08000011,Knowsley,16 to 64,2016,63.4
+E08000011,Knowsley,65 and over,2016,16.9
+E08000011,Knowsley,0 to 15,2026,20.6
+E08000011,Knowsley,16 to 64,2026,59.5
+E08000011,Knowsley,65 and over,2026,19.9
+E08000012,Liverpool,0 to 15,2016,16.9
+E08000012,Liverpool,16 to 64,2016,68.5
+E08000012,Liverpool,65 and over,2016,14.6
+E08000012,Liverpool,0 to 15,2026,18.0
+E08000012,Liverpool,16 to 64,2026,65.9
+E08000012,Liverpool,65 and over,2026,16.0
+E08000013,St. Helens,0 to 15,2016,18.1
+E08000013,St. Helens,16 to 64,2016,61.7
+E08000013,St. Helens,65 and over,2016,20.2
+E08000013,St. Helens,0 to 15,2026,18.0
+E08000013,St. Helens,16 to 64,2026,59.6
+E08000013,St. Helens,65 and over,2026,22.4
+E08000014,Sefton,0 to 15,2016,17.2
+E08000014,Sefton,16 to 64,2016,60.0
+E08000014,Sefton,65 and over,2016,22.8
+E08000014,Sefton,0 to 15,2026,17.6
+E08000014,Sefton,16 to 64,2026,56.4
+E08000014,Sefton,65 and over,2026,26.0
+E08000015,Wirral,0 to 15,2016,18.7
+E08000015,Wirral,16 to 64,2016,60.3
+E08000015,Wirral,65 and over,2016,21.1
+E08000015,Wirral,0 to 15,2026,18.6
+E08000015,Wirral,16 to 64,2026,57.3
+E08000015,Wirral,65 and over,2026,24.1
+E08000016,Barnsley,0 to 15,2016,18.4
+E08000016,Barnsley,16 to 64,2016,62.7
+E08000016,Barnsley,65 and over,2016,18.9
+E08000016,Barnsley,0 to 15,2026,18.1
+E08000016,Barnsley,16 to 64,2026,60.4
+E08000016,Barnsley,65 and over,2026,21.5
+E08000017,Doncaster,0 to 15,2016,19.1
+E08000017,Doncaster,16 to 64,2016,62.3
+E08000017,Doncaster,65 and over,2016,18.6
+E08000017,Doncaster,0 to 15,2026,18.5
+E08000017,Doncaster,16 to 64,2026,60.0
+E08000017,Doncaster,65 and over,2026,21.5
+E08000018,Rotherham,0 to 15,2016,19.2
+E08000018,Rotherham,16 to 64,2016,61.6
+E08000018,Rotherham,65 and over,2016,19.3
+E08000018,Rotherham,0 to 15,2026,19.0
+E08000018,Rotherham,16 to 64,2026,59.3
+E08000018,Rotherham,65 and over,2026,21.7
+E08000019,Sheffield,0 to 15,2016,18.1
+E08000019,Sheffield,16 to 64,2016,65.7
+E08000019,Sheffield,65 and over,2016,16.1
+E08000019,Sheffield,0 to 15,2026,18.1
+E08000019,Sheffield,16 to 64,2026,64.8
+E08000019,Sheffield,65 and over,2026,17.2
+E08000021,Newcastle upon Tyne,0 to 15,2016,17.4
+E08000021,Newcastle upon Tyne,16 to 64,2016,68.2
+E08000021,Newcastle upon Tyne,65 and over,2016,14.4
+E08000021,Newcastle upon Tyne,0 to 15,2026,18.0
+E08000021,Newcastle upon Tyne,16 to 64,2026,65.9
+E08000021,Newcastle upon Tyne,65 and over,2026,16.1
+E08000022,North Tyneside,0 to 15,2016,17.8
+E08000022,North Tyneside,16 to 64,2016,62.6
+E08000022,North Tyneside,65 and over,2016,19.6
+E08000022,North Tyneside,0 to 15,2026,17.2
+E08000022,North Tyneside,16 to 64,2026,60.0
+E08000022,North Tyneside,65 and over,2026,22.8
+E08000023,South Tyneside,0 to 15,2016,17.6
+E08000023,South Tyneside,16 to 64,2016,62.7
+E08000023,South Tyneside,65 and over,2016,19.8
+E08000023,South Tyneside,0 to 15,2026,17.7
+E08000023,South Tyneside,16 to 64,2026,59.1
+E08000023,South Tyneside,65 and over,2026,23.2
+E08000024,Sunderland,0 to 15,2016,17.4
+E08000024,Sunderland,16 to 64,2016,63.7
+E08000024,Sunderland,65 and over,2016,18.9
+E08000024,Sunderland,0 to 15,2026,17.4
+E08000024,Sunderland,16 to 64,2026,60.6
+E08000024,Sunderland,65 and over,2026,22.1
+E08000025,Birmingham,0 to 15,2016,22.8
+E08000025,Birmingham,16 to 64,2016,64.3
+E08000025,Birmingham,65 and over,2016,12.9
+E08000025,Birmingham,0 to 15,2026,22.7
+E08000025,Birmingham,16 to 64,2026,63.6
+E08000025,Birmingham,65 and over,2026,13.7
+E08000026,Coventry,0 to 15,2016,19.6
+E08000026,Coventry,16 to 64,2016,66.4
+E08000026,Coventry,65 and over,2016,14.0
+E08000026,Coventry,0 to 15,2026,20.1
+E08000026,Coventry,16 to 64,2026,66.1
+E08000026,Coventry,65 and over,2026,13.8
+E08000027,Dudley,0 to 15,2016,19.1
+E08000027,Dudley,16 to 64,2016,60.7
+E08000027,Dudley,65 and over,2016,20.1
+E08000027,Dudley,0 to 15,2026,19.2
+E08000027,Dudley,16 to 64,2026,59.1
+E08000027,Dudley,65 and over,2026,21.6
+E08000028,Sandwell,0 to 15,2016,22.4
+E08000028,Sandwell,16 to 64,2016,62.5
+E08000028,Sandwell,65 and over,2016,15.2
+E08000028,Sandwell,0 to 15,2026,22.0
+E08000028,Sandwell,16 to 64,2026,62.2
+E08000028,Sandwell,65 and over,2026,15.8
+E08000029,Solihull,0 to 15,2016,19.2
+E08000029,Solihull,16 to 64,2016,59.8
+E08000029,Solihull,65 and over,2016,21.0
+E08000029,Solihull,0 to 15,2026,19.9
+E08000029,Solihull,16 to 64,2026,57.7
+E08000029,Solihull,65 and over,2026,22.5
+E08000030,Walsall,0 to 15,2016,21.2
+E08000030,Walsall,16 to 64,2016,61.0
+E08000030,Walsall,65 and over,2016,17.8
+E08000030,Walsall,0 to 15,2026,21.4
+E08000030,Walsall,16 to 64,2026,60.1
+E08000030,Walsall,65 and over,2026,18.5
+E08000031,Wolverhampton,0 to 15,2016,20.6
+E08000031,Wolverhampton,16 to 64,2016,62.7
+E08000031,Wolverhampton,65 and over,2016,16.7
+E08000031,Wolverhampton,0 to 15,2026,21.3
+E08000031,Wolverhampton,16 to 64,2026,61.0
+E08000031,Wolverhampton,65 and over,2026,17.8
+E08000032,Bradford,0 to 15,2016,23.7
+E08000032,Bradford,16 to 64,2016,61.8
+E08000032,Bradford,65 and over,2016,14.5
+E08000032,Bradford,0 to 15,2026,22.7
+E08000032,Bradford,16 to 64,2026,60.3
+E08000032,Bradford,65 and over,2026,17.1
+E08000033,Calderdale,0 to 15,2016,19.6
+E08000033,Calderdale,16 to 64,2016,62.3
+E08000033,Calderdale,65 and over,2016,18.1
+E08000033,Calderdale,0 to 15,2026,19.1
+E08000033,Calderdale,16 to 64,2026,59.7
+E08000033,Calderdale,65 and over,2026,21.2
+E08000034,Kirklees,0 to 15,2016,20.4
+E08000034,Kirklees,16 to 64,2016,62.5
+E08000034,Kirklees,65 and over,2016,17.1
+E08000034,Kirklees,0 to 15,2026,19.7
+E08000034,Kirklees,16 to 64,2026,60.9
+E08000034,Kirklees,65 and over,2026,19.4
+E08000035,Leeds,0 to 15,2016,19.0
+E08000035,Leeds,16 to 64,2016,65.6
+E08000035,Leeds,65 and over,2016,15.4
+E08000035,Leeds,0 to 15,2026,19.7
+E08000035,Leeds,16 to 64,2026,63.8
+E08000035,Leeds,65 and over,2026,16.5
+E08000036,Wakefield,0 to 15,2016,18.7
+E08000036,Wakefield,16 to 64,2016,62.6
+E08000036,Wakefield,65 and over,2016,18.7
+E08000036,Wakefield,0 to 15,2026,18.7
+E08000036,Wakefield,16 to 64,2026,60.0
+E08000036,Wakefield,65 and over,2026,21.3
+E08000037,Gateshead,0 to 15,2016,17.5
+E08000037,Gateshead,16 to 64,2016,63.3
+E08000037,Gateshead,65 and over,2016,19.2
+E08000037,Gateshead,0 to 15,2026,17.2
+E08000037,Gateshead,16 to 64,2026,61.6
+E08000037,Gateshead,65 and over,2026,21.2
+E09000001,City of London,0 to 15,2016,14.1
+E09000001,City of London,16 to 64,2016,66.3
+E09000001,City of London,65 and over,2016,19.6
+E09000001,City of London,0 to 15,2026,17.5
+E09000001,City of London,16 to 64,2026,55.3
+E09000001,City of London,65 and over,2026,27.2
+E09000002,Barking and Dagenham,0 to 15,2016,27.2
+E09000002,Barking and Dagenham,16 to 64,2016,63.3
+E09000002,Barking and Dagenham,65 and over,2016,9.5
+E09000002,Barking and Dagenham,0 to 15,2026,26.8
+E09000002,Barking and Dagenham,16 to 64,2026,63.4
+E09000002,Barking and Dagenham,65 and over,2026,9.8
+E09000003,Barnet,0 to 15,2016,21.2
+E09000003,Barnet,16 to 64,2016,64.7
+E09000003,Barnet,65 and over,2016,14.1
+E09000003,Barnet,0 to 15,2026,20.4
+E09000003,Barnet,16 to 64,2026,63.6
+E09000003,Barnet,65 and over,2026,16.0
+E09000004,Bexley,0 to 15,2016,20.6
+E09000004,Bexley,16 to 64,2016,63.0
+E09000004,Bexley,65 and over,2016,16.5
+E09000004,Bexley,0 to 15,2026,21.2
+E09000004,Bexley,16 to 64,2026,61.8
+E09000004,Bexley,65 and over,2026,17.0
+E09000005,Brent,0 to 15,2016,21.1
+E09000005,Brent,16 to 64,2016,67.4
+E09000005,Brent,65 and over,2016,11.5
+E09000005,Brent,0 to 15,2026,20.5
+E09000005,Brent,16 to 64,2026,64.8
+E09000005,Brent,65 and over,2026,14.7
+E09000006,Bromley,0 to 15,2016,20.1
+E09000006,Bromley,16 to 64,2016,62.4
+E09000006,Bromley,65 and over,2016,17.5
+E09000006,Bromley,0 to 15,2026,20.5
+E09000006,Bromley,16 to 64,2026,61.5
+E09000006,Bromley,65 and over,2026,18.0
+E09000007,Camden,0 to 15,2016,17.4
+E09000007,Camden,16 to 64,2016,70.9
+E09000007,Camden,65 and over,2016,11.7
+E09000007,Camden,0 to 15,2026,16.9
+E09000007,Camden,16 to 64,2026,69.3
+E09000007,Camden,65 and over,2026,13.8
+E09000008,Croydon,0 to 15,2016,22.1
+E09000008,Croydon,16 to 64,2016,64.8
+E09000008,Croydon,65 and over,2016,13.1
+E09000008,Croydon,0 to 15,2026,21.6
+E09000008,Croydon,16 to 64,2026,63.0
+E09000008,Croydon,65 and over,2026,15.4
+E09000009,Ealing,0 to 15,2016,21.5
+E09000009,Ealing,16 to 64,2016,66.5
+E09000009,Ealing,65 and over,2016,12.0
+E09000009,Ealing,0 to 15,2026,20.7
+E09000009,Ealing,16 to 64,2026,64.3
+E09000009,Ealing,65 and over,2026,15.0
+E09000010,Enfield,0 to 15,2016,22.7
+E09000010,Enfield,16 to 64,2016,64.5
+E09000010,Enfield,65 and over,2016,12.8
+E09000010,Enfield,0 to 15,2026,22.1
+E09000010,Enfield,16 to 64,2026,63.4
+E09000010,Enfield,65 and over,2026,14.4
+E09000011,Greenwich,0 to 15,2016,21.9
+E09000011,Greenwich,16 to 64,2016,67.7
+E09000011,Greenwich,65 and over,2016,10.4
+E09000011,Greenwich,0 to 15,2026,21.4
+E09000011,Greenwich,16 to 64,2026,67.0
+E09000011,Greenwich,65 and over,2026,11.6
+E09000012,Hackney,0 to 15,2016,20.8
+E09000012,Hackney,16 to 64,2016,71.9
+E09000012,Hackney,65 and over,2016,7.3
+E09000012,Hackney,0 to 15,2026,20.4
+E09000012,Hackney,16 to 64,2026,71.0
+E09000012,Hackney,65 and over,2026,8.6
+E09000013,Hammersmith and Fulham,0 to 15,2016,17.6
+E09000013,Hammersmith and Fulham,16 to 64,2016,72.1
+E09000013,Hammersmith and Fulham,65 and over,2016,10.4
+E09000013,Hammersmith and Fulham,0 to 15,2026,16.6
+E09000013,Hammersmith and Fulham,16 to 64,2026,70.5
+E09000013,Hammersmith and Fulham,65 and over,2026,12.9
+E09000014,Haringey,0 to 15,2016,20.1
+E09000014,Haringey,16 to 64,2016,70.4
+E09000014,Haringey,65 and over,2016,9.5
+E09000014,Haringey,0 to 15,2026,18.9
+E09000014,Haringey,16 to 64,2026,69.7
+E09000014,Haringey,65 and over,2026,11.4
+E09000015,Harrow,0 to 15,2016,20.7
+E09000015,Harrow,16 to 64,2016,64.2
+E09000015,Harrow,65 and over,2016,15.1
+E09000015,Harrow,0 to 15,2026,20.8
+E09000015,Harrow,16 to 64,2026,61.4
+E09000015,Harrow,65 and over,2026,17.8
+E09000016,Havering,0 to 15,2016,19.6
+E09000016,Havering,16 to 64,2016,62.1
+E09000016,Havering,65 and over,2016,18.3
+E09000016,Havering,0 to 15,2026,21.4
+E09000016,Havering,16 to 64,2026,60.1
+E09000016,Havering,65 and over,2026,18.5
+E09000017,Hillingdon,0 to 15,2016,21.6
+E09000017,Hillingdon,16 to 64,2016,65.2
+E09000017,Hillingdon,65 and over,2016,13.2
+E09000017,Hillingdon,0 to 15,2026,21.7
+E09000017,Hillingdon,16 to 64,2026,63.6
+E09000017,Hillingdon,65 and over,2026,14.7
+E09000018,Hounslow,0 to 15,2016,21.4
+E09000018,Hounslow,16 to 64,2016,67.0
+E09000018,Hounslow,65 and over,2016,11.6
+E09000018,Hounslow,0 to 15,2026,20.8
+E09000018,Hounslow,16 to 64,2026,65.1
+E09000018,Hounslow,65 and over,2026,14.0
+E09000019,Islington,0 to 15,2016,15.9
+E09000019,Islington,16 to 64,2016,75.3
+E09000019,Islington,65 and over,2016,8.8
+E09000019,Islington,0 to 15,2026,15.9
+E09000019,Islington,16 to 64,2026,74.0
+E09000019,Islington,65 and over,2026,10.1
+E09000020,Kensington and Chelsea,0 to 15,2016,16.4
+E09000020,Kensington and Chelsea,16 to 64,2016,68.7
+E09000020,Kensington and Chelsea,65 and over,2016,14.9
+E09000020,Kensington and Chelsea,0 to 15,2026,15.0
+E09000020,Kensington and Chelsea,16 to 64,2026,66.0
+E09000020,Kensington and Chelsea,65 and over,2026,19.0
+E09000021,Kingston upon Thames,0 to 15,2016,19.9
+E09000021,Kingston upon Thames,16 to 64,2016,66.6
+E09000021,Kingston upon Thames,65 and over,2016,13.5
+E09000021,Kingston upon Thames,0 to 15,2026,19.9
+E09000021,Kingston upon Thames,16 to 64,2026,65.3
+E09000021,Kingston upon Thames,65 and over,2026,14.8
+E09000022,Lambeth,0 to 15,2016,17.5
+E09000022,Lambeth,16 to 64,2016,74.5
+E09000022,Lambeth,65 and over,2016,7.9
+E09000022,Lambeth,0 to 15,2026,17.0
+E09000022,Lambeth,16 to 64,2026,73.1
+E09000022,Lambeth,65 and over,2026,9.8
+E09000023,Lewisham,0 to 15,2016,20.7
+E09000023,Lewisham,16 to 64,2016,70.0
+E09000023,Lewisham,65 and over,2016,9.3
+E09000023,Lewisham,0 to 15,2026,20.2
+E09000023,Lewisham,16 to 64,2026,69.4
+E09000023,Lewisham,65 and over,2026,10.4
+E09000024,Merton,0 to 15,2016,20.6
+E09000024,Merton,16 to 64,2016,67.1
+E09000024,Merton,65 and over,2016,12.3
+E09000024,Merton,0 to 15,2026,20.6
+E09000024,Merton,16 to 64,2026,65.7
+E09000024,Merton,65 and over,2026,13.8
+E09000025,Newham,0 to 15,2016,22.5
+E09000025,Newham,16 to 64,2016,70.5
+E09000025,Newham,65 and over,2016,7.1
+E09000025,Newham,0 to 15,2026,21.7
+E09000025,Newham,16 to 64,2026,69.1
+E09000025,Newham,65 and over,2026,9.2
+E09000026,Redbridge,0 to 15,2016,22.7
+E09000026,Redbridge,16 to 64,2016,65.1
+E09000026,Redbridge,65 and over,2016,12.2
+E09000026,Redbridge,0 to 15,2026,22.0
+E09000026,Redbridge,16 to 64,2026,64.5
+E09000026,Redbridge,65 and over,2026,13.5
+E09000027,Richmond upon Thames,0 to 15,2016,20.9
+E09000027,Richmond upon Thames,16 to 64,2016,64.0
+E09000027,Richmond upon Thames,65 and over,2016,15.1
+E09000027,Richmond upon Thames,0 to 15,2026,19.8
+E09000027,Richmond upon Thames,16 to 64,2026,62.9
+E09000027,Richmond upon Thames,65 and over,2026,17.4
+E09000028,Southwark,0 to 15,2016,18.6
+E09000028,Southwark,16 to 64,2016,73.3
+E09000028,Southwark,65 and over,2016,8.0
+E09000028,Southwark,0 to 15,2026,18.2
+E09000028,Southwark,16 to 64,2026,71.7
+E09000028,Southwark,65 and over,2026,10.0
+E09000029,Sutton,0 to 15,2016,20.8
+E09000029,Sutton,16 to 64,2016,64.0
+E09000029,Sutton,65 and over,2016,15.1
+E09000029,Sutton,0 to 15,2026,21.3
+E09000029,Sutton,16 to 64,2026,62.4
+E09000029,Sutton,65 and over,2026,16.4
+E09000030,Tower Hamlets,0 to 15,2016,20.2
+E09000030,Tower Hamlets,16 to 64,2016,73.8
+E09000030,Tower Hamlets,65 and over,2016,6.0
+E09000030,Tower Hamlets,0 to 15,2026,19.7
+E09000030,Tower Hamlets,16 to 64,2026,72.9
+E09000030,Tower Hamlets,65 and over,2026,7.5
+E09000031,Waltham Forest,0 to 15,2016,21.9
+E09000031,Waltham Forest,16 to 64,2016,67.7
+E09000031,Waltham Forest,65 and over,2016,10.3
+E09000031,Waltham Forest,0 to 15,2026,21.3
+E09000031,Waltham Forest,16 to 64,2026,66.7
+E09000031,Waltham Forest,65 and over,2026,12.0
+E09000032,Wandsworth,0 to 15,2016,17.8
+E09000032,Wandsworth,16 to 64,2016,72.9
+E09000032,Wandsworth,65 and over,2016,9.3
+E09000032,Wandsworth,0 to 15,2026,18.0
+E09000032,Wandsworth,16 to 64,2026,71.4
+E09000032,Wandsworth,65 and over,2026,10.6
+E09000033,Westminster,0 to 15,2016,16.5
+E09000033,Westminster,16 to 64,2016,71.5
+E09000033,Westminster,65 and over,2016,12.0
+E09000033,Westminster,0 to 15,2026,15.9
+E09000033,Westminster,16 to 64,2026,69.6
+E09000033,Westminster,65 and over,2026,14.5

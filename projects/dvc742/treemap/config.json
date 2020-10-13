@@ -1,0 +1,106 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+
+            "colour_palette": [ "#274796"],
+
+            "sourceText":["Labour Market Statistics, February 2015, Table A02"],
+            "sourceURL":["http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-350752"],
+
+            "annotationChart": [
+                "Lorem ipsum dolor sit amet",
+                "adipiscing elit, sed do eiusmod"
+            ],
+            "annotationBullet": [
+                "Lorem ipsum dolor sit amet",
+                "adipiscing elit, sed do eiusmod"
+            ],
+            "annotationXY":[
+                ["-5","London"],
+                ["60","Wales"]
+            ],
+            "annotationAlign":[
+                "middle",
+                "middle"
+            ],
+
+            "barHeight_sm_md_lg" : [45,55,55],
+
+
+            "xAxisLabel":"",
+            "xAxisScale":[-10,90],
+
+            "chartTitle": ["UK's top trading partners"]
+    },
+    "optional" : {
+            "margin_sm": [10, 30, 35, 120],
+            "margin_md": [10, 30, 35, 120],
+            "margin_lg": [10, 30, 35, 120],
+
+            "aspectRatio_sm" : [4,7],
+            "aspectRatio_md" : [1,1],
+            "aspectRatio_lg" : [16,10],
+
+            "mobileBreakpoint" : 510,
+
+            "x_num_ticks_sm_md_lg" : [6,5,10],
+            "vertical_line" : false,
+            "annotateLineX1_Y1_X2_Y2":[ [[25,"South East"],[25,"East"]]],
+            "annotateRect" : true,
+            "annotateRectX_Y" : [ [[40, "South West"],[75, "West Midlands"]]],
+            "lineColor_opcty" : [["#888", 0.2]],
+            "centre_line" : false,
+            "centre_line_value" : 10
+    },
+    "essentialStacked" : {
+            "graphic_data_url": "data.csv",
+
+            "dateFormat":"",
+
+            "legendLabels" : [],
+
+            "sourceText":["2011 Census, Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/ons/rel/census/2011-census-analysis/overcrowding-and-under-occupation-in-england-and-wales/index.html"],
+
+            "annotationChart": [""],
+            "annotationBullet": [""],
+            "annotationXY":[
+                [50, 40 ]
+
+            ],
+            "annotationAlign":[
+                "middle"
+            ],
+
+            "circles" : false,
+            "annotationCXCY":[
+                ["60","40"]
+
+            ],
+
+            "xAxisLabel":"%",
+            "xAxisScale":[0,100],
+            "xAxisBreak": true,
+            "xAxisBreak_sm_md_lg": [65,65,65],
+
+            "chartTitle": ["EU / Rest of World split"]
+
+    },
+    "optionalStacked" : {
+            "margin_lg": [25, 30, 35, 5],
+            "margin_sm": [25, 30, 35, 5],
+            "margin_md": [25, 30, 35, 5],
+            "margin_xsm": [25, 30, 35, 5],
+
+            "aspectRatio_xsm" : [16,8],
+            "aspectRatio_sm" : [16,5],
+            "aspectRatio_md" : [16,4],
+            "aspectRatio_lg" : [16,3],
+
+            "mobileBreakpoint" : 610,
+
+            "x_num_ticks_sm_md_lg" : [6,8,10]
+
+    }
+
+}

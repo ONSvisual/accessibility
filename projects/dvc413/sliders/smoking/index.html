@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Healthy life expectancy - Smoking slider</title>
+
+    <link href="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-slider.css" rel="stylesheet">
+    <link rel="stylesheet" href="../lib/globalStyle.css" />
+
+    <style>
+
+    .container {
+      font-family: 'Open Sans', Arial, sans-serif;
+      max-width: 800px;
+      padding-top: 50px;
+      padding-left: 0;
+      padding-right: 0;
+      text-align: left;
+      position: relative;
+    }
+
+    .tooltip-inner {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      padding: 6px 10px;
+      background-color: #D0D2D3;
+      color: #414042;
+      border-radius: 6px;
+    }
+
+    .tooltip {
+      margin-top: -53px !important;
+    }
+
+    #tooltip {
+      font-size: 16px;
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-weight: 400;
+      color: #fff !important;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .tooltip-arrow {
+    border-top-color: #D0D2D3 !important;
+    }
+
+    .tick-marks {
+      width: 100%;
+      height: auto;
+      float:left;
+    }
+
+    .zero {
+      width: 50%;
+      float:left;
+      color: #414042;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+    }
+
+    .one-hundred {
+      width: 50%;
+      height: auto;
+      float:left;
+      color: #414042;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+    }
+
+    .tick-one {
+      text-align: left;
+      margin-top: 18px;
+    }
+
+    .tick-two {
+      text-align: right;
+      margin-top: 18px;
+    }
+
+    p {
+      color: #414042;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+    }
+
+    .guess {
+      width: 100%;
+      height: auto;
+      float:left;
+      padding-left: 42.5%;
+      font-size: 16px;
+      margin-top: -24px;
+    }
+
+    .female p {
+      float: left;
+	  text-align:left;
+    }
+
+	.male p {
+		float: right;
+		text-align:right;
+		padding-right: 10px;
+	}
+
+
+    img {
+      float: left;
+      clear: both;
+      margin-right: 15px;
+      margin-bottom: 10px;
+    }
+
+	.male img {
+    	float:right;
+    }
+
+	.big-number {
+      font-size: 24px;
+      font-weight: 700;
+      margin-top: 0px;
+    }
+
+    .smaller-number {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+	@media (max-width:767px){
+    .big-number {
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 0px;
+    }
+
+    .smaller-number {
+      font-size: 16px;
+      font-weight: 700;
+    }
+	}
+
+	#labelleft {
+		width:40%;
+		float:left;
+		text-align:right;
+	}
+
+	#labelmiddle {
+		width:20%;
+		float:left;
+		text-align:center;
+	}
+
+	#labelright {
+		width:40%;
+		float:right;
+	}
+
+	.bold {
+		font-weight:bold;
+	}
+
+	#textbit{
+		text-align:center;
+	}
+
+  /* Accessibility */
+
+  .visuallyhidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .slider-handle:focus {
+    outline: none;
+    box-shadow: 0 0 0px 3pt orange;
+  }
+
+    </style>
+
+
+
+
+  </head>
+  <body>
+
+    <div class="container">
+
+        <!-- Labelling -->
+        <div id="labelleft">
+          <p>
+            <span style="font-weight:900; color:#004358">&lt;</span>
+            Fewer smokers
+          </p>
+        </div>
+        <div id="labelright">
+          <p>
+            More smokers
+            <span style="font-weight:900; color:#00a7a3">&gt;</span>
+          </p>
+        </div>
+
+        <!-- Slider -->
+        <label id="sliderLabel" for="slider" class="visuallyhidden">Slider</label>
+        <input id="slider" data-slider-id='ex1Slider' type="text" data-slider-min="-10" data-slider-max="10" data-slider-step="1" data-slider-value="0" data-slider-labelledby="sliderLabel"/>
+
+        <!-- Tick marks -->
+        <div class="tick">
+        <div class="zero"><p class="tick-one">-10</p></div>
+        <div class="one-hundred"><p class="tick-two">10</p></div>
+        </div>
+
+        <!-- Handle text -->
+        <div class="guess"><p> Drag the handle</p></div>
+
+        <!-- Screen Reader Announcer -->
+        <p class="visuallyhidden" id="announcer" role="alert"></p>
+
+        <!-- Text output-->
+        <div class="textbit col-sm-12 col-xs-12">
+         <p id="textbit">If the number of smokers remains the same, healthy life expectancy wouldn't change.<br>&nbsp;</p>
+        </div>
+            <div class="male col-sm-6 col-xs-6">
+              <img src="../img/more-male-icon.svg" alt="Male" />
+
+              <p id="maleYear" class="big-number">0 years</p>
+            </div>
+
+            <div class="female col-sm-6 col-xs-6">
+              <img src="../img/more-female-icon.svg" alt="Female" />
+
+              <p id="femaleYear" class="big-number">0 years</p>
+            </div>
+
+
+    </div>
+
+    <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-slider.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" type="text/javascript"></script>
+    <script src="../lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.min.js" type="text/javascript"></script>
+    <script src="../lib/footer.js"></script>
+
+
+    <script>
+
+	  var pymChild = new pym.Child;
+
+      // Bootstrap slider style
+      sliderX = $("#slider").slider({
+      tooltip: 'always'
+      }).on('slide', changeModel);
+
+      // Hide 'drag to guess' text on hover
+      $(".slider-handle").hover(function () {
+		  d3.select(".guess").transition().duration(1000).style("opacity",0);
+      });
+
+	  function changeModel() {
+
+			nodecimals = d3.format(".0f")
+			smokingMale = 0.6124085;
+			smokingFemale = 0.7043249;
+
+			sliderVal = $('#slider').data('slider').getValue();
+      // Absolute slider value, not negative
+      var sliderValAbs = Math.abs(sliderVal)
+
+
+			if(sliderVal >0){
+				higherLowerSame = "higher";
+				d3.select("#textbit").html("If <span class='bold'>" + sliderValAbs + "</span> in every <span class='bold'>100</span> men/women take up smoking, an area's healthy life expectancy could <br><span class='bold'>fall by</span>");
+			} else if(sliderVal <0) {
+				higherLowerSame = "lower";
+				d3.select("#textbit").html("If <span class='bold'>" + sliderValAbs + "</span> in every <span class='bold'>100</span> men/women quit smoking, an area's healthy life expectancy would <br><span class='bold'>rise by</span>");
+			} else {
+				higherLowerSame = "same";
+				d3.select("#textbit").html("If the number of smokers remains the same, healthy life expectancy wouldn't change.<br>&nbsp;");
+			}
+
+			//Work out months from decimal   0.83333333 = 1 month  0.416666666 = 1/2 month
+
+			n = smokingMale * sliderValAbs;
+			o = smokingFemale * sliderValAbs;
+
+			n = Math.abs(n);
+			o = Math.abs(o);
+			var monthsm = Math.round((n - Math.floor(n)) * 12);
+			var monthsf = Math.round((o - Math.floor(o)) * 12);
+
+			yearsm = Math.floor(smokingMale * sliderValAbs);
+			yearsf = Math.floor(smokingFemale * sliderValAbs)
+
+			if(monthsm == 12) {
+				yearsm = yearsm + 1;
+				monthsm = 0;
+			}
+
+			if(monthsf == 12) {
+				yearsf = yearsf + 1;
+				monthsf = 0;
+			}
+
+
+			if (monthsm <=1) {
+				monthtextm = "month";
+			} else {
+				monthtextm = "months";
+			}
+
+			if (monthsf <=1) {
+				monthtextf = "month";
+			} else {
+				monthtextf = "months";
+			}
+
+			if(yearsm<1){
+				d3.select("#maleYear").html("&nbsp;<br><span class='smaller-number'>" + monthsm + " " + monthtextm +" </span>");
+			} else if(yearsm<=1){
+				d3.select("#maleYear").html(yearsm + " year <br><span class='smaller-number'>" + monthsm + " " + monthtextm +" </span>");
+			} else {
+				d3.select("#maleYear").html(yearsm + " years <br><span class='smaller-number'>" + monthsm + " " + monthtextm +" </span>");
+			}
+
+
+			if(yearsf<1){
+				d3.select("#femaleYear").html("&nbsp;<br><span class='smaller-number'>" + monthsf + " " + monthtextf +" </span>");
+			} else if(yearsf<=1){
+				d3.select("#femaleYear").html(yearsf + " year <br><span class='smaller-number'>" + monthsf + " " + monthtextf +" </span>");
+			} else {
+				d3.select("#femaleYear").html(yearsf + " years <br><span class='smaller-number'>" + monthsf + " " + monthtextf +" </span>");
+			}
+
+      // Screen reader announcement
+      var announcement = `If ${sliderValAbs} in every 100 men/women ${(sliderVal>=1 ? 'take up' : 'quit')} smoking, an area's healthy life expectancy could ${(sliderVal>=1 ? 'fall' : 'rise')} by ${(yearsm<1 ? '' : yearsm + (yearsm==1 ? ' year, ' : ' years, '))}${(monthsm<1 ? '' : monthsm + (monthsm==1 ? ' month ' : ' months '))} for males, ${(yearsf<1 ? '' : yearsf + (yearsf==1 ? ' year, ' : ' years, '))}${(monthsf<1 ? '' : monthsf + (monthsf==1 ? ' month ' : ' months '))} for females.`
+
+      // When slider is on 0
+      if (sliderValAbs==0) {
+        announcement = "If the number of smokers remains the same, healthy life expectancy wouldn't change."
+      }
+
+      // Make announcement
+      d3.select("#announcer").html(announcement)
+
+
+
+			pymChild.sendHeight();
+
+	  }
+
+
+    </script>
+
+    <script>
+
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37894017-1']);
+		  _gaq.push(['_trackPageview']);
+
+
+		  (function() {
+
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+
+
+    </script>
+
+
+
+
+  </body>
+</html>
