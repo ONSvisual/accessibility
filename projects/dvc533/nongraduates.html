@@ -1,585 +1,649 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
-<!-- End Google Tag Manager -->
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-MBCBVQS');
+    </script>
+    <!-- End Google Tag Manager -->
 
     <title>Non-graduates in graduate jobs</title>
 
     <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="css/styles.css" media="screen">
- <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
--->
-<style>
-body{
-	max-width:945px;
-	color:#4A494B;
-}
-
-	.chart-title{
-		font-weight: 600;
-		font-size: 16px;
-	}
-
-#svgEle{
-	width:100%;
-}
-
-text {
-  pointer-events: none;
-}
-
-.grandparent text {
-  /*font-weight: bold;*/
-  fill: #606060;
-  font-size:1.8em;
-}
-
-rect {
-  /*fill: none;*/
-  stroke: #fff;
-  stroke-opacity:0.1;
-}
-
-.grandparent{
-/*	pointer-events:none;*/
-}
-
-
-rect.parent,
-.grandparent rect {
-  stroke-width: 2px;
-  stroke: #fff;
-  fill: none;
-  stroke-opacity:1;
-}
-
-.grandparent line {
-  stroke: #606060;
-  stroke-width: 1px;
-}
-
-.btn{
-	font-size:15px
-}
-
-.children rect.parent,
-.grandparent rect {
-  cursor: pointer;
-}
-
-.children rect.parent {
-  fill: #bbb;
-  fill-opacity: .2;
-}
-
-.children:hover rect.child {
-  fill: #bbb;
-}
-
-.child:hover {
-  fill: #bbb;
-}
-	
-*[code*=c1_] {
-	fill:#99561F;
-}
-*[code*=c2_] {
-	fill:#A56021;
-}
-*[code*=c3_] {
-	fill:#B26724;
-}
-*[code*=c4_] {
-	fill:#BF6D28;
-}
-*[code*=c5_] {
-	fill:#CC7629;
-}
-*[code*=c6_] {
-	fill:#D87D2B;
-}
-*[code*=c7_] {
-	fill:#E5852E;
-}
-*[code*=c8_] {
-	fill:#F28C30;
-}
-*[code*=c9_] {
-	fill:#ff9933;
-}
-
-.hoveredOver {
-	fill:#bbb!important;
-}
-
-.depth text{
-	fill:white;
-}
-
-#source{
-	font-size: 14px;
-    font-weight: 700;
-    margin-left: -15px;
-	margin-top:10px!important;;
-}
-
-#blurb{
-	height:80px;
-	pointer-events:none;
-	line-height: 1.2em;
-	font-size:30px;
-}
-
-#txt3{
-	font-weight:700;
-}
-
-#txt2{
-	font-weight:500;
-}
-
-@media only screen and (max-width: 500px) {
-	
-	
-#blurb{
-	height:70px;
-	pointer-events:none;
-	line-height: 1.2em;
-	font-size:16px;
-}
-#source{
-	font-size: 12px;
-    font-weight: 600;
-}
-/*
-
-
-@media only screen and (max-width: 768px) {
-	#blurb{
-		height:70px;
-		line-height: 1.3em;
-		font-size:24px;
-	}
-
-	#selectNav {
-		width: 100%;
-	}
-
-	body{
-		padding-bottom:30px!important;
-	}
-
-	#source{
-		padding-top:105px!important;
-	}
-}
-
-@media only screen and (max-width: 650px) {
-	#blurb{
-		height:70px;
-		line-height: 1.5em;
-		font-size:20px;
-	}
-
-	#selectNav {
-		width: 100%;
-	}
-
-	body{
-		padding-bottom:30px!important;
-	}
-
-	#source{
-		padding-top:70px!important;;
-	}
-}
-
-@media only screen and (max-width: 500px) {
-	body{
-		padding-bottom:20px!important;
-	}
-
-	#source{
-		padding-top:20px!important;;
-	}
-}
-
-.horizLine{
-	border-bottom:1px solid #B9B9B9;
-	padding-bottom:5px;
-	margin:0px 0px 5px -5px;
-}
-
-
-
-*/
-
-.btn-ons {
-  color: #4a494b;
-  background-color: #ededed;
-}
-.btn-ons:hover,
-.btn-ons:focus,
-.btn-ons.focus,
-.btn-ons:active,
-.btn-ons.active,
-.open > .dropdown-toggle.btn-ons {
-  color: #6f6f6f;
-  background-color: #E7E7E7;
-  border-color: #D3D3D3;
-}
-
-hr {
-  margin-top: 0px;
-  margin-bottom: 3px;
-  border: 0;
-  border-top: 1px solid #dddddd;
-}
-
-#intro{
-	display:none;
-}
-
-#social{
-	top:5px;
-}
-
-.social {
-			padding-top:5px;
-			padding-left:5px;
-			float:right;
-			opacity:0.5;
-			cursor:pointer;
-		}
-
-		.social:hover {
-			opacity:1;
-
-		}
-
-
-		.social {
-
-		}
-
-		#embedrow {
-			padding-bottom:5px;
-			margin:5px;
-			border-bottom:1px solid #d3d3d3;
-			border-top:1px solid #d3d3d3;
-		}
-
-
-		#close {
-			padding-bottom:3px;
-		}
-
-		#allDivs{
-			margin:auto;
-		}
-
-#ieMsg{
-	width: 940px;
-    margin: 0 auto;
-}
-#suptext {
-	padding:20px 20px 20px 20px;
-	width:900px;
-	background-color:#F2EEF5;
-}
-
-#suptext p{
-	margin:0px 20px 10px 20px;
-	font-family: Helvetica, Arial, sans-serif;
-    font-size:14px;
-	color:#8064A0;
-
-}
-
-#suptext a{
-	font-family: Helvetica, Arial, sans-serif;
-    font-size:14px;
-	color:#8064A0;
-
-}
-
-#suptext h1{
-	margin:0px;
-	font-family: Helvetica, Arial, sans-serif;
-    font-size:24px;
-	color:#8064A0;
-}
-
-#thumbNail{
-	top:0px;
-	left:0px;
-}
-
-.img-responsive,
-.thumbnail > img,
-.thumbnail a > img,
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-  width: 100% !important;
-
-
-}
-
-
-
-.item{
-	width:80px;
-	height:80px;
-}
-
-
-</style>
-
-
-
-</head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="css/styles.css" media="screen">
+    <link href="https://onsvisual.github.io/pattern-library/dist/fontawesome/css/all.css" rel="stylesheet">
+
+    <style>
+      body {
+        max-width: 945px;
+        color: #4A494B;
+      }
+
+      .chart-title {
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      #svgEle {
+        width: 100%;
+      }
+
+      text {
+        pointer-events: none;
+      }
+
+      .grandparent text {
+        /*font-weight: bold;*/
+        fill: #606060;
+        font-size: 1.8em;
+      }
+
+      rect {
+        /*fill: none;*/
+        stroke: #fff;
+        stroke-opacity: 0.1;
+      }
+
+      .grandparent {
+        /*	pointer-events:none;*/
+      }
+
+      rect.parent,
+      .grandparent rect {
+        stroke-width: 2px;
+        stroke: #fff;
+        fill: none;
+        stroke-opacity: 1;
+      }
+
+      .grandparent line {
+        stroke: #606060;
+        stroke-width: 1px;
+      }
+
+      .children rect.parent,
+      .grandparent rect {
+        cursor: pointer;
+      }
+
+      .children rect.parent {
+        fill: #bbb;
+        fill-opacity: .2;
+      }
+
+      .children:hover rect.child, .parent:focus ~ rect.child {
+        fill: #bbb;
+      }
+
+      .children:hover text, .child:hover ~ text, .parent:focus ~ text {
+        fill: #000;
+      }
+
+      .child:hover, .child:focus {
+        fill: #bbb;
+      }
+
+      .children:hover rect.child {
+        cursor: pointer;
+        fill: #bbb;
+      }
+
+      *[code*=c1_] {
+        fill: #99561F;
+      }
+
+      *[code*=c2_] {
+        fill: #A56021;
+      }
+
+      *[code*=c3_] {
+        fill: #B26724;
+      }
+
+      *[code*=c4_] {
+        fill: #BF6D28;
+      }
+
+      *[code*=c5_] {
+        fill: #CC7629;
+      }
+
+      *[code*=c6_] {
+        fill: #D87D2B;
+      }
+
+      *[code*=c7_] {
+        fill: #E5852E;
+      }
+
+      *[code*=c8_] {
+        fill: #F28C30;
+      }
+
+      *[code*=c9_] {
+        fill: #ff9933;
+      }
+
+      .hoveredOver {
+        fill: #bbb !important;
+      }
+
+      .depth text {
+        fill: white;
+      }
+
+      #source {
+        font-size: 14px;
+        font-weight: 700;
+        margin-left: -15px;
+        margin-top: 10px !important;;
+      }
+
+      #blurb {
+        height: 80px;
+        pointer-events: none;
+        line-height: 1.2em;
+        font-size: 30px;
+      }
+
+      #txt3 {
+        font-weight: 700;
+      }
+
+      #txt2 {
+        font-weight: 500;
+      }
+
+      @media only screen and (max-width: 500px) {
+        #blurb {
+          height: 70px;
+          pointer-events: none;
+          line-height: 1.2em;
+          font-size: 16px;
+        }
+
+        #source {
+          font-size: 12px;
+          font-weight: 600;
+        }
+      }
+
+      /*
+
+
+      @media only screen and (max-width: 768px) {
+        #blurb{
+          height:70px;
+          line-height: 1.3em;
+          font-size:24px;
+        }
+
+        #selectNav {
+          width: 100%;
+        }
+
+        body{
+          padding-bottom:30px!important;
+        }
+
+        #source{
+          padding-top:105px!important;
+        }
+      }
+
+      @media only screen and (max-width: 650px) {
+        #blurb{
+          height:70px;
+          line-height: 1.5em;
+          font-size:20px;
+        }
+
+        #selectNav {
+          width: 100%;
+        }
+
+        body{
+          padding-bottom:30px!important;
+        }
+
+        #source{
+          padding-top:70px!important;;
+        }
+      }
+
+      @media only screen and (max-width: 500px) {
+        body{
+          padding-bottom:20px!important;
+        }
+
+        #source{
+          padding-top:20px!important;;
+        }
+      }
+
+      .horizLine{
+        border-bottom:1px solid #B9B9B9;
+        padding-bottom:5px;
+        margin:0px 0px 5px -5px;
+      }
+
+
+
+      */
+      .btn {
+        position: relative;
+        padding: 10px 15px;
+        margin: 0 0 20px;
+        line-height: normal;
+        color: #fff;
+        font-size: 1.3em !important;
+        border-radius: 0px;
+        display: inline-block;
+        text-rendering: optimizeLegibility;
+        transition: background-color .2s ease-in, color .2s ease-in;
+
+        font-family: "Open Sans",Helvetica,Arial,sans-serif;
+        font-weight: 400;
+        width: auto;
+        cursor: pointer;
+        border: 0 none;
+        text-align: center;
+        text-decoration: none;
+
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+        user-select: none;
+        background-image: none;
+      }
+      .btn:hover {
+        color: #ffffff;
+      }
+      .btn:focus {
+        outline: none;
+        box-shadow: 0px 0px 0 3px #FFA23A;
+        color: white;
+        outline-offset: 0px;
+      }
+      .btn:hover, .btn:focus {
+        text-decoration: none;
+      }
+      .btn--primary {
+        background-color: #206095 !important;
+      }
+      .btn--primary:hover {
+        background-color: #174c78 !important;
+      }
+
+      .btn--up::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f3bf";
+        margin-right: 10px;
+      }
+
+      .btn--top::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f139";
+        margin-right: 10px;
+      }
+
+      hr {
+        margin-top: 0px;
+        margin-bottom: 3px;
+        border: 0;
+        border-top: 1px solid #dddddd;
+      }
+
+      #intro {
+        display: none;
+      }
+
+      #social {
+        top: 5px;
+      }
+
+      .social {
+        padding-top: 5px;
+        padding-left: 5px;
+        float: right;
+        opacity: 0.5;
+        cursor: pointer;
+      }
+
+      .social:hover {
+        opacity: 1;
+
+      }
+
+      .social {
+
+      }
+
+      #embedrow {
+        padding-bottom: 5px;
+        margin: 5px;
+        border-bottom: 1px solid #d3d3d3;
+        border-top: 1px solid #d3d3d3;
+      }
+
+      #close {
+        padding-bottom: 3px;
+      }
+
+      #allDivs {
+        margin: auto;
+      }
+
+      #ieMsg {
+        width: 940px;
+        margin: 0 auto;
+      }
+
+      #suptext {
+        padding: 20px 20px 20px 20px;
+        width: 900px;
+        background-color: #F2EEF5;
+      }
+
+      #suptext p {
+        margin: 0px 20px 10px 20px;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #8064A0;
+
+      }
+
+      #suptext a {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #8064A0;
+
+      }
+
+      #suptext h1 {
+        margin: 0px;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 24px;
+        color: #8064A0;
+      }
+
+      #thumbNail {
+        top: 0px;
+        left: 0px;
+      }
+
+      .img-responsive,
+      .thumbnail > img,
+      .thumbnail a > img,
+      .carousel-inner > .item > img,
+      .carousel-inner > .item > a > img {
+        width: 100% !important;
+
+
+      }
+
+      .item {
+          width: 80px;
+          height: 80px;
+        }
+
+      .visuallyhidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+    </style>
+  </head>
+
   <body id="childt">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <div class="container-fluid">
+      <div id="main-wrapper">
+        <div id="mainContent" style="display:none">
+          <p id="chartDescription" class="visuallyhidden">A chart displaying types of employment roles held by non graduates.</p>
 
+          <p id="blurb" class="row">
+            <span id="txt2"></span>
+            <span id="txt3"></span>
+          </p>
 
+          <div class="row">
+            <!--		<button type="button" id="upBtn" class="btn btn-group__btn btn--primary btn--green btn--up">
+                      Up a level
+                    </button>-->
+            <button type="button" id="topBtn" class="btn btn-group__btn btn--primary btn--green btn--top" style="visibility:hidden">
+              Back to top
+            </button>
+          </div>
 
-<div class="container-fluid">
-           <div id="main-wrapper">
+          <div class="row">
+            <div id="chart" class="col-sm-12">
+              <span class="chart-title"></span>
+            </div>
+          </div>
 
-          <div id="mainContent" style="display:none">
-
-				<div id="blurb" class="row">
-					<text id ="txt2"></text>
-					<text id ="txt3"></text>
-				</div>
-				<div class="row">
-<!--					<button type="button" id="upBtn" class="nav btn btn-ons ">
-					  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Up a level
-					</button>-->
-					<button type="button" id="topBtn" class="nav btn btn-ons " style="visibility:hidden">
-					  <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top
-					</button>
-			  </div>
-
-        <div class="row" >
-              <div id="chart" class="col-sm-12">
-              	<span class="chart-title"></span>
-              </div>              
+          <div id="source">
+            Source: Annual Population Survey, Office for National Statistics
+          </div>
         </div>
 
-           <div id="source">
-			Source: Annual Population Survey, Office for National Statistics
-		   </div>
-
-
+        <div id="ieMsg" style="display:none">
+          <div id="suptext">
+            <h1>Browser requirements</h1>
+            <p><b>For a safer, faster, better experience online you should upgrade your browser. You would have been able to play with this
+              lovely interactive graphic below. <a href="https://www.gov.uk/support/browsers" target="_blank">Find out more about
+                browsers</a></b>
+            </p>
+          </div>
+          <img id="thumbNail" src="nongraduates.png" alt="A chart displaying types of employment roles held by non graduates.">
         </div>
-         <div id="ieMsg" style="display:none">
-                    <div id="suptext">
-                      <h1>Browser requirements</h1>
-                      <p><b>For a safer, faster, better experience online you should upgrade your browser. You would have been able to play with this lovely interactive graphic below. <a href="https://www.gov.uk/support/browsers" target="_blank">Find out more about browsers</a></b>
-                      </p>
-                    </div>
-                      <img id="thumbNail" src="nongraduates.png">
-                </div>
-       </div>
-</div><!--end of .container-fluid-->
+      </div>
+    </div><!--end of .container-fluid-->
 
-<script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
-<script src="js/modernizr.custom.56904.js"></script>
-<script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
-<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.js" charset="utf-8"></script>
-<script src="js/base.js" charset="utf-8"></script>
-<script src="js/DataStructures.Tree.js" charset="utf-8"></script>
-<script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
--->
+    <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/modernizr.custom.56904.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.js" charset="utf-8"></script>
+    <script src="js/base.js" charset="utf-8"></script>
+    <script src="js/DataStructures.Tree.js" charset="utf-8"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
 
+    <script>
+      if (Modernizr.inlinesvg === true) {
+        $("#main-wrapper").fadeIn(1000);
+        $("#mainContent").fadeIn(1000);
+      } else {
+        $("#ieMsg").fadeIn(1000);
+      }
 
+      pymChild = new pym.Child();
 
-<script>
+      jQuery.fn.d3Click = function () {
+        this.each(function (i, e) {
+          var evt = new MouseEvent("click");
+          e.dispatchEvent(evt);
+        });
+      };
 
-	if (Modernizr.inlinesvg= true ){
+      var transitioning;
+      var widthCalc;
+      var heightCalc;
+      var params;
+      var selectedArray = []
+      getSizes();
 
-			$("#main-wrapper").fadeIn(1000);
-			$("#mainContent").fadeIn(1000);
+      $(window).resize(function () {
+        if (window.innerWidth != bwidth) {
+          getSizes();
+        }
+      });
 
-		}else{
-				$("#ieMsg").fadeIn(1000);
-		}
+      function getSizes() {
 
+        bodywidth = d3.select("body").style("width");
+        bwidth = bodywidth.replace('px', '');
+        divwidth = d3.select("#chart").style("width");
+        width = divwidth.replace('px', '') - 30;
+        if (bwidth >= 767) {
 
+          fullheight = 400;
+          ratiovar = 0.5;
 
+        } else {
 
-	pymChild = new pym.Child();
+          var url = (window.location != window.parent.location);
+          if (url == false) {
+            ratiovar = 0.2;
+            windowheight = window.innerHeight;
 
+            if (windowheight <= 500) {
 
+              fullheight = window.innerHeight - 100;
+            } else if (windowheight > 500 && windowheight <= 800) {
+              fullheight = window.innerHeight - 350;
+            } else if (windowheight > 800 && windowheight <= 2000) {
+              fullheight = window.innerHeight - 450;
+            }
+          } else {
+            ratiovar = 0.2;
+            windowheight = 350;
+            fullheight = 400;
+          }
+        }
 
+        d3.select("#svgEle").remove();
+        makeChart(width, fullheight);
 
-	var	transitioning;
-	var widthCalc;
-	var heightCalc;
-	var params;
-  var selectedArray = []
-	getSizes();
+      }
 
+      function makeChart(width, fullheight) {
 
-	$(window).resize(function () {
-		  if(window.innerWidth != bwidth) {
-			getSizes();
-		  }
-	});
-
-
-	function getSizes() {
-
-		bodywidth = d3.select("body").style("width");
-		bwidth = bodywidth.replace('px', '');
-		divwidth = d3.select("#chart").style("width");
-		width = divwidth.replace('px', '') - 30;
-		if(bwidth >= 767) {
-
-			fullheight = 400;
-			ratiovar = 0.5;
-
-		} else {
-
-			var url = (window.location != window.parent.location) ;
-			if(url == false){
-					ratiovar = 0.2;
-					windowheight = window.innerHeight;
-
-					if(windowheight<=500) {
-
-						 fullheight = window.innerHeight-100;
-					} else if (windowheight >500 && windowheight <=800) {
-						fullheight = window.innerHeight - 350;
-					} else if (windowheight >800 && windowheight <=2000) {
-						fullheight = window.innerHeight - 450;
-					}
-			} else {
-				ratiovar = 0.2;
-					windowheight = 350;
-					fullheight =400;
-			}
-		}
-
-		d3.select("#svgEle").remove();
-		makeChart(width, fullheight);
-
-	}
-	
-	
-	function makeChart(width, fullheight) {
-
-	 margin = {top: 10, right: 0, bottom: 0, left: 0}
+        margin = {top: 10, right: 0, bottom: 0, left: 0}
         formatNumber = d3.format(",.1f"),
 
 
-		atTop=true,
-		level = 0,
-		levelArray = Array(level);
+          atTop = true,
+          level = 0,
+          levelArray = Array(level);
 
-    height = fullheight - margin.top - margin.bottom;
+        height = fullheight - margin.top - margin.bottom;
 
-     x = d3.scale.linear()
-        .domain([0, width])
-        .range([0, width]);
+        x = d3.scale.linear()
+          .domain([0, width])
+          .range([0, width]);
 
-     y = d3.scale.linear()
-        .domain([0, height])
-        .range([0, height]);
+        y = d3.scale.linear()
+          .domain([0, height])
+          .range([0, height]);
 
-    treemap = d3.layout.treemap()
-        .children(function(d, depth) { return depth ? null : d._children; })
-        .sort(function(a, b) { return a.size - b.size; })
-        .ratio(height / width * ratiovar * (1 + Math.sqrt(5)))
-		.value(function(d) { return d.size; })
-        .round(false);
+        treemap = d3.layout.treemap()
+          .children(function (d, depth) {
+            return depth ? null : d._children;
+          })
+          .sort(function (a, b) {
+            return a.size - b.size;
+          })
+          .ratio(height / width * ratiovar * (1 + Math.sqrt(5)))
+          .value(function (d) {
+            return d.size;
+          })
+          .round(false);
 
-     svg = d3.select("#chart")
-		.append("svg")
-		.attr("id", "svgEle")
-		.attr("width", width + "px")
-		.attr("height", (20+height) + "px")
-		//.attr("viewBox", "0 0 "+width+" "+ (height))
-		.attr("preserveAspectRatio", "xMidYMid meet")
-        .style("margin-left", -margin.left + "px")
-        .style("margin.right", -margin.right + "px")
-      .append("g")
-	  	.attr("id", "tree")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-       // .style("shape-rendering", "crispEdges");
+        svg = d3.select("#chart")
+          .append("svg")
+          .attr("id", "svgEle")
+          .attr("width", width + "px")
+          .attr("height", (20 + height) + "px")
+          //.attr("viewBox", "0 0 "+width+" "+ (height))
+          .attr("preserveAspectRatio", "xMidYMid meet")
+          .style("margin-left", -margin.left + "px")
+          .style("margin.right", -margin.right + "px")
+          .append("g")
+          .attr("id", "tree")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        // .style("shape-rendering", "crispEdges");
 
-     grandparent = svg.append("g")
-        .attr("class", "grandparent")
-	 	.append("rect")
-	 	.attr("id", "gparent")
-		.attr("y", -margin.top)
-		.attr("width", width)
-		.attr("height", margin.top);
-
-
-    d3.csv("nongraduates.csv", function(data){
-
-		data.forEach(function(d) {
-			d.size = Number(d.size);
-			d.fake_size = Number(d.fake_size);
-			//d.var2 = Number(d.var2);
-        });
+        grandparent = svg.append("g")
+          .attr("class", "grandparent")
+          .append("rect")
+          .attr("id", "gparent")
+          .attr("y", -margin.top)
+          .attr("width", width)
+          .attr("height", margin.top);
 
 
-var tree = DataStructures.Tree.createFromFlatTable(data),
-           root = tree.toSimpleObject(function(objectToDecorate, originalNode) {
-                objectToDecorate.size = originalNode.size;
-                if (objectToDecorate.children && objectToDecorate.children.length == 0) {
-                    delete objectToDecorate.children;
-                }
-                return objectToDecorate;
+        d3.csv("nongraduates.csv", function (data) {
+
+          data.forEach(function (d) {
+            d.size = Number(d.size);
+            d.fake_size = Number(d.fake_size);
+            //d.var2 = Number(d.var2);
+          });
+
+
+          var tree = DataStructures.Tree.createFromFlatTable(data),
+            root = tree.toSimpleObject(function (objectToDecorate, originalNode) {
+              objectToDecorate.size = originalNode.size;
+              if (objectToDecorate.children && objectToDecorate.children.length == 0) {
+                delete objectToDecorate.children;
+              }
+              return objectToDecorate;
             });
 
-		dataset = root;
-		 initialize(root);
-		 accumulate(root);
-		 layout(root);
-		 display(root);
+          dataset = root;
+          initialize(root);
+          accumulate(root);
+          layout(root);
+          display(root);
 
-	d3.select("#blurb").select("#txt2").html("")
-	d3.select("#blurb").select("#txt3").html("");
-		d3.json("config.json", function(error, config) {
-				dvc=config
-			d3.csv("nongraduates.csv", function(data){
-				trade = data
-				//console.log(trade)
-				//draw_barchart();
-        		//drawStacked();
-			}) // end trade csv
-		}) //end json config
-	}); //end treemap csv load
+          d3.select("#blurb").select("#txt2").html("")
+          d3.select("#blurb").select("#txt3").html("");
+          d3.json("config.json", function (error, config) {
+            dvc = config
+            d3.csv("nongraduates.csv", function (data) {
+              trade = data
+              //console.log(trade)
+              //draw_barchart();
+              //drawStacked();
+            }) // end trade csv
+          }) //end json config
+        }); //end treemap csv load
 
 
-
-	}
-
+      }
 
       function initialize(root) {
         root.x = root.y = 0;
         root.dx = width;
-	    root.dy = height;
+        root.dy = height;
         root.depth = 0;
       }
 
@@ -588,10 +652,12 @@ var tree = DataStructures.Tree.createFromFlatTable(data),
       // We also take a snapshot of the original children (_children) to avoid
       // the children being overwritten when when layout is computed.
       function accumulate(d) {
-		   //console.log('accumulate')
+        //console.log('accumulate')
         return (d._children = d.children)
-            ? d.size = d.children.reduce(function(p, v) { return p + accumulate(v); }, 0)
-            : d.size;
+          ? d.size = d.children.reduce(function (p, v) {
+            return p + accumulate(v);
+          }, 0)
+          : d.size;
 
       }
 
@@ -606,8 +672,8 @@ var tree = DataStructures.Tree.createFromFlatTable(data),
 
         if (d._children) {
 
-         treemap.nodes({_children: d._children});
-          d._children.forEach(function(c) {
+          treemap.nodes({_children: d._children});
+          d._children.forEach(function (c) {
             c.x = d.x + c.x * d.dx;
 
             c.y = d.y + c.y * d.dy;
@@ -623,83 +689,113 @@ var tree = DataStructures.Tree.createFromFlatTable(data),
       function display(d) {
 
         grandparent
-            .datum(d.parent)
-            .on("click", transition)
-//            .select("text")
-//            .text(desc(d))
+          .datum(d.parent)
+          .on("click", transition)
+    //            .select("text")
+    //            .text(desc(d))
 
-		d3.select("#titleText")
-            .datum(d.parent)
-           // .text(desc(d))
+        d3.select("#titleText")
+          .datum(d.parent)
+        // .text(desc(d))
 
         var g1 = svg.insert("g", ".grandparent")
-            .datum(d)
-            .attr("class", "depth")
-			.on("mouseout", leave_tree);
+          .datum(d)
+          .attr("class", "depth")
+          .on("mouseout", leave_tree);
 
         var g = g1.selectAll("g")
-            .data(d._children)
+          .data(d._children)
           .enter().append("g");
 
-        g.filter(function(d) { return d._children; })
-            .classed("children", true)
-            .on("click", transition);
-
-        g.selectAll(".child")
-            .data(function(d) { return d._children || [d]; })
-          .enter().append("rect")
-            .attr("class", "child")
-			.attr("code",function(d) { return d.id} )
-			.attr("desc",function(d) { return d.name} )
-			.attr("id",function(d) { return d.id} )
-			.attr("vals",function(d) { return d.size} )
-			.attr("realvals",function(d) { return d.fake_size} )
-			.on("mouseover", mouseover)
-			.on("mouseout", mouseout)
-            .call(rect);
+        g.filter(function (d) {
+          return d._children;
+        })
+          .classed("children", true)
+          .on("click", transition);
 
         g.append("rect")
-            .attr("class", "parent")
-			.attr("desc",function(d) { return d.name} )
-			.attr("id",function(d) { return d.id} )
-			.attr("vals",function(d) { return d.size} )
-			.attr("realvals",function(d) { return d.fake_size} )
-			.on("mouseover", mouseover)
-			.on("mouseout", mouseout)
-            .call(rect);
+          .attr("class", "parent")
+          .attr("desc", function (d) {
+            return d.name
+          })
+          .attr("id", function (d) {
+            return d.id
+          })
+          .attr("vals", function (d) {
+            return d.size
+          })
+          .attr("realvals", function (d) {
+            return d.fake_size
+          })
+          .attr('aria-label', function(d) { return d.name + " " + formatNumber(d.fake_size) + "%"; })
+          .on("mouseover", mouseover)
+          .on("focus", mouseover)
+          .on("mouseout", mouseout)
+          .on("blur", mouseout)
+          .on("keyup", function(d) {
+            if (d3.event.keyCode === 13 || d3.event.keyCode === 32) {
+              $(d3.event.target).parent().d3Click();
+            }
+          })
+          .call(rect);
 
-       g.append("text")
-			.attr("class", "parentLabels")
-            .attr("dy", "1em")
-            .text(function(d) { return d.name+" "+formatNumber(d.fake_size)+"%"; })
-			.call(resize)
-            .call(text);
+        g.selectAll(".child")
+          .data(function (d) {
+            return d._children || [d];
+          })
+          .enter().append("rect")
+          .attr("class", "child")
+          .attr("code", function (d) {
+            return d.id
+          })
+          .attr("desc", function (d) {
+            return d.name
+          })
+          .attr("id", function (d) {
+            return d.id
+          })
+          .attr("vals", function (d) {
+            return d.size
+          })
+          .attr("realvals", function (d) {
+            return d.fake_size
+          })
+          .on("mouseover", mouseover)
+          .on("mouseout", mouseout)
+          .call(rect);
 
+        g.append("text")
+          .attr("class", "parentLabels")
+          .attr("dy", "1em")
+          .text(function (d) {
+            return d.name + " " + formatNumber(d.fake_size) + "%";
+          })
+          .call(resize)
+          .call(text);
 
 
         function transition(d) {
-			if(d3.select(this).attr("id") != "gparent"){
-				d3.select("#topBtn").style("visibility", "visible");
-				selectedArray.push(d3.select(this).select('.parent').attr("id"))
-				selectedView = selectedArray.join().replace(/,/g , "/")
+          if (d3.select(this).attr("id") != "gparent") {
+            d3.select("#topBtn").style("visibility", "visible");
+            selectedArray.push(d3.select(this).select('.parent').attr("id"))
+            selectedView = selectedArray.join().replace(/,/g, "/")
 
-				window.location.hash = encodeURI(selectedView);
-			} else {
-						
-						d3.select("#topBtn").style("visibility", "hidden");
-						selectedView = selectedArray.join().replace(/,/g , "/")
+            window.location.hash = encodeURI(selectedView);
+          } else {
 
-						window.location.hash = encodeURI(selectedView)
-			}
+            d3.select("#topBtn").style("visibility", "hidden");
+            selectedView = selectedArray.join().replace(/,/g, "/")
 
+            window.location.hash = encodeURI(selectedView)
+          }
 
 
           if (transitioning || !d) return;
           transitioning = true;
 
           var g2 = display(d),
-              t1 = g1.transition().duration(400),
-              t2 = g2.transition().duration(400);
+            t1 = g1.transition().duration(400),
+            t2 = g2.transition().duration(400);
 
           // Update the domain only after entering new elements.
           x.domain([d.x, d.x + d.dx]);
@@ -709,7 +805,9 @@ var tree = DataStructures.Tree.createFromFlatTable(data),
           svg.style("shape-rendering", null);
 
           // Draw child nodes on top of parent nodes.
-          svg.selectAll(".depth").sort(function(a, b) { return a.depth - b.depth; });
+          svg.selectAll(".depth").sort(function (a, b) {
+            return a.depth - b.depth;
+          });
 
           // Fade-in entering text.
           g2.selectAll("text").style("fill-opacity", 0);
@@ -717,244 +815,233 @@ var tree = DataStructures.Tree.createFromFlatTable(data),
 
           // Transition to the new view.
           t1.selectAll("rect").call(rect);
-		  t1.selectAll("text").call(text).style("fill-opacity", 1);
-         // t1.selectAll(".childLabels").call(text).style("fill-opacity",1);
-          t1.selectAll(".parentLabels").call(text).style("fill-opacity",1);
+          t1.selectAll("text").call(text).style("fill-opacity", 1);
+          // t1.selectAll(".childLabels").call(text).style("fill-opacity",1);
+          t1.selectAll(".parentLabels").call(text).style("fill-opacity", 1);
 
           t2.selectAll("rect").call(rect);
-		  t2.selectAll("text").call(resize).call(text).style("fill-opacity", 1);
-		//  t2.selectAll(".childLabels").call(text).call(resize2).style("fill-opacity", 1);
-		  t2.selectAll(".parentLabels").call(resize).call(text).style("fill-opacity", 1);
+          t2.selectAll("text").call(resize).call(text).style("fill-opacity", 1);
+          //  t2.selectAll(".childLabels").call(text).call(resize2).style("fill-opacity", 1);
+          t2.selectAll(".parentLabels").call(resize).call(text).style("fill-opacity", 1);
 
 
           // Remove the old node when the transition is finished.
-          t1.remove().each("end", function() {
+          t1.remove().each("end", function () {
             svg.style("shape-rendering", "crispEdges");
             transitioning = false;
           });
 
-			myClass = $(this).attr("class");
+          myClass = $(this).attr("class");
 
-			if(myClass=="children"){
-				level = level+1;
-				levelArray = Array(level);
-			} else {
-				level = level-1;
-				levelArray = Array(level);
-			}
+          if (myClass == "children") {
+            level = level + 1;
+            levelArray = Array(level);
+          } else {
+            level = level - 1;
+            levelArray = Array(level);
+          }
 
-		}
+        }
 
         return g;
-		g.each( function(d,i) {
-			d3.selectAll(".children").selectAll("text")
-				.data(d._children).enter().append("text")
-				.attr("class", "childLabels")
-				.attr("dy", "0.5em")
-				.text(function(d){ return d.name;});
-			})
+        g.each(function (d, i) {
+          d3.selectAll(".children").selectAll("text")
+            .data(d._children).enter().append("text")
+            .attr("class", "childLabels")
+            .attr("dy", "0.5em")
+            .text(function (d) {
+              return d.name;
+            });
+        })
       }
 
-	  function resize(text, width){
+      function resize(text, width) {
 
-			text.each(function(d,i) {
-				var text = d3.select(this).style("font-size", function(d) {
-						//console.log("here "+ Math.sqrt((d.widthCalc*d.heightCalc))/ Math.log(this.getComputedTextLength())*0.45);
-						return Math.sqrt((d.widthCalc*d.heightCalc))/ Math.log(this.getComputedTextLength())*0.45 + "px";
-				})
-			});
-	  };
+        text.each(function (d, i) {
+          var text = d3.select(this).style("font-size", function (d) {
+            //console.log("here "+ Math.sqrt((d.widthCalc*d.heightCalc))/ Math.log(this.getComputedTextLength())*0.45);
+            return Math.sqrt((d.widthCalc * d.heightCalc)) / Math.log(this.getComputedTextLength()) * 0.45 + "px";
+          })
+        });
+      };
 
-	  function text(text, width) {
-		  	text.each(function(d,i) {
-				var text = d3.select(this),
-					words = text.text().split(/\s+/).reverse(),
-					word,
-					line = [],
-					y = text.attr("y"),
-					dy = parseFloat(text.attr("dy")),
-					tspan = text.text(null).append("tspan")/*.attr("x", 0).attr("y", y)*/.attr("dy",  "1em");
-
-
-
-				while (word = words.pop()) {
-				  line.push(word+" ");
-				  tspan.text(line.join(" "));
-
-				 if (tspan.node().getComputedTextLength() >  d.widthCalc-10) {
-					line.pop();
-					tspan.text(line.join(" "));
-					line = [word+" "];
-
-					tspan = text.append("tspan").attr("x", function(d) { return x(d.x) + 6; }).attr("dy",  dy + "em").text(word+" ");
-
-				  }
-				 }
-			  });
-
-       d3.selectAll(".parentLabels").attr("y", function(d) { return y(d.y) + 6; })
-      					   			.attr("x", function(d) { return x(d.x) + 6; });
-	  }
+      function text(text, width) {
+        text.each(function (d, i) {
+          var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            y = text.attr("y"),
+            dy = parseFloat(text.attr("dy")),
+            tspan = text.text(null).append("tspan")/*.attr("x", 0).attr("y", y)*/.attr("dy", "1em");
 
 
-	  function rect(rect) {
-		rect.attr("x", function(d) { return x(d.x); })
-            .attr("y", function(d) { return y(d.y); })
-      		.attr("width", function(d) {
-				   widthCalc = x(d.x + d.dx) - x(d.x);
+          while (word = words.pop()) {
+            line.push(word + " ");
+            tspan.text(line.join(" "));
 
-				  d["widthCalc"] = widthCalc;
-				  return widthCalc;
-        	})
-            .attr("height", function(d) {
-				 heightCalc =y(d.y + d.dy) - y(d.y);
-				 d["heightCalc"] = heightCalc;
-				  return heightCalc;
-     		})
-	  }
+            if (tspan.node().getComputedTextLength() > d.widthCalc - 10) {
+              line.pop();
+              tspan.text(line.join(" "));
+              line = [word + " "];
 
-//      function desc(d) {
-//		return d.parent
-//            ? desc(d.parent) + " > " + d.desc
-//            : d.desc;
-//      }
+              tspan = text.append("tspan").attr("x", function (d) {
+                return x(d.x) + 6;
+              }).attr("dy", dy + "em").text(word + " ");
 
+            }
+          }
+        });
 
-	function mouseover (d){
+        d3.selectAll(".parentLabels").attr("y", function (d) {
+          return y(d.y) + 6;
+        })
+          .attr("x", function (d) {
+            return x(d.x) + 6;
+          });
+      }
 
-			var	selectClass = $(this).attr('desc');
-			var	selectValue = $(this).attr('realvals');
-	//	console.log($(this).attr('name'))
-		d3.select("#blurb").select("#txt2").html(selectClass+":")
-		d3.select("#blurb").select("#txt3").html(formatNumber(selectValue)+"%")
+      function rect(rect) {
+        rect.attr("x", function (d) {
+          return x(d.x);
+        })
+          .attr("y", function (d) {
+            return y(d.y);
+          })
+          .attr("width", function (d) {
+            widthCalc = x(d.x + d.dx) - x(d.x);
 
-			//$('#areaselect').val($(this).attr("id")); // Select the option with a value of '1'
-			//$('#areaselect').trigger('change'); // Notify any JS components that the value changed
-		
-			
+            d["widthCalc"] = widthCalc;
+            return widthCalc;
+          })
+          .attr("height", function (d) {
+            heightCalc = y(d.y + d.dy) - y(d.y);
+            d["heightCalc"] = heightCalc;
+            return heightCalc;
+          })
+      }
 
-	};
+      //      function desc(d) {
+      //		return d.parent
+      //            ? desc(d.parent) + " > " + d.desc
+      //            : d.desc;
+      //      }
 
-	function mouseout (){
-		//console.log(dataset)
-		d3.select("#blurb").select("#txt2").html("");
-		d3.select("#blurb").select("#txt3").html("");
-		
+      function mouseover(d) {
 
-	};
+        var selectClass = $(this).attr('desc');
+        var selectValue = $(this).attr('realvals');
+        //	console.log($(this).attr('name'))
+        d3.select("#blurb").select("#txt2").html(selectClass + ":")
+        d3.select("#blurb").select("#txt3").html(formatNumber(selectValue) + "%")
 
-	function leave_tree(){
-		
-	}
-
-	function simulateClick(elem /* Must be the element */) {
-		var evt = document.createEvent("MouseEvents");
-		evt.initMouseEvent(
-			"click", /* type */
-			true, /* canBubble */
-			true, /* cancelable */
-			window, /* view */
-			0, /* detail */
-			0, /* screenX */
-			0, /* screenY */
-			0, /* clientX */
-			0, /* clientY */
-			false, /* ctrlKey */
-			false, /* altKey */
-			false, /* shiftKey */
-			false, /* metaKey */
-			0, /* button */
-			null); /* relatedTarget */
-		elem.dispatchEvent(evt);
-	}
-
-	d3.select("#upBtn").on('click', function() {
-	    	simulateClick(grandparent[0][0]);
-
-	});
-
-	d3.select("#topBtn").on('click', function() {
-	    	backToTop();
-	});
+        //$('#areaselect').val($(this).attr("id")); // Select the option with a value of '1'
+        //$('#areaselect').trigger('change'); // Notify any JS components that the value changed
 
 
+      };
 
-	setTimeout( function(){
-	 	if (pymChild) {
-       		pymChild.sendHeight();
-
-
-
-			var url = decodeURI(window.location.hash);
+      function mouseout() {
+        //console.log(dataset)
+        d3.select("#blurb").select("#txt2").html("");
+        d3.select("#blurb").select("#txt3").html("");
 
 
+      };
 
-			if (url == ""){
-				selectedView = "c0"
-			} else {
-				params = url.split("/");
-				params[0] = params[0].replace("#", "")
-				storyArray = params;
-				selectedView = storyArray.join().replace(/,/g , "/")
-				//console.log(selectedView)
-				$(storyArray).each(function(i){
+      function leave_tree() {
 
-					setTimeout(function(){
-						storyId = "#"+storyArray[i];
-						simulateClick(d3.select(storyId)[0][0]);
-						//$("#areaselect").val(storyId).trigger('change.select2');
-						$('#areaselect').val(storyArray[i]); // Select the option with a value of '1'
-						$('#areaselect').trigger('change'); // Notify any JS components that the value changed
-					}, 760*i);
-				});
+      }
 
-			}
+      function simulateClick(elem /* Must be the element */) {
+        var evt = document.createEvent("MouseEvents");
+        evt.initMouseEvent(
+          "click", /* type */
+          true, /* canBubble */
+          true, /* cancelable */
+          window, /* view */
+          0, /* detail */
+          0, /* screenX */
+          0, /* screenY */
+          0, /* clientX */
+          0, /* clientY */
+          false, /* ctrlKey */
+          false, /* altKey */
+          false, /* shiftKey */
+          false, /* metaKey */
+          0, /* button */
+          null); /* relatedTarget */
+        elem.dispatchEvent(evt);
+      }
 
-		}
-	}, 700)
+      d3.select("#upBtn").on('click', function () {
+        simulateClick(grandparent[0][0]);
 
+      });
 
+      d3.select("#topBtn").on('click', function () {
+        backToTop();
+      });
 
-
-
-
-
-
-function backToTop (){
-
-			$(levelArray).each(function(i){
-				setTimeout(function(){
-					simulateClick(grandparent[0][0]);
-				},760*i);
-			});
-};
-
+      setTimeout(function () {
+        if (pymChild) {
+          pymChild.sendHeight();
 
 
-	function updateHash() {
-
-	}
+          var url = decodeURI(window.location.hash);
 
 
+          if (url == "") {
+            selectedView = "c0"
+          } else {
+            params = url.split("/");
+            params[0] = params[0].replace("#", "")
+            storyArray = params;
+            selectedView = storyArray.join().replace(/,/g, "/")
+            //console.log(selectedView)
+            $(storyArray).each(function (i) {
 
+              setTimeout(function () {
+                storyId = "#" + storyArray[i];
+                simulateClick(d3.select(storyId)[0][0]);
+                //$("#areaselect").val(storyId).trigger('change.select2');
+                $('#areaselect').val(storyArray[i]); // Select the option with a value of '1'
+                $('#areaselect').trigger('change'); // Notify any JS components that the value changed
+              }, 760 * i);
+            });
+
+          }
+
+        }
+      }, 700)
+
+      function backToTop() {
+
+        $(levelArray).each(function (i) {
+          setTimeout(function () {
+            simulateClick(grandparent[0][0]);
+          }, 760 * i);
+        });
+      };
+
+      function updateHash() {
+
+      }
     </script>
 
+    <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37894017-1']);
+    _gaq.push(['_trackPageview']);
 
-<script>
-
-
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-37894017-1']);
-		  _gaq.push(['_trackPageview']);
-
-
-		  (function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-
-</script>
-
-</body>
+    (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  </body>
 </html>
