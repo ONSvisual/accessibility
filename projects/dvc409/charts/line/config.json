@@ -1,0 +1,60 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "colour_palette": ["goldenrod", "teal" ],
+        
+            "dateFormat":"%Y %b",
+        
+            "legendLabels" : ["Inflation",  "Total pay growth"],
+        
+            "sourceText":["CPIH and AWE Total Pay Growth"],
+            "sourceURL":["http://www.hscic.gov.uk/catalogue/PUB18472/nhs-immu-stat-eng-2014-15-tab.xlsx"],
+            
+            "annotationChart": [
+               ""
+            ],
+            "annotationBullet": [
+                ""
+            ],
+            "annotationXY":[
+                ["2016 Dec","3.7"]
+            ],
+            "annotationAlign":[
+                "middle"
+            ],
+        
+            "circles" : false,    
+            "annotationCXCY":[
+                
+            ],
+        
+            "yAxisLabel":"%",
+            "yAxisScale":"auto_min_max",   
+            "yAxisBreak": true,
+            "yAxisBreak_sm_md_lg": [75,75,75]            
+    },
+    "optional" : {
+            "margin_sm": [50, 30, 55, 30],
+            "margin_md": [50, 30, 55, 30],
+            "margin_lg": [50, 30, 55, 30],
+        
+            "aspectRatio_sm" : [16,13],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,10],
+        
+            "mobileBreakpoint" : 610, 
+            "vertical_line" : true,
+            "annotateLineX1_Y1_X2_Y2":[ [["Oct-97",100],["Oct-97",75]], [["Jan-03",100],["Jan-03",75]], [["Nov-08",100],["Nov-08",75]] ],
+
+            
+            "xAxisTextFormat_sm_md_lg" : ["%b %y", "%b %y", "%b %Y"], 
+                
+            "x_num_ticks_sm_md_lg" : [5,5,10],    
+            "y_num_ticks_sm_md_lg" : [7,8,8],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+

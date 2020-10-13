@@ -1,0 +1,44 @@
+{
+    "essential" : {
+            "graphic_data_url": "data/data.csv",
+            "pickxdata":"imd",
+            "pickydata":"jobdensity",
+            "groups" : ["Small","Medium","Large"],
+            "fills":["#5999D1","#3a1e82","#cd842f"],
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+            "rectannotations":[],
+            "textAnnotations":[{
+              "x":50,
+              "y":3.5,
+                "text":""
+              }],
+            "textAnnotationWrap":100,
+            "d3AnnotationWrap":200,
+            "xAxisLabel":"Income deprivation",
+            "yAxisLabel":"Job density (higher = more jobs per resident)",
+            "AxisScale":"auto_min_max",
+      			"xAxisScale":[-8000,5000],
+      			"yAxisScale":[-8000,5000]
+
+	},
+    "optional" : {
+            "margin_sm": [50 ,20, 10, 15],
+            "margin_md": [50, 20, 10, 15],
+            "margin_lg": [50, 50, 10, 15],
+
+            "aspectRatio_sm" : [1.5,1],
+            "aspectRatio_md" : [1.5,1],
+            "aspectRatio_lg" : [1.5,1],
+
+            "mobileBreakpoint" : 610,
+
+            "x_num_ticks_sm_md_lg" : [4,5,5],
+            "y_num_ticks_sm_md_lg" : [4,5,5],
+
+            "annotateLineX1_Y1_X2_Y2":[[[40,0],[40,100]],[[60,0],[60,100]],[[0,0.5],[100,0.5]],[[0,0.7],[100,0.7]]],
+            "lineColor_opcty" : [["#000", 1],["#000", 1],["#000", 1],["#000", 1]]
+
+
+    }
+}

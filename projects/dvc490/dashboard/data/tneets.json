@@ -1,0 +1,58 @@
+{"code":"tneets",
+ "filepth":"",
+ "description":{
+        "title":"Those Not in Education, Employment or Training (NEET)",
+        "unit":"%"
+    },
+    "months":[],
+    "days":[],
+    "quarters":{
+            "catLabels":[
+                "2013 Mar", 
+		"2013 Jun", 
+		"2013 Sep", 
+		"2013 Dec", 
+		"2014 Mar", 
+		"2014 Jun", 
+		"2014 Sep", 
+		"2014 Dec", 
+		"2015 Mar", 
+		"2015 Jun", 
+		"2015 Sep", 
+		"2015 Dec", 
+		"2016 Mar", 
+		"2016 Jun", 
+		"2016 Sep", 
+		"2016 Dec", 
+		"2017 Mar", 
+		"2017 Jun",
+		"2017 Sep",
+		"2017 Dec"
+
+            ],
+            "dataValues":[
+                15.0, 
+		14.9, 
+		14.9, 
+		14.2, 
+		13.4, 
+		13.2, 
+		13.2, 
+		13.4, 
+		12.9, 
+		12.7, 
+		11.7, 
+		11.9, 
+		12.0, 
+		11.7, 
+		11.9, 
+		11.6, 
+		11.2, 
+		11.1,
+		11.1,
+		11.2
+            ]
+    },
+    "years":[]
+} 
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<head>
+  <title>Family Spending</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <link rel="shortcut icon" href="">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="css/style_ie.css" />
+  <![endif]-->
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37894017-1']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })(); 
+  </script>
+</head>
+<body>
+
+<div id="main-wrapper">
+
+<div id="content" style="display:none">
+
+<div class="editorial">
+  <p>Find the regional average you are closest to<br/>by entering your weekly household spend</p>
+</div>
+
+<div id="input">
+
+  <div class="inputslider">
+    <div class="tooltip">
+      <span>Clothing: </span>
+      <span id="info">£0</span>
+      <span class="tooltiptext">Includes spending on adult and child clothing and footwear</span>
+    </div>
+    <div id='bar'>
+      <div id='slider'></div>
+    </div>    
+  </div>
+
+  <div class="inputslider">
+    <div class="tooltip2">
+      <span>Cafés &amp; hotels: </span>
+      <span id="info2">£0</span>
+      <span class="tooltiptext2">Includes spending on restaurant and café meals, alcohol bought out, take-away meals, contract catering and hotels in the UK and abroad.</span>
+    </div>
+    <div id='bar2'>
+      <div id='slider2'></div>
+    </div>
+  </div>
+
+  <div class="inputslider">
+    <div class="tooltip3">
+      <span>Food: </span>
+      <span id="info3">£0</span>
+      <span class="tooltiptext3">Includes spending on all food and non-alcoholic drink consumed at home</span>
+    </div>
+    <div id='bar3'>
+      <div id='slider3'></div>
+    </div> 
+  </div>
+
+  <div class="inputslider">
+    <div class="tooltip4">
+      <span>Transport: </span>
+      <span id="info4">£0</span>
+      <span class="tooltiptext4">Includes spending on buying a car, vehicle repairs and serivces, fuel and public transport</span>
+    </div>
+    <div id='bar4'>
+      <div id='slider4'></div>
+    </div>
+  </div>
+
+  <div class='clear'></div>
+
+</div>
+
+<!-- /////////////////////////////// -->
+
+<div id="output">
+
+  <div id="region" class="outputfield">
+    <div id="region_img"></div>
+    <div id="region_name">&nbsp;</div>
+  </div>
+
+  <div id="urural" class="outputfield">
+    <div id="region_img2"></div>
+    <div id="region_name2">&nbsp;</div>
+  </div>
+
+  <div id="dwell" class="outputfield">
+    <div id="region_img3"></div>
+    <div id="region_name3">&nbsp;</div>
+  </div>
+
+  <div id="household" class="outputfield">
+    <div id="region_img4"></div>
+    <div id="region_name4">&nbsp;</div>
+  </div>  
+
+</div>
+
+<!-- /////////////////////////////// -->
+
+<div id="region_dropdown" class="region_editorial">
+  <span>Hover over the chart below to see <br/>regional variation</span>
+  <span id="dropdown">
+    <button id="dropbtn">
+        <span class="droptext">or select your region</span>
+        <span class="droparrow">&nbsp;&#x25BC;</span>
+    </button>
+    <br/>
+    <div id="dropdown-content">
+      <p class='dropdownclick' id="NE">North East</p>
+      <p class='dropdownclick' id="NW">North West</p>
+      <p class='dropdownclick' id="Y">Yorkshire and the Humber</p>
+      <p class='dropdownclick' id="EM">East Midlands</p>
+      <p class='dropdownclick' id="WM">West Midlands</p>
+      <p class='dropdownclick' id="E">East</p>
+      <p class='dropdownclick' id="L">London</p>
+      <p class='dropdownclick' id="SE">South East</p>
+      <p class='dropdownclick' id="SW">South West</p>
+      <p class='dropdownclick' id="W">Wales</p>
+      <p class='dropdownclick' id="S">Scotland</p>
+      <p class='dropdownclick' id="NI">Northern Ireland</p>
+    </div>
+</span>
+</div>
+
+<div id="explore"></div>
+
+<!-- /////////////////////////////// -->
+
+<div id="share"></div>
+
+<!-- /////////////////////////////// -->
+
+<div id="source"><a class="source_link" href="https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/datasets/householdexpenditurebycountriesandregionsuktablea33" target="_blank">Source: Family Spending, Table A33, ONS</a></div>
+
+</div>
+
+<div id="ieMsg" style="display:none">
+    <img id="thumbNail" src="pics/fallback.png">
+</div>
+
+</div>
+
+<script src="https://cdn.ons.gov.uk/vendor/jquery/2.1.4/jquery.min.js"></script>    
+<script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+<script src="js/modernizr.svg.min.js" type="text/javascript"></script>
+<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.min.js" type="text/javascript"></script>
+<script src="js/calc.js" type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{"ons":{
+"maptitle": "Mid Year Population Estimates",
+"varcolour": "YlGnBu",
+"varlabels": ["Median age","Population density", "Age 0 to 15", "Age 65+", "Age 85+", "Working age 16 to 64", "Age 70+"],
+"varload": 0,
+"varunit": ["years","population density", "per cent", "per cent", "per cent", "per cent", "per cent"],
+"displaydecimals": 1,
+"legenddecimals": 1,
+"breaks": "jenks",
+"dropticks": false,
+"numberBreaks": 5
+}}

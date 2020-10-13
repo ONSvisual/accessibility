@@ -212,8 +212,6 @@
 		/*  Input boxes */
 
 		input {
-		  height: 40px;
-		  margin-bottom: 10px;
 			width:calc(100% - 40px);
 			box-sizing: border-box;
 		}

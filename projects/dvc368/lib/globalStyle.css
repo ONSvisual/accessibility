@@ -1,0 +1,58 @@
+		
+
+        
+		
+		
+		
+        html
+		{
+			-webkit-text-size-adjust: none; /* prevent font scaling in landscape */
+		}
+
+
+
+        body /* required */
+		{
+            font-family: 'Open Sans', sans-serif;
+			font-weight:400;
+			max-width: 1300px;
+			margin: 0 auto;
+        }
+		
+		
+
+        a, /* required */
+		a:link,
+		a:visited
+		{
+            color: #4774CC;
+            text-decoration: none;
+        }
+		
+		
+		
+        a:hover, /* required */
+		a:active
+		{
+			opacity: 0.7;
+		}
+		
+		
+		
+        /*.footnotes p,*/
+        .footer  /* required */
+		{
+            font-size: 14px;
+            color: #808080;
+			font-weight:100;
+			padding-bottom:15px;
+			margin: 0 auto;
+			max-width:800px;
+        }
+		
+		
+		
+       
+	
+	
+		

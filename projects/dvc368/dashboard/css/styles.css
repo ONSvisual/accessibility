@@ -1,0 +1,330 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+
+    background: #fff;
+
+}
+
+header {
+    /* height: 67px; */
+    background-color: black;
+}
+
+a:-webkit-any-link {
+    /*color: -webkit-link;*/
+    text-decoration: underline;
+    cursor: auto;
+}
+
+.logo {
+    height: 60px;
+    margin: 0% 0% 0% 25%;
+    background: url("http://www.ons.gov.uk/visualisations/dvc360i/image/ons_logo.png") no-repeat;
+    background-size: 188px;
+    background-position: 0px 15px;
+}
+
+.content {
+    margin: 0px auto;
+    max-width: 1000px;
+}
+
+h1 {
+    font-size: 2.3rem;
+    color: #003D59;
+    font-weight: 700;
+    margin-top: 15px;
+
+}
+
+.date {
+    color: #808080;
+    font-size: 1.1em;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+}
+
+.summary p {
+    margin: 0 0 25px;
+}
+
+.quote {
+    font-style: italic;
+    font-weight: 400;
+    padding: 10px 30px;
+}
+
+.mainTitle {
+    margin: 0 auto;
+    font-size: 24px;
+}
+
+.topic {
+    margin: 5px 0px 5px 0px;
+}
+
+.topic_title {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.5em;
+    margin-bottom: 1.5rem;
+}
+
+.topic_text {
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.topic_text p {
+    margin: 5px 0px !important;
+}
+
+.summary {
+    padding: 5px 0px;
+    background: #fff;
+    margin: 5px;
+
+}
+
+.measure {
+
+    background: #f2f2f2;
+}
+
+.measure_caption {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.panel {
+    /*height:530px;*/
+    margin-bottom: 0px !important;
+    border-width: 1px;
+    /*border-color:#F2F2F2;*/
+    box-shadow: 0 1px 1px rgba(240, 240, 240, 0.05) !important;
+}
+
+.panel-heading {
+
+    color: white !important;
+}
+
+.title_div {
+    background: teal
+}
+
+.disconText {
+    font-size: 10px;
+}
+
+.discontinuity {
+    stroke: #808080;
+    stroke-dasharray: 3;
+}
+
+.tick line {
+    stroke: #C7C3C3;
+}
+
+.axis {
+    font-family: "Open Sans";
+}
+
+.centreline {
+    stroke: black;
+    stroke-width: 1px;
+
+}
+
+.axis path {
+    display: none;
+}
+
+.axis line {
+    shape-rendering: crispEdges;
+    stroke: #CAC8C8;
+}
+
+
+.bar {
+    opacity: 0.8;
+    fill: #2D70AF;
+}
+
+.chartUnits {
+    font-size: 11px;
+}
+
+.measure_title {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+
+
+.explainer {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0px 5px 5px 5px;
+}
+
+.explainer p {
+    padding-top: 10px;
+}
+
+.src {
+    font-size: 11px;
+    padding-top: 0px !important;
+}
+
+.blurb {
+    padding-top: 20px !important;
+}
+
+.col-xs-12 {
+    width: 99%;
+    margin: 0.5%
+}
+
+@media (min-width: 500px) {
+    .col-sm-6 {
+        width: 49%;
+        margin: 0.5%
+    }
+}
+
+
+@media (min-width: 698px) {
+    .col-md-4 {
+        width: 32.33333333%;
+        margin: 0.5%;
+    }
+
+    .panel-body {
+        padding: 5px !important;
+    }
+
+    .blurb {
+        padding-top: 10px !important;
+    }
+
+    .explainer {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 850px) {
+
+    .panel-body {
+        padding: 15px !important;
+    }
+}
+
+strong {
+    font-weight: 700;
+}
+
+.updatedDate {
+    font-size: 11px;
+    font-style: italic;
+}
+
+a, a:visited {
+    color: #206095;
+    font-weight: 400;
+    cursor: pointer;
+}

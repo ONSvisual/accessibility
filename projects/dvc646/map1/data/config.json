@@ -1,0 +1,11 @@
+{"ons":{
+"maptitle": "Towns and cities growth map",
+"varcolour": "PuBu",
+"colour_palette": ["#d32f2f","#e79e9e","#008080","#7fbdbd","#bbb"],
+"varunit": "change in months",
+"displaydecimals": 1,
+"legenddecimals": 0,
+"legendEntries": ["Higher Deprivation Working","Higher Deprivation Residential","Lower Deprivation Working","Lower Deprivation Residential","Other"],
+"dropticks": false,
+"numberBreaks": 5
+}}

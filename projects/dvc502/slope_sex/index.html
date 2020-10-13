@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title></title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="./lib/globalStyle.css" />
+    <style type="text/css">
+		body {
+			max-width:700px;
+			margin:0px auto;
+		}
+
+	   	.line { 
+			stroke: #9CC;
+			fill: none;
+		}
+
+
+		.border0 { border-top: 2px solid #274796; }
+        .border1 { border-top: 2px solid #F5942F; }
+        .border2 { border-top: 2px solid #E73f40; }
+		.border3 { border-top: 2px solid #7BCAE2; }
+		
+		.title {
+			font-family: 'Open Sans';
+			font-size:16px;
+			color:#666;
+			font-weight:bold;
+			text-align:center;
+			padding-bottom:10px;
+		}
+		
+
+		#graphic2 {
+			
+		}
+		
+		text{
+			font-family: 'Open Sans', sans-serif;
+			font-size:12px;
+		}
+		
+		p{
+			font-family: 'Open Sans', sans-serif;
+			font-size:12px;
+			font-weight:bold;
+			color: #414042;	
+			margin-top:5px;		
+		}
+		
+		.y text {
+			display:none;
+		}
+		
+		.graphic .grid .tick /* required */
+		{
+            stroke: #eee;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+		
+		.fade {
+			opacity:0.1;
+		}
+				
+		.highlight {
+			opacity:1;
+		}
+    
+		.axis path {
+			fill:none;
+			stroke:#fff !important;	
+		}
+		
+		.slopegroup {
+			cursor:pointer;	
+			
+		}
+		
+		.x .tick text {
+			font-weight: bold;
+		}
+		
+		.line-6, .line-7 {
+			display:none;
+		}
+		.footer text {
+    display: block;
+}
+
+    </style>
+</head>
+<body>
+
+	<div id="graphic">
+    	<img src="fallbacka.png" alt="[Chart]" />
+    </div>
+      
+    <div id="keypoints">
+    </div>
+
+   <div class="footer">
+   
+   </div>
+    
+<script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+<script src="./lib/modernizr.svg.min.js" type="text/javascript"></script>
+<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.js" charset="utf-8"></script>
+   
+   	<script>
+    	var graphic = $('#graphic');
+		var keypoints = $('#keypoints');
+		var footer = $(".footer");
+		var pymChild = null;
+
+
+		function drawGraphic() {
+		   var threshold_md = 400;
+		   var threshold_sm = dvc.optional.mobileBreakpoint; 
+		  
+		  	//set variables for chart dimensions dependent on width of #graphic
+		    if (graphic.width() < threshold_sm) {        	
+		            var margin = {top: dvc.optional.margin_sm[0], right: dvc.optional.margin_sm[1], bottom: dvc.optional.margin_sm[2], left: dvc.optional.margin_sm[3]}; 
+					var chart_width = graphic.width() - margin.left - margin.right;
+		            var height = Math.ceil((chart_width * dvc.optional.aspectRatio_sm[1]) / dvc.optional.aspectRatio_sm[0]) - margin.top - margin.bottom;
+		    } else if (graphic.width() < threshold_md){
+		        	var margin = {top: dvc.optional.margin_md[0], right: dvc.optional.margin_md[1], bottom: dvc.optional.margin_md[2], left: dvc.optional.margin_md[3]}; 
+					var chart_width = graphic.width() - margin.left - margin.right;
+		            var height = Math.ceil((chart_width * dvc.optional.aspectRatio_md[1]) / dvc.optional.aspectRatio_md[0]) - margin.top - margin.bottom;
+		  	} else {
+		        	var margin = {top: dvc.optional.margin_lg[0], right: dvc.optional.margin_lg[1], bottom: dvc.optional.margin_lg[2], left: dvc.optional.margin_lg[3]}
+					var chart_width = graphic.width() - margin.left - margin.right;
+		            var height = Math.ceil((chart_width * dvc.optional.aspectRatio_lg[1]) / dvc.optional.aspectRatio_lg[0]) - margin.top - margin.bottom;
+			}
+
+		    // clear out existing graphics
+		    graphic.empty();
+			keypoints.empty();
+			footer.empty();
+			
+
+		     x = d3.scale.linear()
+		        .range([0, chart_width]);
+				
+		    var y = d3.scale.linear()
+		        .range([height, 0]);
+
+		    x.domain([d3.min(graphic_data, function(d) { return +d.date; }),d3.max(graphic_data, function(d) { return +d.date; })]);	
+
+	
+			
+		    var xAxis = d3.svg.axis()
+		        .scale(x)
+		        .orient("top")
+		        //.tickFormat(function(d,i) {
+//		            //specify date format for x axis depending on #graphic width
+//		            if (graphic.width() <= threshold_sm) {
+//		                var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[0]);
+//		                return '\u2019' + fmt(d);
+//		            } else if (graphic.width() <= threshold_md){
+//		                var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[1]);
+//		                return  fmt(d);
+//		            } else {
+//		                var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[2]);
+//		                return fmt(d);
+//		            }
+//		        })
+				.tickPadding(5)
+		    
+	        //specify number of ticks on x axis and whether 1st and last data point labels are included
+//	        if(graphic.width()<threshold_sm){		
+//	            xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[0]).concat( x.domain() ));
+//	        } else if (graphic.width() <= threshold_md){
+//				xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[1])/*.concat( x.domain() )*/);
+//			} else {
+//	            xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[2])/*.concat( x.domain() )*/);		
+//	        }
+		    
+			xAxis.tickValues([0,5,10])
+				.tickFormat(function(d) {
+					if(d =="0"){
+						return "Male";
+					} else if (d =="5"){
+						return "Female";
+					} 
+				});
+				
+			var yAxis = d3.svg.axis()
+		        .scale(y)
+		        .orient('left');
+		    			  
+				
+			//specify number or ticks on y axis
+			if (graphic.width() <= threshold_sm) {
+				yAxis.ticks(dvc.optional.y_num_ticks_sm_md_lg[0])
+			 } else if (graphic.width() <= threshold_md){
+				yAxis.ticks(dvc.optional.y_num_ticks_sm_md_lg[1])
+			 } else {
+				yAxis.ticks(dvc.optional.y_num_ticks_sm_md_lg[2])
+
+			 }
+				
+		    //gridlines
+		    var y_axis_grid = function() { return yAxis; }
+
+		    var line = d3.svg.line()
+		        .x(function(d,i) { return x(d.date);})
+		        .y(function(d,i) { return y(d.amt); });
+
+		    // parse data into columns
+		    var lines = {};
+		    for (var column in graphic_data[0]) {
+		        if (column == 'date') continue;
+		        lines[column] = graphic_data.map(function(d) {
+		            return {
+		                'date': d.date,
+		                'amt': d[column]
+		            };
+		        });
+		    }
+			
+			first =Object.keys(lines)[0];
+			
+		  	//y domain calculations	: zero to intelligent max choice, or intelligent min and max choice,  or interval chosen manually
+	   		if (dvc.essential.yAxisScale == "auto_zero_max"){
+			   var yDomain = [
+								0,
+								d3.max(d3.entries(lines), function(c) {
+									return d3.max(c.value, function(v) {
+										var n = v.amt;
+										return Math.ceil(n);
+									});
+								})
+							 ];
+			} else if (dvc.essential.yAxisScale == "auto_min_max"){
+				var yDomain = [
+								d3.min(d3.entries(lines), function(c) {
+									return d3.min(c.value, function(v) {
+										var n = v.amt;
+										return Math.floor(n);
+									});
+								}),
+							
+								d3.max(d3.entries(lines), function(c) {
+									return d3.max(c.value, function(v) {
+										var n = v.amt;
+										return Math.ceil(n);
+									});
+								})
+					 		];
+			} else {
+			   var yDomain = dvc.essential.yAxisScale;
+		    }
+				 
+		    y.domain(yDomain);
+		    
+//			//create legend
+//			if(dvc.essential.legendLabels.length > 1){
+//			var legend = d3.select('#graphic').append('ul')
+//			                .attr('class', 'key')
+//			            .selectAll('g')
+//			                .data(dvc.essential.legendLabels)
+//			            .enter().append('li')
+//
+//				    legend.append('b')
+//						 .attr("class",function(d,i){return "border" + i})
+//				    
+//					legend.append('label')
+//				         .html(function(d,i) { return dvc.essential.legendLabels[i]; });						
+//			}
+
+			
+
+		    //create svg for chart
+		    svg = d3.select('#graphic').append('svg')
+				        .attr("width", chart_width + margin.left + margin.right)
+				        .attr("height", height + margin.top + margin.bottom +30)
+				        .append("g")
+				        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+				
+					svg.append("rect")
+						.attr("class","svgRect")
+						.attr("width", chart_width)
+						.attr("height", height)
+			    
+				    svg.append('g')
+				        .attr('class', 'y axis')
+				        .call(yAxis);
+						
+				    svg.append('g')
+				        .attr('class', 'y grid')
+				        .call(y_axis_grid()
+				            .tickSize(-chart_width, 0, 0)
+				            .tickFormat('')
+				        );
+					
+					//create x axis, if y axis doesn't start at 0 drop x axis accordingly	
+					svg.append('g')
+				        .attr('class', 'x axis')
+				        .attr('transform', 'translate(2,-5)') 
+				        .call(xAxis);
+				
+				//y axis label
+				svg.append("text")
+		                .attr('class', 'unit')
+				        .attr('transform', 'translate(-15,10)') 
+		  		        .text(function(d,i) { return dvc.essential.yAxisLabel; });
+	
+				//create lines 		
+			    linegroups = svg.append('g').attr("id","slopelines").selectAll('path')
+			        .data(d3.entries(lines))
+			        .enter()
+					.append("g")
+					.attr("class",function(d,i){return "slopegroup slopegroup_" + i})
+					.on("mouseover",function(){
+							if(graphic.width() < threshold_md){
+								d3.selectAll(".slopegroup").transition().duration(300).attr("opacity","0.2");  
+								var thisclass = d3.select(this).attr("class").split(" ",2)[1];
+								
+								d3.selectAll("." + thisclass).transition().duration(300).attr("opacity","1"); 
+								d3.selectAll("." + thisclass).select("path").style("stroke-width","3px");
+								d3.selectAll(".slopegroup").select("circle").attr("r",3);
+								d3.selectAll("." + thisclass).selectAll("text").style("font-weight","bold");
+								d3.selectAll("." + thisclass).selectAll(".labelstext").attr("opacity","1");
+							} else {
+								d3.selectAll(".slopegroup").transition().duration(300).attr("opacity","0.2");  
+								var thisclass = d3.select(this).attr("class").split(" ",2)[1];
+								d3.selectAll("." + thisclass).transition().duration(300).attr("opacity","1"); 
+								d3.selectAll("." + thisclass).select("path").style("stroke-width","3px");
+								d3.selectAll(".slopegroup").select("circle").attr("r",3);
+								d3.selectAll("." + thisclass).selectAll("text").style("font-weight","bold");
+							}
+					})
+					.on("mouseout",function(){
+						if(graphic.width() < threshold_md){
+							d3.selectAll(".slopegroup").transition().duration(300).attr("opacity","1"); 
+							d3.selectAll(".slopegroup").select("path").style("stroke-width","1px");
+							d3.selectAll(".slopegroup").select("circle").attr("r",2);
+							d3.selectAll(".slopegroup").selectAll("text").style("font-weight","400");
+							d3.selectAll(".labelstext").attr("opacity","0");
+						} else {
+							d3.selectAll(".slopegroup").transition().duration(300).attr("opacity","1"); 
+							d3.selectAll(".slopegroup").select("path").style("stroke-width","1px");
+							d3.selectAll(".slopegroup").select("circle").attr("r",2);
+							d3.selectAll(".slopegroup").selectAll("text").style("font-weight","400");
+						}
+					});
+					
+				
+					
+					
+			    linegroups.append('path')
+			            .attr('class', function(d, i) {
+			                return 'line line-' + i;
+			            })
+			            .attr('d', function(d) {
+			                return line(d.value);
+			            });	
+				
+				linegroups.append('text')
+						.attr("class","labelstext")
+			            .text(function(d, i) {
+			                return dvc.essential.legendLabels[i];
+			            })
+			            .attr('y', function(d) {
+			                return (y(d.value[1].amt) +6);
+			            })
+						.attr('x', chart_width + 29)
+						.attr('text-anchor','start');
+
+				linegroups.forEach(function(d,i){
+					for (var j = 0; j < lines[first].length; j++) {			
+					
+					 linegroupsg = linegroups.append("g").attr("class",function(d,i){return "groups" + j});
+					
+					
+					if(j == 1) {	
+						
+					 linegroupsg.append("rect") 
+							   //.attr("class",function(d,i){return "rects" + j}) 
+							   //.attr("stroke", "#666") 
+							   //.attr("stroke-width","2px") 
+							   .attr("fill","white") 
+							   //.attr("opacity",0.5)
+							   .attr("x", function(d,i){ 
+									return x(d.value[j].date)+3 ;  
+									}) 
+							   .attr("y",function(d) {
+										console.log(j)
+										return y(d.value[j].amt)-4; 
+							   }) 
+							  .attr("height",10)
+							  .attr("width",18);
+							  
+					}
+							  
+					 linegroupsg.append("text")
+					 		   //.attr("class",function(d,i){return "texts" + j}) 
+							   .text(function(d){
+									fmt = d3.format(".1f")
+									if(d.value[j].amt == 0){
+											return "*" 
+									} else {
+											return fmt(d.value[j].amt)
+									}
+							   })
+							   .attr("x", function(d,i){ 
+										if(j==1){
+											return x(d.value[j].date)+5;
+										} else {
+											return x(d.value[j].date)-5;
+										}
+									}) 
+							   .attr("y",function(d) {
+										return y(d.value[j].amt) + 6; 
+							   }) 
+							   .attr('text-anchor','middle');
+							   
+							   					}
+				});
+						
+						
+						d3.select(".slopegroup_7")
+							.append("circle")
+							.attr("cx", x(0))
+							.attr("cy",y(2.5))
+							.attr("r", 2)
+							.attr("opacity", 0.6)
+							.attr("fill", "teal")
+								
+						d3.select(".slopegroup_6")
+							.append("circle")
+							.attr("cx", x(5))
+							.attr("cy",y(2.6))
+							.attr("opacity", 0.6)
+							.attr("r", 2)
+							.attr("fill", "teal")
+								
+								
+												
+			arrangeLabels();
+			arrangeGroups();	
+			arrangeGroups2();	
+			//arrangeRects();	
+			//arrangeRects2();
+					
+			d3.select(".footer").append("text").text("* indicates sample sizes are too small to calculate rates with any accuracy")
+			d3.select(".footer").append("text").text('Mental health is a combination of Stress, depression and Anxiety and Serious Mental Health Problems')
+							
+			//create link to source				
+			d3.select(".footer").append("p")
+				.text("Source: "+dvc.essential.sourceText)
+				//.append("a")
+				//.attr("href", dvc.essential.sourceURL)
+				//.attr("target", "_blank")
+				//.html();
+						
+			//use pym to calculate chart dimensions	
+		    if (pymChild) {
+		        pymChild.sendHeight();
+		    }
+			
+			if(graphic.width() < threshold_md){
+					d3.selectAll(".labelstext").attr("opacity","0");
+				}
+			
+		}
+
+
+function arrangeLabels() {
+
+  var move = 1;
+  while(move > 0) {
+    move = 0;
+    d3.selectAll(".labelstext")
+       .each(function(i) {
+         var that = this,
+             a = this.getBoundingClientRect();
+         d3.selectAll(".labelstext")
+            .each(function() {
+              if(this != that) {
+                var b = this.getBoundingClientRect();
+                if((Math.abs(a.top - b.top) * 2.5 < (a.height + b.height))) {
+                  // overlap, move labels
+                  var dx = (Math.max(0, a.right - b.left) +
+                           Math.min(0, a.left - b.right)) * 0.01,
+                      dy = (Math.max(0, a.bottom - b.top) +
+                           Math.min(0, a.top - b.bottom)) * 0.03;
+					
+                      tt = d3.transform(d3.select(this).attr("transform")),
+                      to = d3.transform(d3.select(that).attr("transform"));
+					
+                  move += Math.abs(dx) + Math.abs(dy);
+                
+                  to.translate = [ 0, to.translate[1] + dy ];
+                  tt.translate = [ 0, tt.translate[1] - dy ];
+
+                  d3.select(this).attr("transform", "translate(" + tt.translate + ")");
+                  d3.select(that).attr("transform", "translate(" + to.translate + ")");
+                  a = this.getBoundingClientRect();
+                }
+              }
+            });
+       });
+  }
+}
+
+
+
+
+function arrangeGroups() {
+
+  var move = 1;
+  while(move > 0) {
+    move = 0;
+    d3.selectAll(".groups0")
+       .each(function(i) {
+         var that = this,
+             a = this.getBoundingClientRect();
+         d3.selectAll(".groups0")
+            .each(function() {
+              if(this != that) {
+                var b = this.getBoundingClientRect();
+                if((Math.abs(a.top - b.top) * 2.5 < (a.height + b.height))) {
+                  // overlap, move labels
+                  var dx = (Math.max(0, a.right - b.left) +
+                           Math.min(0, a.left - b.right)) * 0.01,
+                      dy = (Math.max(0, a.bottom - b.top) +
+                           Math.min(0, a.top - b.bottom)) * 0.03;
+					
+                      tt = d3.transform(d3.select(this).attr("transform")),
+                      to = d3.transform(d3.select(that).attr("transform"));
+					
+                  move += Math.abs(dx) + Math.abs(dy);
+                
+                  to.translate = [ 0, to.translate[1] + dy ];
+                  tt.translate = [ 0, tt.translate[1] - dy ];
+
+                  d3.select(this).attr("transform", "translate(" + tt.translate + ")");
+                  d3.select(that).attr("transform", "translate(" + to.translate + ")");
+                  a = this.getBoundingClientRect();
+                }
+              }
+            });
+       });
+  }
+  
+  d3.selectAll(".groups0").selectAll('text').attr("transform", "translate(-10,0)");
+}
+
+
+
+function arrangeGroups2() {
+
+  var move = 1;
+  while(move > 0) {
+    move = 0;
+    d3.selectAll(".groups1")
+       .each(function(i) {
+         var that = this,
+             a = this.getBoundingClientRect();
+         d3.selectAll(".groups1")
+            .each(function() {
+              if(this != that) {
+                var b = this.getBoundingClientRect();
+                if((Math.abs(a.top - b.top) * 2.5 < (a.height + b.height))) {
+                  // overlap, move labels
+                  var dx = (Math.max(0, a.right - b.left) +
+                           Math.min(0, a.left - b.right)) * 0.01,
+                      dy = (Math.max(0, a.bottom - b.top) +
+                           Math.min(0, a.top - b.bottom)) * 0.03;
+					
+                      tt = d3.transform(d3.select(this).attr("transform")),
+                      to = d3.transform(d3.select(that).attr("transform"));
+					
+
+                  move += Math.abs(dx) + Math.abs(dy);
+                
+                  to.translate = [ 0, to.translate[1] + dy ];
+                  tt.translate = [ 0, tt.translate[1] - dy ];
+				  
+
+                  d3.select(this).attr("transform", "translate(" + tt.translate + ")");
+                  d3.select(that).attr("transform", "translate(" + to.translate + ")");
+                  a = this.getBoundingClientRect();
+                }
+              }
+            });
+       });
+  }
+  
+   d3.selectAll(".groups1").selectAll('text').attr("transform", "translate(10,0)");
+   
+   if (graphic.width() < 400) {
+//				console.log("gsdf")
+				d3.selectAll(".labelstext").attr("transform", "translate(0,-20)").attr("text-anchor", "end");
+}
+}
+
+
+
+		//check whether browser can cope with svg	
+		if (Modernizr.svg) {
+		   //load config 
+			d3.json("config.json", function(error, config) {
+			dvc=config
+
+				//load chart data
+				d3.csv("data.csv", function(error, data) {
+					graphic_data = data;
+					
+					graphic_data.forEach(function(d) {
+						//d.date = d3.time.format(dvc.essential.dateFormat).parse(d.date); 
+						
+					});
+					
+					//use pym to create iframed chart dependent on specified variables
+					pymChild = new pym.Child({ renderCallback: drawGraphic});
+				});
+			})
+
+		} else {
+			 //use pym to create iframe containing fallback image (which is set as default)
+			 pymChild = new pym.Child();
+			if (pymChild) {
+		        pymChild.sendHeight();
+		    }
+		}
+    </script>
+   
+</body>
+</html>

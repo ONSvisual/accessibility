@@ -1,0 +1,347 @@
+id,unique,value
+London,Camden,19.41
+London,City of London,14.29
+London,Hackney,15.68
+London,Hammersmith and Fulham,19.4
+London,Haringey,17.62
+London,Islington,14.49
+London,Kensington and Chelsea,44.51
+London,Lambeth,14.49
+London,Lewisham,13.94
+London,Newham,13.41
+London,Southwark,13.92
+London,Tower Hamlets,9.84
+London,Wandsworth,18.11
+London,Westminster,24.41
+London,Barking and Dagenham,10.12
+London,Barnet,17.34
+London,Bexley,11.36
+London,Brent,16.3
+London,Bromley,14.26
+London,Croydon,11.13
+London,Ealing,15.54
+London,Enfield,13.63
+London,Greenwich,12.95
+London,Harrow,15.42
+London,Havering,11.95
+London,Hillingdon,13.18
+London,Hounslow,11.38
+London,Kingston upon Thames,16.09
+London,Merton,15.43
+London,Redbridge,15.66
+London,Richmond upon Thames,18.79
+London,Sutton,13.07
+London,Waltham Forest,14.85
+South East,Bracknell Forest,8.97
+South East,Brighton and Hove,12.5
+South East,Isle of Wight,8.21
+South East,Medway,8.67
+South East,Milton Keynes,8.81
+South East,Portsmouth,7.16
+South East,Reading,8.54
+South East,Slough,9.4
+South East,Southampton,7.68
+South East,West Berkshire,9.61
+South East,Windsor and Maidenhead,13.16
+South East,Wokingham,11.17
+South East,Aylesbury Vale,11.2
+South East,Chiltern,18.57
+South East,South Bucks,18.36
+South East,Wycombe,11.43
+South East,Eastbourne,8.27
+South East,Hastings,8.83
+South East,Lewes,9.91
+South East,Rother,12.73
+South East,Wealden,11.91
+South East,Basingstoke and Deane,9.48
+South East,East Hampshire,12.65
+South East,Eastleigh,10.44
+South East,Fareham,9.12
+South East,Gosport,7.44
+South East,Hart,12.32
+South East,Havant,9.43
+South East,New Forest,11.5
+South East,Rushmoor,8.18
+South East,Test Valley,10.05
+South East,Winchester,12.25
+South East,Ashford,10.73
+South East,Canterbury,10.96
+South East,Dartford,9.67
+South East,Dover,9.19
+South East,Gravesham,9.56
+South East,Maidstone,11.2
+South East,Sevenoaks,14.54
+South East,Folkestone and Hythe,9.2
+South East,Swale,9.14
+South East,Thanet,10.52
+South East,Tonbridge and Malling,11.91
+South East,Tunbridge Wells,12.76
+South East,Cherwell,9.73
+South East,Oxford,11.12
+South East,South Oxfordshire,12.36
+South East,Vale of White Horse,9.85
+South East,West Oxfordshire,11.56
+South East,Elmbridge,15.8
+South East,Epsom and Ewell,16.83
+South East,Guildford,12.53
+South East,Mole Valley,14.8
+South East,Reigate and Banstead,12.31
+South East,Runnymede,10.97
+South East,Spelthorne,11.57
+South East,Surrey Heath,12.99
+South East,Tandridge,15.62
+South East,Waverley,16.05
+South East,Woking,11.78
+South East,Adur,11.9
+South East,Arun,12.13
+South East,Chichester,13.1
+South East,Crawley,9.11
+South East,Horsham,13.86
+South East,Mid Sussex,12.69
+South East,Worthing,11.71
+East,Bedford,9.82
+East,Central Bedfordshire,10.86
+East,Luton,8.35
+East,Peterborough,6.79
+East,Southend-on-Sea,10.27
+East,Thurrock,9.96
+East,Cambridge,12.95
+East,East Cambridgeshire,10.7
+East,Fenland,8.45
+East,Huntingdonshire,9.44
+East,South Cambridgeshire,10.25
+East,Basildon,10.59
+East,Braintree,10.17
+East,Brentwood,13.3
+East,Castle Point,10.66
+East,Chelmsford,11.71
+East,Colchester,9.51
+East,Epping Forest,14.4
+East,Harlow,9.49
+East,Maldon,11.45
+East,Rochford,11.92
+East,Tendring,9.1
+East,Uttlesford,13.67
+East,Broxbourne,11.2
+East,Dacorum,12.27
+East,East Hertfordshire,12.38
+East,Hertsmere,14.29
+East,North Hertfordshire,10.69
+East,St Albans,16.81
+East,Stevenage,8.22
+East,Three Rivers,13.67
+East,Watford,12.53
+East,Welwyn Hatfield,10.88
+East,Breckland,9.04
+East,Broadland,9.23
+East,Great Yarmouth,6.52
+East,King's Lynn and West Norfolk,7.89
+East,North Norfolk,9.94
+East,Norwich,7.03
+East,South Norfolk,8.78
+East,Babergh,11.39
+East,Forest Heath,8.56
+East,Ipswich,6.84
+East,Mid Suffolk,9.46
+East,St Edmundsbury,10.17
+East,Suffolk Coastal,10.07
+East,Waveney,7.49
+South West,Bath and North East Somerset,10.84
+South West,Bournemouth,8.44
+South West,"Bristol, City of",8.74
+South West,Cornwall,9.27
+South West,North Somerset,9.66
+South West,Plymouth,6.09
+South West,Poole,9.28
+South West,South Gloucestershire,8.16
+South West,Swindon,7.62
+South West,Torbay,8.8
+South West,Wiltshire,9.82
+South West,East Devon,9.97
+South West,Exeter,8.67
+South West,Mid Devon,8.95
+South West,North Devon,9.8
+South West,South Hams,11.72
+South West,Teignbridge,10.5
+South West,Torridge,9.76
+South West,West Devon,9.86
+South West,Christchurch,12.95
+South West,East Dorset,12
+South West,North Dorset,9.39
+South West,Purbeck,9.94
+South West,West Dorset,11.03
+South West,Weymouth and Portland,8.7
+South West,Cheltenham,8.97
+South West,Cotswold,13.63
+South West,Forest of Dean,9.09
+South West,Gloucester,6.68
+South West,Stroud,9.01
+South West,Tewkesbury,8.5
+South West,Mendip,10.99
+South West,Sedgemoor,9.07
+South West,South Somerset,8.19
+South West,Taunton Deane,8.53
+North West,Blackburn with Darwen,4.96
+North West,Blackpool,4.62
+North West,Cheshire East,7.95
+North West,Cheshire West and Chester,6.99
+North West,Halton,4.85
+North West,Warrington,6.32
+North West,Allerdale,6.64
+North West,Barrow-in-Furness,3.53
+North West,Carlisle,5.46
+North West,Copeland,2.5
+North West,Eden,8.57
+North West,South Lakeland,8.34
+North West,Bolton,5.36
+North West,Bury,6.2
+North West,Manchester,5.74
+North West,Oldham,5.14
+North West,Rochdale,5.49
+North West,Salford,5.85
+North West,Stockport,7.99
+North West,Tameside,5.96
+North West,Trafford,9.43
+North West,Wigan,5.41
+North West,Burnley,3.99
+North West,Chorley,6.6
+North West,Fylde,5.36
+North West,Hyndburn,4.35
+North West,Lancaster,5.74
+North West,Pendle,3.65
+North West,Preston,5.16
+North West,Ribble Valley,6.8
+North West,Rossendale,5.85
+North West,South Ribble,6.51
+North West,West Lancashire,6.54
+North West,Wyre,6.5
+North West,Knowsley,4.11
+North West,Liverpool,4.7
+North West,Sefton,6.48
+North West,St. Helens,5.33
+North West,Wirral,6.28
+West Midlands,"Herefordshire, County of",9.82
+West Midlands,Shropshire,8.11
+West Midlands,Stoke-on-Trent,4.39
+West Midlands,Telford and Wrekin,6.12
+West Midlands,Cannock Chase,6.31
+West Midlands,East Staffordshire,6.6
+West Midlands,Lichfield,8.89
+West Midlands,Newcastle-under-Lyme,5.83
+West Midlands,South Staffordshire,7.39
+West Midlands,Stafford,7.39
+West Midlands,Staffordshire Moorlands,6.45
+West Midlands,Tamworth,7.71
+West Midlands,North Warwickshire,7.23
+West Midlands,Nuneaton and Bedworth,6.56
+West Midlands,Rugby,7.73
+West Midlands,Stratford-on-Avon,10.41
+West Midlands,Warwick,9.54
+West Midlands,Birmingham,5.59
+West Midlands,Coventry,5.64
+West Midlands,Dudley,6.22
+West Midlands,Sandwell,5.68
+West Midlands,Solihull,7.62
+West Midlands,Walsall,6.17
+West Midlands,Wolverhampton,5.5
+West Midlands,Bromsgrove,10.6
+West Midlands,Malvern Hills,11.31
+West Midlands,Redditch,8.25
+West Midlands,Worcester,6.79
+West Midlands,Wychavon,9.82
+West Midlands,Wyre Forest,8.26
+East Midlands,Derby,4.26
+East Midlands,Leicester,6.57
+East Midlands,Nottingham,5.13
+East Midlands,Rutland,9.87
+East Midlands,Amber Valley,5.87
+East Midlands,Bolsover,5.38
+East Midlands,Chesterfield,5.75
+East Midlands,Derbyshire Dales,9.21
+East Midlands,Erewash,5.86
+East Midlands,High Peak,7.81
+East Midlands,North East Derbyshire,6.4
+East Midlands,South Derbyshire,6.96
+East Midlands,Blaby,7.46
+East Midlands,Charnwood,7.23
+East Midlands,Harborough,10.05
+East Midlands,Hinckley and Bosworth,7.14
+East Midlands,Melton,8.14
+East Midlands,North West Leicestershire,7.92
+East Midlands,Oadby and Wigston,8.3
+East Midlands,Boston,6.92
+East Midlands,East Lindsey,6.5
+East Midlands,Lincoln,5.41
+East Midlands,North Kesteven,7.29
+East Midlands,South Holland,7.77
+East Midlands,South Kesteven,9.02
+East Midlands,West Lindsey,6.36
+East Midlands,Corby,6.68
+East Midlands,Daventry,10.27
+East Midlands,East Northamptonshire,8.45
+East Midlands,Kettering,7.81
+East Midlands,Northampton,7.6
+East Midlands,South Northamptonshire,10.49
+East Midlands,Wellingborough,7.4
+East Midlands,Ashfield,5.06
+East Midlands,Bassetlaw,6.21
+East Midlands,Broxtowe,6.88
+East Midlands,Gedling,5.35
+East Midlands,Mansfield,5.93
+East Midlands,Newark and Sherwood,7.8
+East Midlands,Rushcliffe,8.85
+Yorkshire and  The Humber,East Riding of Yorkshire,6.64
+Yorkshire and  The Humber,"Kingston upon Hull, City of",4.36
+Yorkshire and  The Humber,North East Lincolnshire,5.69
+Yorkshire and  The Humber,North Lincolnshire,4.79
+Yorkshire and  The Humber,York,8.86
+Yorkshire and  The Humber,Craven,7.54
+Yorkshire and  The Humber,Hambleton,9.09
+Yorkshire and  The Humber,Harrogate,10.13
+Yorkshire and  The Humber,Richmondshire,7.61
+Yorkshire and  The Humber,Ryedale,9.32
+Yorkshire and  The Humber,Scarborough,6.57
+Yorkshire and  The Humber,Selby,6.64
+Yorkshire and  The Humber,Barnsley,5.14
+Yorkshire and  The Humber,Doncaster,4.81
+Yorkshire and  The Humber,Rotherham,5.38
+Yorkshire and  The Humber,Sheffield,5.7
+Yorkshire and  The Humber,Bradford,5.21
+Yorkshire and  The Humber,Calderdale,5.07
+Yorkshire and  The Humber,Kirklees,5.75
+Yorkshire and  The Humber,Leeds,6.27
+Yorkshire and  The Humber,Wakefield,5.54
+Wales,Isle of Anglesey,6.99
+Wales,Gwynedd,6.33
+Wales,Conwy,6.36
+Wales,Denbighshire,5.67
+Wales,Flintshire,5.66
+Wales,Wrexham,5.69
+Wales,Powys,7.49
+Wales,Ceredigion,7.15
+Wales,Pembrokeshire,7.16
+Wales,Carmarthenshire,5.33
+Wales,Swansea,5.48
+Wales,Neath Port Talbot,3.6
+Wales,Bridgend,5.05
+Wales,Vale of Glamorgan,8.61
+Wales,Cardiff,7.05
+Wales,Rhondda Cynon Taf,4.36
+Wales,Merthyr Tydfil,3.78
+Wales,Caerphilly,5
+Wales,Blaenau Gwent,3.59
+Wales,Torfaen,5.27
+Wales,Monmouthshire,8.62
+Wales,Newport,6.03
+North East,County Durham,4.48
+North East,Darlington,5.32
+North East,Hartlepool,4.73
+North East,Middlesbrough,5.26
+North East,Northumberland,6.61
+North East,Redcar and Cleveland,5.03
+North East,Stockton-on-Tees,5.53
+North East,Gateshead,5.32
+North East,Newcastle upon Tyne,5.75
+North East,North Tyneside,6.12
+North East,South Tyneside,5.78
+North East,Sunderland,4.85

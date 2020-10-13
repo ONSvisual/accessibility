@@ -1,0 +1,48 @@
+{"code":"financ",
+ "filepth":"",
+ "description":{
+        "title":"Report finding it quite or very difficult to get by financially",
+        "unit":"%"
+    },
+    "months":[],
+    "days":[],
+    "quarters":[],
+    "years":{
+            "catLabels":[
+                "2001",
+                "2002", 
+                "2003", 
+                "2004", 
+                "2005", 
+                "2006", 
+                "2007", 
+                "2008", 
+                "2010", 
+                "2011", 
+                "2012", 
+                "2013", 
+                "2014", 
+                "2015",
+		"2016"
+                
+            ],
+            "dataValues":[
+                6.0, 
+                5.6, 
+                4.9, 
+                5.6, 
+                5.9, 
+                6.2, 
+                6.0, 
+                7.5, 
+                12.3, 
+                10.7, 
+                10.9, 
+                10.1, 
+                9.1, 
+                6.6,
+		5.9
+            ]
+    }
+} 
+

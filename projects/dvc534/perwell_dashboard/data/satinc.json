@@ -1,0 +1,46 @@
+{"code":"satinc",
+ "filepth":"",
+ "description":{
+        "title":"Mostly or completely satisfied with the income of their household",
+        "unit":"%"
+    },
+    "months":[],
+    "days":[],
+    "quarters":[],
+    "years":{
+            "catLabels":[
+               "2002", 
+                "2003", 
+                "2004", 
+                "2005", 
+                "2006", 
+                "2007", 
+                "2008", 
+                "2010", 
+                "2011", 
+                "2012", 
+                "2013", 
+                "2014", 
+                "2015",
+		"2016"
+                
+            ],
+            "dataValues":[
+                31.0, 
+                33.0, 
+                32.1, 
+                28.0, 
+                30.4,
+                32.0,
+                28.9, 
+                37.3, 
+                37.9, 
+                34.0, 
+                36.5, 
+                36.8, 
+                42.8,
+		45.6
+            ]
+    }
+} 
+

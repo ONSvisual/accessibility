@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title>HLE Barcode Plots</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="../lib/globalStyle.css" /> 
+    <link rel="stylesheet" href="js/style-chosen.css" /> 
+    <style type="text/css">
+    
+	body {
+		display:block;
+		overflow:auto;
+		margin-bottom:60px;
+		padding-bottom:60px;
+	}
+	.picaarticle {
+	   font-size:14px;			
+	}
+        
+    #pcGo:hover {
+        cursor:pointer;
+        cursor:hand;
+    }
+	
+    .inputOption{
+		height:25px;
+		margin-top:20px;
+		padding-left:10px;
+		background-color:white!important;
+	}	
+		
+	input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0px 1000px white inset;
+	}
+
+	.useLocation {
+		cursor:pointer;
+		cursor:hand;
+		background-color:#274796!important;
+	}
+	
+	/*Bootstrap grid */
+	.row {
+	/*  margin-left: -15px;*/
+	/*  margin-right: -15px;*/
+	}
+	.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+	  position: relative;
+	  min-height: 1px;
+	  /*padding-left: 15px;*/
+	  /*padding-right: 15px;*/
+	}
+	.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+	  float: left;
+	}
+	.col-xs-12 {
+	  width: 100%;
+	}
+	.col-xs-11 {
+	  width: 91.66666667%;
+	}
+	.col-xs-10 {
+	  width: 83.33333333%;
+	}
+	.col-xs-9 {
+	  width: 75%;
+	}
+	.col-xs-8 {
+	  width: 66.66666667%;
+	}
+	.col-xs-7 {
+	  width: 58.33333333%;
+	}
+	.col-xs-6 {
+	  width: 50%;
+	}
+	.col-xs-5 {
+	  width: 41.66666667%;
+	}
+	.col-xs-4 {
+	  width: 33.33333333%;
+	}
+	.col-xs-3 {
+	  width: 25%;
+	}
+	.col-xs-2 {
+	  width: 16.66666667%;
+	}
+	.col-xs-1 {
+	  width: 8.33333333%;
+	}
+	.col-xs-pull-12 {
+	  right: 100%;
+	}
+	.col-xs-pull-11 {
+	  right: 91.66666667%;
+	}
+	.col-xs-pull-10 {
+	  right: 83.33333333%;
+	}
+	.col-xs-pull-9 {
+	  right: 75%;
+	}
+	.col-xs-pull-8 {
+	  right: 66.66666667%;
+	}
+	.col-xs-pull-7 {
+	  right: 58.33333333%;
+	}
+	.col-xs-pull-6 {
+	  right: 50%;
+	}
+	.col-xs-pull-5 {
+	  right: 41.66666667%;
+	}
+	.col-xs-pull-4 {
+	  right: 33.33333333%;
+	}
+	.col-xs-pull-3 {
+	  right: 25%;
+	}
+	.col-xs-pull-2 {
+	  right: 16.66666667%;
+	}
+	.col-xs-pull-1 {
+	  right: 8.33333333%;
+	}
+	.col-xs-pull-0 {
+	  right: auto;
+	}
+	.col-xs-push-12 {
+	  left: 100%;
+	}
+	.col-xs-push-11 {
+	  left: 91.66666667%;
+	}
+	.col-xs-push-10 {
+	  left: 83.33333333%;
+	}
+	.col-xs-push-9 {
+	  left: 75%;
+	}
+	.col-xs-push-8 {
+	  left: 66.66666667%;
+	}
+	.col-xs-push-7 {
+	  left: 58.33333333%;
+	}
+	.col-xs-push-6 {
+	  left: 50%;
+	}
+	.col-xs-push-5 {
+	  left: 41.66666667%;
+	}
+	.col-xs-push-4 {
+	  left: 33.33333333%;
+	}
+	.col-xs-push-3 {
+	  left: 25%;
+	}
+	.col-xs-push-2 {
+	  left: 16.66666667%;
+	}
+	.col-xs-push-1 {
+	  left: 8.33333333%;
+	}
+	.col-xs-push-0 {
+	  left: auto;
+	}
+	.col-xs-offset-12 {
+	  margin-left: 100%;
+	}
+	.col-xs-offset-11 {
+	  margin-left: 91.66666667%;
+	}
+	.col-xs-offset-10 {
+	  margin-left: 83.33333333%;
+	}
+	.col-xs-offset-9 {
+	  margin-left: 75%;
+	}
+	.col-xs-offset-8 {
+	  margin-left: 66.66666667%;
+	}
+	.col-xs-offset-7 {
+	  margin-left: 58.33333333%;
+	}
+	.col-xs-offset-6 {
+	  margin-left: 50%;
+	}
+	.col-xs-offset-5 {
+	  margin-left: 41.66666667%;
+	}
+	.col-xs-offset-4 {
+	  margin-left: 33.33333333%;
+	}
+	.col-xs-offset-3 {
+	  margin-left: 25%;
+	}
+	.col-xs-offset-2 {
+	  margin-left: 16.66666667%;
+	}
+	.col-xs-offset-1 {
+	  margin-left: 8.33333333%;
+	}
+	.col-xs-offset-0 {
+	  margin-left: 0%;
+	}
+	@media (min-width: 550px) {
+	  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+		float: left;
+	  }
+	  .col-sm-12 {
+		width: 100%;
+	  }
+	  .col-sm-11 {
+		width: 91.66666667%;
+	  }
+	  .col-sm-10 {
+		width: 83.33333333%;
+	  }
+	  .col-sm-9 {
+		width: 75%;
+	  }
+	  .col-sm-8 {
+		width: 66.66666667%;
+	  }
+	  .col-sm-7 {
+		width: 58.33333333%;
+	  }
+	  .col-sm-6 {
+		width: 50%;
+	  }
+	  .col-sm-5 {
+		width: 41.66666667%;
+	  }
+	  .col-sm-4 {
+		width: 33.33333333%;
+	  }
+	  .col-sm-3 {
+		width: 25%;
+	  }
+	  .col-sm-2 {
+		width: 16.66666667%;
+	  }
+	  .col-sm-1 {
+		width: 8.33333333%;
+	  }
+	  .col-sm-pull-12 {
+		right: 100%;
+	  }
+	  .col-sm-pull-11 {
+		right: 91.66666667%;
+	  }
+	  .col-sm-pull-10 {
+		right: 83.33333333%;
+	  }
+	  .col-sm-pull-9 {
+		right: 75%;
+	  }
+	  .col-sm-pull-8 {
+		right: 66.66666667%;
+	  }
+	  .col-sm-pull-7 {
+		right: 58.33333333%;
+	  }
+	  .col-sm-pull-6 {
+		right: 50%;
+	  }
+	  .col-sm-pull-5 {
+	
+		right: 41.66666667%;
+	  }
+	  .col-sm-pull-4 {
+		right: 33.33333333%;
+	  }
+	  .col-sm-pull-3 {
+		right: 25%;
+	  }
+	  .col-sm-pull-2 {
+		right: 16.66666667%;
+	  }
+	  .col-sm-pull-1 {
+		right: 8.33333333%;
+	  }
+	  .col-sm-pull-0 {
+		right: auto;
+	  }
+	  .col-sm-push-12 {
+		left: 100%;
+	  }
+	  .col-sm-push-11 {
+		left: 91.66666667%;
+	  }
+	  .col-sm-push-10 {
+		left: 83.33333333%;
+	  }
+	  .col-sm-push-9 {
+		left: 75%;
+	  }
+	  .col-sm-push-8 {
+		left: 66.66666667%;
+	  }
+	  .col-sm-push-7 {
+		left: 58.33333333%;
+	  }
+	  .col-sm-push-6 {
+		left: 50%;
+	  }
+	  .col-sm-push-5 {
+		left: 41.66666667%;
+	  }
+	  .col-sm-push-4 {
+		left: 33.33333333%;
+	  }
+	  .col-sm-push-3 {
+		left: 25%;
+	  }
+	  .col-sm-push-2 {
+		left: 16.66666667%;
+	  }
+	  .col-sm-push-1 {
+		left: 8.33333333%;
+	  }
+	  .col-sm-push-0 {
+		left: auto;
+	  }
+	  .col-sm-offset-12 {
+		margin-left: 100%;
+	  }
+	  .col-sm-offset-11 {
+		margin-left: 91.66666667%;
+	  }
+	  .col-sm-offset-10 {
+		margin-left: 83.33333333%;
+	  }
+	  .col-sm-offset-9 {
+		margin-left: 75%;
+	  }
+	  .col-sm-offset-8 {
+		margin-left: 66.66666667%;
+	  }
+	  .col-sm-offset-7 {
+		margin-left: 58.33333333%;
+	  }
+	  .col-sm-offset-6 {
+		margin-left: 50%;
+	  }
+	  .col-sm-offset-5 {
+		margin-left: 41.66666667%;
+	  }
+	  .col-sm-offset-4 {
+		margin-left: 33.33333333%;
+	  }
+	  .col-sm-offset-3 {
+		margin-left: 25%;
+	  }
+	  .col-sm-offset-2 {
+		margin-left: 16.66666667%;
+	  }
+	  .col-sm-offset-1 {
+		margin-left: 8.33333333%;
+	  }
+	  .col-sm-offset-0 {
+		margin-left: 0%;
+	  }
+	}
+	
+	@media (min-width: 550px) {
+		.graphicslabel{
+			color:grey;
+			font-size:12px;
+			margin-bottom:10px;
+			margin-top:0px;
+			font-weight:normal;
+			text-align:right;
+			padding-right:10px;
+			padding-top:15px;
+		}
+		
+		.graphics{
+			box-sizing:border-box;
+			-moz-box-sizing:border-box;
+			-webkit-box-sizing:border-box; 
+			border-left-style:solid; 
+			border-left-width:1px; 
+			border-left-color:#dadada;
+		}
+	}
+		@media (max-width: 550px) {
+		.graphicslabel{
+			color:grey;
+			font-size:12px;
+			margin-bottom:10px;
+			margin-top:0px;
+			font-weight:normal;
+			text-align:left;
+			padding-right:0px;
+			padding-top:15px;
+		}
+		
+		.graphics{
+
+		}
+	}
+	
+	.hoverbar{
+		cursor:pointer;
+		cursor:hand;
+	}
+	.hoverbar:hover{
+		cursor:pointer;
+		cursor:hand;
+		opacity:1;
+		width:5px;
+		transform:translate(0,2)
+	}
+	
+	.container {
+		overflow:hidden;	
+	}
+
+
+    </style>
+</head>
+<body>
+    <div id="occupation"></div>
+    <div>
+    	<p style="font-size:12px; color:grey;">Your selected area is labelled <span style="color:#00a7a3; font-weight:bold;">GREEN</span> and the area labelled <span style="font-weight:bold; color:#B8860B;">GOLD</span> is the England average</p>
+    </div>
+       
+    
+    <div id="KeyContainer" style="margin-bottom:20px;"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <p class="graphicslabel">Male Healthy life Expectancy</p>
+            </div>
+            
+            <div class="graphics col-xs-12 col-sm-9 col-sm-9" id="graphic"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <p class="graphicslabel">Female Healthy life Expectancy</p>
+            </div>
+            
+            <div class="graphics col-xs-12 col-sm-9 col-sm-9" id="graphic2"></div>
+        </div>
+    
+    	<div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <p class="graphicslabel">Those who smoked</p>
+            </div>
+            
+            <div class="graphics col-xs-12 col-sm-9 col-sm-9" id="graphic3"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <p class="graphicslabel">Physically active adults</p>
+            </div>
+            
+            <div class="graphics col-xs-12 col-sm-9 col-sm-9" id="graphic4"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <p class="graphicslabel">Those eating their five-a-day</p>
+            </div>
+            
+            <div class="graphics col-xs-12 col-sm-9 col-sm-9" id="graphic5"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-6">
+                <p class="graphicslabel">Alcohol related hospital admissions per 100,000 adults</p>
+            </div>
+            
+            <div class="graphics col-xs-12 col-sm-9 col-sm-9" id="graphic6"></div>
+        </div>
+    </div>
+    
+    <div id="footer"></div>
+        
+
+    
+    <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" type="text/javascript"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/pym/0.4.2/pym.min.js" type="text/javascript"></script>
+    <script src="../lib/footer.js"></script>
+    <script src="https://cdn.ons.gov.uk/vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../lib/saveSvgAsPng.js" type="text/javascript"></script>
+    <script src="js/chosen.jquery.js"></script>
+ 
+    
+    <script>
+    //╭━━╮╱╱╱╱╱╱╱╱╭╮
+	//╰┫┣╯╱╱╱╱╱╱╱╭╯╰╮
+	//╱┃┃╭━╮╭━━┳╮┣╮╭╋━━╮
+	//╱┃┃┃╭╮┫╭╮┃┃┃┃┃┃━━┫
+	//╭┫┣┫┃┃┃╰╯┃╰╯┃╰╋━━┃
+	//╰━━┻╯╰┫╭━┻━━┻━┻━━╯
+	//╱╱╱╱╱╱┃┃
+	//╱╱╱╱╱╱╰╯
+	
+
+	
+	
+		var graphic = d3.select('#graphic');
+		var graphic2 = d3.select('#graphic2');
+		var graphic3 = d3.select('#graphic3');
+		var graphic4 = d3.select('#graphic4');
+		var graphic5 = d3.select('#graphic5');
+		var graphic6 = d3.select('#graphic6');
+		var graphic7 = d3.select('#graphic7');
+		var keypoints = d3.select('#keypoints');
+		var footer = d3.select(".footer");
+		var pymChild = null;
+		var LAname = "Wokingham";
+		var AreaLoad = "Wokingham";
+		var filtereddata = "X";
+		var filtereddataEngland = "X";
+		var graphic_data = "X";
+		var AreaLoad4 = "Wokingham";
+		var width = null;
+		var substringUpdateTo = null;
+		var dontsweep = false;
+		var selectarea2 = null;
+		var solidSelected = "Wokingham";
+		var listnamesLocal = "Wokingham";
+		
+		checkUrl();
+		function checkUrl() {
+			urlLocal = window.location.href;
+				console.log(urlLocal);
+			var listnamesLocal = urlLocal.split("#")[1];
+				console.log(listnamesLocal);
+				
+				if (listnamesLocal == undefined) {
+				
+				} else {
+					LAname = listnamesLocal;
+					AreaLoad = listnamesLocal;
+					AreaLoad4 = listnamesLocal;
+					solidSelected = listnamesLocal;
+				}
+		}
+		
+		
+		function changeURL(){
+		   urlSafeArea1 = legendArea.replace(/\s/g,'');
+		   urlSafeArea2 = urlSafeArea1.replace('.','');
+		   urlSafeArea3 = urlSafeArea2.replace(',','');
+		   urlSafeArea4 = urlSafeArea3.replace("-",'');
+		   urlSafeArea5 = urlSafeArea4.replace(";",'');
+		   urlSafeArea6 = urlSafeArea5.replace("'",'');
+		   urlSafeArea7 = urlSafeArea6.replace("-",'');
+		   
+		   console.log(urlSafeArea7);
+		   
+		   url = '#' + urlSafeArea7;
+		   window.location.href = url;
+			   LAname = urlSafeArea7;
+			   AreaLoad = urlSafeArea7;
+			   AreaLoad4 = urlSafeArea7;
+			   solidSelected = urlSafeArea7;
+		};
+		
+		
+		
+		function occopt () {
+	
+		//Create a chosen drop down to show the list of occupations 
+
+		dvc.allOcc = [];
+			
+		//Create an array for each occupation title
+		graphic_data.forEach(function(d,i){
+				dvc.allOcc.push(graphic_data[i].name);								
+		});
+		
+		dvc.allCode = [];
+	
+		//Create an array for each occupation code
+		graphic_data.forEach(function(d,i){	
+				dvc.allCode.push(graphic_data[i].name2);							
+		});
+
+		// Join occupation and codes together in an array
+		var codeoccyzip = d3.zip(dvc.allOcc, dvc.allCode);
+		
+		
+		//sort occupation list alphabetically	
+		dvc.codeoccyzip = codeoccyzip.sort(function(b, a){ return d3.descending(a[0], b[0])});
+
+
+		// Build option menu for occupations
+		var optns = d3.select("#occupation").append("div").attr("id","sel").append("select")
+				.attr("id","occselect")
+				.attr("style","width:75%")
+				.style("margin-bottom","20px")
+				.attr("class","chosen-select");
+			
+			//append message
+			
+			optns.append("option")
+				.attr("value","first")
+				.text("");
+			
+			optns.selectAll("p").data(dvc.codeoccyzip).enter().append("option")
+				.attr("value", function(d){ return d[1]}) 
+				.text(function(d){ return d[0]});
+
+
+			// Little function to bring objects to the front
+			d3.selection.prototype.moveToFront = function() { 
+			  return this.each(function() { 
+				this.parentNode.appendChild(this)
+			  }); 
+			}; 
+			
+			
+			$('#occselect').chosen({width: "75%", allow_single_deselect: true, placeholder_text_single:"Choose your area"}).on('change',function(evt,params){
+				
+								if(typeof params != 'undefined') {
+									
+									AreaLoad = params.selected;
+									
+									solidSelected = params.selected;
+		
+									AreaLoad2 = AreaLoad.replace(/\s/g,'');
+									AreaLoad3 = AreaLoad2.replace(',','');
+									AreaLoad4 = AreaLoad3.replace('-','');
+									AreaLoad4 = AreaLoad4.replace('-','');
+									
+									console.log(AreaLoad);
+									
+									filtereddata = graphic_data.filter(function(d) {return d.name2 == AreaLoad;});
+									
+									filtereddataEngland = graphic_data.filter(function(d) {return d.name2 == "England";});
+									
+									drawGraphic();
+									changeURL();
+									
+								}
+								else {
+									
+										
+								}
+								
+			});
+			
+
+	} //End of make occupation
+		
+		
+	
+
+		function drawGraphic(width) {
+			
+			for (j = 0; j <= dvc.essential.VariableLoad.length-1; j++) { 
+				
+			//j = 6;
+		   var threshold_md = 788;
+		   var threshold_sm = dvc.optional.mobileBreakpoint; 
+		   
+		   //change LA name at the top
+		   legendArea = filtereddata[0].name;
+		   d3.select("#laName").html(legendArea);
+		   
+	  
+		  	//set variables for chart dimensions dependent on width of #graphic
+		    if (parseInt(graphic.style("width")) < threshold_sm) {        	
+		            var margin = {top: dvc.optional.margin_sm[0], right: dvc.optional.margin_sm[1], bottom: dvc.optional.margin_sm[2], left: dvc.optional.margin_sm[3]}; 
+					var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+		            var height = dvc.essential.barHeight_sm_md_lg[0] +0 - margin.top - margin.bottom;
+		    } else if (parseInt(graphic.style("width")) < threshold_md){
+		        	var margin = {top: dvc.optional.margin_md[0], right: dvc.optional.margin_md[1], bottom: dvc.optional.margin_md[2], left: dvc.optional.margin_md[3]}; 
+					var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+		            var height = dvc.essential.barHeight_sm_md_lg[0] +0 - margin.top - margin.bottom;
+		  	} else {
+		        	var margin = {top: dvc.optional.margin_lg[0], right: dvc.optional.margin_lg[1], bottom: dvc.optional.margin_lg[2], left: dvc.optional.margin_lg[3]}
+					var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+		            var height = dvc.essential.barHeight_sm_md_lg[0] +0 - margin.top - margin.bottom;
+			}
+			
+
+		    // clear out existing graphics
+			keypoints.selectAll("*").remove();
+			footer.selectAll("*").remove();
+			d3.select("#chart" + [j]).remove();
+			
+			var x = d3.scale.linear()
+		        .range([ 0, chart_width]);
+
+			var y = d3.scale.ordinal()
+				.rangeRoundBands([0, height], .1)
+			
+		    y.domain(graphic_data.map(function(d) { return d.name; }));
+
+		    var yAxis = d3.svg.axis()
+		        .scale(y)
+		        .orient("left")
+		    
+		    var xAxis = d3.svg.axis()
+		        .scale(x)
+		        .orient('bottom')
+				.tickSize(5, 0, 0);
+		    			    
+			//specify number or ticks on x axis
+			if (parseInt(graphic.style("width")) <= threshold_sm) {
+				xAxis.ticks(dvc.optional.x_num_ticks_sm_md_lg[0])
+			 } else if (parseInt(graphic.style("width")) <= threshold_md){
+				xAxis.ticks(dvc.optional.x_num_ticks_sm_md_lg[1])
+			 } else {
+				xAxis.ticks(dvc.optional.x_num_ticks_sm_md_lg[2])
+			 }
+				
+				
+		    var bar = d3.svg.line()
+		        .y(function(d) { return y(d.name); })
+		        .x(function(d) { return x(d.amt); });
+
+		    // parse data into columns
+		    var bars = {};
+		    for (var column in graphic_data[0]) {
+		        if (column == 'name') continue;
+		        bars[column] = graphic_data.map(function(d) {
+		            return {
+		                'name': d.name,
+		                'amt': d[column]
+		            };
+		        });
+		    }
+			
+		  	//y domain calculations	: zero to intelligent max choice, or intelligent min and max choice,  or interval chosen manually
+			   
+			var xDomain = dvc.essential.xAxisScale[j];
+		   
+		    x.domain(xDomain);		
+			
+		    
+			d3.select("#buttonid").on("click",function(){saveSvgAsPng(document.getElementById("chart"), "diagram.png")});
+			
+			d3.select('#' + dvc.essential.DivSelector[j]).select('svg')
+                .append("g")
+                .attr("id", "source")
+                .append("text")
+                .attr("text-anchor", "start")
+                .style("font-size", "12px")
+                .style("fill", "#666")
+                .attr('y',height + margin.top + margin.bottom-10)
+                .attr('x',0)
+                .text("Source: ")
+                .append("a")
+                .style("fill", "#4774CC")
+                .attr("href", dvc.essential.sourceURL)
+                .attr("target", "_blank")
+                .text(dvc.essential.sourceText);
+
+			
+		    //create svg for chart
+		    var svg = d3.select('#' + dvc.essential.DivSelector[j]).append('svg')
+						.attr("id",function(d){return "chart" + [j]})
+        				.style("background-color","#fff")
+				        .attr("width", chart_width + margin.left + margin.right)
+				        .attr("height", height + margin.top + margin.bottom +30)
+				        .append("g")
+				        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+				
+					svg.append("rect")
+						.attr("class","svgRect")
+						.attr("width", chart_width)
+						.attr("height", height)
+						.attr("fill","transparent")
+			    
+				    svg.append('g')
+				        .attr('class', 'x axis')
+				        .attr("transform", "translate(0, "+height+")")
+				        .call(xAxis).append("text")
+						 .attr("y", 25)
+						 .attr("x",chart_width)
+						 .attr("dy", ".71em")
+						 .style("text-anchor", "start")
+						 .attr("font-size","12px")
+ 						 .attr("fill","#666")
+						 .text(dvc.essential.xAxisLabel);
+
+				
+			
+			svg.append('g').attr("class","bars").selectAll('rect') 
+					.data(bars[[dvc.essential.VariableLoad[j]]])
+					.enter()
+					.append('rect')
+					.attr("fill","grey")
+					.attr("stroke-width",2)
+					.attr("stroke","none")
+					.attr("class","hoverbar allbars")
+					.attr("opacity","0.3")
+					.attr("width","1")
+					.attr("x", function(d,j){if(dontsweep == false){return 0}else {return x(d.amt);}})
+					.attr("id",function(d,i){return bars.name2[i].amt})
+					.transition().duration(1000)
+					.attr("x", function(d,i){return x(d.amt);})			
+					.attr("y",0)
+					.attr("height", 30);
+					
+					if (pymChild) {
+									pymChild.sendHeight();
+							}
+					
+					d3.selectAll("#England")
+							.classed("hoverbar",false);
+					
+					d3.selectAll(".hoverbar").on("mouseover", function(d,i){
+						selectarea = d3.select(this).attr("id");
+						areaLoad = d3.select(this).attr("id");
+						$("#occselect").val(areaLoad);
+						$("#occselect").trigger("chosen:updated");						
+					});
+					d3.selectAll(".hoverbar").on("mouseout", function(d,i){
+						$("#occselect").val(solidSelected);
+						$("#occselect").trigger("chosen:updated");						
+					});
+					
+					d3.selectAll(".hoverbar").on("click", function(d,i){
+						selectarea = d3.select(this).attr("id");
+						solidSelected = d3.select(this).attr("id");
+						d3.selectAll(".allbars").classed("hoverbar",true);
+						d3.select(this).classed("hoverbar",false);
+
+						areaLoad = d3.select(this).attr("id");
+						
+						//selectarea2 = selectarea.substring(0, selectarea.length -1);
+						
+						$("#occselect").val(areaLoad);
+						$("#occselect").trigger("chosen:updated").change();	
+							
+						updateStuff();
+					});
+							
+				dontsweep = false;
+					
+					
+					//draw full annotations if width is more than 700px, else draw them in the Key div.
+										
+					svg.append('g').attr("class","selectedArea").selectAll('text') 
+							.data(filtereddata)
+							.enter()
+							.append("text")
+							.text(function(d){return d[dvc.essential.VariableLoad[j]] + dvc.essential.UnitSelector[j]})
+							.attr("x", function(d,i){if (d[dvc.essential.VariableLoad[j]] >= dvc.essential.EnglandAverage[j]){
+									return x(d[dvc.essential.VariableLoad[j]]) - 8} 
+								else {
+									return x(d[dvc.essential.VariableLoad[j]]) + 8}
+							})
+							.attr("text-anchor", function(d,i){if (d[dvc.essential.VariableLoad[j]] >= dvc.essential.EnglandAverage[j]){
+									return "end"} 
+								else {
+									return "start"}
+							})
+							.attr("y","-7")
+							.attr("font-size","12px")
+							.attr("fill","white")
+							.attr("class","alltext")
+							.attr("opacity","1")
+							.transition().delay(1500).duration(500).attr("fill","#00a7a3")
+							.attr("id",function(d,i){return "SelectedAreaText" + j});
+							
+							legendArea = filtereddata[0].name;
+							
+							d3.select("#KeyContainer").html(function(d){return "<p><span style='color:#00a7a3; font-size:16px;'>-" + legendArea + " </span><span style='color:#B8860B; font-size:16px;'>-England</span></p>"});
+				
+					svg.append('g').attr("class","selectedAreaEngland").selectAll('text') 
+							.data(filtereddataEngland)
+							.enter()
+							.append("text")
+							.text(function(d){return d[dvc.essential.VariableLoad[j]] + dvc.essential.UnitSelector[j]})
+							.attr("x", function(d,i){return x(d[dvc.essential.VariableLoad[j]]) - 8})
+							.attr("y","47")
+							.attr("text-anchor","end")
+							.attr("font-size","12px")
+							.attr("fill","white")
+							.attr("opacity","1")
+							.transition().delay(1500).duration(500).attr("fill","#B8860B")
+							.attr("id","SelectedAreaText");	
+							
+							
+					//Extend and shade selected bars
+					
+					
+					d3.selectAll("#" + AreaLoad4)
+							.classed("hoverbar",false)
+							.classed("bluebar",true)
+							.transition()
+							.delay(1500)
+							.duration(500)
+							.attr("fill","#00a7a3")
+							.attr("opacity","1")
+							.attr("height", 50)
+							.attr("width","2")
+							.attr("transform","translate(0,-20)");
+					
+					d3.selectAll("#England")
+							.classed("hoverbar",false)
+							.classed("greybar",true)
+							.transition()
+							.delay(1500)
+							.duration(500)
+							.attr("fill","#B8860B")
+							.attr("opacity","1")
+							.attr("height", 50)
+							.attr("width","2");
+							
+					
+							
+					
+							
+							if (pymChild) {
+									pymChild.sendHeight();
+							}
+					
+						
+				function updateStuff(d,j){
+									
+					d3.selectAll(".bluebar")
+						.attr("opacity","0.3")
+						.attr("height",30)
+						.attr("fill","grey")
+						.attr("width","1")
+						.attr("transform","translate(0,0)");
+					
+					d3.selectAll(".allbars")
+						.classed("bluebar",false)
+						.classed("greybar",false);
+									
+						filtereddata = graphic_data.filter(function(d) {return d.name2 == areaLoad;});
+						
+						legendArea = filtereddata[0].name;
+
+						AreaLoad4 = areaLoad;
+						
+						d3.select("#KeyContainer").html(function(d){return "<p><span style='color:#00a7a3; font-size:16px;'>-" + legendArea + " </span><span style='color:#B8860B; font-size:16px;'>-England</span></p>"}); 
+						
+						d3.selectAll("#England")
+							.classed("hoverbar",false);
+						
+						d3.selectAll("#" + AreaLoad4)
+							.classed("hoverbar",false)
+							.classed("bluebar",true)
+							.transition()
+							.duration(500)
+							.attr("fill","#00a7a3")
+							.attr("opacity","1")
+							.attr("height", 50)
+							.attr("width","2")
+							.attr("transform","translate(0,-20)");
+							
+						for(j=0;j<dvc.essential.VariableLoad.length;j++){
+
+							
+		   
+		    				x.domain(dvc.essential.xAxisScale[j]);
+							
+							d3.select("#SelectedAreaText" + j)
+								.text(function(d){return filtereddata[0][dvc.essential.VariableLoad[j]] + dvc.essential.UnitSelector[j]})
+								.attr("x", function(d,i){if (filtereddata[0][dvc.essential.VariableLoad[j]] >= dvc.essential.EnglandAverage[j]){
+										return x(filtereddata[0][dvc.essential.VariableLoad[j]]) - 8} 
+									else {
+										return x(filtereddata[0][dvc.essential.VariableLoad[j]]) + 8}
+								})
+								.attr("text-anchor", function(d,i){if (filtereddata[0][dvc.essential.VariableLoad[j]] >= dvc.essential.EnglandAverage[j]){
+									return "end"} 
+								else {
+									return "start"}
+								})
+								.attr("fill","white")
+								.attr("class","alltext")
+								.attr("opacity","1")
+								.transition().duration(500).attr("fill","#00a7a3");
+								
+								if (pymChild) {
+									pymChild.sendHeight();
+								}
+								
+							}
+						
+							if (pymChild) {
+									pymChild.sendHeight();
+							}
+							//now we add the url thingy
+							changeURL();	
+				};
+					
+					
+
+				d3.selectAll("text").attr("font-family","'Open Sans', sans-serif");
+						
+			//use pym to calculate chart dimensions	
+		    if (pymChild) {
+		        pymChild.sendHeight();
+				}
+			
+			}
+
+		}
+		
+		
+		
+		
+		
+										if (Modernizr.svg) {
+										   //load config 
+											d3.json("config.json", function(error, config) {
+											dvc=config
+								
+												//load chart data
+												d3.csv( dvc.essential.graphic_data_url, function(error, data) {
+													graphic_data = data;
+															
+															   console.log(AreaLoad);
+													
+													filtereddata = data.filter(function(d) {return d.name2 == AreaLoad;});
+									
+													filtereddataEngland = graphic_data.filter(function(d) {return d.name == "England";});
+																												
+													
+													
+												
+													// graphic_data.forEach(function(d) {
+													// 	d.name = d3.time.format(dvc.essential.dateFormat).parse(d.name); 
+														
+													// });
+								
+													names = d3.keys(/*data*/graphic_data[0]).filter(function(key) { return key !== "state"; });
+											  
+													graphic_data.forEach(function(d) {
+													  d.ages = names.map(function(name) { return {name: name, value: +d[name]}; });	
+													}); 
+														
+														//use pym to create iframed chart dependent on specified variables
+														pymChild = new pym.Child({ renderCallback: drawGraphic});
+														occopt();
+													});
+											})
+								
+										} else {
+											 //use pym to create iframe containing fallback image (which is set as default)
+											 pymChild = new pym.Child();
+											if (pymChild) {
+												pymChild.sendHeight();
+											}
+										}
+										
+										
+			var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37894017-1']);
+		  _gaq.push(['_trackPageview']);
+
+		
+		  (function() {
+
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+										
+										
+					
+		
+
+    </script>
+</body>
+</html>

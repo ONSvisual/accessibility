@@ -1,0 +1,26 @@
+﻿{"code":"hhldwe",
+ "filepth":"",
+ "description":{
+        "title":"Median wealth per household, including pension wealth",
+        "unit":"£"
+    },
+    "months":[],
+    "days":[],
+    "quarters":[],
+    "years":[],
+	"other": {
+		"catLabels": [
+		"2008/10",		
+		"2010/12",
+		"2012/14",
+		"2014/16"
+		],
+		"dataValues": [
+		204300,
+		216500,
+		225100,
+		259400
+		]
+	}
+} 
+

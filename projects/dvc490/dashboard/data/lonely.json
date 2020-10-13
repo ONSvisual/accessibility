@@ -1,0 +1,27 @@
+{"code":"lonely",
+ "filepth":"",
+ "description":{
+        "title":"Feelings of loneliness often/always",
+        "unit":"%"
+    },
+    "months":[],
+    "days":[],
+    "quarters":[],
+    "years":[],
+    "other":{
+            "catLabels":[
+                "2013/14", 
+                "2014/15", 
+                "2015/16",
+				"2016/17"
+                
+            ],
+            "dataValues":[
+                5.11,
+                4.87, 
+                5.09,
+				5.38
+            ]
+    }
+} 
+

@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title></title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="../lib/globalStyle.css" />
+    
+</head>
+<style>
+
+body {
+  font: 10px sans-serif;
+  margin: 0;
+  max-width:800px;
+}
+
+.line {
+  stroke: rgb(70, 130, 180);
+  stroke-width: 1.5px;
+}
+.line2 {
+  stroke: rgb(255, 150, 30);
+  stroke-width: 1.5px;
+}
+
+.area {
+  fill: rgb(70, 130, 180);
+  opacity:0.3;
+}
+.area2 {
+  fill: rgb(255, 150, 30);
+  opacity:0.3;
+}
+
+
+.axis text {
+  font: 10px sans-serif;
+  fill:grey;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+ /* stroke: grey;*/
+  shape-rendering: crispEdges;
+}
+
+.y .axis line {
+	stroke:#fff !important;
+}
+
+</style>
+
+<body>
+
+	<div id="legendBox" style="margin-left:20px;"></div>
+	
+    <div id="graphic">
+    	<img src="fallback.png" alt="[Chart]" />
+    </div>
+    
+    <div id="sourceText" style="margin-left:20px;"></div>
+	    
+    <div id="keypoints">
+        <p></p>
+    </div>
+
+   <!--<div class="footer">       
+   </div>-->
+   
+   <div id="footer">        
+   </div>
+   
+   		<script src="../lib/d3.v3.5.17.min.js" type="text/javascript"></script>
+   		<script src="../lib/modernizr.svg.min.js" type="text/javascript"></script>
+   		<script src="../lib/pym.js" type="text/javascript"></script>
+   		<script src="../lib/d3-jetpack.js" type="text/javascript"></script>
+		<script src="../lib/swoopy-drag.js" type="text/javascript"></script>
+        <script src="../lib/saveSvgAsPng.js" type="text/javascript"></script>
+        <script src="../lib/footer.js"></script>
+    
+   <script>
+   
+		var graphic = d3.select('#graphic');
+		var keypoints = d3.select('#keypoints');
+		var footer = d3.select(".footer");
+		var pymChild = null;
+
+		function drawGraphic(width) {
+		   var threshold_md = 788;
+		   var threshold_sm = dvc.optional.mobileBreakpoint; 
+		  
+		  	//set variables for chart dimensions dependent on width of #graphic
+		    if (parseInt(graphic.style("width")) < threshold_sm) {     	
+												var margin = {	top: 	dvc.optional.margin_sm[0], 
+																right: 	dvc.optional.margin_sm[1], 
+																bottom: dvc.optional.margin_sm[2],
+																left: 	dvc.optional.margin_sm[3]
+															};
+												var size = 0;	// used for margin_centre and x_ticks		
+												var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+												var height = Math.ceil((chart_width * dvc.optional.aspectRatio_sm[1]) / dvc.optional.aspectRatio_sm[0]) - margin.top - margin.bottom;
+		    									}
+												
+			else if (parseInt(graphic.style("width")) < threshold_md){ 
+		        								var margin = {	top: 	dvc.optional.margin_md[0],
+																right: 	dvc.optional.margin_md[1],
+																bottom: dvc.optional.margin_md[2],
+																left: 	dvc.optional.margin_md[3]
+															};
+												var size = 1;			 
+												var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+		            							var height = Math.ceil((chart_width * dvc.optional.aspectRatio_md[1]) / dvc.optional.aspectRatio_md[0]) - margin.top - margin.bottom;
+												}
+												
+		  	 else {   
+		        								var margin = {	top: 	dvc.optional.margin_lg[0],
+																right: 	dvc.optional.margin_lg[1],
+																bottom: dvc.optional.margin_lg[2],
+																left: 	dvc.optional.margin_lg[3]
+															};
+												var size = 2;			
+												var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+		            							var height = Math.ceil((chart_width * dvc.optional.aspectRatio_lg[1]) / dvc.optional.aspectRatio_lg[0]) - margin.top - margin.bottom;
+												}
+	
+
+		    // clear out existing graphics
+		    graphic.selectAll("*").remove();
+			keypoints.selectAll("*").remove();
+			footer.selectAll("*").remove();
+
+		    var x = d3.time.scale()
+		        .range([0, chart_width]);
+				
+		    var y = d3.scale.linear()
+		        .range([height, 10])
+				.domain([0, dvc.axis_scale_max]);
+
+		    //x.domain(d3.extent(graphic_data, function(d) { return d.date; }));	
+			  symbols = d3.nest()
+				  .key(function(d) { return d.symbol; })
+				  .entries(graphic_data);
+
+		// Compute the minimum and maximum date across symbols.
+		  // We assume values are sorted by date.
+		  x.domain([
+			d3.min(symbols, function(s) { return s.values[0].date; }),
+			d3.max(symbols, function(s) { return s.values[s.values.length - 1].date; })
+		  ]);
+
+		    var xAxis = d3.svg.axis()
+		        .scale(x)
+		        .orient("bottom")
+		        .tickFormat(function(d,i) {
+		            //specify date format for x axis depending on #graphic width
+		            if (parseInt(graphic.style("width")) <= threshold_sm) {
+		                var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[0]);
+						//console.log("S "+fmt(d));
+		                return '\u2019' + fmt(d);
+		            } else if (parseInt(graphic.style("width")) <= threshold_md){
+		                var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[1]);
+						//console.log("M "+fmt(d));
+		                return  fmt(d);
+		            } else {
+						//console.log(dvc.optional.xAxisTextFormat_sm_md_lg[2] + ",  " + d);
+		                var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[2]);
+						//console.log("L "+fmt(d));
+		                return fmt(d);
+		            }
+		        })
+				.tickPadding(5)
+				.ticks(5);
+				
+		    
+//	        //specify number of ticks on x axis and whether 1st and last data point labels are included
+//	        if(parseInt(graphic.style("width"))<threshold_sm){		
+//	            xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[0]).concat( x.domain() ));
+//	        } else if (parseInt(graphic.style("width")) <= threshold_md){
+//				xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[1])/*.concat( x.domain() )*/);
+//			} else {
+//	            xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[2])/*.concat( x.domain() )*/);		
+//	        }
+		    
+		    var yAxis = d3.svg.axis()
+		        .scale(y)
+		        .orient('right')
+				.ticks(3);
+		    			    
+				
+		    //gridlines
+		    var y_axis_grid = function() { return yAxis; }
+			
+			var area = d3.svg.area()
+				.x(function(d) { return x(d.date); })
+				.y0(height)
+				.y1(function(d) { return y(d.price); })
+				.defined(function(d){return d.price})
+				.interpolate("basis");
+				
+			var area2 = d3.svg.area()
+				.x(function(d) { return x(d.date); })
+				.y0(height)
+				.y1(function(d) { return y(d.amount); })
+				.defined(function(d){return d.amount})
+				.interpolate("basis");
+				
+			
+			var line = d3.svg.line()
+				.x(function(d) { return x(d.date); })
+				.y(function(d) { return y(d.price); })
+				.defined(function(d){return d.price})
+				.interpolate("basis");
+				
+			var line2 = d3.svg.line()
+				.x(function(d) { return x(d.date); })
+				.y(function(d) { return y(d.amount); })
+				.defined(function(d){return d.amount})
+				.interpolate("basis");
+			
+							
+			function writeAnnotation(){
+			
+				if (chart_width < 700) {
+					//I want to do nothing here - bullets undrneath wouldn't work
+				}		
+				else {
+						dvc.essential.annotationPlace.forEach(function(d,i) {	
+							
+							// draw annotation text based on content of var annotationArray ...
+							d3.select(".svgChart.chart_" + dvc.essential.annotationPlace[i]).append("text")
+								.text(dvc.essential.annotationChart[i])
+								.attr("class","annotext" + i)
+								.style("fill","grey")
+								.style("font-size","12px")
+								.attr("text-anchor", dvc.essential.annotationAlign[i])
+								.attr('y',y(dvc.essential.annotationXY[i][1]))
+								.attr('x',x(d3.time.format(dvc.essential.dateFormat).parse(dvc.essential.annotationXY[i][0])));
+										
+							d3.selectAll(".annotext" + (i))
+								.each(insertLinebreaks)
+								.each(createBackRect);	
+								
+								
+							function insertLinebreaks() {
+								
+								var str = this;
+			
+								var el1 = dvc.essential.annotationChart[i];
+								var el = el1.data;
+						
+								var words = el1.split('  ');
+								
+								d3.select(this/*str*/).text('');
+							
+								for (var j = 0; j < words.length; j++) {
+									var tspan = d3.select(this).append('tspan').text(words[j]);
+									if (j > 0)
+										tspan.attr('x', x(d3.time.format(dvc.essential.dateFormat).parse(dvc.essential.annotationXY[i][0]))).attr('dy', '14');													
+								}
+							};					
+													
+							function createBackRect() {
+								
+//							var BBox = this.getBBox()
+//											
+//									svg.insert("rect", ".annotext" + (i))
+//										.attr("width", BBox.width)
+//										.attr("height", BBox.height)
+//										.attr("x", BBox.x)
+//										.attr("y", BBox.y)
+//										.attr("fill", "white")
+//										.attr("opacity", 0.4);
+										
+							}; // end function createBackRect()
+						
+						
+							// draw circles, if var 'dvc.essential.circles' is set to true
+							if ( dvc.essential.circles == true ) {
+								
+								svg.append("circle")
+									.attr("class", "annocirc" + (i))
+									.attr('cy',y(dvc.essential.annotationCXCY[i][1]))
+									.attr('cx',x(d3.time.format(dvc.essential.dateFormat).parse(dvc.essential.annotationCXCY[i][0])))
+									.attr("r", "3");
+								
+							} // end if ... 
+							
+						});	// end foreach 	
+					
+	}}// end function writeAnnotation()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//		    var line = d3.svg.line()
+//		        .x(function(d) { return x(d.date); })
+//		        .y(function(d) { return y(d.amt); });
+
+		    // parse data into columns
+//		    var lines = {};
+//		    for (var column in graphic_data[0]) {
+//		        if (column == 'date') continue;
+//		        lines[column] = graphic_data.map(function(d) {
+//		            return {
+//		                'date': d.date,
+//		                'amt': d[column]
+//		            };
+//		        });
+//		    }
+			
+
+			
+		  	//y domain calculations	: zero to intelligent max choice, or intelligent min and max choice,  or interval chosen manually
+//	   		if (dvc.essential.yAxisScale == "auto_zero_max"){
+//			   var yDomain = [
+//								0,
+//								d3.max(d3.entries(lines), function(c) {
+//									return d3.max(c.value, function(v) {
+//										var n = v.amt;
+//										return Math.ceil(n);
+//									});
+//								})
+//							 ];
+//			} else if (dvc.essential.yAxisScale == "auto_min_max"){
+//				var yDomain = [
+//								d3.min(d3.entries(lines), function(c) {
+//									return d3.min(c.value, function(v) {
+//										var n = v.amt;
+//										return Math.floor(n);
+//									});
+//								}),
+//							
+//								d3.max(d3.entries(lines), function(c) {
+//									return d3.max(c.value, function(v) {
+//										var n = v.amt;
+//										return Math.ceil(n);
+//									});
+//								})
+//					 		];
+//			} else {
+//			   var yDomain = dvc.essential.yAxisScale;
+//		    }
+//				 
+//		    y.domain(yDomain);
+		    
+		d3.select("#legendBox").selectAll("*").remove();
+
+
+		var legend = d3.select("#legendBox").append("svg")
+				.style("height","35px")
+						.append("g")
+						.attr("id","legend")
+
+
+		    //create svg for chart
+		var svg =   d3.select('#graphic')
+						.selectAll("svg")
+      					.data(symbols)//reads in all of the data
+    					.enter()
+						.append('svg')
+						.attr("class", function(d,i){ return "svgChart chart_" + i})
+						.attr("id", function(d,i){ return "chart_" + i});
+				
+				
+				//var svg = d3.select('#graphic').append('svg')
+				d3.selectAll('svg')
+							.attr("id","chart")
+							.style("background-color","#fff")
+							.attr("width", chart_width + margin.left + margin.right)
+							.attr("height", height + margin.top + margin.bottom )  //+30)
+							.append("g")
+							.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+				
+					svg.append("rect")
+						.style("fill", "#fff")
+						.attr("width", chart_width)
+						.attr("height", height);
+			    
+//				    svg.append('g')
+//				        .attr('class', 'y axis')
+//				        .call(yAxis);
+//
+//				    svg.append('g')
+//				        .attr('class', 'y grid')
+//				        .call(y_axis_grid()
+//				            .tickSize(-chart_width, 0, 0)
+//				            .tickFormat('')
+//				        );
+					
+					//y axis label
+						 svg.append("text")
+							//.attr('class', 'unit')
+							.attr('transform','translate(' + -margin.left + ',-10)') // " + eval(-margin.top + (lineNo+1)*20) + "
+							.attr("font-size","12px")
+ 							.attr("fill","#666")
+							.text(function(d,i) { return dvc.essential.yAxisLabel});
+							
+							
+					//create x axis, if y axis doesn't start at 0 drop x axis accordingly	
+					svg.append('g')
+				        .attr('class', 'x axis')
+				        .attr('transform', function(d){ 
+//				        			if(yDomain[0] != 0){
+//										return 'translate(20,' + (height + 30) + ')'
+//									} else {
+										return 'translate(20,' + height  + ')'
+								//	}
+							})
+				        .call(xAxis);
+						
+				// d3.select(".x").select("path").style("stroke", "#666")
+				 
+				 	svg.append('g')
+				        .attr('class', 'y axis')
+				        .attr('transform', function(d){ 
+//				        			if(yDomain[0] != 0){
+//										return 'translate(20,' + (height + 30) + ')'
+//									} else {
+										return 'translate('+ (chart_width + 20) +',0)'
+								//	}
+							})
+				        .call(yAxis);
+						
+					//d3.selectAll(".y").select("path").style("stroke", "#fff")
+					//d3.selectAll(".y").select("path").select("line").style("stroke", "#fff")
+				
+				////create icon to symbolise break in y axis if required					
+//				if(yDomain[0] > 0 && dvc.essential.yAxisBreak == true){
+//					var paths = svg.append("defs")
+//								.append("g")
+//								.attr("id","icon")
+//								.append("g");
+//								
+//							paths.append("polyline")
+//								 .attr("points", "2.881,9.54 7.94,5.061 12.341,9.54 17.77,5.061")
+//								 .attr("stroke", "#666")
+//								 .attr("fill", "none")
+//							paths.append("polyline")
+//								.attr("points", "2.881,14.54 7.94,10.061 12.341,14.54 17.77,10.061")
+//								.attr("stroke", "#666")
+//								.attr("fill", "none");
+//				  
+//						//specify position of icon				  
+//						svg.append("g").attr("id","iconpath")
+//								.attr("transform","translate(-10,3)")
+//								.append("use")
+//								.attr("xlink:href","#icon")
+//								.attr("x", x(x.domain()[0]))
+//								.attr("y", function(){ 
+//									if (parseInt(graphic.style("width")) < threshold_sm) {
+//										return y(dvc.essential.yAxisBreak_sm_md_lg[0])
+//									} else if (parseInt(graphic.style("width")) < threshold_md){
+//										return y(dvc.essential.yAxisBreak_sm_md_lg[1])
+//									} else {
+//										return y(dvc.essential.yAxisBreak_sm_md_lg[2])
+//									}
+//								});
+//				}
+//
+//				//create centre line if required
+//				if (dvc.optional.centre_line == true){
+//					svg.append("line")
+//						//.attr("id","centreline")
+//						.attr("stroke", "#CCC")
+//						.attr("stroke-width", 3)
+//						.attr('y1',y(dvc.optional.centre_line_value))
+//						.attr('y2',y(dvc.optional.centre_line_value))
+//						.attr('x1',0)
+//						.attr('x2',chart_width);
+//				} else if(yDomain[0] <0){
+//					svg.append("line")
+//						//.attr("id","centreline")
+//						.attr("stroke", "#CCC")
+//						.attr("stroke-width", 3)
+//						.attr('y1',y(0))
+//						.attr('y2',y(0))
+//						.attr('x1',0)
+//						.attr('x2',chart_width);
+//				}  
+//			
+//
+//				
+
+
+if (chart_width < 700) {
+					//I want to do nothing here - bullets undrneath wouldn't work
+				}		
+				else {
+
+//create vertical line if required
+				if (dvc.optional.vertical_line == true){
+					
+					dvc.optional.vertical_lines_on.forEach(function(d,i) {
+					
+					d3.select(".svgChart.chart_" + dvc.optional.vertical_lines_on[i]).append("line")
+						.attr('x1',x(d3.time.format(dvc.essential.dateFormat).parse(dvc.optional.annotateLineX1_Y1_X2_Y2[i][0][0])))
+						.attr('x2',x(d3.time.format(dvc.essential.dateFormat).parse(dvc.optional.annotateLineX1_Y1_X2_Y2[i][1][0])))
+						.attr('y1',y(dvc.optional.annotateLineX1_Y1_X2_Y2[i][0][1]))
+						.attr('y2',y(dvc.optional.annotateLineX1_Y1_X2_Y2[i][1][1]))
+						.style('stroke', '#888')
+						.style('stroke-width', 2)
+    					.style('stroke-dasharray', '5 5'); 
+						
+						
+					})
+				}
+				
+				//create rectangle
+				if (dvc.optional.annotateRect == true){
+					
+					dvc.optional.annotateRect_on.forEach(function(d,i) { 
+						
+					d3.select(".svgChart.chart_" + dvc.optional.annotateRect_on[i]).append("rect")
+						.attr('x',x(d3.time.format(dvc.essential.dateFormat).parse(dvc.optional.annotateRectX_Y[i][0][0]))  )
+						.attr('y',y(dvc.optional.annotateRectX_Y[i][0][1]))
+						.attr('height',y( dvc.optional.annotateRectX_Y[i][1][1] ) - y(dvc.optional.annotateRectX_Y[i][0][1])  ) 
+						.attr('width',x(d3.time.format(dvc.essential.dateFormat).parse(dvc.optional.annotateRectX_Y[i][1][0])) - x(d3.time.format(dvc.essential.dateFormat).parse(dvc.optional.annotateRectX_Y[i][0][0])))
+						.attr("class","thisisarect")
+						.style('fill', dvc.optional.lineColor_opcty[i][0] )
+						.style('stroke-width', 2)
+						.style('opacity', dvc.optional.lineColor_opcty[i][1] );						
+						
+					})
+				} 
+			}
+				
+				
+	//			//create lines 		
+//			    svg.append('g').selectAll('path')
+//			        .data(d3.entries(lines))
+//			        .enter()
+//			        .append('path')
+//			            //.attr('class', 'line')
+//						.style("stroke", function(d,i){ return dvc.essential.colour_palette[i]; })
+//						.style("fill", 'none')
+//						.style("stroke-width", 3)
+//						.style("stroke-linecap", 'round')
+//						.style("stroke-linejoin", 'round')
+//			            .attr('d', function(d) {
+//			                return line(d.value);
+//			            });	
+						
+				if (dvc.area_on_off == true) {	
+					// Add the area path elements. Note: the y-domain is set per element. (number 1)
+					  svg.append("path")
+						  .attr("class", "area")
+						  .attr("d", function(d) { return area(d.values); })
+						  .attr("transform", "translate(20,0)");
+						 // console.log(data);
+				};
+				
+				if (dvc.area_on_off_2 == true) {	
+					// Add the area path elements. Note: the y-domain is set per element. (number 2)
+					  svg.append("path")
+						  .attr("class", "area2")
+						  .attr("d", function(d) { return area2(d.values); })
+						  .attr("transform", "translate(20,0)");
+				};
+				  
+			  // Add the line path elements. Note: the y-domain is set per element.
+			  svg.append("path")
+				  .attr("class", "line")
+				  .attr("d", function(d) { return line(d.values); })
+				  .attr("transform", "translate(20,0)");
+				  
+			  svg.append("path")
+				  .attr("class", "line2")
+				  .attr("d", function(d) { return line2(d.values); })
+				  .attr("transform", "translate(20,0)");	
+				  
+			// Add a small label for the symbol name.
+				svg.append("text")
+					  .attr("x", 20)
+					  .attr("y", 13)
+					  .style("text-anchor", "start")
+					  .style("background-color", "white")
+					  .style("font-size", "14px")
+					  .style("font-weight","bold")
+					  .style("fill", "#b7b7b7")
+					  .text(function(d) { return d.key; });	
+						
+				//// add markers
+//				if (parseInt(graphic.style("width")) > threshold_sm && dvc.optional.lineMarkers == true){	
+//					var j=0;
+//					for (var column in graphic_data[0]) {
+//								if (column == 'date') continue;
+//													 svg.append("g")
+//														.selectAll("circles")
+//														.data(graphic_data) // raw data
+//														.enter()
+//														.append('circle')
+//														.style('fill', '#fff')
+//														.style('stroke', function(d,i){ return dvc.essential.colour_palette[j]; })
+//														.style('stroke-width', 2)
+//														.attr("cx", function(d){
+//																					return x(d.date);
+//																				})
+//														.attr("cy", function(d){  
+//																					return y(d[column]);
+//																				})
+//														.attr("r", 3)
+//													j++;
+//													}
+//												} // ends if
+
+			writeAnnotation();
+			
+			//create link to source	
+			
+			d3.select("#sourceText").selectAll("*").remove();
+			
+			sourceText = d3.select("#sourceText").append("g")
+				sourceText.append("g")
+						.attr("id", "source")
+						.append("text")
+						.attr("text-anchor", "start")
+						.style("font-size", "12px")
+						.style("fill", "#666")
+						.attr('y',height + margin.top + margin.bottom-10)
+						.attr('x',0)
+						//.style('margin-bottom', '10px')
+						.text("Source: ")
+						.append("a")
+						.style("fill", "#4774CC")  // it ignored the css !!
+						.attr("xlink:href", dvc.essential.sourceURL)
+						.attr("target", "_blank")
+						.html(dvc.essential.sourceText);
+						
+
+	createLegend();			
+			
+function createLegend(){
+	
+	d3.select("#legend").selectAll("*").remove();
+			
+							var prevX= 0;
+							var prevY= 0;
+							lineNo = 0;
+							var lineNoOld = 0;
+					
+						dvc.essential.legendLabels.forEach(function(d,i) {	
+						
+							// draw legend text based on content of var legendLabels ...
+							var_group= d3.select("#legend").append("g")
+							
+							var_group.append("rect")
+								.attr("class","rect" + i)
+								.attr("fill", dvc.essential.colour_palette[i])
+								.style("opacity","0.5")
+								.attr("x", 0)
+								.attr("y", 0)
+								.attr("width", function(d){ 
+									if(dvc.essential.legendStyle=="rect"){
+										return 15;
+									} else {
+										return 20;
+									}
+								})
+								.attr("height", function(d){ 
+									if(dvc.essential.legendStyle=="rect"){
+										return 15;
+									} else {
+										return 3;
+									}
+								})
+							
+							var_group.append("text")
+								.text(dvc.essential.legendLabels[i])
+								.attr("class","legend" + i)
+								.attr("text-anchor", "start")
+								.style("font-size", "12px")
+								.style("fill", "#666")
+								.attr('y',15)
+								.attr('x',0);
+							
+
+							d3.selectAll(".legend" + (i))
+								.each(calcPosition);	
+													
+							function calcPosition() {
+							
+								
+							var BBox = this.getBBox()
+							
+								
+							//prevY =BBox.width 	
+								d3.select(".legend" + (i))
+										.attr("y",function(d){ 
+													if((prevX+BBox.width +50)>parseInt(graphic.style("width")) ){
+														lineNoOld = lineNo;
+														lineNo=lineNo + 1;
+														prevX = 0;
+													}
+												return eval((lineNo*20) + 20);
+										})
+										.attr("x",function(d){ return prevX+25;})
+										
+										
+								d3.select(".rect" + (i))
+										.attr("y",function(d){ 
+												
+												if((prevX+BBox.width +50)>parseInt(graphic.style("width")) ){
+													lineNoOld = lineNo;
+													lineNo=lineNo + 1;
+													prevX = 0;
+												}
+													
+												if(dvc.essential.legendStyle=="rect"){
+													return eval((lineNo*20)+5);
+												} else {
+													return eval((lineNo*20)+12);
+													
+												}	
+										})
+										.attr("x",function(d){ return prevX; })
+								
+								prevX = prevX + BBox.width +50
+								
+
+								
+							}; // end function calcPosition()
+						});	// end foreach 	
+			}// end function createLegend()
+							
+
+			// css fix
+			d3.selectAll("path").attr("fill","none");
+			
+			d3.selectAll("text").attr("font-family","'Open Sans', sans-serif");
+						
+			d3.selectAll(".x text").attr("font-size","12px").attr("fill","#666");
+			d3.selectAll(".y text").attr("font-size","12px").attr("fill","#666");
+						
+			d3.selectAll(".y line")
+					.attr("stroke","#CCC")
+					.attr("stroke-width","1px")
+					.style("shape-rendering","crispEdges");
+
+			d3.selectAll(".x line")
+				.attr("stroke","#CCC")
+				.attr("stroke-width","1px")
+				.style("shape-rendering","crispEdges");
+				
+				
+			// save SVG
+			d3.select("#buttonid").on("click",function(){saveSvgAsPng(document.getElementById("chart"), "diagram.png")});
+
+			
+			//use pym to calculate chart dimensions	
+		    if (pymChild) {
+		        pymChild.sendHeight();
+		    }
+			
+	}  // ends draw graphic
+	
+	
+
+	//check whether browser can cope with svg	
+		if (Modernizr.svg) {
+		   //load config 
+			d3.json("config.json", function(error, config) {
+			dvc=config
+
+				//load chart data
+				d3.csv(dvc.essential.graphic_data_url, function(error, data) {
+					graphic_data = data;
+					
+					graphic_data.forEach(function(d) {
+						d.amount = +d.amount;
+  						d.price = +d.price;
+						d.date = d3.time.format(dvc.essential.dateFormat).parse(d.date); 
+						
+					});
+					
+					//use pym to create iframed chart dependent on specified variables
+					pymChild = new pym.Child({ renderCallback: drawGraphic});
+				});
+			})
+
+		} else {
+			 //use pym to create iframe containing fallback image (which is set as default)
+			 pymChild = new pym.Child();
+			if (pymChild) {
+		        pymChild.sendHeight();
+		    }
+		}
+    </script>
+</body>
+</html>

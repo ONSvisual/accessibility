@@ -1,0 +1,36 @@
+{"code":"artcul",
+ "filepth":"",
+ "description":{
+        "title":"Engaged with/participated in arts or cultural activity at least 3 times a year",
+        "unit":"%"
+    },
+    "months":[],
+    "days":[],
+    "quarters":[],
+    "years":{
+            "catLabels":[
+                "2009",
+                "2010",
+                "2011", 
+                "2012", 
+                "2013",
+                "2014",
+                "2015",
+                "2016",
+				"2017"
+                
+            ],
+            "dataValues":[
+                80.8,
+                81.6, 
+                81.0,
+                83.9,
+                83.1,
+                83.4,
+                82.4,
+                82.1,
+				82.2
+            ]
+    }
+} 
+
