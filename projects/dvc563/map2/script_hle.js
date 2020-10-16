@@ -168,66 +168,137 @@ if (Modernizr.webgl) {
 
     function buildNav() {
 
-      formgroup = d3.select('#nav')
-        .append('form')
-        .attr('class', 'form-group-fullwidth')
-        .attr('role', 'radiogroup')
-        .selectAll('div')
-        .data(dvc.varlabels)
-        .enter()
-        .append('div')
-        .attr("class", 'form-group-fullwidth')
-        .attr("role", "radio")
-        .attr("tabindex", "1");
+      fieldset=d3.select('#nav').append('fieldset');
 
-      formgroup.append('input')
-        .attr("id", function(d, i) {
-          return "button" + i
-        })
-        .attr('class', 'radio-primary-fullwidth')
-        .attr("type", "radio")
-        .attr("name", "button")
-        .attr("value", function(d, i) {
-          return i
-        })
-        .attr("aria-checked", function(d, i) {
-          if (i == tab) {
-            return true
-          }
-        })
-        .property("checked", function(d, i) {
-          return i === tab;
-        })
+      fieldset
+      .append('legend')
+      .attr('class','visuallyhidden')
+      .html('Choose a variable');
 
-      formgroup.append('label')
-        .attr('class', 'label-primary-fullwidth')
-        .attr("for", function(d, i) {
-          return "button" + i
-        })
-        .text(function(d, i) {
-          return dvc.varlabels[i]
-        })
-        .on('click', function(d, i) {tab = i;
-          onchange(tab)
-        })
+      fieldset
+      .append("div")
+      .attr('class','visuallyhidden')
+      .attr('aria-live','polite')
+      .append('span')
+      .attr('id','selected');
 
-      selectgroup = d3.select('#selectnav')
-        .append('select')
+      grid=fieldset.append('div')
+      .attr('class','grid grid--full large-grid--fit');
+
+      cell=grid.selectAll('div')
+      .data(dvc.varlabels)
+      .enter()
+      .append('div')
+      .attr('class','grid-cell');
+
+      cell.append('input')
+      .attr('type','radio')
+      .attr('class','visuallyhidden')
+      .attr('id',function(d,i){return 'button'+i;})
+      .attr('value',function(d,i){return i;})
+      .attr('name','button');
+
+      cell.append('label')
+      .attr('for',function(d,i){return 'button'+i;})
+      .html(function(d){return d;});
+
+      d3.selectAll('input[type="radio"]').on('change', function(d) {
+        onchange(document.querySelector('input[name="button"]:checked').value);
+        d3.select('#selected').text(dvc.varlabels[document.querySelector('input[name="button"]:checked').value] + " is selected");
+      });
+
+      d3.select('#button0').property('checked',true);
+      d3.select('#selected').text(dvc.varlabels[document.querySelector('input[name="button"]:checked').value] + " is selected");
+
+
+      //mobile nav
+      selectgroup = d3.select('#selectnav');
+
+      selectgroup.append('label')
+        .attr('for','mobileDropdown')
+        .attr('class','visuallyhidden')
+        .html('Choose a variable');
+
+
+      selectgroup.append('select')
         .attr('class', 'dropdown')
+        .attr('id','mobileDropdown')
         .on('change', onselect)
         .selectAll("option")
         .data(dvc.varlabels)
         .enter()
         .append('option')
         .attr("value", function(d, i) {
-          return i
+          return i;
         })
         .property("selected", function(d, i) {
           return i === tab;
         })
         .text(function(d, i) {
-          return dvc.varlabels[i]
+          return dvc.varlabels[i];
         });
+
+
+      // formgroup = d3.select('#nav')
+      //   .append('form')
+      //   .attr('class', 'form-group-fullwidth')
+      //   .attr('role', 'radiogroup')
+      //   .selectAll('div')
+      //   .data(dvc.varlabels)
+      //   .enter()
+      //   .append('div')
+      //   .attr("class", 'form-group-fullwidth')
+      //   .attr("role", "radio")
+      //   .attr("tabindex", "1");
+      //
+      // formgroup.append('input')
+      //   .attr("id", function(d, i) {
+      //     return "button" + i
+      //   })
+      //   .attr('class', 'radio-primary-fullwidth')
+      //   .attr("type", "radio")
+      //   .attr("name", "button")
+      //   .attr("value", function(d, i) {
+      //     return i
+      //   })
+      //   .attr("aria-checked", function(d, i) {
+      //     if (i == tab) {
+      //       return true
+      //     }
+      //   })
+      //   .property("checked", function(d, i) {
+      //     return i === tab;
+      //   })
+      //
+      // formgroup.append('label')
+      //   .attr('class', 'label-primary-fullwidth')
+      //   .attr("for", function(d, i) {
+      //     return "button" + i
+      //   })
+      //   .text(function(d, i) {
+      //     return dvc.varlabels[i]
+      //   })
+      //   .on('click', function(d, i) {tab = i;
+      //     onchange(tab)
+      //   })
+      //
+      // selectgroup = d3.select('#selectnav')
+      //   .append('select')
+      //   .attr('class', 'dropdown')
+      //   .on('change', onselect)
+      //   .selectAll("option")
+      //   .data(dvc.varlabels)
+      //   .enter()
+      //   .append('option')
+      //   .attr("value", function(d, i) {
+      //     return i
+      //   })
+      //   .property("selected", function(d, i) {
+      //     return i === tab;
+      //   })
+      //   .text(function(d, i) {
+      //     return dvc.varlabels[i]
+      //   });
 
     } // ends buid nav
 
@@ -376,7 +447,7 @@ function createMapKey(){ // driven by the initial set up
 			// Set up scales for legend
 			x = d3.scaleLinear()
 				.domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
-				.range([0,keywidthMap*0.5]); /*range for pixels*/
+				.range([0,keywidthMap*0.5 - 10]); /*range for pixels*/
 
 			var xAxis = d3.axisBottom(x)
 				.tickSize(15)
@@ -584,7 +655,7 @@ function defineLayers() {
 
 
 
-    function updateLayers() {   
+    function updateLayers() {
 
       //update properties to the geojson based on the csv file we've read in
       areas.features.map(function(d, i) {
@@ -608,6 +679,7 @@ function defineLayers() {
 
     function onchange(i) {
 
+
       chartDrawn = false;
 
       //load new csv file
@@ -619,34 +691,34 @@ function defineLayers() {
 
 			 d3.csv(filepth, function(data) {
         thisdata = data;
-		
-		
+
+
 		d3.csv(filernk, function(dataR) { // console.log(filernk)
 			rankdata = dataR;
-			
+
 			 setRates(thisdata);
-			defineBreaks(thisdata, dvc.breaksMap[tab]);
-			setupScales(dvc.varcolourMap[tab], dvc.numberBreaksMap);
+			defineBreaks(thisdata, dvc.breaksMap[i]);
+			setupScales(dvc.varcolourMap[i], dvc.numberBreaksMap);
 			//setupScales(thisdata);
 			createMapKey(thisdata);
 		   // createChartKey(config);
-			
-	
+
+
 			if (selected) {
 			  setMapAxisVal($("#areaselect").val());
 			  if (mobile == false) {
 				updateChart($("#areaselect").val());
-			  } 
+			  }
 			}
 			updateLayers();
-	
+
 			dataLayer.push({
 			  'event': 'navSelect',
 			  'selected': i
 			})
 			 //createChartKey(config);
 		});
-       
+
       });
 
     }
@@ -785,9 +857,7 @@ function defineLayers() {
         oldAREACD = e.features[0].properties.AREACD;
         map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
 
-		$("#areaselect").val(e.features[0].properties.AREACD).trigger('change.select2');
-
-      //selectArea(e.features[0].properties.AREACD);
+        selectArea(e.features[0].properties.AREACD);
         setMapAxisVal(e.features[0].properties.AREACD);
         if (mobile == false) {
           updateChart(e.features[0].properties.AREACD);
@@ -800,7 +870,7 @@ function defineLayers() {
       map.getCanvasContainer().style.cursor = null;
       map.setFilter("state-fills-hover", ["==", "AREACD", ""]);
       oldAREACD = "";
-      $("#areaselect").val(null).trigger('change.select2');
+      $("#areaselect").val(null).trigger('chosen:updated');
       hideaxisVal();
     };
 
@@ -842,15 +912,16 @@ function defineLayers() {
     }
 
     function selectArea(code) {
-      $("#areaselect").val(code).trigger('change.select2');
+      $("#areaselect").val(code).trigger('chosen:updated');
+      d3.select('abbr').on('keypress',function(evt){
+				if(d3.event.keyCode==13 || d3.event.keyCode==32){
+          d3.event.preventDefault();
+					onLeave();
+          resetZoom();
+				}
+			})
     }
 
-    $('#areaselect').on('select2:unselect', function() {
-      dataLayer.push({
-        'event': 'deselectCross',
-        'selected': 'deselect'
-      })
-    });
 
     function zoomToArea(code) {
 
@@ -933,7 +1004,7 @@ function defineLayers() {
             }
           });
 		if(mobile == true) { d3.select("#rankLabel").select('p').text(rateByIdChart[code]+" of 150"); }
-		
+
     }
 
 
@@ -954,7 +1025,7 @@ function createChartKey(config) {
    //   if (mobile == false) {
 
         d3.select("#keydiv").append("p").attr("id", "keyunit").style("margin-top", "20px").style("margin-bottom", "0px").style("margin-left", "10px").text(dvc.varunit);
-		console.log(tab);
+
         keyheight = 150;
 
         keywidth = d3.select("#keydiv").node().getBoundingClientRect().width;
@@ -989,8 +1060,8 @@ function createChartKey(config) {
 					.tickSize(5)
 					.tickValues([dvc.timepointsChart[0], dvc.timepointsChart[3], dvc.timepointsChart[6]])
 					.tickFormat(legendformat);
-					
-					
+
+
 
 			// class and css
 				var g = svgkey.append("g").attr("id","vert")
@@ -1174,7 +1245,7 @@ function hideaxisVal() {
 
 	  d3.select("#currVal").text("")
         .style("opacity", 0);
-		
+
 	if(mobile == true) { d3.select("#rankLabel").select('p').text("-"); }
     }
 
@@ -1286,6 +1357,11 @@ function selectlist(datacsv) {
         return d3.ascending(a[0], b[0]);
       });
 
+      //hide area dropdown to screen reader if on mobile
+      if(mobile==true){
+        d3.select("selectNav").attr('aria-hidden',true)
+      }
+
       // Build option menu for occupations
       var optns = d3.select("#selectNav").append("div").attr("id", "sel").append("select")
         .attr("id", "areaselect")
@@ -1306,11 +1382,14 @@ function selectlist(datacsv) {
 
       myId = null;
 
-      $('#areaselect').select2({
-        placeholder: "Select an area",
-        allowClear: true,
-        dropdownParent: $('#sel')
+      $('#areaselect').chosen({
+        placeholder_text_single: "Select an area",
+        allow_single_deselect: true
+        // dropdownParent: $('#sel')
       })
+
+      d3.select('input.chosen-search-input').attr('id','chosensearchinput')
+      d3.select('div.chosen-search').insert('label','input.chosen-search-input').attr('class','visuallyhidden').attr('for','chosensearchinput').html("Type to select an area")
 
       $('#areaselect').on('change', function() {
 

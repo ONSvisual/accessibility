@@ -115,17 +115,17 @@ if (Modernizr.webgl) {
     defineBreaks(thisdata, dvc.breaksMap[tab]);
 
     setupScales(dvc.varcolourMap[tab], dvc.numberBreaksMap);
-	
+
 	createMapKey();
-	
+
 
     //now ranges are set we can call draw the key
-    	
+
 			//convert topojson to geojson
 					for (key in geog.objects) {
 					  var areas = topojson.feature(geog, geog.objects[key])
 					}
-    
+
 
     //Work out extend of loaded geography file so we can set map to fit total extent
     bounds = turf.extent(areas);
@@ -142,7 +142,7 @@ if (Modernizr.webgl) {
 
     //and add properties to the geojson based on the csv file we've read in
 			//console.log("root = domain, range: "+ mapcolor.domain(),mapcolor.range() );
-    areas.features.map(function(d) {  
+    areas.features.map(function(d) {
 										//console.log("rateById:"+(rateById[d.properties.AREACD]) );
 										//console.log("col:"+color(rateById[d.properties.AREACD]) );
 
@@ -159,13 +159,13 @@ if (Modernizr.webgl) {
     setSource();
 
     //setInterval(function(){animate()}, 3000);
-	
-	
+
+
 	createChartKey(config);
-		
+
     updateTimeLabel(a);
-	
-	
+
+
     function buildNav() {
 
       formgroup = d3.select('#nav')
@@ -225,15 +225,15 @@ if (Modernizr.webgl) {
         .property("selected", function(d, i) {
           return i === tab;
         })
-        .text(function(d, i) { 
+        .text(function(d, i) {
           return dvc.varlabels[i]
         });
 
     } // ends buid nav
-	
-	
 
-function setRates(ourdata) { 
+
+
+function setRates(ourdata) {
 
       rateById = {};
       areaById = {};
@@ -262,10 +262,10 @@ function setRates(ourdata) {
 //
 //    }
 
- function defineBreaks(data, turinBreaks) { 
+ function defineBreaks(data, turinBreaks) {
       //Flatten data values and work out breaks
 	  var values = [];
-	  
+
       var values = data.map(function(d) {
         return +eval(d[variables[a]]);
       }).filter(function(d) {
@@ -276,7 +276,7 @@ function setRates(ourdata) {
       // Work out how many timepoints we have in our dataset; number of rows - area name & code // Look at linechart templates to see how?
       // parse data into columns
       if (turinBreaks == "jenks" || turinBreaks == "equal") { console.log("jenks/equal used");
-        
+
         allvalues = [];
 
         for (var column in rank[0]) { // data
@@ -290,11 +290,11 @@ function setRates(ourdata) {
           }
 		  allvalues.sort(d3.ascending);
         }
-		
+
       }
- 		
+
 	//console.log("allvalues: "+allvalues);
-		
+
       if (turinBreaks == "jenks") {
         breaks = [];
 
@@ -324,18 +324,18 @@ function setRates(ourdata) {
 		console.log(breaks);
 	//return breaks;
     }
-	
-	
+
+
 
     function setupScales(colrects, brake) {
       //set up d3 color scales
       //Load colours
 	  colour=[];
-	  
+
       if (typeof colrects === 'string') {
         // colour = colorbrewer[dvc.varcolour][dvc.numberBreaks];
         firstcolor = chroma.scale(colrects).colors(brake)
-		
+
 		firstcolor.forEach(function(d){ colour.push(chroma(d).darken(0.4).saturate(0.6).hex())})
 
       } else {
@@ -360,18 +360,18 @@ function createMapKey(){ // driven by the initial set up
 					.range(colour);
 					console.log("setupscales = domain, range: "+ mapcolor.domain(),mapcolor.range() );
 
-		
+
 			keywidthMap = d3.select("#map").node().getBoundingClientRect().width;
 			console.log("createMapKey keywidth: "+keywidthMap);
-			
+
 			d3.select("#mapInfo").append("p").text(dvc.mapunit[tab]);
-			
+
 			 var svgkey = d3.select("#mapKeyContainer")
 							.append("svg")
 							.attr("id", "mapkey")
 							//.attr("width", keywidth*0.6)
 							//.attr("height",180);
-							
+
 
 			// Set up scales for legend
 			x = d3.scaleLinear()
@@ -384,7 +384,7 @@ function createMapKey(){ // driven by the initial set up
 				.tickFormat(legendformat);
 
 			var g2 = svgkey.append("g").attr("id","horiz");
-				
+
 			keyhor = d3.select("#horiz").attr("transform", "translate(30,22)");
 
 //test = mapcolor.range().map(function(d,i) {
@@ -411,7 +411,7 @@ function createMapKey(){ // driven by the initial set up
 			  .enter().append("rect")
 				.attr("class", "blocks")
 				.attr("height", 8)
-				.attr("x", function(d) { 
+				.attr("x", function(d) {
 					 return d.x0; })
 				.attr("width", function(d) {return d.x1 - d.x0; })
 				.style("opacity",0.8)
@@ -470,8 +470,8 @@ function createMapKey(){ // driven by the initial set up
 						if(i % 2){return "translate(0,10)"} }
 				);
 			}
-			
-			
+
+
 	} // Ends create map key
 
 
@@ -581,8 +581,8 @@ function defineLayers() {
       map.on("click", "area", onClick);
 
   }  // ends ƒ defineLayers
-	
-	
+
+
 
     function updateLayers() {   console.log("updateLayers");
 
@@ -622,7 +622,7 @@ function defineLayers() {
         //setupScales(thisdata);
 		createMapKey(thisdata);
         createChartKey(config);
-		
+
 
         if (selected) {
           setMapAxisVal($("#areaselect").val());
@@ -696,7 +696,7 @@ function defineLayers() {
 //        }
       } else {
        		 a = 0;}
-		
+
         setRates(thisdata);
         updateLayers();
         updateTimeLabel();
@@ -749,7 +749,7 @@ function defineLayers() {
 	    .text(dvc.timepoints[a] + " - " + (+dvc.timepoints[a]+2) )
 
     }
-	
+
 
     function onselect() {
       tab = $(".dropdown").val();
@@ -775,9 +775,9 @@ function defineLayers() {
       if (newAREACD != oldAREACD) {
         oldAREACD = e.features[0].properties.AREACD;
         map.setFilter("state-fills-hover", ["==", "AREACD", e.features[0].properties.AREACD]);
-		
+
 		$("#areaselect").val(e.features[0].properties.AREACD).trigger('change.select2');
-		
+
       //selectArea(e.features[0].properties.AREACD);
         setMapAxisVal(e.features[0].properties.AREACD);
         if (mobile == false) {
@@ -875,8 +875,8 @@ function defineLayers() {
     }
 
 
- function setMapAxisVal(code) { 
-   
+ function setMapAxisVal(code) {
+
 	// Draws map key line
 
         d3.select("#currLine")
@@ -904,7 +904,7 @@ function defineLayers() {
             }
           });
 
-		
+
         d3.select("#currVal")
           .text(function() {
             if (!isNaN(rateById[code])) {
@@ -923,28 +923,28 @@ function defineLayers() {
               return midpoint;
             }
           });
-		  
+
 
      // }
 
     }
 
-	
-	
+
+
 function createChartKey(config) {
 
      d3.select("#keydiv").selectAll("*").remove();
 	  									// create new setup for this additional info.
 	  									defineBreaks(rankdata, dvc.breaksChart);
 										setupScales(dvc.varcolour, dvc.numberBreaks);
-																					
+
 												  //set up d3 color scales function for chart
 //												  colorChart = d3.scaleThreshold()
 //													.domain(breaks/*.slice(1)*/)
 //													.range(colour);
 													//console.log("chart:"+ colorMap, colourMap);
-													
-   //   if (mobile == false) { 
+
+   //   if (mobile == false) {
 
         d3.select("#keydiv").append("p").attr("id", "keyunit").style("margin-top", "20px").style("margin-bottom", "0px").style("margin-left", "10px").text(dvc.varunit);
 console.log(tab);
@@ -959,7 +959,7 @@ console.log(tab);
 					.attr("height",keyheight + 60);
 
 				// Set up scales for legend
-				
+
 				yChart = d3.scaleLinear()
 					.domain([breaks[0], breaks[dvc.numberBreaks]]) /*range for data*/
 					.range([0, keyheight]); /*range for pixels*/
@@ -991,7 +991,7 @@ console.log(tab);
 					.style("font-size","12px");
 
         		g.call(yAxis)//.append("text");
-		
+
 // class and css as above
         svgkey.append("g").attr("id", "timeaxis")
           .attr("transform", "translate(45," + (40 + keyheight) + ")")
@@ -1021,7 +1021,7 @@ console.log(tab);
 					.attr("stroke-linecap","butt")
 					.attr("stroke-linejoin","miter")
 					.text("");
-					
+
 				g.append("circle")
 					.attr("id", "currPointChart")
 					.attr("r","4px")
@@ -1033,7 +1033,7 @@ console.log(tab);
 
     } // Ends create key
 
-function updateChart(code) { 
+function updateChart(code) {
 
    		// get all the data for that area
         selectedarea = rankdata.filter(function(d) {
@@ -1042,16 +1042,16 @@ function updateChart(code) {
 		//console.log(code, selectedarea);
 
         selectedarea.forEach(function(d) {
-          valuesx = variables.map(function(name) { 
+          valuesx = variables.map(function(name) {
 		              return +d[name]
           });
         });
 
-		
+
 		values = valuesx.slice(0);
         linedata = d3.zip(dvc.timepoints, values);
 		//console.log("first line  "+linedata);
-		
+
 		var line1 = d3.line()
 				  .defined(function(linedata) {  //  (linedata)
 					return !isNaN(linedata[1]);
@@ -1078,21 +1078,21 @@ function updateChart(code) {
           .attr("stroke", "#666")
           .attr("stroke-width", "2px")
           .attr("fill", "none");
-	  
-		  
+
+
    }
-		 
+
         d3.select("#line1")
           .style("opacity", 1)
           .transition()
           .duration(300)
           .attr("d", line1(linedata));
-		  
-		  
-		
+
+
+
 		d3.select("#currPointChart")
 		 	.style("opacity", function() {
-							if (!isNaN(rateByIdChart[code])) { 
+							if (!isNaN(rateByIdChart[code])) {
 							  return 1
 							} else {
 							  return 0
@@ -1108,11 +1108,11 @@ function updateChart(code) {
               return 0
             }
           });
-		  
+
 		  var chartformat = d3.format(".0f");
 			d3.select("#currValChart")
 				.style("opacity", function() {
-							if (!isNaN(rateByIdChart[code])) { 
+							if (!isNaN(rateByIdChart[code])) {
 							  return 1
 							} else {
 							  return 0
@@ -1120,7 +1120,7 @@ function updateChart(code) {
 						  })
 				.text(function() {
 							if (!isNaN(rateByIdChart[code])) {
-							  return chartformat(rateByIdChart[code]) 
+							  return chartformat(rateByIdChart[code])
 							} else {
 							  return "Data unavailable"
 							}
@@ -1129,8 +1129,8 @@ function updateChart(code) {
          			 .duration(300)
 				  .attr("x", xChart(dvc.timepoints[a]))
 				  .attr("y", yChart(rateByIdChart[code]) - 8);
-				 		
-					
+
+
 //					g.append("text")
 //					.attr("id", "currVal")
 //					.attr("y", yChart(midpoint))
@@ -1142,11 +1142,11 @@ function updateChart(code) {
 //					.attr("stroke-linejoin","miter")
 //					.text("");
 
-			 
+
 	 // }
 
  }  // ends updateChart
-	
+
 
 function hideaxisVal() {
       d3.select("#line1")
@@ -1160,7 +1160,7 @@ function hideaxisVal() {
 
       d3.select("#currValChart").text("")
         .style("opacity", 0);
-		
+
 	  d3.select("#currVal").text("")
         .style("opacity", 0);
     }
@@ -1240,8 +1240,8 @@ function success(pos) {
 
 
     };
-	
-	
+
+
 function setSource() {
 
 
